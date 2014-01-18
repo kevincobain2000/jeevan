@@ -1,0 +1,18 @@
+profiles/index
+
+<h2>Current user: <%= current_user.id %></h2>
+<h2>Current Profile Id: <%= @current_user_profile_id %></h2>
+
+  <strong>All Profiles</strong>
+  <br>
+    <% @profiles.each do |profile| %>
+    <br>
+        <%= link_to "Profile id: #{profile.id} for User Id: #{profile.user_id}", profile %>
+    <% end %>
+
+<br><br>
+
+
+<%= link_to "Edit THIS Profile id #{current_user.profiles.first.id}", edit_profile_path(:id => current_user.profiles.first.id) %>
+
+
