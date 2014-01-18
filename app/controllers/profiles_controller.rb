@@ -3,24 +3,20 @@ class ProfilesController < ApplicationController
   before_filter :is_this_user_profile, only: [:edit]
 
   # GET /profiles
-  # GET /profiles.json
   def index
     @profiles = Profile.all
+    @my_visitors = @current_user_profile.visitors
+    @my_interests = current_user.interests
   end
 
   # GET /profiles/1
-  # GET /profiles/1.json
   def show
-    logger.debug("Debug showing_profile_of_id #{params[:id]}")
-    this_user_profile = current_user.profiles.first
-    logger.info("Debug Current User's id #{this_user_profile.id}")
-
-
+    find_first = current_user.profiles.first
     if !@is_owner
       if !@his_profile.visitors.first
-        @his_profile.visitors.create(viewer_id: this_user_profile.id)
+        @his_profile.visitors.create(viewer_id: find_first.id)
       else
-        @his_profile.visitors.first.touch
+        find_first.touch
       end
     end
   end
@@ -36,13 +32,18 @@ class ProfilesController < ApplicationController
     redirect_to(profiles_path)
   end
 
-  def edit
+  def remove
+    current_user.profiles.first.destroy
+    redirect_to(profiles_path)
   end
 
-  def remove
-    logger.info("Debug Remove this profile")
-    current_user.profiles.first.destroy
-    # To Do handle session destroy & remove everything that user has
+  def interest
+    find_first = current_user.interests.first
+    if !find_first
+      current_user.interests.create(to_user_id: params[:to_user_id])
+    else
+      find_first.touch
+    end
     redirect_to(profiles_path)
   end
 
@@ -51,23 +52,24 @@ class ProfilesController < ApplicationController
     if !current_user.profiles.first
       current_user.profiles.create()
     end
-    @current_user_profile_id = @current_user.profiles.first.id
+
+    @current_user_profile = @current_user.profiles.first
+    if (@current_user_profile.id == params[:id].to_i)
+      @is_owner = true
+    else
+      @is_owner = false
+    end
   end
 
   def showing_profile_of_id
     if params[:id]
       @showing_profile_of_id = params[:id]
       @his_profile = Profile.find(params[:id])
-      if (@current_user_profile_id == params[:id].to_i)
-        @is_owner = true
-      else
-        @is_owner = false
-      end
     end
   end
 
   def is_this_user_profile
-    if (@current_user_profile_id != params[:id].to_i)
+    if (@current_user_profile.id != params[:id].to_i)
       redirect_to(profiles_path)
     end
   end
