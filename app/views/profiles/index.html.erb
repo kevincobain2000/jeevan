@@ -1,18 +1,23 @@
 profiles/index
+<h2>Current user:
+  <%= current_user.id %></h2>
+<h2>Current Profile Id:
+  <%= @current_user_profile.id %></h2>
+<strong>All Profiles</strong>
 
-<h2>Current user: <%= current_user.id %></h2>
-<h2>Current Profile Id: <%= @current_user_profile_id %></h2>
 
-  <strong>All Profiles</strong>
+<% @profiles.each do |profile| %>
   <br>
-    <% @profiles.each do |profile| %>
-    <br>
-        <%= link_to "Profile id: #{profile.id} for User Id: #{profile.user_id}", profile %>
-    <% end %>
-
+  <%= link_to "Profile id: #{profile.id} for User Id: #{profile.user_id}", profile %>
+  <%= form_tag :action=>'interest' do %>
+  <%= hidden_field_tag 'to_user_id', profile.user_id %>
+    <%= submit_tag("Express Interest") %>
+  <% end %>
+<% end %>
 <br><br>
+<%= link_to "Edit THIS Profile id #{@current_user_profile.id}", edit_profile_path(:id => current_user.profiles.first.id) %>
+<h3>My Visitors</h3>
+<%= @my_visitors.inspect %>
 
-
-<%= link_to "Edit THIS Profile id #{current_user.profiles.first.id}", edit_profile_path(:id => current_user.profiles.first.id) %>
-
-
+<h3>Incoming Interests</h3>
+<%= @my_interests.inspect %>
