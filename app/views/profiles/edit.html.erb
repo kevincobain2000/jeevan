@@ -3,6 +3,8 @@ profiles/edit
 	<h2>Current user: <%= current_user.id %></h2>
 	<h2>Current Profile Id: <%= current_user.profiles.first.id %></h2>
 
+	<%= @is_owner %>
+
 	<%= @query %>
 
 	<%= form_tag :action=>'modify' do %>

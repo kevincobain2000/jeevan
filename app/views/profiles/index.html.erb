@@ -4,20 +4,43 @@ profiles/index
 <h2>Current Profile Id:
   <%= @current_user_profile.id %></h2>
 <strong>All Profiles</strong>
-
-
 <% @profiles.each do |profile| %>
   <br>
   <%= link_to "Profile id: #{profile.id} for User Id: #{profile.user_id}", profile %>
   <%= form_tag :action=>'interest' do %>
-  <%= hidden_field_tag 'to_user_id', profile.user_id %>
+    <%= hidden_field_tag 'to_user_id', profile.user_id %>
     <%= submit_tag("Express Interest") %>
   <% end %>
 <% end %>
 <br><br>
 <%= link_to "Edit THIS Profile id #{@current_user_profile.id}", edit_profile_path(:id => current_user.profiles.first.id) %>
-<h3>My Visitors</h3>
-<%= @my_visitors.inspect %>
+<h3>Out Visitors</h3>
+<%= @out_visitors.inspect %>
+<h3>In Visitors</h3>
+<%= @in_visitors.inspect %>
+
+<h3>Outgoing Interests with Responses</h3>
+<% @out_interests_responses.each do |interest| %>
+	<% if interest.response == nil %>
+		Waiting
+		<% elsif interest.response == 1 %>
+		Accepted
+		<% else %>
+		Rejected
+	<% end %>
+	<%= interest.inspect %>
+	<hr>
+<% end %>
 
 <h3>Incoming Interests</h3>
-<%= @my_interests.inspect %>
+
+<% @in_interests.each do |interest| %>
+  <%=  interest.inspect %>
+  <%= form_tag :action=>'interest_response' do %>
+    <% if interest.response.nil? %>
+       <%= hidden_field_tag 'from_user_id', interest.user_id %>
+      <%= submit_tag("Accept") %>
+      <%= submit_tag("Reject") %>
+    <% end %>
+  <% end %>
+<% end %>
