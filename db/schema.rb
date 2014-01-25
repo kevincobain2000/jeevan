@@ -11,20 +11,82 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140118155521) do
+ActiveRecord::Schema.define(version: 20140119034241) do
+
+  create_table "abouts", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "me"
+    t.text     "family"
+    t.text     "education"
+    t.text     "work"
+    t.text     "future"
+  end
+
+  create_table "contacts", force: true do |t|
+    t.integer  "user_id"
+    t.string   "country",      limit: 32
+    t.string   "city",         limit: 32
+    t.string   "residency",    limit: 32
+    t.text     "address"
+    t.string   "mother_no",    limit: 32, default: ""
+    t.integer  "best_time_m"
+    t.string   "father_no",    limit: 32
+    t.integer  "best_time_f"
+    t.string   "self_no",      limit: 32
+    t.integer  "best_time_s"
+    t.string   "chat_id",      limit: 32
+    t.string   "chat_service", limit: 32
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "fb_link"
+    t.text     "ln_link"
+  end
 
   create_table "interests", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "to_user_id"
+    t.text     "message"
+    t.integer  "response"
+  end
+
+  create_table "kundalis", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "updated_at"
+    t.datetime "created_at"
+    t.string   "birth_country", limit: 32
+    t.string   "birth_city",    limit: 32
+    t.date     "dob"
+    t.date     "tob"
+    t.integer  "manglik"
+    t.string   "sub_sign",      limit: 32
+    t.string   "moon_sign",     limit: 32
+    t.string   "nakshatra",     limit: 32
   end
 
   create_table "profiles", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.string   "sex",        limit: 32
+    t.string   "sex",            limit: 32
+    t.integer  "posted_by"
+    t.date     "dob"
+    t.integer  "marital_status"
+  end
+
+  create_table "religions", force: true do |t|
+    t.integer  "user_id"
+    t.string   "religion",      limit: 32
+    t.string   "mother_tongue", limit: 32
+    t.string   "caste",         limit: 32
+    t.string   "sub_caste",     limit: 32
+    t.string   "native_place",  limit: 32
+    t.string   "gothra",        limit: 32
+    t.datetime "updated_at"
+    t.datetime "created_at"
   end
 
   create_table "users", force: true do |t|
@@ -48,8 +110,8 @@ ActiveRecord::Schema.define(version: 20140118155521) do
   create_table "visitors", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "profile_id"
-    t.integer  "viewer_id"
+    t.integer  "user_id"
+    t.integer  "viewed_id"
   end
 
 end

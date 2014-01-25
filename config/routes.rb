@@ -7,6 +7,7 @@ Jeevan::Application.routes.draw do
       post :modify
       post :remove
       post :interest
+      post :interest_response
     end
   end
 
