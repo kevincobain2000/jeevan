@@ -1,29 +1,60 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<!-- Sign In Option 2 -->
+<div id="sign_up2">
+  <div class="container">
+    <div class="section_header">
+    </div>
+    <div class="row login">
+      <div class="span5 left_box">
+        <h4>Change My Password</h4>
+        <div class="perk_box">
+          <div class="perk">
+            <span class="icos ico1"></span>
+            <p><strong>Lorem alteration</strong>
+              in some form  injected humour these randomised words .</p>
+          </div>
+          <div class="perk">
+            <span class="icos ico2"></span>
+            <p><strong>There are many variations</strong>
+              of passages of Lorem alteration in some form  injected humour these randomised words.</p>
+          </div>
+          <div class="perk">
+            <span class="icos ico3"></span>
+            <p><strong>Alteration in some form</strong>
+              injected humour these randomised words.</p>
+          </div>
+        </div>
+      </div>
+      <div class="span6 signin_box">
+        <div class="box">
+          <div class="box_cont">
+            <div class="division">
+              <span>Change Password</span>
+              <hr>
+            </div>
+            <div class="form">
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
+            <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
+            <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+            <%= f.email_field :email, :autofocus => true, :style => "width:100%;" %>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            Currently waiting confirmation for: <%= resource.unconfirmed_email %>
+            <% end %>
+            <%= f.password_field :current_password, :placeholder => "Old Password", :style => "width:100%;" %>
+            <%= f.password_field :password, :autocomplete => "off", :placeholder => "New Password", :style => "width:100%;"%>
+            <%= f.password_field :password_confirmation, :placeholder => "Confirm Password", :style => "width:100%;" %>
+            <%= f.submit "Update" %>
+            <% end %>
 
-  <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-  <%= f.password_field :password, :autocomplete => "off" %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-  <%= f.password_field :current_password %></div>
-
-  <div><%= f.submit "Update" %></div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete %></p>
-
-<%= link_to "Back", :back %>
+              <div class="forgot">
+                <span>Back to</span>
+                <%= render "devise/shared/links" %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
