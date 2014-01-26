@@ -71,6 +71,12 @@ class ProfilesController < ApplicationController
   def create_profile_if_not
     if !current_user.profiles.first
       current_user.profiles.create()
+      current_user.kundalis.create()
+      current_user.religions.create()
+      current_user.abouts.create()
+      current_user.contacts.create()
+    else
+      current_user.touch
     end
     @current_user_profile = @current_user.profiles.first
     @is_owner = (@current_user_profile.id == params[:id].to_i) ? true : false

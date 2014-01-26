@@ -1,8 +1,10 @@
 profiles/index
-<h2>Current user:
-  <%= current_user.id %></h2>
-<h2>Current Profile Id:
-  <%= @current_user_profile.id %></h2>
+<h3>Current user:
+  <%= current_user.id %></h3> Last Active:
+  <%= time_ago_in_words(current_user.updated_at) %>
+<h3>Current Profile Id:
+  <%= @current_user_profile.id %></h3>
+<hr>
 <strong>All Profiles</strong>
 <% @profiles.each do |profile| %>
   <br>
@@ -18,27 +20,24 @@ profiles/index
 <%= @out_visitors.inspect %>
 <h3>In Visitors</h3>
 <%= @in_visitors.inspect %>
-
 <h3>Outgoing Interests with Responses</h3>
 <% @out_interests_responses.each do |interest| %>
-	<% if interest.response == nil %>
-		Waiting
-		<% elsif interest.response == 1 %>
-		Accepted
-		<% else %>
-		Rejected
-	<% end %>
-	<%= interest.inspect %>
-	<hr>
+  <% if interest.response == nil %>
+    Waiting
+  <% elsif interest.response == 1 %>
+    Accepted
+  <% else %>
+    Rejected
+  <% end %>
+  <%= interest.inspect %>
+  <hr>
 <% end %>
-
 <h3>Incoming Interests</h3>
-
 <% @in_interests.each do |interest| %>
   <%=  interest.inspect %>
   <%= form_tag :action=>'interest_response' do %>
     <% if interest.response.nil? %>
-       <%= hidden_field_tag 'from_user_id', interest.user_id %>
+      <%= hidden_field_tag 'from_user_id', interest.user_id %>
       <%= submit_tag("Accept") %>
       <%= submit_tag("Reject") %>
     <% end %>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140119034241) do
+ActiveRecord::Schema.define(version: 20140126021927) do
 
   create_table "abouts", force: true do |t|
     t.integer  "user_id"
@@ -44,6 +44,75 @@ ActiveRecord::Schema.define(version: 20140119034241) do
     t.text     "ln_link"
   end
 
+  create_table "desires", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "about"
+    t.integer  "height"
+    t.integer  "age"
+    t.integer  "marital_status"
+    t.integer  "country"
+    t.integer  "city"
+    t.string   "religion",       limit: 64, default: ""
+    t.string   "caste",          limit: 64
+    t.string   "mother_toungue", limit: 64
+    t.integer  "manglik",        limit: 1
+    t.integer  "diet",           limit: 1
+    t.integer  "smoke",          limit: 1
+    t.integer  "drink",          limit: 1
+    t.integer  "complexion",     limit: 1
+    t.integer  "body",           limit: 1
+    t.integer  "challenged",     limit: 1
+    t.integer  "education"
+    t.integer  "occupation"
+    t.integer  "income"
+    t.text     "notes"
+  end
+
+  create_table "educations", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "school",            limit: 64
+    t.string   "grad_college",      limit: 64
+    t.string   "grad",              limit: 32
+    t.string   "post_grad",         limit: 32
+    t.string   "post_grad_college", limit: 64
+    t.string   "highest_degree",    limit: 32
+  end
+
+  create_table "families", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "values",          limit: 32
+    t.string   "type",            limit: 32
+    t.string   "status",          limit: 32
+    t.integer  "income"
+    t.string   "father",          limit: 32
+    t.string   "mother",          limit: 32
+    t.integer  "brother"
+    t.integer  "sister"
+    t.string   "profile_handler", limit: 32
+  end
+
+  create_table "hobbies", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "hobbies"
+    t.text     "interests"
+    t.text     "music"
+    t.text     "read"
+    t.text     "dress"
+    t.text     "tv"
+    t.text     "movie"
+    t.text     "sport"
+    t.text     "cuisine"
+    t.text     "vacation"
+  end
+
   create_table "interests", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -67,6 +136,38 @@ ActiveRecord::Schema.define(version: 20140119034241) do
     t.string   "nakshatra",     limit: 32
   end
 
+  create_table "lifestyles", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "diet"
+    t.integer  "smoke"
+    t.integer  "drink"
+    t.integer  "complexion"
+    t.integer  "body"
+    t.integer  "challenged"
+    t.integer  "blood"
+    t.integer  "weight"
+    t.integer  "residense"
+    t.integer  "own_house"
+    t.integer  "own_car"
+    t.text     "language"
+    t.integer  "pet"
+    t.integer  "hiv"
+    t.integer  "height"
+  end
+
+  create_table "occupations", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "status"
+    t.string   "occupation",     limit: 64
+    t.string   "company",        limit: 64
+    t.integer  "annual_income"
+    t.integer  "setting_abroad"
+  end
+
   create_table "profiles", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -79,7 +180,7 @@ ActiveRecord::Schema.define(version: 20140119034241) do
 
   create_table "religions", force: true do |t|
     t.integer  "user_id"
-    t.string   "religion",      limit: 32
+    t.string   "religion",      limit: 64
     t.string   "mother_tongue", limit: 32
     t.string   "caste",         limit: 32
     t.string   "sub_caste",     limit: 32
