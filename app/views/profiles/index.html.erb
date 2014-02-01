@@ -3,7 +3,7 @@ profiles/index
   <%= current_user.id %></h3> Last Active:
   <%= time_ago_in_words(current_user.updated_at) %>
 <h3>Current Profile Id:
-  <%= @current_user_profile.id %></h3>
+  <%= @current_user.profile.id %></h3>
 <hr>
 <strong>All Profiles</strong>
 <% @profiles.each do |profile| %>
@@ -15,7 +15,8 @@ profiles/index
   <% end %>
 <% end %>
 <br><br>
-<%= link_to "Edit THIS Profile id #{@current_user_profile.id}", edit_profile_path(:id => current_user.profiles.first.id) %>
+<legend>Edit this Profile</legend>
+   <%= link_to "Edit THIS Profile id #{@current_user.profile.id}", edit_profile_path(:id => current_user.profile.id) %>
 <h3>Out Visitors</h3>
 <%= @out_visitors.inspect %>
 <h3>In Visitors</h3>
