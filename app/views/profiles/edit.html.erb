@@ -3,6 +3,7 @@ profiles/edit
 	<h6>Current user: <%= current_user.id %></h6>
 	<h6>Current Profile Id: <%= current_user.profile.id %></h6>
 
+	is owner
 	<%= @is_owner %>
 
 	<%= @query %>
@@ -12,11 +13,6 @@ profiles/edit
 	<%= text_field_tag(:sex) %>
 	<%= submit_tag("Submit") %>
 	<% end %>
-
-
-
-<%= button_to( "Delete", :action => "remove", :controller => "profiles") %>
-
 
 <br>
 <%= link_to 'Back', profiles_path %>

@@ -26,19 +26,9 @@ class ProfilesController < ApplicationController
     end
   end
 
-  def edit
-    
-  end
-
   # After the edit is pressed
   def modify
     current_user.profile.update(:sex => params['sex'])
-    redirect_to(profiles_path)
-  end
-
-  # Delete this Profile Button
-  def remove
-    current_user.destroy
     redirect_to(profiles_path)
   end
 
@@ -73,11 +63,17 @@ class ProfilesController < ApplicationController
 
   protected
   def create_profile_if_not
-    current_user.profile = Profile.find_or_initialize_by(user_id: current_user.id)
-    current_user.kundali = Kundali.find_or_initialize_by(user_id: current_user.id)
-    current_user.religion = Religion.find_or_initialize_by(user_id: current_user.id)
-    current_user.about = About.find_or_initialize_by(user_id: current_user.id)
-    current_user.contact = Contact.find_or_initialize_by(user_id: current_user.id)
+    current_user.profile    = Profile.find_or_initialize_by(user_id: current_user.id)
+    current_user.contact    = Contact.find_or_initialize_by(user_id: current_user.id)
+    current_user.religion   = Religion.find_or_initialize_by(user_id: current_user.id)
+    current_user.kundali    = Kundali.find_or_initialize_by(user_id: current_user.id)
+    current_user.about      = About.find_or_initialize_by(user_id: current_user.id)
+    current_user.family     = Family.find_or_initialize_by(user_id: current_user.id)
+    current_user.desire     = Desire.find_or_initialize_by(user_id: current_user.id)
+    current_user.education  = Education.find_or_initialize_by(user_id: current_user.id)
+    current_user.hobby      = Hobby.find_or_initialize_by(user_id: current_user.id)
+    current_user.lifestyle  = Lifestyle.find_or_initialize_by(user_id: current_user.id)
+    current_user.occupation = Occupation.find_or_initialize_by(user_id: current_user.id)
     @is_owner = (current_user.profile.id == params[:id].to_i) ? true : false
   end
 
