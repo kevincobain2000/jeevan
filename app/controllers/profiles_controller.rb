@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
   before_filter :create_profile_if_not, :visiting_user_id
   before_filter :is_this_user_profile, only: [:edit]
   attr_accessor :profiles, :out_visitors, :in_visitors, :out_visitors,
-  :in_interests, :out_interests, :is_owner, :current_user_profile, :visiting_user_id
+  :in_interests, :out_interests, :is_owner, :visiting_user_id
 
   # GET /profiles
   def index
@@ -26,9 +26,13 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def edit
+    
+  end
+
   # After the edit is pressed
   def modify
-    current_user.profiles.first.update(:sex => params['sex'])
+    current_user.profile.update(:sex => params['sex'])
     redirect_to(profiles_path)
   end
 
@@ -69,17 +73,12 @@ class ProfilesController < ApplicationController
 
   protected
   def create_profile_if_not
-    if !current_user.profiles.first
-      current_user.profiles.create()
-      current_user.kundalis.create()
-      current_user.religions.create()
-      current_user.abouts.create()
-      current_user.contacts.create()
-    else
-      current_user.touch
-    end
-    @current_user_profile = @current_user.profiles.first
-    @is_owner = (@current_user_profile.id == params[:id].to_i) ? true : false
+    current_user.profile = Profile.find_or_initialize_by(user_id: current_user.id)
+    current_user.kundali = Kundali.find_or_initialize_by(user_id: current_user.id)
+    current_user.religion = Religion.find_or_initialize_by(user_id: current_user.id)
+    current_user.about = About.find_or_initialize_by(user_id: current_user.id)
+    current_user.contact = Contact.find_or_initialize_by(user_id: current_user.id)
+    @is_owner = (current_user.profile.id == params[:id].to_i) ? true : false
   end
 
   def visiting_user_id
@@ -90,7 +89,7 @@ class ProfilesController < ApplicationController
 
   # for editing profile
   def is_this_user_profile
-    if (@current_user_profile.id != params[:id].to_i)
+    if (current_user.profile.id != params[:id].to_i)
       redirect_to(profiles_path)
     end
   end
