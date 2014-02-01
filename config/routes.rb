@@ -15,7 +15,7 @@ Jeevan::Application.routes.draw do
   resources :visitors
   devise_for :users
   authenticated :user do
-    root :to => 'home#index', :as => :authenticated_root
+    root :to => 'profiles#index', :as => :authenticated_root
   end
   root :to => redirect('/users/sign_in')
 
