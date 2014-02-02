@@ -16,6 +16,7 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1
   def show
+    @showing_user = Profile.where(:user_id => params[:id])
     if current_user.id != @visiting_user_id.to_i
       find_first = current_user.visitors.where(viewed_id: @visiting_user_id).first
       if !find_first
