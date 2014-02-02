@@ -61,6 +61,8 @@ GEM
     multi_json (1.8.4)
     mysql2 (0.3.14)
     orm_adapter (0.4.0)
+    parsley-rails (1.2.3.0)
+      railties (>= 3.0.0)
     polyglot (0.3.3)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -123,6 +125,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   mysql2
+  parsley-rails
   rails (= 4.0.2)
   sass-rails (~> 4.0.0)
   sdoc
