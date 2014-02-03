@@ -9,8 +9,7 @@ profiles/edit
 	<%= @query %>
 
 	<%= form_tag :action=>'modify' do %>
-	<%= label_tag(:sex, "Sex:") %>
-	<%= text_field_tag(:sex) %>
+	<%= text_field_tag :sex, nil, class: 'typeahead tt', placeholder:'sex' %>
 	<%= submit_tag("Submit") %>
 	<% end %>
 
