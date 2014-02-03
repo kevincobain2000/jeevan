@@ -16,3 +16,4 @@
 //= require turbolinks
 //= require_tree .
 //= require parsley
+//= require twitter/typeahead.min
