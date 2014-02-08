@@ -17,7 +17,7 @@
             <h6>db:profiles</h6>
             <div class="form">
               <%= form_tag :action=>'modify' do %>
-              	<input type="hidden" placeholder="" name="model" value="profile">
+                <input type="hidden" placeholder="" name="model" value="profile">
                 <legend>Gender</legend>
                 <%= radio_button_tag(:sex, "Male") %>
                 Male
@@ -72,7 +72,7 @@
                   <span class="add-on"><i class="icon-time"></i></span>
                 </div>
                 <legend>Address</legend>
-					<textarea name="address" style="height:75px;width:100%;font-weight:bold;" placeholder="Address"></textarea>
+                <textarea name="address" style="height:75px;width:100%;font-weight:bold;" placeholder="Address"></textarea>
                 <legend></legend>
                 <%= submit_tag "Save", class: 'btn btn-success' %>
               <% end %>
@@ -80,41 +80,41 @@
           </div>
         </div>
         <!-- About Me -->
-        <div class="span12 feature last">
+        <div class="span6 feature">
           <div class="img">
             <%= image_tag("features-ico7.png") %>
           </div>
           <div class="text">
-            <h6>About db:about</h6>
-          <div class="text">
-            <h6>db: Contact</h6>
+            <h6>Something About..db: about</h6>
             <div class="row form">
-              <%= form_tag :action=>'modify' do %>
-                <legend>Telephone Numbers</legend>
+              <%= form_tag({:action=>'modify'} ,{"parsley-validate" => ""}) do %>
                 <input type="hidden" placeholder="" name="model" value="about">
-                <input name="mother_no" type="text" placeholder="Mother (required)">
-                <input name="father_no" type="text" placeholder="Father (required)">
-                <input name="self_no" type="text" placeholder="Self (required)">
-                <legend>Best Time to Contact</legend>
-                From
-                <div class="input-append bootstrap-timepicker">
-                  <input class="timepicker" name="best_time_f" type="text" class="input-small">
-                  <span class="add-on"><i class="icon-time"></i></span>
-                </div>
-                <br>
-                To
-                <div class="input-append bootstrap-timepicker">
-                  <input class="timepicker" name="best_time_t" type="text" class="input-small">
-                  <span class="add-on"><i class="icon-time"></i></span>
-                </div>
-                <legend>Address</legend>
-					<textarea name="me" style="height:75px;width:100%;font-weight:bold;" placeholder="Address"></textarea>
+                <% about_me = { me: "About Me", family: "About My Family", work: "About my Work", education: "About my Education", future: "My Future Plans" } %>
+                <% about_me.each do |key, value| %>
+                  <legend><%= value %></legend>
+                  <textarea name="<%= key%>" style="height:75px;width:100%;font-weight:bold;" placeholder="Preloaded text" parsley-trigger="keyup" parsley-rangelength="[20,200]"></textarea>
+                <% end %>
                 <legend></legend>
                 <%= submit_tag "Save", class: 'btn btn-success' %>
               <% end %>
+            </div>
           </div>
         </div>
+        <!-- Religion -->
+        <div class="span6 feature">
+          <div class="img">
+            <%= image_tag("features-ico5.png") %>
+          </div>
+          <div class="text">
+            <h6>db: Religion</h6>
+            <div class="row form">
+              <%= form_tag :action=>'modify' do %>
+              <input type="hidden" name="religion" placeholder="">
+                <%= submit_tag "Save", class: 'btn btn-success' %>
+              <% end %>
+            </div>
+          </div>
+        </div> <!-- End Religion -->
       </div>
     </div>
   </div>
-</div>

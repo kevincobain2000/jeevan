@@ -19,3 +19,4 @@
 //= require twitter/typeahead.min
 //= require bootstrap-datepicker
 //= require bootstrap-timepicker
+//= require parsley.extend
