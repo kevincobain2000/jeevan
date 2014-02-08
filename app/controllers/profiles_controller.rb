@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
   before_filter :create_profile_if_not, :visiting_user_id
   before_filter :is_this_user_profile, only: [:edit]
   attr_accessor :profiles, :out_visitors, :in_visitors, :out_visitors,
-  :in_interests, :out_interests, :is_owner, :visiting_user_id
+  :in_interests, :out_interests, :is_owner, :visiting_user_id,:sex
 
   # GET /profiles
   def index
@@ -28,9 +28,16 @@ class ProfilesController < ApplicationController
   end
 
   # After the edit is pressed
-  def modify
-    current_user.profile.update(:sex => params['sex'])
-    redirect_to(profiles_path)
+  def modify_profile
+    # Filter, remove devise keys like utf8, authenticiy_token etcc
+    incoming_form_params = Profile.columns.map {|c| c.name } & params.keys
+    with_data = {}
+    incoming_form_params.each do |param_key|
+      with_data[param_key] = params[param_key]
+    end
+    #save all params coming in from the form
+    current_user.profile.update(with_data)
+    redirect_to :back
   end
 
   # Express Interest Button
