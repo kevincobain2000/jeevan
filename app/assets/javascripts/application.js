@@ -16,7 +16,7 @@
 //= require turbolinks
 //= require_tree .
 //= require parsley
-//= require twitter/typeahead.min
 //= require bootstrap-datepicker
 //= require bootstrap-timepicker
 //= require parsley.extend
+//= require selectize
