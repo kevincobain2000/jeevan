@@ -17,3 +17,4 @@
 //= require_tree .
 //= require parsley
 //= require twitter/typeahead.min
+//= require bootstrap-datepicker

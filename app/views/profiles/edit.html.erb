@@ -3,57 +3,48 @@
     <!-- Feature Wrapper -->
     <div class="feature_wrapper option3">
       <div class="section_header">
-        <h2>Features
+        <h2>Edit Profile
           <small>(Option 3)</small></h2>
       </div>
       <!-- Features Row -->
       <div class="row">
         <!-- Feature -->
-        <div class="span12 feature">
+        <div class="span6 feature">
           <div class="img">
             <%= image_tag("features-ico6.png") %>
           </div>
           <div class="text">
-            <h6>Basic Information db:profiles</h6>
+            <h6>db:profiles</h6>
             <%= form_tag :action=>'modify_profile' do %>
-              <%= radio_button_tag(:sex, "Male") %>
-              Male
-              <br>
-              <%= radio_button_tag(:sex, "Female") %>
-              Female
+            <legend>Gender</legend>
+              <%= radio_button_tag(:sex, "Male") %> Male
+              <%= radio_button_tag(:sex, "Female") %> Female
+
+              <legend>Marital Status</legend>
+			  <%= radio_button_tag(:marital_status, "Never Married") %> Never Married
+              <%= radio_button_tag(:marital_status, "Divorced") %> Divorced
+              <legend>Posted By</legend>
+			  <%= radio_button_tag(:posted_by, "Self") %> Self
+			  <%= radio_button_tag(:posted_by, "Parent")%> Parent
+              <%= radio_button_tag(:sex, "Friend") %> Friend
+              <%= radio_button_tag(:sex, "Relative") %> Relative
 
               <br><br>
+              <legend>Date of Birth</legend>
 
-			  <%= radio_button_tag(:marital_status, "Never Married") %>
-               Never Married
-              <br>
-              <%= radio_button_tag(:marital_status, "Divorced") %>
-              Divorced
-
-              <br><br>
-			  <%= radio_button_tag(:posted_by, "Self") %>
-               Self
-              <br>
-              <%= radio_button_tag(:posted_by, "Parent") %>
-              Parent
-
-              <br><br>
-              todo date picker for dob
-
-
-              <%#= text_field_tag :sex, nil, class: 'typeahead tt input', placeholder:'sex' %>
+              <input type="text" data-behaviour='datepicker' value="02/25/1985" style="width:200px;" required >
               <br>
               <%= submit_tag "Save", class: 'btn btn-success' %>
             <% end %>
           </div>
         </div>
         <!-- Feature -->
-        <div class="span12 feature">
+        <div class="span6 feature">
           <div class="img">
             <%= image_tag("features-ico5.png") %>
           </div>
           <div class="text">
-            <h6>Design</h6>
+            <h6>db: Contact</h6>
             <p>
               There are many variations passages generators on the  embarrassing hidden in randomised words which don't look even slightly distracted content here making it look like.
             </p>
