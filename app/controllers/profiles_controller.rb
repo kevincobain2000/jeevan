@@ -34,7 +34,6 @@ class ProfilesController < ApplicationController
   def modify
     model_name = params['model'];
     incoming_form_params = eval(model_name.capitalize).columns.map {|c| c.name } & params.keys
-    logger.info("Debug #{model_name}")
     with_data = {}
     incoming_form_params.each do |param_key|
       with_data[param_key] = params[param_key]
@@ -110,6 +109,7 @@ class ProfilesController < ApplicationController
   # for editing profile
   def is_this_user_profile
     if (current_user.profile.id != params[:id].to_i)
+      @abc = "this"
       redirect_to(profiles_path)
     end
   end
