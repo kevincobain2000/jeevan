@@ -179,12 +179,11 @@ ActiveRecord::Schema.define(version: 20140126021927) do
 
   create_table "religions", force: true do |t|
     t.integer  "user_id"
-    t.string   "religion",      limit: 32
-    t.string   "mother_tongue", limit: 32
-    t.string   "caste",         limit: 32
-    t.string   "sub_caste",     limit: 32
-    t.string   "native_place",  limit: 32
-    t.string   "gothra",        limit: 32
+    t.integer  "religion",      limit: 1
+    t.integer  "mother_tongue", limit: 1
+    t.integer  "caste",         limit: 1
+    t.integer  "sub_caste",     limit: 1
+    t.integer  "native_place",  limit: 1
     t.datetime "updated_at"
     t.datetime "created_at"
   end
