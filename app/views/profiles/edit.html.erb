@@ -6,48 +6,76 @@
         <h2>Edit Profile
           <small>(Option 3)</small></h2>
       </div>
-      <!-- Features Row -->
+      <!-- Profiles Row -->
       <div class="row">
-        <!-- Feature -->
+        <!-- Profile -->
         <div class="span6 feature">
           <div class="img">
             <%= image_tag("features-ico6.png") %>
           </div>
           <div class="text">
             <h6>db:profiles</h6>
-            <%= form_tag :action=>'modify_profile' do %>
-            <legend>Gender</legend>
-              <%= radio_button_tag(:sex, "Male") %> Male
-              <%= radio_button_tag(:sex, "Female") %> Female
-
-              <legend>Marital Status</legend>
-			  <%= radio_button_tag(:marital_status, "Never Married") %> Never Married
-              <%= radio_button_tag(:marital_status, "Divorced") %> Divorced
-              <legend>Posted By</legend>
-			  <%= radio_button_tag(:posted_by, "Self") %> Self
-			  <%= radio_button_tag(:posted_by, "Parent")%> Parent
-              <%= radio_button_tag(:sex, "Friend") %> Friend
-              <%= radio_button_tag(:sex, "Relative") %> Relative
-
-              <br><br>
-              <legend>Date of Birth</legend>
-
-              <input type="text" data-behaviour='datepicker' value="02/25/1985" style="width:200px;" required >
-              <br>
-              <%= submit_tag "Save", class: 'btn btn-success' %>
-            <% end %>
+            <div class="form">
+              <%= form_tag :action=>'modify_profile' do %>
+                <legend>Gender</legend>
+                <%= radio_button_tag(:sex, "Male") %>
+                Male
+                <%= radio_button_tag(:sex, "Female") %>
+                Female
+                <legend>Marital Status</legend>
+                <%= radio_button_tag(:marital_status, "Never Married") %>
+                Never Married
+                <%= radio_button_tag(:marital_status, "Divorced") %>
+                Divorced
+                <legend>Posted By</legend>
+                <%= radio_button_tag(:posted_by, "Self") %>
+                Self
+                <%= radio_button_tag(:posted_by, "Parent")%>
+                Parent
+                <%= radio_button_tag(:sex, "Friend") %>
+                Friend
+                <%= radio_button_tag(:sex, "Relative") %>
+                Relative
+                <legend>Date of Birth</legend>
+                <input type="text" data-behaviour='datepicker' value="02/25/1985" style="width:200px;" required >
+                <legend></legend>
+                <%= submit_tag "Save", class: 'btn btn-success' %>
+              <% end %>
+            </div>
           </div>
         </div>
-        <!-- Feature -->
+        <!-- Contact -->
         <div class="span6 feature">
           <div class="img">
             <%= image_tag("features-ico5.png") %>
           </div>
           <div class="text">
             <h6>db: Contact</h6>
-            <p>
-              There are many variations passages generators on the  embarrassing hidden in randomised words which don't look even slightly distracted content here making it look like.
-            </p>
+            <div class="row form">
+              <%= form_tag :action=>'modify_contact' do %>
+                <legend>Telephone Numbers</legend>
+                <input name="Mother" type="text" placeholder="Mother (required)" required>
+                <input name="Father" type="text" placeholder="Father (required)" required>
+                <input name="Self" type="text" placeholder="Self (required)" required>
+
+                <legend>Best Time to Contact</legend>
+            From
+			<div class="input-append bootstrap-timepicker">
+            	<input class="timepicker" class="from_time" type="text" class="input-small">
+            	<span class="add-on"><i class="icon-time"></i></span>
+        	</div>
+        	<br>
+			To
+			<div class="input-append bootstrap-timepicker">
+            	<input class="timepicker" name="to_time" type="text" class="input-small">
+            	<span class="add-on"><i class="icon-time"></i></span>
+        	</div>
+
+        	<br>
+        	<legend></legend>
+                <%= submit_tag "Save", class: 'btn btn-success' %>
+              <% end %>
+            </div>
           </div>
         </div>
         <!-- Feature -->

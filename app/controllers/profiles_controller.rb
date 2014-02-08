@@ -27,6 +27,9 @@ class ProfilesController < ApplicationController
     end
   end
 
+#-====================================
+#            Edit Profile Page       =
+#=====================================
   # After the edit is pressed
   def modify_profile
     # Filter, remove devise keys like utf8, authenticiy_token etcc
@@ -39,6 +42,12 @@ class ProfilesController < ApplicationController
     current_user.profile.update(with_data)
     redirect_to :back
   end
+
+  def modify_contact
+    
+  end
+
+
 
   # Express Interest Button
   def interest
