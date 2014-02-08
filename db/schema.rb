@@ -31,17 +31,16 @@ ActiveRecord::Schema.define(version: 20140126021927) do
     t.string   "residency",    limit: 32
     t.text     "address"
     t.string   "mother_no",    limit: 32, default: ""
-    t.integer  "best_time_m"
     t.string   "father_no",    limit: 32
-    t.integer  "best_time_f"
     t.string   "self_no",      limit: 32
-    t.integer  "best_time_s"
     t.string   "chat_id",      limit: 32
     t.string   "chat_service", limit: 32
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "fb_link"
     t.text     "ln_link"
+    t.string   "best_time_f",  limit: 32
+    t.string   "best_time_t",  limit: 32
   end
 
   create_table "desires", force: true do |t|
