@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
   before_filter :create_profile_if_not, :visiting_user_id
   before_filter :is_this_user_profile, only: [:edit]
   attr_accessor :profiles, :out_visitors, :in_visitors, :out_visitors,
-  :in_interests, :out_interests, :is_owner, :visiting_user_id,:sex
+  :in_interests, :out_interests, :visiting_user_id
 
   # GET /profiles
   def index
@@ -82,7 +82,6 @@ class ProfilesController < ApplicationController
     current_user.hobby      = Hobby.find_or_initialize_by(user_id: current_user.id)
     current_user.lifestyle  = Lifestyle.find_or_initialize_by(user_id: current_user.id)
     current_user.occupation = Occupation.find_or_initialize_by(user_id: current_user.id)
-    @is_owner = (current_user.profile.id == params[:id].to_i) ? true : false
   end
 
   def visiting_user_id
