@@ -179,7 +179,7 @@ ActiveRecord::Schema.define(version: 20140126021927) do
 
   create_table "religions", force: true do |t|
     t.integer  "user_id"
-    t.string   "religion",      limit: 64
+    t.string   "religion",      limit: 32
     t.string   "mother_tongue", limit: 32
     t.string   "caste",         limit: 32
     t.string   "sub_caste",     limit: 32
