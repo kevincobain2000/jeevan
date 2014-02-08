@@ -1,4 +1,3 @@
-
 <div id="features" class="features_page">
   <div class="container">
     <!-- Feature Wrapper -->
@@ -17,17 +16,35 @@
           <div class="text">
             <h6>Basic Information db:profiles</h6>
             <%= form_tag :action=>'modify_profile' do %>
+              <%= radio_button_tag(:sex, "Male") %>
+              Male
+              <br>
+              <%= radio_button_tag(:sex, "Female") %>
+              Female
 
-              <%= radio_button_tag(:sex, "Male") %> Male
-			 <%= radio_button_tag(:sex, "Female") %> Female
+              <br><br>
+
+			  <%= radio_button_tag(:marital_status, "Never Married") %>
+               Never Married
+              <br>
+              <%= radio_button_tag(:marital_status, "Divorced") %>
+              Divorced
+
+              <br><br>
+			  <%= radio_button_tag(:posted_by, "Self") %>
+               Self
+              <br>
+              <%= radio_button_tag(:posted_by, "Parent") %>
+              Parent
+
+              <br><br>
+              todo date picker for dob
+
 
               <%#= text_field_tag :sex, nil, class: 'typeahead tt input', placeholder:'sex' %>
               <br>
               <%= submit_tag "Save", class: 'btn btn-success' %>
             <% end %>
-            <p>
-              There are many variations passages generators on the  embarrassing hidden in randomised words which don't look even slightly distracted content here making it look like.There are many variations passages generators on the  embarrassing hidden in randomised words which don't look even slightly distracted content here making it look like.There are many variations passages generators on the  embarrassing hidden in randomised words which don't look even slightly distracted content here making it look like.
-            </p>
           </div>
         </div>
         <!-- Feature -->
@@ -59,18 +76,7 @@
   </div>
 </div>
 <!-- extra -->
-
-profiles/edit
-<h6>Current user:
-  <%= current_user.id %></h6>
-<h6>Current Profile Id:
-  <%= current_user.profile.id %></h6>
-is owner
-<%= @is_owner %>
-<%= @query %>
 <%= form_tag :action=>'modify_profile' do %>
   <%= text_field_tag :sex, nil, class: 'typeahead tt', placeholder:'sex' %>
   <%= submit_tag("Submit") %>
 <% end %>
-<br>
-<%= link_to 'Back', profiles_path %>
