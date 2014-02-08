@@ -1,17 +1,76 @@
+
+<div id="features" class="features_page">
+  <div class="container">
+    <!-- Feature Wrapper -->
+    <div class="feature_wrapper option3">
+      <div class="section_header">
+        <h2>Features
+          <small>(Option 3)</small></h2>
+      </div>
+      <!-- Features Row -->
+      <div class="row">
+        <!-- Feature -->
+        <div class="span12 feature">
+          <div class="img">
+            <%= image_tag("features-ico6.png") %>
+          </div>
+          <div class="text">
+            <h6>Basic Information db:profiles</h6>
+            <%= form_tag :action=>'modify_profile' do %>
+
+              <%= radio_button_tag(:sex, "Male") %> Male
+			 <%= radio_button_tag(:sex, "Female") %> Female
+
+              <%#= text_field_tag :sex, nil, class: 'typeahead tt input', placeholder:'sex' %>
+              <br>
+              <%= submit_tag "Save", class: 'btn btn-success' %>
+            <% end %>
+            <p>
+              There are many variations passages generators on the  embarrassing hidden in randomised words which don't look even slightly distracted content here making it look like.There are many variations passages generators on the  embarrassing hidden in randomised words which don't look even slightly distracted content here making it look like.There are many variations passages generators on the  embarrassing hidden in randomised words which don't look even slightly distracted content here making it look like.
+            </p>
+          </div>
+        </div>
+        <!-- Feature -->
+        <div class="span12 feature">
+          <div class="img">
+            <%= image_tag("features-ico5.png") %>
+          </div>
+          <div class="text">
+            <h6>Design</h6>
+            <p>
+              There are many variations passages generators on the  embarrassing hidden in randomised words which don't look even slightly distracted content here making it look like.
+            </p>
+          </div>
+        </div>
+        <!-- Feature -->
+        <div class="span12 feature last">
+          <div class="img">
+            <%= image_tag("features-ico7.png") %>
+          </div>
+          <div class="text">
+            <h6>Develop</h6>
+            <p>
+              There are many variations passages generators on the  embarrassing hidden in randomised words which don't look even slightly distracted content here making it look like.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- extra -->
+
 profiles/edit
-
-	<h6>Current user: <%= current_user.id %></h6>
-	<h6>Current Profile Id: <%= current_user.profile.id %></h6>
-
-	is owner
-	<%= @is_owner %>
-
-	<%= @query %>
-
-	<%= form_tag :action=>'modify' do %>
-	<%= text_field_tag :sex, nil, class: 'typeahead tt', placeholder:'sex' %>
-	<%= submit_tag("Submit") %>
-	<% end %>
-
+<h6>Current user:
+  <%= current_user.id %></h6>
+<h6>Current Profile Id:
+  <%= current_user.profile.id %></h6>
+is owner
+<%= @is_owner %>
+<%= @query %>
+<%= form_tag :action=>'modify_profile' do %>
+  <%= text_field_tag :sex, nil, class: 'typeahead tt', placeholder:'sex' %>
+  <%= submit_tag("Submit") %>
+<% end %>
 <br>
 <%= link_to 'Back', profiles_path %>
