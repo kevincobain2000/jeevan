@@ -33,8 +33,8 @@
             </div>
             <div class="form">
               <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-                <%= f.text_field :email, :autofocus => true, :placeholder => "Email" %>
-                <%= f.password_field :password, :placeholder => "Password" %>
+                <%= f.text_field :email, :autofocus => true, :placeholder => "Email", :style => "width:100%;" %>
+                <%= f.password_field :password, :placeholder => "Password", :style => "width:100%;" %>
                 <% if devise_mapping.rememberable? -%>
                   <br><br>
                   <p style="color:black;"><%= f.check_box :remember_me, :checked => true %>
