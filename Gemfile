@@ -15,6 +15,7 @@ gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) support
 gem "twitter-bootstrap-rails"
 gem 'twitter-typeahead-rails'
 gem 'bootstrap-datepicker-rails'
+gem 'bootstrap-timepicker-rails'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

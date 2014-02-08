@@ -8,3 +8,4 @@ $(document).ready ->
     local: ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"]
 
   $("[data-behaviour~=datepicker]").datepicker()
+  $('.timepicker').timepicker();
