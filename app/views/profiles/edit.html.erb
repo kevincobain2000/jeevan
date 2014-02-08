@@ -19,26 +19,27 @@
               <%= form_tag :action=>'modify' do %>
                 <input type="hidden" placeholder="" name="model" value="profile">
                 <legend>Gender</legend>
-                <%= radio_button_tag(:sex, "Male") %>
+                <%= radio_button_tag(:sex, "1") %>
                 Male
-                <%= radio_button_tag(:sex, "Female") %>
+                <%= radio_button_tag(:sex, "2") %>
                 Female
                 <legend>Marital Status</legend>
-                <%= radio_button_tag(:marital_status, "Never Married") %>
+                <%= radio_button_tag(:marital_status, "1") %>
                 Never Married
-                <%= radio_button_tag(:marital_status, "Divorced") %>
+                <%= radio_button_tag(:marital_status, "2") %>
                 Divorced
                 <legend>Posted By</legend>
-                <%= radio_button_tag(:posted_by, "Self") %>
+                <%= radio_button_tag(:posted_by, "1") %>
                 Self
-                <%= radio_button_tag(:posted_by, "Parent")%>
+                <%= radio_button_tag(:posted_by, "2")%>
                 Parent
-                <%= radio_button_tag(:sex, "Friend") %>
+                <%= radio_button_tag(:sex, "3") %>
                 Friend
-                <%= radio_button_tag(:sex, "Relative") %>
+                <%= radio_button_tag(:sex, "4") %>
                 Relative
-                <legend>Date of Birth</legend>
-                <input type="text" data-behaviour='datepicker' value="02/25/1985" style="width:200px;" required >
+                <legend>Age</legend>
+                <!-- <input type="text" data-behaviour='datepicker' value="02/25/1985" style="width:200px;" required > -->
+                <input type="text" value="25" style="width:200px;" required >
                 <legend></legend>
                 <%= submit_tag "Save", class: 'btn btn-success' %>
               <% end %>
@@ -121,7 +122,32 @@
             </div>
           </div>
         </div>
+        <!-- End Religion -->
+        <!-- Kundali -->
+        <div class="span6 feature">
+          <div class="img">
+            <%= image_tag("features-ico5.png") %>
+          </div>
+          <div class="text">
+            <h6>db: Kundali</h6>
+            <div class="row form">
+              <%= form_tag :action=>'modify' do %>
+                <input type="hidden" name="model" value="kundali">
+                <!-- Get the value from DB -->
+<!--                 <select id="select-birth-country" name="birth_country" value="1" class="selectized"></select>
+                <select id="select-birth-city" name="birth_city" value="1" class="selectized"></select>
+                <select id="select-dob" name="dob" value="1" class="selectized"></select>
+                <select id="select-tob" name="sub_tob" value="1" class="selectized"></select>
+                <select id="select-manglik" name="manglik" value="1" class="selectized"></select>
+                <select id="select-sun-sign" name="sun_sign" value="1" class="selectized"></select>
+                <select id="select-moon-sign" name="moon_sign" value="1" class="selectized"></select>
+                <select id="select-nakshatra" name="moon_nakshatra" value="1" class="selectized"></select> -->
+                <%= submit_tag "Save", class: 'btn btn-success' %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <!-- End Kundali -->
       </div>
-      <!-- End Religion -->
     </div>
   </div>

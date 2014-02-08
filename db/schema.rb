@@ -125,14 +125,14 @@ ActiveRecord::Schema.define(version: 20140126021927) do
     t.integer  "user_id"
     t.datetime "updated_at"
     t.datetime "created_at"
-    t.string   "birth_country", limit: 32
-    t.string   "birth_city",    limit: 32
+    t.integer  "birth_country", limit: 1
+    t.integer  "birth_city",    limit: 1
     t.date     "dob"
     t.date     "tob"
-    t.integer  "manglik"
-    t.string   "sub_sign",      limit: 32
-    t.string   "moon_sign",     limit: 32
-    t.string   "nakshatra",     limit: 32
+    t.integer  "manglik",       limit: 1
+    t.integer  "sun_sign",      limit: 1
+    t.integer  "moon_sign",     limit: 1
+    t.integer  "nakshatra",     limit: 1
   end
 
   create_table "lifestyles", force: true do |t|
@@ -171,10 +171,10 @@ ActiveRecord::Schema.define(version: 20140126021927) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "sex",            limit: 32
-    t.integer  "posted_by"
-    t.date     "dob"
-    t.string   "marital_status", limit: 32
+    t.integer  "sex",            limit: 1
+    t.integer  "posted_by",      limit: 1
+    t.integer  "age"
+    t.integer  "marital_status", limit: 1
   end
 
   create_table "religions", force: true do |t|
