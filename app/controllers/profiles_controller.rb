@@ -30,21 +30,29 @@ class ProfilesController < ApplicationController
 #-====================================
 #            Edit Profile Page       =
 #=====================================
-  # After the edit is pressed
-  def modify_profile
-    # Filter, remove devise keys like utf8, authenticiy_token etcc
-    incoming_form_params = Profile.columns.map {|c| c.name } & params.keys
+  # After the save on edit is pressed
+  def modify
+    model_name = params['model'];
+    incoming_form_params = eval(model_name.capitalize).columns.map {|c| c.name } & params.keys
+    logger.info("Debug #{model_name}")
     with_data = {}
     incoming_form_params.each do |param_key|
       with_data[param_key] = params[param_key]
     end
     #save all params coming in from the form
-    current_user.profile.update(with_data)
+    eval("current_user.#{model_name.downcase}.update(with_data)")
     redirect_to :back
   end
 
-  def modify_contact
-    
+  def update_with_params
+    incoming_form_params = About.columns.map {|c| c.name } & params.keys
+    with_data = {}
+    incoming_form_params.each do |param_key|
+      with_data[param_key] = params[param_key]
+    end
+    #save all params coming in from the form
+    current_user.contact.update(with_data)
+    redirect_to :back
   end
 
 
