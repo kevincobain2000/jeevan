@@ -175,7 +175,7 @@ ActiveRecord::Schema.define(version: 20140126021927) do
     t.string   "sex",            limit: 32
     t.integer  "posted_by"
     t.date     "dob"
-    t.integer  "marital_status"
+    t.string   "marital_status", limit: 32
   end
 
   create_table "religions", force: true do |t|
