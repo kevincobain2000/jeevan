@@ -4,8 +4,7 @@ Jeevan::Application.routes.draw do
 
   resources :profiles do
     collection do
-      post :modify_profile #profiles db
-      post :modify_contact #contacts db
+      post :modify
       post :remove
       post :interest
       post :interest_response
