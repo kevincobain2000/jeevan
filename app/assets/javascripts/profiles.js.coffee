@@ -9,3 +9,4 @@ $(document).ready ->
 
   $("[data-behaviour~=datepicker]").datepicker()
   $('.timepicker').timepicker();
+  $('textarea').autosize();
