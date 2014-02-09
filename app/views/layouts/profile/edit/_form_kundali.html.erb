@@ -1,0 +1,23 @@
+<div class="span6 feature">
+  <div class="img">
+    <%= image_tag("features-ico5.png") %>
+  </div>
+  <div class="text">
+    <h6>db: Kundali</h6>
+    <div class="row form">
+      <%= form_tag :action=>'modify' do %>
+        <input type="hidden" name="model" value="kundali">
+        <!-- Get the value from DB -->
+        <!--                 <select id="select-birth-country" name="birth_country" value="1" class="selectized"></select>
+                <select id="select-birth-city" name="birth_city" value="1" class="selectized"></select>
+                <select id="select-dob" name="dob" value="1" class="selectized"></select>
+                <select id="select-tob" name="sub_tob" value="1" class="selectized"></select>
+                <select id="select-manglik" name="manglik" value="1" class="selectized"></select>
+                <select id="select-sun-sign" name="sun_sign" value="1" class="selectized"></select>
+                <select id="select-moon-sign" name="moon_sign" value="1" class="selectized"></select>
+                <select id="select-nakshatra" name="moon_nakshatra" value="1" class="selectized"></select> -->
+        <%= submit_tag "Save", class: 'btn btn-success' %>
+      <% end %>
+    </div>
+  </div>
+</div>

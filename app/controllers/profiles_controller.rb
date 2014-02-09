@@ -55,7 +55,14 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    gon.select_religion = JSON.parse(File.read("#{Rails.root}/app/assets/json/select_religion.json"))
+    gon.select_best_time_f = JSON.parse(File.read("#{Rails.root}/app/assets/json/selectize/select_best_time_f.json"))
+    gon.select_best_time_t = JSON.parse(File.read("#{Rails.root}/app/assets/json/selectize/select_best_time_t.json"))
+
+    gon.select_religion = JSON.parse(File.read("#{Rails.root}/app/assets/json/selectize/select_religion.json"))
+    gon.select_mother_tongue = JSON.parse(File.read("#{Rails.root}/app/assets/json/selectize/select_mother_tongue.json"))
+    gon.select_caste = JSON.parse(File.read("#{Rails.root}/app/assets/json/selectize/select_caste.json"))
+    gon.select_sub_caste = JSON.parse(File.read("#{Rails.root}/app/assets/json/selectize/select_sub_caste.json"))
+    gon.select_native_place = JSON.parse(File.read("#{Rails.root}/app/assets/json/selectize/select_native_place.json"))
   end
 
 

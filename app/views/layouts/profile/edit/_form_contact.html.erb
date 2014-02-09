@@ -1,0 +1,26 @@
+<div class="span6 feature">
+  <div class="img">
+    <%= image_tag("features-ico5.png") %>
+  </div>
+  <div class="text">
+    <h6>db: Contact</h6>
+    <div class="row form">
+      <%= form_tag :action=>'modify' do %>
+        <legend>Telephone Numbers</legend>
+        <input type="hidden" placeholder="" name="model" value="contact">
+        <input name="mother_no" type="text" placeholder="Mother (required)">
+        <input name="father_no" type="text" placeholder="Father (required)">
+        <input name="self_no" type="text" placeholder="Self (required)">
+        <legend>Best Time to Contact</legend>
+        From
+        <select id="select-best-time-f" name="best_time_f" value="00:00 AM" class="selectized"></select>
+        To
+        <select id="select-best-time-t" name="best_time_t" value="00:00 AM" class="selectized"></select>
+        <legend>Address</legend>
+        <textarea name="address" style="height:75px;width:100%;font-weight:bold;" placeholder="Address"></textarea>
+        <legend></legend>
+        <%= submit_tag "Save", class: 'btn btn-success' %>
+      <% end %>
+    </div>
+  </div>
+</div>
