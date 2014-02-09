@@ -30,8 +30,6 @@ $(document).ready ->
                     options: gon.select_best_time_t
                     create: false
                 });
-  select_best_time_f[0].selectize.setValue([$("#select-best-time-f").attr('value')])
-  select_best_time_t[0].selectize.setValue([$("#select-best-time-t").attr('value')])
 
   /#==========  Religion  ==========#/
   select_religion = $('#select-religion').selectize({
@@ -78,13 +76,6 @@ $(document).ready ->
                     create: false
                 });
 
-  # These values are loaded from DB
-  select_religion[0].selectize.setValue([$("#select-religion").attr('value')])
-  select_mother_tongue[0].selectize.setValue([$("#select-mother-tongue").attr('value')])
-  select_caste[0].selectize.setValue([$("#select-caste").attr('value')])
-  select_sub_caste[0].selectize.setValue([$("#select-sub-caste").attr('value')])
-  select_native_place[0].selectize.setValue([$("#select-native-place").attr('value')])
-
   /#==========  Kundali  ==========#/
   select_birth_country = $('#select-birth-country').selectize({
                     maxItems: 1,
@@ -100,15 +91,6 @@ $(document).ready ->
                     labelField: 'title',
                     searchField: 'title',
                     options: gon.select_birth_city
-                    create: false
-                });
-
-  select_dob = $('#select-dob').selectize({
-                    maxItems: 1,
-                    valueField: 'title',
-                    labelField: 'title',
-                    searchField: 'title',
-                    options: gon.select_dob
                     create: false
                 });
   select_tob = $('#select-tob').selectize({
@@ -152,16 +134,102 @@ $(document).ready ->
                     create: false
                 });
 
-  select_birth_country[0].selectize.setValue([$("#select-birth-country").attr('value')])
-  select_birth_city[0].selectize.setValue([$("#select-birth-city").attr('value')])
-  select_dob[0].selectize.setValue([$("#select-dob").attr('value')])
-  select_tob[0].selectize.setValue([$("#select-tob").attr('value')])
-  select_manglik[0].selectize.setValue([$("#select-manglik").attr('value')])
-  select_sun_sign[0].selectize.setValue([$("#select-sun-sign").attr('value')])
-  select_moon_sign[0].selectize.setValue([$("#select-moon-sign").attr('value')])
-  select_nakshatra[0].selectize.setValue([$("#select-nakshatra").attr('value')])
+  /#==========  Hobby  (Multiple) ==========#/
+  select_hobby = $('#select-hobby').selectize({
+                    delimiter: ',',
+                    maxItems: 10,
+                    valueField: 'title',
+                    labelField: 'title',
+                    searchField: 'title',
+                    options: gon.select_hobby
+                    create: false
+                });
 
+  select_interest = $('#select-interest').selectize({
+                    delimiter: ',',
+                    maxItems: 10,
+                    valueField: 'title',
+                    labelField: 'title',
+                    searchField: 'title',
+                    options: gon.select_interest
+                    create: false
+                });
+  select_music = $('#select-music').selectize({
+                    delimiter: ',',
+                    maxItems: 10,
+                    valueField: 'title',
+                    labelField: 'title',
+                    searchField: 'title',
+                    options: gon.select_music
+                    create: false
+                });
 
+  select_read = $('#select-read').selectize({
+                    delimiter: ',',
+                    maxItems: 10,
+                    valueField: 'title',
+                    labelField: 'title',
+                    searchField: 'title',
+                    options: gon.select_read
+                    create: false
+                });
 
+  select_dress = $('#select-dress').selectize({
+                    delimiter: ',',
+                    maxItems: 10,
+                    valueField: 'title',
+                    labelField: 'title',
+                    searchField: 'title',
+                    options: gon.select_dress
+                    create: false
+                });
 
+  select_tv = $('#select-tv').selectize({
+                    delimiter: ',',
+                    maxItems: 10,
+                    valueField: 'title',
+                    labelField: 'title',
+                    searchField: 'title',
+                    options: gon.select_tv
+                    create: false
+                });
 
+  select_movie = $('#select-movie').selectize({
+                    delimiter: ',',
+                    maxItems: 10,
+                    valueField: 'title',
+                    labelField: 'title',
+                    searchField: 'title',
+                    options: gon.select_movie
+                    create: false
+                });
+
+  select_sport = $('#select-sport').selectize({
+                    delimiter: ',',
+                    maxItems: 10,
+                    valueField: 'title',
+                    labelField: 'title',
+                    searchField: 'title',
+                    options: gon.select_sport
+                    create: false
+                });
+
+  select_cuisine = $('#select-cuisine').selectize({
+                    delimiter: ',',
+                    maxItems: 10,
+                    valueField: 'title',
+                    labelField: 'title',
+                    searchField: 'title',
+                    options: gon.select_cuisine
+                    create: false
+                });
+
+  select_vacation = $('#select-vacation').selectize({
+                    delimiter: ',',
+                    maxItems: 10,
+                    valueField: 'title',
+                    labelField: 'title',
+                    searchField: 'title',
+                    options: gon.select_vacation
+                    create: false
+                });

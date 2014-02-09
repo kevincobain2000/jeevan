@@ -35,10 +35,12 @@ class ProfilesController < ApplicationController
     model_name = params['model'];
     incoming_form_params = eval(model_name.capitalize).columns.map {|c| c.name } & params.keys
     with_data = {}
+    logger.info("Debug updating .. #{params}")
     incoming_form_params.each do |param_key|
       with_data[param_key] = params[param_key]
     end
     #save all params coming in from the form
+    logger.info("Debug updating .. #{with_data}")
     eval("current_user.#{model_name.downcase}.update(with_data)")
     redirect_to :back
   end
@@ -56,13 +58,22 @@ class ProfilesController < ApplicationController
 
     gon.select_birth_country = JSON.parse(File.read("#{selectize_json_path}select_birth_country.json"))
     gon.select_birth_city = JSON.parse(File.read("#{selectize_json_path}select_birth_city.json"))
-    gon.select_dob = JSON.parse(File.read("#{selectize_json_path}select_dob.json"))
     gon.select_tob = JSON.parse(File.read("#{selectize_json_path}select_tob.json"))
     gon.select_manglik = JSON.parse(File.read("#{selectize_json_path}select_manglik.json"))
     gon.select_sun_sign = JSON.parse(File.read("#{selectize_json_path}select_sun_sign.json"))
     gon.select_moon_sign = JSON.parse(File.read("#{selectize_json_path}select_moon_sign.json"))
     gon.select_nakshatra = JSON.parse(File.read("#{selectize_json_path}select_nakshatra.json"))
 
+    gon.select_hobby = JSON.parse(File.read("#{selectize_json_path}select_hobby.json"))
+    gon.select_music = JSON.parse(File.read("#{selectize_json_path}select_music.json"))
+    gon.select_interest = JSON.parse(File.read("#{selectize_json_path}select_interest.json"))
+    gon.select_read = JSON.parse(File.read("#{selectize_json_path}select_read.json"))
+    gon.select_dress = JSON.parse(File.read("#{selectize_json_path}select_dress.json"))
+    gon.select_tv = JSON.parse(File.read("#{selectize_json_path}select_tv.json"))
+    gon.select_movie = JSON.parse(File.read("#{selectize_json_path}select_movie.json"))
+    gon.select_sport = JSON.parse(File.read("#{selectize_json_path}select_sport.json"))
+    gon.select_cuisine = JSON.parse(File.read("#{selectize_json_path}select_cuisine.json"))
+    gon.select_vacation = JSON.parse(File.read("#{selectize_json_path}select_vacation.json"))
   end
 
 
