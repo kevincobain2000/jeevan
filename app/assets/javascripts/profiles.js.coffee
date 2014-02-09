@@ -85,3 +85,83 @@ $(document).ready ->
   select_sub_caste[0].selectize.setValue([$("#select-sub-caste").attr('value')])
   select_native_place[0].selectize.setValue([$("#select-native-place").attr('value')])
 
+  /#==========  Kundali  ==========#/
+  select_birth_country = $('#select-birth-country').selectize({
+                    maxItems: 1,
+                    valueField: 'title',
+                    labelField: 'title',
+                    searchField: 'title',
+                    options: gon.select_birth_country
+                    create: false
+                });
+  select_birth_city = $('#select-birth-city').selectize({
+                    maxItems: 1,
+                    valueField: 'title',
+                    labelField: 'title',
+                    searchField: 'title',
+                    options: gon.select_birth_city
+                    create: false
+                });
+
+  select_dob = $('#select-dob').selectize({
+                    maxItems: 1,
+                    valueField: 'title',
+                    labelField: 'title',
+                    searchField: 'title',
+                    options: gon.select_dob
+                    create: false
+                });
+  select_tob = $('#select-tob').selectize({
+                    maxItems: 1,
+                    valueField: 'title',
+                    labelField: 'title',
+                    searchField: 'title',
+                    options: gon.select_tob
+                    create: false
+                });
+  select_manglik = $('#select-manglik').selectize({
+                    maxItems: 1,
+                    valueField: 'title',
+                    labelField: 'title',
+                    searchField: 'title',
+                    options: gon.select_manglik
+                    create: false
+                });
+  select_sun_sign = $('#select-sun-sign').selectize({
+                    maxItems: 1,
+                    valueField: 'title',
+                    labelField: 'title',
+                    searchField: 'title',
+                    options: gon.select_sun_sign
+                    create: false
+                });
+  select_moon_sign = $('#select-moon-sign').selectize({
+                    maxItems: 1,
+                    valueField: 'title',
+                    labelField: 'title',
+                    searchField: 'title',
+                    options: gon.select_moon_sign
+                    create: false
+                });
+  select_nakshatra = $('#select-nakshatra').selectize({
+                    maxItems: 1,
+                    valueField: 'title',
+                    labelField: 'title',
+                    searchField: 'title',
+                    options: gon.select_nakshatra
+                    create: false
+                });
+
+  select_birth_country[0].selectize.setValue([$("#select-birth-country").attr('value')])
+  select_birth_city[0].selectize.setValue([$("#select-birth-city").attr('value')])
+  select_dob[0].selectize.setValue([$("#select-dob").attr('value')])
+  select_tob[0].selectize.setValue([$("#select-tob").attr('value')])
+  select_manglik[0].selectize.setValue([$("#select-manglik").attr('value')])
+  select_sun_sign[0].selectize.setValue([$("#select-sun-sign").attr('value')])
+  select_moon_sign[0].selectize.setValue([$("#select-moon-sign").attr('value')])
+  select_nakshatra[0].selectize.setValue([$("#select-nakshatra").attr('value')])
+
+
+
+
+
