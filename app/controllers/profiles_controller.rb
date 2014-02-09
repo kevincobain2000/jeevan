@@ -54,6 +54,9 @@ class ProfilesController < ApplicationController
     redirect_to :back
   end
 
+  def edit
+    gon.select_religion = JSON.parse(File.read("#{Rails.root}/app/assets/json/select_religion.json"))
+  end
 
 
   # Express Interest Button

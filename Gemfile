@@ -17,6 +17,7 @@ gem "twitter-bootstrap-rails"
 gem 'bootstrap-datepicker-rails'
 gem 'bootstrap-timepicker-rails'
 gem "selectize-rails"
+gem 'gon'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

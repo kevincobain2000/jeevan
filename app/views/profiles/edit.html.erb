@@ -19,27 +19,26 @@
               <%= form_tag :action=>'modify' do %>
                 <input type="hidden" placeholder="" name="model" value="profile">
                 <legend>Gender</legend>
-                <%= radio_button_tag(:sex, "1") %>
+                <%= radio_button_tag(:sex, "Male") %>
                 Male
-                <%= radio_button_tag(:sex, "2") %>
+                <%= radio_button_tag(:sex, "Female") %>
                 Female
                 <legend>Marital Status</legend>
-                <%= radio_button_tag(:marital_status, "1") %>
+                <%= radio_button_tag(:marital_status, "Never Married") %>
                 Never Married
-                <%= radio_button_tag(:marital_status, "2") %>
+                <%= radio_button_tag(:marital_status, "Divorced") %>
                 Divorced
                 <legend>Posted By</legend>
-                <%= radio_button_tag(:posted_by, "1") %>
+                <%= radio_button_tag(:posted_by, "Self") %>
                 Self
-                <%= radio_button_tag(:posted_by, "2")%>
-                Parent
-                <%= radio_button_tag(:sex, "3") %>
+                <%= radio_button_tag(:posted_by, "Parents")%>
+                Parents
+                <%= radio_button_tag(:posted_by, "Friend") %>
                 Friend
-                <%= radio_button_tag(:sex, "4") %>
+                <%= radio_button_tag(:posted_by, "relative") %>
                 Relative
                 <legend>Age</legend>
                 <!-- <input type="text" data-behaviour='datepicker' value="02/25/1985" style="width:200px;" required > -->
-                <input type="text" value="25" style="width:200px;" required >
                 <legend></legend>
                 <%= submit_tag "Save", class: 'btn btn-success' %>
               <% end %>
@@ -112,11 +111,11 @@
               <%= form_tag :action=>'modify' do %>
                 <input type="hidden" name="model" value="religion">
                 <!-- Get the value from DB -->
-                <select id="select-religion" name="religion" value="1" class="selectized"></select>
-                <select id="select-mother-tongue" name="mother_tongue" value="1" class="selectized"></select>
-                <select id="select-caste" name="caste" value="1" class="selectized"></select>
-                <select id="select-sub-caste" name="sub_caste" value="1" class="selectized"></select>
-                <select id="select-native-place" name="native_place" value="1" class="selectized"></select>
+                <select id="select-religion" name="religion" value="Other" class="selectized"></select>
+                <select id="select-mother-tongue" name="mother_tongue" value="Other" class="selectized"></select>
+                <select id="select-caste" name="caste" value="Other" class="selectized"></select>
+                <select id="select-sub-caste" name="sub_caste" value="Other" class="selectized"></select>
+                <select id="select-native-place" name="native_place" value="Other" class="selectized"></select>
                 <%= submit_tag "Save", class: 'btn btn-success' %>
               <% end %>
             </div>
