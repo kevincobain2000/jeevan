@@ -44,23 +44,24 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    gon.select_best_time_f = JSON.parse(File.read("#{Rails.root}/app/assets/json/selectize/select_best_time_f.json"))
-    gon.select_best_time_t = JSON.parse(File.read("#{Rails.root}/app/assets/json/selectize/select_best_time_t.json"))
+    selectize_json_path = "#{Rails.root}/app/assets/json/selectize/profile/edit/"
+    gon.select_best_time_f = JSON.parse(File.read("#{selectize_json_path}select_best_time_f.json"))
+    gon.select_best_time_t = JSON.parse(File.read("#{selectize_json_path}select_best_time_t.json"))
 
-    gon.select_religion = JSON.parse(File.read("#{Rails.root}/app/assets/json/selectize/select_religion.json"))
-    gon.select_mother_tongue = JSON.parse(File.read("#{Rails.root}/app/assets/json/selectize/select_mother_tongue.json"))
-    gon.select_caste = JSON.parse(File.read("#{Rails.root}/app/assets/json/selectize/select_caste.json"))
-    gon.select_sub_caste = JSON.parse(File.read("#{Rails.root}/app/assets/json/selectize/select_sub_caste.json"))
-    gon.select_native_place = JSON.parse(File.read("#{Rails.root}/app/assets/json/selectize/select_native_place.json"))
+    gon.select_religion = JSON.parse(File.read("#{selectize_json_path}select_religion.json"))
+    gon.select_mother_tongue = JSON.parse(File.read("#{selectize_json_path}select_mother_tongue.json"))
+    gon.select_caste = JSON.parse(File.read("#{selectize_json_path}select_caste.json"))
+    gon.select_sub_caste = JSON.parse(File.read("#{selectize_json_path}select_sub_caste.json"))
+    gon.select_native_place = JSON.parse(File.read("#{selectize_json_path}select_native_place.json"))
 
-    gon.select_birth_country = JSON.parse(File.read("#{Rails.root}/app/assets/json/selectize/select_birth_country.json"))
-    gon.select_birth_city = JSON.parse(File.read("#{Rails.root}/app/assets/json/selectize/select_birth_city.json"))
-    gon.select_dob = JSON.parse(File.read("#{Rails.root}/app/assets/json/selectize/select_dob.json"))
-    gon.select_tob = JSON.parse(File.read("#{Rails.root}/app/assets/json/selectize/select_tob.json"))
-    gon.select_manglik = JSON.parse(File.read("#{Rails.root}/app/assets/json/selectize/select_manglik.json"))
-    gon.select_sun_sign = JSON.parse(File.read("#{Rails.root}/app/assets/json/selectize/select_sun_sign.json"))
-    gon.select_moon_sign = JSON.parse(File.read("#{Rails.root}/app/assets/json/selectize/select_moon_sign.json"))
-    gon.select_nakshatra = JSON.parse(File.read("#{Rails.root}/app/assets/json/selectize/select_nakshatra.json"))
+    gon.select_birth_country = JSON.parse(File.read("#{selectize_json_path}select_birth_country.json"))
+    gon.select_birth_city = JSON.parse(File.read("#{selectize_json_path}select_birth_city.json"))
+    gon.select_dob = JSON.parse(File.read("#{selectize_json_path}select_dob.json"))
+    gon.select_tob = JSON.parse(File.read("#{selectize_json_path}select_tob.json"))
+    gon.select_manglik = JSON.parse(File.read("#{selectize_json_path}select_manglik.json"))
+    gon.select_sun_sign = JSON.parse(File.read("#{selectize_json_path}select_sun_sign.json"))
+    gon.select_moon_sign = JSON.parse(File.read("#{selectize_json_path}select_moon_sign.json"))
+    gon.select_nakshatra = JSON.parse(File.read("#{selectize_json_path}select_nakshatra.json"))
 
   end
 
