@@ -11,6 +11,29 @@ $(document).ready ->
   $('.timepicker').timepicker();
   $('textarea').autosize();
 
+
+
+  /#==========  Contact  ==========#/
+  select_best_time_f = $('#select-best-time-f').selectize({
+                    maxItems: 1,
+                    valueField: 'title',
+                    labelField: 'title',
+                    searchField: 'title',
+                    options: gon.select_best_time_f
+                    create: false
+                });
+  select_best_time_t = $('#select-best-time-t').selectize({
+                    maxItems: 1,
+                    valueField: 'title',
+                    labelField: 'title',
+                    searchField: 'title',
+                    options: gon.select_best_time_t
+                    create: false
+                });
+  select_best_time_f[0].selectize.setValue([$("#select-best-time-f").attr('value')])
+  select_best_time_t[0].selectize.setValue([$("#select-best-time-t").attr('value')])
+
+  /#==========  Religion  ==========#/
   select_religion = $('#select-religion').selectize({
                     maxItems: 1,
                     valueField: 'title',
@@ -25,15 +48,7 @@ $(document).ready ->
                     valueField: 'title',
                     labelField: 'title',
                     searchField: 'title',
-                    options: [
-                        {title: 'Hindu'},
-                        {title: 'Muslim'},
-                        {title: 'Christian'}
-                        {title: 'Buddhist'}
-                        {title: 'Jain'}
-                        {title: 'Parsi'}
-                        {title: 'Other'}
-                    ],
+                    options: gon.select_mother_tongue
                     create: false
                 });
 
@@ -42,15 +57,7 @@ $(document).ready ->
                     valueField: 'title',
                     labelField: 'title',
                     searchField: 'title',
-                    options: [
-                        {title: 'Hindu caste'},
-                        {title: 'Muslim Caste'},
-                        {title: 'Christian'}
-                        {title: 'Buddhist'}
-                        {title: 'Jain'}
-                        {title: 'Khatri'}
-                        {title: 'Other'}
-                    ],
+                    options: gon.select_caste
                     create: false
                 });
   select_sub_caste = $('#select-sub-caste').selectize({
@@ -58,15 +65,7 @@ $(document).ready ->
                     valueField: 'title',
                     labelField: 'title',
                     searchField: 'title',
-                    options: [
-                        {title: 'Sub Caste'},
-                        {title: 'Muslim Caste'},
-                        {title: 'Christian'}
-                        {title: 'Buddhist'}
-                        {title: 'Jain'}
-                        {title: 'Khatri'}
-                        {title: 'Other'}
-                    ],
+                    options: gon.select_sub_caste
                     create: false
                 });
 
@@ -75,13 +74,7 @@ $(document).ready ->
                     valueField: 'title',
                     labelField: 'title',
                     searchField: 'title',
-                    options: [
-                        {title: 'Delhi'},
-                        {title: 'Punjab'},
-                        {title: 'Mumbai'}
-                        {title: 'PlaceName'}
-                        {title: 'Other'}
-                    ],
+                    options: gon.select_native_place
                     create: false
                 });
 
@@ -92,4 +85,3 @@ $(document).ready ->
   select_sub_caste[0].selectize.setValue([$("#select-sub-caste").attr('value')])
   select_native_place[0].selectize.setValue([$("#select-native-place").attr('value')])
 
-  console.log(gon.select_religion);

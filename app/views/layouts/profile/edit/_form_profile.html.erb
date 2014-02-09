@@ -1,0 +1,37 @@
+<div class="row">
+  <!-- Profile -->
+  <div class="span6 feature">
+    <div class="img">
+      <%= image_tag("features-ico6.png") %>
+    </div>
+    <div class="text">
+      <h6>db:profiles</h6>
+      <div class="form">
+        <%= form_tag :action=>'modify' do %>
+          <input type="hidden" placeholder="" name="model" value="profile">
+          <legend>Gender</legend>
+          <%= radio_button_tag(:sex, "Male") %>
+          Male
+          <%= radio_button_tag(:sex, "Female") %>
+          Female
+          <legend>Marital Status</legend>
+          <%= radio_button_tag(:marital_status, "Never Married") %>
+          Never Married
+          <%= radio_button_tag(:marital_status, "Divorced") %>
+          Divorced
+          <legend>Posted By</legend>
+          <%= radio_button_tag(:posted_by, "Self") %>
+          Self
+          <%= radio_button_tag(:posted_by, "Parents")%>
+          Parents
+          <%= radio_button_tag(:posted_by, "Friend") %>
+          Friend
+          <%= radio_button_tag(:posted_by, "relative") %>
+          Relative
+          <!-- <input type="text" data-behaviour='datepicker' value="02/25/1985" style="width:200px;" required > -->
+          <legend></legend>
+          <%= submit_tag "Save", class: 'btn btn-success' %>
+        <% end %>
+      </div>
+    </div>
+  </div>

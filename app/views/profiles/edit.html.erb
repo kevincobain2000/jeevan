@@ -7,146 +7,15 @@
           <small>(Option 3)</small></h2>
       </div>
       <!-- Profiles Row -->
-      <div class="row">
-        <!-- Profile -->
-        <div class="span6 feature">
-          <div class="img">
-            <%= image_tag("features-ico6.png") %>
-          </div>
-          <div class="text">
-            <h6>db:profiles</h6>
-            <div class="form">
-              <%= form_tag :action=>'modify' do %>
-                <input type="hidden" placeholder="" name="model" value="profile">
-                <legend>Gender</legend>
-                <%= radio_button_tag(:sex, "Male") %>
-                Male
-                <%= radio_button_tag(:sex, "Female") %>
-                Female
-                <legend>Marital Status</legend>
-                <%= radio_button_tag(:marital_status, "Never Married") %>
-                Never Married
-                <%= radio_button_tag(:marital_status, "Divorced") %>
-                Divorced
-                <legend>Posted By</legend>
-                <%= radio_button_tag(:posted_by, "Self") %>
-                Self
-                <%= radio_button_tag(:posted_by, "Parents")%>
-                Parents
-                <%= radio_button_tag(:posted_by, "Friend") %>
-                Friend
-                <%= radio_button_tag(:posted_by, "relative") %>
-                Relative
-                <legend>Age</legend>
-                <!-- <input type="text" data-behaviour='datepicker' value="02/25/1985" style="width:200px;" required > -->
-                <legend></legend>
-                <%= submit_tag "Save", class: 'btn btn-success' %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-        <!-- Contact -->
-        <div class="span6 feature">
-          <div class="img">
-            <%= image_tag("features-ico5.png") %>
-          </div>
-          <div class="text">
-            <h6>db: Contact</h6>
-            <div class="row form">
-              <%= form_tag :action=>'modify' do %>
-                <legend>Telephone Numbers</legend>
-                <input type="hidden" placeholder="" name="model" value="contact">
-                <input name="mother_no" type="text" placeholder="Mother (required)">
-                <input name="father_no" type="text" placeholder="Father (required)">
-                <input name="self_no" type="text" placeholder="Self (required)">
-                <legend>Best Time to Contact</legend>
-                From
-                <div class="input-append bootstrap-timepicker">
-                  <input class="timepicker" name="best_time_f" type="text" class="input-small">
-                  <span class="add-on"><i class="icon-time"></i></span>
-                </div>
-                <br>
-                To
-                <div class="input-append bootstrap-timepicker">
-                  <input class="timepicker" name="best_time_t" type="text" class="input-small">
-                  <span class="add-on"><i class="icon-time"></i></span>
-                </div>
-                <legend>Address</legend>
-                <textarea name="address" style="height:75px;width:100%;font-weight:bold;" placeholder="Address"></textarea>
-                <legend></legend>
-                <%= submit_tag "Save", class: 'btn btn-success' %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-        <!-- About Me -->
-        <div class="span6 feature">
-          <div class="img">
-            <%= image_tag("features-ico7.png") %>
-          </div>
-          <div class="text">
-            <h6>Something About..db: about</h6>
-            <div class="row form">
-              <%= form_tag({:action=>'modify'} ,{"parsley-validate" => ""}) do %>
-                <input type="hidden" placeholder="" name="model" value="about">
-                <% about_me = { me: "About Me", family: "About My Family", work: "About my Work", education: "About my Education", future: "My Future Plans" } %>
-                <% about_me.each do |key, value| %>
-                  <legend><%= value %></legend>
-                  <textarea name="<%= key%>" style="height:75px;width:100%;font-weight:bold;" placeholder="Preloaded text" parsley-trigger="keyup" parsley-rangelength="[20,200]"></textarea>
-                <% end %>
-                <legend></legend>
-                <%= submit_tag "Save", class: 'btn btn-success' %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-        <!-- Religion -->
-        <div class="span6 feature">
-          <div class="img">
-            <%= image_tag("features-ico5.png") %>
-          </div>
-          <div class="text">
-            <h6>db: Religion</h6>
-            <div class="row form">
-              <%= form_tag :action=>'modify' do %>
-                <input type="hidden" name="model" value="religion">
-                <!-- Get the value from DB -->
-                <select id="select-religion" name="religion" value="Other" class="selectized"></select>
-                <select id="select-mother-tongue" name="mother_tongue" value="Other" class="selectized"></select>
-                <select id="select-caste" name="caste" value="Other" class="selectized"></select>
-                <select id="select-sub-caste" name="sub_caste" value="Other" class="selectized"></select>
-                <select id="select-native-place" name="native_place" value="Other" class="selectized"></select>
-                <%= submit_tag "Save", class: 'btn btn-success' %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-        <!-- End Religion -->
-        <!-- Kundali -->
-        <div class="span6 feature">
-          <div class="img">
-            <%= image_tag("features-ico5.png") %>
-          </div>
-          <div class="text">
-            <h6>db: Kundali</h6>
-            <div class="row form">
-              <%= form_tag :action=>'modify' do %>
-                <input type="hidden" name="model" value="kundali">
-                <!-- Get the value from DB -->
-<!--                 <select id="select-birth-country" name="birth_country" value="1" class="selectized"></select>
-                <select id="select-birth-city" name="birth_city" value="1" class="selectized"></select>
-                <select id="select-dob" name="dob" value="1" class="selectized"></select>
-                <select id="select-tob" name="sub_tob" value="1" class="selectized"></select>
-                <select id="select-manglik" name="manglik" value="1" class="selectized"></select>
-                <select id="select-sun-sign" name="sun_sign" value="1" class="selectized"></select>
-                <select id="select-moon-sign" name="moon_sign" value="1" class="selectized"></select>
-                <select id="select-nakshatra" name="moon_nakshatra" value="1" class="selectized"></select> -->
-                <%= submit_tag "Save", class: 'btn btn-success' %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-        <!-- End Kundali -->
-      </div>
+      <%= render :partial => 'layouts/profile/edit/form_profile'%>
+      <!-- Contact -->
+      <%= render :partial => 'layouts/profile/edit/form_contact'%>
+      <!-- About Me -->
+      <%= render :partial => 'layouts/profile/edit/form_about'%>
+      <!-- Religion -->
+      <%= render :partial => 'layouts/profile/edit/form_religion'%>
+      <!-- Kundali -->
+      <%= render :partial => 'layouts/profile/edit/form_kundali'%>
     </div>
   </div>
+</div>
