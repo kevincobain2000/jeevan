@@ -48,24 +48,24 @@ ActiveRecord::Schema.define(version: 20140126021927) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "about"
-    t.integer  "height"
-    t.integer  "age"
-    t.integer  "marital_status"
-    t.integer  "country"
-    t.integer  "city"
-    t.string   "religion",       limit: 64, default: ""
+    t.string   "height",         limit: 8
+    t.string   "age",            limit: 4
+    t.string   "marital_status", limit: 32
+    t.string   "country",        limit: 64
+    t.string   "city",           limit: 64
+    t.string   "religion",       limit: 64,  default: ""
     t.string   "caste",          limit: 64
     t.string   "mother_toungue", limit: 64
-    t.integer  "manglik",        limit: 1
-    t.integer  "diet",           limit: 1
-    t.integer  "smoke",          limit: 1
-    t.integer  "drink",          limit: 1
-    t.integer  "complexion",     limit: 1
-    t.integer  "body",           limit: 1
-    t.integer  "challenged",     limit: 1
-    t.integer  "education"
-    t.integer  "occupation"
-    t.integer  "income"
+    t.string   "manglik",        limit: 32
+    t.string   "diet",           limit: 64
+    t.string   "smoke",          limit: 32
+    t.string   "drink",          limit: 32
+    t.string   "complexion",     limit: 64
+    t.string   "body",           limit: 32
+    t.string   "challenged",     limit: 4
+    t.string   "education",      limit: 128
+    t.string   "occupation",     limit: 128
+    t.string   "income",         limit: 64
     t.text     "notes"
   end
 
@@ -88,11 +88,11 @@ ActiveRecord::Schema.define(version: 20140126021927) do
     t.string   "values",          limit: 32
     t.string   "type",            limit: 32
     t.string   "status",          limit: 32
-    t.integer  "income"
+    t.string   "income",          limit: 64
     t.string   "father",          limit: 32
     t.string   "mother",          limit: 32
-    t.integer  "brother"
-    t.integer  "sister"
+    t.string   "brother",         limit: 64
+    t.string   "sister",          limit: 64
     t.string   "profile_handler", limit: 32
   end
 
@@ -129,61 +129,60 @@ ActiveRecord::Schema.define(version: 20140126021927) do
     t.integer  "birth_city",    limit: 1
     t.date     "dob"
     t.date     "tob"
-    t.integer  "manglik",       limit: 1
-    t.integer  "sun_sign",      limit: 1
-    t.integer  "moon_sign",     limit: 1
-    t.integer  "nakshatra",     limit: 1
+    t.string   "manglik",       limit: 32
+    t.string   "sun_sign",      limit: 64
+    t.string   "moon_sign",     limit: 64
+    t.string   "nakshatra",     limit: 64
   end
 
   create_table "lifestyles", force: true do |t|
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "diet"
-    t.integer  "smoke"
-    t.integer  "drink"
-    t.integer  "complexion"
-    t.integer  "body"
-    t.integer  "challenged"
-    t.integer  "blood"
-    t.integer  "weight"
-    t.integer  "residense"
-    t.integer  "own_house"
-    t.integer  "own_car"
-    t.text     "language"
-    t.integer  "pet"
-    t.integer  "hiv"
-    t.integer  "height"
+    t.string   "diet",       limit: 64
+    t.string   "smoke",      limit: 32
+    t.string   "drink",      limit: 64
+    t.string   "complexion", limit: 64
+    t.string   "body",       limit: 64
+    t.string   "challenged", limit: 4
+    t.string   "blood",      limit: 4
+    t.string   "weight",     limit: 4
+    t.string   "residense",  limit: 64
+    t.string   "own_house",  limit: 64
+    t.string   "own_car",    limit: 64
+    t.string   "language",   limit: 128, default: ""
+    t.string   "pet",        limit: 64
+    t.string   "hiv",        limit: 4
+    t.string   "height",     limit: 4
   end
 
   create_table "occupations", force: true do |t|
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "status"
+    t.string   "status",         limit: 16
     t.string   "occupation",     limit: 64
     t.string   "company",        limit: 64
-    t.integer  "annual_income"
-    t.integer  "setting_abroad"
+    t.string   "annual_income",  limit: 64
+    t.string   "setting_abroad", limit: 4
   end
 
   create_table "profiles", force: true do |t|
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "sex",            limit: 1
-    t.integer  "posted_by",      limit: 1
-    t.integer  "age"
-    t.integer  "marital_status", limit: 1
+    t.string   "sex",            limit: 16
+    t.string   "posted_by",      limit: 32
+    t.string   "marital_status", limit: 32
   end
 
   create_table "religions", force: true do |t|
     t.integer  "user_id"
-    t.integer  "religion",      limit: 1
-    t.integer  "mother_tongue", limit: 1
-    t.integer  "caste",         limit: 1
-    t.integer  "sub_caste",     limit: 1
-    t.integer  "native_place",  limit: 1
+    t.string   "religion",      limit: 32
+    t.string   "mother_tongue", limit: 64
+    t.string   "caste",         limit: 64
+    t.string   "sub_caste",     limit: 64
+    t.string   "native_place",  limit: 64
     t.datetime "updated_at"
     t.datetime "created_at"
   end
