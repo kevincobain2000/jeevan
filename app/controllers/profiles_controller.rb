@@ -43,17 +43,6 @@ class ProfilesController < ApplicationController
     redirect_to :back
   end
 
-  def update_with_params
-    incoming_form_params = About.columns.map {|c| c.name } & params.keys
-    with_data = {}
-    incoming_form_params.each do |param_key|
-      with_data[param_key] = params[param_key]
-    end
-    #save all params coming in from the form
-    current_user.contact.update(with_data)
-    redirect_to :back
-  end
-
   def edit
     gon.select_best_time_f = JSON.parse(File.read("#{Rails.root}/app/assets/json/selectize/select_best_time_f.json"))
     gon.select_best_time_t = JSON.parse(File.read("#{Rails.root}/app/assets/json/selectize/select_best_time_t.json"))
@@ -63,6 +52,16 @@ class ProfilesController < ApplicationController
     gon.select_caste = JSON.parse(File.read("#{Rails.root}/app/assets/json/selectize/select_caste.json"))
     gon.select_sub_caste = JSON.parse(File.read("#{Rails.root}/app/assets/json/selectize/select_sub_caste.json"))
     gon.select_native_place = JSON.parse(File.read("#{Rails.root}/app/assets/json/selectize/select_native_place.json"))
+
+    gon.select_birth_country = JSON.parse(File.read("#{Rails.root}/app/assets/json/selectize/select_birth_country.json"))
+    gon.select_birth_city = JSON.parse(File.read("#{Rails.root}/app/assets/json/selectize/select_birth_city.json"))
+    gon.select_dob = JSON.parse(File.read("#{Rails.root}/app/assets/json/selectize/select_dob.json"))
+    gon.select_tob = JSON.parse(File.read("#{Rails.root}/app/assets/json/selectize/select_tob.json"))
+    gon.select_manglik = JSON.parse(File.read("#{Rails.root}/app/assets/json/selectize/select_manglik.json"))
+    gon.select_sun_sign = JSON.parse(File.read("#{Rails.root}/app/assets/json/selectize/select_sun_sign.json"))
+    gon.select_moon_sign = JSON.parse(File.read("#{Rails.root}/app/assets/json/selectize/select_moon_sign.json"))
+    gon.select_nakshatra = JSON.parse(File.read("#{Rails.root}/app/assets/json/selectize/select_nakshatra.json"))
+
   end
 
 

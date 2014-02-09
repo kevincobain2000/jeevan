@@ -7,7 +7,7 @@
     <div class="text">
       <h6>db:profiles</h6>
       <div class="form">
-        <%= form_tag :action=>'modify' do %>
+        <%= form_tag ({:action=>'modify'}) do %>
           <input type="hidden" placeholder="" name="model" value="profile">
           <legend>Gender</legend>
           <%= radio_button_tag(:sex, "Male") %>
