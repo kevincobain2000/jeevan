@@ -49,6 +49,9 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.0.2)
+    gon (4.1.1)
+      actionpack (>= 2.3.0)
+      json
     hike (1.2.3)
     i18n (0.6.9)
     jbuilder (1.5.3)
@@ -145,6 +148,7 @@ DEPENDENCIES
   bootstrap-timepicker-rails
   coffee-rails (~> 4.0.0)
   devise
+  gon
   jbuilder (~> 1.2)
   jquery-rails
   less-rails

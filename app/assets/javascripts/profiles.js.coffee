@@ -13,82 +13,74 @@ $(document).ready ->
 
   select_religion = $('#select-religion').selectize({
                     maxItems: 1,
-                    valueField: 'id',
+                    valueField: 'title',
                     labelField: 'title',
                     searchField: 'title',
-                    options: [
-                        {id: 1, title: 'Hindu'},
-                        {id: 2, title: 'Muslim'},
-                        {id: 3, title: 'Christian'}
-                        {id: 4, title: 'Buddhist'}
-                        {id: 5, title: 'Jain'}
-                        {id: 6, title: 'Parsi'}
-                        {id: 7, title: 'Other'}
-                    ],
+                    options: gon.select_religion
                     create: false
                 });
 
   select_mother_tongue = $('#select-mother-tongue').selectize({
                     maxItems: 1,
-                    valueField: 'id',
+                    valueField: 'title',
                     labelField: 'title',
                     searchField: 'title',
                     options: [
-                        {id: 1, title: 'Hindu'},
-                        {id: 2, title: 'Muslim'},
-                        {id: 3, title: 'Christian'}
-                        {id: 4, title: 'Buddhist'}
-                        {id: 5, title: 'Jain'}
-                        {id: 6, title: 'Parsi'}
-                        {id: 7, title: 'Other'}
+                        {title: 'Hindu'},
+                        {title: 'Muslim'},
+                        {title: 'Christian'}
+                        {title: 'Buddhist'}
+                        {title: 'Jain'}
+                        {title: 'Parsi'}
+                        {title: 'Other'}
                     ],
                     create: false
                 });
 
   select_caste = $('#select-caste').selectize({
                     maxItems: 1,
-                    valueField: 'id',
+                    valueField: 'title',
                     labelField: 'title',
                     searchField: 'title',
                     options: [
-                        {id: 1, title: 'Hindu caste'},
-                        {id: 2, title: 'Muslim Caste'},
-                        {id: 3, title: 'Christian'}
-                        {id: 4, title: 'Buddhist'}
-                        {id: 5, title: 'Jain'}
-                        {id: 6, title: 'Khatri'}
-                        {id: 7, title: 'Other'}
+                        {title: 'Hindu caste'},
+                        {title: 'Muslim Caste'},
+                        {title: 'Christian'}
+                        {title: 'Buddhist'}
+                        {title: 'Jain'}
+                        {title: 'Khatri'}
+                        {title: 'Other'}
                     ],
                     create: false
                 });
   select_sub_caste = $('#select-sub-caste').selectize({
                     maxItems: 1,
-                    valueField: 'id',
+                    valueField: 'title',
                     labelField: 'title',
                     searchField: 'title',
                     options: [
-                        {id: 1, title: 'Sub Caste'},
-                        {id: 2, title: 'Muslim Caste'},
-                        {id: 3, title: 'Christian'}
-                        {id: 4, title: 'Buddhist'}
-                        {id: 5, title: 'Jain'}
-                        {id: 6, title: 'Khatri'}
-                        {id: 7, title: 'Other'}
+                        {title: 'Sub Caste'},
+                        {title: 'Muslim Caste'},
+                        {title: 'Christian'}
+                        {title: 'Buddhist'}
+                        {title: 'Jain'}
+                        {title: 'Khatri'}
+                        {title: 'Other'}
                     ],
                     create: false
                 });
 
   select_native_place = $('#select-native-place').selectize({
                     maxItems: 1,
-                    valueField: 'id',
+                    valueField: 'title',
                     labelField: 'title',
                     searchField: 'title',
                     options: [
-                        {id: 1, title: 'Delhi'},
-                        {id: 2, title: 'Punjab'},
-                        {id: 3, title: 'Mumbai'}
-                        {id: 4, title: 'PlaceName'}
-                        {id: 5, title: 'Blah'}
+                        {title: 'Delhi'},
+                        {title: 'Punjab'},
+                        {title: 'Mumbai'}
+                        {title: 'PlaceName'}
+                        {title: 'Other'}
                     ],
                     create: false
                 });
@@ -100,9 +92,4 @@ $(document).ready ->
   select_sub_caste[0].selectize.setValue([$("#select-sub-caste").attr('value')])
   select_native_place[0].selectize.setValue([$("#select-native-place").attr('value')])
 
-
-
-
-
-
-
+  console.log(gon.select_religion);
