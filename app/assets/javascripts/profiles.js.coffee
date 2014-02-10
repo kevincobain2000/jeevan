@@ -27,15 +27,15 @@ $(document).ready ->
                     sun_sign:true
                     moon_sign:true
                     nakshatra:true
-                    hobby:
-                      delimiter:','
-                      maxItems:10
+                    hobby:true
                     interest:true
                     music:true
                     read:true
                     dress:true
                     tv:true
-                    movie:true
+                    movie:
+                      delimiter:','
+                      maxItems:10
                     sport:true
                     cuisine:true
                     vacation:true
@@ -43,7 +43,6 @@ $(document).ready ->
   for name, options of selectize_items
     css_id = name.replace /_/g, "-"
     $("#select-" + css_id).selectize({
-                    delimiter: if options.delimeter then options.delimeter else null,
                     maxItems: if options.maxItems then options.maxItems else 1,
                     valueField: if options.valueField then options.valueField else "title",
                     labelField: if options.labelField then options.labelField else "title",
