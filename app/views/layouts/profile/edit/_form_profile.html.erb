@@ -5,8 +5,7 @@
   <div class="text">
     <h6>db:profiles</h6>
     <div class="form">
-      <%= form_tag({:action=>'modify'}, {:remote => true}) do %>
-        <input type="hidden" placeholder="" name="model" value="profile">
+      <%= form_tag({:action=>'modify_profile'}, {:remote => true}) do %>
         <legend>Gender</legend>
         <%= radio_button_tag(:sex, "Male") %>
         Male
@@ -28,7 +27,7 @@
         Relative
         <!-- <input type="text" data-behaviour='datepicker' value="02/25/1985" style="width:200px;" required > -->
         <legend></legend>
-        <%= submit_tag "Save", class: 'btn btn-success' %>
+        <%= submit_tag "Save", class: 'btn btn-success pull-right' %>
       <% end %>
     </div>
   </div>

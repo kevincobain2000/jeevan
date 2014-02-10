@@ -5,9 +5,8 @@
   <div class="text">
     <h6>db: Contact</h6>
     <div class="row form">
-      <%= form_tag :action=>'modify' do %>
+      <%= form_tag({:action=>'modify_contact'}, {:remote=>true}) do %>
         <legend>Telephone Numbers</legend>
-        <input type="hidden" placeholder="" name="model" value="contact">
         <input name="mother_no" type="text" placeholder="Mother (required)">
         <input name="father_no" type="text" placeholder="Father (required)">
         <input name="self_no" type="text" placeholder="Self (required)">
@@ -19,7 +18,7 @@
         <legend>Address</legend>
         <textarea name="address" style="height:75px;width:100%;font-weight:bold;" placeholder="Address"></textarea>
         <legend></legend>
-        <%= submit_tag "Save", class: 'btn btn-success' %>
+        <%= submit_tag "Save", class: 'btn btn-success pull-right' %>
       <% end %>
     </div>
   </div>
