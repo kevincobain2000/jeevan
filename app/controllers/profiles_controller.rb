@@ -55,33 +55,7 @@ class ProfilesController < ApplicationController
 
   def edit
     selectize_json_path = "#{Rails.root}/app/assets/json/selectize/profile/edit/"
-    gon.select_best_time_f = JSON.parse(File.read("#{selectize_json_path}select_best_time_f.json"))
-    gon.select_best_time_t = JSON.parse(File.read("#{selectize_json_path}select_best_time_t.json"))
-
-    gon.select_religion = JSON.parse(File.read("#{selectize_json_path}select_religion.json"))
-    gon.select_mother_tongue = JSON.parse(File.read("#{selectize_json_path}select_mother_tongue.json"))
-    gon.select_caste = JSON.parse(File.read("#{selectize_json_path}select_caste.json"))
-    gon.select_sub_caste = JSON.parse(File.read("#{selectize_json_path}select_sub_caste.json"))
-    gon.select_native_place = JSON.parse(File.read("#{selectize_json_path}select_native_place.json"))
-
-    gon.select_birth_country = JSON.parse(File.read("#{selectize_json_path}select_birth_country.json"))
-    gon.select_birth_city = JSON.parse(File.read("#{selectize_json_path}select_birth_city.json"))
-    gon.select_tob = JSON.parse(File.read("#{selectize_json_path}select_tob.json"))
-    gon.select_manglik = JSON.parse(File.read("#{selectize_json_path}select_manglik.json"))
-    gon.select_sun_sign = JSON.parse(File.read("#{selectize_json_path}select_sun_sign.json"))
-    gon.select_moon_sign = JSON.parse(File.read("#{selectize_json_path}select_moon_sign.json"))
-    gon.select_nakshatra = JSON.parse(File.read("#{selectize_json_path}select_nakshatra.json"))
-
-    gon.select_hobby = JSON.parse(File.read("#{selectize_json_path}select_hobby.json"))
-    gon.select_music = JSON.parse(File.read("#{selectize_json_path}select_music.json"))
-    gon.select_interest = JSON.parse(File.read("#{selectize_json_path}select_interest.json"))
-    gon.select_read = JSON.parse(File.read("#{selectize_json_path}select_read.json"))
-    gon.select_dress = JSON.parse(File.read("#{selectize_json_path}select_dress.json"))
-    gon.select_tv = JSON.parse(File.read("#{selectize_json_path}select_tv.json"))
-    gon.select_movie = JSON.parse(File.read("#{selectize_json_path}select_movie.json"))
-    gon.select_sport = JSON.parse(File.read("#{selectize_json_path}select_sport.json"))
-    gon.select_cuisine = JSON.parse(File.read("#{selectize_json_path}select_cuisine.json"))
-    gon.select_vacation = JSON.parse(File.read("#{selectize_json_path}select_vacation.json"))
+    gon.select_profile_edit_items = JSON.parse(File.read("#{selectize_json_path}items.json"))
   end
 
 
