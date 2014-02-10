@@ -5,15 +5,14 @@
   <div class="text">
     <h6>Something About..db: about</h6>
     <div class="row form">
-      <%= form_tag({:action=>'modify'} ,{"parsley-validate" => ""}) do %>
-        <input type="hidden" placeholder="" name="model" value="about">
+      <%= form_tag({:action=>'modify_about'}, {:remote => true, "parsley-validate" => ""}) do %>
         <% about_me = { me: "About Me", family: "About My Family", work: "About my Work", education: "About my Education", future: "My Future Plans" } %>
         <% about_me.each do |key, value| %>
           <legend><%= value %></legend>
           <textarea name="<%= key%>" style="height:75px;width:100%;font-weight:bold;" placeholder="Preloaded text" parsley-trigger="keyup" parsley-rangelength="[10,5000]"></textarea>
         <% end %>
         <legend></legend>
-        <%= submit_tag "Save", class: 'btn btn-success' %>
+        <%= submit_tag "Save", class: 'btn btn-success pull-right' %>
       <% end %>
     </div>
   </div>

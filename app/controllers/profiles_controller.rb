@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_filter :create_profile_if_not, :visiting_user_id
+  before_filter :initialize_tables, :visiting_user_id
   before_filter :is_this_user_profile, only: [:edit]
   attr_accessor :profiles, :out_visitors, :in_visitors, :out_visitors,
   :in_interests, :out_interests, :visiting_user_id
@@ -31,18 +31,26 @@ class ProfilesController < ApplicationController
 #            Edit Profile Page       =
 #=====================================
   # After the save on edit is pressed
-  def modify
-    model_name = params['model'];
-    incoming_form_params = eval(model_name.capitalize).columns.map {|c| c.name } & params.keys
-    with_data = {}
-    logger.info("Debug updating .. #{params}")
-    incoming_form_params.each do |param_key|
-      with_data[param_key] = params[param_key]
-    end
-    #save all params coming in from the form
-    logger.info("Debug updating .. #{with_data}")
-    eval("current_user.#{model_name.downcase}.update(with_data)")
-    redirect_to :back
+  def modify_profile
+    current_user.profile.update(profile_params)
+  end
+  def modify_contact
+    current_user.contact.update(contact_params)
+  end
+  def modify_religion
+    current_user.religion.update(religion_params)
+  end
+  def modify_religion
+    current_user.religion.update(religion_params)
+  end
+  def modify_kundali
+    current_user.kundali.update(kundali_params)
+  end
+  def modify_about
+    current_user.about.update(about_params)
+  end
+  def modify_hobby
+    current_user.hobby.update(hobby_params)
   end
 
   def edit
@@ -107,7 +115,7 @@ class ProfilesController < ApplicationController
   end
 
   protected
-  def create_profile_if_not
+  def initialize_tables
     current_user.profile    = Profile.find_or_initialize_by(user_id: current_user.id)
     current_user.contact    = Contact.find_or_initialize_by(user_id: current_user.id)
     current_user.religion   = Religion.find_or_initialize_by(user_id: current_user.id)
@@ -133,5 +141,24 @@ class ProfilesController < ApplicationController
       @abc = "this"
       redirect_to(profiles_path)
     end
+  end
+
+  def profile_params
+    params.permit(Profile.columns.map {|c| c.name })
+  end
+  def contact_params
+    params.permit(Contact.columns.map {|c| c.name })
+  end
+  def religion_params
+    params.permit(Religion.columns.map {|c| c.name })
+  end
+  def kundali_params
+    params.permit(Kundali.columns.map {|c| c.name })
+  end
+  def about_params
+    params.permit(About.columns.map {|c| c.name })
+  end
+  def hobby_params
+    params.permit(Hobby.columns.map {|c| c.name })
   end
 end

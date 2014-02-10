@@ -202,6 +202,10 @@ $(document).ready ->
                     searchField: 'title',
                     options: gon.select_movie
                     create: false
+                    render:
+                      option: (item, escape) ->
+                        '<div><i class="icon-search"></i> '+item.title+'</div>'
+
                 });
 
   select_sport = $('#select-sport').selectize({
