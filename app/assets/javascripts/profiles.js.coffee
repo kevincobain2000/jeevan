@@ -19,7 +19,7 @@ $(document).ready ->
                     valueField: 'title',
                     labelField: 'title',
                     searchField: 'title',
-                    options: gon.select_best_time_f
+                    options: gon.select_profile_edit_items.best_time_f
                     create: false
                 });
   select_best_time_t = $('#select-best-time-t').selectize({
@@ -27,7 +27,7 @@ $(document).ready ->
                     valueField: 'title',
                     labelField: 'title',
                     searchField: 'title',
-                    options: gon.select_best_time_t
+                    options: gon.select_profile_edit_items.best_time_t
                     create: false
                 });
 
@@ -37,7 +37,7 @@ $(document).ready ->
                     valueField: 'title',
                     labelField: 'title',
                     searchField: 'title',
-                    options: gon.select_religion
+                    options: gon.select_profile_edit_items.religion
                     create: false
                 });
 
@@ -46,7 +46,7 @@ $(document).ready ->
                     valueField: 'title',
                     labelField: 'title',
                     searchField: 'title',
-                    options: gon.select_mother_tongue
+                    options: gon.select_profile_edit_items.mother_tongue
                     create: false
                 });
 
@@ -55,7 +55,7 @@ $(document).ready ->
                     valueField: 'title',
                     labelField: 'title',
                     searchField: 'title',
-                    options: gon.select_caste
+                    options: gon.select_profile_edit_items.caste
                     create: false
                 });
   select_sub_caste = $('#select-sub-caste').selectize({
@@ -63,7 +63,7 @@ $(document).ready ->
                     valueField: 'title',
                     labelField: 'title',
                     searchField: 'title',
-                    options: gon.select_sub_caste
+                    options: gon.select_profile_edit_items.sub_caste
                     create: false
                 });
 
@@ -72,7 +72,7 @@ $(document).ready ->
                     valueField: 'title',
                     labelField: 'title',
                     searchField: 'title',
-                    options: gon.select_native_place
+                    options: gon.select_profile_edit_items.native_place
                     create: false
                 });
 
@@ -82,7 +82,7 @@ $(document).ready ->
                     valueField: 'title',
                     labelField: 'title',
                     searchField: 'title',
-                    options: gon.select_birth_country
+                    options: gon.select_profile_edit_items.birth_country
                     create: false
                 });
   select_birth_city = $('#select-birth-city').selectize({
@@ -90,7 +90,7 @@ $(document).ready ->
                     valueField: 'title',
                     labelField: 'title',
                     searchField: 'title',
-                    options: gon.select_birth_city
+                    options: gon.select_profile_edit_items.birth_city
                     create: false
                 });
   select_tob = $('#select-tob').selectize({
@@ -98,7 +98,7 @@ $(document).ready ->
                     valueField: 'title',
                     labelField: 'title',
                     searchField: 'title',
-                    options: gon.select_tob
+                    options: gon.select_profile_edit_items.tob
                     create: false
                 });
   select_manglik = $('#select-manglik').selectize({
@@ -106,7 +106,7 @@ $(document).ready ->
                     valueField: 'title',
                     labelField: 'title',
                     searchField: 'title',
-                    options: gon.select_manglik
+                    options: gon.select_profile_edit_items.manglik
                     create: false
                 });
   select_sun_sign = $('#select-sun-sign').selectize({
@@ -114,7 +114,7 @@ $(document).ready ->
                     valueField: 'title',
                     labelField: 'title',
                     searchField: 'title',
-                    options: gon.select_sun_sign
+                    options: gon.select_profile_edit_items.sun_sign
                     create: false
                 });
   select_moon_sign = $('#select-moon-sign').selectize({
@@ -122,7 +122,7 @@ $(document).ready ->
                     valueField: 'title',
                     labelField: 'title',
                     searchField: 'title',
-                    options: gon.select_moon_sign
+                    options: gon.select_profile_edit_items.moon_sign
                     create: false
                 });
   select_nakshatra = $('#select-nakshatra').selectize({
@@ -130,7 +130,7 @@ $(document).ready ->
                     valueField: 'title',
                     labelField: 'title',
                     searchField: 'title',
-                    options: gon.select_nakshatra
+                    options: gon.select_profile_edit_items.nakshatra
                     create: false
                 });
 
@@ -141,7 +141,7 @@ $(document).ready ->
                     valueField: 'title',
                     labelField: 'title',
                     searchField: 'title',
-                    options: gon.select_hobby
+                    options: gon.select_profile_edit_items.hobby
                     create: false
                 });
 
@@ -151,7 +151,7 @@ $(document).ready ->
                     valueField: 'title',
                     labelField: 'title',
                     searchField: 'title',
-                    options: gon.select_interest
+                    options: gon.select_profile_edit_items.interest
                     create: false
                 });
   select_music = $('#select-music').selectize({
@@ -160,7 +160,7 @@ $(document).ready ->
                     valueField: 'title',
                     labelField: 'title',
                     searchField: 'title',
-                    options: gon.select_music
+                    options: gon.select_profile_edit_items.music
                     create: false
                 });
 
@@ -170,7 +170,7 @@ $(document).ready ->
                     valueField: 'title',
                     labelField: 'title',
                     searchField: 'title',
-                    options: gon.select_read
+                    options: gon.select_profile_edit_items.read
                     create: false
                 });
 
@@ -180,7 +180,7 @@ $(document).ready ->
                     valueField: 'title',
                     labelField: 'title',
                     searchField: 'title',
-                    options: gon.select_dress
+                    options: gon.select_profile_edit_items.dress
                     create: false
                 });
 
@@ -190,7 +190,7 @@ $(document).ready ->
                     valueField: 'title',
                     labelField: 'title',
                     searchField: 'title',
-                    options: gon.select_tv
+                    options: gon.select_profile_edit_items.tv
                     create: false
                 });
 
@@ -200,8 +200,12 @@ $(document).ready ->
                     valueField: 'title',
                     labelField: 'title',
                     searchField: 'title',
-                    options: gon.select_movie
+                    options: gon.select_profile_edit_items.movie
                     create: false
+                    render:
+                      option: (item, escape) ->
+                        '<div><i class="icon-search"></i> '+item.title+'</div>'
+
                 });
 
   select_sport = $('#select-sport').selectize({
@@ -210,7 +214,7 @@ $(document).ready ->
                     valueField: 'title',
                     labelField: 'title',
                     searchField: 'title',
-                    options: gon.select_sport
+                    options: gon.select_profile_edit_items.sport
                     create: false
                 });
 
@@ -220,7 +224,7 @@ $(document).ready ->
                     valueField: 'title',
                     labelField: 'title',
                     searchField: 'title',
-                    options: gon.select_cuisine
+                    options: gon.select_profile_edit_items.cuisine
                     create: false
                 });
 
@@ -230,6 +234,6 @@ $(document).ready ->
                     valueField: 'title',
                     labelField: 'title',
                     searchField: 'title',
-                    options: gon.select_vacation
+                    options: gon.select_profile_edit_items.vacation
                     create: false
                 });
