@@ -47,26 +47,26 @@ ActiveRecord::Schema.define(version: 20140126021927) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "about"
-    t.string   "height",         limit: 8
-    t.string   "age",            limit: 4
-    t.string   "marital_status", limit: 32
-    t.string   "country",        limit: 64
-    t.string   "city",           limit: 64
-    t.string   "religion",       limit: 64,  default: ""
-    t.string   "caste",          limit: 64
-    t.string   "mother_toungue", limit: 64
-    t.string   "manglik",        limit: 32
-    t.string   "diet",           limit: 64
-    t.string   "smoke",          limit: 32
-    t.string   "drink",          limit: 32
-    t.string   "complexion",     limit: 64
-    t.string   "body",           limit: 32
-    t.string   "challenged",     limit: 4
-    t.string   "education",      limit: 128
-    t.string   "occupation",     limit: 128
-    t.string   "income",         limit: 64
-    t.text     "notes"
+    t.text     "desired_about"
+    t.string   "desired_height",         limit: 8
+    t.string   "desired_age",            limit: 4
+    t.string   "desired_marital_status", limit: 32
+    t.string   "desired_country",        limit: 64
+    t.string   "desired_city",           limit: 64
+    t.string   "desired_religion",       limit: 64,  default: ""
+    t.string   "desired_caste",          limit: 64
+    t.string   "desired_mother_tongue",  limit: 64
+    t.string   "desired_manglik",        limit: 32
+    t.string   "desired_diet",           limit: 64
+    t.string   "desired_smoke",          limit: 32
+    t.string   "desired_drink",          limit: 32
+    t.string   "desired_complexion",     limit: 64
+    t.string   "desired_body",           limit: 32
+    t.string   "desired_challenged",     limit: 4
+    t.string   "desired_education",      limit: 128
+    t.string   "desired_occupation",     limit: 128
+    t.string   "desired_income",         limit: 64
+    t.text     "desired_notes"
   end
 
   create_table "educations", force: true do |t|
@@ -147,7 +147,7 @@ ActiveRecord::Schema.define(version: 20140126021927) do
     t.string   "challenged", limit: 4
     t.string   "blood",      limit: 4
     t.string   "weight",     limit: 4
-    t.string   "residense",  limit: 64
+    t.string   "residence",  limit: 64
     t.string   "own_house",  limit: 64
     t.string   "own_car",    limit: 64
     t.string   "language",   limit: 128, default: ""
