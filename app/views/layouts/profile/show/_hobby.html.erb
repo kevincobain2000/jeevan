@@ -1,0 +1,25 @@
+<div class="span6 feature">
+  <div class="img">
+    <%= image_tag("features-ico6.png") %>
+  </div>
+  <div class="text">
+    <h6>db:hobbies</h6>
+    <div class="form">
+      <%= form_tag({:action=>'modify_hobby'}, {:remote => true}) do %>
+        <input id="select-hobby" name="hobby" value="Inception,Dark" class="selectized">
+        <input id="select-music" name="music" value="Inception,Dark" class="selectized">
+        <input id="select-interest" name="interest" value="Inception,Dark" class="selectized">
+        <input id="select-read" name="read" value="Inception,Dark" class="selectized">
+        <input id="select-dress" name="dress" value="Inception,Dark" class="selectized">
+        <input id="select-tv" name="tv" value="Inception,Dark" class="selectized">
+        Movie
+        <input id="select-movie" name="movie" value="Inception,Dark" class="selectized">
+        <input id="select-sport" name="sport" value="Inception,Dark" class="selectized">
+        <input id="select-cuisine" name="cuisine" value="Inception,Dark" class="selectized">
+        <input id="select-vacation" name="vacation" value="Inception,Dark" class="selectized">
+        <legend></legend>
+        <%= submit_tag "Save", class: 'btn btn-success pull-right pull-right' %>
+      <% end %>
+    </div>
+  </div>
+</div>
