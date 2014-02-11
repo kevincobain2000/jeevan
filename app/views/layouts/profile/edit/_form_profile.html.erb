@@ -7,25 +7,17 @@
     <div class="form">
       <%= form_tag({:action=>'modify_profile'}, {:remote => true}) do %>
         <legend>Gender</legend>
-        <%= radio_button_tag(:sex, "Male") %>
-        Male
-        <%= radio_button_tag(:sex, "Female") %>
-        Female
+        <% [ 'Male', 'Female' ].each do |sex| %>
+            <%= radio_button_tag(:sex, sex) %> <%= sex %>
+        <% end %>
         <legend>Marital Status</legend>
-        <%= radio_button_tag(:marital_status, "Never Married") %>
-        Never Married
-        <%= radio_button_tag(:marital_status, "Divorced") %>
-        Divorced
+        <% [ 'Never Married', 'Divorced' ].each do |marital_status| %>
+            <%= radio_button_tag(:marital_status, marital_status) %> <%= marital_status %>
+        <% end %>
         <legend>Posted By</legend>
-        <%= radio_button_tag(:posted_by, "Self") %>
-        Self
-        <%= radio_button_tag(:posted_by, "Parents")%>
-        Parents
-        <%= radio_button_tag(:posted_by, "Friend") %>
-        Friend
-        <%= radio_button_tag(:posted_by, "relative") %>
-        Relative
-        <!-- <input type="text" data-behaviour='datepicker' value="02/25/1985" style="width:200px;" required > -->
+        <% [ 'Self', 'Parents', 'Friend', 'Relative' ].each do |posted_by| %>
+            <%= radio_button_tag(:posted_by, posted_by) %> <%= posted_by %>
+        <% end %>
         <legend></legend>
         <%= submit_tag "Save", class: 'btn btn-success pull-right' %>
       <% end %>
