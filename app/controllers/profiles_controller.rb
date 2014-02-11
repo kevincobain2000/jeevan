@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_filter :initialize_tables, :visiting_user_id
+  before_filter :initialize_tables, :visiting_user_id, :load_gon
   before_filter :is_this_user_profile, only: [:edit]
   attr_accessor :profiles, :out_visitors, :in_visitors, :out_visitors,
   :in_interests, :out_interests, :visiting_user_id
@@ -66,8 +66,6 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    selectize_json_path = "#{Rails.root}/app/assets/json/selectize/profile/edit/"
-    gon.select_profile_edit_items = JSON.parse(File.read("#{selectize_json_path}items.json"))
   end
 
 
@@ -121,13 +119,19 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def load_gon
+    selectize_json_path = "#{Rails.root}/app/assets/json/selectize/profile/edit/"
+    gon.select_profile_edit_items = JSON.parse(File.read("#{selectize_json_path}items.json"))
+  end
+
   # for editing profile
   def is_this_user_profile
     if (current_user.profile.id != params[:id].to_i)
       redirect_to(profiles_path)
     end
   end
-
+  
+  private
   def profile_params
     params.permit(Profile.columns.map {|c| c.name })
   end
