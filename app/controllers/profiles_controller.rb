@@ -52,6 +52,18 @@ class ProfilesController < ApplicationController
   def modify_hobby
     current_user.hobby.update(hobby_params)
   end
+  def modify_family
+    current_user.family.update(family_params)
+  end
+  def modify_education
+    current_user.education.update(education_params)
+  end
+  def modify_lifestyle
+    current_user.lifestyle.update(lifestyle_params)
+  end
+  def modify_desire
+    current_user.desire.update(desire_params)
+  end
 
   def edit
     selectize_json_path = "#{Rails.root}/app/assets/json/selectize/profile/edit/"
@@ -112,7 +124,6 @@ class ProfilesController < ApplicationController
   # for editing profile
   def is_this_user_profile
     if (current_user.profile.id != params[:id].to_i)
-      @abc = "this"
       redirect_to(profiles_path)
     end
   end
@@ -134,5 +145,17 @@ class ProfilesController < ApplicationController
   end
   def hobby_params
     params.permit(Hobby.columns.map {|c| c.name })
+  end
+  def family_params
+    params.permit(Family.columns.map {|c| c.name })
+  end
+  def education_params
+    params.permit(Education.columns.map {|c| c.name })
+  end
+  def lifestyle_params
+    params.permit(Lifestyle.columns.map {|c| c.name })
+  end
+  def desire_params
+    params.permit(Desire.columns.map {|c| c.name })
   end
 end
