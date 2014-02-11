@@ -39,6 +39,33 @@ $(document).ready ->
                     sport:true
                     cuisine:true
                     vacation:true
+                    income:true
+                    father:true
+                    mother:true
+                    brother:true
+                    sister:true
+                    profile_handler:true
+                    school:true
+                    grad_college:true
+                    grad:true
+                    post_grad:true
+                    highest_degree:
+                      maxItems: 10
+                      create:true
+                    blood:true
+                    weight:true
+                    height:true
+                    residence:true
+                    desired_height:true
+                    desired_age:true
+                    desired_country:true
+                    desired_city:true
+                    desired_religion:true
+                    desired_caste:true
+                    desired_mother_tongue:true
+                    desired_education:true
+                    desired_occupation:true
+                    desired_income:true
 
   for name, options of selectize_items
     css_id = name.replace /_/g, "-"
@@ -49,4 +76,7 @@ $(document).ready ->
                     searchField: if options.searchField then options.searchField else "title",
                     options: gon.select_profile_edit_items[name]
                     create: if options.create then options.create else false,
+                    render:
+                      option: (item, escape) ->
+                        '<div><i class="icon-plus"></i> '+item.title+'</div>'
     });
