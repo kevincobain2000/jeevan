@@ -2,11 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).ready ->
-  $(".typeahead").typeahead
-    name: "planets"
-    local: ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"]
-
+$(document).on "page:change", ->
   $("[data-behaviour~=datepicker]").datepicker()
   $('.timepicker').timepicker();
   $('textarea').autosize();
