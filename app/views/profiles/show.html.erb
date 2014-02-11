@@ -1,20 +1,41 @@
+<div id="portfolio_tem">
+  <div class="container">
+    <div class="section_header">
+      <h2>If Me then "My Profile" else Profile of User</h2>
+    </div>
+    <%= render :partial => 'layouts/profile/show/image'%>
+    <%= render :partial => 'layouts/profile/show/info'%>
+  </div>
+</div>
+<!-- User Saved Profile Starts -->
+<div id="features" class="features_page">
+  <div class="container">
+    <div class="feature_wrapper option3">
+      <div class="section_header">
+        <h2>Features
+          <small>(Option 3)</small></h2>
+      </div>
+      <div class="row">
+        <%= render :partial => 'layouts/profile/show/profile'%>
+        <%= render :partial => 'layouts/profile/show/contact'%>
+        <%= render :partial => 'layouts/profile/show/about'%>
+        <%= render :partial => 'layouts/profile/show/religion'%>
+        <%= render :partial => 'layouts/profile/show/kundali'%>
+        <%= render :partial => 'layouts/profile/show/hobby'%>
+        <%= render :partial => 'layouts/profile/show/family'%>
+        <%= render :partial => 'layouts/profile/show/education'%>
+        <%= render :partial => 'layouts/profile/show/lifestyle'%>
+        <%= render :partial => 'layouts/profile/show/desire'%>
+      </div>
+    </div>
+  </div>
+</div>
 profiles/show
-
 <br>
-
-Current user <%= current_user.profile.inspect %>
+Current user
+<%= current_user.profile.inspect %>
 <br>
-<h2>Showing User </h2>
-
-Showing User <%= @showing_user.inspect %>
-
-
-<!-- Show visitors of this profile owner -->
-
-<br>
-<h1>Is this is the user profile ?</h1>
-
-<%= @is_owner.inspect %>
-
-
-<%= link_to 'Back', profiles_path %>
+<h2>Showing User
+</h2>
+Showing User
+<%= @showing_user.inspect %>
