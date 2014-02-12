@@ -39,6 +39,31 @@ gem "parsley-rails"
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+# TODO
+# error notifier
+# gem 'exception_notification'
+
+# To manage developer specific config files
+# gem "rails_config"
+
+# Debugging tools
+group :development do
+  # Pretty error screen
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  # Use pry not irb by `rails console`
+  # Do `gem install pry` on your environment
+  gem 'pry-rails'
+  # Turn off the Rails asset pipeline log
+  gem 'quiet_assets'
+  # Make it easy to check the value
+  gem 'tapp'
+  gem 'awesome_print'
+end
+
+group :test do
+end
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
