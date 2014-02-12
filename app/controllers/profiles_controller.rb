@@ -32,7 +32,7 @@ class ProfilesController < ApplicationController
 #=====================================
   # After the save on edit is pressed
   def modify_profile
-    current_user.profile.update(profile_params)
+    logger.info("Debug #{profile_params}")
   end
   def modify_contact
     current_user.contact.update(contact_params)
@@ -130,10 +130,12 @@ class ProfilesController < ApplicationController
       redirect_to(profiles_path)
     end
   end
-  
+
   private
   def profile_params
-    params.permit(Profile.columns.map {|c| c.name })
+    cols = Profile.columns.map {|c| c.name }
+    cols << "avatar"
+    params.permit(cols)
   end
   def contact_params
     params.permit(Contact.columns.map {|c| c.name })
