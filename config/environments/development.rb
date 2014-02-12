@@ -27,3 +27,8 @@ Jeevan::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 end
+
+Tapp.configure do |config|
+  config.default_printer = :awesome_print
+  config.report_caller   = true
+end
