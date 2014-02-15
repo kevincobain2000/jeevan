@@ -7,6 +7,7 @@ class ProfilesController < ApplicationController
   # GET /profiles
   def index
     @profiles = Profile.all
+    @images = current_user.images.all
     @out_visitors = current_user.visitors
     @in_visitors = Visitor.where(viewed_id: current_user.id)
 
@@ -32,7 +33,11 @@ class ProfilesController < ApplicationController
 #=====================================
   # After the save on edit is pressed
   def modify_profile
-    logger.info("Debug #{profile_params}")
+    current_user.profile.update(profile_params)
+  end
+  def modify_image
+    logger.info("Debug modify_images")
+    current_user.images.create(image_params)
   end
   def modify_contact
     current_user.contact.update(contact_params)
@@ -133,9 +138,10 @@ class ProfilesController < ApplicationController
 
   private
   def profile_params
-    cols = Profile.columns.map {|c| c.name }
-    cols << "avatar"
-    params.permit(cols)
+    params.permit(Profile.columns.map {|c| c.name })
+  end
+  def image_params
+    params.permit("avatar")
   end
   def contact_params
     params.permit(Contact.columns.map {|c| c.name })

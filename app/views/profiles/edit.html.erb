@@ -5,10 +5,8 @@
     </div>
     <%= render :partial => 'layouts/profile/edit/form_image'%>
     <%= render :partial => 'layouts/profile/edit/form_info'%>
-    <%= form_tag({:action=>'modify_profile'}, { :multipart => true, :remote => true }) do %>
+    <%= form_tag({:action=>'modify_image'}, { :multipart => true, :remote => true }) do %>
       <%= file_field_tag(:avatar) %>
-      <input type="hidden" name="one" value="xx" placeholder="">
-      <input type="hidden" name="two" value="nn" placeholder="">
       <%= submit_tag "Save", class: 'btn btn-success pull-right' %>
     <% end %>
   </div>
