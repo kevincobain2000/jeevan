@@ -21,6 +21,7 @@ gem 'gon'
 gem 'paperclip', "~> 3.0"
 gem 'remotipart', '~> 1.2'
 gem 'dropzonejs-rails'
+gem 'jquery-inputmask-rails'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
