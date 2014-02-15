@@ -1,0 +1,94 @@
+religion:
+  -
+    title: "Cristian"
+    description: "Jesus save me"
+  -
+    title: "Buddhist"
+    description: "Be a skinhead"
+  -
+    title: "Hindi"
+    description: "Swim in Ganges"
+
+movie:
+  -
+    id: 1
+    title: "Inception"
+    image-url: ""
+    thumbnail-url: ""
+  -
+    id: 2
+    title: "एक था टाइगर"
+    image-url: "http://upload.wikimedia.org/wikipedia/hi/2/2d/Ek_Tha_Tiger_theatrical_poster.jpg"
+  -
+    id: 3
+    title: "七人の侍"
+    image-url: "http://www.toptenz.net/wp-content/uploads/2011/05/seven_samurai-533x400.jpg"
+
+best_time_f:
+  -
+    id:
+    title: ""
+  -
+    title: ""
+
+best_time_t:
+  -
+    title: ""
+  -
+    title: ""
+
+mother_tongue:
+  -
+    title: ""
+  -
+    title: ""
+
+caste:
+  -
+    title: ""
+  -
+    title: ""
+
+sub_caste:
+  -
+    title: ""
+  -
+    title: ""
+
+native_place:
+  -
+    title: ""
+  -
+    title: ""
+
+birth_country:
+
+birth_city:
+
+tob:
+
+manglik:
+
+sun_sign:
+
+moon_sign:
+
+nakshatra:
+
+hobby:
+
+music:
+
+interest:
+
+read:
+
+dress:
+
+tv:
+
+sport:
+
+cuisine:
+
+vacation:
