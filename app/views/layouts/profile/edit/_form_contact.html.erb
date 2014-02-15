@@ -1,24 +1,38 @@
 <div class="span6 feature">
   <div class="img">
-    <%= image_tag("features-ico5.png") %>
+    <h4>Contact Details</h3>
+    <small>Private. Contact details are only shown when you accept an interest</small>
   </div>
   <div class="text">
-    <h6>db: Contact</h6>
-    <div class="row form">
+    <div class="form">
       <%= form_tag({:action=>'modify_contact'}, {:remote=>true}) do %>
-        <legend>Telephone Numbers</legend>
-        <input name="mother_no" type="text" placeholder="Mother (required)">
-        <input name="father_no" type="text" placeholder="Father (required)">
-        <input name="self_no" type="text" placeholder="Self (required)">
-        <legend>Best Time to Contact</legend>
+        <h5>Mother</h5>
+        <div class="input-prepend">
+          <span class="add-on"><i class="icon-phone"></i></span>
+        <input name="mother_no" class="phone" type="text" placeholder="+81-999-999-999" value="<%= @user[:contact][:mother_no] %>">
+        </div>
+        <h5>Father</h5>
+        <div class="input-prepend">
+          <span class="add-on"><i class="icon-phone"></i></span>
+        <input name="father_no" class="phone" type="text" placeholder="+81-999-999-999" value="<%= @user[:contact][:father_no] %>">
+        </div>
+        <h5>Bride/Groom</h5>
+        <div class="input-prepend">
+          <span class="add-on"><i class="icon-phone"></i></span>
+        <input name="self_no" class="phone" type="text" required="true" placeholder="+81-999-999-999" value="<%= @user[:contact][:self_no] %>">
+        </div>
+<!--         <h5>Best Time to Contact</h5>
         From
         <select id="select-best-time-f" name="best_time_f" value="00:00 AM" class="selectized"></select>
         To
         <select id="select-best-time-t" name="best_time_t" value="00:00 AM" class="selectized"></select>
-        <legend>Address</legend>
+ -->        <legend></legend>
+        <h5><i class="icon-home"></i> Address</h5>
         <textarea name="address" style="height:75px;width:100%;font-weight:bold;" placeholder="Address"></textarea>
         <legend></legend>
-        <%= submit_tag "Save", class: 'btn btn-success pull-right' %>
+        <button type="submit" class="btn btn-success pull-right disabled">
+          Save
+        </button>
       <% end %>
     </div>
   </div>
