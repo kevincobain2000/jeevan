@@ -36,6 +36,7 @@ class ProfilesController < ApplicationController
     current_user.profile.update(profile_params)
   end
   def modify_image
+    @var = "Now"
     logger.info("Debug modify_images")
     logger.info("Debug Params #{params}")
     logger.info("Debug Image Params #{image_params.inspect}")
