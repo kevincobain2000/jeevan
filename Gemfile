@@ -18,6 +18,9 @@ gem 'bootstrap-datepicker-rails'
 gem 'bootstrap-timepicker-rails'
 gem "selectize-rails"
 gem 'gon'
+gem 'paperclip', "~> 3.0"
+gem 'remotipart', '~> 1.2'
+gem 'dropzonejs-rails'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
