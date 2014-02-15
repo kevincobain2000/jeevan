@@ -5,10 +5,14 @@
     </div>
     <%= render :partial => 'layouts/profile/edit/form_image'%>
     <%= render :partial => 'layouts/profile/edit/form_info'%>
-    <%= form_tag({:action=>'modify_image'}, { :multipart => true, :remote => true }) do %>
-      <%= file_field_tag(:avatar) %>
+
+
+    <%= form_tag({:action=>'modify_image'}, {:authenticity_token => true, :multipart => true, :remote => true, :class => 'dropzone', :id => 'my-dropzone'}) do %>
+    	<%#= file_field_tag(:avatar, {:class => 'dropzone', :id => 'dropzone'}) %>
       <%= submit_tag "Save", class: 'btn btn-success pull-right' %>
     <% end %>
+
+
   </div>
 </div>
 <div id="features" class="features_page">
