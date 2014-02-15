@@ -37,7 +37,10 @@ class ProfilesController < ApplicationController
   end
   def modify_image
     logger.info("Debug modify_images")
+    logger.info("Debug Params #{params}")
+    logger.info("Debug Image Params #{image_params.inspect}")
     current_user.images.create(image_params)
+    render json: { :ok => true }
   end
   def modify_contact
     current_user.contact.update(contact_params)

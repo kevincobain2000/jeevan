@@ -76,3 +76,29 @@ $(document).on "page:change", ->
                       option: (item, escape) ->
                         '<div><i class="icon-plus"></i> '+item.title+'</div>'
     });
+
+
+
+    Dropzone.options.myDropzone =
+        paramName: "avatar"
+        maxFilesize: 2 #mb
+        addRemoveLinks: true
+        init: ->
+            @on 'addedfile', (file) ->
+                console.log("yaya")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
