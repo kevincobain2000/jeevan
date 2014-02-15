@@ -77,15 +77,14 @@ $(document).on "page:change", ->
                         '<div><i class="icon-plus"></i> '+item.title+'</div>'
     });
 
-
-
-    Dropzone.options.myDropzone =
-        paramName: "avatar"
-        maxFilesize: 2 #mb
-        addRemoveLinks: true
-        init: ->
-            @on 'addedfile', (file) ->
-                console.log("yaya")
+  Dropzone.options.myDropzone =
+    dictDefaultMessage: '<div class="hero" style="height:200px;"><h2>Drag & Drop</h2><p>or click to upload images</p></div>'
+    paramName: "avatar"
+    maxFilesize: 2 #mb
+    addRemoveLinks: false
+    init: ->
+      @on 'addedfile', (file) ->
+        console.log("Added File")
 
 
 
