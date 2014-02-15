@@ -1,18 +1,18 @@
 <div class="span6 feature">
   <div class="img">
-    <%= image_tag("features-ico7.png") %>
+    <h4>Religion</h3>
   </div>
   <div class="text">
-    <h6>Something About..db: about</h6>
     <div class="form">
       <%= form_tag({:action=>'modify_about'}, {:remote => true, "parsley-validate" => ""}) do %>
         <% about_me = { me: "About Me", family: "About My Family", work: "About my Work", education: "About my Education", future: "My Future Plans" } %>
         <% about_me.each do |key, value| %>
-          <legend><%= value %></legend>
-          <textarea name="<%= key%>" style="height:75px;width:100%;font-weight:bold;" placeholder="Preloaded text" parsley-trigger="keyup" parsley-rangelength="[10,5000]"></textarea>
+          <h5><%= value %> </h5>
+          <textarea name="<%= key%>" style="height:75px;width:100%;font-weight:bold;" placeholder="Write something <%= value %> ..." parsley-trigger="keyup" parsley-maxlength="500"><%= @user[:about][key] %></textarea>
         <% end %>
-        <legend></legend>
-        <%= submit_tag "Save", class: 'btn btn-success pull-right' %>
+        <button type="submit" class="btn btn-success pull-right">
+          Save
+        </button>
       <% end %>
     </div>
   </div>

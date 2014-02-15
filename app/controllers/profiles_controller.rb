@@ -41,41 +41,49 @@ class ProfilesController < ApplicationController
     render json: { :status => 200 }
   end
   def modify_contact
+    logger.info("Debug #{contact_params}")
     current_user.contact.update(contact_params)
     render json: { :status => 200 }
   end
   def modify_religion
     current_user.religion.update(religion_params)
-  end
-  def modify_religion
-    current_user.religion.update(religion_params)
+    render json: { :status => 200 }
   end
   def modify_kundali
     current_user.kundali.update(kundali_params)
+    render json: { :status => 200 }
   end
   def modify_about
     current_user.about.update(about_params)
+    render json: { :status => 200 }
   end
   def modify_hobby
     current_user.hobby.update(hobby_params)
+    render json: { :status => 200 }
   end
   def modify_family
     current_user.family.update(family_params)
+    render json: { :status => 200 }
   end
   def modify_education
     current_user.education.update(education_params)
+    render json: { :status => 200 }
   end
   def modify_lifestyle
     current_user.lifestyle.update(lifestyle_params)
+    render json: { :status => 200 }
   end
   def modify_desire
     current_user.desire.update(desire_params)
+    render json: { :status => 200 }
   end
 
   def edit
     @user = {}
     @user[:profile] = current_user.profile
     @user[:contact] = current_user.contact
+    @user[:about] = current_user.about
+    @user[:religion] = current_user.religion
   end
 
 
