@@ -1,4 +1,8 @@
 profiles/index
+<% @images.each do |image| %>
+  <%= image_tag image.avatar.url(:thumb) %>
+<% end %>
+
 <h3>Current user:
   <%= current_user.id %></h3> Last Active:
   <%= time_ago_in_words(current_user.updated_at) %>
