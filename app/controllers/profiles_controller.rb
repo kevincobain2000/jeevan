@@ -32,19 +32,17 @@ class ProfilesController < ApplicationController
 #            Edit Profile Page       =
 #=====================================
   # After the save on edit is pressed
+  def modify_image
+    current_user.images.create(image_params)
+    render json: { :status => 200 }
+  end
   def modify_profile
     current_user.profile.update(profile_params)
-  end
-  def modify_image
-    @var = "Now"
-    logger.info("Debug modify_images")
-    logger.info("Debug Params #{params}")
-    logger.info("Debug Image Params #{image_params.inspect}")
-    current_user.images.create(image_params)
-    render json: { :ok => true }
+    render json: { :status => 200 }
   end
   def modify_contact
     current_user.contact.update(contact_params)
+    render json: { :status => 200 }
   end
   def modify_religion
     current_user.religion.update(religion_params)
@@ -75,6 +73,9 @@ class ProfilesController < ApplicationController
   end
 
   def edit
+    @user = {}
+    @user[:profile] = current_user.profile
+    @user[:contact] = current_user.contact
   end
 
 
@@ -95,9 +96,7 @@ class ProfilesController < ApplicationController
   # When accept or reject button is clicked
   def interest_response
     commit = params[:commit]
-
     interest = User.find(params[:from_user_id]).interests.where(:to_user_id => current_user.id).first
-
     if commit == "Accept"
       interest.update(:response => 1)
     else
@@ -124,7 +123,7 @@ class ProfilesController < ApplicationController
 
   def visiting_user_id
     if params[:id]
-      @visiting_user_id = Profile.find(params[:id]).user_id
+      # @visiting_user_id = Profile.where(params[:id]).user_id
     end
   end
 
@@ -141,11 +140,11 @@ class ProfilesController < ApplicationController
   end
 
   private
-  def profile_params
-    params.permit(Profile.columns.map {|c| c.name })
-  end
   def image_params
     params.permit("avatar")
+  end
+  def profile_params
+    params.permit(Profile.columns.map {|c| c.name })
   end
   def contact_params
     params.permit(Contact.columns.map {|c| c.name })
