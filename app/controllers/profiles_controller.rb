@@ -129,8 +129,8 @@ class ProfilesController < ApplicationController
   end
 
   def load_gon
-    selectize_json_path = "#{Rails.root}/app/assets/json/selectize/profile/edit/"
-    gon.select_profile_edit_items = JSON.parse(File.read("#{selectize_json_path}items.json"))
+    selectize_yml_path = "#{Rails.root}/app/assets/yaml/selectize/profile/edit/items.yml"
+    gon.select_profile_edit_items = YAML.load_file(selectize_yml_path)
   end
 
   # for editing profile
