@@ -86,14 +86,6 @@ $(document).on "page:change", ->
       @on 'addedfile', (file) ->
         console.log("Added File")
 
-
-  $("form").bind "keyup change", (e) ->
-    $(this).children().last().removeClass('disabled')
-    $(this).children().last().text('Save')
-  $("button:submit").click ->
-    $(this).addClass('disabled')
-    $(this).text('Saved')
-
   $(".phone").inputmask("mask", {"mask": "(999) 999-9999-999"});
 
 
