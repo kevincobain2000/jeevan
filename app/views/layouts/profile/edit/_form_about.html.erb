@@ -4,7 +4,7 @@
   </div>
   <div class="text">
     <h6>Something About..db: about</h6>
-    <div class="row form">
+    <div class="form">
       <%= form_tag({:action=>'modify_about'}, {:remote => true, "parsley-validate" => ""}) do %>
         <% about_me = { me: "About Me", family: "About My Family", work: "About my Work", education: "About my Education", future: "My Future Plans" } %>
         <% about_me.each do |key, value| %>

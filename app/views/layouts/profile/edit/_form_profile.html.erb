@@ -1,25 +1,35 @@
 <div class="span6 feature">
   <div class="img">
-    <%= image_tag("features-ico6.png") %>
+    <h4>Basic Information</h3>
+    <%= image_tag("features-ico7.png") %>
   </div>
   <div class="text">
-    <h6>db:profiles</h6>
     <div class="form">
       <%= form_tag({:action=>'modify_profile'}, {:remote => true}) do %>
-        <legend>Gender</legend>
+        <h5>Gender*
+          <small>(required)</small></h5>
         <% [ 'Male', 'Female' ].each do |sex| %>
-            <%= radio_button_tag(:sex, sex) %> <%= sex %>
-        <% end %>
-        <legend>Marital Status</legend>
-        <% [ 'Never Married', 'Divorced' ].each do |marital_status| %>
-            <%= radio_button_tag(:marital_status, marital_status) %> <%= marital_status %>
-        <% end %>
-        <legend>Posted By</legend>
-        <% [ 'Self', 'Parents', 'Friend', 'Relative' ].each do |posted_by| %>
-            <%= radio_button_tag(:posted_by, posted_by) %> <%= posted_by %>
+          <%= radio_button_tag(:sex, sex, (@user[:profile][:sex] == sex), :required => true) %>
+          <%= sex %>
+          <br>
         <% end %>
         <legend></legend>
-        <%= submit_tag "Save", class: 'btn btn-success pull-right' %>
+        <h5>Marital Status</h5>
+        <% [ 'Never Married', 'Divorced' ].each do |marital_status| %>
+          <%= radio_button_tag(:marital_status, marital_status, (@user[:profile][:marital_status] == marital_status)) %>
+          <%= marital_status %>
+          <br>
+        <% end %>
+        <legend></legend>
+        <h5>Posted By</h5>
+        <% [ 'Self', 'Parents', 'Friend', 'Relative' ].each do |posted_by| %>
+          <%= radio_button_tag(:posted_by, posted_by, (@user[:profile][:posted_by] == posted_by)) %>
+          <%= posted_by %>
+          <br>
+        <% end %>
+        <button type="submit" class="btn btn-success pull-right disabled">
+          Save
+        </button>
       <% end %>
     </div>
   </div>
