@@ -20,3 +20,4 @@
 //= require bootstrap-timepicker
 //= require parsley.extend
 //= require selectize
+//= require jquery.remotipart
