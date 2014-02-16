@@ -72,7 +72,7 @@ cuisine:
 vacation:
   -
     title: "First Entry"
-income:
+family_income:
   -
     title: "First Entry"
 father:
@@ -87,22 +87,25 @@ brother:
 sister:
   -
     title: "First Entry"
-profile_hndler:
+profile_handler:
   -
     title: "First Entry"
 school:
   -
     title: "First Entry"
-grad_schol:
+grad_school:
+  -
+    title: "First Entry"
+grad_college:
   -
     title: "First Entry"
 grad:
   -
     title: "First Entry"
-post_grd:
+post_grad:
   -
     title: "First Entry"
-highest_degre:
+highest_degree:
   -
     title: "First Entry"
 residence:
@@ -135,7 +138,7 @@ desired_religion:
 desired_caste:
   -
     title: "First Entry"
-mother_tongue:
+desired_mother_tongue:
   -
     title: "First Entry"
 desired_education:

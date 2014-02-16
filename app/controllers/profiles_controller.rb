@@ -84,6 +84,10 @@ class ProfilesController < ApplicationController
     @user[:contact] = current_user.contact
     @user[:about] = current_user.about
     @user[:religion] = current_user.religion
+    @user[:kundali] = current_user.kundali
+    @user[:family] = current_user.family
+    @user[:hobby] = current_user.hobby
+    @user[:education] = current_user.education
   end
 
 
