@@ -6,7 +6,7 @@
     <div class="form">
       <%= form_tag({:action=>'modify_profile'}, {:remote => true}) do %>
         <h5>Marital Status</h5>
-        <% [ 'Never Married', 'Divorced' ].each do |marital_status| %>
+        <% [ 'Never Married', 'Divorced', 'Widowed' ].each do |marital_status| %>
           <%= radio_button_tag(:marital_status, marital_status, (@user[:profile][:marital_status] == marital_status)) %>
           <%= marital_status %>
           <br>
