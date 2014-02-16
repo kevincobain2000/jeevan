@@ -5,30 +5,32 @@
   <div class="text">
     <div class="form">
       <%= form_tag({:action=>'modify_family'}, {:remote => true}) do %>
-
-      <h5>Values</h5>
+        <h5>Values</h5>
         <% [ 'Liberal', 'Hypocrite' ].each do |values| %>
-            <%= radio_button_tag(:values, values, @user[:family][:values] == values) %> <%= values %>
-            <br>
+          <%= radio_button_tag(:values, values, @user[:family][:values] == values) %>
+          <%= values %>
+          <br>
         <% end %>
         <h5>Family Type</h5>
         <% [ 'Nuclear', 'Hypocrite' ].each do |size| %>
-            <%= radio_button_tag(:size, size, @user[:family][:size] == size) %> <%= size %>
-            <br>
+          <%= radio_button_tag(:size, size, @user[:family][:size] == size) %>
+          <%= size %>
+          <br>
         <% end %>
         <h5>Status</h5>
         <% [ 'Rich', 'Middle' ].each do |status| %>
-            <%= radio_button_tag(:status, status, @user[:family][:status] == status) %> <%= status %>
-            <br>
+          <%= radio_button_tag(:status, status, @user[:family][:status] == status) %>
+          <%= status %>
+          <br>
         <% end %>
-
         <% categories = ["family_income", "father", "mother", "brother", "sister", "profile_handler"] %>
         <% categories.each do |category| %>
           <h5>
             <% heading = category.sub "_", " " %>
-            <%= heading.capitalize %> <small>(pick one)</small></h5>
+            <%= heading.capitalize %>
+            <small>(pick one)</small></h5>
           <% id = category.sub "_", "-" %>
-      <input id="select-<%= id %>" name="<%= category %>" value="<%=@user[:family][category] %>" class="selectized">
+          <input id="select-<%= id %>" name="<%= category %>" value="<%=@user[:family][category] %>" class="selectized">
         <% end %>
         <button type="submit" class="btn btn-success pull-left">
           Save
