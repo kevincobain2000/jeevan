@@ -77,10 +77,7 @@ $(document).on "page:change", ->
                     grad_college:true
                     grad:true
                     post_grad:true
-                    highest_degree:
-                      maxItems: 10
-                      create:true
-                      plugins: ['remove_button', 'restore_on_backspace']
+                    highest_degree:true
                     blood:true
                     weight:true
                     height:true

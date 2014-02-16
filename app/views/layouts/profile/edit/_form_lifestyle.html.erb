@@ -1,53 +1,71 @@
 <div class="span6 feature">
   <div class="img">
-    <%= image_tag("features-ico6.png") %>
+    <h4>Lifestyle</h4>
   </div>
   <div class="text">
-    <h6>db:lifestyle</h6>
     <div class="form">
       <%= form_tag({:action=>'modify_lifestyle'}, {:remote => true}) do %>
-        <legend>Diet</legend>
+        <h5>Diet</h5>
         <% [ 'Veg', 'Non Veg' ].each do |diet| %>
           <%= radio_button_tag(:diet, diet) %>
           <%= diet %>
+          <br>
         <% end %>
-        <legend>Smoke</legend>
+        <h5>Smoke</h5>
         <% [ 'Yes', 'No' ].each do |smoke| %>
           <%= radio_button_tag(:smoke, smoke) %>
           <%= smoke %>
+          <br>
         <% end %>
-        <legend>Drink</legend>
+        <h5>Drink</h5>
         <% [ 'Yes', 'No', 'Friend', 'Relative' ].each do |drink| %>
-          <%= radio_button_tag(:drink, drink) %>
+          <%= radio_button_tag(:drink, drink, (@user[:lifestyle][:drink] == drink)) %>
           <%= drink %>
+          <br>
         <% end %>
+        <h5>Complexion</h5>
         <% [ 'Yes', 'No', 'Friend', 'Relative' ].each do |complexion| %>
-          <%= radio_button_tag(:complexion, complexion) %>
+          <%= radio_button_tag(:complexion, complexion, (@user[:lifestyle][:complexion] == complexion)) %>
           <%= complexion %>
+          <br>
         <% end %>
-        <select id="select-blood" name="blood" value="A+" class="selectized"></select>
-          <select id="select-weight" name="weight" value="A+" class="selectized"></select>
-            <input id="select-height" name="height" value="A+" class="selectized">
-            <select id="select-residence" name="residence" value="A" class="selectized"></select>
-              <% [ 'Yes', 'No'].each do |own_house| %>
-                <%= radio_button_tag(:own_house, own_house) %>
-                <%= own_house %>
-              <% end %>
-              <% [ 'Yes', 'No'].each do |own_car| %>
-                <%= radio_button_tag(:own_car, own_car) %>
-                <%= own_car %>
-              <% end %>
-              <% [ 'Yes', 'No'].each do |pet| %>
-                <%= radio_button_tag(:pet, pet) %>
-                <%= pet %>
-              <% end %>
-              <% [ 'Yes', 'No'].each do |hiv| %>
-                <%= radio_button_tag(:hiv, hiv) %>
-                <%= hiv %>
-              <% end %>
-              <legend></legend>
-              <%= submit_tag "Save", class: 'btn btn-success pull-right' %>
-            <% end %>
-          </div>
-        </div>
-      </div>
+        <h5>Own House</h5>
+        <% [ 'Yes', 'No'].each do |own_house| %>
+          <%= radio_button_tag(:own_house, own_house, (@user[:lifestyle][:own_house] == own_house)) %>
+          <%= own_house %>
+          <br>
+        <% end %>
+        <h5>Own Car</h5>
+        <% [ 'Yes', 'No'].each do |own_car| %>
+          <%= radio_button_tag(:own_car, own_car, (@user[:lifestyle][:own_car] == own_car)) %>
+          <%= own_car %>
+          <br>
+        <% end %>
+        <h5>Own Pet</h5>
+        <% [ 'Yes', 'No'].each do |pet| %>
+          <%= radio_button_tag(:pet, pet, (@user[:lifestyle][:pet] == pet)) %>
+          <%= pet %>
+          <br>
+        <% end %>
+        <h5>HIV</h5>
+        <% [ 'Yes', 'No'].each do |hiv| %>
+          <%= radio_button_tag(:hiv, hiv, (@user[:lifestyle][:hiv] == hiv)) %>
+          <%= hiv %>
+          <br>
+        <% end %>
+        <% categories = ["blood", "weight", "height", "residence"] %>
+        <% categories.each do |category| %>
+          <% heading = category.sub "_", " " %>
+          <h5>
+            <%= heading.capitalize %>
+            <small>(pick one)</small></h5>
+          <% id = category.sub "_", "-" %>
+          <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:lifestyle][category] %>">
+        <% end %>
+        <button type="submit" class="btn btn-success pull-right">
+          Save
+        </button>
+      <% end %>
+    </div>
+  </div>
+</div>

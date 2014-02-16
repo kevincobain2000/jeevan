@@ -88,6 +88,8 @@ class ProfilesController < ApplicationController
     @user[:family] = current_user.family
     @user[:hobby] = current_user.hobby
     @user[:education] = current_user.education
+    @user[:lifestyle] = current_user.lifestyle
+    @user[:desire] = current_user.desire
   end
 
 
