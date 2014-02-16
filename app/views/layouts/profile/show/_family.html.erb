@@ -1,24 +1,23 @@
 <div class="span6 feature">
   <div class="img">
     <%= image_tag("features-ico3.png") %>
+    <h4>Families</h4>
   </div>
   <div class="text">
-    <h6>db:families</h6>
     <div class="form">
       <%= form_tag({:action=>'modify_family'}, {:remote => true}) do %>
-
         <% [ 'Liberal', 'Hypocrite' ].each do |values| %>
-            <%= radio_button_tag(:values, values) %> <%= values %>
+          <%= radio_button_tag(:values, values) %>
+          <%= values %>
         <% end %>
-
         <% [ 'Nuclear', 'Hypocrite' ].each do |type| %>
-            <%= radio_button_tag(:type, type) %> <%= type %>
+          <%= radio_button_tag(:type, type) %>
+          <%= type %>
         <% end %>
-
         <% [ 'Rich', 'Middle' ].each do |status| %>
-            <%= radio_button_tag(:status, status) %> <%= status %>
+          <%= radio_button_tag(:status, status) %>
+          <%= status %>
         <% end %>
-
         <input id="select-income" name="income" value="Inception,Dark" class="selectized">
         <input id="select-father" name="father" value="Inception,Dark" class="selectized">
         <input id="select-mother" name="mother" value="Inception,Dark" class="selectized">
