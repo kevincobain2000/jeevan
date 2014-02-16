@@ -10,7 +10,7 @@
           <% heading = category.sub "_", " " %>
           <h5>
             <%= heading.capitalize %>
-            <small>(pick one)</small></h5>
+            <small>(pick many)</small></h5>
           <% id = category.sub "_", "-" %>
           <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:hobby][category] %>">
         <% end %>

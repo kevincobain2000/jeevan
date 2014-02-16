@@ -1,56 +1,64 @@
 <div class="span6 feature">
   <div class="img">
+    <h4>Desires</h4>
     <%= image_tag("features-ico6.png") %>
   </div>
   <div class="text">
-    <h6>db:desires</h6>
     <div class="form">
       <%= form_tag({:action=>'modify_desire'}, {:remote => true, "parsley-validate" => ""}) do %>
-        <legend>Gender</legend>
-        <input id="select-desired-height" name="desired_height" value="A+" class="selectized"/>
-        <select id="select-desired-age" name="desired_age" value="A+" class="selectized"/>
-        <legend>Marital Status</legend>
+        <h5>Marital Status</h5>
         <% [ 'Never Married', 'Divorced' ].each do |desired_marital_status| %>
-          <%= radio_button_tag(:desired_marital_status, desired_marital_status) %>
+          <%= radio_button_tag(:desired_marital_status, desired_marital_status, (@user[:desire][:desired_marital_status] == desired_marital_status)) %>
           <%= desired_marital_status %>
+          <br>
         <% end %>
-        <select id="select-desired-country" name="desired_country" value="A+" class="selectized"/>
-        <select id="select-desired-city" name="desired_city" value="A+" class="selectized"/>
-        <select id="select-desired-religion" name="desired_religion" value="A+" class="selectized"/>
-        <select id="select-desired-caste" name="desired_caste" value="A+" class="selectized"/>
-        <select id="select-desired-mother-tongue" name="desired_mother_tongue" value="A+" class="selectized"/>
-        <select id="select-desired-education" name="desired_education" value="A+" class="selectized"/>
-        <select id="select-desired-occupation" name="desired_occupation" value="A+" class="selectized"/>
-        <select id="select-desired-income" name="desired_income" value="A+" class="selectized"/>
+        <h5>Manglik</h5>
         <% [ 'Yes', 'No' ].each do |desired_manglik| %>
-          <%= radio_button_tag(:desired_manglik, desired_manglik) %>
+          <%= radio_button_tag(:desired_manglik, desired_manglik, (@user[:desire][:desired_manglik] == desired_manglik)) %>
           <%= desired_manglik %>
+          <br>
         <% end %>
-        <legend>Diet</legend>
+        <h5>Diet</h5>
         <% [ 'Veg', 'Non Veg' ].each do |desired_diet| %>
-          <%= radio_button_tag(:desired_diet, desired_diet) %>
+          <%= radio_button_tag(:desired_diet, desired_diet, (@user[:desire][:desired_diet] == desired_diet)) %>
           <%= desired_diet %>
+          <br>
         <% end %>
-        <legend>Smoke</legend>
+        <h5>Smoke</h5>
         <% [ 'Yes', 'No' ].each do |desired_smoke| %>
-          <%= radio_button_tag(:desired_smoke, desired_smoke) %>
+          <%= radio_button_tag(:desired_smoke, desired_smoke, (@user[:desire][:desired_smoke] == desired_smoke)) %>
           <%= desired_smoke %>
+          <br>
         <% end %>
-        <legend>Drink</legend>
+        <h5>Drink</h5>
         <% [ 'Yes', 'No', 'Friend', 'Relative' ].each do |desired_drink| %>
-          <%= radio_button_tag(:desired_drink, desired_drink) %>
+          <%= radio_button_tag(:desired_drink, desired_drink, (@user[:desire][:desired_drink] == desired_drink)) %>
           <%= desired_drink %>
+          <br>
         <% end %>
+        <h5>Complexion</h5>
         <% [ 'Yes', 'No', 'Friend', 'Relative' ].each do |desired_complexion| %>
-          <%= radio_button_tag(:desired_complexion, desired_complexion) %>
+          <%= radio_button_tag(:desired_complexion, desired_complexion, (@user[:desire][:desired_complexion] == desired_complexion)) %>
           <%= desired_complexion %>
+          <br>
         <% end %>
+        <h5>Challenged</h5>
         <% [ 'Yes', 'No', 'Friend', 'Relative' ].each do |desired_challenged| %>
-          <%= radio_button_tag(:desired_challenged, desired_challenged) %>
+          <%= radio_button_tag(:desired_challenged, desired_challenged, (@user[:desire][:desired_challenged] == desired_challenged)) %>
           <%= desired_challenged %>
+          <br>
         <% end %>
-        <textarea name="desired_notes" style="height:75px;width:100%;font-weight:bold;" placeholder="Preloaded text" parsley-trigger="keyup" parsley-rangelength="[10,5000]"></textarea>
-        <legend></legend>
+        <% categories = ["desired_age","desired_height", "desired_country", "desired_city", "desired_religion", "desired_caste", "desired_mother_tongue", "desired_education", "desired_occupation", "desired_income"] %>
+        <% categories.each do |category| %>
+          <% heading = category.gsub "_", " " %>
+          <h5>
+            <%= heading.capitalize %>
+            <small>(pick one)</small></h5>
+          <% id = category.gsub "_", "-" %>
+          <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:desire][category] %>">
+        <% end %>
+        <h5>Message to Desired Partner</h5>
+        <textarea name="desired_notes" style="height:75px;width:100%;font-weight:bold;" placeholder="Preloaded text" parsley-trigger="keyup" parsley-maxlength="500"></textarea>
         <%= submit_tag "Save", class: 'btn btn-success pull-right' %>
       <% end %>
     </div>
