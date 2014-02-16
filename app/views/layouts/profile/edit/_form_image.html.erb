@@ -1,22 +1,18 @@
-<div class="span7 left_box">
-  <div class="big">
-    <%=image_tag("folio_item1.png") %>
-    <%=image_tag("folio_item2.png") %>
-    <%=image_tag("folio_item1.png") %>
-    <%=image_tag("folio_item2.png") %>
-  </div>
-  <div class="thumbs">
-    <div class="thumb">
-      <%=image_tag("folio_thumb1.png") %>
-    </div>
-    <div class="thumb">
-      <%=image_tag("folio_thumb2.png") %>
-    </div>
-    <div class="thumb">
-      <%=image_tag("folio_thumb1.png") %>
-    </div>
-    <div class="thumb last">
-      <%=image_tag("folio_thumb2.png") %>
-    </div>
+<div class="span6 feature">
+  <div class="form">
+    <%= form_tag({:action=>'remove_image'}, {:remote => true}) do %>
+      <button type="submit" class="btn btn-danger">Delete
+        <i class="icon-trash"></i></button>
+      <div class="flexslider">
+        <ul class="slides">
+          <% @images.each do |image| %>
+            <li>
+              <%= image_tag image.avatar.url(:medium) %>
+              <input type="hidden" name="id" value="<%= image.id %>">
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
   </div>
 </div>

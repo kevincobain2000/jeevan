@@ -36,6 +36,10 @@ class ProfilesController < ApplicationController
     current_user.images.create(image_params)
     render json: { :status => 200 }
   end
+  def remove_image
+    current_user.images.destroy(remove_image_params[:id])
+    render json: { :status => 200 }
+  end
   def modify_profile
     current_user.profile.update(profile_params)
     render json: { :status => 200 }
@@ -79,6 +83,8 @@ class ProfilesController < ApplicationController
   end
 
   def edit
+    @images = current_user.images.all
+
     @user = {}
     @user[:profile] = current_user.profile
     @user[:contact] = current_user.contact
@@ -88,6 +94,8 @@ class ProfilesController < ApplicationController
     @user[:family] = current_user.family
     @user[:hobby] = current_user.hobby
     @user[:education] = current_user.education
+    @user[:lifestyle] = current_user.lifestyle
+    @user[:desire] = current_user.desire
   end
 
 
@@ -154,6 +162,9 @@ class ProfilesController < ApplicationController
   private
   def image_params
     params.permit("avatar")
+  end
+  def remove_image_params
+    params.permit(Image.columns.map {|c| c.name })
   end
   def profile_params
     params.permit(Profile.columns.map {|c| c.name })
