@@ -1,4 +1,5 @@
-<div class="span5 right_box">
+<div class="span4 feature">
+    <h5>Upload Images <i class="icon-upload"></i></h5>
     <%= form_tag({:action=>'modify_image'}, {:authenticity_token => true, :multipart => true, :remote => true, :class => 'dropzone', :id => 'my-dropzone'}) do %>
     <% end %>
   </div>
