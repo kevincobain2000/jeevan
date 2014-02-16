@@ -7,6 +7,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	font-family: 'Lato', sans-serif !important;
 	padding-top: 107px;
+	overflow-x: hidden;
 }
 @media (max-width: 979px) {
 	body { padding-top: 0 !important; }
@@ -470,11 +471,14 @@ header {
 
 }
 .flexslider {
-    width: 400px;
-    height: 400px;
+    width: 250px;
+    height: 250px;
 }
 
 .flexslider .slides img {
-    width: 400px;
-    height: 400px;
+    width: 250px;
+    height: 250px;
+}
+.flexslider ul.slides li:only-child{
+	display: block !important;
 }
