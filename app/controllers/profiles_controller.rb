@@ -38,7 +38,7 @@ class ProfilesController < ApplicationController
   end
   def remove_image
     current_user.images.destroy(remove_image_params[:id])
-    render json: { :status => 200 }
+    redirect_to :back
   end
   def modify_profile
     current_user.profile.update(profile_params)

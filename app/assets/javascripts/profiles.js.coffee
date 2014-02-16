@@ -115,16 +115,14 @@ $(document).on "page:change", ->
                         '<div><i class="icon-plus"></i> '+item.title+'</div>'
     });
 
-  $('.flexslider').flexslider('pause');
-  # Dropzone.discover()
   Dropzone.options.myDropzone =
     dictDefaultMessage: '<div class="hero" style="height:200px;"><h2>Drag & Drop</h2><p>or click to upload images</p></div>'
     paramName: "avatar"
     maxFilesize: 2 #mb
     addRemoveLinks: false
+    acceptedFiles: ".jpeg,.jpg,.png,.gif,.JPEG,.JPG,.PNG,.GIF",
     init: ->
       @on 'addedfile', (file) ->
-        console.log("File Added")
 
   $(".phone").inputmask("mask", {"mask": "(999) 999-9999-999"});
 

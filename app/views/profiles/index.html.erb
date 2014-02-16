@@ -20,7 +20,7 @@ profiles/index
 <% end %>
 <br><br>
 <legend>Edit this Profile</legend>
-   <%= link_to "Edit THIS Profile id #{@current_user.profile.id}", edit_profile_path(:id => current_user.profile.id) %>
+   <%= link_to "Edit THIS Profile id #{@current_user.profile.id}", edit_profile_path(:id => current_user.profile.id), "data-no-turbolink" => true %>
 <h3>Out Visitors</h3>
 <%= @out_visitors.inspect %>
 <h3>In Visitors</h3>
