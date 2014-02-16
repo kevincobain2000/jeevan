@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 20140215021013) do
     t.string   "values",          limit: 32
     t.string   "size",            limit: 32
     t.string   "status",          limit: 32
-    t.string   "income",          limit: 64
+    t.string   "family_income",   limit: 64
     t.string   "father",          limit: 32
     t.string   "mother",          limit: 32
     t.string   "brother",         limit: 64
@@ -100,7 +100,7 @@ ActiveRecord::Schema.define(version: 20140215021013) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "hobby"
+    t.string   "hobby",      limit: 64, default: ""
     t.text     "interest"
     t.text     "music"
     t.text     "read"

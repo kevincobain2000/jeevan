@@ -5,13 +5,18 @@
   <div class="text">
     <div class="form">
       <%= form_tag({:action=>'modify_education'}, {:remote => true}) do %>
-        <input id="select-school" name="school" value="Inception,Dark" class="selectized">
-        <input id="select-grad-college" name="grad_college" value="Inception,Dark" class="selectized">
-        <input id="select-grad" name="grad" value="Inception,Dark" class="selectized">
-        <input id="select-post-grad" name="post_grad" value="Inception,Dark" class="selectized">
-        <input id="select-highest-degree" name="highest_degree" value="Inception,Dark,And" class="selectized">
-        <legend></legend>
-        <%= submit_tag "Save", class: 'btn btn-success pull-right pull-right' %>
+        <% categories = ["school", "grad_college", "grad", "post_grad", "highest_degree"] %>
+        <% categories.each do |category| %>
+          <% heading = category.sub "_", " " %>
+          <h5>
+            <%= heading.capitalize %>
+            <small>(pick one)</small></h5>
+          <% id = category.sub "_", "-" %>
+          <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:education][category] %>">
+        <% end %>
+        <button type="submit" class="btn btn-success pull-right">
+          Save
+        </button>
       <% end %>
     </div>
   </div>

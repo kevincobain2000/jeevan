@@ -7,13 +7,14 @@
       <%= form_tag({:action=>'modify_hobby'}, {:remote => true}) do %>
         <% categories = ["hobby", "music", "interest", "read", "dress", "tv", "movie", "sport", "cuisine", "vacation"] %>
         <% categories.each do |category| %>
-        <% heading = category.sub "_", " " %>
+          <% heading = category.sub "_", " " %>
           <h5>
-            <%= heading.capitalize %> <small>(pick one)</small></h5>
-            <% id = category.sub "_", "-" %>
-            <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:hobby][category] %>">
+            <%= heading.capitalize %>
+            <small>(pick one)</small></h5>
+          <% id = category.sub "_", "-" %>
+          <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:hobby][category] %>">
         <% end %>
-             <button type="submit" class="btn btn-success pull-right">
+        <button type="submit" class="btn btn-success pull-right">
           Save
         </button>
       <% end %>

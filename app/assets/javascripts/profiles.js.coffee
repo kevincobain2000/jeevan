@@ -98,6 +98,12 @@ $(document).on "page:change", ->
 
   for name, options of selectize_items
     css_id = name.replace /_/g, "-"
+    #push user items set previously for selectize to show
+    val = $('#select-' + css_id).val()
+    if val
+      for key, value of val.split ","
+        gon.select_profile_edit_items[name].push title: value
+
     obj = $("#select-" + css_id).selectize({
                     maxItems: if options.maxItems then options.maxItems else 1,
                     valueField: if options.valueField then options.valueField else "title",
@@ -106,7 +112,7 @@ $(document).on "page:change", ->
                     options: gon.select_profile_edit_items[name],
                     create: if options.create then options.create else true,
                     plugins: if options.plugins then options.plugins else [],
-                    delimeter: if options.delimeter then options.delimeter else "",
+                    delimeter: if options.delimeter then options.delimeter else ",",
                     render:
                       option: (item, escape) ->
                         '<div><i class="icon-plus"></i> '+item.title+'</div>'
