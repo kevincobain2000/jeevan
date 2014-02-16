@@ -1,4 +1,4 @@
-<div class="span6 feature">
+<div class="span7 feature">
   <div class="img">
     <h4>Religion</h4>
   </div>
@@ -14,7 +14,7 @@
           <% id = category.sub "_", "-" %>
           <input id="select-<%= id %>" name="<%= category %>" value="<%= @user[:religion][category] %>" class="selectized">
         <% end %>
-        <button type="submit" class="btn btn-success pull-right">
+        <button type="submit" class="btn btn-success pull-right hidden">
           Save
         </button>
       <% end %>
