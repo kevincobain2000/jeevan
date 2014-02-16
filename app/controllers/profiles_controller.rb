@@ -37,15 +37,22 @@ class ProfilesController < ApplicationController
     render json: { :status => 200 }
   end
   def remove_image
-    current_user.images.destroy(remove_image_params[:id])
-    redirect_to :back
+    all_images_ids = current_user.images.pluck(:id)
+    not_to_remove_ids = []
+    remove_image_params.each do |param, value|
+        if !!(param =~ /^[-+]?[0-9]+$/) && !!(value =~ /^[-+]?[0-9]+$/) #if number
+          not_to_remove_ids.push(value.to_i)
+        end
+    end
+    remove_id = all_images_ids - not_to_remove_ids
+    # current_user.images.destroy(remove_id[0])
+    render json: { :status => 200 }
   end
   def modify_profile
     current_user.profile.update(profile_params)
     render json: { :status => 200 }
   end
   def modify_contact
-    logger.info("Debug #{contact_params}")
     current_user.contact.update(contact_params)
     render json: { :status => 200 }
   end
@@ -164,7 +171,7 @@ class ProfilesController < ApplicationController
     params.permit("avatar")
   end
   def remove_image_params
-    params.permit(Image.columns.map {|c| c.name })
+    params.permit!
   end
   def profile_params
     params.permit(Profile.columns.map {|c| c.name })
