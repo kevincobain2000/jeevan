@@ -123,6 +123,8 @@ $(document).on "page:change", ->
     maxFilesize: 2 #mb
     addRemoveLinks: false
     acceptedFiles: ".jpeg,.jpg,.png,.gif,.JPEG,.JPG,.PNG,.GIF"
+    thumbnailWidth: 300
+    thumbnailHeight: 300
     init: ->
       @on 'addedfile', (file) ->
 
@@ -132,10 +134,10 @@ $(document).on "page:change", ->
   $("form").bind "keyup change", (e) ->
     $(this).find(":submit").submit()
 
-  # $("#remove-image").click ->
-  #   slider = $('.flexslider').data('flexslider');
-  #   slider.removeSlide(slider.currentSlide)
-  #   $('.flexslider').flexslider("prev")
+  $("#remove-image").click ->
+    slider = $('.flexslider').data('flexslider');
+    slider.removeSlide(slider.currentSlide)
+    $('.flexslider').flexslider("next")
 
 
 
