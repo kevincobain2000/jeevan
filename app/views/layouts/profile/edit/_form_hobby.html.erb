@@ -14,7 +14,7 @@
           <% id = category.sub "_", "-" %>
           <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:hobby][category] %>">
         <% end %>
-        <button type="submit" class="btn btn-success pull-right">
+        <button type="submit" class="btn btn-success pull-right hidden">
           Save
         </button>
       <% end %>

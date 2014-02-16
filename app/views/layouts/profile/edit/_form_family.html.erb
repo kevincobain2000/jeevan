@@ -32,7 +32,7 @@
           <% id = category.sub "_", "-" %>
           <input id="select-<%= id %>" name="<%= category %>" value="<%=@user[:family][category] %>" class="selectized">
         <% end %>
-        <button type="submit" class="btn btn-success pull-left">
+        <button type="submit" class="btn btn-success pull-left hidden">
           Save
         </button>
       <% end %>
