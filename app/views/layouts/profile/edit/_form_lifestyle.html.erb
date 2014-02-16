@@ -8,40 +8,46 @@
       <%= form_tag({:action=>'modify_lifestyle'}, {:remote => true}) do %>
         <legend>Diet</legend>
         <% [ 'Veg', 'Non Veg' ].each do |diet| %>
-            <%= radio_button_tag(:diet, diet) %> <%= diet %>
+          <%= radio_button_tag(:diet, diet) %>
+          <%= diet %>
         <% end %>
         <legend>Smoke</legend>
         <% [ 'Yes', 'No' ].each do |smoke| %>
-            <%= radio_button_tag(:smoke, smoke) %> <%= smoke %>
+          <%= radio_button_tag(:smoke, smoke) %>
+          <%= smoke %>
         <% end %>
         <legend>Drink</legend>
         <% [ 'Yes', 'No', 'Friend', 'Relative' ].each do |drink| %>
-            <%= radio_button_tag(:drink, drink) %> <%= drink %>
+          <%= radio_button_tag(:drink, drink) %>
+          <%= drink %>
         <% end %>
         <% [ 'Yes', 'No', 'Friend', 'Relative' ].each do |complexion| %>
-            <%= radio_button_tag(:complexion, complexion) %> <%= complexion %>
+          <%= radio_button_tag(:complexion, complexion) %>
+          <%= complexion %>
         <% end %>
-        <select id="select-blood" name="blood" value="A+" class="selectized">
-        <select id="select-weight" name="weight" value="A+" class="selectized">
-        <input id="select-height" name="height" value="A+" class="selectized">
-        <select id="select-residence" name="residence" value="A" class="selectized">
-
-        <% [ 'Yes', 'No'].each do |own_house| %>
-            <%= radio_button_tag(:own_house, own_house) %> <%= own_house %>
-        <% end %>
-        <% [ 'Yes', 'No'].each do |own_car| %>
-            <%= radio_button_tag(:own_car, own_car) %> <%= own_car %>
-        <% end %>
-        <% [ 'Yes', 'No'].each do |pet| %>
-            <%= radio_button_tag(:pet, pet) %> <%= pet %>
-        <% end %>
-        <% [ 'Yes', 'No'].each do |hiv| %>
-            <%= radio_button_tag(:hiv, hiv) %> <%= hiv %>
-        <% end %>
-
-        <legend></legend>
-        <%= submit_tag "Save", class: 'btn btn-success pull-right' %>
-      <% end %>
-    </div>
-  </div>
-</div>
+        <select id="select-blood" name="blood" value="A+" class="selectized"></select>
+          <select id="select-weight" name="weight" value="A+" class="selectized"></select>
+            <input id="select-height" name="height" value="A+" class="selectized">
+            <select id="select-residence" name="residence" value="A" class="selectized"></select>
+              <% [ 'Yes', 'No'].each do |own_house| %>
+                <%= radio_button_tag(:own_house, own_house) %>
+                <%= own_house %>
+              <% end %>
+              <% [ 'Yes', 'No'].each do |own_car| %>
+                <%= radio_button_tag(:own_car, own_car) %>
+                <%= own_car %>
+              <% end %>
+              <% [ 'Yes', 'No'].each do |pet| %>
+                <%= radio_button_tag(:pet, pet) %>
+                <%= pet %>
+              <% end %>
+              <% [ 'Yes', 'No'].each do |hiv| %>
+                <%= radio_button_tag(:hiv, hiv) %>
+                <%= hiv %>
+              <% end %>
+              <legend></legend>
+              <%= submit_tag "Save", class: 'btn btn-success pull-right' %>
+            <% end %>
+          </div>
+        </div>
+      </div>

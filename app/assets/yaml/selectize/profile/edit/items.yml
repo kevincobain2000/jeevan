@@ -72,7 +72,7 @@ cuisine:
 vacation:
   -
     title: "First Entry"
-income:
+family_income:
   -
     title: "First Entry"
 father:
@@ -87,7 +87,7 @@ brother:
 sister:
   -
     title: "First Entry"
-profile_hndler:
+profile_handler:
   -
     title: "First Entry"
 school:

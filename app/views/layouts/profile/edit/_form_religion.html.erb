@@ -1,10 +1,9 @@
 <div class="span6 feature">
   <div class="img">
-    <%= image_tag("features-ico5.png") %>
+  <h4>Religion</h4>
   </div>
   <div class="text">
-    <h6>db: Religion</h6>
-    <div class="row form">
+    <div class="form">
       <%= form_tag({:action=>'modify_religion'},{:remote => true}) do %>
         <% categories = ["religion", "mother_tongue", "caste", "sub_caste", "native_place"] %>
         <% categories.each do |category| %>
@@ -12,7 +11,7 @@
             <% heading = category.sub "_", " " %>
             <%= heading.capitalize %> <small>(pick one)</small></h5>
           <% id = category.sub "_", "-" %>
-          <input id="select-<%= id %>" name="<%= category %>" value="<%= @user[:religion][category] %>" class="selectized"></input>
+          <input id="select-<%= id %>" name="<%= category %>" value="<%= @user[:religion][category] %>" class="selectized">
         <% end %>
         <button type="submit" class="btn btn-success pull-right">
           Save

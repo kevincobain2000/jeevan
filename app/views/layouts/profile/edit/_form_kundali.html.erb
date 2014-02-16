@@ -1,21 +1,27 @@
 <div class="span6 feature">
   <div class="img">
-    <%= image_tag("features-ico5.png") %>
+    <h4>Kundali</h4>
   </div>
   <div class="text">
-    <h6>db: Kundali</h6>
-    <div class="row form">
+    <div class="form">
       <%= form_tag({:action=>'modify_kundali'}, {:remote => true}) do %>
-        <!-- Get the value from DB -->
-        <select id="select-birth-country" name="birth_country" value="Other" class="selectized"></select>
-        <select id="select-birth-city" name="birth_city" value="Other" class="selectized"></select>
-        <input type="text" name="dob" data-behaviour='datepicker' value="02/25/1985" style="width:200px;">
-        <select id="select-tob" name="sub_tob" value="Other" class="selectized"></select>
-        <select id="select-manglik" name="manglik" value="Other" class="selectized"></select>
-        <select id="select-sun-sign" name="sun_sign" value="Other" class="selectized"></select>
-        <select id="select-moon-sign" name="moon_sign" value="Other" class="selectized"></select>
-        <select id="select-nakshatra" name="nakshatra" value="Other" class="selectized"></select>
-        <%= submit_tag "Save", class: 'btn btn-success pull-right' %>
+        <% categories = ["birth_country", "birth_city", "sun_sign", "moon_sign", "nakshatra"] %>
+        <% categories.each do |category| %>
+          <h5>
+            <% heading = category.sub "_", " " %>
+            <%= heading.capitalize %>
+            <small>(pick one)</small></h5>
+          <% id = category.sub "_", "-" %>
+          <input id="select-<%= id %>" name="<%= category %>" value="<%= @user[:kundali][category] %>" class="selectized">
+        <% end %>
+        <h5>Date of Birth</h5>
+        <input type="text" name="dob" data-behaviour='datepicker' value="02/25/1985">
+        <h5>Time of Birth
+          <small>(pick one)</small></h5>
+        <input id="select-tob" name="tob" value="Other" class="selectized">
+        <button type="submit" class="btn btn-success pull-right">
+          Save
+        </button>
       <% end %>
     </div>
   </div>

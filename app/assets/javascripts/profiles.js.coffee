@@ -9,8 +9,8 @@ $(document).on "page:change", ->
 
 
   selectize_items =
-                    best_time_f:true #remove true if nesting child
-                    best_time_t:true
+                    # best_time_f:true #remove true if nesting child
+                    # best_time_t:true
                     religion:true
                     mother_tongue:true
                     caste:true
@@ -18,24 +18,56 @@ $(document).on "page:change", ->
                     native_place:true
                     birth_country:true
                     birth_city:true
-                    tob:true
+                    tob:
+                      maxItems: 1
+                      create:true
+                      plugins: ['remove_button', 'restore_on_backspace']
                     manglik:true
                     sun_sign:true
                     moon_sign:true
                     nakshatra:true
-                    hobby:true
-                    interest:true
-                    music:true
-                    read:true
-                    dress:true
-                    tv:true
+                    hobby:
+                      maxItems: 10
+                      create:true
+                      plugins: ['remove_button', 'restore_on_backspace']
+                      delimeter: ","
+                    interest:
+                      maxItems: 10
+                      create: true
+                      plugins: ['remove_button', 'restore_on_backspace']
+                    music:
+                      maxItems: 10
+                      create: true
+                      plugins: ['remove_button', 'restore_on_backspace']
+                    read:
+                      maxItems: 10
+                      create: true
+                      plugins: ['remove_button', 'restore_on_backspace']
+                    dress:
+                      maxItems: 10
+                      create: true
+                      plugins: ['remove_button','restore_on_backspace']
+                    tv:
+                      maxItems: 10
+                      create: true
+                      plugins: ['remove_button', 'restore_on_backspace']
                     movie:
-                      delimiter:','
-                      maxItems:10
-                    sport:true
-                    cuisine:true
-                    vacation:true
-                    income:true
+                      maxItems: 10
+                      create: true
+                      plugins: ['remove_button', 'restore_on_backspace']
+                    sport:
+                      maxItems: 10
+                      create: true
+                      plugins: ['remove_button', 'restore_on_backspace']
+                    cuisine:
+                      maxItems: 10
+                      create: true
+                      plugins: ['remove_button', 'restore_on_backspace']
+                    vacation:
+                      maxItems: 10
+                      create: true
+                      plugins: ['remove_button', 'restore_on_backspace']
+                    family_income:true
                     father:true
                     mother:true
                     brother:true
@@ -48,6 +80,7 @@ $(document).on "page:change", ->
                     highest_degree:
                       maxItems: 10
                       create:true
+                      plugins: ['remove_button', 'restore_on_backspace']
                     blood:true
                     weight:true
                     height:true
@@ -65,13 +98,15 @@ $(document).on "page:change", ->
 
   for name, options of selectize_items
     css_id = name.replace /_/g, "-"
-    $("#select-" + css_id).selectize({
+    obj = $("#select-" + css_id).selectize({
                     maxItems: if options.maxItems then options.maxItems else 1,
                     valueField: if options.valueField then options.valueField else "title",
                     labelField: if options.labelField then options.labelField else "title",
                     searchField: if options.searchField then options.searchField else "title",
-                    options: gon.select_profile_edit_items[name]
-                    create: if options.create then options.create else false,
+                    options: gon.select_profile_edit_items[name],
+                    create: if options.create then options.create else true,
+                    plugins: if options.plugins then options.plugins else [],
+                    delimeter: if options.delimeter then options.delimeter else "",
                     render:
                       option: (item, escape) ->
                         '<div><i class="icon-plus"></i> '+item.title+'</div>'
