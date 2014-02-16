@@ -1,5 +1,6 @@
 <div class="span6 feature">
   <div class="form">
+    <%#= form_tag({:action=>'remove_image'}, {:remote => true}) do %>
     <%= form_tag({:action=>'remove_image'}) do %>
       <button type="submit" id="remove-image" class="btn btn-danger">
         <i class="icon-trash"></i></button>
