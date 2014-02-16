@@ -16,6 +16,12 @@ rake db:schema:load
 <%= image_tag("about_slide1.jpg") %> # Looks assets/images/about_slide1.jpg
 ```
 
+No turbolinks
+
+```
+<%= link_to "Edit THIS Profile id #{@current_user.profile.id}", edit_profile_path(:id => current_user.profile.id), "data-no-turbolink" => true %>
+```
+
 #### Selectize
 
 ```
@@ -31,7 +37,13 @@ Use Input if there are maxItems and create:true
 <input id="select-movie" name="movie" value="Other" class="selectized">
 ```
 
+#### Flexslider
 
+flexslider.js LINE 822 Change the following manually, for some reason options doesn't work when try to set with window load
+
+```
+    slideshow: false,
+```
 
 
 #### AJAX
