@@ -1,32 +1,38 @@
 <div class="span6 feature">
   <div class="img">
-    <%= image_tag("features-ico3.png") %>
+    <h4>Family</h4>
   </div>
   <div class="text">
-    <h6>db:families</h6>
     <div class="form">
       <%= form_tag({:action=>'modify_family'}, {:remote => true}) do %>
 
+      <h5>Values</h5>
         <% [ 'Liberal', 'Hypocrite' ].each do |values| %>
-            <%= radio_button_tag(:values, values) %> <%= values %>
+            <%= radio_button_tag(:values, values, @user[:family][:values] == values) %> <%= values %>
+            <br>
         <% end %>
-
-        <% [ 'Nuclear', 'Hypocrite' ].each do |type| %>
-            <%= radio_button_tag(:type, type) %> <%= type %>
+        <h5>Family Type</h5>
+        <% [ 'Nuclear', 'Hypocrite' ].each do |size| %>
+            <%= radio_button_tag(:size, size, @user[:family][:size] == size) %> <%= size %>
+            <br>
         <% end %>
-
+        <h5>Status</h5>
         <% [ 'Rich', 'Middle' ].each do |status| %>
-            <%= radio_button_tag(:status, status) %> <%= status %>
+            <%= radio_button_tag(:status, status, @user[:family][:status] == status) %> <%= status %>
+            <br>
         <% end %>
 
-        <input id="select-income" name="income" value="Inception,Dark" class="selectized">
-        <input id="select-father" name="father" value="Inception,Dark" class="selectized">
-        <input id="select-mother" name="mother" value="Inception,Dark" class="selectized">
-        <input id="select-brother" name="brother" value="Inception,Dark" class="selectized">
-        <input id="select-sister" name="sister" value="Inception,Dark" class="selectized">
-        <input id="select-profile-handler" name="profile_handler" value="Inception,Dark" class="selectized">
-        <legend></legend>
-        <%= submit_tag "Save", class: 'btn btn-success pull-right pull-right' %>
+        <% categories = ["family_income", "father", "mother", "brother", "sister", "profile_handler"] %>
+        <% categories.each do |category| %>
+          <h5>
+            <% heading = category.sub "_", " " %>
+            <%= heading.capitalize %> <small>(pick one)</small></h5>
+          <% id = category.sub "_", "-" %>
+      <input id="select-<%= id %>" name="<%= category %>" value="<%=@user[:family][category] %>" class="selectized">
+        <% end %>
+        <button type="submit" class="btn btn-success pull-left">
+          Save
+        </button>
       <% end %>
     </div>
   </div>

@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 20140215021013) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "values",          limit: 32
-    t.string   "type",            limit: 32
+    t.string   "size",            limit: 32
     t.string   "status",          limit: 32
     t.string   "income",          limit: 64
     t.string   "father",          limit: 32
@@ -135,10 +135,10 @@ ActiveRecord::Schema.define(version: 20140215021013) do
     t.integer  "user_id"
     t.datetime "updated_at"
     t.datetime "created_at"
-    t.integer  "birth_country", limit: 1
-    t.integer  "birth_city",    limit: 1
-    t.date     "dob"
-    t.date     "tob"
+    t.string   "birth_country", limit: 64
+    t.string   "birth_city",    limit: 64
+    t.string   "dob",           limit: 32
+    t.string   "tob",           limit: 32
     t.string   "manglik",       limit: 32
     t.string   "sun_sign",      limit: 64
     t.string   "moon_sign",     limit: 64
