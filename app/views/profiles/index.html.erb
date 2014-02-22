@@ -2,54 +2,53 @@
   <div class="container">
     <div class="feature_wrapper option3">
       <div class="row">
-        <% @profiles.each do |profile| %>
-        <div class="span4 feature" style="background:white;">
-          <div class="img">
-            <h4>Basic Information</h4>
+        <% @profiles_paginate.each do |user_id| %>
+          <div class="span4 feature" style="background:white;">
+            <div class="img">
+              <h4>Basic Information</h4>
+              <%= link_to "Show this Profile ", @profiles[user_id][:profile] %>
+              <% if @profiles[user_id][:avatar] %>
+                <%= image_tag @profiles[user_id][:avatar].avatar.url(:thumb), :class => "img-rounded" %>
+              <% end %>
+            </div>
+            <div class="text">
+              <%=  @profiles[user_id][:profile].inspect %>
+            </div>
           </div>
-          <div class="text">
-            <div class="form">
-            <% if profile.images.first %>
-               <%= image_tag profile.images.first.avatar.url(:thumb) %>
-            <% end %>
-              <%= profile.inspect %></div>
-          </div>
-        </div>
-        <% end %></div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
-<%= will_paginate @profiles, :class =>"flickr_pagination" %>
-
-
+<%= will_paginate @profiles_paginate, :class =>"flickr_pagination" %>
 <legend>Edit this Profile</legend>
 <%= link_to "Edit THIS Profile id #{@current_user.profile.id}", edit_profile_path(:id =>
-current_user.profile.id), "data-no-turbolink" => true %>
+  current_user.profile.id), "data-no-turbolink" => true %>
 <h3>Out Visitors</h3>
 <%= @out_visitors.inspect %>
 <h3>In Visitors</h3>
 <%= @in_visitors.inspect %>
 <h3>Outgoing Interests with Responses</h3>
 <% @out_interests_responses.each do |interest| %>
-<% if interest.response == nil %>
-Waiting
-<% elsif interest.response == 1 %>
-Accepted
-<% else %>
-Rejected
-<% end %>
-<%= interest.inspect %>
-<hr>
+  <% if interest.response == nil %>
+    Waiting
+  <% elsif interest.response == 1 %>
+    Accepted
+  <% else %>
+    Rejected
+  <% end %>
+  <%= interest.inspect %>
+  <hr>
 <% end %>
 <h3>Incoming Interests</h3>
 <% @in_interests.each do |interest| %>
-<%=  interest.inspect %>
-<%= form_tag :action=>
-'interest_response' do %>
-<% if interest.response.nil? %>
-<%= hidden_field_tag 'from_user_id', interest.user_id %>
-<%= submit_tag("Accept") %>
-<%= submit_tag("Reject") %>
-<% end %>
-<% end %>
+  <%=  interest.inspect %>
+  <%= form_tag :action=>
+  'interest_response' do %>
+    <% if interest.response.nil? %>
+      <%= hidden_field_tag 'from_user_id', interest.user_id %>
+      <%= submit_tag("Accept") %>
+      <%= submit_tag("Reject") %>
+    <% end %>
+  <% end %>
 <% end %>

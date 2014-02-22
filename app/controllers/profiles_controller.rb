@@ -1,16 +1,24 @@
 require 'will_paginate/array'
 class ProfilesController < ApplicationController
-  before_filter :initialize_tables, :visiting_user_id, :load_gon
+  before_filter :initialize_tables, :load_gon
   before_filter :is_this_user_profile, only: [:edit]
-  before_filter :get_user, only: [:edit, :show]
+  before_filter :get_current_user, only: [:edit]
+  before_filter :get_showing_user, only: [:show]
   attr_accessor :profiles, :out_visitors, :in_visitors, :out_visitors,
-  :in_interests, :out_interests, :visiting_user_id
+  :in_interests, :out_interests
 
   # GET /profiles
   def index
+    @profiles = Hash.new()
+    users_not_my_gender = User.where.not(sex: current_user.sex).order('created_at DESC').limit(1000)
+    logger.info("Debug #{users_not_my_gender.inspect}")
+    logger.info("Debug Users not my gender #{users_not_my_gender.count}")
 
-    # user_not_my_gender = User.where(:sex != current_user.sex).order('created_at DESC')
-    @profiles = User.paginate(:page => params[:page], :per_page => 6).where(:sex != current_user.sex).order('created_at DESC')
+    users_not_my_gender.each do |user|
+      @profiles[user.id] = {profile: user.profile, avatar: user.images.first}
+    end
+
+    @profiles_paginate = @profiles.keys.paginate(:page => params[:page], :per_page => 7)
 
     @out_visitors = current_user.visitors
     @in_visitors = Visitor.where(viewed_id: current_user.id)
@@ -21,11 +29,11 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1
   def show
-    @showing_user = Profile.where(:user_id => params[:id])
-    if current_user.id != @visiting_user_id.to_i
-      find_first = current_user.visitors.where(viewed_id: @visiting_user_id).first
+    visitors_id = params[:id]
+    if current_user.id != visitors_id.to_i
+      find_first = current_user.visitors.where(viewed_id: visitors_id).first
       if !find_first
-        current_user.visitors.create(viewed_id: @visiting_user_id)
+        current_user.visitors.create(viewed_id: visitors_id)
       else
         find_first.touch
       end
@@ -139,12 +147,6 @@ class ProfilesController < ApplicationController
     current_user.occupation = Occupation.find_or_initialize_by(user_id: current_user.id)
   end
 
-  def visiting_user_id
-    if params[:id]
-      # @visiting_user_id = Profile.where(params[:id]).user_id
-    end
-  end
-
   def load_gon
     selectize_yml_path = "#{Rails.root}/app/assets/yaml/selectize/profile/edit/items.yml"
     gon.select_profile_edit_items = YAML.load_file(selectize_yml_path)
@@ -156,7 +158,7 @@ class ProfilesController < ApplicationController
       redirect_to(profiles_path)
     end
   end
-  def get_user
+  def get_current_user
     @user = {}
     @user[:profile] = current_user.profile
     @user[:contact] = current_user.contact
@@ -169,6 +171,21 @@ class ProfilesController < ApplicationController
     @user[:lifestyle] = current_user.lifestyle
     @user[:desire] = current_user.desire
     @user[:image] = current_user.images.all
+  end
+  def get_showing_user
+    user = User.find(Profile.find(params[:id]).user_id)
+    @user = {}
+    @user[:profile] = user.profile
+    @user[:contact] = user.contact
+    @user[:about] = user.about
+    @user[:religion] = user.religion
+    @user[:kundali] = user.kundali
+    @user[:family] = user.family
+    @user[:hobby] = user.hobby
+    @user[:education] = user.education
+    @user[:lifestyle] = user.lifestyle
+    @user[:desire] = user.desire
+    @user[:image] = user.images.all
   end
 
 
