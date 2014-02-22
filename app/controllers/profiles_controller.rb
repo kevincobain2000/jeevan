@@ -135,7 +135,7 @@ class ProfilesController < ApplicationController
 
   protected
   def initialize_tables
-    current_user.profile    = Profile.find_or_initialize_by(user_id: current_user.id)
+    current_user.profile    = Profile.find_or_initialize_by(user_id: current_user.id, sex:current_user.sex)
     current_user.contact    = Contact.find_or_initialize_by(user_id: current_user.id)
     current_user.religion   = Religion.find_or_initialize_by(user_id: current_user.id)
     current_user.kundali    = Kundali.find_or_initialize_by(user_id: current_user.id)
