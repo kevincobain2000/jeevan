@@ -1,4 +1,4 @@
-<div class="span6 feature">
+<div class="span12 feature">
   <div class="img">
     <h4>Desires</h4>
     <%= image_tag("features-ico6.png") %>
@@ -57,7 +57,7 @@
           <% id = category.gsub "_", "-" %>
           <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:desire][category] %>">
         <% end %>
-        <h5>Message to Desired Partner</h5>
+        <h5>Message For Desired Partner</h5>
         <textarea name="desired_notes" style="height:75px;width:100%;font-weight:bold;" placeholder="Preloaded text" parsley-trigger="keyup" parsley-maxlength="500"></textarea>
         <%= submit_tag "Save", class: 'btn btn-success pull-right hidden' %>
       <% end %>

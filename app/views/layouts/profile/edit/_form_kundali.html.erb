@@ -3,7 +3,7 @@
     <h4>Kundali</h4>
   </div>
   <div class="text">
-    <div class="form">
+    <div class="form autosave">
       <%= form_tag({:action=>'modify_kundali'}, {:remote => true}) do %>
         <% categories = ["birth_country", "birth_city", "sun_sign", "moon_sign", "nakshatra"] %>
         <% categories.each do |category| %>
@@ -15,11 +15,11 @@
           <input id="select-<%= id %>" name="<%= category %>" value="<%= @user[:kundali][category] %>" class="selectized">
         <% end %>
         <h5>Date of Birth</h5>
-        <input type="text" name="dob" data-behaviour='datepicker' value="02/25/1985">
+        <input type="text" style="width:120px;" name="dob" data-behaviour='datepicker' value="<%= @user[:kundali][:dob] %>">
         <h5>Time of Birth
           <small>(pick one)</small></h5>
         <input id="select-tob" name="tob" value="Other" class="selectized">
-        <button type="submit" class="btn btn-success pull-right hidden">
+        <button type="submit" class="btn btn-success pull-right hide">
           Save
         </button>
       <% end %>
