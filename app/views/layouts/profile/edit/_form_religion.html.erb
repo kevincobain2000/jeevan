@@ -3,7 +3,7 @@
     <h4>Religion</h4>
   </div>
   <div class="text">
-    <div class="form autosave">
+    <div class="form">
       <%= form_tag({:action=>'modify_religion'},{:remote => true}) do %>
         <% categories = ["religion", "mother_tongue", "caste", "sub_caste", "native_place"] %>
         <% categories.each do |category| %>

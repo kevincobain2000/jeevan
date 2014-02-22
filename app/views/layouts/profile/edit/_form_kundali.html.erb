@@ -3,7 +3,7 @@
     <h4>Kundali</h4>
   </div>
   <div class="text">
-    <div class="form autosave">
+    <div class="form">
       <%= form_tag({:action=>'modify_kundali'}, {:remote => true}) do %>
         <% categories = ["birth_country", "birth_city", "sun_sign", "moon_sign", "nakshatra"] %>
         <% categories.each do |category| %>

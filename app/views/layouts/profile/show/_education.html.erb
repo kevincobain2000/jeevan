@@ -1,20 +1,8 @@
 <div class="span6 feature">
   <div class="img">
-    <%= image_tag("features-ico3.png") %>
+    <h4>Education</h4>
   </div>
   <div class="text">
-    <h6>db:education</h6>
-    <div class="form">
-      <%= form_tag({:action=>'modify_education'}, {:remote => true}) do %>
-
-        <input id="select-school" name="school" value="Inception,Dark" class="selectized">
-        <input id="select-grad-college" name="grad_college" value="Inception,Dark" class="selectized">
-        <input id="select-grad" name="grad" value="Inception,Dark" class="selectized">
-        <input id="select-post-grad" name="post_grad" value="Inception,Dark" class="selectized">
-        <input id="select-highest-degree" name="highest_degree" value="Inception,Dark" class="selectized">
-        <legend></legend>
-        <%= submit_tag "Save", class: 'btn btn-success pull-right pull-right' %>
-      <% end %>
-    </div>
+    <%= @user[:education].inspect %>
   </div>
 </div>

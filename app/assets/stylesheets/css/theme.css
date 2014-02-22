@@ -471,16 +471,16 @@ header {
 
 }
 .flexslider {
-    width: 280px;
-    height: 280px;
+    /*width: 100%;*/
+    /*height: 100%;*/
     background: transparent;
-    border:none;
-	box-shadow:none;
+    /*border:none;*/
+	/*box-shadow:none;*/
 }
 
 .flexslider .slides img {
-    width: 280px;
-    height: 280px;
+    width: 100%;
+    height: 100%;
 }
 
 /* to be able to display last slide */

@@ -7,14 +7,9 @@
     <%= render :partial => 'layouts/profile/show/info'%>
   </div>
 </div>
-<!-- User Saved Profile Starts -->
 <div id="features" class="features_page">
   <div class="container">
     <div class="feature_wrapper option3">
-      <div class="section_header">
-        <h2>Features
-          <small>(Option 3)</small></h2>
-      </div>
       <div class="row">
         <%= render :partial => 'layouts/profile/show/profile'%>
         <%= render :partial => 'layouts/profile/show/contact'%>
@@ -30,12 +25,3 @@
     </div>
   </div>
 </div>
-profiles/show
-<br>
-Current user
-<%= current_user.profile.inspect %>
-<br>
-<h2>Showing User
-</h2>
-Showing User
-<%= @showing_user.inspect %>
