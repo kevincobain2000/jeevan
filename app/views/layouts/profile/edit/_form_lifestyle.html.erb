@@ -3,7 +3,7 @@
     <h4>Lifestyle</h4>
   </div>
   <div class="text">
-    <div class="form">
+    <div class="form autosave">
       <%= form_tag({:action=>'modify_lifestyle'}, {:remote => true}) do %>
         <h5>Diet</h5>
         <% [ 'Veg', 'Non Veg' ].each do |diet| %>
@@ -62,7 +62,7 @@
           <% id = category.sub "_", "-" %>
           <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:lifestyle][category] %>">
         <% end %>
-        <button type="submit" class="btn btn-success pull-right hidden">
+        <button type="submit" class="btn btn-success pull-right hide">
           Save
         </button>
       <% end %>

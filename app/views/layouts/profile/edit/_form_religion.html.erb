@@ -3,7 +3,7 @@
     <h4>Religion</h4>
   </div>
   <div class="text">
-    <div class="form">
+    <div class="form autosave">
       <%= form_tag({:action=>'modify_religion'},{:remote => true}) do %>
         <% categories = ["religion", "mother_tongue", "caste", "sub_caste", "native_place"] %>
         <% categories.each do |category| %>
@@ -14,7 +14,7 @@
           <% id = category.sub "_", "-" %>
           <input id="select-<%= id %>" name="<%= category %>" value="<%= @user[:religion][category] %>" class="selectized">
         <% end %>
-        <button type="submit" class="btn btn-success pull-right hidden">
+        <button type="submit" class="btn btn-success pull-right hide">
           Save
         </button>
       <% end %>

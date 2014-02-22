@@ -3,7 +3,7 @@
     <h4>Basic Information</h4>
   </div>
   <div class="text">
-    <div class="form">
+    <div class="form autosave">
       <%= form_tag({:action=>'modify_profile'}, {:remote => true}) do %>
         <h5>Marital Status</h5>
         <% [ 'Never Married', 'Divorced', 'Widowed' ].each do |marital_status| %>
@@ -18,7 +18,7 @@
           <%= posted_by %>
           <br>
         <% end %>
-        <button type="submit" class="btn btn-success pull-right hidden">
+          <button type="submit" class="btn btn-success pull-right hide">
           Save
         </button>
       <% end %>
