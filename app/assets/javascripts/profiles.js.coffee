@@ -131,13 +131,15 @@ $(document).on "page:change", ->
   $(".phone").inputmask("mask", {"mask": "(999) 999-9999-999"});
 
   # AutoSave Form
-  $("form").bind "keyup change", (e) ->
-    $(this).find(":submit").submit()
+  $('form').bind "keyup change", (e) ->
+    $(this).find(":submit.hide").submit()
+
 
   $("#remove-image").click ->
     slider = $('.flexslider').data('flexslider');
     slider.removeSlide(slider.currentSlide)
     $('.flexslider').flexslider("next")
+    console.log("clicked")
 
 
 

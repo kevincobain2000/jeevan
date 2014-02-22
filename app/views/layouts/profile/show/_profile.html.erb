@@ -1,26 +1,8 @@
 <div class="span6 feature">
   <div class="img">
-    <%= image_tag("features-ico6.png") %>
+    <h4>Basic Information</h4>
   </div>
   <div class="text">
-    <h6>db:profiles</h6>
-    <div class="form">
-      <%= form_tag({:action=>'modify_profile'}, {:remote => true}) do %>
-        <legend>Gender</legend>
-        <% [ 'Male', 'Female' ].each do |sex| %>
-            <%= radio_button_tag(:sex, sex) %> <%= sex %>
-        <% end %>
-        <legend>Marital Status</legend>
-        <% [ 'Never Married', 'Divorced' ].each do |marital_status| %>
-            <%= radio_button_tag(:marital_status, marital_status) %> <%= marital_status %>
-        <% end %>
-        <legend>Posted By</legend>
-        <% [ 'Self', 'Parents', 'Friend', 'Relative' ].each do |posted_by| %>
-            <%= radio_button_tag(:posted_by, posted_by) %> <%= posted_by %>
-        <% end %>
-        <legend></legend>
-        <%= submit_tag "Save", class: 'btn btn-success pull-right' %>
-      <% end %>
-    </div>
+  <%= @user[:profile].inspect %>
   </div>
 </div>

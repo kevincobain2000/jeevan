@@ -1,22 +1,11 @@
-<div class="span7 left_box">
-  <div class="big">
-    <%=image_tag("folio_item1.png") %>
-    <%=image_tag("folio_item2.png") %>
-    <%=image_tag("folio_item1.png") %>
-    <%=image_tag("folio_item2.png") %>
-  </div>
-  <div class="thumbs">
-    <div class="thumb">
-      <%=image_tag("folio_thumb1.png") %>
-    </div>
-    <div class="thumb">
-      <%=image_tag("folio_thumb2.png") %>
-    </div>
-    <div class="thumb">
-      <%=image_tag("folio_thumb1.png") %>
-    </div>
-    <div class="thumb last">
-      <%=image_tag("folio_thumb2.png") %>
-    </div>
+<div class="span6 feature">
+  <div class="flexslider">
+    <ul class="slides">
+      <% @user[:image].each do |image| %>
+        <li>
+          <%= image_tag image.avatar.url(:medium) %>
+        <% end %>
+      </li>
+    </ul>
   </div>
 </div>
