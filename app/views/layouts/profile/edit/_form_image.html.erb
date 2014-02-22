@@ -1,7 +1,6 @@
 <div class="span6 feature">
   <div class="form">
     <%= form_tag({:action=>'remove_image'}, {:remote => true}) do %>
-      <%#= form_tag({:action=>'remove_image'}) do %>
         <div class="flexslider">
           <ul class="slides">
             <% @images.each do |image| %>
@@ -10,10 +9,10 @@
                 <input type="hidden" name="<%= image.id %>" value="<%= image.id %>">
               <% end %>
             </li>
-          <% end %>
-        </ul>
-        <button type="submit" id="remove-image" class="btn btn-link pull-right">
-          <i class="icon-trash"></i></button>
+          </ul>
+                    <button type="submit" id="remove-image" class="btn btn-link pull-right">
+            <i class="icon-trash"></i></button>
+        <% end %>
       </div>
     </div>
   </div>

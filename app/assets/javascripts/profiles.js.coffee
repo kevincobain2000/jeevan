@@ -134,10 +134,11 @@ $(document).on "page:change", ->
   $("form.autosave").bind "keyup change", (e) ->
     $(this).find(":submit").submit()
 
-  $(".remove-image").click ->
+  $("#remove-image").click ->
     slider = $('.flexslider').data('flexslider');
     slider.removeSlide(slider.currentSlide)
     $('.flexslider').flexslider("next")
+    console.log("clicked")
 
 
 
