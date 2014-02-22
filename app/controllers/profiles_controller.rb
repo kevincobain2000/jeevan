@@ -1,3 +1,4 @@
+require 'will_paginate/array'
 class ProfilesController < ApplicationController
   before_filter :initialize_tables, :visiting_user_id, :load_gon
   before_filter :is_this_user_profile, only: [:edit]
@@ -7,8 +8,10 @@ class ProfilesController < ApplicationController
 
   # GET /profiles
   def index
-    @profiles = Profile.all
-    @images = current_user.images.all
+
+    # user_not_my_gender = User.where(:sex != current_user.sex).order('created_at DESC')
+    @profiles = User.paginate(:page => params[:page], :per_page => 6).where(:sex != current_user.sex).order('created_at DESC')
+
     @out_visitors = current_user.visitors
     @in_visitors = Visitor.where(viewed_id: current_user.id)
 
@@ -46,7 +49,7 @@ class ProfilesController < ApplicationController
         end
     end
     remove_id = all_images_ids - not_to_remove_ids
-    # current_user.images.destroy(remove_id[0])
+    current_user.images.destroy(remove_id[0])
     render json: { :status => 200 }
   end
   def modify_profile
