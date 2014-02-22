@@ -3,7 +3,7 @@
     <h4>Basic Information</h4>
   </div>
   <div class="text">
-    <div class="form autosave">
+    <div class="form">
       <%= form_tag({:action=>'modify_profile'}, {:remote => true}) do %>
         <h5>Marital Status</h5>
         <% [ 'Never Married', 'Divorced', 'Widowed' ].each do |marital_status| %>
