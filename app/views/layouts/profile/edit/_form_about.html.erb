@@ -11,6 +11,7 @@
           </h5>
           <textarea name="<%= key%>" style="height:75px;width:90%;font-weight:bold;" placeholder="Write something <%= value %> ..." parsley-trigger="keyup" parsley-maxlength="500"><%= @user[:about][key] %></textarea>
         <% end %>
+        <br>
         <button type="submit" class="btn btn-success pull-right hidden">
           Save
         </button>

@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
   before_filter :initialize_tables, :visiting_user_id, :load_gon
   before_filter :is_this_user_profile, only: [:edit]
+  before_filter :get_user, only: [:edit, :show]
   attr_accessor :profiles, :out_visitors, :in_visitors, :out_visitors,
   :in_interests, :out_interests, :visiting_user_id
 
@@ -90,21 +91,8 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    @images = current_user.images.all
 
-    @user = {}
-    @user[:profile] = current_user.profile
-    @user[:contact] = current_user.contact
-    @user[:about] = current_user.about
-    @user[:religion] = current_user.religion
-    @user[:kundali] = current_user.kundali
-    @user[:family] = current_user.family
-    @user[:hobby] = current_user.hobby
-    @user[:education] = current_user.education
-    @user[:lifestyle] = current_user.lifestyle
-    @user[:desire] = current_user.desire
   end
-
 
   # Express Interest Button
   def interest
@@ -135,7 +123,7 @@ class ProfilesController < ApplicationController
 
   protected
   def initialize_tables
-    current_user.profile    = Profile.find_or_initialize_by(user_id: current_user.id)
+    current_user.profile    = Profile.find_or_initialize_by(user_id: current_user.id, sex:current_user.sex)
     current_user.contact    = Contact.find_or_initialize_by(user_id: current_user.id)
     current_user.religion   = Religion.find_or_initialize_by(user_id: current_user.id)
     current_user.kundali    = Kundali.find_or_initialize_by(user_id: current_user.id)
@@ -165,6 +153,21 @@ class ProfilesController < ApplicationController
       redirect_to(profiles_path)
     end
   end
+  def get_user
+    @user = {}
+    @user[:profile] = current_user.profile
+    @user[:contact] = current_user.contact
+    @user[:about] = current_user.about
+    @user[:religion] = current_user.religion
+    @user[:kundali] = current_user.kundali
+    @user[:family] = current_user.family
+    @user[:hobby] = current_user.hobby
+    @user[:education] = current_user.education
+    @user[:lifestyle] = current_user.lifestyle
+    @user[:desire] = current_user.desire
+    @user[:image] = current_user.images.all
+  end
+
 
   private
   def image_params

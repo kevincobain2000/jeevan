@@ -1,21 +1,8 @@
 <div class="span6 feature">
   <div class="img">
-    <h4>Kundali</h3>
+    <h4>Kundali</h4>
   </div>
   <div class="text">
-    <div class="form">
-      <%= form_tag({:action=>'modify_kundali'}, {:remote => true}) do %>
-
-        <select id="select-birth-country" name="birth_country" value="Other" class="selectized"></select>
-        <select id="select-birth-city" name="birth_city" value="Other" class="selectized"></select>
-        <input type="text" name="dob" data-behaviour='datepicker' value="02/25/1985" style="width:200px;">
-        <select id="select-tob" name="sub_tob" value="Other" class="selectized"></select>
-        <select id="select-manglik" name="manglik" value="Other" class="selectized"></select>
-        <select id="select-sun-sign" name="sun_sign" value="Other" class="selectized"></select>
-        <select id="select-moon-sign" name="moon_sign" value="Other" class="selectized"></select>
-        <select id="select-nakshatra" name="nakshatra" value="Other" class="selectized"></select>
-        <%= submit_tag "Save", class: 'btn btn-success pull-right' %>
-      <% end %>
-    </div>
+    <%= @user[:kundali].inspect %>
   </div>
 </div>

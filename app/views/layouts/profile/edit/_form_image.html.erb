@@ -1,19 +1,18 @@
 <div class="span6 feature">
   <div class="form">
     <%= form_tag({:action=>'remove_image'}, {:remote => true}) do %>
-    <%#= form_tag({:action=>'remove_image'}) do %>
-      <button type="submit" id="remove-image" class="btn btn-danger">
-        <i class="icon-trash"></i></button>
       <div class="flexslider">
         <ul class="slides">
-          <% @images.each do |image| %>
+          <% @user[:image].each do |image| %>
             <li>
-              <%= image_tag image.avatar.url(:original) %>
+              <%= image_tag image.avatar.url(:medium) %>
               <input type="hidden" name="<%= image.id %>" value="<%= image.id %>">
-            </li>
-          <% end %>
+            <% end %>
+          </li>
         </ul>
-      </div>
-    <% end %>
+        <button type="submit" id="remove-image" class="btn btn-link pull-right">
+          <i class="icon-trash"></i></button>
+      <% end %>
+    </div>
   </div>
 </div>
