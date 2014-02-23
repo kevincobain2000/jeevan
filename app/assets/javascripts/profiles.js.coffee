@@ -101,7 +101,7 @@ $(document).on "page:change", ->
       for key, value of val.split ","
         gon.select_profile_edit_items[name].push title: value
 
-    if val
+    if (typeof gon != 'undefined')
       obj = $("#select-" + css_id).selectize({
                     maxItems: if options.maxItems then options.maxItems else 1,
                     valueField: if options.valueField then options.valueField else "title",
@@ -119,7 +119,7 @@ $(document).on "page:change", ->
 
 
   Dropzone.options.myDropzone =
-    dictDefaultMessage: '<div class="hero" style="height:200px;"><h2>Drag & Drop</h2><p>or click to upload images</p></div>'
+    dictDefaultMessage: '<div class="hero" style="height:100px;"><h2>Drag & Drop</h2><p>or click to upload images</p></div>'
     paramName: "avatar"
     maxFilesize: 2 #mb
     addRemoveLinks: false
