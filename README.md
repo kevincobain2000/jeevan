@@ -56,5 +56,10 @@ Works even with turbolinks
 
 
 
-#### Scratch
+#### Avatar
 
+
+```
+ @images = current_user.images.all
+ <%= image_tag image.avatar.url(:thumb) %>
+```
