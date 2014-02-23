@@ -1,31 +1,5 @@
-<div id="features" class="features_page">
-  <div class="container">
-    <div class="feature_wrapper option3">
-      <div class="row">
-        <% @profiles_paginate.each do |user_id| %>
-          <div class="span3 feature" style="background:white;">
-            <div class="img">
-              <h4>Basic Information</h4>
-              <%= link_to "Show this Profile ", @profiles[user_id][:profile] %>
-              <% if @profiles[user_id][:avatar] %>
-                <%= image_tag @profiles[user_id][:avatar].url(:thumb), :class => "img-rounded" %>
-              <% end %>
-            </div>
-            <div class="text">
-              <%=  @profiles[user_id][:profile].inspect %>
-              <%= form_tag({:action=>'interest'}, {:remote => true}) do %>
-                <%= hidden_field_tag 'to_user_id', user_id %>
-                <button class="btn btn-success interest" type="submit">Express Interest</button>
-              <% end %>
-            </div>
-          </div>
-        <% end %>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render partial: 'layouts/profile/cards', locals: {profiles: @profiles, paginate: @profiles_paginate} %>
 
-<%= will_paginate @profiles_paginate, :class =>"flickr_pagination" %>
 
 <h3>Out Visitors</h3>
 <%= @visitors[:out].inspect %>

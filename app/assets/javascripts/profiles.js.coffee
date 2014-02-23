@@ -119,7 +119,7 @@ $(document).on "page:change", ->
 
 
   Dropzone.options.myDropzone =
-    dictDefaultMessage: '<div class="hero" style="height:200px;"><h2>Drag & Drop</h2><p>or click to upload images</p></div>'
+    dictDefaultMessage: '<div class="hero" style="height:100px;"><h2>Drag & Drop</h2><p>or click to upload images</p></div>'
     paramName: "avatar"
     maxFilesize: 2 #mb
     addRemoveLinks: false

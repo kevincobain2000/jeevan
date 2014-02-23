@@ -11,12 +11,7 @@
   </head>
   <body>
     <%= render :partial => 'layouts/navbar'%>
-    <% if current_user %>
-    <%= render :partial => 'layouts/sidel'%>
-
-    <% end %>
     <%= yield %>
-
     <%= render :partial => 'layouts/footer'%>
 
   </body>
