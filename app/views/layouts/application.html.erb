@@ -12,9 +12,12 @@
   <body>
     <%= render :partial => 'layouts/navbar'%>
     <% if current_user %>
-    <%= render :partial => 'layouts/side'%>
+    <%= render :partial => 'layouts/sidel'%>
+
     <% end %>
     <%= yield %>
+
     <%= render :partial => 'layouts/footer'%>
+
   </body>
 </html>

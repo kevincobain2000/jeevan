@@ -5,6 +5,7 @@ Jeevan::Application.routes.draw do
   resources :profiles do
     collection do
       post :modify_profile
+      post :modify_avatar
       post :modify_contact
       post :modify_religion
       post :modify_kundali

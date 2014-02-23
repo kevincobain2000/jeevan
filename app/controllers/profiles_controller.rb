@@ -15,7 +15,7 @@ class ProfilesController < ApplicationController
     users_not_my_gender = User.where.not(sex: current_user.sex).order('created_at DESC').limit(1000)
 
     users_not_my_gender.each do |user|
-      @profiles[user.id] = {profile: user.profile, avatar: user.images.first}
+      @profiles[user.id] = {profile: user.profile, avatar: user.avatar}
     end
 
     @profiles_paginate = @profiles.keys.paginate(:page => params[:page], :per_page => 7)
@@ -42,6 +42,10 @@ class ProfilesController < ApplicationController
   def modify_image
     current_user.images.create(image_params)
     render json: { :status => 200 }
+  end
+  def modify_avatar
+    current_user.update(avatar_params)
+    redirect_to :back
   end
   def remove_image
     all_images_ids = current_user.images.pluck(:id)
@@ -187,6 +191,9 @@ class ProfilesController < ApplicationController
   private
   def image_params
     params.permit("avatar")
+  end
+  def avatar_params
+    params.permit(:avatar)
   end
   def remove_image_params
     params.permit!
