@@ -1,4 +1,3 @@
-require 'will_paginate/array'
 class ProfilesController < ApplicationController
   before_filter :initialize_tables, :load_gon
   before_filter :is_this_user_profile, only: [:edit]
@@ -225,12 +224,13 @@ class ProfilesController < ApplicationController
 #            This Class's Helpers
 #===============================================*
   def touch_visitor
-    logger.info("Debug Touching Visitor")
-    visitors_id = params[:id]
-    if current_user.id != visitors_id.to_i
-      find_first = current_user.visitors.where(viewed_id: visitors_id).first
+    visiting_user_id = Profile.find(params[:id]).user_id
+    logger.info("Debug Touching Visitor #{visiting_user_id}")
+    if current_user.id != visiting_user_id
+      find_first = Visitor.where(user_id: current_user.id, viewed_id: visiting_user_id).first
+      logger.info("Debug Touching Visitor #{find_first.inspect}")
       if !find_first
-        current_user.visitors.create(viewed_id: visitors_id)
+        current_user.visitors.create(user_id: current_user.id, viewed_id: visiting_user_id)
       else
         find_first.touch
       end
