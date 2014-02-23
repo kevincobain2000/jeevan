@@ -8,7 +8,7 @@
               <h4>Basic Information</h4>
               <%= link_to "Show this Profile ", @profiles[user_id][:profile] %>
               <% if @profiles[user_id][:avatar] %>
-                <%= image_tag @profiles[user_id][:avatar].avatar.url(:thumb), :class => "img-rounded" %>
+                <%= image_tag @profiles[user_id][:avatar].url(:thumb), :class => "img-rounded" %>
               <% end %>
             </div>
             <div class="text">
