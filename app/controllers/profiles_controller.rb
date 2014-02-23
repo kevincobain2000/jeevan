@@ -4,27 +4,22 @@ class ProfilesController < ApplicationController
   before_filter :is_this_user_profile, only: [:edit]
   before_filter :get_current_user, only: [:edit]
   before_filter :get_showing_user, only: [:show]
-  attr_accessor :profiles, :out_visitors, :in_visitors, :out_visitors,
-  :in_interests, :out_interests
 
   # GET /profiles
   def index
+    @interests = {in: Interest.where(to_user_id: current_user.id), responses: Interest.where(user_id: current_user.id)}
+
     @profiles = Hash.new()
+    # Todo Take interests donot add profiles to show to whom interests have been sent
+    # users_not_my_gender = User.where.not(sex: current_user.sex, :id.in(@interests[:in])).order('created_at DESC').limit(1000)
     users_not_my_gender = User.where.not(sex: current_user.sex).order('created_at DESC').limit(1000)
-    logger.info("Debug #{users_not_my_gender.inspect}")
-    logger.info("Debug Users not my gender #{users_not_my_gender.count}")
 
     users_not_my_gender.each do |user|
       @profiles[user.id] = {profile: user.profile, avatar: user.images.first}
     end
 
     @profiles_paginate = @profiles.keys.paginate(:page => params[:page], :per_page => 7)
-
-    @out_visitors = current_user.visitors
-    @in_visitors = Visitor.where(viewed_id: current_user.id)
-
-    @in_interests = Interest.where(to_user_id: current_user.id)
-    @out_interests_responses = Interest.where(user_id: current_user.id)
+    @visitors = {out: current_user.visitors, in:Visitor.where(viewed_id: current_user.id)}
   end
 
   # GET /profiles/1
