@@ -3,7 +3,7 @@
     <div class="feature_wrapper option3">
       <div class="row">
         <% @profiles_paginate.each do |user_id| %>
-          <div class="span4 feature" style="background:white;">
+          <div class="span3 feature" style="background:white;">
             <div class="img">
               <h4>Basic Information</h4>
               <%= link_to "Show this Profile ", @profiles[user_id][:profile] %>
@@ -13,6 +13,10 @@
             </div>
             <div class="text">
               <%=  @profiles[user_id][:profile].inspect %>
+              <%= form_tag({:action=>'interest'}, {:remote => true}) do %>
+                <%= hidden_field_tag 'to_user_id', user_id %>
+                <button class="btn btn-success interest" type="submit">Express Interest</button>
+              <% end %>
             </div>
           </div>
         <% end %>
@@ -20,16 +24,15 @@
     </div>
   </div>
 </div>
+
 <%= will_paginate @profiles_paginate, :class =>"flickr_pagination" %>
-<legend>Edit this Profile</legend>
-<%= link_to "Edit THIS Profile id #{@current_user.profile.id}", edit_profile_path(:id =>
-  current_user.profile.id), "data-no-turbolink" => true %>
+
 <h3>Out Visitors</h3>
-<%= @out_visitors.inspect %>
+<%= @visitors[:out].inspect %>
 <h3>In Visitors</h3>
-<%= @in_visitors.inspect %>
+<%= @visitors[:in].inspect %>
 <h3>Outgoing Interests with Responses</h3>
-<% @out_interests_responses.each do |interest| %>
+<% @interests[:responses].each do |interest| %>
   <% if interest.response == nil %>
     Waiting
   <% elsif interest.response == 1 %>
@@ -41,7 +44,7 @@
   <hr>
 <% end %>
 <h3>Incoming Interests</h3>
-<% @in_interests.each do |interest| %>
+<% @interests[:in].each do |interest| %>
   <%=  interest.inspect %>
   <%= form_tag :action=>
   'interest_response' do %>
@@ -52,3 +55,5 @@
     <% end %>
   <% end %>
 <% end %>
+
+
