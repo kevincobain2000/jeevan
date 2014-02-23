@@ -24,10 +24,10 @@
                   <%= link_to "Profiles", profiles_path %>
                 </li>
                 <li>
-                  <%= link_to "Recently Accessed", visitors_path %>
+                  <%= link_to "In", visitors_path(:format => "in") %>
                 </li>
                 <li>
-                  <%= link_to "Profiles In Visitors", visitors_path %>
+                  <%= link_to "Out", visitors_path("out") %>
                 </li>
               </ul>
             </li>
