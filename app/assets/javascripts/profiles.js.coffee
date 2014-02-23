@@ -101,7 +101,8 @@ $(document).on "page:change", ->
       for key, value of val.split ","
         gon.select_profile_edit_items[name].push title: value
 
-    obj = $("#select-" + css_id).selectize({
+    if val
+      obj = $("#select-" + css_id).selectize({
                     maxItems: if options.maxItems then options.maxItems else 1,
                     valueField: if options.valueField then options.valueField else "title",
                     labelField: if options.labelField then options.labelField else "title",
@@ -113,7 +114,7 @@ $(document).on "page:change", ->
                     render:
                       option: (item, escape) ->
                         '<div><i class="icon-plus"></i> '+item.title+'</div>'
-    });
+      });
 
 
 
@@ -141,6 +142,10 @@ $(document).on "page:change", ->
     $('.flexslider').flexslider("next")
     console.log("clicked")
 
+  $(".interest").click ->
+    $(this).text('Done')
+    $(this).prop('disabled', true)
+    $(this).append('<i class="icon-ok"></i>')
 
 
 
