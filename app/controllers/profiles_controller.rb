@@ -18,7 +18,7 @@ class ProfilesController < ApplicationController
       @profiles[user.id] = {profile: user.profile, avatar: user.avatar}
     end
 
-    @profiles_paginate = @profiles.keys.paginate(:page => params[:page], :per_page => 7)
+    @profiles_paginate = @profiles.keys.paginate(:page => params[:page], :per_page => 4)
     @visitors = {out: current_user.visitors, in:Visitor.where(viewed_id: current_user.id)}
   end
 
@@ -33,6 +33,9 @@ class ProfilesController < ApplicationController
         find_first.touch
       end
     end
+  end
+  def edit
+
   end
 
 #-====================================
@@ -100,10 +103,6 @@ class ProfilesController < ApplicationController
     render json: { :status => 200 }
   end
 
-  def edit
-
-  end
-
   # Express Interest Button
   def interest
     if current_user.id != params[:to_user_id].to_i
@@ -159,32 +158,33 @@ class ProfilesController < ApplicationController
   end
   def get_current_user
     @user = {}
-    @user[:profile] = current_user.profile
-    @user[:contact] = current_user.contact
-    @user[:about] = current_user.about
-    @user[:religion] = current_user.religion
-    @user[:kundali] = current_user.kundali
-    @user[:family] = current_user.family
-    @user[:hobby] = current_user.hobby
+    @user[:profile]   = current_user.profile
+    @user[:contact]   = current_user.contact
+    @user[:about]     = current_user.about
+    @user[:religion]  = current_user.religion
+    @user[:kundali]   = current_user.kundali
+    @user[:family]    = current_user.family
+    @user[:hobby]     = current_user.hobby
     @user[:education] = current_user.education
     @user[:lifestyle] = current_user.lifestyle
-    @user[:desire] = current_user.desire
-    @user[:image] = current_user.images.all
+    @user[:desire]    = current_user.desire
+    @user[:image]     = current_user.images.all
   end
   def get_showing_user
+    logger.info("Debug #{params.inspect}")
     user = User.find(Profile.find(params[:id]).user_id)
     @user = {}
-    @user[:profile] = user.profile
-    @user[:contact] = user.contact
-    @user[:about] = user.about
-    @user[:religion] = user.religion
-    @user[:kundali] = user.kundali
-    @user[:family] = user.family
-    @user[:hobby] = user.hobby
+    @user[:profile]   = user.profile
+    @user[:contact]   = user.contact
+    @user[:about]     = user.about
+    @user[:religion]  = user.religion
+    @user[:kundali]   = user.kundali
+    @user[:family]    = user.family
+    @user[:hobby]     = user.hobby
     @user[:education] = user.education
     @user[:lifestyle] = user.lifestyle
-    @user[:desire] = user.desire
-    @user[:image] = user.images.all
+    @user[:desire]    = user.desire
+    @user[:image]     = user.images.all
   end
 
 
