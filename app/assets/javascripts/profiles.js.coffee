@@ -101,7 +101,7 @@ $(document).on "page:change", ->
       for key, value of val.split ","
         gon.select_profile_edit_items[name].push title: value
 
-    if val
+    if gon
       obj = $("#select-" + css_id).selectize({
                     maxItems: if options.maxItems then options.maxItems else 1,
                     valueField: if options.valueField then options.valueField else "title",
