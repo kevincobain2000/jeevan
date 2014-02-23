@@ -14,11 +14,22 @@
       <div class="nav-collapse collapse">
         <ul class="nav pull-right">
           <% if current_user %>
-            <li>
-              <%= link_to "Profiles", profiles_path %>
-            </li>
-            <li>
-              <%#= link_to "Profiles In Visitors", profiles_invisits_path(current_user.id) %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Visitors
+                <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <%= link_to "Profiles", profiles_path %>
+                </li>
+                <li>
+                  <%= link_to "Recently Accessed", visitors_path %>
+                </li>
+                <li>
+                  <%= link_to "Profiles In Visitors", visitors_path %>
+                </li>
+              </ul>
             </li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -26,9 +37,12 @@
                 <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><%= link_to "Show", profile_path(:id =>current_user.profile.id), "data-no-turbolink" => true  %></li>
                 <li>
-                  <%= link_to "Edit", edit_profile_path(:id =>current_user.profile.id), "data-no-turbolink" => true %></li>
+                  <%= link_to "Show", profile_path(:id =>current_user.profile.id), "data-no-turbolink" => true  %>
+                </li>
+                <li>
+                  <%= link_to "Edit", edit_profile_path(:id =>current_user.profile.id), "data-no-turbolink" => true %>
+                </li>
               </ul>
             </li>
             <li class="dropdown">

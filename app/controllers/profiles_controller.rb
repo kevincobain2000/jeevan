@@ -12,9 +12,9 @@ class ProfilesController < ApplicationController
     @profiles = Hash.new()
     # Todo Take interests donot add profiles to show to whom interests have been sent
     # users_not_my_gender = User.where.not(sex: current_user.sex, :id.in(@interests[:in])).order('created_at DESC').limit(1000)
-    users_not_my_gender = User.where.not(sex: current_user.sex).order('created_at DESC').limit(1000)
+    users = User.where.not(sex: current_user.sex).order('created_at DESC').limit(1000)
 
-    users_not_my_gender.each do |user|
+    users.each do |user|
       @profiles[user.id] = {profile: user.profile, avatar: user.avatar}
     end
 
@@ -24,15 +24,7 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1
   def show
-    visitors_id = params[:id]
-    if current_user.id != visitors_id.to_i
-      find_first = current_user.visitors.where(viewed_id: visitors_id).first
-      if !find_first
-        current_user.visitors.create(viewed_id: visitors_id)
-      else
-        find_first.touch
-      end
-    end
+    touch_visitor
   end
   def edit
 
@@ -228,4 +220,21 @@ class ProfilesController < ApplicationController
   def desire_params
     params.permit(Desire.columns.map {|c| c.name })
   end
+
+#===============================================*
+#            This Class's Helpers
+#===============================================*
+  def touch_visitor
+    logger.info("Debug Touching Visitor")
+    visitors_id = params[:id]
+    if current_user.id != visitors_id.to_i
+      find_first = current_user.visitors.where(viewed_id: visitors_id).first
+      if !find_first
+        current_user.visitors.create(viewed_id: visitors_id)
+      else
+        find_first.touch
+      end
+    end
+  end
+
 end

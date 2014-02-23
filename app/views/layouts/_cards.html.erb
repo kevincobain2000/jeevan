@@ -13,7 +13,7 @@
             </div>
             <div class="text">
               <%=  profiles[user_id][:profile].inspect %>
-              <%= form_tag({:action=>'interest'}, {:remote => true}) do %>
+              <%= form_tag({:action=>'interest', :controller => "profiles"}, {:remote => true}) do %>
                 <%= hidden_field_tag 'to_user_id', user_id %>
                 <button class="btn btn-success interest" type="submit">Express Interest</button>
               <% end %>
