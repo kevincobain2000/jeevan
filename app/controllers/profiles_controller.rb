@@ -96,6 +96,7 @@ class ProfilesController < ApplicationController
 
   # Express Interest Button
   def interest
+    logger.info("Debug Params inspect #{params.inspect}")
     if current_user.id != params[:to_user_id].to_i
       find_first = current_user.interests.where(to_user_id: params[:to_user_id]).first
       logger.info("Debug Params inspect #{params.inspect}")
