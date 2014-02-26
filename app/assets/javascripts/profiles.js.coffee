@@ -141,14 +141,3 @@ $(document).on "page:change", ->
     slider.removeSlide(slider.currentSlide)
     $('.flexslider').flexslider("next")
     console.log("clicked")
-
-  $(".interest").click ->
-    $(this).text('Done')
-    $(this).prop('disabled', true)
-    $(this).append('<i class="icon-ok"></i>')
-
-
-
-
-
-
