@@ -5,7 +5,7 @@
 $(document).on "page:change", ->
   $("[data-behaviour~=datepicker]").datepicker()
   $('.timepicker').timepicker();
-  $('textarea').autosize();
+  # $('textarea').autosize();
 
 
   selectize_items =

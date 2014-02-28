@@ -23,6 +23,11 @@ gem 'dropzonejs-rails'
 gem 'jquery-inputmask-rails'
 gem 'will_paginate', '~> 3.0'
 
+gem 'angularjs-rails'
+gem 'jquery-datatables-rails'
+gem 'bootstrap-tagsinput-rails'
+gem 'twitter-typeahead-rails'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
