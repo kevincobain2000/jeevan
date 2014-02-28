@@ -14,4 +14,7 @@
  *= require bootstrap-timepicker
  *= require selectize
  *= require dropzone/basic
+ *= require dataTables/jquery.dataTables
+ *= require dataTables/jquery.dataTables.bootstrap
+ *= require bootstrap-tagsinput
  */
