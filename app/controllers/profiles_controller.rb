@@ -26,8 +26,9 @@ class ProfilesController < ApplicationController
     touch_visitor
   end
   def edit
-
+    render "profiles/edit/#{edit_params[:format]}"
   end
+
 
 #-====================================
 #            Edit Profile Page       =
@@ -54,6 +55,7 @@ class ProfilesController < ApplicationController
     render json: { :status => 200 }
   end
   def modify_profile
+    logger.info("Debug #{profile_params}")
     current_user.profile.update(profile_params)
     render json: { :status => 200 }
   end
@@ -181,6 +183,9 @@ class ProfilesController < ApplicationController
 
 
   private
+  def edit_params
+    params.permit(:format)
+  end
   def image_params
     params.permit("avatar")
   end
