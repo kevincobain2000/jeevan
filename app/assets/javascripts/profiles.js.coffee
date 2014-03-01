@@ -4,11 +4,8 @@
 
 $(document).on "page:change", ->
   # Dirty Hack for ajax calls Vanilla
-  $("#side-view-my-profile").click ->
-    $("#hidden-view-my-profile")[0].click()  
-  $("#side-basic-edit").click ->
-    $("#hidden-basic-edit")[0].click()
-
+  $("[id^=side]").click ->
+    $("#hidden-" + this.id)[0].click()
 
   selectize_items =
                     # best_time_f:true #remove true if nesting child
@@ -131,16 +128,12 @@ $(document).on "page:change", ->
     init: ->
       @on 'addedfile', (file) ->
 
-  $(".phone").inputmask("mask", {"mask": "(999) 999-9999-999"});
+  $(".phone").inputmask("mask", {"mask": "(999) 9999-999-999"});
 
   # AutoSave Form
   $('form').bind "keyup change", (e) ->
     $(this).find(".autosave").text("Saved")
     $(this).find(":submit.hide").submit()
 
-
-  $("#remove-image").click ->
-    slider = $('.flexslider').data('flexslider');
-    slider.removeSlide(slider.currentSlide)
-    $('.flexslider').flexslider("next")
-    console.log("clicked")
+  $('form').submit ->
+    $(this).find(".clicksave").text("Saved")
