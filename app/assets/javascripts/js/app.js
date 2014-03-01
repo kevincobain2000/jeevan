@@ -23,7 +23,7 @@
  * APP CONFIGURATION
  * Description: Enable / disable certain theme features here
  */		
-	$.navAsAjax = true; // Your left nav in your app will no longer fire ajax calls
+	$.navAsAjax = false; // Your left nav in your app will no longer fire ajax calls
 	
 	// Please make sure you have included "jarvis.widget.js" for this below feature to work
 	$.enableJarvisWidgets = true;
@@ -1199,9 +1199,9 @@ function loadURL(url, container) {
 			// cog placed
 			container.html('<h1><i class="fa fa-cog fa-spin"></i> Loading...</h1>');
 
-			// Only draw breadcrumb if it is main content material
+			// only draw breadcrumb if it is content material
+			// TODO: check if document title injection refreshes in IE...
 			// TODO: see the framerate for the animation in touch devices
-			
 			if (container[0] == $("#content")[0]) {
 				drawBreadCrumb();
 				// update title with breadcrumb...
@@ -1233,7 +1233,7 @@ function loadURL(url, container) {
 
 		},
 		error : function(xhr, ajaxOptions, thrownError) {
-			container.html('<h4 style="margin-top:10px; display:block; text-align:left"><i class="fa fa-warning txt-color-orangeDark"></i> Error 404! Page not found.</h4>');
+			container.html('<h4 style="margin-top:10px; display:block; text-align:left"><i class="fa fa-warning txt-color-orangeDark"></i> Error 404! Page not found.</h4> <br>Or you are running this page from your hard drive. Please make sure for all ajax calls your page needs to be hosted in a server');
 		},
 		async : false
 	});

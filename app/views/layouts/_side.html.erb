@@ -1,15 +1,18 @@
 <!-- Left panel : Navigation area -->
 <!-- Note: This width of the aside area can be adjusted through LESS variables -->
+<%= link_to "", profile_path(:id =>current_user.profile.id), :id=>"hidden-view-my-profile", :class=>"hidden"%>
+<%= link_to "Edit", edit_profile_path(:id =>current_user.profile.id, :format=>"basic"), :id=>"hidden-basic-edit", :class=>"hidden" %>
 <aside id="left-panel">
 
   <!-- User info -->
   <div class="login-info">
     <span>
       <!-- User image size is adjusted inside CSS, it should stay as it -->
-      <img src="img/avatars/sunny.png" alt="me" class="online" />
+
+      <%= image_tag current_user.avatar.url(:thumb), :class => "img-rounded" %>
       <a href="javascript:void(0);" id="show-shortcut">
-        john.doe
-        <i class="fa fa-angle-down"></i>
+        <i class="fa fa-user"></i>
+        <%= truncate(current_user.email, length: 10) %>
       </a>
     </span>
   </div>
@@ -22,6 +25,7 @@
   ul) after page load. Or the navigation
       will not initialize.
       -->
+
   <nav>
     <!-- NOTE: Notice the gaps after each icon usage <i></i>
   ..
@@ -30,29 +34,19 @@
         -->
   <ul>
     <li>
-      <a href="index.html" title="Dashboard">
-        <i class="fa fa-lg fa-fw fa-home"></i>
-        <span class="menu-item-parent">Dashboard</span>
-      </a>
-    </li>
-    <li>
-      <a href="inbox.html">
-        <i class="fa fa-lg fa-fw fa-inbox"></i>
-        <span class="menu-item-parent">Inbox</span>
-        <span class="badge pull-right inbox-badge">14</span>
+      <a href="" id="side-view-my-profile">
+        <i class="fa fa-lg fa-fw fa-list-alt"></i>
+        <span class="menu-item-parent">View My Profile</span>
       </a>
     </li>
     <li>
       <a href="#">
         <i class="fa fa-lg fa-fw fa-bar-chart-o"></i>
-        <span class="menu-item-parent">Graphs</span>
+        <span class="menu-item-parent">Edit Profile</span>
       </a>
       <ul>
         <li>
-          <a href="flot.html">Flot Chart</a>
-        </li>
-        <li>
-          <a href="morris.html">Morris Charts</a>
+          <a href="#" id="side-basic-edit">Basic Edit</a>
         </li>
         <li>
           <a href="inline-charts.html">Inline Charts</a>

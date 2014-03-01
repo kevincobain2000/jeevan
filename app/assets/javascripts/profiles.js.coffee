@@ -3,9 +3,11 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on "page:change", ->
-  $("[data-behaviour~=datepicker]").datepicker()
-  $('.timepicker').timepicker();
-  # $('textarea').autosize();
+  # Dirty Hack for ajax calls Vanilla
+  $("#side-view-my-profile").click ->
+    $("#hidden-view-my-profile")[0].click()  
+  $("#side-basic-edit").click ->
+    $("#hidden-basic-edit")[0].click()
 
 
   selectize_items =
@@ -133,6 +135,7 @@ $(document).on "page:change", ->
 
   # AutoSave Form
   $('form').bind "keyup change", (e) ->
+    $(this).find(".autosave").text("Saved")
     $(this).find(":submit.hide").submit()
 
 

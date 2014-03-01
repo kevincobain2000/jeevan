@@ -13,7 +13,8 @@ rake db:schema:load
 ### Erb
 
 ```
-<%= image_tag("about_slide1.jpg") %> # Looks assets/images/about_slide1.jpg
+<%= image_tag("about_slide1.jpg") %> 
+# Looks assets/images/about_slide1.jpg
 ```
 
 No turbolinks
@@ -62,4 +63,18 @@ Works even with turbolinks
 ```
  @images = current_user.images.all
  <%= image_tag image.avatar.url(:thumb) %>
+```
+
+
+
+
+#### Paths
+
+```
+
+                  <%= link_to "Show", profile_path(:id =>current_user.profile.id), "data-no-turbolink" => true  %>
+                </li>
+                <li>
+                  <%= link_to "Edit", edit_profile_path(:id =>current_user.profile.id), "data-no-turbolink" => true %>
+
 ```

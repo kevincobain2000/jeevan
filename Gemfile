@@ -29,6 +29,7 @@ gem 'bootstrap-tagsinput-rails'
 gem 'twitter-typeahead-rails'
 gem 'font-awesome-sass'
 gem 'jquery-ui-rails'
+gem 'jquery-turbolinks'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
