@@ -88,6 +88,8 @@ class ProfilesController < ApplicationController
     render json: { :status => 200 }
   end
   def modify_lifestyle
+    logger.info("Debug #{params}")
+    logger.info("Debug #{lifestyle_params}")
     current_user.lifestyle.update(lifestyle_params)
     render json: { :status => 200 }
   end
