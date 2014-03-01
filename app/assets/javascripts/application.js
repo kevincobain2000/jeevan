@@ -12,9 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+//= require jquery.ui.all
 //= require parsley
 //= require bootstrap-datepicker
 //= require bootstrap-timepicker
