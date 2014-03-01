@@ -73,15 +73,17 @@
                     </label>
                   </section>
                   <section>
-                    <label class="label">Gender
-                    </label>
-                    <div class="note note-error">Please tell us your gender</div>
+                  <hr>
                     <div class="row">
                       <div class="col col-4">
                         <label class="radio state-error"><%= f.radio_button :sex, "Male" %><i></i>Male</label>
                         <label class="radio state-error"><%= f.radio_button :sex, "Female" %><i></i>Female</label>
                       </div>
                     </section>
+                    <label class="checkbox">
+                      <input type="checkbox" name="terms" id="terms">
+                      <i></i>I agree with the <a href="#" data-toggle="modal" data-target="#myModal"> Terms and Conditions </a></label>
+
                     <section>
                       <div class="note">
                         Already have an account ?
@@ -99,3 +101,4 @@
         </div>
       </div>
     </body>
+<%= render :partial =>'layouts/terms'%>
