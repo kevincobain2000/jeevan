@@ -18,7 +18,7 @@
       <%= image_tag current_user.avatar.url(:thumb), :class => "img-rounded" %>
       <a href="javascript:void(0);" id="show-shortcut">
         <i class="fa fa-user"></i>
-        <%= truncate(current_user.email, length: 10) %>
+        <%= truncate(current_user.email, length: 15) %>
       </a>
     </span>
   </div>
