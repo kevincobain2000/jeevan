@@ -12,7 +12,7 @@ gem 'sass-rails', '~> 4.0.0'
 
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-gem "twitter-bootstrap-rails"
+# gem "twitter-bootstrap-rails"
 gem 'bootstrap-datepicker-rails'
 gem 'bootstrap-timepicker-rails'
 gem "selectize-rails"
@@ -27,6 +27,8 @@ gem 'angularjs-rails'
 gem 'jquery-datatables-rails'
 gem 'bootstrap-tagsinput-rails'
 gem 'twitter-typeahead-rails'
+gem 'font-awesome-sass'
+gem 'jquery-ui-rails'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
