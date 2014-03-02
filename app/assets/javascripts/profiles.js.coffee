@@ -5,6 +5,7 @@
 $(document).on "page:change", ->
   # Dirty Hack for ajax calls Vanilla
   $("[id^=side]").click ->
+    console.log(this)
     $("#hidden-" + this.id)[0].click()
 
   selectize_items =
@@ -66,7 +67,7 @@ $(document).on "page:change", ->
                       maxItems: 10
                       create: true
                       plugins: ['remove_button', 'restore_on_backspace']
-                    family_income:true
+                    # family_income:true
                     father:true
                     mother:true
                     brother:true
@@ -81,8 +82,8 @@ $(document).on "page:change", ->
                     weight:true
                     height:true
                     residence:true
-                    desired_height:true
-                    desired_age:true
+                    # desired_height:true
+                    # desired_age:true
                     desired_country:true
                     desired_city:true
                     desired_religion:true
@@ -90,7 +91,7 @@ $(document).on "page:change", ->
                     desired_mother_tongue:true
                     desired_education:true
                     desired_occupation:true
-                    desired_income:true
+                    # desired_income:true
 
   for name, options of selectize_items
     css_id = name.replace /_/g, "-"
@@ -112,7 +113,7 @@ $(document).on "page:change", ->
                     delimeter: if options.delimeter then options.delimeter else ",",
                     render:
                       option: (item, escape) ->
-                        '<div><i class="icon-plus"></i> '+item.title+'</div>'
+                        '<div><i class="fa fa-plus"></i> <strong>'+item.title+'</strong></div>'
       });
 
 
@@ -137,3 +138,29 @@ $(document).on "page:change", ->
 
   $('form').submit ->
     $(this).find(".clicksave").text("Saved")
+
+  $("#family-income-slider").ionRangeSlider
+    prettify: false
+    hasGrid: true
+  $("#desired-income-slider").ionRangeSlider
+    prettify: false
+    hasGrid: true
+  $("#desired-height-slider").ionRangeSlider
+    prettify: false
+    hasGrid: true
+  $("#desired-age-slider").ionRangeSlider
+    prettify: false
+    hasGrid: true
+  $(".click2edit").summernote
+    height: 350 #set editable area's height
+    toolbar: [
+      ['style', ['bold', 'italic', 'underline', 'clear']]
+      ['fontsize', ['fontsize']]
+      ['color', ['color']]
+      ['para', ['ul', 'ol', 'paragraph']]
+      ['height', ['height']]
+      ['help', ['help']]
+    ]
+
+
+
