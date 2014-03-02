@@ -72,6 +72,7 @@ class ProfilesController < ApplicationController
     render json: { :status => 200 }
   end
   def modify_about
+    logger.info("Debug #{about_params}")
     current_user.about.update(about_params)
     render json: { :status => 200 }
   end
@@ -94,6 +95,7 @@ class ProfilesController < ApplicationController
     render json: { :status => 200 }
   end
   def modify_desire
+    logger.info("Debug #{desire_params}")
     current_user.desire.update(desire_params)
     render json: { :status => 200 }
   end

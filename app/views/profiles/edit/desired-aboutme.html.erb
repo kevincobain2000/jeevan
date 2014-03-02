@@ -1,0 +1,214 @@
+<div id="main" role="main">
+    <%= render :partial =>
+    "layouts/ribbon", :locals => {:papa => "Edit", :son => "Hobbies & Lifestyle"} %>
+    <!-- MAIN CONTENT -->
+    <div id="content">
+        <div class="alert alert-block alert-info">
+            <a class="close" data-dismiss="alert" href="#">×</a>
+            <h4 class="alert-heading">What to Do!</h4>
+            <p>
+                Please enter your <strong>Contact Details</strong>
+                .
+                You can enter same numbers for all fields. Your contact numbers will only be shown to users once you accept their interest. Otherwise are kept private..
+            </p>
+        </div>
+
+        <!-- widget grid -->
+        <section id="widget-grid" class="">
+
+            <!-- row -->
+            <div class="row">
+                <!-- NEW WIDGET START -->
+                <article class="col-sm-12 col-md-12 col-lg-12">
+                    <!-- Widget ID (each widget will need unique ID)-->
+                    <div class="jarviswidget" id="wid-id-4" data-widget-editbutton="false" data-widget-custombutton="false">
+                        <header>
+                            <span class="widget-icon"> <i class="fa fa-edit"></i>
+                            </span>
+                            <h2>Modify Desires</h2>
+
+                        </header>
+                        <!-- widget div-->
+                        <div>
+                            <!-- widget content -->
+                            <div class="widget-body">
+                                <%= form_tag({:action=>
+                                'modify_desire'},{:remote => true, :class=>"smart-form"}) do %>
+                                <header>Desires</header>
+
+                                <fieldset>
+                                    <section>
+                                        <label class="label">Desired Marital Status</label>
+                                        <div class="row">
+                                            <% [ 'Never Married', 'Divorced' ].each do |desired_marital_status| %>
+                                            <div class="col col-4">
+                                            <label class="radio state-success">
+                                                <%= radio_button_tag(:desired_marital_status, desired_marital_status,(@user[:desire][:desired_marital_status] == desired_marital_status)) %> <i></i>
+                                                <%= desired_marital_status %></label>
+                                        </div>
+                                        <% end %></div>
+                                    <br>
+                                    <label class="label">desire Size</label>
+                                    <div class="row">
+                                        <% [ 'Yes', 'No' ].each do |desired_manglik| %>
+                                        <div class="col col-4">
+                                            <label class="radio state-success">
+                                                <%= radio_button_tag(:desired_manglik, desired_manglik,(@user[:desire][:desired_manglik] == desired_manglik)) %>
+                                                <i></i>
+                                                <%= desired_manglik %></label>
+                                        </div>
+                                        <% end %></div>
+
+                                    <br>
+                                    <label class="label">Diet</label>
+                                    <div class="row">
+                                        <% [ 'Veg', 'Non Veg' ].each do |desired_diet| %>
+                                        <div class="col col-4">
+                                            <label class="radio state-success">
+                                                <%= radio_button_tag(:desired_diet, desired_diet,(@user[:desire][:desired_diet] == desired_diet)) %>
+                                                <i></i>
+                                                <%= desired_diet %></label>
+                                        </div>
+                                        <% end %></div>
+                                    <br>
+                                    <label class="label">Diet</label>
+                                    <div class="row">
+                                        <% [ 'Yes', 'No' ].each do |desired_smoke| %>
+                                        <div class="col col-4">
+                                            <label class="radio state-success">
+                                                <%= radio_button_tag(:desired_smoke, desired_smoke,(@user[:desire][:desired_smoke] == desired_smoke)) %>
+                                                <i></i>
+                                                <%= desired_smoke %></label>
+                                        </div>
+                                        <% end %></div>
+                                    <br>
+
+                                    <label class="label">Alcohal</label>
+                                    <div class="row">
+                                        <% [ 'Yes', 'No' ].each do |desired_drink| %>
+                                        <div class="col col-4">
+                                            <label class="radio state-success">
+                                                <%= radio_button_tag(:desired_drink, desired_drink,(@user[:desire][:desired_drink] == desired_drink)) %>
+                                                <i></i>
+                                                <%= desired_drink %></label>
+                                        </div>
+                                        <% end %></div>
+                                    <br>
+                                    <label class="label">Complexion</label>
+                                    <div class="row">
+                                        <% [ 'Yes', 'No' ].each do |desired_complexion| %>
+                                        <div class="col col-4">
+                                            <label class="radio state-success">
+                                                <%= radio_button_tag(:desired_complexion, desired_complexion,(@user[:desire][:desired_complexion] == desired_complexion)) %>
+                                                <i></i>
+                                                <%= desired_complexion %></label>
+                                        </div>
+                                        <% end %></div>
+                                    <br></section>
+                                <section>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>Desired Income</label>
+                                                <% range_income = [5,15] %>
+                                                <% if  !@user[:desire]['desired_income'].nil? %>
+                                                <% range_income = @user[:desire]['desired_income'].split(';') %>
+                                                <% end %>
+                                                <input id="desired-income-slider" type="text" name="desired_income" value="2;100" data-type="double" data-step="1" data-prefix="Rs " data-postfix=" Lac" data-from="<%= range_income[0] %>" data-to="<%= range_income[1] %>" data-hasgrid="true"></div>
+                                        </div>
+                                    </div>
+
+                                        <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>Desired Height</label>
+                                                <% range_height = [5,7] %>
+                                                <% if  !@user[:desire]['desired_height'].nil? %>
+                                                <% range_height = @user[:desire]['desired_height'].split(';') %>
+                                                <% end %>
+                                                <input id="desired-height-slider" type="text" name="desired_height" value="4;10" data-type="double" data-step="1" data-prefix="" data-postfix=" Ft" data-from="<%= range_height[0] %>" data-to="<%= range_height[1] %>" data-hasgrid="true"></div>
+                                        </div>
+                                    </div>
+
+                                        <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>Desired Age</label>
+                                                <% range_height = [24,30] %>
+                                                <% if  !@user[:desire]['desired_age'].nil? %>
+                                                <% range_age = @user[:desire]['desired_age'].split(';') %>
+                                                <% end %>
+                                                <input id="desired-age-slider" type="text" name="desired_age" value="18;70" data-type="double" data-step="1" data-prefix="" data-postfix=" Years" data-from="<%= range_height[0] %>" data-to="<%= range_height[1] %>" data-hasgrid="true"></div>
+                                        </div>
+                                    </div>
+
+                                </section>
+
+                                <section>
+                                    <% categories = ["desired_country", "desired_city", "desired_religion", "desired_caste", "desired_mother_tongue", "desired_education", "desired_occupation"] %>
+                                    <% categories.each do |category| %>
+                                    <% heading = category.gsub "_", " " %>
+                                    <% id = category.gsub "_", "-" %>
+                                    <section class="col col-6">
+                                        <label>
+                                            <%= heading.capitalize %></label>
+                                        <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:desire][category] %>">
+                                    </section>
+                                    <% end %>
+                                </section>
+                            </fieldset>
+                            <footer>
+                                <div class="note note-success autosave"></div>
+                                <button type="submit" class="btn btn-primary hide">Save</button>
+                                <!-- <button type="button" class="btn btn-default" onclick="window.history.back();">Back</button> -->
+                            </footer>
+                            <% end %></div>
+                        <!-- end widget content --> </div>
+                    <!-- end widget div --> </div>
+            </article>
+            <article class="col-sm-12 col-md-12 col-lg-12">
+                <div class="jarviswidget" id="wid-id-2" data-widget-fullscreenbutton="true">
+
+                <header>
+                    <span class="widget-icon"> <i class="fa fa-pencil"></i> </span>
+                    <h2>Write About YourSelf..</h2>
+
+                </header>
+                <!-- widget div-->
+                <div>
+                    <%= form_tag({:action=>'modify_about'}, {:remote => true, "parsley-validate" => ""}) do %>
+                    <input type="hidden" name="me" id="about-me" type="hidden">
+                    <button type="submit" id="submit-about-me" class="btn btn-success pull-right hidden">
+                        Save
+                    </button>
+                    <% end %>
+
+
+                    <!-- widget content -->
+                    <div class="widget-body no-padding">
+                            <button id="save" class="btn btn-link pull-right" onclick="save()" type="button">Save</button>
+                            <button id="edit" class="btn btn-link pull-right" onclick="edit()" type="button">Edit</button>
+                            <script type="text/javascript">
+                                var edit = function() {
+                                    $('.click2edit').summernote({focus: true});
+                                };
+                                var save = function() {
+                              var aHTML = $('.click2edit').code();
+                              $("#about-me").val(aHTML);
+                              $("#submit-about-me").click();
+                              $('.click2edit').destroy();
+                          };
+                      </script>
+                        <div class="click2edit"><%= raw @user[:about][:me] %></div>
+                    </div>
+                    <!-- end widget content -->
+                </div>
+            </div>
+            <!-- end widget -->
+
+            <!-- end widget div --> </div>
+
+                <!-- end widget --> </article>
+        </section>
+    </div>
+</div>

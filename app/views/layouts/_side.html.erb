@@ -5,6 +5,8 @@
 <%= link_to "Edit", edit_profile_path(:id =>current_user.profile.id, :format=>"contact"), :id=>"hidden-side-contact", :class=>"hidden" %>
 <%= link_to "Edit", edit_profile_path(:id =>current_user.profile.id, :format=>"religion-kundali"), :id=>"hidden-side-religion-kundali-edit", :class=>"hidden" %>
 <%= link_to "Edit", edit_profile_path(:id =>current_user.profile.id, :format=>"hobby-lifestyle"), :id=>"hidden-side-hobby-lifestyle-edit", :class=>"hidden" %>
+<%= link_to "Edit", edit_profile_path(:id =>current_user.profile.id, :format=>"family-education"), :id=>"hidden-side-family-education-edit", :class=>"hidden" %>
+<%= link_to "Edit", edit_profile_path(:id =>current_user.profile.id, :format=>"desired-aboutme"), :id=>"hidden-side-desired-aboutme-edit", :class=>"hidden" %>
 <aside id="left-panel">
 <span class="minifyme">
   <i class="fa fa-arrow-circle-left hit"></i>
@@ -62,6 +64,12 @@
         </li>
         <li>
           <a href="#" id="side-hobby-lifestyle-edit">Hobbies & Lifestyle</a>
+        </li>
+        <li>
+          <a href="#" id="side-family-education-edit">Family & Education</a>
+        </li>
+        <li>
+          <a href="#" id="side-desired-aboutme-edit">About Partner & Me</a>
         </li>
       </ul>
     </li>
