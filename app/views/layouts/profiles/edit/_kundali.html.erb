@@ -1,0 +1,44 @@
+<%= render :partial =>'layouts/alert'%>
+<!-- widget grid -->
+<section id="widget-grid" class="">
+    <!-- NEW WIDGET START -->
+    <article class="col-sm-12 col-md-12 col-lg-6">
+      <!-- Widget ID (each widget will need unique ID)-->
+      <div class="jarviswidget" id="wid-id-5" data-widget-editbutton="false" data-widget-custombutton="false">
+        <header>
+          <span class="widget-icon">
+            <i class="fa fa-edit"></i>
+          </span>
+          <h2>Edit Kundali</h2>
+        </header>
+        <!-- widget div-->
+        <div>
+          <!-- widget content -->
+          <div class="widget-body">
+            <%= form_tag({:action=>
+                                'modify_kundali'},{:remote => true, :class=>"smart-form"}) do %>
+              <header>Nakshatra, Moon Sign, Be precise with dates</header>
+              <fieldset>
+                <% categories = ["birth_country", "birth_city", "sun_sign", "moon_sign", "nakshatra"] %>
+                <% categories.each do |category| %>
+                  <% heading = category.sub "_", " " %>
+                  <% id = category.sub "_", "-" %>
+                  <section class="col col-6">
+                    <label>
+                      <%= heading.capitalize %></label>
+                    <input id="select-<%= id %>" name="<%= category %>" value="<%= @user[:kundali][category] %>" class="selectized" placeholder="Select or add new.."></section>
+                <% end %>
+              </fieldset>
+              <footer>
+                <div class="note note-success clicksave"></div>
+                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-default" onclick="window.history.back();">Back</button>
+              </footer>
+            <% end %></div>
+          <!-- end widget content -->
+        </div>
+        <!-- end widget div -->
+      </div>
+      <!-- end widget -->
+    </article>
+  </section>
