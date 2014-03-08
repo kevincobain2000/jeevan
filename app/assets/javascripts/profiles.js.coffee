@@ -3,6 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on "page:change", ->
+  pageSetUp();
   # Dirty Hack for ajax calls Vanilla
   $("[id^=side]").click ->
     console.log(this)

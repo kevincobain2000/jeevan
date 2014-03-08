@@ -30,9 +30,9 @@ class ProfilesController < ApplicationController
   end
 
 
-#-====================================
-#            Edit Profile Page       =
-#=====================================
+  #-====================================
+  #            Edit Profile Page       =
+  #=====================================
   # After the save on edit is pressed
   def modify_image
     current_user.images.create(image_params)
@@ -40,7 +40,7 @@ class ProfilesController < ApplicationController
   end
   def modify_avatar
     current_user.update(avatar_params)
-    redirect_to :back
+    render json: { :status => 200 }
   end
   def remove_image
     # current_user.images.destroy(remove_image_params['imageid'])
@@ -164,6 +164,7 @@ class ProfilesController < ApplicationController
     logger.info("Debug #{params.inspect}")
     user = User.find(Profile.find(params[:id]).user_id)
     @user = {}
+    @user[:id] = user.id
     @user[:profile]   = user.profile
     @user[:contact]   = user.contact
     @user[:about]     = user.about
@@ -175,6 +176,7 @@ class ProfilesController < ApplicationController
     @user[:lifestyle] = user.lifestyle
     @user[:desire]    = user.desire
     @user[:image]     = user.images.all
+    @user[:avatar]    = user.avatar
   end
 
 
@@ -222,9 +224,9 @@ class ProfilesController < ApplicationController
     params.permit(Desire.columns.map {|c| c.name })
   end
 
-#===============================================*
-#            This Class's Helpers
-#===============================================*
+  #===============================================*
+  #            This Class's Helpers
+  #===============================================*
   def touch_visitor
     visiting_user_id = Profile.find(params[:id]).user_id
     logger.info("Debug Touching Visitor #{visiting_user_id}")
