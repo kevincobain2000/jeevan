@@ -13,7 +13,6 @@ class ProfilesController < ApplicationController
     touch_visitor
   end
   def edit
-    render "profiles/edit/#{edit_params[:format]}"
   end
 
 
