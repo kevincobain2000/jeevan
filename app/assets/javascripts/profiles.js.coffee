@@ -3,10 +3,12 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on "page:change", ->
-  $("[data-behaviour~=datepicker]").datepicker()
-  $('.timepicker').timepicker();
-  $('textarea').autosize();
-
+  pageSetUp();
+  $("#tabs").tabs()
+  # Dirty Hack for ajax calls Vanilla
+  $("[id^=side]").click ->
+    console.log(this)
+    $("#hidden-" + this.id)[0].click()
 
   selectize_items =
                     # best_time_f:true #remove true if nesting child
@@ -67,7 +69,7 @@ $(document).on "page:change", ->
                       maxItems: 10
                       create: true
                       plugins: ['remove_button', 'restore_on_backspace']
-                    family_income:true
+                    # family_income:true
                     father:true
                     mother:true
                     brother:true
@@ -82,8 +84,8 @@ $(document).on "page:change", ->
                     weight:true
                     height:true
                     residence:true
-                    desired_height:true
-                    desired_age:true
+                    # desired_height:true
+                    # desired_age:true
                     desired_country:true
                     desired_city:true
                     desired_religion:true
@@ -91,7 +93,7 @@ $(document).on "page:change", ->
                     desired_mother_tongue:true
                     desired_education:true
                     desired_occupation:true
-                    desired_income:true
+                    # desired_income:true
 
   for name, options of selectize_items
     css_id = name.replace /_/g, "-"
@@ -113,9 +115,8 @@ $(document).on "page:change", ->
                     delimeter: if options.delimeter then options.delimeter else ",",
                     render:
                       option: (item, escape) ->
-                        '<div><i class="icon-plus"></i> '+item.title+'</div>'
+                        '<div><i class="fa fa-plus"></i> <strong>'+item.title+'</strong></div>'
       });
-
 
 
   Dropzone.options.myDropzone =
@@ -129,26 +130,53 @@ $(document).on "page:change", ->
     init: ->
       @on 'addedfile', (file) ->
 
-  $(".phone").inputmask("mask", {"mask": "(999) 999-9999-999"});
+  $(".phone").inputmask("mask", {"mask": "(999) 9999-999-999"});
 
   # AutoSave Form
   $('form').bind "keyup change", (e) ->
+    $(this).find(".autosave").text("Saved")
     $(this).find(":submit.hide").submit()
 
+  $('form').submit ->
+    console.log("form was submitted")
+    jq_superbox_remov = $("#imageid").attr("value")
+    $("#"+jq_superbox_remov).remove()
+    $(".superbox-list").removeClass "active"
+    $(".superbox-current-img").animate
+      opacity: 0, 200, ->
+        $(".superbox-show").slideUp()
+        return
+    $(this).find(".clicksave").text("Saved")
 
-  $("#remove-image").click ->
-    slider = $('.flexslider').data('flexslider');
-    slider.removeSlide(slider.currentSlide)
-    $('.flexslider').flexslider("next")
-    console.log("clicked")
+  $("#ta4").click (e) ->
+    console.log("desire")
+    $("#desired-income-slider").ionRangeSlider
+      prettify: false
+      hasGrid: true
+    $("#desired-height-slider").ionRangeSlider
+      prettify: false
+      hasGrid: true
+    $("#desired-age-slider").ionRangeSlider
+      prettify: false
+      hasGrid: true
 
-  $(".interest").click ->
-    $(this).text('Done')
-    $(this).prop('disabled', true)
-    $(this).append('<i class="icon-ok"></i>')
+  $("#ta10").click (e) ->
+    $("#family-income-slider").ionRangeSlider
+      prettify: false
+      hasGrid: true
 
-
-
-
-
-
+  $(".click2edit").summernote
+    height: 350 #set editable area's height
+    toolbar: [
+      ['style', ['bold', 'italic', 'underline', 'clear']]
+      ['fontsize', ['fontsize']]
+      ['color', ['color']]
+      ['para', ['ul', 'ol', 'paragraph']]
+      ['height', ['height']]
+      ['help', ['help']]
+    ]
+  $('.superbox').SuperBox()
+  $(".superbox-list").click ->
+    currentimg = $(this).find(".superbox-img")
+    $("#imageid").attr("value", currentimg.attr("id"))
+    return

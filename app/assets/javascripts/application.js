@@ -11,10 +11,11 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require twitter/bootstrap
 //= require turbolinks
 //= require_tree .
+//= require jquery.ui.all
 //= require parsley
 //= require bootstrap-datepicker
 //= require bootstrap-timepicker
@@ -26,13 +27,8 @@
 //= require jquery.inputmask.extensions
 //= require jquery.inputmask.numeric.extensions
 //= require jquery.inputmask.date.extensions
-
-
-
-$(document).on("page:change", function() {
-	$(".navbar .dropdown").hover((function() {
-		$(this).find(".dropdown-menu").first().stop(true, true).delay(150).slideDown();
-	}), function() {
-		$(this).find(".dropdown-menu").first().stop(true, true).delay(50).slideUp();
-	});
-});
+//= require angular
+//= require dataTables/jquery.dataTables
+//= require dataTables/jquery.dataTables.bootstrap
+//= require bootstrap-tagsinput
+//= require twitter/typeahead

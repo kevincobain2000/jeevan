@@ -1,56 +1,88 @@
-<!-- Sign In Option 2 -->
-<div id="sign_up2">
-  <div class="container">
-    <div class="section_header">
+<body id="login" class="animated fadeInDown">
+  <!-- possible classes: minified, no-right-panel, fixed-ribbon, fixed-header, fixed-width-->
+  <header id="header">
+    <span id="logo"></span>
+
+    <div id="logo-group">
+      <span id="logo">
+        <%= image_tag("logo.png") %> 
+        </span>
+      <!-- END AJAX-DROPDOWN -->
     </div>
-    <div class="row login">
-      <div class="span5 left_box">
-        <h4>Login</h4>
-        <div class="perk_box">
-          <div class="perk">
-            <span class="icos ico1"></span>
-            <p><strong>Lorem alteration</strong>
-              in some form  injected humour these randomised words .</p>
-          </div>
-          <div class="perk">
-            <span class="icos ico2"></span>
-            <p><strong>There are many variations</strong>
-              of passages of Lorem alteration in some form  injected humour these randomised words.</p>
-          </div>
-          <div class="perk">
-            <span class="icos ico3"></span>
-            <p><strong>Alteration in some form</strong>
-              injected humour these randomised words.</p>
-          </div>
-        </div>
-      </div>
-      <div class="span6 signin_box">
-        <div class="box">
-          <div class="box_cont">
-            <div class="division">
-              <span>Log In</span>
-              <hr>
-            </div>
-            <div class="form">
-              <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-                <%= f.text_field :email, :autofocus => true, :placeholder => "Email", :style => "width:100%;" %>
-                <%= f.password_field :password, :placeholder => "Password", :style => "width:100%;" %>
-                <% if devise_mapping.rememberable? -%>
-                  <br><br>
-                  <p style="color:black;"><%= f.check_box :remember_me, :checked => true %>
-                    &nbsp; Remember Me</p>
-                <% end -%>
-                <%= f.submit "Sign in" %>
-              <% end %>
-              <div class="forgot">
-                <span>New to this website ?</span>
-                <%= render "devise/shared/links" %>
+    <span id="login-header-space">
+      <span class="hidden-mobile">Need an account?</span>
+      <%= render "devise/shared/links" %>
+    </span>
+  </header>
+  <div id="main" role="main">
+    <!-- MAIN CONTENT -->
+    <div id="content" class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 hidden-xs hidden-sm">
+          <h1 class="txt-color-red login-header-big">SmartAdmin</h1>
+          <div class="hero">
+            <div class="pull-left login-desc-box-l">
+              <h4 class="paragraph-header">
+                It's Okay to be Smart. Experience the simplicity of SmartAdmin, everywhere you go!
+              </h4>
+              <div class="login-app-icons">
+                <a href="javascript:void(0);" class="btn btn-danger btn-sm">Frontend Template</a>
+                <a href="javascript:void(0);" class="btn btn-danger btn-sm">Find out more</a>
               </div>
             </div>
+            <img src="../images/demo/iphoneview.png" class="pull-right display-image" alt="" style="width:210px"></div>
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <h5 class="about-heading">About SmartAdmin - Are you up to date?</h5>
+              <p>
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.
+              </p>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <h5 class="about-heading">Not just your average template!</h5>
+              <p>
+                Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi voluptatem accusantium!
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
+          <div class="well no-padding">
+            <%= form_for(resource, :as => resource_name, :html => {:class => "smart-form client-form"}, :url => session_path(resource_name)) do |f| %>
+              <header>Sign In</header>
+              <fieldset>
+                <section>
+                  <label class="label">E-mail</label>
+                  <label class="input">
+                    <i class="icon-append fa fa-user"></i>
+                    <%= f.text_field :email, :autofocus => true, :placeholder => "Email" %>
+                  </label>
+                </section>
+                <section>
+                  <label class="label">Password</label>
+                  <label class="input">
+                    <i class="icon-append fa fa-lock"></i>
+                    <%= f.password_field :password, :placeholder => "Password" %>
+                  </label>
+                  <div class="note">
+                    <%= render "devise/shared/links" %>
+                  </div>
+                </section>
+                <section>
+                  <label class="checkbox">
+                    <%= f.check_box :remember_me, :checked => true %>
+                    <i></i>
+                    Stay signed in
+                  </label>
+                </section>
+              </fieldset>
+              <footer>
+                <button type="submit" class="btn btn-primary">Sign in</button>
+              </footer>
+            <% end %>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-<%= render :partial => 'layouts/aboutus'%>
+</body>
