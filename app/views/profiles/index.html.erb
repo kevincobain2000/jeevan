@@ -4,7 +4,42 @@
   <!-- MAIN CONTENT -->
   <div id="content">
     <div class="row">
+      <div class="input-group input-group-lg hidden-mobile">
+        <div class="input-group-btn">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            Everything
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu">
+            <li class="active">
+              <a href="javascript:void(0)"> <i class="fa fa-check"></i>
+                Everything
+              </a>
+            </li>
+            <li class="divider"></li>
+            <li>
+              <a href="javascript:void(0)">Users</a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">Projects</a>
+            </li>
+            <li>
+              <a href="javascript:void(0)">Sites</a>
+            </li>
+          </ul>
+        </div>
+        <input class="form-control input-lg" type="text" placeholder="Search again..." id="search-project">
+        <div class="input-group-btn">
+          <button type="submit" class="btn btn-default">
+            &nbsp;&nbsp;&nbsp; <i class="fa fa-fw fa-search fa-lg"></i>
+            &nbsp;&nbsp;&nbsp;
+          </button>
+        </div>
+      </div>
+    </div>
+    <legend></legend>
 
+    <div class="row">
 
       <% @profiles_paginate.each do |user_id| %>
       <div class="col-sm-6">
@@ -21,7 +56,8 @@
                     <div class="row">
 
                       <div class="col-sm-3 profile-pic">
-                      <%= image_tag @profiles[user_id][:avatar].url(:thumb), :class => "img-rounded" %>
+                        <%= image_tag @profiles[user_id][:avatar].url(:thumb), :class =>
+                        "img-rounded" %>
                         <%#= image_tag @user[:avatar].url(:thumb)%>
                         <div class="padding-10">
                           <h4 class="font-md"> <strong>1,543</strong>
@@ -45,7 +81,8 @@
 
                         <ul class="list-unstyled">
                           <li>
-                            <p class="text-muted"> <i class="fa fa-phone"></i>
+                            <p class="text-muted">
+                              <i class="fa fa-phone"></i>
                               &nbsp;&nbsp;(
                               <span class="txt-color-darken">313</span>
                               )
@@ -55,10 +92,10 @@
                             </p>
                           </li>
                           <li>
-                            <p class="text-muted"> <i class="fa fa-envelope"></i>
+                            <p class="text-muted">
+                              <i class="fa fa-envelope"></i>
                               &nbsp;&nbsp;
-                              <%= link_to "Show this Profile ", @profiles[user_id][:profile] %>
-                            </p>
+                              <%= link_to "Show this Profile ", @profiles[user_id][:profile] %></p>
                           </li>
                           <li>
                             <p class="text-muted">
@@ -87,9 +124,10 @@
                                 cumque nihil impedit quo minus id quod maxime placeat facere
                         </p>
                         <br>
-                         <%= form_tag({:action=>'interest', :controller => "profiles"}, {:remote => true}) do %>
-                          <%= hidden_field_tag 'to_user_id', user_id %>
-                          <button class="btn btn-success interest" type="submit">Express Interest</button
+                        <%= form_tag({:action=>
+                        'interest', :controller => "profiles"}, {:remote => true}) do %>
+                        <%= hidden_field_tag 'to_user_id', user_id %>
+                        <button class="btn btn-success interest" type="submit">Express Interest</button
                           <% end %>
 
                         <br></div>
@@ -107,15 +145,10 @@
 
       </div>
 
-      <% end %>
+      <% end %></div>
 
-
-
-    </div>
-
-    <!-- end row --> 
-    <%= will_paginate @profiles_paginate, :class =>"flickr_pagination" %>
-    </div>
+    <!-- end row -->
+    <%= will_paginate @profiles_paginate, :class =>"flickr_pagination" %></div>
 
   <!-- END MAIN CONTENT -->
 </div>
