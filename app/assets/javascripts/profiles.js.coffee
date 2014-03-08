@@ -146,21 +146,25 @@ $(document).on "page:change", ->
       opacity: 0, 200, ->
         $(".superbox-show").slideUp()
         return
-
     $(this).find(".clicksave").text("Saved")
 
-  $("#family-income-slider").ionRangeSlider
-    prettify: false
-    hasGrid: true
-  $("#desired-income-slider").ionRangeSlider
-    prettify: false
-    hasGrid: true
-  $("#desired-height-slider").ionRangeSlider
-    prettify: false
-    hasGrid: true
-  $("#desired-age-slider").ionRangeSlider
-    prettify: false
-    hasGrid: true
+  $("#ta4").click (e) ->
+    console.log("desire")
+    $("#desired-income-slider").ionRangeSlider
+      prettify: false
+      hasGrid: true
+    $("#desired-height-slider").ionRangeSlider
+      prettify: false
+      hasGrid: true
+    $("#desired-age-slider").ionRangeSlider
+      prettify: false
+      hasGrid: true
+
+  $("#ta10").click (e) ->
+    $("#family-income-slider").ionRangeSlider
+      prettify: false
+      hasGrid: true
+
   $(".click2edit").summernote
     height: 350 #set editable area's height
     toolbar: [
