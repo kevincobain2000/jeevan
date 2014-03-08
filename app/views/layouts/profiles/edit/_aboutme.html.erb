@@ -1,0 +1,37 @@
+<%= render :partial =>'layouts/alert'%>
+<div class="jarviswidget" id="wid-id-12">
+  <header>
+    <span class="widget-icon">
+      <i class="fa fa-pencil"></i>
+    </span>
+    <h2>Write About YourSelf..</h2>
+  </header>
+  <!-- widget div-->
+  <div>
+     <%= form_tag({:action=>'modify_about'}, {:remote => true}) do %>
+          <input type="hidden" name="me" id="about-me" type="hidden">
+          <button type="submit" id="submit-about-me" class="btn btn-success pull-right hidden">
+            Save
+          </button>
+        <% end %>
+      <!-- widget content -->
+    <div class="widget-body no-padding">
+      <button id="save" class="btn btn-link pull-right" onclick="save()" type="button">Save</button>
+          <button id="edit" class="btn btn-link pull-right" onclick="edit()" type="button">Edit</button>
+          <script type="text/javascript">
+            var edit = function() {
+                $('.click2edit').summernote({focus: true});
+            };
+            var save = function() {
+                                          var aHTML = $('.click2edit').code();
+                                          $("#about-me").val(aHTML);
+                                          $("#submit-about-me").click();
+                                          $('.click2edit').destroy();
+                                      };
+          </script>
+
+      <div class="click2edit"><%= raw @user[:about][:me] %></div>
+    </div>
+    <!-- end widget content -->
+  </div>
+</div>

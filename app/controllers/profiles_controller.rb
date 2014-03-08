@@ -6,19 +6,6 @@ class ProfilesController < ApplicationController
 
   # GET /profiles
   def index
-    @interests = {in: Interest.where(to_user_id: current_user.id), responses: Interest.where(user_id: current_user.id)}
-
-    @profiles = Hash.new()
-    # Todo Take interests donot add profiles to show to whom interests have been sent
-    # users_not_my_gender = User.where.not(sex: current_user.sex, :id.in(@interests[:in])).order('created_at DESC').limit(1000)
-    users = User.where.not(sex: current_user.sex).order('created_at DESC').limit(1000)
-
-    users.each do |user|
-      @profiles[user.id] = {profile: user.profile, avatar: user.avatar}
-    end
-
-    @profiles_paginate = @profiles.keys.paginate(:page => params[:page], :per_page => 4)
-    @visitors = {out: current_user.visitors, in:Visitor.where(viewed_id: current_user.id)}
   end
 
   # GET /profiles/1
@@ -26,12 +13,12 @@ class ProfilesController < ApplicationController
     touch_visitor
   end
   def edit
-
   end
 
-#-====================================
-#            Edit Profile Page       =
-#=====================================
+
+  #-====================================
+  #            Edit Profile Page       =
+  #=====================================
   # After the save on edit is pressed
   def modify_image
     current_user.images.create(image_params)
@@ -39,21 +26,14 @@ class ProfilesController < ApplicationController
   end
   def modify_avatar
     current_user.update(avatar_params)
-    redirect_to :back
+    render json: { :status => 200 }
   end
   def remove_image
-    all_images_ids = current_user.images.pluck(:id)
-    not_to_remove_ids = []
-    remove_image_params.each do |param, value|
-        if !!(param =~ /^[-+]?[0-9]+$/) && !!(value =~ /^[-+]?[0-9]+$/) #if number
-          not_to_remove_ids.push(value.to_i)
-        end
-    end
-    remove_id = all_images_ids - not_to_remove_ids
-    current_user.images.destroy(remove_id[0])
+    # current_user.images.destroy(remove_image_params['imageid'])
     render json: { :status => 200 }
   end
   def modify_profile
+    logger.info("Debug #{profile_params}")
     current_user.profile.update(profile_params)
     render json: { :status => 200 }
   end
@@ -70,6 +50,7 @@ class ProfilesController < ApplicationController
     render json: { :status => 200 }
   end
   def modify_about
+    logger.info("Debug #{about_params}")
     current_user.about.update(about_params)
     render json: { :status => 200 }
   end
@@ -86,16 +67,20 @@ class ProfilesController < ApplicationController
     render json: { :status => 200 }
   end
   def modify_lifestyle
+    logger.info("Debug #{params}")
+    logger.info("Debug #{lifestyle_params}")
     current_user.lifestyle.update(lifestyle_params)
     render json: { :status => 200 }
   end
   def modify_desire
+    logger.info("Debug #{desire_params}")
     current_user.desire.update(desire_params)
     render json: { :status => 200 }
   end
 
   # Express Interest Button
   def interest
+    logger.info("Debug Params inspect #{params.inspect}")
     if current_user.id != params[:to_user_id].to_i
       find_first = current_user.interests.where(to_user_id: params[:to_user_id]).first
       logger.info("Debug Params inspect #{params.inspect}")
@@ -165,6 +150,12 @@ class ProfilesController < ApplicationController
     logger.info("Debug #{params.inspect}")
     user = User.find(Profile.find(params[:id]).user_id)
     @user = {}
+    @user[:id]        = user.id
+    @user[:last_sign_in_at]  = user.last_sign_in_at
+    @user[:sex]  = user.sex
+
+    @user[:visitors]  = Visitor.where(viewed_id: user.id).count
+
     @user[:profile]   = user.profile
     @user[:contact]   = user.contact
     @user[:about]     = user.about
@@ -176,10 +167,14 @@ class ProfilesController < ApplicationController
     @user[:lifestyle] = user.lifestyle
     @user[:desire]    = user.desire
     @user[:image]     = user.images.all
+    @user[:avatar]    = user.avatar
   end
 
 
   private
+  def edit_params
+    params.permit(:format)
+  end
   def image_params
     params.permit("avatar")
   end
@@ -187,7 +182,7 @@ class ProfilesController < ApplicationController
     params.permit(:avatar)
   end
   def remove_image_params
-    params.permit!
+    params.permit("imageid")
   end
   def profile_params
     params.permit(Profile.columns.map {|c| c.name })
@@ -220,9 +215,9 @@ class ProfilesController < ApplicationController
     params.permit(Desire.columns.map {|c| c.name })
   end
 
-#===============================================*
-#            This Class's Helpers
-#===============================================*
+  #===============================================*
+  #            This Class's Helpers
+  #===============================================*
   def touch_visitor
     visiting_user_id = Profile.find(params[:id]).user_id
     logger.info("Debug Touching Visitor #{visiting_user_id}")

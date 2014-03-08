@@ -1,0 +1,23 @@
+<%= render :partial =>'layouts/alert'%>
+<div class="jarviswidget" id="wid-id-1">
+  <header>
+    <span class="widget-icon">
+      <i class="fa fa-cloud"></i>
+    </span>
+    <h2>My Avatar Droparea!
+    </h2>
+  </header>
+  <div>
+    <!-- widget edit box -->
+    <div class="jarviswidget-editbox">
+      <!-- This area used as dropdown edit box -->
+    </div>
+    <!-- end widget edit box -->
+    <!-- widget content -->
+    <div class="widget-body">
+      <%= form_tag({:action=>'modify_avatar'}, {:authenticity_token => true, :multipart => true, :remote => true, :class => 'dropzone', :id => 'my-dropzone'}) do %>
+      <% end %>
+    </div>
+    <!-- end widget content -->
+</div>
+</div>

@@ -18,10 +18,6 @@ ActiveRecord::Schema.define(version: 20140223042627) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "me"
-    t.text     "family"
-    t.text     "education"
-    t.text     "work"
-    t.text     "future"
   end
 
   create_table "contacts", force: true do |t|
@@ -48,8 +44,8 @@ ActiveRecord::Schema.define(version: 20140223042627) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "desired_about"
-    t.string   "desired_height",         limit: 8
-    t.string   "desired_age",            limit: 4
+    t.string   "desired_height",         limit: 32
+    t.string   "desired_age",            limit: 32
     t.string   "desired_marital_status", limit: 32
     t.string   "desired_country",        limit: 64
     t.string   "desired_city",           limit: 64

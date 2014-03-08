@@ -24,10 +24,11 @@ Jeevan::Application.routes.draw do
   end
 
   get "home/index"
-  resources :visitors
+  resources :dashboard
+  resources :explore
   devise_for :users
   authenticated :user do
-    root :to => 'profiles#index', :as => :authenticated_root
+    root :to => 'explore#index', :as => :authenticated_root
   end
   root :to => redirect('/users/sign_in')
 end
