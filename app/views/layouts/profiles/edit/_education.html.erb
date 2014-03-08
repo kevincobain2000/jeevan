@@ -1,0 +1,55 @@
+<%= render :partial =>'layouts/alert'%>
+<!-- widget grid -->
+<section id="widget-grid" class="">
+  <article class="col-sm-12 col-md-12 col-lg-6">
+    <div class="jarviswidget" id="wid-id-2" data-widget-fullscreenbutton="true">
+      <header>
+        <span class="widget-icon">
+          <i class="fa fa-check txt-color-green"></i>
+        </span>
+        <h2>Edit Mode</h2>
+      </header>
+      <!-- widget div-->
+      <div>
+        <!-- widget edit box -->
+        <div class="jarviswidget-editbox">
+          <!-- This area used as dropdown edit box -->
+        </div>
+        <!-- end widget edit box -->
+        <!-- widget content -->
+        <div class="widget-body no-padding">
+          <!-- Success states for elements -->
+          <!-- <form class="smart-form">
+                                -->
+          <%= form_tag({:action=>'modify_education'}, {:remote => true, :class=>"smart-form"}) do %>
+            <header>Life</header>
+            <fieldset>
+              <h4>Body Structure</h4>
+              <% categories = ["school", "grad_college", "grad", "post_grad", "highest_degree"] %>
+              <% categories.each do |category| %>
+                <% heading = category.sub "_", " " %>
+                <% id = category.sub "_", "-" %>
+                <section class="col col-6">
+                  <label>
+                    <%= heading.capitalize %></label>
+                  <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:lifestyle][category] %>">
+                </section>
+              <% end %>
+            </fieldset>
+            <footer>
+              <div class="note note-success clicksave"></div>
+              <button type="submit" class="btn btn-primary">Save</button>
+              <button type="button" class="btn btn-default" onclick="window.history.back();">Back</button>
+            </footer>
+            <!-- </form>
+                                -->
+          <% end %>
+          <!--/ Success states for elements -->
+        </div>
+        <!-- end widget content -->
+      </div>
+      <!-- end widget div -->
+    </div>
+    <!-- end widget -->
+  </article>
+</section>

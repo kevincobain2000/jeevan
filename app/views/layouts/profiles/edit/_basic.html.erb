@@ -1,0 +1,121 @@
+<%= render :partial =>'layouts/alert'%>
+<!-- widget grid -->
+<section id="widget-grid" class="">
+    <!-- NEW WIDGET START -->
+    <article class="col-sm-12 col-md-12 col-lg-12">
+      <!-- Widget ID (each widget will need unique ID)-->
+      <div class="jarviswidget" id="wid-id-3" data-widget-fullscreenbutton="true">
+        <header>
+          <span class="widget-icon">
+            <i class="fa fa-check txt-color-green"></i>
+          </span>
+          <h2>Edit Mode</h2>
+        </header>
+        <!-- widget div-->
+        <div>
+          <!-- widget edit box -->
+          <div class="jarviswidget-editbox">
+            <!-- This area used as dropdown edit box -->
+          </div>
+          <!-- end widget edit box -->
+          <!-- widget content -->
+          <div class="widget-body no-padding">
+            <!-- Success states for elements -->
+            <!-- <form class="smart-form">
+                                -->
+            <%= form_tag({:action=>
+                                'modify_profile'}, {:remote => true, :class=>"smart-form"}) do %>
+              <header>Basic Profile Info</header>
+              <fieldset>
+                <section>
+                  <label class="label">Marital Status</label>
+                  <div class="row">
+                    <div class="col col-4">
+                      <label class="radio state-success">
+                        <%= radio_button_tag(:marital_status, "Never Married", (@user[:profile][:marital_status] == "Never Married")) %>
+                        <i></i>
+                        Never Married
+                      </label>
+                      <label class="radio state-success">
+                        <%= radio_button_tag(:marital_status, "Divorced", (@user[:profile][:marital_status] == "Divorced")) %>
+                        <i></i>
+                        Divorced
+                      </label>
+                    </div>
+                    <div class="col col-4">
+                      <label class="radio state-success">
+                        <%= radio_button_tag(:marital_status, "Filed Divorce", (@user[:profile][:marital_status] == "Filed Divorce")) %>
+                        <i></i>
+                        Filed Divorce
+                      </label>
+                      <label class="radio state-success">
+                        <%= radio_button_tag(:marital_status, "Widowed", (@user[:profile][:marital_status] == "Widowed")) %>
+                        <i></i>
+                        Widowed
+                      </label>
+                    </div>
+                  </div>
+                  <div class="note note-success">Thanks for your selection.</div>
+                </section>
+              </fieldset>
+              <fieldset>
+                <section>
+                  <label class="label">Profile Posted By</label>
+                  <div class="row">
+                    <div class="col col-4">
+                      <label class="radio state-success">
+                        <%= radio_button_tag(:posted_by, "Self", (@user[:profile][:posted_by] == "Self")) %>
+                        <i></i>
+                        Self
+                      </label>
+                      <label class="radio state-success">
+                        <%= radio_button_tag(:posted_by, "Parents", (@user[:profile][:posted_by] == "Parents")) %>
+                        <i></i>
+                        Parents
+                      </label>
+                    </div>
+                    <div class="col col-4">
+                      <label class="radio state-success">
+                        <%= radio_button_tag(:posted_by, "Brother", (@user[:profile][:posted_by] == "Brother")) %>
+                        <i></i>
+                        Brother
+                      </label>
+                      <label class="radio state-success">
+                        <%= radio_button_tag(:posted_by, "Sister", (@user[:profile][:posted_by] == "Sister")) %>
+                        <i></i>
+                        Sister
+                      </label>
+                    </div>
+                    <div class="col col-4">
+                      <label class="radio state-success">
+                        <%= radio_button_tag(:posted_by, "Relatives", (@user[:profile][:posted_by] == "Relatives")) %>
+                        <i></i>
+                        Relatives
+                      </label>
+                      <label class="radio state-success">
+                        <%= radio_button_tag(:posted_by, "Friends", (@user[:profile][:posted_by] == "Friends")) %>
+                        <i></i>
+                        Friends
+                      </label>
+                    </div>
+                  </div>
+                  <div class="note note-success">Thanks for your selection.</div>
+                </section>
+              </fieldset>
+              <footer>
+                <div class="note note-success autosave"></div>
+                <button type="submit" class="btn btn-primary hide">Submit</button>
+                <button type="button" class="btn btn-default" onclick="window.history.back();">Back</button>
+              </footer>
+              <!-- </form>
+                                -->
+            <% end %>
+            <!--/ Success states for elements -->
+          </div>
+          <!-- end widget content -->
+        </div>
+        <!-- end widget div -->
+      </div>
+      <!-- end widget -->
+    </article>
+  </section>
