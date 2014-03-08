@@ -117,7 +117,6 @@ $(document).on "page:change", ->
       });
 
 
-
   Dropzone.options.myDropzone =
     dictDefaultMessage: '<div class="hero" style="height:100px;"><h2>Drag & Drop</h2><p>or click to upload images</p></div>'
     paramName: "avatar"
@@ -137,6 +136,15 @@ $(document).on "page:change", ->
     $(this).find(":submit.hide").submit()
 
   $('form').submit ->
+    console.log("form was submitted")
+    jq_superbox_remov = $("#imageid").attr("value")
+    $("#"+jq_superbox_remov).remove()
+    $(".superbox-list").removeClass "active"
+    $(".superbox-current-img").animate
+      opacity: 0, 200, ->
+        $(".superbox-show").slideUp()
+        return
+
     $(this).find(".clicksave").text("Saved")
 
   $("#family-income-slider").ionRangeSlider
@@ -161,6 +169,10 @@ $(document).on "page:change", ->
       ['height', ['height']]
       ['help', ['help']]
     ]
-
+  $('.superbox').SuperBox()
+  $(".superbox-list").click ->
+    currentimg = $(this).find(".superbox-img")
+    $("#imageid").attr("value", currentimg.attr("id"))
+    return
 
 
