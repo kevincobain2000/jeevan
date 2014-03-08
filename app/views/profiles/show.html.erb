@@ -60,298 +60,254 @@
 
     <!-- row -->
 
-    <div class="row">
+    <div class="col-sm-12">
 
-            <div class="col-sm-12 col-md-12 col-lg-6">
-              <h1><small>Images</small></h1>
-              <div class="superbox col-sm-12">
-                <% @user[:image].each do |image| %>
-                <div class="superbox-list">
-                  <%= image_tag image.avatar.url(:thumb), {"data-img" =>
-                  image.avatar.url(:original), :class => "superbox-img", "alt"=>"Edit this Image", :value=>image.id, :name=>"img", :id=>image.id} %>
-                </div>
-                <% end %>
-                <input type="hidden" name="imageid" value="" id="imageid">
-                <div class="superbox-float"></div>
-              </div>
-              <!-- /SuperBox -->
-              <div class="superbox-show" style="height:300px; display: none"></div>
+      <div class="well well-sm">
 
-            </div>
-      <div class="col-sm-12">
+        <div class="row">
 
-        <div class="well well-sm">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="well well-light well-sm no-margin no-padding">
 
-          <div class="row">
+              <div class="row">
 
-            <div class="col-sm-12 col-md-12 col-lg-12">
-              <div class="well well-light well-sm no-margin no-padding">
+                <div class="col-sm-12">
 
-                <div class="row">
+                  <div class="row">
 
-                  <div class="col-sm-12">
-
-                    <div class="row">
-
-                      <div class="col-sm-3 profile-pic">
-                        <%= image_tag @user[:avatar].url(:thumb)%>
-                        <div class="padding-10">
-                          <h4 class="font-md"> <strong>1,543</strong>
-                            <br>
-                            <small>Followers</small>
-                          </h4>
+                    <div class="col-sm-3 profile-pic">
+                      <%= image_tag @user[:avatar].url(:thumb)%>
+                      <div class="padding-10">
+                        <h4 class="font-md"> <strong>1,543</strong>
                           <br>
-                          <h4 class="font-md"> <strong>419</strong>
-                            <br>
-                            <small>Connections</small>
-                          </h4>
-                        </div>
+                          <small>Followers</small>
+                        </h4>
+                        <br>
+                        <h4 class="font-md"> <strong>419</strong>
+                          <br>
+                          <small>Connections</small>
+                        </h4>
                       </div>
-                      <div class="col-sm-6">
-                        <h1>
-                          John
-                          <span class="semi-bold">Doe</span>
-                          <br>
-                          <small>CEO, SmartAdmin</small>
-                        </h1>
-
-                        <ul class="list-unstyled">
-                          <li>
-                            <p class="text-muted">
-                              <i class="fa fa-phone"></i>
-                              &nbsp;&nbsp;(
-                              <span class="txt-color-darken">313</span>
-                              )
-                              <span class="txt-color-darken">464</span>
-                              -
-                              <span class="txt-color-darken">6473</span>
-                            </p>
-                          </li>
-                          <li>
-                            <p class="text-muted">
-                              <i class="fa fa-envelope"></i>
-                              &nbsp;&nbsp;
-                              <a href="mailto:simmons@smartadmin">ceo@smartadmin.com</a>
-                            </p>
-                          </li>
-                          <li>
-                            <p class="text-muted">
-                              <i class="fa fa-skype"></i>
-                              &nbsp;&nbsp;
-                              <span class="txt-color-darken">john12</span>
-                            </p>
-                          </li>
-                          <li>
-                            <p class="text-muted">
-                              <i class="fa fa-calendar"></i>
-                              &nbsp;&nbsp;
-                              <span class="txt-color-darken">
-                                Free after
-                                <a href="javascript:void(0);" rel="tooltip" title="" data-placement="top" data-original-title="Create an Appointment">4:30 PM</a>
-                              </span>
-                            </p>
-                          </li>
-                        </ul>
-                        <br>
-                        <p class="font-md">
-                          <i>A little about me...</i>
-                        </p>
-                        <p>
-                          Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio
-                                cumque nihil impedit quo minus id quod maxime placeat facere
-                        </p>
-                        <br>
-                        <% if  current_user.id != @user[:id] %>
-
-                          <%= form_tag({:action=>'interest', :controller => "profiles"}, {:remote => true}) do %>
-                          <%= hidden_field_tag 'to_user_id', @user[:id] %>
-                          <button class="btn btn-success interest" type="submit">Express Interest</button
-                          <% end %>
-                        <% end %>
-                        <br></div>
                     </div>
+                    <div class="col-sm-6">
+                      <h1>
+                        John
+                        <span class="semi-bold">Doe</span>
+                        <br>
+                        <small>CEO, SmartAdmin</small>
+                      </h1>
 
-                  </div>
-
-                </div>
-
-                <div class="row">
-
-                  <div class="col-sm-12">
-
-                    <hr>
-
-                    <div class="padding-10">
-
-                      <ul class="nav nav-tabs tabs-pull-right">
-                        <li class="active">
-                          <a href="#a1" data-toggle="tab">Recent Articles</a>
+                      <ul class="list-unstyled">
+                        <li>
+                          <p class="text-muted">
+                            <i class="fa fa-phone"></i>
+                            &nbsp;&nbsp;(
+                            <span class="txt-color-darken">313</span>
+                            )
+                            <span class="txt-color-darken">464</span>
+                            -
+                            <span class="txt-color-darken">6473</span>
+                          </p>
                         </li>
                         <li>
-                          <a href="#a2" data-toggle="tab">New Members</a>
+                          <p class="text-muted">
+                            <i class="fa fa-envelope"></i>
+                            &nbsp;&nbsp;
+                            <a href="mailto:simmons@smartadmin">ceo@smartadmin.com</a>
+                          </p>
                         </li>
-                        <li class="pull-left">
-                          <span class="margin-top-10 display-inline">
-                            <i class="fa fa-rss text-success"></i>
-                            Activity
-                          </span>
+                        <li>
+                          <p class="text-muted">
+                            <i class="fa fa-skype"></i>
+                            &nbsp;&nbsp;
+                            <span class="txt-color-darken">john12</span>
+                          </p>
+                        </li>
+                        <li>
+                          <p class="text-muted">
+                            <i class="fa fa-calendar"></i>
+                            &nbsp;&nbsp;
+                            <span class="txt-color-darken">
+                              Free after
+                              <a href="javascript:void(0);" rel="tooltip" title="" data-placement="top" data-original-title="Create an Appointment">4:30 PM</a>
+                            </span>
+                          </p>
                         </li>
                       </ul>
+                      <br>
+                      <p class="font-md">
+                        <i>A little about me...</i>
+                      </p>
+                      <p>
+                        Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio
+                                cumque nihil impedit quo minus id quod maxime placeat facere
+                      </p>
+                      <br>
+                      <% if  current_user.id != @user[:id] %>
 
-                      <div class="tab-content padding-top-10">
-                        <div class="tab-pane fade in active" id="a1">
+                      <%= form_tag({:action=>
+                      'interest', :controller => "profiles"}, {:remote => true}) do %>
+                      <%= hidden_field_tag 'to_user_id', @user[:id] %>
+                      <button class="btn btn-success interest" type="submit">Express Interest</button
+                          <% end %>
+                      <% end %>
+                      <br></div>
+                  </div>
 
-                          <div class="row">
+                </div>
 
-                            <div class="col-xs-2 col-sm-1">
-                              <time datetime="2014-09-20" class="icon">
-                                <strong>Jan</strong>
-                                <span>10</span>
-                              </time>
+              </div>
+
+              <div class="row">
+
+                <div class="col-sm-12">
+
+                  <hr>
+
+                  <div class="padding-10">
+
+                    <ul class="nav nav-tabs tabs-pull-left">
+                      <li class="active">
+                        <a href="#a1" data-toggle="tab">Images</a>
+                      </li>
+                      <li>
+                        <a href="#a2" data-toggle="tab">New Members</a>
+                      </li>
+                    </ul>
+
+                    <div class="tab-content padding-top-10">
+                      <div class="tab-pane fade in active" id="a1">
+
+                        <div class="row">
+
+                          <div class="col-sm-12 col-md-12 col-lg-6">
+                            <!-- well -->
+                            <div class="well">
+                              <div id="myCarousel-2" class="carousel slide">
+                                <ol class="carousel-indicators">
+                                  <% @user[:image].each_with_index do |image, counter| %>
+                                  <% active = (counter == 0) ? "active": "" %>
+                                  <li data-target="#myCarousel-2" data-slide-to="<%= counter %>" class="<%= active %>"></li>
+                                  <% end %></ol>
+                                <div class="carousel-inner">
+                                  <!-- Slide 1 -->
+                                  <% @user[:image].each_with_index do |image, counter| %>
+                                  <% active = (counter == 0) ? "item active": "item" %>
+                                  <div class="<%= active %>">
+                                    <%= image_tag image.avatar.url(:medium) %></div>
+                                  <% end %></div>
+
+                                <a class="left carousel-control" href="#myCarousel-2" data-slide="prev">
+                                </a>
+                                <a class="right carousel-control" href="#myCarousel-2" data-slide="next">
+                                </a>
+                              </div>
                             </div>
-
-                            <div class="col-xs-10 col-sm-11">
-                              <h6 class="no-margin">
-                                <a href="javascript:void(0);">Allice in Wonderland</a>
-                              </h6>
-                              <p>
-                                Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi Nam eget dui.
-                                      Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero,
-                                      sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel.
-                              </p>
-                            </div>
-
-                            <div class="col-sm-12">
-
-                              <hr></div>
-
-                            <div class="col-xs-2 col-sm-1">
-                              <time datetime="2014-09-20" class="icon">
-                                <strong>Jan</strong>
-                                <span>10</span>
-                              </time>
-                            </div>
-
-                            <div class="col-xs-10 col-sm-11">
-                              <h6 class="no-margin">
-                                <a href="javascript:void(0);">World Report</a>
-                              </h6>
-                              <p>
-                                Morning our be dry. Life also third land after first beginning to evening cattle created let subdue you'll winged don't Face firmament.
-                                      You winged you're was Fruit divided signs lights i living cattle yielding over light life life sea, so deep.
-                                      Abundantly given years bring were after. Greater you're meat beast creeping behold he unto She'd doesn't. Replenish brought kind gathering Meat.
-                              </p>
-                            </div>
-
-                            <div class="col-sm-12">
-
-                              <br></div>
-
-                          </div>
-
+                            <!-- end well--> </div>
                         </div>
-                        <div class="tab-pane fade" id="a2">
 
-                          <div class="alert alert-info fade in">
-                            <button class="close" data-dismiss="alert">×</button>
-                            <i class="fa-fw fa fa-info"></i>
-                            <strong>51 new members</strong>
-                            joined today!
-                          </div>
+                      </div>
+                      <div class="tab-pane fade" id="a2">
 
-                          <div class="user" title="email@company.com">
-                            <img src="img/avatars/female.png">
-                            <a href="javascript:void(0);">Jenn Wilson</a>
-                            <div class="email">travis@company.com</div>
-                          </div>
-                          <div class="user" title="email@company.com">
-                            <img src="img/avatars/male.png">
-                            <a href="javascript:void(0);">Marshall Hitt</a>
-                            <div class="email">marshall@company.com</div>
-                          </div>
-                          <div class="user" title="email@company.com">
-                            <img src="img/avatars/male.png">
-                            <a href="javascript:void(0);">Joe Cadena</a>
-                            <div class="email">joe@company.com</div>
-                          </div>
-                          <div class="user" title="email@company.com">
-                            <img src="img/avatars/male.png">
-                            <a href="javascript:void(0);">Mike McBride</a>
-                            <div class="email">mike@company.com</div>
-                          </div>
-                          <div class="user" title="email@company.com">
-                            <img src="img/avatars/male.png">
-                            <a href="javascript:void(0);">Travis Wilson</a>
-                            <div class="email">travis@company.com</div>
-                          </div>
-                          <div class="user" title="email@company.com">
-                            <img src="img/avatars/male.png">
-                            <a href="javascript:void(0);">Marshall Hitt</a>
-                            <div class="email">marshall@company.com</div>
-                          </div>
-                          <div class="user" title="Joe Cadena joe@company.com">
-                            <img src="img/avatars/male.png">
-                            <a href="javascript:void(0);">Joe Cadena</a>
-                            <div class="email">joe@company.com</div>
-                          </div>
-                          <div class="user" title="email@company.com">
-                            <img src="img/avatars/male.png">
-                            <a href="javascript:void(0);">Mike McBride</a>
-                            <div class="email">mike@company.com</div>
-                          </div>
-                          <div class="user" title="email@company.com">
-                            <img src="img/avatars/male.png">
-                            <a href="javascript:void(0);">Marshall Hitt</a>
-                            <div class="email">marshall@company.com</div>
-                          </div>
-                          <div class="user" title="email@company.com">
-                            <img src="img/avatars/male.png">
-                            <a href="javascript:void(0);">Joe Cadena</a>
-                            <div class="email">joe@company.com</div>
-                          </div>
-                          <div class="user" title="email@company.com">
-                            <img src="img/avatars/male.png">
-                            <a href="javascript:void(0);">Mike McBride</a>
-                            <div class="email">mike@company.com</div>
-                          </div>
-
-                          <div class="text-center">
-                            <ul class="pagination pagination-sm">
-                              <li class="disabled">
-                                <a href="javascript:void(0);">Prev</a>
-                              </li>
-                              <li class="active">
-                                <a href="javascript:void(0);">1</a>
-                              </li>
-                              <li>
-                                <a href="javascript:void(0);">2</a>
-                              </li>
-                              <li>
-                                <a href="javascript:void(0);">3</a>
-                              </li>
-                              <li>
-                                <a href="javascript:void(0);">...</a>
-                              </li>
-                              <li>
-                                <a href="javascript:void(0);">99</a>
-                              </li>
-                              <li>
-                                <a href="javascript:void(0);">Next</a>
-                              </li>
-                            </ul>
-                          </div>
-
+                        <div class="alert alert-info fade in">
+                          <button class="close" data-dismiss="alert">×</button>
+                          <i class="fa-fw fa fa-info"></i>
+                          <strong>51 new members</strong>
+                          joined today!
                         </div>
-                        <!-- end tab --> </div>
 
-                    </div>
+                        <div class="user" title="email@company.com">
+                          <img src="img/avatars/female.png">
+                          <a href="javascript:void(0);">Jenn Wilson</a>
+                          <div class="email">travis@company.com</div>
+                        </div>
+                        <div class="user" title="email@company.com">
+                          <img src="img/avatars/male.png">
+                          <a href="javascript:void(0);">Marshall Hitt</a>
+                          <div class="email">marshall@company.com</div>
+                        </div>
+                        <div class="user" title="email@company.com">
+                          <img src="img/avatars/male.png">
+                          <a href="javascript:void(0);">Joe Cadena</a>
+                          <div class="email">joe@company.com</div>
+                        </div>
+                        <div class="user" title="email@company.com">
+                          <img src="img/avatars/male.png">
+                          <a href="javascript:void(0);">Mike McBride</a>
+                          <div class="email">mike@company.com</div>
+                        </div>
+                        <div class="user" title="email@company.com">
+                          <img src="img/avatars/male.png">
+                          <a href="javascript:void(0);">Travis Wilson</a>
+                          <div class="email">travis@company.com</div>
+                        </div>
+                        <div class="user" title="email@company.com">
+                          <img src="img/avatars/male.png">
+                          <a href="javascript:void(0);">Marshall Hitt</a>
+                          <div class="email">marshall@company.com</div>
+                        </div>
+                        <div class="user" title="Joe Cadena joe@company.com">
+                          <img src="img/avatars/male.png">
+                          <a href="javascript:void(0);">Joe Cadena</a>
+                          <div class="email">joe@company.com</div>
+                        </div>
+                        <div class="user" title="email@company.com">
+                          <img src="img/avatars/male.png">
+                          <a href="javascript:void(0);">Mike McBride</a>
+                          <div class="email">mike@company.com</div>
+                        </div>
+                        <div class="user" title="email@company.com">
+                          <img src="img/avatars/male.png">
+                          <a href="javascript:void(0);">Marshall Hitt</a>
+                          <div class="email">marshall@company.com</div>
+                        </div>
+                        <div class="user" title="email@company.com">
+                          <img src="img/avatars/male.png">
+                          <a href="javascript:void(0);">Joe Cadena</a>
+                          <div class="email">joe@company.com</div>
+                        </div>
+                        <div class="user" title="email@company.com">
+                          <img src="img/avatars/male.png">
+                          <a href="javascript:void(0);">Mike McBride</a>
+                          <div class="email">mike@company.com</div>
+                        </div>
+
+                        <div class="text-center">
+                          <ul class="pagination pagination-sm">
+                            <li class="disabled">
+                              <a href="javascript:void(0);">Prev</a>
+                            </li>
+                            <li class="active">
+                              <a href="javascript:void(0);">1</a>
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);">2</a>
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);">3</a>
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);">...</a>
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);">99</a>
+                            </li>
+                            <li>
+                              <a href="javascript:void(0);">Next</a>
+                            </li>
+                          </ul>
+                        </div>
+
+                      </div>
+                      <!-- end tab --> </div>
 
                   </div>
 
                 </div>
-                <!-- end row --> </div>
 
-            </div>
+              </div>
+              <!-- end row --> </div>
+
           </div>
 
         </div>

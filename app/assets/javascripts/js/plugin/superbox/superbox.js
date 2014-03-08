@@ -58,7 +58,7 @@
 				}
 
 				$('html, body').animate({
-					scrollTop:superbox.position().top - currentimg.width()
+					scrollBottom:superbox.position().top - currentimg.width()
 				}, 'medium');
 
 			});
