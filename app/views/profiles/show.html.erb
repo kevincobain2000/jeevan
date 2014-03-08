@@ -1,21 +1,18 @@
 <div id="main" role="main">
-  <%= render :partial =>
-  "layouts/ribbon", :locals => {:papa => "Home", :son => "Profile"} %>
+  <%= render :partial =>"layouts/ribbon", :locals => {:papa => "Home", :son => "Profile"} %>
   <!-- MAIN CONTENT -->
   <div id="content">
 
     <!-- Bread crumb is created dynamically -->
     <!-- row -->
     <div class="row">
-
       <!-- col -->
       <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
         <h1 class="page-title txt-color-blueDark">
           <!-- PAGE HEADER --> <i class="fa-fw fa fa-file-o"></i>
           Profile Id
-          <span>
             >
-            <%= @user[:profile]['id'] %></span>
+            <%= @user[:profile]['id'] %>
         </h1>
       </div>
       <!-- end col -->
@@ -27,31 +24,24 @@
         <ul id="sparks">
           <li class="sparks-info">
             <h5>
-              My Income
-              <span class="txt-color-blue">$47,171</span>
+              Total Visitors
+              <span class="txt-color-blue"><%= @user[:visitors] %></span>
             </h5>
-            <div class="sparkline txt-color-blue hidden-mobile hidden-md hidden-sm">
-              1300, 1877, 2500, 2577, 2000, 2100, 3000, 2700, 3631, 2471, 2700, 3631, 2471
-            </div>
           </li>
           <li class="sparks-info">
             <h5>
-              Site Traffic
-              <span class="txt-color-purple"> <i class="fa fa-arrow-circle-up" data-rel="bootstrap-tooltip" title="Increased"></i>
-                &nbsp;45%
+              Last Online
+              <span class="txt-color-blue"><%= time_ago_in_words(@user[:last_sign_in_at]) %></span>
               </span>
             </h5>
-            <div class="sparkline txt-color-purple hidden-mobile hidden-md hidden-sm">110,150,300,130,400,240,220,310,220,300, 270, 210</div>
           </li>
           <li class="sparks-info">
             <h5>
-              Site Orders
+              Images
               <span class="txt-color-greenDark">
-                <i class="fa fa-shopping-cart"></i>
-                &nbsp;2447
+                <%= @user[:image].count %>
               </span>
             </h5>
-            <div class="sparkline txt-color-greenDark hidden-mobile hidden-md hidden-sm">110,150,300,130,400,240,220,310,220,300, 270, 210</div>
           </li>
         </ul>
         <!-- end sparks --> </div>
@@ -61,7 +51,6 @@
     <!-- row -->
 
     <div class="col-sm-12">
-
       <div class="well well-sm">
 
         <div class="row">
@@ -78,23 +67,23 @@
                     <div class="col-sm-3 profile-pic">
                       <%= image_tag @user[:avatar].url(:thumb)%>
                       <div class="padding-10">
-                        <h4 class="font-md"> <strong>1,543</strong>
+                        <h4 class="font-md"> <strong><%= @user[:image].count %></strong>
                           <br>
-                          <small>Followers</small>
-                        </h4>
-                        <br>
-                        <h4 class="font-md"> <strong>419</strong>
-                          <br>
-                          <small>Connections</small>
+                          <small>Images</small>
                         </h4>
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <h1>
-                        John
-                        <span class="semi-bold">Doe</span>
+                        Profile of
+
+                        <span class="semi-bold"><%= (@user['sex'] == "Female") ? "her" : "him" %></span>
                         <br>
-                        <small>CEO, SmartAdmin</small>
+                        <small>
+                          <% dob = @user[:kundali]['dob'].gsub("/","-") %>
+                          <%= dob ? distance_of_time_in_words(Date::strptime(dob, "%m-%d-%Y"), Time.now) : "" %>
+                          Old
+                        </small>
                       </h1>
 
                       <ul class="list-unstyled">
@@ -102,25 +91,16 @@
                           <p class="text-muted">
                             <i class="fa fa-phone"></i>
                             &nbsp;&nbsp;(
-                            <span class="txt-color-darken">313</span>
+                            <span class="txt-color-darken">On</span>
                             )
-                            <span class="txt-color-darken">464</span>
-                            -
-                            <span class="txt-color-darken">6473</span>
+                            <span class="txt-color-darken">Acceptance</span>
                           </p>
                         </li>
                         <li>
                           <p class="text-muted">
                             <i class="fa fa-envelope"></i>
                             &nbsp;&nbsp;
-                            <a href="mailto:simmons@smartadmin">ceo@smartadmin.com</a>
-                          </p>
-                        </li>
-                        <li>
-                          <p class="text-muted">
-                            <i class="fa fa-skype"></i>
-                            &nbsp;&nbsp;
-                            <span class="txt-color-darken">john12</span>
+                            <a href="#">ON@acceptance</a>
                           </p>
                         </li>
                         <li>
@@ -128,21 +108,53 @@
                             <i class="fa fa-calendar"></i>
                             &nbsp;&nbsp;
                             <span class="txt-color-darken">
-                              Free after
-                              <a href="javascript:void(0);" rel="tooltip" title="" data-placement="top" data-original-title="Create an Appointment">4:30 PM</a>
+                              <strong>Status</strong> <%= @user[:profile]['marital_status'] %>
+                            </span>
+                          </p>
+                          <p class="text-muted">
+                            <i class="fa fa-calendar"></i>
+                            &nbsp;&nbsp;
+                            <span class="txt-color-darken">
+                              <strong>I am from</strong> <%= @user[:kundali]['birth_city'] %> <%= @user[:kundali]['birth_country'] %>
+                            </span>
+                          </p>
+                          <p class="text-muted">
+                            <i class="fa fa-calendar"></i>
+                            &nbsp;&nbsp;
+                            <span class="txt-color-darken">
+                              <strong>Religion</strong> <%= @user[:religion]['religion'] %>
+                            </span>
+                          </p>
+                          <p class="text-muted">
+                            <i class="fa fa-calendar"></i>
+                            &nbsp;&nbsp;
+                            <span class="txt-color-darken">
+                              <strong>Caste</strong> <%= @user[:religion]['caste'] %> <%= @user[:religion]['sub_caste'] %>
+                            </span>
+                          </p>
+                          <p class="text-muted">
+                            <i class="fa fa-calendar"></i>
+                            &nbsp;&nbsp;
+                            <span class="txt-color-darken">
+                              <strong>Manglik</strong> <%= @user[:kundali]['manglik'] %> Manglik
+                            </span>
+                          </p>
+                          <p class="text-muted">
+                            <i class="fa fa-calendar"></i>
+                            &nbsp;&nbsp;
+                            <span class="txt-color-darken">
+                              <strong>Desired Income</strong> <%= @user[:desire]['desired_income'] %>
                             </span>
                           </p>
                           <p>
-                            <%= @user[:profile].inspect %>
-                            <%= @user[:contact].inspect %>
-                            <%= @user[:kundali].inspect %>
-                            <%= @user[:religion].inspect %>
                           </p>
                         </li>
                       </ul>
                       <br>
-                      <p class="font-md">
+                      <p class="font-sm">
                         <i>A little about me...</i>
+                        <br>
+                        <%= raw @user[:about][:me] %>
                       </p>
                       <br>
                       <% if  current_user.id != @user[:id] %>
@@ -155,9 +167,7 @@
                       <% end %>
                       <br></div>
                   </div>
-
                 </div>
-
               </div>
 
               <div class="row">
@@ -178,9 +188,6 @@
                 </article>
               <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                   <%= render :partial =>'layouts/profiles/show/lifestyle'%>
-                </article>
-              <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                  <%= render :partial =>'layouts/profiles/show/aboutme'%>
                 </article>
 
               </div>

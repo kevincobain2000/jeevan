@@ -150,7 +150,12 @@ class ProfilesController < ApplicationController
     logger.info("Debug #{params.inspect}")
     user = User.find(Profile.find(params[:id]).user_id)
     @user = {}
-    @user[:id] = user.id
+    @user[:id]        = user.id
+    @user[:last_sign_in_at]  = user.last_sign_in_at
+    @user[:sex]  = user.sex
+
+    @user[:visitors]  = Visitor.where(viewed_id: user.id).count
+
     @user[:profile]   = user.profile
     @user[:contact]   = user.contact
     @user[:about]     = user.about
