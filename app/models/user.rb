@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
 
   include Paperclip::Glue
-  has_attached_file :avatar, :styles => { :medium => "750x750#", :thumb => "100x100#", :mini => "25x25#" }, :default_url => "/images/normal/missing.png"
+  has_attached_file :avatar, :styles => { :medium => "750x750#", :gthumb => "300x300#",:thumb => "100x100#", :mini => "25x25#" }, :default_url => "/images/normal/missing.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
   has_many :visitors, :dependent => :destroy

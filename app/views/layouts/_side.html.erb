@@ -1,6 +1,6 @@
 <!-- Left panel : Navigation area -->
 <!-- Note: This width of the aside area can be adjusted through LESS variables -->
-<%= link_to "", profile_path(:id =>current_user.profile.id), :id=>"hidden-side-view-my-profile", :class=>"hidden"%>
+<%= link_to "Edit", edit_profile_path(:id =>current_user.profile.id, :format=>"images"), :id=>"hidden-side-images-edit", :class=>"hidden" %>
 <%= link_to "Edit", edit_profile_path(:id =>current_user.profile.id, :format=>"basic"), :id=>"hidden-side-basic-edit", :class=>"hidden" %>
 <%= link_to "Edit", edit_profile_path(:id =>current_user.profile.id, :format=>"contact"), :id=>"hidden-side-contact", :class=>"hidden" %>
 <%= link_to "Edit", edit_profile_path(:id =>current_user.profile.id, :format=>"religion-kundali"), :id=>"hidden-side-religion-kundali-edit", :class=>"hidden" %>
@@ -19,8 +19,9 @@
 
       <%= image_tag current_user.avatar.url(:thumb), :class => "img-rounded" %>
       <a href="javascript:void(0);" id="show-shortcut">
-        <i class="fa fa-user"></i>
-        <%= truncate(current_user.email, length: 15) %>
+        <i class="fa fa-user"></i><span> </span>
+        <%= link_to truncate(current_user.email, length: 15), profile_path(:id =>current_user.profile.id)%>
+
       </a>
     </span>
   </div>
@@ -44,7 +45,7 @@
     <li>
       <a href="" id="side-view-my-profile">
         <i class="fa fa-lg fa-fw fa-list-alt"></i>
-        <span class="menu-item-parent">View My Profile</span>
+        <span class="menu-item-parent">My Dashboard</span>
       </a>
     </li>
     <li>
@@ -53,6 +54,9 @@
         <span class="menu-item-parent">Edit Profile</span>
       </a>
       <ul>
+        <li>
+          <a href="#" id="side-images-edit">Images</a>
+        </li>
         <li>
           <a href="#" id="side-basic-edit">Basic Edit</a>
         </li>
