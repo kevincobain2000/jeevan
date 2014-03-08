@@ -1,0 +1,28 @@
+<h3>Out Visitors</h3>
+<%= @visitors[:out].inspect %>
+<h3>In Visitors</h3>
+<%= @visitors[:in].inspect %>
+<h3>Outgoing Interests with Responses</h3>
+<% @interests[:responses].each do |interest| %>
+  <% if interest.response == nil %>
+    Waiting
+  <% elsif interest.response == 1 %>
+    Accepted
+  <% else %>
+    Rejected
+  <% end %>
+  <%= interest.inspect %>
+  <hr>
+<% end %>
+<h3>Incoming Interests</h3>
+<% @interests[:in].each do |interest| %>
+  <%=  interest.inspect %>
+  <%= form_tag :action=>
+  'interest_response' do %>
+    <% if interest.response.nil? %>
+      <%= hidden_field_tag 'from_user_id', interest.user_id %>
+      <%= submit_tag("Accept") %>
+      <%= submit_tag("Reject") %>
+    <% end %>
+  <% end %>
+<% end %>
