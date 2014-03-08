@@ -1,148 +1,126 @@
 <%= render :partial =>'layouts/alert'%>
-<!-- widget grid -->
-<section id="widget-grid" class="">
-  <article class="col-sm-12 col-md-12 col-lg-12">
-    <div class="jarviswidget" id="wid-id-29" data-widget-fullscreenbutton="true">
-      <header>
-        <span class="widget-icon">
-          <i class="fa fa-check txt-color-green"></i>
-        </span>
-        <h2>Edit Mode</h2>
-      </header>
-      <!-- widget div-->
-      <div>
-        <!-- widget edit box -->
-        <div class="jarviswidget-editbox">
-          <!-- This area used as dropdown edit box -->
-        </div>
-        <!-- end widget edit box -->
-        <!-- widget content -->
-        <div class="widget-body no-padding">
-          <!-- Success states for elements -->
-          <!-- <form class="smart-form">
-                                -->
-          <%= form_tag({:action=>'modify_lifestyle'}, {:remote => true, :class=>"smart-form"}) do %>
-            <header>Life</header>
-            <fieldset>
-              <section>
-                <label class="label">Diet</label>
-                <div class="row">
-                  <% [ 'Veg', 'Non-Veg', "Eggeterian", "Occasional" ].each do |diet| %>
-                    <div class="col col-4">
-                      <label class="radio state-success">
-                        <%= radio_button_tag(:diet, diet,(@user[:lifestyle][:diet] == diet)) %>
-                        <i></i>
-                        <%= diet %>
-                      </label>
-                    </div>
-                  <% end %>
-                </div>
-                <br>
-                <label class="label">Smoke</label>
-                <div class="row">
-                  <% [ 'Yes', 'No' ].each do |smoke| %>
-                    <div class="col col-4">
-                      <label class="radio state-success">
-                        <%= radio_button_tag(:smoke, smoke,(@user[:lifestyle][:smoke] == smoke)) %>
-                        <i></i>
-                        <%= smoke %>
-                      </label>
-                    </div>
-                  <% end %>
-                </div>
-                <br>
-                <label class="label">Drink</label>
-                <div class="row">
-                  <% [ 'Yes', 'No' ].each do |drink| %>
-                    <div class="col col-4">
-                      <label class="radio state-success">
-                        <%= radio_button_tag(:drink, drink,(@user[:lifestyle][:drink] == drink)) %>
-                        <i></i>
-                        <%= drink %>
-                      </label>
-                    </div>
-                  <% end %>
-                </div>
-                <br>
-                <label class="label">Complexion</label>
-                <div class="row">
-                  <% [ 'Dark', 'White', 'Wheat' ].each do |complexion| %>
-                    <div class="col col-4">
-                      <label class="radio state-success">
-                        <%= radio_button_tag(:complexion, complexion,(@user[:lifestyle][:complexion] == complexion)) %>
-                        <i></i>
-                        <%= complexion %>
-                      </label>
-                    </div>
-                  <% end %>
-                </div>
-                <br>
-                <label class="label">Own House</label>
-                <div class="row">
-                  <% [ 'Yes', 'No', 'Will Buy' ].each do |own_house| %>
-                    <div class="col col-4">
-                      <label class="radio state-success">
-                        <%= radio_button_tag(:own_house, own_house,(@user[:lifestyle][:own_house] == own_house)) %>
-                        <i></i>
-                        <%= own_house %>
-                      </label>
-                    </div>
-                  <% end %>
-                </div>
-                <br>
-                <label class="label">Own Car</label>
-                <div class="row">
-                  <% [ 'Yes', 'No', 'Will Buy' ].each do |own_car| %>
-                    <div class="col col-4">
-                      <label class="radio state-success">
-                        <%= radio_button_tag(:own_car, own_car,(@user[:lifestyle][:own_car] == own_car)) %>
-                        <i></i>
-                        <%= own_car %>
-                      </label>
-                    </div>
-                  <% end %>
-                </div>
-                <br>
-                <label class="label">Own Pet</label>
-                <div class="row">
-                  <% [ 'Yes', 'No', 'Will Buy' ].each do |own_pet| %>
-                    <div class="col col-4">
-                      <label class="radio state-success">
-                        <%= radio_button_tag(:own_pet, own_pet,(@user[:lifestyle][:own_pet] == own_pet)) %>
-                        <i></i>
-                        <%= own_pet %>
-                      </label>
-                    </div>
-                  <% end %>
-                </div>
-              </section>
-              <h4>Body Structure</h4>
-              <legend></legend>
-              <% categories = ["blood", "weight", "height", "residence"] %>
-              <% categories.each do |category| %>
-                <% heading = category.sub "_", " " %>
-                <% id = category.sub "_", "-" %>
-                <section class="col col-6">
-                  <label>
-                    <%= heading.capitalize %></label>
-                  <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:lifestyle][category] %>">
-                </section>
-              <% end %>
-            </fieldset>
-            <footer>
-              <div class="note note-success autosave"></div>
-              <button type="submit" class="btn btn-primary hide">Submit</button>
-              <button type="button" class="btn btn-default" onclick="window.history.back();">Back</button>
-            </footer>
-            <!-- </form>
-                                -->
+<div class="jarviswidget" id="wid-id-9">
+  <header>
+    <span class="widget-icon">
+      <i class="fa fa-check txt-color-green"></i>
+    </span>
+    <h2>Edit Mode</h2>
+  </header>
+  <div>
+  <div class="widget-body">
+    <%= form_tag({:action=>'modify_lifestyle'}, {:remote => true, :class=>"smart-form"}) do %>
+      <header>Life</header>
+      <fieldset>
+        <label class="label">Diet</label>
+        <div class="row">
+          <% [ 'Veg', 'Non-Veg', "Eggeterian", "Occasional" ].each do |diet| %>
+            <div class="col col-4">
+              <label class="radio state-success">
+                <%= radio_button_tag(:diet, diet,(@user[:lifestyle][:diet] == diet)) %>
+                <i></i>
+                <%= diet %>
+              </label>
+            </div>
           <% end %>
-          <!--/ Success states for elements -->
         </div>
-        <!-- end widget content -->
-      </div>
-      <!-- end widget div -->
-    </div>
-    <!-- end widget -->
-  </article>
-</section>
+        <br>
+        <label class="label">Smoke</label>
+        <div class="row">
+          <% [ 'Yes', 'No' ].each do |smoke| %>
+            <div class="col col-4">
+              <label class="radio state-success">
+                <%= radio_button_tag(:smoke, smoke,(@user[:lifestyle][:smoke] == smoke)) %>
+                <i></i>
+                <%= smoke %>
+              </label>
+            </div>
+          <% end %>
+        </div>
+        <br>
+        <label class="label">Drink</label>
+        <div class="row">
+          <% [ 'Yes', 'No' ].each do |drink| %>
+            <div class="col col-4">
+              <label class="radio state-success">
+                <%= radio_button_tag(:drink, drink,(@user[:lifestyle][:drink] == drink)) %>
+                <i></i>
+                <%= drink %>
+              </label>
+            </div>
+          <% end %>
+        </div>
+        <br>
+        <label class="label">Complexion</label>
+        <div class="row">
+          <% [ 'Dark', 'White', 'Wheat' ].each do |complexion| %>
+            <div class="col col-4">
+              <label class="radio state-success">
+                <%= radio_button_tag(:complexion, complexion,(@user[:lifestyle][:complexion] == complexion)) %>
+                <i></i>
+                <%= complexion %>
+              </label>
+            </div>
+          <% end %>
+        </div>
+        <br>
+        <label class="label">Own House</label>
+        <div class="row">
+          <% [ 'Yes', 'No', 'Will Buy' ].each do |own_house| %>
+            <div class="col col-4">
+              <label class="radio state-success">
+                <%= radio_button_tag(:own_house, own_house,(@user[:lifestyle][:own_house] == own_house)) %>
+                <i></i>
+                <%= own_house %>
+              </label>
+            </div>
+          <% end %>
+        </div>
+        <br>
+        <label class="label">Own Car</label>
+        <div class="row">
+          <% [ 'Yes', 'No', 'Will Buy' ].each do |own_car| %>
+            <div class="col col-4">
+              <label class="radio state-success">
+                <%= radio_button_tag(:own_car, own_car,(@user[:lifestyle][:own_car] == own_car)) %>
+                <i></i>
+                <%= own_car %>
+              </label>
+            </div>
+          <% end %>
+        </div>
+        <br>
+        <label class="label">Own Pet</label>
+        <div class="row">
+          <% [ 'Yes', 'No', 'Will Buy' ].each do |own_pet| %>
+            <div class="col col-4">
+              <label class="radio state-success">
+                <%= radio_button_tag(:own_pet, own_pet,(@user[:lifestyle][:own_pet] == own_pet)) %>
+                <i></i>
+                <%= own_pet %>
+              </label>
+            </div>
+          <% end %>
+        </div>
+        <h4>Body Structure</h4>
+        <% categories = ["blood", "weight", "height", "residence"] %>
+        <% categories.each do |category| %>
+          <% heading = category.sub "_", " " %>
+          <% id = category.sub "_", "-" %>
+          <section class="col col-6">
+            <label>
+              <%= heading.capitalize %></label>
+            <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:lifestyle][category] %>">
+          </section>
+        <% end %>
+      </fieldset>
+      <footer>
+        <div class="note note-success autosave"></div>
+        <button type="submit" class="btn btn-primary hide">Submit</button>
+        <button type="button" class="btn btn-default" onclick="window.history.back();">Back</button>
+      </footer>
+    <% end %>
+    <!--/ Success states for elements -->
+  </div>
+  <!-- end widget content -->
+</div>
+</div>
