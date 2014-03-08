@@ -2,14 +2,7 @@
 <!-- Note: This width of the aside area can be adjusted through LESS variables -->
 <%= link_to "Show", root_path, :id=>"hidden-side-explore", :class=>"hidden" %>
 <%= link_to "Show", dashboard_index_path, :id=>"hidden-side-dashboard", :class=>"hidden" %>
-<%= link_to "Edit", edit_profile_path(:id =>current_user.profile.id, :format=>"avatar"), :id=>"hidden-side-avatar-edit", :class=>"hidden" %>
-<%= link_to "Edit", edit_profile_path(:id =>current_user.profile.id, :format=>"images"), :id=>"hidden-side-images-edit", :class=>"hidden" %>
-<%= link_to "Edit", edit_profile_path(:id =>current_user.profile.id, :format=>"basic"), :id=>"hidden-side-basic-edit", :class=>"hidden" %>
-<%= link_to "Edit", edit_profile_path(:id =>current_user.profile.id, :format=>"contact"), :id=>"hidden-side-contact", :class=>"hidden" %>
-<%= link_to "Edit", edit_profile_path(:id =>current_user.profile.id, :format=>"religion-kundali"), :id=>"hidden-side-religion-kundali-edit", :class=>"hidden" %>
-<%= link_to "Edit", edit_profile_path(:id =>current_user.profile.id, :format=>"hobby-lifestyle"), :id=>"hidden-side-hobby-lifestyle-edit", :class=>"hidden" %>
-<%= link_to "Edit", edit_profile_path(:id =>current_user.profile.id, :format=>"family-education"), :id=>"hidden-side-family-education-edit", :class=>"hidden" %>
-<%= link_to "Edit", edit_profile_path(:id =>current_user.profile.id, :format=>"desired-aboutme"), :id=>"hidden-side-desired-aboutme-edit", :class=>"hidden" %>
+<%= link_to "Edit", edit_profile_path(:id =>current_user.profile.id), :id=>"hidden-side-edit", :class=>"hidden" %>
 
 
 <aside id="left-panel">
@@ -60,36 +53,10 @@
       </a>
     </li>
     <li>
-      <a href="javascript:void(0);">
+      <a href="javascript:void(0);" id="side-edit">
         <i class="fa fa-lg fa-fw fa-bar-chart-o"></i>
         <span class="menu-item-parent">Edit Profile</span>
       </a>
-      <ul>
-        <li>
-          <a href="" id="side-avatar-edit">Profile Pic</a>
-        </li>
-        <li>
-          <a href="" id="side-images-edit">Images</a>
-        </li>
-        <li>
-          <a href="" id="side-basic-edit">Basic</a>
-        </li>
-        <li>
-          <a href="" id="side-contact">Contact Details</a>
-        </li>
-        <li>
-          <a href="" id="side-religion-kundali-edit">Religion, Kundali</a>
-        </li>
-        <li>
-          <a href="" id="side-hobby-lifestyle-edit">Hobbies & Lifestyle</a>
-        </li>
-        <li>
-          <a href="" id="side-family-education-edit">Family & Education</a>
-        </li>
-        <li>
-          <a href="" id="side-desired-aboutme-edit">About Partner & Me</a>
-        </li>
-      </ul>
     </li>
   </ul>
 </nav>
