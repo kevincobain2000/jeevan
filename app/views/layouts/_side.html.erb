@@ -1,6 +1,7 @@
 <!-- Left panel : Navigation area -->
 <!-- Note: This width of the aside area can be adjusted through LESS variables -->
 <%= link_to "Show", root_path, :id=>"hidden-side-explore", :class=>"hidden" %>
+<%= link_to "Show", dashboard_index_path, :id=>"hidden-side-dashboard", :class=>"hidden" %>
 <%= link_to "Edit", edit_profile_path(:id =>current_user.profile.id, :format=>"avatar"), :id=>"hidden-side-avatar-edit", :class=>"hidden" %>
 <%= link_to "Edit", edit_profile_path(:id =>current_user.profile.id, :format=>"images"), :id=>"hidden-side-images-edit", :class=>"hidden" %>
 <%= link_to "Edit", edit_profile_path(:id =>current_user.profile.id, :format=>"basic"), :id=>"hidden-side-basic-edit", :class=>"hidden" %>

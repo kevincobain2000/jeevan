@@ -24,7 +24,7 @@ Jeevan::Application.routes.draw do
   end
 
   get "home/index"
-  resources :visitors
+  resources :dashboard
   devise_for :users
   authenticated :user do
     root :to => 'profiles#index', :as => :authenticated_root
