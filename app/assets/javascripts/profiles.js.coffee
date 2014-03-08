@@ -4,6 +4,7 @@
 
 $(document).on "page:change", ->
   pageSetUp();
+  $("#tabs").tabs()
   # Dirty Hack for ajax calls Vanilla
   $("[id^=side]").click ->
     console.log(this)
