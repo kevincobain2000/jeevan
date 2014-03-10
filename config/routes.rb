@@ -1,7 +1,5 @@
 Jeevan::Application.routes.draw do
 
-  resources :expresses
-
   resources :profiles do
     collection do
       post :modify_profile

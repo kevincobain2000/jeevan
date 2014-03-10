@@ -7,28 +7,53 @@
     <h2>Edit Kundali</h2>
   </header>
   <div>
-  <!-- widget content -->
-  <div class="widget-body">
-    <%= form_tag({:action=>'modify_kundali'},{:remote => true, :class=>"smart-form"}) do %>
-      <header>Nakshatra, Moon Sign, Be precise with dates</header>
-      <fieldset>
-        <% categories = ["birth_country", "birth_city", "sun_sign", "moon_sign", "nakshatra"] %>
-        <% categories.each do |category| %>
-          <% heading = category.sub "_", " " %>
-          <% id = category.sub "_", "-" %>
-          <section class="col col-6">
-            <label>
-              <%= heading.capitalize %></label>
-            <input id="select-<%= id %>" name="<%= category %>" value="<%= @user[:kundali][category] %>" class="selectized" placeholder="Select or add new.."></section>
-        <% end %>
-      </fieldset>
-      <footer>
-        <div class="note note-success clicksave"></div>
-        <button type="submit" class="btn btn-primary">Save</button>
-        <button type="button" class="btn btn-default" onclick="window.history.back();">Back</button>
-      </footer>
-    <% end %></div>
-  <!-- end widget content -->
-</div>
-<!-- end widget div -->
+    <!-- widget content -->
+    <div class="widget-body">
+      <%= form_tag({:action=>'modify_kundali'},{:remote => true, :class=>"smart-form"}) do %>
+        <header>Nakshatra's for Kundali</header>
+        <fieldset>
+          <div class="col-sm-12">
+              <label>Date of birth</label>
+              <div class="input-group">
+                <input class="form-control" id="dob" type="text" name="dob">
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+            </div>
+            <div class="note">
+                  <strong>Choose Date of Birth:</strong> From the calender or enter manually dd/mm/yyyy
+            </div>
+          </div>
+          <div class="col-sm-12">
+          <label>Time of Birth</label>
+              <div class="input-group">
+                <input class="form-control" name="tob" id="tob" type="time" name="dob">
+                <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+            </div>
+            <div class="note">
+                  <strong>Enter Time of birth:</strong> Example: 07:50:PM
+            </div>
+          </div>
+        </fieldset>
+        <fieldset>
+        <div class="col-sm-12">
+          <% categories = ["birth_country", "birth_city", "sun_sign", "moon_sign", "nakshatra"] %>
+          <% categories.each do |category| %>
+            <% heading = category.sub "_", " " %>
+            <% id = category.sub "_", "-" %>
+            <div class="col-sm-12">
+              <label>
+                <%= heading.capitalize %></label><small> (Choose one from the Dropdown)</small>
+              <input id="select-<%= id %>" name="<%= category %>" value="<%= @user[:kundali][category] %>" class="selectized" placeholder="Select your <%= heading %>">
+            </div>
+          <% end %>
+        </div>
+        </fieldset>
+        <footer>
+          <div class="note note-success clicksave"></div>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </footer>
+      <% end %>
+      </div>
+    <!-- end widget content -->
+  </div>
+  <!-- end widget div -->
 </div>
