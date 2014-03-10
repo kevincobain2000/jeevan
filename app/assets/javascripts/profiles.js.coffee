@@ -83,8 +83,10 @@ $(document).on "page:change", ->
                       create: true
                     highest_degree:
                       create: true
-                    desired_country:true
-                    desired_city:true
+                    desired_country:
+                      create:true
+                    desired_city:
+                      create:true
                     desired_religion:true
                     desired_caste:true
                     desired_mother_tongue:true
