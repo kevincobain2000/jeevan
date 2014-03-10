@@ -1,19 +1,10 @@
 <%= render :partial =>'layouts/alert'%>
-<div class="jarviswidget" id="wid-id-9">
-  <header>
-    <span class="widget-icon">
-      <i class="fa fa-check txt-color-green"></i>
-    </span>
-    <h2>Edit Mode</h2>
-  </header>
-  <div>
-  <div class="widget-body">
     <%= form_tag({:action=>'modify_lifestyle'}, {:remote => true, :class=>"smart-form"}) do %>
       <header>Life</header>
       <fieldset>
-        <label class="label">Diet</label>
+        <label>Diet</label>
         <div class="row">
-          <% [ 'Veg', 'Non-Veg', "Eggeterian", "Occasional" ].each do |diet| %>
+          <% [ 'Veg', 'Non-Veg', "Eggeterian", "Occasional Non Veg" ].each do |diet| %>
             <div class="col col-4">
               <label class="radio state-success">
                 <%= radio_button_tag(:diet, diet,(@user[:lifestyle][:diet] == diet)) %>
@@ -24,9 +15,9 @@
           <% end %>
         </div>
         <br>
-        <label class="label">Smoke</label>
+        <label>Smoke</label>
         <div class="row">
-          <% [ 'Yes', 'No' ].each do |smoke| %>
+          <% [ 'Yes', 'No', 'Occasional', 'Quiting' ].each do |smoke| %>
             <div class="col col-4">
               <label class="radio state-success">
                 <%= radio_button_tag(:smoke, smoke,(@user[:lifestyle][:smoke] == smoke)) %>
@@ -37,9 +28,9 @@
           <% end %>
         </div>
         <br>
-        <label class="label">Drink</label>
+        <label>Drink</label>
         <div class="row">
-          <% [ 'Yes', 'No' ].each do |drink| %>
+          <% [ 'Yes', 'No', 'Occasional', 'Quiting' ].each do |drink| %>
             <div class="col col-4">
               <label class="radio state-success">
                 <%= radio_button_tag(:drink, drink,(@user[:lifestyle][:drink] == drink)) %>
@@ -50,9 +41,9 @@
           <% end %>
         </div>
         <br>
-        <label class="label">Complexion</label>
+        <label>Complexion</label>
         <div class="row">
-          <% [ 'Dark', 'White', 'Wheat' ].each do |complexion| %>
+          <% [ 'Dark', 'White', 'Wheatish', 'Yellow', 'Fair' ].each do |complexion| %>
             <div class="col col-4">
               <label class="radio state-success">
                 <%= radio_button_tag(:complexion, complexion,(@user[:lifestyle][:complexion] == complexion)) %>
@@ -63,9 +54,9 @@
           <% end %>
         </div>
         <br>
-        <label class="label">Own House</label>
+        <label>Own House</label>
         <div class="row">
-          <% [ 'Yes', 'No', 'Will Buy' ].each do |own_house| %>
+          <% [ 'Yes', 'No', 'Will Buy', 'May be in Future' ].each do |own_house| %>
             <div class="col col-4">
               <label class="radio state-success">
                 <%= radio_button_tag(:own_house, own_house,(@user[:lifestyle][:own_house] == own_house)) %>
@@ -76,9 +67,9 @@
           <% end %>
         </div>
         <br>
-        <label class="label">Own Car</label>
+        <label>Own Car</label>
         <div class="row">
-          <% [ 'Yes', 'No', 'Will Buy' ].each do |own_car| %>
+          <% [ 'Yes', 'No', 'Will Buy', 'May be in future' ].each do |own_car| %>
             <div class="col col-4">
               <label class="radio state-success">
                 <%= radio_button_tag(:own_car, own_car,(@user[:lifestyle][:own_car] == own_car)) %>
@@ -89,9 +80,9 @@
           <% end %>
         </div>
         <br>
-        <label class="label">Own Pet</label>
+        <label>Own Pet</label>
         <div class="row">
-          <% [ 'Yes', 'No', 'Will Buy' ].each do |own_pet| %>
+          <% [ 'Dog', 'Cat', 'Dog & Cat', 'Other', 'May be in future' ].each do |own_pet| %>
             <div class="col col-4">
               <label class="radio state-success">
                 <%= radio_button_tag(:own_pet, own_pet,(@user[:lifestyle][:own_pet] == own_pet)) %>
@@ -101,7 +92,7 @@
             </div>
           <% end %>
         </div>
-        <label class="label">Blood Group</label>
+        <label>Blood Group</label>
       <div class="row">
         <% ["O−","O+","A−","A+","B−","B+","AB−","AB+"].each do |blood| %>
         <div class="col col-4">
@@ -113,20 +104,26 @@
             </div>
           <% end %>
         </div>
-        <div class="row">
-          <div class="col-sm-6 col-md-4 col-lg-4">
-            <div class="form-group">
-            <label>Height</label>
-            <input class="form-control" name="height" type="number" step="any" value="<%= @user[:lifestyle][:height] %>">
-            </div>
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-4">
-            <div class="form-group">
-              <label>Weight</label>
-              <input class="form-control" name="weight" type = "number" step="any" value="<%= @user[:lifestyle][:weight] %>">
-            </div>
-          </div>
-        </div>
+        </fieldset>
+        <fieldset>
+    <div class="col-sm-12">
+      <label>Height</label><small class="text-muted">
+            <strong>Your Height in Ft Inches: </strong>Example: 5.7 is 5ft 7 Inches</small>
+      <div class="input-group">
+        <input class="form-control" type="number" step= "any" name="height">
+        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+      </div>
+
+    </div>
+    <div class="col-sm-12">&nbsp;</div>
+    <div class="col-sm-12">
+      <label>Weight</label><small class="text-muted">
+            <strong>Your Weight in </strong>Kgs</small>
+      <div class="input-group">
+        <input class="form-control" type="number" name="weight">
+        <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+      </div>
+    </div>
 
       </fieldset>
       <footer>
@@ -134,8 +131,3 @@
         <button type="submit" class="btn btn-primary">Save</button>
       </footer>
     <% end %>
-    <!--/ Success states for elements -->
-  </div>
-  <!-- end widget content -->
-</div>
-</div>
