@@ -71,10 +71,10 @@ ActiveRecord::Schema.define(version: 20140223042627) do
     t.datetime "updated_at"
     t.string   "school",            limit: 64
     t.string   "grad_college",      limit: 64
-    t.string   "grad",              limit: 32
     t.string   "post_grad",         limit: 32
     t.string   "post_grad_college", limit: 64
     t.string   "highest_degree",    limit: 32
+    t.string   "graduation",        limit: 64
   end
 
   create_table "families", force: true do |t|
@@ -153,7 +153,6 @@ ActiveRecord::Schema.define(version: 20140223042627) do
     t.string   "challenged", limit: 4
     t.string   "blood",      limit: 4
     t.string   "weight",     limit: 4
-    t.string   "residence",  limit: 64
     t.string   "own_house",  limit: 64
     t.string   "own_car",    limit: 64
     t.string   "language",   limit: 128, default: ""
@@ -179,7 +178,6 @@ ActiveRecord::Schema.define(version: 20140223042627) do
     t.datetime "updated_at"
     t.string   "posted_by",      limit: 32
     t.string   "marital_status", limit: 32
-    t.string   "sex",            limit: 8
   end
 
   create_table "religions", force: true do |t|

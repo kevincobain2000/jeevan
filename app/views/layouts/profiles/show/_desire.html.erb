@@ -1,18 +1,27 @@
 <!-- Widget ID (each widget will need unique ID)-->
-<div class="jarviswidget" id="wid-id-4">
+<!-- <div class="jarviswidget jarviswidget-color-darken" id="wid-id-4">
   <header>
     <span class="widget-icon">
       <i class="fa fa-edit"></i>
     </span>
     <h2>Modify Desires</h2>
-  </header>
+  </header> -->
   <!-- widget div-->
-  <div>
+  <!-- <div> -->
     <!-- widget content -->
-    <div class="widget-body">
-      <%= @user[:desire].inspect %>
-    </div>
+    <!-- <div class="widget-body"> -->
+
+    <% categories = ['desired_height', 'desired_age', 'desired_marital_status', 'desired_country', 'desired_city', 'desired_religion', 'desired_caste', 'desired_mother_tongue', 'desired_manglik', 'desired_diet', 'desired_smoke', 'desired_drink', 'desired_complexion', 'desired_body', 'desired_challenged', 'desired_education', 'desired_occupation', 'desired_income'] %>
+      <dl class="dl-horizontal">
+          <% categories.each do |category| %>
+          <% heading = category.gsub "_", " " %>
+          <dt><%= heading.capitalize %></dt>
+          <dd><%= @user[:desire][category] %></dd>
+      <% end %>
+      </dl>
+
+    <!-- </div> -->
     <!-- end widget content -->
-  </div>
+  <!-- </div> -->
   <!-- end widget div -->
-</div>
+<!-- </div> -->

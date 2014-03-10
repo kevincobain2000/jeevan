@@ -9,17 +9,16 @@
     <div>
     <div class="widget-body no-padding">
       <%= form_tag({:action=>'modify_education'}, {:remote => true, :class=>"smart-form"}) do %>
-        <header>Life</header>
+        <header>Education</header>
         <fieldset>
-          <h4>Body Structure</h4>
-          <% categories = ["school", "grad_college", "grad", "post_grad", "highest_degree"] %>
+          <% categories = ["school", "grad_college", "graduation", "post_grad", "highest_degree"] %>
           <% categories.each do |category| %>
             <% heading = category.sub "_", " " %>
             <% id = category.sub "_", "-" %>
             <section class="col col-6">
               <label>
                 <%= heading.capitalize %></label>
-              <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:lifestyle][category] %>">
+              <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:education][category] %>">
             </section>
           <% end %>
         </fieldset>
