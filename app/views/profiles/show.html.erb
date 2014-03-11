@@ -1,27 +1,109 @@
-<div id="portfolio_tem">
-  <div class="container">
-    <div class="section_header">
-      <h2>If Me then "My Profile" else Profile of User</h2>
-    </div>
-    <%= render :partial => 'layouts/profile/show/image'%>
-    <%= render :partial => 'layouts/profile/show/info'%>
-  </div>
-</div>
-<div id="features" class="features_page offset3">
-  <div class="container">
-    <div class="feature_wrapper option3">
-      <div class="row">
-        <%= render :partial => 'layouts/profile/show/profile'%>
-        <%= render :partial => 'layouts/profile/show/contact'%>
-        <%= render :partial => 'layouts/profile/show/about'%>
-        <%= render :partial => 'layouts/profile/show/religion'%>
-        <%= render :partial => 'layouts/profile/show/kundali'%>
-        <%= render :partial => 'layouts/profile/show/hobby'%>
-        <%= render :partial => 'layouts/profile/show/family'%>
-        <%= render :partial => 'layouts/profile/show/education'%>
-        <%= render :partial => 'layouts/profile/show/lifestyle'%>
-        <%= render :partial => 'layouts/profile/show/desire'%>
+<div id="main" role="main">
+  <%= render :partial =>"layouts/ribbon", :locals => {:papa => "Home", :son => "Profile"} %>
+  <!-- MAIN CONTENT -->
+  <div id="content">
+
+    <!-- Bread crumb is created dynamically -->
+    <!-- row -->
+    <div class="row">
+      <!-- col -->
+      <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+        <h1 class="page-title txt-color-blueDark">
+          <!-- PAGE HEADER --> <i class="fa-fw fa fa-file-o"></i>
+          Profile Id
+            >
+            <%= @user[:profile]['id'] %>
+        </h1>
       </div>
+      <!-- end col -->
+
+      <!-- right side of the page with the sparkline graphs -->
+      <!-- col -->
+      <div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
+          <%= render :partial =>'layouts/sparks', :locals => {:user => @user}%>
+      </div>
+      <!-- end col -->
     </div>
-  </div>
+    <!-- end row -->
+
+    <!-- row -->
+
+    <div class="col-sm-12">
+      <div class="well well-sm">
+
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="well well-light well-sm no-margin no-padding">
+              <div class="row">
+                <div class="col-sm-12">
+
+                  <div class="row">
+                  <div class="col-sm-12 col-md-12 col-lg-6">
+
+                    <%= render :partial =>'layouts/avatar', :locals => {:user => @user}%>
+
+                    <div class="col-sm-6">
+                      <%= render :partial =>'layouts/cardinfo', :locals => {:user => @user}%>
+                      <% if  current_user.id != @user[:id] %>
+                      <%= form_tag({:action=>
+                      'interest', :controller => "profiles"}) do %>
+                      <%= hidden_field_tag 'to_user_id', @user[:id] %>
+                      <button class="btn btn-success interest" type="submit">Express Interest</button>
+                          <% end %>
+                      <% end %>
+                      <br></div>
+                  </div>
+                  <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                  <%= render :partial =>'layouts/profiles/show/images'%>
+                </article>
+                </div>
+              </div>
+            </div>
+              </div>
+
+          </div>
+
+        </div>
+        <div class="row">
+              <article class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
+                <h3 class="text-primary">About Me</h3>
+                  <%= raw @user[:about][:me] %>
+                </article>
+                <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <h3 class="text-primary">Religion</h3>
+                  <%= render :partial =>'layouts/profiles/show/religion'%>
+                </article>
+                <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <h3 class="text-primary">Kundali</h3>
+                  <%= render :partial =>'layouts/profiles/show/kundali'%>
+                </article>
+                <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <h3 class="text-primary">Education</h3>
+                  <%= render :partial =>'layouts/profiles/show/education'%>
+                </article>
+              <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+              <h3 class="text-primary">Family</h3>
+                  <%= render :partial =>'layouts/profiles/show/family'%>
+                </article>
+              <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+              <h3 class="text-primary">Hobby</h3>
+                  <%= render :partial =>'layouts/profiles/show/hobby'%>
+                </article>
+              <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+              <h3 class="text-primary">lifestyle</h3>
+                  <%= render :partial =>'layouts/profiles/show/lifestyle'%>
+                </article>
+              <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+              <h3 class="text-primary">Desire</h3>
+                  <%= render :partial =>'layouts/profiles/show/desire'%>
+              </article>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- end row -->
+    </div>
+  <!-- END MAIN CONTENT -->
 </div>

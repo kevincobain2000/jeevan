@@ -1,0 +1,20 @@
+<!-- <div class="jarviswidget" id="wid-id-9">
+  <header>
+    <span class="widget-icon">
+      <i class="fa fa-check txt-color-green"></i>
+    </span>
+    <h2>Edit Mode</h2>
+  </header>
+  <div> -->
+  <!-- <div class="widget-body"> -->
+    <% categories = ['diet', 'smoke', 'drink', 'complexion', 'body', 'challenged', 'blood', 'weight', 'residence', 'own_house', 'own_car', 'language', 'pet', 'hiv'] %>
+      <dl class="dl-horizontal">
+          <% categories.each do |category| %>
+          <% heading = category.gsub "_", " " %>
+          <dt><%= heading.capitalize %></dt>
+          <dd><%= @user[:lifestyle][category] %></dd>
+      <% end %>
+      </dl>
+<!--   </div>
+</div>
+</div> -->

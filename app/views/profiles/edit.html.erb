@@ -1,27 +1,142 @@
-<div id="portfolio_tem">
-  <div class="container">
-    <div class="section_header">
-      <h2>Edit Profile</h2>
+<div id="main" role="main">
+  <%= render :partial =>
+  "layouts/ribbon", :locals => {:papa => "Home", :son => "Edit"} %>
+  <!-- MAIN CONTENT -->
+  <div id="content">
+    <!-- Bread crumb is created dynamically -->
+    <!-- row -->
+    <div class="row">
+      <!-- col -->
+      <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+        <h1 class="page-title txt-color-blueDark">
+          <!-- PAGE HEADER -->
+          <i class="fa-fw fa fa-file-o"></i>
+          Editing Profile
+        </h1>
+      </div>
+      <!-- end col -->
+      <!-- right side of the page with the sparkline graphs -->
+      <!-- col -->
+      <div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
+        <!-- sparks -->
+        <%= render :partial =>'layouts/sparks', :locals => {:user => @user}%>
+        <!-- end sparks -->
+      </div>
+      <!-- end col -->
     </div>
-    <%= render :partial => 'layouts/profile/edit/form_image'%>
-    <%= render :partial => 'layouts/profile/edit/form_dropzone'%>
-  </div>
-</div>
-<div id="features" class="features_page">
-  <div class="container">
-    <div class="feature_wrapper option3">
-      <div class="row">
-        <%= render :partial => 'layouts/profile/edit/form_profile'%>
-        <%= render :partial => 'layouts/profile/edit/form_religion'%>
-        <%= render :partial => 'layouts/profile/edit/form_kundali'%>
-        <%= render :partial => 'layouts/profile/edit/form_contact'%>
-        <%= render :partial => 'layouts/profile/edit/form_hobby'%>
-        <%= render :partial => 'layouts/profile/edit/form_family'%>
-        <%= render :partial => 'layouts/profile/edit/form_education'%>
-        <%= render :partial => 'layouts/profile/edit/form_lifestyle'%>
-        <%= render :partial => 'layouts/profile/edit/form_desire'%>
-        <%= render :partial => 'layouts/profile/edit/form_about'%>
+    <!-- end row -->
+    <!-- row -->
+    <div class="col-sm-12">
+      <div class="well well-sm">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="well well-light well-sm no-margin no-padding">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-6">
+                      <%= render :partial =>'layouts/avatar', :locals => {:user => @user}%>
+                      <div class="col-sm-6">
+                        <%= render :partial =>'layouts/cardinfo', :locals => {:user => @user}%>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-12">
+                  <hr>
+                  <div class="padding-10" id="tabs">
+                    <ul class="nav nav-tabs">
+                      <li class="active">
+                        <a href="#a1" data-toggle="tab">Profile Pic</a>
+                      </li>
+                      <li>
+                        <a href="#a3" data-toggle="tab">Contact</a>
+                      </li>
+                      <li>
+                        <a href="#a4" id="tab-desire" data-toggle="tab">Desires</a>
+                      </li>
+                      <li>
+                        <a href="#a5" data-toggle="tab">Images</a>
+                      </li>
+                      <li>
+                        <a href="#a6" data-toggle="tab">Religion</a>
+                      </li>
+                      <li>
+                        <a href="#a7" id="tab-kundali" data-toggle="tab">Kundali</a>
+                      </li>
+                      <li>
+                        <a href="#a8" data-toggle="tab">Hobby</a>
+                      </li>
+                      <li>
+                        <a href="#a9" id="tab-lifestyle" data-toggle="tab">Lifestyle</a>
+                      </li>
+                      <li>
+                        <a href="#a10" id="tab-family" data-toggle="tab">Family</a>
+                      </li>
+                      <li>
+                        <a href="#a11" data-toggle="tab">Education</a>
+                      </li>
+                      <li>
+                        <a href="#a12" data-toggle="tab">About Me</a>
+                      </li>
+                      <li>
+                        <a href="#a13" data-toggle="tab">Basic</a>
+                      </li>
+                    </ul>
+                    <div class="tab-content padding-top-10">
+                      <div class="tab-pane fade in active" id="a1">
+                        <%= render :partial =>'layouts/profiles/edit/avatar'%>
+                      </div>
+                      <div class="tab-pane fade" id="a2">
+                        <%= render :partial =>'layouts/profiles/edit/basic'%>
+                      </div>
+                      <div class="tab-pane fade" id="a3">
+                        <%= render :partial =>'layouts/profiles/edit/contact'%>
+                      </div>
+                      <div class="tab-pane fade" id="a4">
+                        <%= render :partial =>'layouts/profiles/edit/desire'%>
+                      </div>
+                      <div class="tab-pane fade" id="a5">
+                        <%= render :partial =>'layouts/profiles/edit/images'%>
+                      </div>
+                      <div class="tab-pane fade" id="a6">
+                        <%= render :partial =>'layouts/profiles/edit/religion'%>
+                      </div>
+                      <div class="tab-pane fade" id="a7">
+                        <%= render :partial =>'layouts/profiles/edit/kundali'%>
+                      </div>
+                      <div class="tab-pane fade" id="a8">
+                        <%= render :partial =>'layouts/profiles/edit/hobby'%>
+                      </div>
+                      <div class="tab-pane fade" id="a9">
+                        <%= render :partial =>'layouts/profiles/edit/lifestyle'%>
+                      </div>
+                      <div class="tab-pane fade" id="a10">
+                        <%= render :partial =>'layouts/profiles/edit/family'%>
+                      </div>
+                      <div class="tab-pane fade" id="a11">
+                        <%= render :partial =>'layouts/profiles/edit/education'%>
+                      </div>
+                      <div class="tab-pane fade" id="a12">
+                        <%= render :partial =>'layouts/profiles/edit/aboutme'%>
+                      </div>
+                      <div class="tab-pane fade" id="a13">
+                        <%= render :partial =>'layouts/profiles/edit/basic'%>
+                      </div>
+                      <!-- end tab -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- end row -->
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+    <!-- end row -->
   </div>
+  <!-- END MAIN CONTENT -->
 </div>

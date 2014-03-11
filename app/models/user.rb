@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
 
   include Paperclip::Glue
-  has_attached_file :avatar, :styles => { :medium => "750x750#", :thumb => "100x100#", :mini => "25x25#" }, :default_url => "/images/normal/missing.png"
+  has_attached_file :avatar, :styles => {:thumb => "100x100#", :mini => "25x25#" }, :default_url => "/images/normal/missing.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 
   has_many :visitors, :dependent => :destroy
@@ -25,4 +25,23 @@ class User < ActiveRecord::Base
   has_one :hobby, :dependent => :destroy
   has_one :lifestyle, :dependent => :destroy
   has_one :occupation, :dependent => :destroy
+
+  after_create :create_dependents
+
+  def online?
+    updated_at > 10.minutes.ago
+  end
+  def create_dependents
+    build_profile
+    build_contact
+    build_religion
+    build_kundali
+    build_about
+    build_family
+    build_desire
+    build_education
+    build_hobby
+    build_lifestyle
+    build_occupation
+  end
 end
