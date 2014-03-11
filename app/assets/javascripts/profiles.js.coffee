@@ -3,24 +3,26 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on "page:change", ->
+  pageSetUp();
+  $("#tabs").tabs()
   # Dirty Hack for ajax calls Vanilla
   $("[id^=side]").click ->
+    console.log(this)
     $("#hidden-" + this.id)[0].click()
 
   selectize_items =
-                    # best_time_f:true #remove true if nesting child
-                    # best_time_t:true
                     religion:true
-                    mother_tongue:true
-                    caste:true
-                    sub_caste:true
-                    native_place:true
-                    birth_country:true
-                    birth_city:true
-                    tob:
-                      maxItems: 1
+                    mother_tongue:
                       create:true
-                      plugins: ['remove_button', 'restore_on_backspace']
+                    caste:true
+                    sub_caste:
+                      create:true
+                    native_place:
+                      create:true
+                    birth_country:
+                      create:true
+                    birth_city:
+                      create:true
                     manglik:true
                     sun_sign:true
                     moon_sign:true
@@ -66,31 +68,30 @@ $(document).on "page:change", ->
                       maxItems: 10
                       create: true
                       plugins: ['remove_button', 'restore_on_backspace']
-                    family_income:true
                     father:true
                     mother:true
                     brother:true
                     sister:true
                     profile_handler:true
-                    school:true
-                    grad_college:true
-                    grad:true
-                    post_grad:true
-                    highest_degree:true
-                    blood:true
-                    weight:true
-                    height:true
-                    residence:true
-                    desired_height:true
-                    desired_age:true
-                    desired_country:true
-                    desired_city:true
+                    school:
+                      create: true
+                    grad_college:
+                      create: true
+                    graduation:
+                      create: true
+                    post_grad:
+                      create: true
+                    highest_degree:
+                      create: true
+                    desired_country:
+                      create:true
+                    desired_city:
+                      create:true
                     desired_religion:true
                     desired_caste:true
                     desired_mother_tongue:true
                     desired_education:true
                     desired_occupation:true
-                    desired_income:true
 
   for name, options of selectize_items
     css_id = name.replace /_/g, "-"
@@ -107,14 +108,14 @@ $(document).on "page:change", ->
                     labelField: if options.labelField then options.labelField else "title",
                     searchField: if options.searchField then options.searchField else "title",
                     options: gon.select_profile_edit_items[name],
-                    create: if options.create then options.create else true,
+                    create: if options.create then options.create else false,
                     plugins: if options.plugins then options.plugins else [],
                     delimeter: if options.delimeter then options.delimeter else ",",
                     render:
                       option: (item, escape) ->
-                        '<div><i class="icon-plus"></i> '+item.title+'</div>'
+                        desc = if item.desc then item.desc else ""
+                        '<div> <strong>'+item.title+'</strong><br><small>'+desc+'</small></div>'
       });
-
 
 
   Dropzone.options.myDropzone =
@@ -136,4 +137,51 @@ $(document).on "page:change", ->
     $(this).find(":submit.hide").submit()
 
   $('form').submit ->
+    console.log("form was submitted")
+    jq_superbox_remov = $("#imageid").attr("value")
+    $("#"+jq_superbox_remov).remove()
+    $(".superbox-list").removeClass "active"
+    $(".superbox-current-img").animate
+      opacity: 0, 200, ->
+        $(".superbox-show").slideUp()
+        return
     $(this).find(".clicksave").text("Saved")
+
+  $("#tab-desire").click (e) ->
+    console.log("desire")
+    $("#desired-income-slider").ionRangeSlider
+      prettify: false
+      hasGrid: true
+    $("#desired-height-slider").ionRangeSlider
+      prettify: false
+      hasGrid: true
+    $("#desired-age-slider").ionRangeSlider
+      prettify: false
+      hasGrid: true
+
+  $("#tab-kundali").click (e) ->
+    $("#dob").datepicker
+      defaultDate: "01/01/01"
+
+  $("#tab-family").click (e) ->
+    $("#family-income-slider").ionRangeSlider
+      prettify: false
+      hasGrid: true
+
+  $(".click2edit").summernote
+    height: 350 #set editable area's height
+    toolbar: [
+      ['style', ['bold', 'italic', 'underline', 'clear']]
+      ['fontsize', ['fontsize']]
+      ['color', ['color']]
+      ['para', ['ul', 'ol', 'paragraph']]
+      ['height', ['height']]
+      ['help', ['help']]
+    ]
+  $('.superbox').SuperBox()
+  $(".superbox-list").click ->
+    currentimg = $(this).find(".superbox-img")
+    $("#imageid").attr("value", currentimg.attr("id"))
+    return
+
+

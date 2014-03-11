@@ -1,0 +1,27 @@
+<!-- Widget ID (each widget will need unique ID)-->
+<!-- <div class="jarviswidget jarviswidget-color-darken" id="wid-id-4">
+  <header>
+    <span class="widget-icon">
+      <i class="fa fa-edit"></i>
+    </span>
+    <h2>Modify Desires</h2>
+  </header> -->
+  <!-- widget div-->
+  <!-- <div> -->
+    <!-- widget content -->
+    <!-- <div class="widget-body"> -->
+
+    <% categories = ['birth_country', 'birth_city', 'dob', 'tob', 'manglik', 'sub_sign', 'moon_sign', 'nakshatra'] %>
+      <dl class="dl-horizontal">
+          <% categories.each do |category| %>
+          <% heading = category.gsub "_", " " %>
+          <dt><%= heading.capitalize %></dt>
+          <dd><%= @user[:kundali][category] %></dd>
+      <% end %>
+      </dl>
+
+    <!-- </div> -->
+    <!-- end widget content -->
+  <!-- </div> -->
+  <!-- end widget div -->
+<!-- </div> -->

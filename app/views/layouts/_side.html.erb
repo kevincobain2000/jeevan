@@ -1,10 +1,10 @@
 <!-- Left panel : Navigation area -->
 <!-- Note: This width of the aside area can be adjusted through LESS variables -->
-<%= link_to "", profile_path(:id =>current_user.profile.id), :id=>"hidden-side-view-my-profile", :class=>"hidden"%>
-<%= link_to "Edit", edit_profile_path(:id =>current_user.profile.id, :format=>"basic"), :id=>"hidden-side-basic-edit", :class=>"hidden" %>
-<%= link_to "Edit", edit_profile_path(:id =>current_user.profile.id, :format=>"contact"), :id=>"hidden-side-contact", :class=>"hidden" %>
-<%= link_to "Edit", edit_profile_path(:id =>current_user.profile.id, :format=>"religion-kundali"), :id=>"hidden-side-religion-kundali-edit", :class=>"hidden" %>
-<%= link_to "Edit", edit_profile_path(:id =>current_user.profile.id, :format=>"hobby-lifestyle"), :id=>"hidden-side-hobby-lifestyle-edit", :class=>"hidden" %>
+<%= link_to "Show", root_path, :id=>"hidden-side-explore", :class=>"hidden" %>
+<%= link_to "Show", dashboard_index_path, :id=>"hidden-side-dashboard", :class=>"hidden" %>
+<%= link_to "Edit", edit_profile_path(:id =>current_user.profile.id), :id=>"hidden-side-edit", :class=>"hidden", "data-no-turbolink" => true %>
+
+
 <aside id="left-panel">
 <span class="minifyme">
   <i class="fa fa-arrow-circle-left hit"></i>
@@ -17,8 +17,9 @@
 
       <%= image_tag current_user.avatar.url(:thumb), :class => "img-rounded" %>
       <a href="javascript:void(0);" id="show-shortcut">
-        <i class="fa fa-user"></i>
-        <%= truncate(current_user.email, length: 15) %>
+        <i class="fa fa-user"></i><span> </span>
+        <%= link_to truncate(current_user.email, length: 15), profile_path(:id =>current_user.profile.id)%>
+
       </a>
     </span>
   </div>
@@ -40,250 +41,22 @@
         -->
   <ul>
     <li>
-      <a href="" id="side-view-my-profile">
+      <a href="" id="side-explore">
         <i class="fa fa-lg fa-fw fa-list-alt"></i>
-        <span class="menu-item-parent">View My Profile</span>
+        <span class="menu-item-parent">Explore</span>
       </a>
     </li>
     <li>
-      <a href="#">
+      <a href="" id="side-dashboard">
+        <i class="fa fa-lg fa-fw fa-list-alt"></i>
+        <span class="menu-item-parent">Dashboard</span>
+      </a>
+    </li>
+    <li>
+      <a href="javascript:void(0);" id="side-edit">
         <i class="fa fa-lg fa-fw fa-bar-chart-o"></i>
         <span class="menu-item-parent">Edit Profile</span>
       </a>
-      <ul>
-        <li>
-          <a href="#" id="side-basic-edit">Basic Edit</a>
-        </li>
-        <li>
-          <a href="#" id="side-contact">Contact Details</a>
-        </li>
-        <li>
-          <a href="#" id="side-religion-kundali-edit">Religion, Kundali</a>
-        </li>
-        <li>
-          <a href="#" id="side-hobby-lifestyle-edit">Hobbies & Lifestyle</a>
-        </li>
-      </ul>
-    </li>
-    <li>
-      <a href="#">
-        <i class="fa fa-lg fa-fw fa-table"></i>
-        <span class="menu-item-parent">Tables</span>
-      </a>
-      <ul>
-        <li>
-          <a href="table.html">Normal Tables</a>
-        </li>
-        <li>
-          <a href="datatables.html">Data Tables</a>
-        </li>
-      </ul>
-    </li>
-    <li>
-      <a href="#">
-        <i class="fa fa-lg fa-fw fa-desktop"></i>
-        <span class="menu-item-parent">UI Elements</span>
-      </a>
-      <ul>
-        <li>
-          <a href="general-elements.html">General Elements</a>
-        </li>
-        <li>
-          <a href="buttons.html">Buttons</a>
-        </li>
-        <li>
-          <a href="#">Icons</a>
-          <ul>
-            <li>
-              <a href="fa.html">
-                <i class="fa fa-plane"></i>
-                Font Awesome
-              </a>
-            </li>
-            <li>
-              <a href="glyph.html">
-                <i class="glyphicon glyphicon-plane"></i>
-                Glyph Icons
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="grid.html">Grid</a>
-        </li>
-        <li>
-          <a href="treeview.html">Tree View</a>
-        </li>
-        <li>
-          <a href="nestable-list.html">Nestable Lists</a>
-        </li>
-        <li>
-          <a href="jqui.html">JQuery UI</a>
-        </li>
-      </ul>
-    </li>
-    <li>
-      <a href="#">
-        <i class="fa fa-lg fa-fw fa-folder-open"></i>
-        <span class="menu-item-parent">6 Level Navigation</span>
-      </a>
-      <ul>
-        <li>
-          <a href="#">
-            <i class="fa fa-fw fa-folder-open"></i>
-            2nd Level
-          </a>
-          <ul>
-            <li>
-              <a href="#">
-                <i class="fa fa-fw fa-folder-open"></i>
-                3ed Level
-              </a>
-              <ul>
-                <li>
-                  <a href="#">
-                    <i class="fa fa-fw fa-file-text"></i>
-                    File
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i class="fa fa-fw fa-folder-open"></i>
-                    4th Level
-                  </a>
-                  <ul>
-                    <li>
-                      <a href="#">
-                        <i class="fa fa-fw fa-file-text"></i>
-                        File
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i class="fa fa-fw fa-folder-open"></i>
-                        5th Level
-                      </a>
-                      <ul>
-                        <li>
-                          <a href="#">
-                            <i class="fa fa-fw fa-file-text"></i>
-                            File
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#">
-                            <i class="fa fa-fw fa-file-text"></i>
-                            File
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="#">
-            <i class="fa fa-fw fa-folder-open"></i>
-            Folder
-          </a>
-
-          <ul>
-            <li>
-              <a href="#">
-                <i class="fa fa-fw fa-folder-open"></i>
-                3ed Level
-              </a>
-              <ul>
-                <li>
-                  <a href="#">
-                    <i class="fa fa-fw fa-file-text"></i>
-                    File
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i class="fa fa-fw fa-file-text"></i>
-                    File
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-
-        </li>
-      </ul>
-    </li>
-    <li>
-      <a href="calendar.html">
-        <i class="fa fa-lg fa-fw fa-calendar"><em>3</em></i> 
-        <span class="menu-item-parent">Calendar</span>
-      </a>
-    </li>
-    <li>
-      <a href="widgets.html">
-        <i class="fa fa-lg fa-fw fa-list-alt"></i>
-        <span class="menu-item-parent">Widgets</span>
-      </a>
-    </li>
-    <li>
-      <a href="gallery.html">
-        <i class="fa fa-lg fa-fw fa-picture-o"></i>
-        <span class="menu-item-parent">Gallery</span>
-      </a>
-    </li>
-    <li>
-      <a href="gmap-xml.html">
-        <i class="fa fa-lg fa-fw fa-map-marker"></i>
-        <span class="menu-item-parent">Google Map Skins</span>
-        <span class="badge bg-color-greenLight pull-right inbox-badge">9</span>
-      </a>
-    </li>
-    <li>
-      <a href="#">
-        <i class="fa fa-lg fa-fw fa-windows"></i>
-        <span class="menu-item-parent">Miscellaneous</span>
-      </a>
-      <ul>
-        <li>
-          <a href="typography.html">Typography</a>
-        </li>
-        <li>
-          <a href="pricing-table.html">Pricing Tables</a>
-        </li>
-        <li>
-          <a href="invoice.html">Invoice</a>
-        </li>
-        <li>
-          <a href="login.html" target="_top">Login</a>
-        </li>
-        <li>
-          <a href="register.html" target="_top">Register</a>
-        </li>
-        <li>
-          <a href="lock.html" target="_top">Locked Screen</a>
-        </li>
-        <li>
-          <a href="error404.html">Error 404</a>
-        </li>
-        <li>
-          <a href="error500.html">Error 500</a>
-        </li>
-        <li>
-          <a href="blank_.html">Blank Page</a>
-        </li>
-        <li>
-          <a href="email-template.html">Email Template</a>
-        </li>
-        <li>
-          <a href="search.html">Search Page</a>
-        </li>
-        <li>
-          <a href="ckeditor.html">CK Editor</a>
-        </li>
-      </ul>
     </li>
   </ul>
 </nav>
