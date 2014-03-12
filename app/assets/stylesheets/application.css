@@ -13,7 +13,7 @@
  *= require font-awesome
  *= require bootstrap-datepicker
  *= require bootstrap-timepicker
- *= require selectize
+ *= require selectize.bootstrap3
  *= require dropzone/basic
  *= require dataTables/jquery.dataTables
  *= require dataTables/jquery.dataTables.bootstrap
