@@ -183,5 +183,3 @@ $(document).on "page:change", ->
     currentimg = $(this).find(".superbox-img")
     $("#imageid").attr("value", currentimg.attr("id"))
     return
-
-

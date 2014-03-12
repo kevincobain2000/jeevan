@@ -2,6 +2,7 @@
 <%= form_tag({:action=>'modify_profile'}, {:remote => true, :class=>"smart-form"}) do %>
   <header>Basic Profile Info</header>
   <fieldset>
+  <section>
       <label>Marital Status</label>
       <div class="row">
         <div class="col col-4">
@@ -29,7 +30,8 @@
           </label>
         </div>
       </div>
-      <div class="col-sm-12">&nbsp;</div>
+      </section>
+      <section>
       <label>Profile Posted By</label>
       <div class="row">
         <div class="col col-4">
@@ -70,6 +72,7 @@
           </label>
         </div>
       </div>
+      </section>
   </fieldset>
   <footer>
     <div class="note note-success clicksave"></div>
