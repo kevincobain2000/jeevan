@@ -7,16 +7,15 @@
     <% categories.each do |category| %>
       <% heading = category.sub "_", " " %>
       <% id = category.sub "_", "-" %>
+      <section>
       <label>
         <%= heading.capitalize %></label><small class="text-muted">
             (You can add multiple items here !)</small>
       <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:hobby][category] %>" placeholder="Your Favourite <%= heading %>"(s)>
-      <div class="col-sm-12">&nbsp;</div>
+      </section>
     <% end %>
   </fieldset>
   <footer>
-    <div class="note note-success clicksave"></div>
     <button type="submit" class="btn btn-primary">Save</button>
-    <button type="button" class="btn btn-default" onclick="window.history.back();">Back</button>
   </footer>
 <% end %>

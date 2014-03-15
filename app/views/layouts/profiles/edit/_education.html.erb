@@ -8,18 +8,17 @@
       <% heading = category.sub "_", " " %>
       <% id = category.sub "_", "-" %>
       <div class="col-sm-12">
+      <section>
         <label>
           <%= heading.capitalize %></label><small class="text-muted">
             (Add your item, if it is not in the list.)</small>
         <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:education][category] %>" placeholder="Choose or Add your <%= heading %>">
       </div>
-      <div class="col-sm-12">&nbsp;</div>
+      </section>
     <% end %>
   </div>
   </fieldset>
   <footer>
-    <div class="note note-success clicksave"></div>
     <button type="submit" class="btn btn-primary">Save</button>
-    <button type="button" class="btn btn-default" onclick="window.history.back();">Back</button>
   </footer>
 <% end %>
