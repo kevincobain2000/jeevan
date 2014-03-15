@@ -2,17 +2,6 @@
 <%= form_tag({:action=>'modify_kundali'},{:remote => true, :class=>"smart-form"}) do %>
   <header>Nakshatra's for Kundali</header>
   <fieldset>
-    <div class="col-sm-12">
-      <label>Date of birth</label>
-      <div class="input-group">
-        <input class="form-control" id="dob" type="text" name="dob">
-        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-      </div>
-      <div class="note">
-        <strong>Choose Date of Birth:</strong>
-        From the calender or enter manually dd/mm/yyyy
-      </div>
-    </div>
     <div class="col-sm-12">&nbsp;</div>
     <div class="col-sm-12">
       <label>Time of Birth</label>
@@ -33,17 +22,17 @@
         <% heading = category.sub "_", " " %>
         <% id = category.sub "_", "-" %>
         <div class="col-sm-12">
+        <section>
           <label>
             <%= heading.capitalize %></label><small class="text-muted">
             (Choose one from the Dropdown)</small>
           <input id="select-<%= id %>" name="<%= category %>" value="<%= @user[:kundali][category] %>" class="selectized" placeholder="Select your <%= heading %>">
         </div>
-        <div class="col-sm-12">&nbsp;</div>
+        </section>
       <% end %>
     </div>
   </fieldset>
   <footer>
-    <div class="note note-success clicksave"></div>
     <button type="submit" class="btn btn-primary">Save</button>
   </footer>
 <% end %>

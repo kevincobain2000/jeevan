@@ -17,6 +17,10 @@ rake db:schema:load
 # Looks assets/images/about_slide1.jpg
 ```
 
+```
+<%= render :partial =>'layouts/side'%>
+```
+
 No turbolinks
 
 ```

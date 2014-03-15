@@ -8,30 +8,27 @@
     <h2>Edit Religion</h2>
   </header>
   <div>
-  <!-- widget content -->
-  <div class="widget-body">
-    <%= form_tag({:action=>'modify_religion'},{:remote => true, :class=>"smart-form"}) do %>
-      <header>Religion Related Information</header>
-      <fieldset>
-        <% categories = ["religion", "mother_tongue", "caste", "sub_caste", "native_place"] %>
-        <% categories.each do |category| %>
-          <% heading = category.sub "_", " " %>
-          <% id = category.sub "_", "-" %>
-          <div class="col-sm-12">
-            <label>
-              <%= heading.capitalize %></label><small class="text-muted">
-            (Choose one item)</small>
-            <input id="select-<%= id %>" name="<%= category %>" value="<%= @user[:religion][category] %>" class="selectized" placeholder="Select one <%= heading %>">
-          </div>
-          <div class="col-sm-12">&nbsp;</div>
-        <% end %>
-      </fieldset>
-      <footer>
-        <div class="note note-success clicksave"></div>
-        <button type="submit" class="btn btn-primary">Save</button>
-      </footer>
-    <% end %></div>
-  <!-- end widget content -->
-</div>
-<!-- end widget div -->
+    <!-- widget content -->
+    <div class="widget-body">
+      <%= form_tag({:action=>'modify_religion'},{:remote => true, :class=>"smart-form"}) do %>
+        <header>Religion Related Information</header>
+        <fieldset>
+          <% categories = ["religion", "mother_tongue", "caste", "sub_caste", "native_place"] %>
+          <% categories.each do |category| %>
+            <% heading = category.sub "_", " " %>
+            <% id = category.sub "_", "-" %>
+            <div class="col-sm-12">
+              <label>
+                <%= heading.capitalize %></label><small class="text-muted">
+                (Choose one item)</small>
+              <input id="select-<%= id %>" name="<%= category %>" value="<%= @user[:religion][category] %>" class="selectized" placeholder="Select one <%= heading %>">
+            </div>
+            <div class="col-sm-12">&nbsp;</div>
+          <% end %>
+        </fieldset>
+        <footer>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </footer>
+      <% end %></div>
+  </div>
 </div>

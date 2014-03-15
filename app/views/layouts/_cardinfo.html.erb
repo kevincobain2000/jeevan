@@ -1,15 +1,24 @@
 <h1>
   Profile of
   <span class="semi-bold">
-    <%= (@user['sex'] == "Female") ? "her" : "him" %></span>
+    <%= user[:name] %></span>
   <br>
-  <% if @user[:kundali]['dob'] %>
     <small>
-      <% dob = @user[:kundali]['dob'].gsub("/","-") %>
+      <% dob = user[:dob].gsub("/","-") %>
       <%= !dob.empty? ? distance_of_time_in_words(Date::strptime(dob, "%d-%m-%Y"), Time.now) : "" %></small>
-  <% end %></h1>
+</h1>
+  <% if defined? show_profile_flag %>
+  <b class="badge bg-color-gray bounceIn animated">
+      <%= link_to "Show Profile", profile_path(:id =>user[:profile][:id]), :class=> "txt-color-white" %>
+    </b>
+  <% end %>
 <ul class="list-unstyled">
   <li>
+    <p class="text-muted">
+      <i class="fa fa-phone"></i>
+      &nbsp;&nbsp;
+      <strong>Last Online: </strong><span class="txt-color-darken"><%= time_ago_in_words(user[:updated_at]) %></span> Ago
+    </p>
     <p class="text-muted">
       <i class="fa fa-phone"></i>
       &nbsp;&nbsp;(
@@ -26,50 +35,18 @@
     </p>
   </li>
   <li>
+    <% items = {marital_status: [:profile, 'fa-calendar'], birth_city: [:kundali, 'fa-calendar'], caste: [:religion, 'fa-calendar'], manglik: [:kundali, 'fa-calendar'], posted_by: [:profile, 'fa-calendar']  } %>
+    <% items.stringify_keys.each do |key, value| %>
     <p class="text-muted">
-      <i class="fa fa-calendar"></i>
+      <i class="fa <%= value[1] %>"></i>
       &nbsp;&nbsp;
       <span class="txt-color-darken">
-        <strong>Status</strong>
-        <%= @user[:profile]['marital_status'] %></span>
+      <strong>
+        <%= key.gsub('_', ' ').capitalize %>:
+      </strong>
+       <%= user[value[0]][key] %>
+      </span>
     </p>
-    <p class="text-muted">
-      <i class="fa fa-calendar"></i>
-      &nbsp;&nbsp;
-      <span class="txt-color-darken">
-        <strong>I am from</strong>
-        <%= @user[:kundali]['birth_city'] %>
-        <%= @user[:kundali]['birth_country'] %></span>
-    </p>
-    <p class="text-muted">
-      <i class="fa fa-calendar"></i>
-      &nbsp;&nbsp;
-      <span class="txt-color-darken">
-        <strong>Religion</strong>
-        <%= @user[:religion]['religion'] %></span>
-    </p>
-    <p class="text-muted">
-      <i class="fa fa-calendar"></i>
-      &nbsp;&nbsp;
-      <span class="txt-color-darken">
-        <strong>Caste</strong>
-        <%= @user[:religion]['caste'] %>
-        <%= @user[:religion]['sub_caste'] %></span>
-    </p>
-    <p class="text-muted">
-      <i class="fa fa-calendar"></i>
-      &nbsp;&nbsp;
-      <span class="txt-color-darken">
-        <strong>Manglik</strong>
-        <%= @user[:kundali]['manglik'] %>Manglik</span>
-    </p>
-    <p class="text-muted">
-      <i class="fa fa-calendar"></i>
-      &nbsp;&nbsp;
-      <span class="txt-color-darken">
-        <strong>Desired Income</strong>
-        <%= @user[:desire]['desired_income'] %></span>
-    </p>
-    <p></p>
+    <% end %>
   </li>
 </ul>

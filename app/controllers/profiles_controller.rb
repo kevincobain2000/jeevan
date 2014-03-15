@@ -124,29 +124,6 @@ class ProfilesController < ApplicationController
     @user = make_user(User.find(Profile.find(params[:id]).user_id))
   end
 
-  def make_user(user)
-    return {
-      id:         user.id,
-      updated_at: user.updated_at,
-      sex:        user.sex,
-      visitors:   Visitor.where(viewed_id: user.id).count,
-      profile:    user.profile,
-      contact:    user.contact,
-      about:      user.about,
-      religion:   user.religion,
-      kundali:    user.kundali,
-      family:     user.family,
-      hobby:      user.hobby,
-      education:  user.education,
-      lifestyle:  user.lifestyle,
-      desire:     user.desire,
-      image:      user.images.all,
-      avatar:     user.avatar
-    }
-
-  end
-
-
   private
   def image_params
     params.permit("avatar")

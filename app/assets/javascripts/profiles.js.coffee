@@ -101,7 +101,7 @@ $(document).on "page:change", ->
       for key, value of val.split ","
         gon.select_profile_edit_items[name].push title: value
 
-    if (typeof gon != 'undefined')
+    if (typeof gon != 'undefined' && gon.select_profile_edit_items)
       obj = $("#select-" + css_id).selectize({
                     maxItems: if options.maxItems then options.maxItems else 1,
                     valueField: if options.valueField then options.valueField else "title",
@@ -131,13 +131,8 @@ $(document).on "page:change", ->
 
   $(".phone").inputmask("mask", {"mask": "(999) 9999-999-999"});
 
-  # AutoSave Form
-  $('form').bind "keyup change", (e) ->
-    $(this).find(".autosave").text("Saved")
-    $(this).find(":submit.hide").submit()
-
   $('form').submit ->
-    console.log("form was submitted")
+    alertify.success("Done !")
     jq_superbox_remov = $("#imageid").attr("value")
     $("#"+jq_superbox_remov).remove()
     $(".superbox-list").removeClass "active"
@@ -145,7 +140,6 @@ $(document).on "page:change", ->
       opacity: 0, 200, ->
         $(".superbox-show").slideUp()
         return
-    $(this).find(".clicksave").text("Saved")
 
   $("#tab-desire").click (e) ->
     console.log("desire")
@@ -158,10 +152,6 @@ $(document).on "page:change", ->
     $("#desired-age-slider").ionRangeSlider
       prettify: false
       hasGrid: true
-
-  $("#tab-kundali").click (e) ->
-    $("#dob").datepicker
-      defaultDate: "01/01/01"
 
   $("#tab-family").click (e) ->
     $("#family-income-slider").ionRangeSlider
@@ -183,5 +173,3 @@ $(document).on "page:change", ->
     currentimg = $(this).find(".superbox-img")
     $("#imageid").attr("value", currentimg.attr("id"))
     return
-
-
