@@ -27,8 +27,8 @@ class ApplicationController < ActionController::Base
       lifestyle:  user.lifestyle,
       desire:     user.desire,
       image:      user.images.all,
-      avatar:     user.avatar
-      # responses:  Interest.where(user_id: current_user.id) # to do
+      avatar:     user.avatar,
+      responses:  Interest.where(to_user_id: current_user.id, user_id: user.id) # to do
     }
   end
   protected
