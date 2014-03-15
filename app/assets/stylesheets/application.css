@@ -13,9 +13,11 @@
  *= require font-awesome
  *= require bootstrap-datepicker
  *= require bootstrap-timepicker
- *= require selectize
+ *= require selectize.bootstrap3
  *= require dropzone/basic
- *= require dataTables/jquery.dataTables
- *= require dataTables/jquery.dataTables.bootstrap
  *= require bootstrap-tagsinput
+ *= require alertify/core
+ *= require alertify/default
+ *= require alertify/bootstrap
+ *= require dataTables/jquery.dataTables.bootstrap3
  */

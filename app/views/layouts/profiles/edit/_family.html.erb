@@ -1,94 +1,83 @@
 <%= render :partial =>'layouts/alert'%>
-<div class="jarviswidget" id="wid-id-10">
-  <header>
-    <span class="widget-icon">
-      <i class="fa fa-edit"></i>
-    </span>
-    <h2>Edit Family Details</h2>
-  </header>
-  <div>
-  <!-- widget content -->
-  <div class="widget-body">
-    <%= form_tag({:action=>'modify_family'},{:remote => true, :class=>"smart-form"}) do %>
-      <header>About your family</header>
-      <fieldset>
-        <section>
-          <label class="label">Family Values</label>
-          <div class="row">
-            <% [ 'Liberal', 'Hypocrite' ].each do |values| %>
-              <div class="col col-4">
-                <label class="radio state-success">
-                  <%= radio_button_tag(:values, values,(@user[:family][:values] == values)) %>
-                  <i></i>
-                  <%= values %>
-                </label>
-              </div>
-            <% end %>
-          </div>
-          <br>
-          <label class="label">Family Size</label>
-          <div class="row">
-            <% [ 'Nuclear', 'Hypocrite' ].each do |size| %>
-              <div class="col col-4">
-                <label class="radio state-success">
-                  <%= radio_button_tag(:size, size,(@user[:family][:size] == size)) %>
-                  <i></i>
-                  <%= size %>
-                </label>
-              </div>
-            <% end %>
-          </div>
-          <br>
-          <br>
-          <label class="label">Family Status</label>
-          <div class="row">
-            <% [ 'Rich', 'Middle' ].each do |status| %>
-              <div class="col col-4">
-                <label class="radio state-success">
-                  <%= radio_button_tag(:status, status,(@user[:family][:status] == status)) %>
-                  <i></i>
-                  <%= status %>
-                </label>
-              </div>
-            <% end %>
-          </div>
-          <br>
-        </section>
-        <section>
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group">
-                <label>
-                  Family Income
-                </label>
-                <% range = [2,15] %>
-                <% if  !@user[:family]['family_income'].nil? %>
-                  <% range = @user[:family]['family_income'].split(';') %>
-                <% end %>
-                <input id="family-income-slider" type="text" name="family_income" value="1;100" data-type="double" data-step="1" data-prefix="Rs " data-postfix=" Lac" data-from="<%= range[0] %>" data-to="<%= range[1] %>" data-hasgrid="true">
-              </div>
-            </div>
-          </div>
-        </section>
-        <section>
-          <% categories = ["father", "mother", "brother", "sister"] %>
-          <% categories.each do |category| %>
-            <% heading = category.sub "_", " " %>
-            <% id = category.sub "_", "-" %>
-            <section class="col col-6">
-              <label>
-                <%= heading.capitalize %></label>
-              <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:family][category] %>">
-            </section>
+<%= form_tag({:action=>'modify_family'},{:remote => true, :class=>"smart-form"}) do %>
+  <header>About your family</header>
+  <fieldset>
+  <section>
+    <label>Family Values</label>
+    <div class="row">
+      <% [ 'Liberal', 'Hypocrite' ].each do |values| %>
+        <div class="col col-4">
+          <label class="radio state-success">
+            <%= radio_button_tag(:values, values,(@user[:family][:values] == values)) %>
+            <i></i>
+            <%= values %>
+          </label>
+        </div>
+      <% end %>
+    </div>
+    </section>
+    <section>
+    <label>Family Size</label>
+    <div class="row">
+      <% [ 'Nuclear', 'Hypocrite' ].each do |size| %>
+        <div class="col col-4">
+          <label class="radio state-success">
+            <%= radio_button_tag(:size, size,(@user[:family][:size] == size)) %>
+            <i></i>
+            <%= size %>
+          </label>
+        </div>
+      <% end %>
+    </div>
+    </section>
+    <section>
+    <label>Family Status</label>
+    <div class="row">
+      <% [ 'Rich', 'Middle' ].each do |status| %>
+        <div class="col col-4">
+          <label class="radio state-success">
+            <%= radio_button_tag(:status, status,(@user[:family][:status] == status)) %>
+            <i></i>
+            <%= status %>
+          </label>
+        </div>
+      <% end %>
+    </div>
+    </section>
+  </fieldset>
+  <fieldset>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <label>
+            Family Income
+          </label>
+          <% range = [2,15] %>
+          <% if  !@user[:family]['family_income'].nil? %>
+            <% range = @user[:family]['family_income'].split(';') %>
           <% end %>
-        </section>
-      </fieldset>
-      <footer>
-        <div class="note note-success clicksave"></div>
-        <button type="submit" class="btn btn-primary">Save</button>
-        <button type="button" class="btn btn-default" onclick="window.history.back();">Back</button>
-      </footer>
-    <% end %></div>
-  <!-- end widget content -->
-</div>
-</div>
+          <input id="family-income-slider" type="text" name="family_income" value="1;100" data-type="double" data-step="1" data-prefix="Rs " data-postfix=" Lac" data-from="<%= range[0] %>" data-to="<%= range[1] %>" data-hasgrid="true">
+        </div>
+      </div>
+    </div>
+  </fieldset>
+  <fieldset>
+    <div class="col-sm-12">
+      <% categories = ["father", "mother", "brother", "sister"] %>
+      <% categories.each do |category| %>
+        <% heading = category.sub "_", " " %>
+        <% id = category.sub "_", "-" %>
+        <div class="col-sm-12">
+          <label>
+            <%= heading.capitalize %></label><small class="text-muted">
+            (Choose one from the Dropdown)</small>
+          <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:family][category] %>" placeholder="About my <%= heading %>">
+        </div>
+      <div class="col-sm-12">&nbsp;</div>
+      <% end %>
+    </div>
+  </fieldset>
+  <footer>
+    <button type="submit" class="btn btn-primary">Save</button>
+  </footer>
+<% end %>

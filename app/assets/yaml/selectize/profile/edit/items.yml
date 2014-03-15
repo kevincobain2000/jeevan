@@ -1,152 +1,4819 @@
-best_time_f:
-  -
-    title: "First Entry"
-best_time_t:
-  -
-    title: "First Entry"
 religion:
   -
-    title: "First Entry"
+    title: "Hindu"
+    desc: ""
+  -
+    title: "Muslim"
+    desc: ""
+  -
+    title: "Christian"
+    desc: ""
+  -
+    title: "Buddhish"
+    desc: ""
+  -
+    title: "Buddhish"
+    desc: ""
+  -
+    title: "Jain"
+    desc: ""
+  -
+    title: "Parsi"
+    desc: ""
+  -
+    title: "Other"
+    desc: ""
 mother_tongue:
   -
-    title: "First Entry"
+    title: "Hindi"
+    desc: ""
+  -
+    title: "U.P."
+    desc: ""
+  -
+    title: "Awadhi"
+    desc: ""
+  -
+    title: "Bhojpuri"
+    desc: ""
+  -
+    title: "Garhwali"
+    desc: ""
+  -
+    title: "Punjabi"
+    desc: ""
+  -
+    title: "Bihari"
+    desc: ""
+  -
+    title: "Maithili"
+    desc: ""
+  -
+    title: "Magahi"
+    desc: ""
+  -
+    title: "Rajasthani"
+    desc: ""
+  -
+    title: "Marwari"
+    desc: ""
+  -
+    title: "Malwi"
+    desc: ""
+  -
+    title: "Jaipuri"
+    desc: ""
+  -
+    title: "Haryanvi"
+    desc: ""
+  -
+    title: "Himachali"
+    desc: ""
+  -
+    title: "Pahari"
+    desc: ""
+  -
+    title: "Kashmiri"
+    desc: ""
+  -
+    title: "Dogri"
+    desc: ""
+  -
+    title: "Sindhi"
+    desc: ""
+  -
+    title: "Urdu"
+    desc: ""
+  -
+    title: "Marathi"
+    desc: ""
+  -
+    title: "Gujarati"
+    desc: ""
+  -
+    title: "Kutchi"
+    desc: ""
+  -
+    title: "Hindi"
+    desc: ""
+  -
+    title: "Madhya Pradesh"
+    desc: ""
+  -
+    title: "Bundelkhand"
+    desc: ""
+  -
+    title: "Chattisgarhi"
+    desc: ""
+  -
+    title: "Konkani"
+    desc: ""
+  -
+    title: "Sindhi"
+    desc: ""
+  -
+    title: "Tamil"
+    desc: ""
+  -
+    title: "Telugu"
+    desc: ""
+  -
+    title: "Kannada"
+    desc: ""
+  -
+    title: "Malayalam"
+    desc: ""
+  -
+    title: "Nicobarese"
+    desc: ""
+  -
+    title: "Andaman Nicobar"
+    desc: ""
+  -
+    title: "Lakshadweep"
+    desc: ""
+  -
+    title: "Mahl"
+    desc: ""
+  -
+    title: "Tulu"
+    desc: ""
+  -
+    title: "Urdu"
+    desc: ""
+  -
+    title: "Bengali"
+    desc: ""
+  -
+    title: "Oriya"
+    desc: ""
+  -
+    title: "Assamese"
+    desc: ""
+  -
+    title: "Aurnachali"
+    desc: ""
+  -
+    title: "Manipuri"
+    desc: ""
+  -
+    title: "Khasi"
+    desc: ""
+  -
+    title: "Meghalaya"
+    desc: ""
+  -
+    title: "Garo"
+    desc: ""
+  -
+    title: "Jaintia"
+    desc: ""
+  -
+    title: "Mizo"
+    desc: ""
+  -
+    title: "Konyak"
+    desc: ""
+  -
+    title: "Nagaland"
+    desc: ""
+  -
+    title: "Sikkim"
+    desc: ""
+  -
+    title: "Nepali"
+    desc: ""
+  -
+    title: "Lepcha"
+    desc: ""
+  -
+    title: "Bhutia"
+    desc: ""
+  -
+    title: "Limbu"
+    desc: ""
+  -
+    title: "Tripuri"
+    desc: ""
+  -
+    title: "English"
+    desc: ""
+  -
+    title: "Foreign origin"
+    desc: ""
 caste:
   -
-    title: "First Entry"
+    title: "Hindu: Adi Andhra"
+    desc: ""
+  -
+    title: "Hindu: Adi Dravida"
+    desc: ""
+  -
+    title: "Hindu: Adi Karnataka"
+    desc: ""
+  -
+    title: "Hindu: Agamudayar"
+    desc: ""
+  -
+    title: "Hindu: Aggarwal"
+    desc: ""
+  -
+    title: "Hindu: Agri"
+    desc: ""
+  -
+    title: "Hindu: Ahir"
+    desc: ""
+  -
+    title: "Hindu: Ahom"
+    desc: ""
+  -
+    title: "Hindu: Ambalavasi"
+    desc: ""
+  -
+    title: "Hindu: Arora"
+    desc: ""
+  -
+    title: "Hindu: Arunthathiyar"
+    desc: ""
+  -
+    title: "Hindu: Arya Vysya"
+    desc: ""
+  -
+    title: "Hindu: Baghel/Pal/Gaderiya"
+    desc: ""
+  -
+    title: "Hindu: Baidya"
+    desc: ""
+  -
+    title: "Hindu: Baishnab"
+    desc: ""
+  -
+    title: "Hindu: Baishya"
+    desc: ""
+  -
+    title: "Hindu: Balija"
+    desc: ""
+  -
+    title: "Hindu: Balija Naidu"
+    desc: ""
+  -
+    title: "Hindu: Bania"
+    desc: ""
+  -
+    title: "Hindu: Banik"
+    desc: ""
+  -
+    title: "Hindu: Banjara"
+    desc: ""
+  -
+    title: "Hindu: Bari"
+    desc: ""
+  -
+    title: "Hindu: Barujibi"
+    desc: ""
+  -
+    title: "Hindu: Besta"
+    desc: ""
+  -
+    title: "Hindu: Bhandari"
+    desc: ""
+  -
+    title: "Hindu: Bhatia"
+    desc: ""
+  -
+    title: "Hindu: Bhatraju"
+    desc: ""
+  -
+    title: "Hindu: Bhavsar"
+    desc: ""
+  -
+    title: "Hindu: Bhovi/Bhoi"
+    desc: ""
+  -
+    title: "Hindu: Billava"
+    desc: ""
+  -
+    title: "Hindu: Bishnoi/Vishnoi"
+    desc: ""
+  -
+    title: "Hindu: Boyer"
+    desc: ""
+  -
+    title: "Hindu: Brahmbatt"
+    desc: ""
+  -
+    title: "Hindu: Brahmin"
+    desc: ""
+  -
+    title: "Hindu: Brahmin 6000 Niyogi"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Anavil"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Audichya"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Bajkhedwal"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Barendra"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Bhargava"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Bhatt"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Bhumihar"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Brahacharanam"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Daivadnya"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Deshastha"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Dhiman"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Dravida"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Dunua"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Garhwali"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Gaud Saraswat (GSB)"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Gaur"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Goswami"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Gujar Gaur"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Gurukkal"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Halua"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Havyaka"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Hoysala"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Iyengar"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Iyer"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Jangid"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Jangra"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Jhadua"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Jhijhotiya"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Jogi"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Kanyakubj"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Karhade"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Kashmiri Pandit"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Koknastha"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Kota"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Kulin"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Kumaoni"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Madhwa"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Maithil"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Modh"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Mohyal"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Nagar"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Namboodiri"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Narmadiya"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Panda"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Pandit"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Pareek"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Pushkarna"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Rarhi"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Rigvedi"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Rudraj"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Sakaldwipi"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Sanadya"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Sanketi"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Saraswat"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Saryuparin"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Shivalli"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Shrimali"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Smartha"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Sri Vishnava"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Tyagi"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Vaidiki"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Viswa"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Vyas"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Yajurvedi"
+    desc: ""
+  -
+    title: "Hindu: Brahmo"
+    desc: ""
+  -
+    title: "Hindu: Bunt/Shetty"
+    desc: ""
+  -
+    title: "Hindu: Chamar"
+    desc: ""
+  -
+    title: "Hindu: Chambhar"
+    desc: ""
+  -
+    title: "Hindu: Chandravanshi Kahar"
+    desc: ""
+  -
+    title: "Hindu: Chasa"
+    desc: ""
+  -
+    title: "Hindu: Chattada Sri Vaishnava"
+    desc: ""
+  -
+    title: "Hindu: Chaudary"
+    desc: ""
+  -
+    title: "Hindu: Chaurasia"
+    desc: ""
+  -
+    title: "Hindu: Chettiar"
+    desc: ""
+  -
+    title: "Hindu: Chhetri"
+    desc: ""
+  -
+    title: "Hindu: CKP"
+    desc: ""
+  -
+    title: "Hindu: Coorgi"
+    desc: ""
+  -
+    title: "Hindu: Deshastha Maratha"
+    desc: ""
+  -
+    title: "Hindu: Devadigas"
+    desc: ""
+  -
+    title: "Hindu: Devang Koshthi"
+    desc: ""
+  -
+    title: "Hindu: Devanga"
+    desc: ""
+  -
+    title: "Hindu: Devendra Kula Vellalar"
+    desc: ""
+  -
+    title: "Hindu: Dhangar"
+    desc: ""
+  -
+    title: "Hindu: Dheevara"
+    desc: ""
+  -
+    title: "Hindu: Dhoba"
+    desc: ""
+  -
+    title: "Hindu: Dhobi"
+    desc: ""
+  -
+    title: "Hindu: Dusadh"
+    desc: ""
+  -
+    title: "Hindu: Edigas"
+    desc: ""
+  -
+    title: "Hindu: Ezhava"
+    desc: ""
+  -
+    title: "Hindu: Ezhuthachan"
+    desc: ""
+  -
+    title: "Hindu: Gabit"
+    desc: ""
+  -
+    title: "Hindu: Ganiga"
+    desc: ""
+  -
+    title: "Hindu: Garhwali"
+    desc: ""
+  -
+    title: "Hindu: Gavali"
+    desc: ""
+  -
+    title: "Hindu: Gavara"
+    desc: ""
+  -
+    title: "Hindu: Ghumar"
+    desc: ""
+  -
+    title: "Hindu: Goala"
+    desc: ""
+  -
+    title: "Hindu: Goan"
+    desc: ""
+  -
+    title: "Hindu: Gomantak Maratha"
+    desc: ""
+  -
+    title: "Hindu: Gondhali"
+    desc: ""
+  -
+    title: "Hindu: Goud"
+    desc: ""
+  -
+    title: "Hindu: Gounder"
+    desc: ""
+  -
+    title: "Hindu: Gowda"
+    desc: ""
+  -
+    title: "Hindu: Gramani"
+    desc: ""
+  -
+    title: "Hindu: Gudia"
+    desc: ""
+  -
+    title: "Hindu: Gujjar"
+    desc: ""
+  -
+    title: "Hindu: Gupta"
+    desc: ""
+  -
+    title: "Hindu: Gurav"
+    desc: ""
+  -
+    title: "Hindu: Gurjar"
+    desc: ""
+  -
+    title: "Hindu: Hegde"
+    desc: ""
+  -
+    title: "Hindu: Jaiswal"
+    desc: ""
+  -
+    title: "Hindu: Jangam"
+    desc: ""
+  -
+    title: "Hindu: Jat"
+    desc: ""
+  -
+    title: "Hindu: Jatav"
+    desc: ""
+  -
+    title: "Hindu: Kadava patel"
+    desc: ""
+  -
+    title: "Hindu: Kahar"
+    desc: ""
+  -
+    title: "Hindu: Kaibarta"
+    desc: ""
+  -
+    title: "Hindu: Kalal"
+    desc: ""
+  -
+    title: "Hindu: Kalar"
+    desc: ""
+  -
+    title: "Hindu: Kalinga Vysya"
+    desc: ""
+  -
+    title: "Hindu: Kalwar"
+    desc: ""
+  -
+    title: "Hindu: Kamboj"
+    desc: ""
+  -
+    title: "Hindu: Kamma"
+    desc: ""
+  -
+    title: "Hindu: Kansari"
+    desc: ""
+  -
+    title: "Hindu: Kapol"
+    desc: ""
+  -
+    title: "Hindu: Kapu"
+    desc: ""
+  -
+    title: "Hindu: Kapu Munnuru"
+    desc: ""
+  -
+    title: "Hindu: Karana"
+    desc: ""
+  -
+    title: "Hindu: Karmakar"
+    desc: ""
+  -
+    title: "Hindu: Karuneegar"
+    desc: ""
+  -
+    title: "Hindu: Kasar"
+    desc: ""
+  -
+    title: "Hindu: Kashyap"
+    desc: ""
+  -
+    title: "Hindu: Kayastha"
+    desc: ""
+  -
+    title: "Hindu: Khandayat"
+    desc: ""
+  -
+    title: "Hindu: Khandelwal"
+    desc: ""
+  -
+    title: "Hindu: Kharwar"
+    desc: ""
+  -
+    title: "Hindu: Khatik"
+    desc: ""
+  -
+    title: "Hindu: Kokanastha Maratha"
+    desc: ""
+  -
+    title: "Hindu: Koli"
+    desc: ""
+  -
+    title: "Hindu: Koli Mahadev"
+    desc: ""
+  -
+    title: "Hindu: Kongu Vellala Gounder"
+    desc: ""
+  -
+    title: "Hindu: Konkani"
+    desc: ""
+  -
+    title: "Hindu: Kori"
+    desc: ""
+  -
+    title: "Hindu: Koshti"
+    desc: ""
+  -
+    title: "Hindu: Kshatriya"
+    desc: ""
+  -
+    title: "Hindu: Kshatriya Agnikula"
+    desc: ""
+  -
+    title: "Hindu: Kudumbi"
+    desc: ""
+  -
+    title: "Hindu: Kulalar"
+    desc: ""
+  -
+    title: "Hindu: Kulita"
+    desc: ""
+  -
+    title: "Hindu: Kumawat"
+    desc: ""
+  -
+    title: "Hindu: Kumbhakar"
+    desc: ""
+  -
+    title: "Hindu: Kumhar/Kumbhar"
+    desc: ""
+  -
+    title: "Hindu: Kummari"
+    desc: ""
+  -
+    title: "Hindu: Kunbi"
+    desc: ""
+  -
+    title: "Hindu: Kurmi"
+    desc: ""
+  -
+    title: "Hindu: Kurmi kshatriya"
+    desc: ""
+  -
+    title: "Hindu: Kuruba"
+    desc: ""
+  -
+    title: "Hindu: Kuruhina shetty"
+    desc: ""
+  -
+    title: "Hindu: Kurumbar"
+    desc: ""
+  -
+    title: "Hindu: Kushwaha"
+    desc: ""
+  -
+    title: "Hindu: Kutchi"
+    desc: ""
+  -
+    title: "Hindu: Kutchi Gurjar"
+    desc: ""
+  -
+    title: "Hindu: Lambadi"
+    desc: ""
+  -
+    title: "Hindu: Leva Patidar"
+    desc: ""
+  -
+    title: "Hindu: Leva Patil"
+    desc: ""
+  -
+    title: "Hindu: Lingayat"
+    desc: ""
+  -
+    title: "Hindu: Lodhi Rajput"
+    desc: ""
+  -
+    title: "Hindu: Lohana"
+    desc: ""
+  -
+    title: "Hindu: Lohar"
+    desc: ""
+  -
+    title: "Hindu: Lubana"
+    desc: ""
+  -
+    title: "Hindu: Madiga"
+    desc: ""
+  -
+    title: "Hindu: Mahajan"
+    desc: ""
+  -
+    title: "Hindu: Mahar"
+    desc: ""
+  -
+    title: "Hindu: Maheshwari"
+    desc: ""
+  -
+    title: "Hindu: Mahindra"
+    desc: ""
+  -
+    title: "Hindu: Mahisya"
+    desc: ""
+  -
+    title: "Hindu: Majabi/Mazhbi"
+    desc: ""
+  -
+    title: "Hindu: Mala"
+    desc: ""
+  -
+    title: "Hindu: Mali"
+    desc: ""
+  -
+    title: "Hindu: Mallah"
+    desc: ""
+  -
+    title: "Hindu: Manipuri"
+    desc: ""
+  -
+    title: "Hindu: Mapila"
+    desc: ""
+  -
+    title: "Hindu: Maratha"
+    desc: ""
+  -
+    title: "Hindu: Maravar"
+    desc: ""
+  -
+    title: "Hindu: Maruthuvar"
+    desc: ""
+  -
+    title: "Hindu: Marwari"
+    desc: ""
+  -
+    title: "Hindu: Matang"
+    desc: ""
+  -
+    title: "Hindu: Mathur"
+    desc: ""
+  -
+    title: "Hindu: Maurya"
+    desc: ""
+  -
+    title: "Hindu: Meena "
+    desc: ""
+  -
+    title: "Hindu: Meenavar"
+    desc: ""
+  -
+    title: "Hindu: Mehra"
+    desc: ""
+  -
+    title: "Hindu: Menon"
+    desc: ""
+  -
+    title: "Hindu: Meru"
+    desc: ""
+  -
+    title: "Hindu: Meru darji"
+    desc: ""
+  -
+    title: "Hindu: Modak"
+    desc: ""
+  -
+    title: "Hindu: Mogaveera"
+    desc: ""
+  -
+    title: "Hindu: Monchi"
+    desc: ""
+  -
+    title: "Hindu: Motati Reddy"
+    desc: ""
+  -
+    title: "Hindu: Mudaliar"
+    desc: ""
+  -
+    title: "Hindu: Mudaliar Arcot"
+    desc: ""
+  -
+    title: "Hindu: Mudiraj"
+    desc: ""
+  -
+    title: "Hindu: Muthuraja"
+    desc: ""
+  -
+    title: "Hindu: Nadar"
+    desc: ""
+  -
+    title: "Hindu: Naicker"
+    desc: ""
+  -
+    title: "Hindu: Naidu"
+    desc: ""
+  -
+    title: "Hindu: Naik/Nayak/Nayaka"
+    desc: ""
+  -
+    title: "Hindu: Nair"
+    desc: ""
+  -
+    title: "Hindu: Nair Veluthedathu"
+    desc: ""
+  -
+    title: "Hindu: Nair Vilakkithala"
+    desc: ""
+  -
+    title: "Hindu: Namasudra/Namosudra"
+    desc: ""
+  -
+    title: "Hindu: Nambiar"
+    desc: ""
+  -
+    title: "Hindu: Namboodiri"
+    desc: ""
+  -
+    title: "Hindu: Napit"
+    desc: ""
+  -
+    title: "Hindu: Nayee (Barber)"
+    desc: ""
+  -
+    title: "Hindu: Nepali"
+    desc: ""
+  -
+    title: "Hindu: Nhavi"
+    desc: ""
+  -
+    title: "Hindu: OBC"
+    desc: ""
+  -
+    title: "Hindu: Oswal"
+    desc: ""
+  -
+    title: "Hindu: Padmashali"
+    desc: ""
+  -
+    title: "Hindu: Pal"
+    desc: ""
+  -
+    title: "Hindu: Panchal"
+    desc: ""
+  -
+    title: "Hindu: Panchamsali"
+    desc: ""
+  -
+    title: "Hindu: Pandaram"
+    desc: ""
+  -
+    title: "Hindu: Panicker"
+    desc: ""
+  -
+    title: "Hindu: Parkava Kulam"
+    desc: ""
+  -
+    title: "Hindu: Pasi"
+    desc: ""
+  -
+    title: "Hindu: Patel"
+    desc: ""
+  -
+    title: "Hindu: Patel Dodia"
+    desc: ""
+  -
+    title: "Hindu: Patel Kadva"
+    desc: ""
+  -
+    title: "Hindu: Patel Leva"
+    desc: ""
+  -
+    title: "Hindu: Patil"
+    desc: ""
+  -
+    title: "Hindu: Patnaick"
+    desc: ""
+  -
+    title: "Hindu: Patra"
+    desc: ""
+  -
+    title: "Hindu: Perika"
+    desc: ""
+  -
+    title: "Hindu: Pillai"
+    desc: ""
+  -
+    title: "Hindu: Prajapati"
+    desc: ""
+  -
+    title: "Hindu: Raigar"
+    desc: ""
+  -
+    title: "Hindu: Rajaka"
+    desc: ""
+  -
+    title: "Hindu: Rajbhar"
+    desc: ""
+  -
+    title: "Hindu: Rajbonshi"
+    desc: ""
+  -
+    title: "Hindu: Rajput"
+    desc: ""
+  -
+    title: "Hindu: Rajput Garhwali"
+    desc: ""
+  -
+    title: "Hindu: Rajput Kumaoni"
+    desc: ""
+  -
+    title: "Hindu: Rajput Negi"
+    desc: ""
+  -
+    title: "Hindu: Rajput Rohella/Tank"
+    desc: ""
+  -
+    title: "Hindu: Ramdasia"
+    desc: ""
+  -
+    title: "Hindu: Ramgarhia"
+    desc: ""
+  -
+    title: "Hindu: Ravidasia"
+    desc: ""
+  -
+    title: "Hindu: Rawat"
+    desc: ""
+  -
+    title: "Hindu: Reddy"
+    desc: ""
+  -
+    title: "Hindu: Sadgope"
+    desc: ""
+  -
+    title: "Hindu: Saha"
+    desc: ""
+  -
+    title: "Hindu: Sahu"
+    desc: ""
+  -
+    title: "Hindu: Saini"
+    desc: ""
+  -
+    title: "Hindu: Saliya"
+    desc: ""
+  -
+    title: "Hindu: Scheduled Caste"
+    desc: ""
+  -
+    title: "Hindu: Scheduled Tribe"
+    desc: ""
+  -
+    title: "Hindu: Senai Thalaivar"
+    desc: ""
+  -
+    title: "Hindu: Senguntha Mudaliyar"
+    desc: ""
+  -
+    title: "Hindu: Settibalija"
+    desc: ""
+  -
+    title: "Hindu: Shah"
+    desc: ""
+  -
+    title: "Hindu: Shimpi"
+    desc: ""
+  -
+    title: "Hindu: Sindhi"
+    desc: ""
+  -
+    title: "Hindu: Sindhi Amil"
+    desc: ""
+  -
+    title: "Hindu: Sindhi Baibhand"
+    desc: ""
+  -
+    title: "Hindu: Sindhi Bhatia"
+    desc: ""
+  -
+    title: "Hindu: Sindhi Larai"
+    desc: ""
+  -
+    title: "Hindu: Sindhi Larkana"
+    desc: ""
+  -
+    title: "Hindu: Sindhi Rohiri"
+    desc: ""
+  -
+    title: "Hindu: Sindhi Sahiti"
+    desc: ""
+  -
+    title: "Hindu: Sindhi Sakkhar"
+    desc: ""
+  -
+    title: "Hindu: Sindhi Shikarpuri"
+    desc: ""
+  -
+    title: "Hindu: SKP"
+    desc: ""
+  -
+    title: "Hindu: Somvanshi"
+    desc: ""
+  -
+    title: "Hindu: Somvanshi Kayastha Prabhu"
+    desc: ""
+  -
+    title: "Hindu: Sonar"
+    desc: ""
+  -
+    title: "Hindu: Soni"
+    desc: ""
+  -
+    title: "Hindu: Sood"
+    desc: ""
+  -
+    title: "Hindu: Sourashtra"
+    desc: ""
+  -
+    title: "Hindu: Sozhiya Vellalar"
+    desc: ""
+  -
+    title: "Hindu: Srisayani"
+    desc: ""
+  -
+    title: "Hindu: SSK"
+    desc: ""
+  -
+    title: "Hindu: Subarna Banik"
+    desc: ""
+  -
+    title: "Hindu: Sundhi"
+    desc: ""
+  -
+    title: "Hindu: Sutar"
+    desc: ""
+  -
+    title: "Hindu: Swakula sali"
+    desc: ""
+  -
+    title: "Hindu: Swarnkar"
+    desc: ""
+  -
+    title: "Hindu: Tamboli"
+    desc: ""
+  -
+    title: "Hindu: Tanti"
+    desc: ""
+  -
+    title: "Hindu: Tantuway"
+    desc: ""
+  -
+    title: "Hindu: Telaga"
+    desc: ""
+  -
+    title: "Hindu: Teli"
+    desc: ""
+  -
+    title: "Hindu: Thakkar"
+    desc: ""
+  -
+    title: "Hindu: Thakur"
+    desc: ""
+  -
+    title: "Hindu: Thevar/Mukkulathor"
+    desc: ""
+  -
+    title: "Hindu: Thigala"
+    desc: ""
+  -
+    title: "Hindu: Thiyya"
+    desc: ""
+  -
+    title: "Hindu: Tili"
+    desc: ""
+  -
+    title: "Hindu: Togata"
+    desc: ""
+  -
+    title: "Hindu: Tonk Kshatriya"
+    desc: ""
+  -
+    title: "Hindu: Tribe"
+    desc: ""
+  -
+    title: "Hindu: Turupu Kapu"
+    desc: ""
+  -
+    title: "Hindu: Uppara"
+    desc: ""
+  -
+    title: "Hindu: Vaddera"
+    desc: ""
+  -
+    title: "Hindu: Vaidiki Velanadu"
+    desc: ""
+  -
+    title: "Hindu: Vaish"
+    desc: ""
+  -
+    title: "Hindu: Vaishnav"
+    desc: ""
+  -
+    title: "Hindu: Vaishnav Vanik"
+    desc: ""
+  -
+    title: "Hindu: Vaishnava"
+    desc: ""
+  -
+    title: "Hindu: Vaishya"
+    desc: ""
+  -
+    title: "Hindu: Vaishya Vani"
+    desc: ""
+  -
+    title: "Hindu: Valluvar"
+    desc: ""
+  -
+    title: "Hindu: Valmiki"
+    desc: ""
+  -
+    title: "Hindu: Vania"
+    desc: ""
+  -
+    title: "Hindu: Vaniya"
+    desc: ""
+  -
+    title: "Hindu: Vanjari"
+    desc: ""
+  -
+    title: "Hindu: Vankar"
+    desc: ""
+  -
+    title: "Hindu: Vannar"
+    desc: ""
+  -
+    title: "Hindu: Vannia Kula Kshatriyar"
+    desc: ""
+  -
+    title: "Hindu: Vanniyar"
+    desc: ""
+  -
+    title: "Hindu: Varshney"
+    desc: ""
+  -
+    title: "Hindu: Veershaiva/Veera Saivam"
+    desc: ""
+  -
+    title: "Hindu: Velama"
+    desc: ""
+  -
+    title: "Hindu: Velan"
+    desc: ""
+  -
+    title: "Hindu: Vellalar"
+    desc: ""
+  -
+    title: "Hindu: Vettuva Gounder"
+    desc: ""
+  -
+    title: "Hindu: Vishwakarma"
+    desc: ""
+  -
+    title: "Hindu: Vokkaliga"
+    desc: ""
+  -
+    title: "Hindu: Vysya"
+    desc: ""
+  -
+    title: "Hindu: Yadav/Yadava"
+    desc: ""
+  -
+    title: "Hindu: Others"
+    desc: ""
+
 sub_caste:
   -
-    title: "First Entry"
+    title: ""
+    desc: ""
+
 native_place:
   -
-    title: "First Entry"
+    title: "Madhya Pradesh"
+    desc: ""
+
+  -
+    title: "Maharashtra"
+    desc: ""
+
+  -
+    title: "Andhra Pradesh"
+    desc: ""
+
+  -
+    title: "Uttar Pradesh"
+    desc: ""
+
+  -
+    title: "Jammu and Kashmir"
+    desc: ""
+
+  -
+    title: "Gujarat"
+    desc: ""
+
+  -
+    title: "Karnataka"
+    desc: ""
+
+  -
+    title: "Odisha"
+    desc: ""
+
+  -
+    title: "Chhattisgarh"
+    desc: ""
+
+  -
+    title: "Tamil Nadu"
+    desc: ""
+
+  -
+    title: "Bihar"
+    desc: ""
+
+  -
+    title: "West Bengal"
+    desc: ""
+
+  -
+    title: "Arunachal Pradesh"
+    desc: ""
+
+  -
+    title: "Jharkhand"
+    desc: ""
+
+  -
+    title: "Assam"
+    desc: ""
+
+  -
+    title: "Himachal Pradesh"
+    desc: ""
+
+  -
+    title: "Uttarakhand"
+    desc: ""
+
+  -
+    title: "Punjab"
+    desc: ""
+
+  -
+    title: "Haryana"
+    desc: ""
+
+  -
+    title: "Kerala"
+    desc: ""
+
+  -
+    title: "Meghalaya"
+    desc: ""
+
+  -
+    title: "Manipur"
+    desc: ""
+
+  -
+    title: "Mizoram"
+    desc: ""
+
+  -
+    title: "Nagaland"
+    desc: ""
+
+  -
+    title: "Tripura"
+    desc: ""
+
+  -
+    title: "Andaman and Nicobar Islands"
+    desc: ""
+
+  -
+    title: "Sikkim"
+    desc: ""
+
+  -
+    title: "Goa"
+    desc: ""
+
+  -
+    title: "Delhi"
+    desc: ""
+
+  -
+    title: "Puducherry"
+    desc: ""
+
+  -
+    title: "Dadra and Nagar Haveli"
+    desc: ""
+
+  -
+    title: "Chandigarh"
+    desc: ""
+
+  -
+    title: "Daman and Diu"
+    desc: ""
+
+  -
+    title: "Lakshadweep"
+    desc: ""
+
+  -
+    title: "Rajasthan"
+    desc: ""
 birth_country:
   -
-    title: "First Entry"
+    title: "Afghanistan"
+    desc: ""
+  -
+    title: "Albania"
+    desc: ""
+  -
+    title: "Algeria"
+    desc: ""
+  -
+    title: "Andorra"
+    desc: ""
+  -
+    title: "Angola"
+    desc: ""
+  -
+    title: "Antigua & Deps"
+    desc: ""
+  -
+    title: "Argentina"
+    desc: ""
+  -
+    title: "Armenia"
+    desc: ""
+  -
+    title: "Australia"
+    desc: ""
+  -
+    title: "Austria"
+    desc: ""
+  -
+    title: "Azerbaijan"
+    desc: ""
+  -
+    title: "Bahamas"
+    desc: ""
+  -
+    title: "Bahrain"
+    desc: ""
+  -
+    title: "Bangladesh"
+    desc: ""
+  -
+    title: "Barbados"
+    desc: ""
+  -
+    title: "Belarus"
+    desc: ""
+  -
+    title: "Belgium"
+    desc: ""
+  -
+    title: "Belize"
+    desc: ""
+  -
+    title: "Benin"
+    desc: ""
+  -
+    title: "Bhutan"
+    desc: ""
+  -
+    title: "Bolivia"
+    desc: ""
+  -
+    title: "Bosnia Herzegovina"
+    desc: ""
+  -
+    title: "Botswana"
+    desc: ""
+  -
+    title: "Brazil"
+    desc: ""
+  -
+    title: "Brunei"
+    desc: ""
+  -
+    title: "Bulgaria"
+    desc: ""
+  -
+    title: "Burkina"
+    desc: ""
+  -
+    title: "Burundi"
+    desc: ""
+  -
+    title: "Cambodia"
+    desc: ""
+  -
+    title: "Cameroon"
+    desc: ""
+  -
+    title: "Canada"
+    desc: ""
+  -
+    title: "Cape Verde"
+    desc: ""
+  -
+    title: "Central African Rep"
+    desc: ""
+  -
+    title: "Chad"
+    desc: ""
+  -
+    title: "Chile"
+    desc: ""
+  -
+    title: "China"
+    desc: ""
+  -
+    title: "Colombia"
+    desc: ""
+  -
+    title: "Comoros"
+    desc: ""
+  -
+    title: "Congo"
+    desc: ""
+  -
+    title: "Congo {Democratic Rep}"
+    desc: ""
+  -
+    title: "Costa Rica"
+    desc: ""
+  -
+    title: "Croatia"
+    desc: ""
+  -
+    title: "Cuba"
+    desc: ""
+  -
+    title: "Cyprus"
+    desc: ""
+  -
+    title: "Czech Republic"
+    desc: ""
+  -
+    title: "Denmark"
+    desc: ""
+  -
+    title: "Djibouti"
+    desc: ""
+  -
+    title: "Dominica"
+    desc: ""
+  -
+    title: "Dominican Republic"
+    desc: ""
+  -
+    title: "East Timor"
+    desc: ""
+  -
+    title: "Ecuador"
+    desc: ""
+  -
+    title: "Egypt"
+    desc: ""
+  -
+    title: "El Salvador"
+    desc: ""
+  -
+    title: "Equatorial Guinea"
+    desc: ""
+  -
+    title: "Eritrea"
+    desc: ""
+  -
+    title: "Estonia"
+    desc: ""
+  -
+    title: "Ethiopia"
+    desc: ""
+  -
+    title: "Fiji"
+    desc: ""
+  -
+    title: "Finland"
+    desc: ""
+  -
+    title: "France"
+    desc: ""
+  -
+    title: "Gabon"
+    desc: ""
+  -
+    title: "Gambia"
+    desc: ""
+  -
+    title: "Georgia"
+    desc: ""
+  -
+    title: "Germany"
+    desc: ""
+  -
+    title: "Ghana"
+    desc: ""
+  -
+    title: "Greece"
+    desc: ""
+  -
+    title: "Grenada"
+    desc: ""
+  -
+    title: "Guatemala"
+    desc: ""
+  -
+    title: "Guinea"
+    desc: ""
+  -
+    title: "Guinea-Bissau"
+    desc: ""
+  -
+    title: "Guyana"
+    desc: ""
+  -
+    title: "Haiti"
+    desc: ""
+  -
+    title: "Honduras"
+    desc: ""
+  -
+    title: "Hungary"
+    desc: ""
+  -
+    title: "Iceland"
+    desc: ""
+  -
+    title: "India"
+    desc: ""
+  -
+    title: "Indonesia"
+    desc: ""
+  -
+    title: "Iran"
+    desc: ""
+  -
+    title: "Iraq"
+    desc: ""
+  -
+    title: "Ireland {Republic}"
+    desc: ""
+  -
+    title: "Israel"
+    desc: ""
+  -
+    title: "Italy"
+    desc: ""
+  -
+    title: "Ivory Coast"
+    desc: ""
+  -
+    title: "Jamaica"
+    desc: ""
+  -
+    title: "Japan"
+    desc: ""
+  -
+    title: "Jordan"
+    desc: ""
+  -
+    title: "Kazakhstan"
+    desc: ""
+  -
+    title: "Kenya"
+    desc: ""
+  -
+    title: "Kiribati"
+    desc: ""
+  -
+    title: "Korea North"
+    desc: ""
+  -
+    title: "Korea South"
+    desc: ""
+  -
+    title: "Kosovo"
+    desc: ""
+  -
+    title: "Kuwait"
+    desc: ""
+  -
+    title: "Kyrgyzstan"
+    desc: ""
+  -
+    title: "Laos"
+    desc: ""
+  -
+    title: "Latvia"
+    desc: ""
+  -
+    title: "Lebanon"
+    desc: ""
+  -
+    title: "Lesotho"
+    desc: ""
+  -
+    title: "Liberia"
+    desc: ""
+  -
+    title: "Libya"
+    desc: ""
+  -
+    title: "Liechtenstein"
+    desc: ""
+  -
+    title: "Lithuania"
+    desc: ""
+  -
+    title: "Luxembourg"
+    desc: ""
+  -
+    title: "Macedonia"
+    desc: ""
+  -
+    title: "Madagascar"
+    desc: ""
+  -
+    title: "Malawi"
+    desc: ""
+  -
+    title: "Malaysia"
+    desc: ""
+  -
+    title: "Maldives"
+    desc: ""
+  -
+    title: "Mali"
+    desc: ""
+  -
+    title: "Malta"
+    desc: ""
+  -
+    title: "Marshall Islands"
+    desc: ""
+  -
+    title: "Mauritania"
+    desc: ""
+  -
+    title: "Mauritius"
+    desc: ""
+  -
+    title: "Mexico"
+    desc: ""
+  -
+    title: "Micronesia"
+    desc: ""
+  -
+    title: "Moldova"
+    desc: ""
+  -
+    title: "Monaco"
+    desc: ""
+  -
+    title: "Mongolia"
+    desc: ""
+  -
+    title: "Montenegro"
+    desc: ""
+  -
+    title: "Morocco"
+    desc: ""
+  -
+    title: "Mozambique"
+    desc: ""
+  -
+    title: "Myanmar, {Burma}"
+    desc: ""
+  -
+    title: "Namibia"
+    desc: ""
+  -
+    title: "Nauru"
+    desc: ""
+  -
+    title: "Nepal"
+    desc: ""
+  -
+    title: "Netherlands"
+    desc: ""
+  -
+    title: "New Zealand"
+    desc: ""
+  -
+    title: "Nicaragua"
+    desc: ""
+  -
+    title: "Niger"
+    desc: ""
+  -
+    title: "Nigeria"
+    desc: ""
+  -
+    title: "Norway"
+    desc: ""
+  -
+    title: "Oman"
+    desc: ""
+  -
+    title: "Pakistan"
+    desc: ""
+  -
+    title: "Palau"
+    desc: ""
+  -
+    title: "Panama"
+    desc: ""
+  -
+    title: "Papua New Guinea"
+    desc: ""
+  -
+    title: "Paraguay"
+    desc: ""
+  -
+    title: "Peru"
+    desc: ""
+  -
+    title: "Philippines"
+    desc: ""
+  -
+    title: "Poland"
+    desc: ""
+  -
+    title: "Portugal"
+    desc: ""
+  -
+    title: "Qatar"
+    desc: ""
+  -
+    title: "Romania"
+    desc: ""
+  -
+    title: "Russian Federation"
+    desc: ""
+  -
+    title: "Rwanda"
+    desc: ""
+  -
+    title: "St Kitts & Nevis"
+    desc: ""
+  -
+    title: "St Lucia"
+    desc: ""
+  -
+    title: "Saint Vincent & the Grenadines"
+    desc: ""
+  -
+    title: "Samoa"
+    desc: ""
+  -
+    title: "San Marino"
+    desc: ""
+  -
+    title: "Sao Tome & Principe"
+    desc: ""
+  -
+    title: "Saudi Arabia"
+    desc: ""
+  -
+    title: "Senegal"
+    desc: ""
+  -
+    title: "Serbia"
+    desc: ""
+  -
+    title: "Seychelles"
+    desc: ""
+  -
+    title: "Sierra Leone"
+    desc: ""
+  -
+    title: "Singapore"
+    desc: ""
+  -
+    title: "Slovakia"
+    desc: ""
+  -
+    title: "Slovenia"
+    desc: ""
+  -
+    title: "Solomon Islands"
+    desc: ""
+  -
+    title: "Somalia"
+    desc: ""
+  -
+    title: "South Africa"
+    desc: ""
+  -
+    title: "South Sudan"
+    desc: ""
+  -
+    title: "Spain"
+    desc: ""
+  -
+    title: "Sri Lanka"
+    desc: ""
+  -
+    title: "Sudan"
+    desc: ""
+  -
+    title: "Suriname"
+    desc: ""
+  -
+    title: "Swaziland"
+    desc: ""
+  -
+    title: "Sweden"
+    desc: ""
+  -
+    title: "Switzerland"
+    desc: ""
+  -
+    title: "Syria"
+    desc: ""
+  -
+    title: "Taiwan"
+    desc: ""
+  -
+    title: "Tajikistan"
+    desc: ""
+  -
+    title: "Tanzania"
+    desc: ""
+  -
+    title: "Thailand"
+    desc: ""
+  -
+    title: "Togo"
+    desc: ""
+  -
+    title: "Tonga"
+    desc: ""
+  -
+    title: "Trinidad & Tobago"
+    desc: ""
+  -
+    title: "Tunisia"
+    desc: ""
+  -
+    title: "Turkey"
+    desc: ""
+  -
+    title: "Turkmenistan"
+    desc: ""
+  -
+    title: "Tuvalu"
+    desc: ""
+  -
+    title: "Uganda"
+    desc: ""
+  -
+    title: "Ukraine"
+    desc: ""
+  -
+    title: "United Arab Emirates"
+    desc: ""
+  -
+    title: "United Kingdom"
+    desc: ""
+  -
+    title: "United States"
+    desc: ""
+  -
+    title: "Uruguay"
+    desc: ""
+  -
+    title: "Uzbekistan"
+    desc: ""
+  -
+    title: "Vanuatu"
+    desc: ""
+  -
+    title: "Vatican City"
+    desc: ""
+  -
+    title: "Venezuela"
+    desc: ""
+  -
+    title: "Vietnam"
+    desc: ""
+  -
+    title: "Yemen"
+    desc: ""
+  -
+    title: "Zambia"
+    desc: ""
+
+  - title: "Zimbabwe"
+    desc: ""
 birth_city:
   -
-    title: "First Entry"
-tob:
+    title: "Madhya Pradesh"
+    desc: ""
+
   -
-    title: "First Entry"
+    title: "Maharashtra"
+    desc: ""
+
+  -
+    title: "Andhra Pradesh"
+    desc: ""
+
+  -
+    title: "Uttar Pradesh"
+    desc: ""
+
+  -
+    title: "Jammu and Kashmir"
+    desc: ""
+
+  -
+    title: "Gujarat"
+    desc: ""
+
+  -
+    title: "Karnataka"
+    desc: ""
+
+  -
+    title: "Odisha"
+    desc: ""
+
+  -
+    title: "Chhattisgarh"
+    desc: ""
+
+  -
+    title: "Tamil Nadu"
+    desc: ""
+
+  -
+    title: "Bihar"
+    desc: ""
+
+  -
+    title: "West Bengal"
+    desc: ""
+
+  -
+    title: "Arunachal Pradesh"
+    desc: ""
+
+  -
+    title: "Jharkhand"
+    desc: ""
+
+  -
+    title: "Assam"
+    desc: ""
+
+  -
+    title: "Himachal Pradesh"
+    desc: ""
+
+  -
+    title: "Uttarakhand"
+    desc: ""
+
+  -
+    title: "Punjab"
+    desc: ""
+
+  -
+    title: "Haryana"
+    desc: ""
+
+  -
+    title: "Kerala"
+    desc: ""
+
+  -
+    title: "Meghalaya"
+    desc: ""
+
+  -
+    title: "Manipur"
+    desc: ""
+
+  -
+    title: "Mizoram"
+    desc: ""
+
+  -
+    title: "Nagaland"
+    desc: ""
+
+  -
+    title: "Tripura"
+    desc: ""
+
+  -
+    title: "Andaman and Nicobar Islands"
+    desc: ""
+
+  -
+    title: "Sikkim"
+    desc: ""
+
+  -
+    title: "Goa"
+    desc: ""
+
+  -
+    title: "Delhi"
+    desc: ""
+
+  -
+    title: "Puducherry"
+    desc: ""
+
+  -
+    title: "Dadra and Nagar Haveli"
+    desc: ""
+
+  -
+    title: "Chandigarh"
+    desc: ""
+
+  -
+    title: "Daman and Diu"
+    desc: ""
+
+  -
+    title: "Lakshadweep"
+    desc: ""
+
+  -
+    title: "Rajasthan"
+    desc: ""
+
 manglik:
   -
-    title: "First Entry"
+    title: "No"
+    desc: ""
+  -
+    title: "Yes"
+    desc: ""
+  -
+    title: "Angshik (Partial)"
+    desc: ""
+  -
+    title: "Don't Know"
+    desc: ""
 sun_sign:
   -
-    title: "First Entry"
+    title: "Don't Know"
+    desc: ""
+  -
+    title: "Aries"
+    desc: ""
+  -
+    title: "Taurus"
+    desc: ""
+  -
+    title: "Gemini"
+    desc: ""
+  -
+    title: "Cancer"
+    desc: ""
+  -
+    title: "Leo"
+    desc: ""
+  -
+    title: "Virgo"
+    desc: ""
+  -
+    title: "Libra"
+    desc: ""
+  -
+    title: "Scorpio"
+    desc: ""
+  -
+    title: "Sagittarius"
+    desc: ""
+  -
+    title: "Capricorn"
+    desc: ""
+  -
+    title: "Aquarius"
+    desc: ""
+  -
+    title: "Pisces"
+    desc: ""
+
 moon_sign:
   -
-    title: "First Entry"
+    title: "Don't Know"
+    desc: ""
+  -
+    title: "Mesh"
+    desc: ""
+  -
+    title: "Vrishabh"
+    desc: ""
+  -
+    title: "Mithun"
+    desc: ""
+  -
+    title: "Kark"
+    desc: ""
+  -
+    title: "Simha"
+    desc: ""
+  -
+    title: "Kanya"
+    desc: ""
+  -
+    title: "Tula"
+    desc: ""
+  -
+    title: "Vrishchick"
+    desc: ""
+  -
+    title: "Dhanu"
+    desc: ""
+  -
+    title: "Makar"
+    desc: ""
+  -
+    title: "Kumbh"
+    desc: ""
+  -
+    title: "Meen"
+    desc: ""
+
 nakshatra:
   -
-    title: "First Entry"
+    title: "Don't Know"
+    desc: ""
+
+  -
+    title: "Anuradha/ Anusham/ Anizham"
+    desc: ""
+
+  -
+    title: "Ardra/ Thiruvathira"
+    desc: ""
+
+  -
+    title: "Ashlesha/ Ayilyam"
+    desc: ""
+
+  -
+    title: "Ashwini/ Ashwathi"
+    desc: ""
+
+  -
+    title: "Bharani"
+    desc: ""
+
+  -
+    title: "Chitra/ Chitha"
+    desc: ""
+
+  -
+    title: "Dhanista/ Avittam"
+    desc: ""
+
+  -
+    title: "Hastha/ Atham"
+    desc: ""
+
+  -
+    title: "Jyesta/ Kettai"
+    desc: ""
+
+  -
+    title: "Krithika/ Karthika"
+    desc: ""
+
+  -
+    title: "Makha/ Magam"
+    desc: ""
+
+  -
+    title: "Moolam/ Moola"
+    desc: ""
+
+  -
+    title: "Mrigasira/ Makayiram"
+    desc: ""
+
+  -
+    title: "Poorvabadrapada/ Puratathi"
+    desc: ""
+
+  -
+    title: "Poorvashada/ Pooradam"
+    desc: ""
+
+  -
+    title: "Poorvapalguni/ Puram/ Pubbhe"
+    desc: ""
+
+  -
+    title: "Punarvasu/ Punarpusam"
+    desc: ""
+
+  -
+    title: "Pushya/ Poosam/ Pooyam"
+    desc: ""
+
+  -
+    title: "Revathi"
+    desc: ""
+
+  -
+    title: "Rohini"
+    desc: ""
+
+  -
+    title: "Shatataraka/ Sadayam/ Sadabist"
+    desc: ""
+
+  -
+    title: "Shravan/ Thiruvonam"
+    desc: ""
+
+  -
+    title: "Swati/ Chothi"
+    desc: ""
+
+  -
+    title: "Uttrabadrapada/ Uthratadhi"
+    desc: ""
+
+  -
+    title: "Uttarapalguni/ Uthram"
+    desc: ""
+
+  -
+    title: "Uttarashada/ Uthradam"
+    desc: ""
+
+  -
+    title: "Vishaka/ Vishakam"
+    desc: ""
+
 hobby:
   -
-    title: "First Entry"
+    title: "Aircraft Spotting"
+    desc: ""
+  -
+    title: "Acting"
+    desc: ""
+  -
+    title: "Aero modeling"
+    desc: ""
+  -
+    title: "Amateur Astronomy"
+    desc: ""
+  -
+    title: "Amateur Radio"
+    desc: ""
+  -
+    title: "Animals/pets/dogs"
+    desc: ""
+  -
+    title: "Arts"
+    desc: ""
+  -
+    title: "Astrology"
+    desc: ""
+  -
+    title: "Astronomy"
+    desc: ""
+  -
+    title: "Backgammon"
+    desc: ""
+  -
+    title: "Baseball"
+    desc: ""
+  -
+    title: "Basketball"
+    desc: ""
+  -
+    title: "Beach/Sun tanning"
+    desc: ""
+  -
+    title: "Beachcombing"
+    desc: ""
+  -
+    title: "Beadwork"
+    desc: ""
+  -
+    title: "Beatboxing"
+    desc: ""
+  -
+    title: "Becoming A Child Advocate"
+    desc: ""
+  -
+    title: "Bell Ringing"
+    desc: ""
+  -
+    title: "Belly Dancing"
+    desc: ""
+  -
+    title: "Bicycling"
+    desc: ""
+  -
+    title: "Bird watching"
+    desc: ""
+  -
+    title: "Birding"
+    desc: ""
+  -
+    title: "Blacksmithing"
+    desc: ""
+  -
+    title: "Blogging"
+    desc: ""
+  -
+    title: "BoardGames"
+    desc: ""
+  -
+    title: "Boating"
+    desc: ""
+  -
+    title: "Body Building"
+    desc: ""
+  -
+    title: "Bonsai Tree"
+    desc: ""
+  -
+    title: "Bowling"
+    desc: ""
+  -
+    title: "Brewing Beer"
+    desc: ""
+  -
+    title: "Bridge"
+    desc: ""
+  -
+    title: "Bringing Food To The Disabled"
+    desc: ""
+  -
+    title: "Building A House For Habitat For Humanity"
+    desc: ""
+  -
+    title: "Building Dollhouses"
+    desc: ""
+  -
+    title: "Butterfly Watching"
+    desc: ""
+  -
+    title: "Button Collecting"
+    desc: ""
+  -
+    title: "Calligraphy"
+    desc: ""
+  -
+    title: "Calligraphy"
+    desc: ""
+  -
+    title: "Camping"
+    desc: ""
+  -
+    title: "Candle Making"
+    desc: ""
+  -
+    title: "Canoeing"
+    desc: ""
+  -
+    title: "Car Racing"
+    desc: ""
+  -
+    title: "Casino Gambling"
+    desc: ""
+  -
+    title: "Cave Diving"
+    desc: ""
+  -
+    title: "Cheerleading"
+    desc: ""
+  -
+    title: "Chess"
+    desc: ""
+  -
+    title: "Church/church activities"
+    desc: ""
+  -
+    title: "Cigar Smoking"
+    desc: ""
 music:
   -
-    title: "First Entry"
+    title: "Classical Hindustani"
+    desc: ""
+  -
+    title: "Classical Carnatic"
+    desc: ""
+  -
+    title: "Classical Western"
+    desc: ""
+  -
+    title: "Instrumental - Indian"
+    desc: ""
+  -
+    title: "Old film"
+    desc: ""
+  -
+    title: "songs"
+    desc: ""
+  -
+    title: "Latest film"
+    desc: ""
+  -
+    title: "songs"
+    desc: ""
+  -
+    title: "Ghazals"
+    desc: ""
+  -
+    title: "Qawalis"
+    desc: ""
+  -
+    title: "Bhajans"
+    desc: ""
+  -
+    title: "Devotional"
+    desc: ""
+  -
+    title: "Sufi"
+    desc: ""
+  -
+    title: "music"
+    desc: ""
+  -
+    title: "Indipop"
+    desc: ""
+  -
+    title: "Pop"
+    desc: ""
+  -
+    title: "Disco"
+    desc: ""
+  -
+    title: "House"
+    desc: ""
+  -
+    title: "Music"
+    desc: ""
+  -
+    title: "Techno"
+    desc: ""
+  -
+    title: "Hip-Hop"
+    desc: ""
+  -
+    title: "Rap"
+    desc: ""
+  -
+    title: "Jazz"
+    desc: ""
+  -
+    title: "Blues"
+    desc: ""
+  -
+    title: "Reggae"
+    desc: ""
+  -
+    title: "Heavy"
+    desc: ""
+  -
+    title: "Metal"
+    desc: ""
+  -
+    title: "Acid"
+    desc: ""
 interest:
   -
     title: "First Entry"
+    desc: ""
+  -
+    title: "Second Entry"
+    desc: ""
 read:
   -
     title: "First Entry"
+    desc: ""
+  -
+    title: "Second Entry"
+    desc: ""
 dress:
   -
     title: "First Entry"
+    desc: ""
+  -
+    title: "Second Entry"
+    desc: ""
 tv:
   -
     title: "First Entry"
+    desc: ""
+  -
+    title: "Second Entry"
+    desc: ""
 movie:
   -
     title: "First Entry"
+    desc: ""
   -
     title: "Second Entry"
+    desc: ""
+  -
+    title: "Second Entry"
+    desc: ""
+  -
+    title: "Second Entry"
+    desc: ""
 sport:
   -
     title: "First Entry"
+    desc: ""
+  -
+    title: "Second Entry"
+    desc: ""
 cuisine:
   -
     title: "First Entry"
+    desc: ""
+  -
+    title: "Second Entry"
+    desc: ""
 vacation:
   -
     title: "First Entry"
+    desc: ""
+  -
+    title: "Second Entry"
+    desc: ""
 family_income:
   -
     title: "First Entry"
+    desc: ""
+  -
+    title: "Second Entry"
+    desc: ""
 father:
   -
     title: "First Entry"
+    desc: ""
+  -
+    title: "Second Entry"
+    desc: ""
 mother:
   -
     title: "First Entry"
+    desc: ""
+  -
+    title: "Second Entry"
+    desc: ""
 brother:
   -
     title: "First Entry"
+    desc: ""
+  -
+    title: "Second Entry"
+    desc: ""
 sister:
   -
     title: "First Entry"
+    desc: ""
+  -
+    title: "Second Entry"
+    desc: ""
 profile_handler:
   -
-    title: "First Entry"
+    title: "Parents"
+    desc: ""
+  -
+    title: "Brother"
+    desc: ""
+  -
+    title: "Sister"
+    desc: ""
+  -
+    title: "Me"
+    desc: ""
+  -
+    title: "Relative"
+    desc: ""
 school:
   -
-    title: "First Entry"
+    title: ""
+    desc: ""
 grad_school:
   -
-    title: "First Entry"
+    title: ""
+    desc: ""
 grad_college:
   -
-    title: "First Entry"
-grad:
+    title: ""
+    desc: ""
+graduation:
   -
-    title: "First Entry"
+    title: ""
+    desc: ""
 post_grad:
   -
-    title: "First Entry"
+    title: ""
+    desc: ""
 highest_degree:
   -
-    title: "First Entry"
-residence:
+    title: "Bachelor"
+    desc: ""
   -
-    title: "First Entry"
-blood:
+    title: "Master"
+    desc: ""
   -
-    title: "First Entry"
-weight:
+    title: "Doctor"
+    desc: ""
   -
-    title: "First Entry"
-height:
+    title: "Diploma"
+    desc: ""
   -
-    title: "First Entry"
-desired_height:
-  -
-    title: "First Entry"
-desired_age:
-  -
-    title: "First Entry"
+    title: "Other"
+    desc: ""
+
 desired_country:
   -
-    title: "First Entry"
+    title: "Afghanistan"
+    desc: ""
+  -
+    title: "Albania"
+    desc: ""
+  -
+    title: "Algeria"
+    desc: ""
+  -
+    title: "Andorra"
+    desc: ""
+  -
+    title: "Angola"
+    desc: ""
+  -
+    title: "Antigua & Deps"
+    desc: ""
+  -
+    title: "Argentina"
+    desc: ""
+  -
+    title: "Armenia"
+    desc: ""
+  -
+    title: "Australia"
+    desc: ""
+  -
+    title: "Austria"
+    desc: ""
+  -
+    title: "Azerbaijan"
+    desc: ""
+  -
+    title: "Bahamas"
+    desc: ""
+  -
+    title: "Bahrain"
+    desc: ""
+  -
+    title: "Bangladesh"
+    desc: ""
+  -
+    title: "Barbados"
+    desc: ""
+  -
+    title: "Belarus"
+    desc: ""
+  -
+    title: "Belgium"
+    desc: ""
+  -
+    title: "Belize"
+    desc: ""
+  -
+    title: "Benin"
+    desc: ""
+  -
+    title: "Bhutan"
+    desc: ""
+  -
+    title: "Bolivia"
+    desc: ""
+  -
+    title: "Bosnia Herzegovina"
+    desc: ""
+  -
+    title: "Botswana"
+    desc: ""
+  -
+    title: "Brazil"
+    desc: ""
+  -
+    title: "Brunei"
+    desc: ""
+  -
+    title: "Bulgaria"
+    desc: ""
+  -
+    title: "Burkina"
+    desc: ""
+  -
+    title: "Burundi"
+    desc: ""
+  -
+    title: "Cambodia"
+    desc: ""
+  -
+    title: "Cameroon"
+    desc: ""
+  -
+    title: "Canada"
+    desc: ""
+  -
+    title: "Cape Verde"
+    desc: ""
+  -
+    title: "Central African Rep"
+    desc: ""
+  -
+    title: "Chad"
+    desc: ""
+  -
+    title: "Chile"
+    desc: ""
+  -
+    title: "China"
+    desc: ""
+  -
+    title: "Colombia"
+    desc: ""
+  -
+    title: "Comoros"
+    desc: ""
+  -
+    title: "Congo"
+    desc: ""
+  -
+    title: "Congo {Democratic Rep}"
+    desc: ""
+  -
+    title: "Costa Rica"
+    desc: ""
+  -
+    title: "Croatia"
+    desc: ""
+  -
+    title: "Cuba"
+    desc: ""
+  -
+    title: "Cyprus"
+    desc: ""
+  -
+    title: "Czech Republic"
+    desc: ""
+  -
+    title: "Denmark"
+    desc: ""
+  -
+    title: "Djibouti"
+    desc: ""
+  -
+    title: "Dominica"
+    desc: ""
+  -
+    title: "Dominican Republic"
+    desc: ""
+  -
+    title: "East Timor"
+    desc: ""
+  -
+    title: "Ecuador"
+    desc: ""
+  -
+    title: "Egypt"
+    desc: ""
+  -
+    title: "El Salvador"
+    desc: ""
+  -
+    title: "Equatorial Guinea"
+    desc: ""
+  -
+    title: "Eritrea"
+    desc: ""
+  -
+    title: "Estonia"
+    desc: ""
+  -
+    title: "Ethiopia"
+    desc: ""
+  -
+    title: "Fiji"
+    desc: ""
+  -
+    title: "Finland"
+    desc: ""
+  -
+    title: "France"
+    desc: ""
+  -
+    title: "Gabon"
+    desc: ""
+  -
+    title: "Gambia"
+    desc: ""
+  -
+    title: "Georgia"
+    desc: ""
+  -
+    title: "Germany"
+    desc: ""
+  -
+    title: "Ghana"
+    desc: ""
+  -
+    title: "Greece"
+    desc: ""
+  -
+    title: "Grenada"
+    desc: ""
+  -
+    title: "Guatemala"
+    desc: ""
+  -
+    title: "Guinea"
+    desc: ""
+  -
+    title: "Guinea-Bissau"
+    desc: ""
+  -
+    title: "Guyana"
+    desc: ""
+  -
+    title: "Haiti"
+    desc: ""
+  -
+    title: "Honduras"
+    desc: ""
+  -
+    title: "Hungary"
+    desc: ""
+  -
+    title: "Iceland"
+    desc: ""
+  -
+    title: "India"
+    desc: ""
+  -
+    title: "Indonesia"
+    desc: ""
+  -
+    title: "Iran"
+    desc: ""
+  -
+    title: "Iraq"
+    desc: ""
+  -
+    title: "Ireland {Republic}"
+    desc: ""
+  -
+    title: "Israel"
+    desc: ""
+  -
+    title: "Italy"
+    desc: ""
+  -
+    title: "Ivory Coast"
+    desc: ""
+  -
+    title: "Jamaica"
+    desc: ""
+  -
+    title: "Japan"
+    desc: ""
+  -
+    title: "Jordan"
+    desc: ""
+  -
+    title: "Kazakhstan"
+    desc: ""
+  -
+    title: "Kenya"
+    desc: ""
+  -
+    title: "Kiribati"
+    desc: ""
+  -
+    title: "Korea North"
+    desc: ""
+  -
+    title: "Korea South"
+    desc: ""
+  -
+    title: "Kosovo"
+    desc: ""
+  -
+    title: "Kuwait"
+    desc: ""
+  -
+    title: "Kyrgyzstan"
+    desc: ""
+  -
+    title: "Laos"
+    desc: ""
+  -
+    title: "Latvia"
+    desc: ""
+  -
+    title: "Lebanon"
+    desc: ""
+  -
+    title: "Lesotho"
+    desc: ""
+  -
+    title: "Liberia"
+    desc: ""
+  -
+    title: "Libya"
+    desc: ""
+  -
+    title: "Liechtenstein"
+    desc: ""
+  -
+    title: "Lithuania"
+    desc: ""
+  -
+    title: "Luxembourg"
+    desc: ""
+  -
+    title: "Macedonia"
+    desc: ""
+  -
+    title: "Madagascar"
+    desc: ""
+  -
+    title: "Malawi"
+    desc: ""
+  -
+    title: "Malaysia"
+    desc: ""
+  -
+    title: "Maldives"
+    desc: ""
+  -
+    title: "Mali"
+    desc: ""
+  -
+    title: "Malta"
+    desc: ""
+  -
+    title: "Marshall Islands"
+    desc: ""
+  -
+    title: "Mauritania"
+    desc: ""
+  -
+    title: "Mauritius"
+    desc: ""
+  -
+    title: "Mexico"
+    desc: ""
+  -
+    title: "Micronesia"
+    desc: ""
+  -
+    title: "Moldova"
+    desc: ""
+  -
+    title: "Monaco"
+    desc: ""
+  -
+    title: "Mongolia"
+    desc: ""
+  -
+    title: "Montenegro"
+    desc: ""
+  -
+    title: "Morocco"
+    desc: ""
+  -
+    title: "Mozambique"
+    desc: ""
+  -
+    title: "Myanmar, {Burma}"
+    desc: ""
+  -
+    title: "Namibia"
+    desc: ""
+  -
+    title: "Nauru"
+    desc: ""
+  -
+    title: "Nepal"
+    desc: ""
+  -
+    title: "Netherlands"
+    desc: ""
+  -
+    title: "New Zealand"
+    desc: ""
+  -
+    title: "Nicaragua"
+    desc: ""
+  -
+    title: "Niger"
+    desc: ""
+  -
+    title: "Nigeria"
+    desc: ""
+  -
+    title: "Norway"
+    desc: ""
+  -
+    title: "Oman"
+    desc: ""
+  -
+    title: "Pakistan"
+    desc: ""
+  -
+    title: "Palau"
+    desc: ""
+  -
+    title: "Panama"
+    desc: ""
+  -
+    title: "Papua New Guinea"
+    desc: ""
+  -
+    title: "Paraguay"
+    desc: ""
+  -
+    title: "Peru"
+    desc: ""
+  -
+    title: "Philippines"
+    desc: ""
+  -
+    title: "Poland"
+    desc: ""
+  -
+    title: "Portugal"
+    desc: ""
+  -
+    title: "Qatar"
+    desc: ""
+  -
+    title: "Romania"
+    desc: ""
+  -
+    title: "Russian Federation"
+    desc: ""
+  -
+    title: "Rwanda"
+    desc: ""
+  -
+    title: "St Kitts & Nevis"
+    desc: ""
+  -
+    title: "St Lucia"
+    desc: ""
+  -
+    title: "Saint Vincent & the Grenadines"
+    desc: ""
+  -
+    title: "Samoa"
+    desc: ""
+  -
+    title: "San Marino"
+    desc: ""
+  -
+    title: "Sao Tome & Principe"
+    desc: ""
+  -
+    title: "Saudi Arabia"
+    desc: ""
+  -
+    title: "Senegal"
+    desc: ""
+  -
+    title: "Serbia"
+    desc: ""
+  -
+    title: "Seychelles"
+    desc: ""
+  -
+    title: "Sierra Leone"
+    desc: ""
+  -
+    title: "Singapore"
+    desc: ""
+  -
+    title: "Slovakia"
+    desc: ""
+  -
+    title: "Slovenia"
+    desc: ""
+  -
+    title: "Solomon Islands"
+    desc: ""
+  -
+    title: "Somalia"
+    desc: ""
+  -
+    title: "South Africa"
+    desc: ""
+  -
+    title: "South Sudan"
+    desc: ""
+  -
+    title: "Spain"
+    desc: ""
+  -
+    title: "Sri Lanka"
+    desc: ""
+  -
+    title: "Sudan"
+    desc: ""
+  -
+    title: "Suriname"
+    desc: ""
+  -
+    title: "Swaziland"
+    desc: ""
+  -
+    title: "Sweden"
+    desc: ""
+  -
+    title: "Switzerland"
+    desc: ""
+  -
+    title: "Syria"
+    desc: ""
+  -
+    title: "Taiwan"
+    desc: ""
+  -
+    title: "Tajikistan"
+    desc: ""
+  -
+    title: "Tanzania"
+    desc: ""
+  -
+    title: "Thailand"
+    desc: ""
+  -
+    title: "Togo"
+    desc: ""
+  -
+    title: "Tonga"
+    desc: ""
+  -
+    title: "Trinidad & Tobago"
+    desc: ""
+  -
+    title: "Tunisia"
+    desc: ""
+  -
+    title: "Turkey"
+    desc: ""
+  -
+    title: "Turkmenistan"
+    desc: ""
+  -
+    title: "Tuvalu"
+    desc: ""
+  -
+    title: "Uganda"
+    desc: ""
+  -
+    title: "Ukraine"
+    desc: ""
+  -
+    title: "United Arab Emirates"
+    desc: ""
+  -
+    title: "United Kingdom"
+    desc: ""
+  -
+    title: "United States"
+    desc: ""
+  -
+    title: "Uruguay"
+    desc: ""
+  -
+    title: "Uzbekistan"
+    desc: ""
+  -
+    title: "Vanuatu"
+    desc: ""
+  -
+    title: "Vatican City"
+    desc: ""
+  -
+    title: "Venezuela"
+    desc: ""
+  -
+    title: "Vietnam"
+    desc: ""
+  -
+    title: "Yemen"
+    desc: ""
+  -
+    title: "Zambia"
+    desc: ""
+
+  - title: "Zimbabwe"
+    desc: ""
 desired_city:
   -
-    title: "First Entry"
+    title: "Madhya Pradesh"
+    desc: ""
+
+  -
+    title: "Maharashtra"
+    desc: ""
+
+  -
+    title: "Andhra Pradesh"
+    desc: ""
+
+  -
+    title: "Uttar Pradesh"
+    desc: ""
+
+  -
+    title: "Jammu and Kashmir"
+    desc: ""
+
+  -
+    title: "Gujarat"
+    desc: ""
+
+  -
+    title: "Karnataka"
+    desc: ""
+
+  -
+    title: "Odisha"
+    desc: ""
+
+  -
+    title: "Chhattisgarh"
+    desc: ""
+
+  -
+    title: "Tamil Nadu"
+    desc: ""
+
+  -
+    title: "Bihar"
+    desc: ""
+
+  -
+    title: "West Bengal"
+    desc: ""
+
+  -
+    title: "Arunachal Pradesh"
+    desc: ""
+
+  -
+    title: "Jharkhand"
+    desc: ""
+
+  -
+    title: "Assam"
+    desc: ""
+
+  -
+    title: "Himachal Pradesh"
+    desc: ""
+
+  -
+    title: "Uttarakhand"
+    desc: ""
+
+  -
+    title: "Punjab"
+    desc: ""
+
+  -
+    title: "Haryana"
+    desc: ""
+
+  -
+    title: "Kerala"
+    desc: ""
+
+  -
+    title: "Meghalaya"
+    desc: ""
+
+  -
+    title: "Manipur"
+    desc: ""
+
+  -
+    title: "Mizoram"
+    desc: ""
+
+  -
+    title: "Nagaland"
+    desc: ""
+
+  -
+    title: "Tripura"
+    desc: ""
+
+  -
+    title: "Andaman and Nicobar Islands"
+    desc: ""
+
+  -
+    title: "Sikkim"
+    desc: ""
+
+  -
+    title: "Goa"
+    desc: ""
+
+  -
+    title: "Delhi"
+    desc: ""
+
+  -
+    title: "Puducherry"
+    desc: ""
+
+  -
+    title: "Dadra and Nagar Haveli"
+    desc: ""
+
+  -
+    title: "Chandigarh"
+    desc: ""
+
+  -
+    title: "Daman and Diu"
+    desc: ""
+
+  -
+    title: "Lakshadweep"
+    desc: ""
+
+  -
+    title: "Rajasthan"
+    desc: ""
 desired_religion:
   -
-    title: "First Entry"
+    title: "Hindu"
+    desc: ""
+  -
+    title: "Muslim"
+    desc: ""
+  -
+    title: "Christian"
+    desc: ""
+  -
+    title: "Buddhish"
+    desc: ""
+  -
+    title: "Buddhish"
+    desc: ""
+  -
+    title: "Jain"
+    desc: ""
+  -
+    title: "Parsi"
+    desc: ""
+  -
+    title: "Other"
+    desc: ""
 desired_caste:
   -
-    title: "First Entry"
+    title: "Hindu: Adi Andhra"
+    desc: ""
+  -
+    title: "Hindu: Adi Dravida"
+    desc: ""
+  -
+    title: "Hindu: Adi Karnataka"
+    desc: ""
+  -
+    title: "Hindu: Agamudayar"
+    desc: ""
+  -
+    title: "Hindu: Aggarwal"
+    desc: ""
+  -
+    title: "Hindu: Agri"
+    desc: ""
+  -
+    title: "Hindu: Ahir"
+    desc: ""
+  -
+    title: "Hindu: Ahom"
+    desc: ""
+  -
+    title: "Hindu: Ambalavasi"
+    desc: ""
+  -
+    title: "Hindu: Arora"
+    desc: ""
+  -
+    title: "Hindu: Arunthathiyar"
+    desc: ""
+  -
+    title: "Hindu: Arya Vysya"
+    desc: ""
+  -
+    title: "Hindu: Baghel/Pal/Gaderiya"
+    desc: ""
+  -
+    title: "Hindu: Baidya"
+    desc: ""
+  -
+    title: "Hindu: Baishnab"
+    desc: ""
+  -
+    title: "Hindu: Baishya"
+    desc: ""
+  -
+    title: "Hindu: Balija"
+    desc: ""
+  -
+    title: "Hindu: Balija Naidu"
+    desc: ""
+  -
+    title: "Hindu: Bania"
+    desc: ""
+  -
+    title: "Hindu: Banik"
+    desc: ""
+  -
+    title: "Hindu: Banjara"
+    desc: ""
+  -
+    title: "Hindu: Bari"
+    desc: ""
+  -
+    title: "Hindu: Barujibi"
+    desc: ""
+  -
+    title: "Hindu: Besta"
+    desc: ""
+  -
+    title: "Hindu: Bhandari"
+    desc: ""
+  -
+    title: "Hindu: Bhatia"
+    desc: ""
+  -
+    title: "Hindu: Bhatraju"
+    desc: ""
+  -
+    title: "Hindu: Bhavsar"
+    desc: ""
+  -
+    title: "Hindu: Bhovi/Bhoi"
+    desc: ""
+  -
+    title: "Hindu: Billava"
+    desc: ""
+  -
+    title: "Hindu: Bishnoi/Vishnoi"
+    desc: ""
+  -
+    title: "Hindu: Boyer"
+    desc: ""
+  -
+    title: "Hindu: Brahmbatt"
+    desc: ""
+  -
+    title: "Hindu: Brahmin"
+    desc: ""
+  -
+    title: "Hindu: Brahmin 6000 Niyogi"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Anavil"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Audichya"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Bajkhedwal"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Barendra"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Bhargava"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Bhatt"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Bhumihar"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Brahacharanam"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Daivadnya"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Deshastha"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Dhiman"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Dravida"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Dunua"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Garhwali"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Gaud Saraswat (GSB)"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Gaur"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Goswami"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Gujar Gaur"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Gurukkal"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Halua"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Havyaka"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Hoysala"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Iyengar"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Iyer"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Jangid"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Jangra"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Jhadua"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Jhijhotiya"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Jogi"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Kanyakubj"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Karhade"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Kashmiri Pandit"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Koknastha"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Kota"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Kulin"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Kumaoni"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Madhwa"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Maithil"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Modh"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Mohyal"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Nagar"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Namboodiri"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Narmadiya"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Panda"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Pandit"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Pareek"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Pushkarna"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Rarhi"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Rigvedi"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Rudraj"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Sakaldwipi"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Sanadya"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Sanketi"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Saraswat"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Saryuparin"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Shivalli"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Shrimali"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Smartha"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Sri Vishnava"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Tyagi"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Vaidiki"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Viswa"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Vyas"
+    desc: ""
+  -
+    title: "Hindu: Brahmin Yajurvedi"
+    desc: ""
+  -
+    title: "Hindu: Brahmo"
+    desc: ""
+  -
+    title: "Hindu: Bunt/Shetty"
+    desc: ""
+  -
+    title: "Hindu: Chamar"
+    desc: ""
+  -
+    title: "Hindu: Chambhar"
+    desc: ""
+  -
+    title: "Hindu: Chandravanshi Kahar"
+    desc: ""
+  -
+    title: "Hindu: Chasa"
+    desc: ""
+  -
+    title: "Hindu: Chattada Sri Vaishnava"
+    desc: ""
+  -
+    title: "Hindu: Chaudary"
+    desc: ""
+  -
+    title: "Hindu: Chaurasia"
+    desc: ""
+  -
+    title: "Hindu: Chettiar"
+    desc: ""
+  -
+    title: "Hindu: Chhetri"
+    desc: ""
+  -
+    title: "Hindu: CKP"
+    desc: ""
+  -
+    title: "Hindu: Coorgi"
+    desc: ""
+  -
+    title: "Hindu: Deshastha Maratha"
+    desc: ""
+  -
+    title: "Hindu: Devadigas"
+    desc: ""
+  -
+    title: "Hindu: Devang Koshthi"
+    desc: ""
+  -
+    title: "Hindu: Devanga"
+    desc: ""
+  -
+    title: "Hindu: Devendra Kula Vellalar"
+    desc: ""
+  -
+    title: "Hindu: Dhangar"
+    desc: ""
+  -
+    title: "Hindu: Dheevara"
+    desc: ""
+  -
+    title: "Hindu: Dhoba"
+    desc: ""
+  -
+    title: "Hindu: Dhobi"
+    desc: ""
+  -
+    title: "Hindu: Dusadh"
+    desc: ""
+  -
+    title: "Hindu: Edigas"
+    desc: ""
+  -
+    title: "Hindu: Ezhava"
+    desc: ""
+  -
+    title: "Hindu: Ezhuthachan"
+    desc: ""
+  -
+    title: "Hindu: Gabit"
+    desc: ""
+  -
+    title: "Hindu: Ganiga"
+    desc: ""
+  -
+    title: "Hindu: Garhwali"
+    desc: ""
+  -
+    title: "Hindu: Gavali"
+    desc: ""
+  -
+    title: "Hindu: Gavara"
+    desc: ""
+  -
+    title: "Hindu: Ghumar"
+    desc: ""
+  -
+    title: "Hindu: Goala"
+    desc: ""
+  -
+    title: "Hindu: Goan"
+    desc: ""
+  -
+    title: "Hindu: Gomantak Maratha"
+    desc: ""
+  -
+    title: "Hindu: Gondhali"
+    desc: ""
+  -
+    title: "Hindu: Goud"
+    desc: ""
+  -
+    title: "Hindu: Gounder"
+    desc: ""
+  -
+    title: "Hindu: Gowda"
+    desc: ""
+  -
+    title: "Hindu: Gramani"
+    desc: ""
+  -
+    title: "Hindu: Gudia"
+    desc: ""
+  -
+    title: "Hindu: Gujjar"
+    desc: ""
+  -
+    title: "Hindu: Gupta"
+    desc: ""
+  -
+    title: "Hindu: Gurav"
+    desc: ""
+  -
+    title: "Hindu: Gurjar"
+    desc: ""
+  -
+    title: "Hindu: Hegde"
+    desc: ""
+  -
+    title: "Hindu: Jaiswal"
+    desc: ""
+  -
+    title: "Hindu: Jangam"
+    desc: ""
+  -
+    title: "Hindu: Jat"
+    desc: ""
+  -
+    title: "Hindu: Jatav"
+    desc: ""
+  -
+    title: "Hindu: Kadava patel"
+    desc: ""
+  -
+    title: "Hindu: Kahar"
+    desc: ""
+  -
+    title: "Hindu: Kaibarta"
+    desc: ""
+  -
+    title: "Hindu: Kalal"
+    desc: ""
+  -
+    title: "Hindu: Kalar"
+    desc: ""
+  -
+    title: "Hindu: Kalinga Vysya"
+    desc: ""
+  -
+    title: "Hindu: Kalwar"
+    desc: ""
+  -
+    title: "Hindu: Kamboj"
+    desc: ""
+  -
+    title: "Hindu: Kamma"
+    desc: ""
+  -
+    title: "Hindu: Kansari"
+    desc: ""
+  -
+    title: "Hindu: Kapol"
+    desc: ""
+  -
+    title: "Hindu: Kapu"
+    desc: ""
+  -
+    title: "Hindu: Kapu Munnuru"
+    desc: ""
+  -
+    title: "Hindu: Karana"
+    desc: ""
+  -
+    title: "Hindu: Karmakar"
+    desc: ""
+  -
+    title: "Hindu: Karuneegar"
+    desc: ""
+  -
+    title: "Hindu: Kasar"
+    desc: ""
+  -
+    title: "Hindu: Kashyap"
+    desc: ""
+  -
+    title: "Hindu: Kayastha"
+    desc: ""
+  -
+    title: "Hindu: Khandayat"
+    desc: ""
+  -
+    title: "Hindu: Khandelwal"
+    desc: ""
+  -
+    title: "Hindu: Kharwar"
+    desc: ""
+  -
+    title: "Hindu: Khatik"
+    desc: ""
+  -
+    title: "Hindu: Kokanastha Maratha"
+    desc: ""
+  -
+    title: "Hindu: Koli"
+    desc: ""
+  -
+    title: "Hindu: Koli Mahadev"
+    desc: ""
+  -
+    title: "Hindu: Kongu Vellala Gounder"
+    desc: ""
+  -
+    title: "Hindu: Konkani"
+    desc: ""
+  -
+    title: "Hindu: Kori"
+    desc: ""
+  -
+    title: "Hindu: Koshti"
+    desc: ""
+  -
+    title: "Hindu: Kshatriya"
+    desc: ""
+  -
+    title: "Hindu: Kshatriya Agnikula"
+    desc: ""
+  -
+    title: "Hindu: Kudumbi"
+    desc: ""
+  -
+    title: "Hindu: Kulalar"
+    desc: ""
+  -
+    title: "Hindu: Kulita"
+    desc: ""
+  -
+    title: "Hindu: Kumawat"
+    desc: ""
+  -
+    title: "Hindu: Kumbhakar"
+    desc: ""
+  -
+    title: "Hindu: Kumhar/Kumbhar"
+    desc: ""
+  -
+    title: "Hindu: Kummari"
+    desc: ""
+  -
+    title: "Hindu: Kunbi"
+    desc: ""
+  -
+    title: "Hindu: Kurmi"
+    desc: ""
+  -
+    title: "Hindu: Kurmi kshatriya"
+    desc: ""
+  -
+    title: "Hindu: Kuruba"
+    desc: ""
+  -
+    title: "Hindu: Kuruhina shetty"
+    desc: ""
+  -
+    title: "Hindu: Kurumbar"
+    desc: ""
+  -
+    title: "Hindu: Kushwaha"
+    desc: ""
+  -
+    title: "Hindu: Kutchi"
+    desc: ""
+  -
+    title: "Hindu: Kutchi Gurjar"
+    desc: ""
+  -
+    title: "Hindu: Lambadi"
+    desc: ""
+  -
+    title: "Hindu: Leva Patidar"
+    desc: ""
+  -
+    title: "Hindu: Leva Patil"
+    desc: ""
+  -
+    title: "Hindu: Lingayat"
+    desc: ""
+  -
+    title: "Hindu: Lodhi Rajput"
+    desc: ""
+  -
+    title: "Hindu: Lohana"
+    desc: ""
+  -
+    title: "Hindu: Lohar"
+    desc: ""
+  -
+    title: "Hindu: Lubana"
+    desc: ""
+  -
+    title: "Hindu: Madiga"
+    desc: ""
+  -
+    title: "Hindu: Mahajan"
+    desc: ""
+  -
+    title: "Hindu: Mahar"
+    desc: ""
+  -
+    title: "Hindu: Maheshwari"
+    desc: ""
+  -
+    title: "Hindu: Mahindra"
+    desc: ""
+  -
+    title: "Hindu: Mahisya"
+    desc: ""
+  -
+    title: "Hindu: Majabi/Mazhbi"
+    desc: ""
+  -
+    title: "Hindu: Mala"
+    desc: ""
+  -
+    title: "Hindu: Mali"
+    desc: ""
+  -
+    title: "Hindu: Mallah"
+    desc: ""
+  -
+    title: "Hindu: Manipuri"
+    desc: ""
+  -
+    title: "Hindu: Mapila"
+    desc: ""
+  -
+    title: "Hindu: Maratha"
+    desc: ""
+  -
+    title: "Hindu: Maravar"
+    desc: ""
+  -
+    title: "Hindu: Maruthuvar"
+    desc: ""
+  -
+    title: "Hindu: Marwari"
+    desc: ""
+  -
+    title: "Hindu: Matang"
+    desc: ""
+  -
+    title: "Hindu: Mathur"
+    desc: ""
+  -
+    title: "Hindu: Maurya"
+    desc: ""
+  -
+    title: "Hindu: Meena "
+    desc: ""
+  -
+    title: "Hindu: Meenavar"
+    desc: ""
+  -
+    title: "Hindu: Mehra"
+    desc: ""
+  -
+    title: "Hindu: Menon"
+    desc: ""
+  -
+    title: "Hindu: Meru"
+    desc: ""
+  -
+    title: "Hindu: Meru darji"
+    desc: ""
+  -
+    title: "Hindu: Modak"
+    desc: ""
+  -
+    title: "Hindu: Mogaveera"
+    desc: ""
+  -
+    title: "Hindu: Monchi"
+    desc: ""
+  -
+    title: "Hindu: Motati Reddy"
+    desc: ""
+  -
+    title: "Hindu: Mudaliar"
+    desc: ""
+  -
+    title: "Hindu: Mudaliar Arcot"
+    desc: ""
+  -
+    title: "Hindu: Mudiraj"
+    desc: ""
+  -
+    title: "Hindu: Muthuraja"
+    desc: ""
+  -
+    title: "Hindu: Nadar"
+    desc: ""
+  -
+    title: "Hindu: Naicker"
+    desc: ""
+  -
+    title: "Hindu: Naidu"
+    desc: ""
+  -
+    title: "Hindu: Naik/Nayak/Nayaka"
+    desc: ""
+  -
+    title: "Hindu: Nair"
+    desc: ""
+  -
+    title: "Hindu: Nair Veluthedathu"
+    desc: ""
+  -
+    title: "Hindu: Nair Vilakkithala"
+    desc: ""
+  -
+    title: "Hindu: Namasudra/Namosudra"
+    desc: ""
+  -
+    title: "Hindu: Nambiar"
+    desc: ""
+  -
+    title: "Hindu: Namboodiri"
+    desc: ""
+  -
+    title: "Hindu: Napit"
+    desc: ""
+  -
+    title: "Hindu: Nayee (Barber)"
+    desc: ""
+  -
+    title: "Hindu: Nepali"
+    desc: ""
+  -
+    title: "Hindu: Nhavi"
+    desc: ""
+  -
+    title: "Hindu: OBC"
+    desc: ""
+  -
+    title: "Hindu: Oswal"
+    desc: ""
+  -
+    title: "Hindu: Padmashali"
+    desc: ""
+  -
+    title: "Hindu: Pal"
+    desc: ""
+  -
+    title: "Hindu: Panchal"
+    desc: ""
+  -
+    title: "Hindu: Panchamsali"
+    desc: ""
+  -
+    title: "Hindu: Pandaram"
+    desc: ""
+  -
+    title: "Hindu: Panicker"
+    desc: ""
+  -
+    title: "Hindu: Parkava Kulam"
+    desc: ""
+  -
+    title: "Hindu: Pasi"
+    desc: ""
+  -
+    title: "Hindu: Patel"
+    desc: ""
+  -
+    title: "Hindu: Patel Dodia"
+    desc: ""
+  -
+    title: "Hindu: Patel Kadva"
+    desc: ""
+  -
+    title: "Hindu: Patel Leva"
+    desc: ""
+  -
+    title: "Hindu: Patil"
+    desc: ""
+  -
+    title: "Hindu: Patnaick"
+    desc: ""
+  -
+    title: "Hindu: Patra"
+    desc: ""
+  -
+    title: "Hindu: Perika"
+    desc: ""
+  -
+    title: "Hindu: Pillai"
+    desc: ""
+  -
+    title: "Hindu: Prajapati"
+    desc: ""
+  -
+    title: "Hindu: Raigar"
+    desc: ""
+  -
+    title: "Hindu: Rajaka"
+    desc: ""
+  -
+    title: "Hindu: Rajbhar"
+    desc: ""
+  -
+    title: "Hindu: Rajbonshi"
+    desc: ""
+  -
+    title: "Hindu: Rajput"
+    desc: ""
+  -
+    title: "Hindu: Rajput Garhwali"
+    desc: ""
+  -
+    title: "Hindu: Rajput Kumaoni"
+    desc: ""
+  -
+    title: "Hindu: Rajput Negi"
+    desc: ""
+  -
+    title: "Hindu: Rajput Rohella/Tank"
+    desc: ""
+  -
+    title: "Hindu: Ramdasia"
+    desc: ""
+  -
+    title: "Hindu: Ramgarhia"
+    desc: ""
+  -
+    title: "Hindu: Ravidasia"
+    desc: ""
+  -
+    title: "Hindu: Rawat"
+    desc: ""
+  -
+    title: "Hindu: Reddy"
+    desc: ""
+  -
+    title: "Hindu: Sadgope"
+    desc: ""
+  -
+    title: "Hindu: Saha"
+    desc: ""
+  -
+    title: "Hindu: Sahu"
+    desc: ""
+  -
+    title: "Hindu: Saini"
+    desc: ""
+  -
+    title: "Hindu: Saliya"
+    desc: ""
+  -
+    title: "Hindu: Scheduled Caste"
+    desc: ""
+  -
+    title: "Hindu: Scheduled Tribe"
+    desc: ""
+  -
+    title: "Hindu: Senai Thalaivar"
+    desc: ""
+  -
+    title: "Hindu: Senguntha Mudaliyar"
+    desc: ""
+  -
+    title: "Hindu: Settibalija"
+    desc: ""
+  -
+    title: "Hindu: Shah"
+    desc: ""
+  -
+    title: "Hindu: Shimpi"
+    desc: ""
+  -
+    title: "Hindu: Sindhi"
+    desc: ""
+  -
+    title: "Hindu: Sindhi Amil"
+    desc: ""
+  -
+    title: "Hindu: Sindhi Baibhand"
+    desc: ""
+  -
+    title: "Hindu: Sindhi Bhatia"
+    desc: ""
+  -
+    title: "Hindu: Sindhi Larai"
+    desc: ""
+  -
+    title: "Hindu: Sindhi Larkana"
+    desc: ""
+  -
+    title: "Hindu: Sindhi Rohiri"
+    desc: ""
+  -
+    title: "Hindu: Sindhi Sahiti"
+    desc: ""
+  -
+    title: "Hindu: Sindhi Sakkhar"
+    desc: ""
+  -
+    title: "Hindu: Sindhi Shikarpuri"
+    desc: ""
+  -
+    title: "Hindu: SKP"
+    desc: ""
+  -
+    title: "Hindu: Somvanshi"
+    desc: ""
+  -
+    title: "Hindu: Somvanshi Kayastha Prabhu"
+    desc: ""
+  -
+    title: "Hindu: Sonar"
+    desc: ""
+  -
+    title: "Hindu: Soni"
+    desc: ""
+  -
+    title: "Hindu: Sood"
+    desc: ""
+  -
+    title: "Hindu: Sourashtra"
+    desc: ""
+  -
+    title: "Hindu: Sozhiya Vellalar"
+    desc: ""
+  -
+    title: "Hindu: Srisayani"
+    desc: ""
+  -
+    title: "Hindu: SSK"
+    desc: ""
+  -
+    title: "Hindu: Subarna Banik"
+    desc: ""
+  -
+    title: "Hindu: Sundhi"
+    desc: ""
+  -
+    title: "Hindu: Sutar"
+    desc: ""
+  -
+    title: "Hindu: Swakula sali"
+    desc: ""
+  -
+    title: "Hindu: Swarnkar"
+    desc: ""
+  -
+    title: "Hindu: Tamboli"
+    desc: ""
+  -
+    title: "Hindu: Tanti"
+    desc: ""
+  -
+    title: "Hindu: Tantuway"
+    desc: ""
+  -
+    title: "Hindu: Telaga"
+    desc: ""
+  -
+    title: "Hindu: Teli"
+    desc: ""
+  -
+    title: "Hindu: Thakkar"
+    desc: ""
+  -
+    title: "Hindu: Thakur"
+    desc: ""
+  -
+    title: "Hindu: Thevar/Mukkulathor"
+    desc: ""
+  -
+    title: "Hindu: Thigala"
+    desc: ""
+  -
+    title: "Hindu: Thiyya"
+    desc: ""
+  -
+    title: "Hindu: Tili"
+    desc: ""
+  -
+    title: "Hindu: Togata"
+    desc: ""
+  -
+    title: "Hindu: Tonk Kshatriya"
+    desc: ""
+  -
+    title: "Hindu: Tribe"
+    desc: ""
+  -
+    title: "Hindu: Turupu Kapu"
+    desc: ""
+  -
+    title: "Hindu: Uppara"
+    desc: ""
+  -
+    title: "Hindu: Vaddera"
+    desc: ""
+  -
+    title: "Hindu: Vaidiki Velanadu"
+    desc: ""
+  -
+    title: "Hindu: Vaish"
+    desc: ""
+  -
+    title: "Hindu: Vaishnav"
+    desc: ""
+  -
+    title: "Hindu: Vaishnav Vanik"
+    desc: ""
+  -
+    title: "Hindu: Vaishnava"
+    desc: ""
+  -
+    title: "Hindu: Vaishya"
+    desc: ""
+  -
+    title: "Hindu: Vaishya Vani"
+    desc: ""
+  -
+    title: "Hindu: Valluvar"
+    desc: ""
+  -
+    title: "Hindu: Valmiki"
+    desc: ""
+  -
+    title: "Hindu: Vania"
+    desc: ""
+  -
+    title: "Hindu: Vaniya"
+    desc: ""
+  -
+    title: "Hindu: Vanjari"
+    desc: ""
+  -
+    title: "Hindu: Vankar"
+    desc: ""
+  -
+    title: "Hindu: Vannar"
+    desc: ""
+  -
+    title: "Hindu: Vannia Kula Kshatriyar"
+    desc: ""
+  -
+    title: "Hindu: Vanniyar"
+    desc: ""
+  -
+    title: "Hindu: Varshney"
+    desc: ""
+  -
+    title: "Hindu: Veershaiva/Veera Saivam"
+    desc: ""
+  -
+    title: "Hindu: Velama"
+    desc: ""
+  -
+    title: "Hindu: Velan"
+    desc: ""
+  -
+    title: "Hindu: Vellalar"
+    desc: ""
+  -
+    title: "Hindu: Vettuva Gounder"
+    desc: ""
+  -
+    title: "Hindu: Vishwakarma"
+    desc: ""
+  -
+    title: "Hindu: Vokkaliga"
+    desc: ""
+  -
+    title: "Hindu: Vysya"
+    desc: ""
+  -
+    title: "Hindu: Yadav/Yadava"
+    desc: ""
+  -
+    title: "Hindu: Others"
+    desc: ""
+
 desired_mother_tongue:
   -
-    title: "First Entry"
+    title: "Hindi"
+    desc: ""
+  -
+    title: "U.P."
+    desc: ""
+  -
+    title: "Awadhi"
+    desc: ""
+  -
+    title: "Bhojpuri"
+    desc: ""
+  -
+    title: "Garhwali"
+    desc: ""
+  -
+    title: "Punjabi"
+    desc: ""
+  -
+    title: "Bihari"
+    desc: ""
+  -
+    title: "Maithili"
+    desc: ""
+  -
+    title: "Magahi"
+    desc: ""
+  -
+    title: "Rajasthani"
+    desc: ""
+  -
+    title: "Marwari"
+    desc: ""
+  -
+    title: "Malwi"
+    desc: ""
+  -
+    title: "Jaipuri"
+    desc: ""
+  -
+    title: "Haryanvi"
+    desc: ""
+  -
+    title: "Himachali"
+    desc: ""
+  -
+    title: "Pahari"
+    desc: ""
+  -
+    title: "Kashmiri"
+    desc: ""
+  -
+    title: "Dogri"
+    desc: ""
+  -
+    title: "Sindhi"
+    desc: ""
+  -
+    title: "Urdu"
+    desc: ""
+  -
+    title: "Marathi"
+    desc: ""
+  -
+    title: "Gujarati"
+    desc: ""
+  -
+    title: "Kutchi"
+    desc: ""
+  -
+    title: "Hindi"
+    desc: ""
+  -
+    title: "Madhya Pradesh"
+    desc: ""
+  -
+    title: "Bundelkhand"
+    desc: ""
+  -
+    title: "Chattisgarhi"
+    desc: ""
+  -
+    title: "Konkani"
+    desc: ""
+  -
+    title: "Sindhi"
+    desc: ""
+  -
+    title: "Tamil"
+    desc: ""
+  -
+    title: "Telugu"
+    desc: ""
+  -
+    title: "Kannada"
+    desc: ""
+  -
+    title: "Malayalam"
+    desc: ""
+  -
+    title: "Nicobarese"
+    desc: ""
+  -
+    title: "Andaman Nicobar"
+    desc: ""
+  -
+    title: "Lakshadweep"
+    desc: ""
+  -
+    title: "Mahl"
+    desc: ""
+  -
+    title: "Tulu"
+    desc: ""
+  -
+    title: "Urdu"
+    desc: ""
+  -
+    title: "Bengali"
+    desc: ""
+  -
+    title: "Oriya"
+    desc: ""
+  -
+    title: "Assamese"
+    desc: ""
+  -
+    title: "Aurnachali"
+    desc: ""
+  -
+    title: "Manipuri"
+    desc: ""
+  -
+    title: "Khasi"
+    desc: ""
+  -
+    title: "Meghalaya"
+    desc: ""
+  -
+    title: "Garo"
+    desc: ""
+  -
+    title: "Jaintia"
+    desc: ""
+  -
+    title: "Mizo"
+    desc: ""
+  -
+    title: "Konyak"
+    desc: ""
+  -
+    title: "Nagaland"
+    desc: ""
+  -
+    title: "Sikkim"
+    desc: ""
+  -
+    title: "Nepali"
+    desc: ""
+  -
+    title: "Lepcha"
+    desc: ""
+  -
+    title: "Bhutia"
+    desc: ""
+  -
+    title: "Limbu"
+    desc: ""
+  -
+    title: "Tripuri"
+    desc: ""
+  -
+    title: "English"
+    desc: ""
+  -
+    title: "Foreign origin"
+    desc: ""
+
 desired_education:
   -
     title: "First Entry"
+    desc: ""
+  -
+    title: "Second Entry"
+    desc: ""
 desired_occupation:
   -
     title: "First Entry"
-desired_income:
+    desc: ""
   -
-    title: "First Entry"
+    title: "Second Entry"
+    desc: ""

@@ -20,32 +20,10 @@
       <!-- right side of the page with the sparkline graphs -->
       <!-- col -->
       <div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
-        <!-- sparks -->
-        <ul id="sparks">
-          <li class="sparks-info">
-            <h5>
-              Total Visitors
-              <span class="txt-color-blue"><%= @user[:visitors] %></span>
-            </h5>
-          </li>
-          <li class="sparks-info">
-            <h5>
-              Last Online
-              <span class="txt-color-blue"><%= time_ago_in_words(@user[:last_sign_in_at]) %></span>
-              </span>
-            </h5>
-          </li>
-          <li class="sparks-info">
-            <h5>
-              Images
-              <span class="txt-color-greenDark">
-                <%= @user[:image].count %>
-              </span>
-            </h5>
-          </li>
-        </ul>
-        <!-- end sparks --> </div>
-      <!-- end col --> </div>
+          <%= render :partial =>'layouts/sparks', :locals => {:user => @user}%>
+      </div>
+      <!-- end col -->
+    </div>
     <!-- end row -->
 
     <!-- row -->
@@ -54,154 +32,78 @@
       <div class="well well-sm">
 
         <div class="row">
-
           <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="well well-light well-sm no-margin no-padding">
-
               <div class="row">
-
                 <div class="col-sm-12">
 
                   <div class="row">
+                  <div class="col-sm-12 col-md-12 col-lg-6">
 
-                    <div class="col-sm-3 profile-pic">
-                      <%= image_tag @user[:avatar].url(:thumb)%>
-                      <div class="padding-10">
-                        <h4 class="font-md"> <strong><%= @user[:image].count %></strong>
-                          <br>
-                          <small>Images</small>
-                        </h4>
-                      </div>
-                    </div>
+                    <%= render :partial =>'layouts/avatar', :locals => {:user => @user}%>
+
                     <div class="col-sm-6">
-                      <h1>
-                        Profile of
-
-                        <span class="semi-bold"><%= (@user['sex'] == "Female") ? "her" : "him" %></span>
-                        <br>
-                        <small>
-                          <% dob = @user[:kundali]['dob'].gsub("/","-") %>
-                          <%= dob ? distance_of_time_in_words(Date::strptime(dob, "%m-%d-%Y"), Time.now) : "" %>
-                          Old
-                        </small>
-                      </h1>
-
-                      <ul class="list-unstyled">
-                        <li>
-                          <p class="text-muted">
-                            <i class="fa fa-phone"></i>
-                            &nbsp;&nbsp;(
-                            <span class="txt-color-darken">On</span>
-                            )
-                            <span class="txt-color-darken">Acceptance</span>
-                          </p>
-                        </li>
-                        <li>
-                          <p class="text-muted">
-                            <i class="fa fa-envelope"></i>
-                            &nbsp;&nbsp;
-                            <a href="#">ON@acceptance</a>
-                          </p>
-                        </li>
-                        <li>
-                          <p class="text-muted">
-                            <i class="fa fa-calendar"></i>
-                            &nbsp;&nbsp;
-                            <span class="txt-color-darken">
-                              <strong>Status</strong> <%= @user[:profile]['marital_status'] %>
-                            </span>
-                          </p>
-                          <p class="text-muted">
-                            <i class="fa fa-calendar"></i>
-                            &nbsp;&nbsp;
-                            <span class="txt-color-darken">
-                              <strong>I am from</strong> <%= @user[:kundali]['birth_city'] %> <%= @user[:kundali]['birth_country'] %>
-                            </span>
-                          </p>
-                          <p class="text-muted">
-                            <i class="fa fa-calendar"></i>
-                            &nbsp;&nbsp;
-                            <span class="txt-color-darken">
-                              <strong>Religion</strong> <%= @user[:religion]['religion'] %>
-                            </span>
-                          </p>
-                          <p class="text-muted">
-                            <i class="fa fa-calendar"></i>
-                            &nbsp;&nbsp;
-                            <span class="txt-color-darken">
-                              <strong>Caste</strong> <%= @user[:religion]['caste'] %> <%= @user[:religion]['sub_caste'] %>
-                            </span>
-                          </p>
-                          <p class="text-muted">
-                            <i class="fa fa-calendar"></i>
-                            &nbsp;&nbsp;
-                            <span class="txt-color-darken">
-                              <strong>Manglik</strong> <%= @user[:kundali]['manglik'] %> Manglik
-                            </span>
-                          </p>
-                          <p class="text-muted">
-                            <i class="fa fa-calendar"></i>
-                            &nbsp;&nbsp;
-                            <span class="txt-color-darken">
-                              <strong>Desired Income</strong> <%= @user[:desire]['desired_income'] %>
-                            </span>
-                          </p>
-                          <p>
-                          </p>
-                        </li>
-                      </ul>
-                      <br>
-                      <p class="font-sm">
-                        <i>A little about me...</i>
-                        <br>
-                        <%= raw @user[:about][:me] %>
-                      </p>
-                      <br>
+                      <%= render :partial =>'layouts/cardinfo', :locals => {:user => @user}%>
                       <% if  current_user.id != @user[:id] %>
-
-                      <%= form_tag({:action=>
-                      'interest', :controller => "profiles"}, {:remote => true}) do %>
-                      <%= hidden_field_tag 'to_user_id', @user[:id] %>
-                      <button class="btn btn-success interest" type="submit">Express Interest</button
-                          <% end %>
+                        <%= form_tag({:action=>'interest', :controller => "profiles"}) do %>
+                        <%= hidden_field_tag 'to_user_id', @user[:id] %>
+                        <button class="bounceIn animated btn btn-success interest" type="submit">Express Interest</button>
+                        <% end %>
                       <% end %>
-                      <br></div>
+                      <br>
+                    </div>
                   </div>
-                </div>
-              </div>
-
-              <div class="row">
-               <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                  <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                   <%= render :partial =>'layouts/profiles/show/images'%>
                 </article>
-              <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                  <%= render :partial =>'layouts/profiles/show/desire'%>
-                </article>
-              <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                  <%= render :partial =>'layouts/profiles/show/education'%>
-                </article>
-              <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                  <%= render :partial =>'layouts/profiles/show/family'%>
-                </article>
-              <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                  <%= render :partial =>'layouts/profiles/show/hobby'%>
-                </article>
-              <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                  <%= render :partial =>'layouts/profiles/show/lifestyle'%>
-                </article>
-
+                </div>
               </div>
-              <!-- end row -->
+            </div>
               </div>
 
           </div>
 
+        </div>
+        <div class="row">
+              <article class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
+                <h3 class="text-primary">About Me</h3>
+                  <%= raw @user[:about][:me] %>
+                </article>
+                <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <h3 class="text-primary">Religion</h3>
+                  <%= render :partial =>'layouts/profiles/show/religion'%>
+                </article>
+                <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <h3 class="text-primary">Kundali</h3>
+                  <%= render :partial =>'layouts/profiles/show/kundali'%>
+                </article>
+                <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <h3 class="text-primary">Education</h3>
+                  <%= render :partial =>'layouts/profiles/show/education'%>
+                </article>
+              <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+              <h3 class="text-primary">Family</h3>
+                  <%= render :partial =>'layouts/profiles/show/family'%>
+                </article>
+              <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+              <h3 class="text-primary">Hobby</h3>
+                  <%= render :partial =>'layouts/profiles/show/hobby'%>
+                </article>
+              <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+              <h3 class="text-primary">lifestyle</h3>
+                  <%= render :partial =>'layouts/profiles/show/lifestyle'%>
+                </article>
+              <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+              <h3 class="text-primary">Desire</h3>
+                  <%= render :partial =>'layouts/profiles/show/desire'%>
+              </article>
         </div>
 
       </div>
 
     </div>
 
-    <!-- end row --> </div>
+    <!-- end row -->
+    </div>
   <!-- END MAIN CONTENT -->
 </div>
