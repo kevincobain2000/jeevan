@@ -22,7 +22,7 @@ class DashboardController < ApplicationController
       avatar = "<img src='#{user.avatar}' class='img-rounded' style='height:50px;width:50px' >"
       profile_link = "<a href='profiles/#{user.profile.id}'>#{user.name}</a>"
       dob = user[:dob].gsub("/","-")
-      age = time_ago_in_words(Date::strptime(dob, "%d-%m-%Y"), Time.now)
+      age = time_ago_in_words(Date::strptime(dob, "%m-%d-%Y"), Time.now)
 
       updated_at = "#{time_ago_in_words(user.updated_at)} ago"
 
