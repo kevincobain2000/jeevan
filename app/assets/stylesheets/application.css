@@ -21,9 +21,3 @@
  *= require alertify/bootstrap
  *= require dataTables/jquery.dataTables.bootstrap3
  */
-
-
-
-.selectized {
-	font-weight: bold;
-}

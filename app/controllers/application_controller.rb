@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
   def make_user(user)
     return {
       id:         user.id,
+      dob:        user.dob,
+      name:       user.name,
       updated_at: user.updated_at,
       sex:        user.sex,
       visitors:   Visitor.where(viewed_id: user.id).count,
@@ -26,11 +28,14 @@ class ApplicationController < ActionController::Base
       desire:     user.desire,
       image:      user.images.all,
       avatar:     user.avatar
+      # responses:  Interest.where(user_id: current_user.id) # to do
     }
   end
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :sex
+    devise_parameter_sanitizer.for(:sign_up) << :name
+    devise_parameter_sanitizer.for(:sign_up) << :dob
   end
   private
   def user_activity

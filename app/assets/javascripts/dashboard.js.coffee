@@ -9,11 +9,6 @@ $(document).on "page:change", ->
     inv = gon.inv
   $("#inv").dataTable
     aaData:inv
-    aoColumns: [
-        { "sWidth": "5%" },
-        { "sWidth": "10%" },
-        { "sWidth": "10%" },
-        { "sWidth": "10%" },
-    ]
+
     bFilter: true
     bLengthChange:false

@@ -15,10 +15,15 @@ class DashboardController < ApplicationController
     ret = []
     obj.each do |i|
       user = User.find(i.id)
-      logger.info("Debug #{user.profile.id}")
-      av = "<img src='#{user.avatar}' style='height:50px;width:50px' >"
-      pl = "<a href='profiles/#{user.profile.id}'>Show</a>"
-      ret << [av, i.user_id, pl, "#{time_ago_in_words(i.created_at)} ago"]
+
+      avatar = "<img src='#{user.avatar}' class='img-rounded' style='height:50px;width:50px' >"
+      profile_link = "<a href='profiles/#{user.profile.id}'>Show</a>"
+      updated_at = "#{time_ago_in_words(user.updated_at)} ago"
+
+      # dob = dob.gsub("/","-")
+      # age = distance_of_time_in_words(Date::strptime(dob, "%d-%m-%Y"), Time.now) : ""
+
+      ret << [avatar, profile_link, user.religion, user.kundali.birth_city,user.profile.posted_by, updated_at]
     end
     return ret
   end
