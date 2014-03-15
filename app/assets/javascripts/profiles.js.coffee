@@ -132,7 +132,7 @@ $(document).on "page:change", ->
   $(".phone").inputmask("mask", {"mask": "(999) 9999-999-999"});
 
   $('form').submit ->
-    alertify.success("Saved")
+    alertify.success("Done !")
     jq_superbox_remov = $("#imageid").attr("value")
     $("#"+jq_superbox_remov).remove()
     $(".superbox-list").removeClass "active"
@@ -152,10 +152,6 @@ $(document).on "page:change", ->
     $("#desired-age-slider").ionRangeSlider
       prettify: false
       hasGrid: true
-
-  $("#tab-kundali").click (e) ->
-    $("#dob").datepicker
-      defaultDate: "01/01/01"
 
   $("#tab-family").click (e) ->
     $("#family-income-slider").ionRangeSlider

@@ -2,7 +2,7 @@
   <%= image_tag user[:avatar].url(:thumb)%>
   <div class="padding-10">
     <h4 class="font-md">
-      <strong><%= user[:image].count %></strong>
+      <strong> <b class="badge bg-color-green bounceIn animated"><%= link_to user[:image].count, profile_path(:id =>user[:profile][:id]), :class=> "txt-color-white" %></b></strong>
       <small>Images</small>
     </h4>
   </div>

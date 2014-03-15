@@ -20257,3 +20257,6 @@ img.away {
   -o-animation-fill-mode: both;
   animation-fill-mode: both;
 }
+.selectized {
+  font-weight: bold;
+}

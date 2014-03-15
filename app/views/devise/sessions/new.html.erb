@@ -52,6 +52,9 @@
               <header>Sign In</header>
               <fieldset>
                 <section>
+                  <%= devise_error_messages! %>
+                </section>
+                <section>
                   <label class="label">E-mail</label>
                   <label class="input">
                     <i class="icon-append fa fa-user"></i>
@@ -64,16 +67,18 @@
                     <i class="icon-append fa fa-lock"></i>
                     <%= f.password_field :password, :placeholder => "Password" %>
                   </label>
-                  <div class="note">
-                    <%= render "devise/shared/links" %>
-                  </div>
                 </section>
+                </fieldset>
+                <fieldset>
                 <section>
                   <label class="checkbox">
                     <%= f.check_box :remember_me, :checked => true %>
                     <i></i>
                     Stay signed in
                   </label>
+                  <div class="note">
+                    <%= render "devise/shared/links" %>
+                  </div>
                 </section>
               </fieldset>
               <footer>
