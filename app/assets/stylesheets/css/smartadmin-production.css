@@ -7999,7 +7999,7 @@ div.dataTables_length select {
   font-size: 13px;
 }
 div.dataTables_filter {
-  position: absolute;
+  position: relative;
   left: 10px;
   top: -38px;
 }

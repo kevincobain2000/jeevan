@@ -7,6 +7,27 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   after_filter :user_activity
   # protect_from_forgery with: :null_session
+
+  def make_user(user)
+    return {
+      id:         user.id,
+      updated_at: user.updated_at,
+      sex:        user.sex,
+      visitors:   Visitor.where(viewed_id: user.id).count,
+      profile:    user.profile,
+      contact:    user.contact,
+      about:      user.about,
+      religion:   user.religion,
+      kundali:    user.kundali,
+      family:     user.family,
+      hobby:      user.hobby,
+      education:  user.education,
+      lifestyle:  user.lifestyle,
+      desire:     user.desire,
+      image:      user.images.all,
+      avatar:     user.avatar
+    }
+  end
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :sex
@@ -15,4 +36,5 @@ class ApplicationController < ActionController::Base
   def user_activity
     current_user.try :touch
   end
+
 end

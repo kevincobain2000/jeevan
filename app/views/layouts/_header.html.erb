@@ -92,17 +92,17 @@
   <!-- end logout button -->
 
   <!-- search mobile button (this is hidden till mobile view port) -->
-  <div id="search-mobile" class="btn-header transparent pull-right">
+  <!-- <div id="search-mobile" class="btn-header transparent pull-right">
     <span>
       <a href="javascript:void(0)" title="Search">
         <i class="fa fa-search"></i>
       </a>
     </span>
-  </div>
+  </div> -->
   <!-- end search mobile button -->
 
   <!-- input: search field -->
-  <form action="#search.html" class="header-search pull-right">
+<!--   <form action="#search.html" class="header-search pull-right">
     <input type="text" placeholder="Find reports and more" id="search-fld">
     <button type="submit">
       <i class="fa fa-search"></i>
@@ -110,15 +110,18 @@
     <a href="javascript:void(0);" id="cancel-search-js" title="Cancel Search">
       <i class="fa fa-times"></i>
     </a>
-  </form>
+  </form> -->
   <!-- end input: search field -->
   <!-- multiple lang dropdown : find all flags in the image folder -->
         <ul class="header-dropdown-list hidden-xs">
           <li>
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-bullhorn"></i> <span> EN </span> <i class="fa fa-angle-down"></i> </a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-gear"></i> <i class="fa fa-angle-down"></i> </a>
             <ul class="dropdown-menu pull-right">
               <li class="active">
-                <a href="javascript:void(0);"> More Languages Coming ..</a>
+              <%= link_to "Change your password", edit_user_registration_path %>
+              </li>
+              <li>
+                <a href="javascript:void(0);"> Disable Account</a>
               </li>
             </ul>
           </li>
