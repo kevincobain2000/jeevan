@@ -1,13 +1,14 @@
 <h1>
   Profile of
   <span class="semi-bold">
-    <%= (@user['sex'] == "Female") ? "her" : "him" %></span>
+    <%= (@user[:sex] == "Female") ? "her" : "him" %></span>
   <br>
-  <% if @user[:kundali]['dob'] %>
+  <% if @user[:kundali][:dob] %>
     <small>
       <% dob = @user[:kundali]['dob'].gsub("/","-") %>
       <%= !dob.empty? ? distance_of_time_in_words(Date::strptime(dob, "%d-%m-%Y"), Time.now) : "" %></small>
-  <% end %></h1>
+  <% end %>
+</h1>
 <ul class="list-unstyled">
   <li>
     <p class="text-muted">
