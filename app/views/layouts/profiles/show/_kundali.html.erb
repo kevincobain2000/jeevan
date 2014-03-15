@@ -11,12 +11,12 @@
     <!-- widget content -->
     <!-- <div class="widget-body"> -->
 
-    <% categories = ['desired_height', 'desired_age', 'desired_marital_status', 'desired_country', 'desired_city', 'desired_religion', 'desired_caste', 'desired_mother_tongue', 'desired_manglik', 'desired_diet', 'desired_smoke', 'desired_drink', 'desired_complexion', 'desired_body', 'desired_challenged', 'desired_education', 'desired_occupation', 'desired_income'] %>
+    <% categories = ['birth_country', 'birth_city', 'dob', 'tob', 'manglik', 'sub_sign', 'moon_sign', 'nakshatra'] %>
       <dl class="dl-horizontal">
           <% categories.each do |category| %>
           <% heading = category.gsub "_", " " %>
-          <dt><%= heading.capitalize %>:</dt>
-          <dd><%= @user[:desire][category] %></dd>
+          <dt><%= heading.capitalize %></dt>
+          <dd><%= @user[:kundali][category] %></dd>
       <% end %>
       </dl>
 

@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_filter :initialize_tables, :load_gon
+  before_filter :load_gon
   before_filter :is_this_user_profile, only: [:edit]
   before_filter :get_current_user, only: [:edit]
   before_filter :get_showing_user, only: [:show]
@@ -29,7 +29,7 @@ class ProfilesController < ApplicationController
     render json: { :status => 200 }
   end
   def remove_image
-    # current_user.images.destroy(remove_image_params['imageid'])
+    current_user.images.destroy(remove_image_params['imageid'])
     render json: { :status => 200 }
   end
   def modify_profile
@@ -67,8 +67,6 @@ class ProfilesController < ApplicationController
     render json: { :status => 200 }
   end
   def modify_lifestyle
-    logger.info("Debug #{params}")
-    logger.info("Debug #{lifestyle_params}")
     current_user.lifestyle.update(lifestyle_params)
     render json: { :status => 200 }
   end
@@ -90,7 +88,7 @@ class ProfilesController < ApplicationController
         find_first.touch
       end
     end
-    redirect_to(profiles_path)
+    redirect_to(explore_index_path)
   end
 
   # When accept or reject button is clicked
@@ -103,23 +101,10 @@ class ProfilesController < ApplicationController
       interest.update(:response => 0)
     end
 
-    redirect_to(profiles_path)
+    redirect_to(explore_index_path)
   end
 
   protected
-  def initialize_tables
-    current_user.profile    = Profile.find_or_initialize_by(user_id: current_user.id, sex:current_user.sex)
-    current_user.contact    = Contact.find_or_initialize_by(user_id: current_user.id)
-    current_user.religion   = Religion.find_or_initialize_by(user_id: current_user.id)
-    current_user.kundali    = Kundali.find_or_initialize_by(user_id: current_user.id)
-    current_user.about      = About.find_or_initialize_by(user_id: current_user.id)
-    current_user.family     = Family.find_or_initialize_by(user_id: current_user.id)
-    current_user.desire     = Desire.find_or_initialize_by(user_id: current_user.id)
-    current_user.education  = Education.find_or_initialize_by(user_id: current_user.id)
-    current_user.hobby      = Hobby.find_or_initialize_by(user_id: current_user.id)
-    current_user.lifestyle  = Lifestyle.find_or_initialize_by(user_id: current_user.id)
-    current_user.occupation = Occupation.find_or_initialize_by(user_id: current_user.id)
-  end
 
   def load_gon
     selectize_yml_path = "#{Rails.root}/app/assets/yaml/selectize/profile/edit/items.yml"
@@ -129,52 +114,17 @@ class ProfilesController < ApplicationController
   # for editing profile
   def is_this_user_profile
     if (current_user.profile.id != params[:id].to_i)
-      redirect_to(profiles_path)
+      redirect_to(explore_index_path)
     end
   end
   def get_current_user
-    @user = {}
-    @user[:profile]   = current_user.profile
-    @user[:contact]   = current_user.contact
-    @user[:about]     = current_user.about
-    @user[:religion]  = current_user.religion
-    @user[:kundali]   = current_user.kundali
-    @user[:family]    = current_user.family
-    @user[:hobby]     = current_user.hobby
-    @user[:education] = current_user.education
-    @user[:lifestyle] = current_user.lifestyle
-    @user[:desire]    = current_user.desire
-    @user[:image]     = current_user.images.all
+    @user = make_user(current_user)
   end
   def get_showing_user
-    logger.info("Debug #{params.inspect}")
-    user = User.find(Profile.find(params[:id]).user_id)
-    @user = {}
-    @user[:id]        = user.id
-    @user[:last_sign_in_at]  = user.last_sign_in_at
-    @user[:sex]  = user.sex
-
-    @user[:visitors]  = Visitor.where(viewed_id: user.id).count
-
-    @user[:profile]   = user.profile
-    @user[:contact]   = user.contact
-    @user[:about]     = user.about
-    @user[:religion]  = user.religion
-    @user[:kundali]   = user.kundali
-    @user[:family]    = user.family
-    @user[:hobby]     = user.hobby
-    @user[:education] = user.education
-    @user[:lifestyle] = user.lifestyle
-    @user[:desire]    = user.desire
-    @user[:image]     = user.images.all
-    @user[:avatar]    = user.avatar
+    @user = make_user(User.find(Profile.find(params[:id]).user_id))
   end
-
 
   private
-  def edit_params
-    params.permit(:format)
-  end
   def image_params
     params.permit("avatar")
   end

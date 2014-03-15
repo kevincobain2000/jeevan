@@ -1,3 +1,4 @@
+<%= include_gon %>
 <div id="main" role="main">
   <%= render :partial =>
   "layouts/ribbon", :locals => {:papa => "Home", :son => "Edit"} %>
@@ -14,47 +15,12 @@
           Editing Profile
         </h1>
       </div>
-      <!-- end col -->
-      <!-- right side of the page with the sparkline graphs -->
-      <!-- col -->
       <div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
         <!-- sparks -->
-        <ul id="sparks">
-          <li class="sparks-info">
-            <h5>
-              My Income
-              <span class="txt-color-blue">$47,171</span>
-            </h5>
-            <div class="sparkline txt-color-blue hidden-mobile hidden-md hidden-sm">
-              1300, 1877, 2500, 2577, 2000, 2100, 3000, 2700, 3631, 2471, 2700, 3631, 2471
-            </div>
-          </li>
-          <li class="sparks-info">
-            <h5>
-              Site Traffic
-              <span class="txt-color-purple">
-                <i class="fa fa-arrow-circle-up" data-rel="bootstrap-tooltip" title="Increased"></i>
-                &nbsp;45%
-              </span>
-            </h5>
-            <div class="sparkline txt-color-purple hidden-mobile hidden-md hidden-sm">110,150,300,130,400,240,220,310,220,300, 270, 210</div>
-          </li>
-          <li class="sparks-info">
-            <h5>
-              Site Orders
-              <span class="txt-color-greenDark">
-                <i class="fa fa-shopping-cart"></i>
-                &nbsp;2447
-              </span>
-            </h5>
-            <div class="sparkline txt-color-greenDark hidden-mobile hidden-md hidden-sm">110,150,300,130,400,240,220,310,220,300, 270, 210</div>
-          </li>
-        </ul>
+        <%= render :partial =>'layouts/sparks', :locals => {:user => @user}%>
         <!-- end sparks -->
       </div>
-      <!-- end col -->
     </div>
-    <!-- end row -->
     <!-- row -->
     <div class="col-sm-12">
       <div class="well well-sm">
@@ -64,71 +30,12 @@
               <div class="row">
                 <div class="col-sm-12">
                   <div class="row">
-                    <div class="col-sm-3 profile-pic">
-                      <%= image_tag current_user.avatar.url(:thumb)%>
-                      <div class="padding-10">
-                        <h4 class="font-md">
-                          <strong>1,543</strong>
-                          <br>
-                          <small>Followers</small>
-                        </h4>
-                        <br>
-                        <h4 class="font-md">
-                          <strong>419</strong>
-                          <br>
-                          <small>Connections</small>
-                        </h4>
+                    <div class="col-sm-12 col-md-12 col-lg-6">
+                      <%= render :partial =>'layouts/avatar', :locals => {:user => @user}%>
+                      <div class="col-sm-6">
+                        <%= render :partial =>'layouts/cardinfo', :locals => {:user => @user}%>
                       </div>
                     </div>
-                    <div class="col-sm-6">
-                      <h1>
-                        John
-                        <span class="semi-bold">Doe</span>
-                        <br>
-                        <small>CEO, SmartAdmin</small>
-                      </h1>
-                      <ul class="list-unstyled">
-                        <li>
-                          <p class="text-muted">
-                            <i class="fa fa-phone"></i>
-                            &nbsp;&nbsp;(
-                            <span class="txt-color-darken">313</span>
-                            )
-                            <span class="txt-color-darken">464</span>
-                            -
-                            <span class="txt-color-darken">6473</span>
-                          </p>
-                        </li>
-                        <li>
-                          <p class="text-muted">
-                            <i class="fa fa-envelope"></i>
-                            &nbsp;&nbsp;
-                            <a href="mailto:simmons@smartadmin">ceo@smartadmin.com</a>
-                          </p>
-                        </li>
-                        <li>
-                          <p class="text-muted">
-                            <i class="fa fa-skype"></i>
-                            &nbsp;&nbsp;
-                            <span class="txt-color-darken">john12</span>
-                          </p>
-                        </li>
-                        <li>
-                          <p class="text-muted">
-                            <i class="fa fa-calendar"></i>
-                            &nbsp;&nbsp;
-                            <span class="txt-color-darken">
-                              Free after
-                              <a href="javascript:void(0);" rel="tooltip" title="" data-placement="top" data-original-title="Create an Appointment">4:30 PM</a>
-                            </span>
-                          </p>
-                        </li>
-                      </ul>
-                      <br>
-                      <p class="font-md">
-                        <i>A little about me...</i>
-                      </p>
-                      <br></div>
                   </div>
                 </div>
               </div>
@@ -136,7 +43,6 @@
                 <div class="col-sm-12">
                   <hr>
                   <div class="padding-10" id="tabs">
-
                     <ul class="nav nav-tabs">
                       <li class="active">
                         <a href="#a1" data-toggle="tab">Profile Pic</a>
@@ -145,7 +51,7 @@
                         <a href="#a3" data-toggle="tab">Contact</a>
                       </li>
                       <li>
-                        <a href="#a4" id="ta4" data-toggle="tab">Desires</a>
+                        <a href="#a4" id="tab-desire" data-toggle="tab">Desires</a>
                       </li>
                       <li>
                         <a href="#a5" data-toggle="tab">Images</a>
@@ -154,16 +60,16 @@
                         <a href="#a6" data-toggle="tab">Religion</a>
                       </li>
                       <li>
-                        <a href="#a7" data-toggle="tab">Kundali</a>
+                        <a href="#a7" id="tab-kundali" data-toggle="tab">Kundali</a>
                       </li>
                       <li>
                         <a href="#a8" data-toggle="tab">Hobby</a>
                       </li>
                       <li>
-                        <a href="#a9" data-toggle="tab">Lifestyle</a>
+                        <a href="#a9" id="tab-lifestyle" data-toggle="tab">Lifestyle</a>
                       </li>
                       <li>
-                        <a href="#a10" id="ta10" data-toggle="tab">Family</a>
+                        <a href="#a10" id="tab-family" data-toggle="tab">Family</a>
                       </li>
                       <li>
                         <a href="#a11" data-toggle="tab">Education</a>
@@ -171,12 +77,13 @@
                       <li>
                         <a href="#a12" data-toggle="tab">About Me</a>
                       </li>
+                      <li>
+                        <a href="#a13" data-toggle="tab">Basic</a>
+                      </li>
                     </ul>
                     <div class="tab-content padding-top-10">
                       <div class="tab-pane fade in active" id="a1">
-                        <div class="col-sm-12 col-md-12 col-lg-12">
-                          <%= render :partial =>'layouts/profiles/edit/avatar'%>
-                        </div>
+                        <%= render :partial =>'layouts/profiles/edit/avatar'%>
                       </div>
                       <div class="tab-pane fade" id="a2">
                         <%= render :partial =>'layouts/profiles/edit/basic'%>
@@ -210,6 +117,9 @@
                       </div>
                       <div class="tab-pane fade" id="a12">
                         <%= render :partial =>'layouts/profiles/edit/aboutme'%>
+                      </div>
+                      <div class="tab-pane fade" id="a13">
+                        <%= render :partial =>'layouts/profiles/edit/basic'%>
                       </div>
                       <!-- end tab -->
                     </div>
