@@ -4,11 +4,17 @@
 $(document).on "page:change", ->
   $('#tabs').tabs()
 
-  inv = []
-  if (typeof gon != 'undefined' && gon.inv)
-    inv = gon.inv
-  $("#inv").dataTable
-    aaData:inv
-
-    bFilter: true
-    bLengthChange:false
+  if (typeof gon != 'undefined' && gon.dashboard)
+    $("#in_interests").dataTable
+      # aaData:gon.dashboard['in_interests']
+      aaData:gon.dashboard['in_interests']
+      bFilter: true
+      bLengthChange:false
+    $("#out_interests").dataTable
+      aaData:gon.dashboard['out_interests']
+      bFilter: true
+      bLengthChange:false
+    $("#in_visitors").dataTable
+      aaData:gon.dashboard['in_visitors']
+      bFilter: true
+      bLengthChange:false

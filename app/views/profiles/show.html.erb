@@ -45,10 +45,10 @@
                     <div class="col-sm-6">
                       <%= render :partial =>'layouts/cardinfo', :locals => {:user => @user}%>
                       <% if  current_user.id != @user[:id] %>
-                      <%= form_tag({:action=>'interest', :controller => "profiles"}) do %>
-                      <%= hidden_field_tag 'to_user_id', @user[:id] %>
-                      <button class="btn btn-success interest" type="submit">Express Interest</button>
-                          <% end %>
+                        <%= form_tag({:action=>'interest', :controller => "profiles"}) do %>
+                        <%= hidden_field_tag 'to_user_id', @user[:id] %>
+                        <button class="bounceIn animated btn btn-success interest" type="submit">Express Interest</button>
+                        <% end %>
                       <% end %>
                       <br>
                     </div>
