@@ -2,7 +2,10 @@
   <div id="logo-group">
     <!-- PLACE YOUR LOGO HERE -->
     <span id="logo">
-      <%= image_tag("logo.png") %></span>
+      <a href="/">
+        <%= image_tag("logo.png") %>
+      </a>
+    </span>
     <!-- Note: The activity badge color changes when clicked and resets the number to 0
         Suggestion: You may want to set a flag when this happens to tick off all checked messages / notifications -->
     <span id="activity" class="activity-dropdown"> <i class="fa fa-user"></i> <b class="badge">21</b>
@@ -12,13 +15,9 @@
     <div class="ajax-dropdown">
 
       <!-- the ID links are fetched via AJAX to the ajax container "ajax-notifications" -->
-      <div class="btn-group btn-group-justified" data-toggle="buttons">
+      <div class="btn-group btn-group-justified">
         <label class="btn btn-default">
-          <input type="radio" name="activity" id="ajax/notify/mail.html">Msgs (14)</label>
-        <label class="btn btn-default">
-          <input type="radio" name="activity" id="ajax/notify/notifications.html">notify (3)</label>
-        <label class="btn btn-default">
-          <input type="radio" name="activity" id="ajax/notify/tasks.html">Tasks (4)</label>
+          Notifications</label>
       </div>
 
       <!-- notification content -->
@@ -26,8 +25,9 @@
 
         <div class="alert alert-transparent">
           <h4>Click a button to show messages here</h4>
-          This blank page message helps protect your privacy, or you can show the first message here automatically.
-        </div> <i class="fa fa-lock fa-4x fa-border"></i>
+          To Do
+        </div>
+        <hr>
 
       </div>
       <!-- end notification content -->
@@ -44,23 +44,24 @@
   <!-- END AJAX-DROPDOWN -->
 </div>
 <div id="project-context" class="">
-        <span class="label">Whats New</span>
-        <span id="project-selector" class="popover-trigger-element dropdown-toggle" data-toggle="dropdown">Recent projects <i class="fa fa-angle-down"></i></span>
+        <span class="label">Quick Navigation</span>
+        <span id="project-selector" class="popover-trigger-element dropdown-toggle" data-toggle="dropdown">Search <i class="fa fa-angle-down"></i></span>
 
         <!-- Suggestion: populate this list with fetch and push technique -->
         <ul class="dropdown-menu">
           <li>
-            <a href="javascript:void(0);">Online e-merchant management system - attaching integration with the iOS</a>
-          </li>
-          <li>
-            <a href="javascript:void(0);">Notes on pipeline upgradee</a>
-          </li>
-          <li>
-            <a href="javascript:void(0);">Assesment Report for merchant account</a>
+            <%= link_to "Search", explore_index_path %>
           </li>
           <li class="divider"></li>
           <li>
-            <a href="javascript:void(0);"><i class="fa fa-power-off"></i> Clear</a>
+            <%= link_to "Show My Profile", profile_path(:id =>current_user.profile.id) %>
+          </li>
+          <li>
+            <%= link_to "Edit My Profile", edit_profile_path(:id =>current_user.profile.id), "data-no-turbolink" => true %>
+          </li>
+          <li class="divider"></li>
+          <li>
+            <%= link_to "Visitors & Interests", dashboard_index_path %>
           </li>
         </ul>
         <!-- end dropdown-menu-->
@@ -92,14 +93,14 @@
   <!-- end logout button -->
 
   <!-- search mobile button (this is hidden till mobile view port) -->
-  <!-- <div id="search-mobile" class="btn-header transparent pull-right">
+<!--   <div id="search-mobile" class="btn-header transparent pull-right">
     <span>
       <a href="javascript:void(0)" title="Search">
         <i class="fa fa-search"></i>
       </a>
     </span>
-  </div> -->
-  <!-- end search mobile button -->
+  </div>
+ -->  <!-- end search mobile button -->
 
   <!-- input: search field -->
 <!--   <form action="#search.html" class="header-search pull-right">

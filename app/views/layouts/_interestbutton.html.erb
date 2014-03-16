@@ -1,0 +1,32 @@
+<% if  current_user.id != user[:id] && user[:out_response].nil? && user[:in_response].nil? %>
+  <%= form_tag({:action=>'interest', :controller => "profiles"}, :remote => true) do %>
+    <%= hidden_field_tag 'to_user_id', user[:id] %>
+    <button class="bounceIn animated btn btn-success interest" type="submit">Express Interest</button>
+  <% end %>
+<% end %>
+
+<% if !user[:out_response].nil? %>
+	<% if user[:out_response].response == 0 %>
+		Rejected
+	<% elsif user[:out_response].response == 1 %>
+		Accepted
+	<% else %>
+	    Waiting
+	<% end %>
+<% end %>
+
+<% if  current_user.id != user[:id] && !user[:in_response].nil? && user[:in_response].response.nil? %>
+  <%= form_tag({:action=>'interest_response', :controller => "profiles"}, :remote => true) do %>
+    <%= hidden_field_tag 'to_user_id', user[:id] %>
+    <button class="bounceIn animated btn btn-success interest" name="commit" value="Accept" type="submit">Accept</button>
+    <button class="bounceIn animated btn btn-success interest" name="commit" value="Reject" type="submit">Not Interested</button>
+  <% end %>
+<% end %>
+
+<% if !user[:in_response].nil? %>
+	<% if user[:in_response].response == 0 %>
+		Rejected
+	<% elsif user[:in_response].response == 1 %>
+		Accepted
+	<% end %>
+<% end %>

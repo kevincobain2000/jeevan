@@ -88,20 +88,22 @@ class ProfilesController < ApplicationController
         find_first.touch
       end
     end
-    redirect_to(explore_index_path)
+    render json: { :status => 200 }
+    # redirect_to(explore_index_path)
   end
 
   # When accept or reject button is clicked
   def interest_response
     commit = params[:commit]
+    logger.info("Debug Params inspect #{params.inspect}")
     interest = User.find(params[:from_user_id]).interests.where(:to_user_id => current_user.id).first
     if commit == "Accept"
       interest.update(:response => 1)
-    else
+    elsif commit == "Reject"
       interest.update(:response => 0)
     end
 
-    redirect_to(explore_index_path)
+    render json: { :status => 200 }
   end
 
   protected
