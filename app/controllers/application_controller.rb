@@ -9,6 +9,12 @@ class ApplicationController < ActionController::Base
   # protect_from_forgery with: :null_session
 
   def make_user(user)
+    # in_responses_waiting = Interest.where(to_user_id: current_user.id, response: nil)
+    # in_responses_waiting_profiles = []
+    # in_responses_waiting.each do |in_resp|
+    #   in_responses_waiting_profiles << Profile.find(user_id: in_resp.user_id)
+    # end
+
     return {
       id:         user.id,
       dob:        user.dob,
@@ -28,7 +34,8 @@ class ApplicationController < ActionController::Base
       desire:     user.desire,
       image:      user.images.all,
       avatar:     user.avatar,
-      responses:  Interest.where(to_user_id: current_user.id, user_id: user.id) # to do
+      in_response:  Interest.where(to_user_id: current_user.id, user_id: user.id).first,
+      out_response: Interest.where(user_id: current_user.id, to_user_id: user.id).first
     }
   end
   protected
