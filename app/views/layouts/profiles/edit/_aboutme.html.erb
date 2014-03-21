@@ -1,15 +1,20 @@
-<%= render :partial =>'layouts/alert'%>
+<%= render :partial =>'layouts/alert', :locals => {:heading => "Creating a beautiful, personalized web presence has never been simpler.", :description => "Having an about yourself text will make it easier for people to find and learn about you and your family"}%>
 <%= form_tag({:action=>'modify_about'}, {:remote => true}) do %>
   <input type="hidden" name="me" id="about-me" type="hidden">
   <button type="submit" id="submit-about-me" class="btn btn-success pull-right hidden">
     Save
   </button>
 <% end %>
-<button id="save" class="btn btn-link pull-right" onclick="save()" type="button">Save</button>
-<button id="edit" class="btn btn-link pull-right" onclick="edit()" type="button">Edit</button>
+  <button id="edit" class="btn btn-info pull-right" onclick="edit()" type="button"><i class="fa fa-edit"></i> Edit</button>
+  <button id="save" type="submit" class="btn btn-success pull-right" onclick="save()" type="button"><i class="fa fa-check"></i> Save</button>
 <script type="text/javascript">
   var edit = function() {
-      $('.click2edit').summernote({focus: true});
+      $(".click2edit").summernote({
+        focus: true,
+        height: 350,
+        toolbar: [['style', ['bold', 'italic', 'underline', 'clear']], ['fontsize', ['fontsize']], ['color', ['color']], ['para', ['ul', 'ol', 'paragraph']], ['height', ['height']], ['help', ['help']]]
+});
+
   };
   var save = function() {
                                 var aHTML = $('.click2edit').code();

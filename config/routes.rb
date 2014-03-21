@@ -20,10 +20,15 @@ Jeevan::Application.routes.draw do
       post :interest_response
     end
   end
+  resources :explore do
+    collection do
+      post :search
+    end
+  end
 
   get "home/index"
   resources :dashboard
-  resources :explore
+  resources :contact
   devise_for :users
   authenticated :user do
     root :to => 'explore#index', :as => :authenticated_root
