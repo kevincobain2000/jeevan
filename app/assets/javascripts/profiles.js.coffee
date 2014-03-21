@@ -134,7 +134,7 @@ $(document).on "page:change", ->
   $(".phone").inputmask("mask", {"mask": "(999) 9999-999-999"});
 
   $('form').submit ->
-    alertify.success("Done !")
+    alertify.success("<strong>Done !</strong>")
     jq_superbox_remov = $("#imageid").attr("value")
     $("#"+jq_superbox_remov).remove()
     $(".superbox-list").removeClass "active"

@@ -1,4 +1,4 @@
-<%= render :partial =>'layouts/alert'%>
+<%= render :partial =>'layouts/alert', :locals => {:heading => "Profile Pic", :description => "Upload your profile picture"}%>
 <%= form_tag({:action=>'modify_contact'}, {:remote=>true, :class=>"smart-form"}) do %>
   <fieldset>
     <legend>

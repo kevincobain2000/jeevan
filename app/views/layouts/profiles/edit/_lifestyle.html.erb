@@ -1,4 +1,4 @@
-<%= render :partial =>'layouts/alert'%>
+<%= render :partial =>'layouts/alert', :locals => {:heading => "Your Lifestyle", :description => "What movies do you like ! What music do you listen to..."}%>
     <%= form_tag({:action=>'modify_lifestyle'}, {:remote => true, :class=>"smart-form"}) do %>
       <header>Life</header>
       <fieldset>
@@ -107,25 +107,24 @@
         </div>
         </fieldset>
         <fieldset>
-    <div class="col-sm-12">
-      <label>Height</label><small class="text-muted">
+          <div class="col-sm-5">
+            <label>Height</label><small class="text-muted">
             <strong>Your Height in Ft Inches: </strong>Example: 5.7 is 5ft 7 Inches</small>
-      <div class="input-group">
-        <input class="form-control" type="number" step= "any" name="height">
-        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-      </div>
-
-    </div>
-    <div class="col-sm-12">&nbsp;</div>
-    <div class="col-sm-12">
-      <label>Weight</label><small class="text-muted">
+            <div class="input-group">
+              <input class="form-control" type="number" step= "any" name="height">
+              <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+            </div>
+          </div>
+          <div class="col-sm-2">
+          </div>
+          <div class="col-sm-5">
+            <label>Weight</label><small class="text-muted">
             <strong>Your Weight in </strong>Kgs</small>
-      <div class="input-group">
-        <input class="form-control" type="number" name="weight">
-        <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
-      </div>
-    </div>
-
+            <div class="input-group">
+              <input class="form-control" type="number" name="weight">
+              <span class="input-group-addon"><i class="fa fa-clock-o"></i></span>
+            </div>
+          </div>
       </fieldset>
       <footer>
         <button type="submit" class="btn btn-primary">Save</button>

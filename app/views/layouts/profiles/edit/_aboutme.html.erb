@@ -1,4 +1,4 @@
-<%= render :partial =>'layouts/alert'%>
+<%= render :partial =>'layouts/alert', :locals => {:heading => "Creating a beautiful, personalized web presence has never been simpler.", :description => "Having an about yourself text will make it easier for people to find and learn about you and your family"}%>
 <%= form_tag({:action=>'modify_about'}, {:remote => true}) do %>
   <input type="hidden" name="me" id="about-me" type="hidden">
   <button type="submit" id="submit-about-me" class="btn btn-success pull-right hidden">
