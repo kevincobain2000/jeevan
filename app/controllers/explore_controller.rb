@@ -8,5 +8,14 @@ class ExploreController < ApplicationController
       @profiles[user.id] = make_user(user)
     end
     @profiles_paginate = @profiles.keys.paginate(:page => params[:page], :per_page => 4)
+
+  end
+
+  def search
+    logger.info("Debug #{search_params.inspect}")
+  end
+  protected
+  def search_params
+    params.permit(:search_query)
   end
 end
