@@ -4,38 +4,18 @@
     <%= user[:name] %></span>
   <br>
     <small>
-      <% dob = user[:dob].gsub("/","-") %>
-      <%= !dob.empty? ? distance_of_time_in_words(Date::strptime(dob, "%m-%d-%Y"), Time.now) : "" %></small>
+      <%= user[:age] %> Old</small>
 </h1>
-  <% if defined? show_profile_flag %>
-  <b class="badge bg-color-gray bounceIn animated">
-      <%= link_to "Show Profile", profile_path(:id =>user[:profile][:id]), :class=> "txt-color-white" %>
-    </b>
-  <% end %>
 <ul class="list-unstyled">
-  <li>
-    <p class="text-muted">
-      <i class="fa fa-phone"></i>
-      &nbsp;&nbsp;
-      <strong>Last Online: </strong><span class="txt-color-darken"><%= time_ago_in_words(user[:updated_at]) %></span> Ago
-    </p>
-    <p class="text-muted">
-      <i class="fa fa-phone"></i>
-      &nbsp;&nbsp;(
-      <span class="txt-color-darken">On</span>
-      )
-      <span class="txt-color-darken">Acceptance</span>
-    </p>
-  </li>
   <li>
     <p class="text-muted">
       <i class="fa fa-envelope"></i>
       &nbsp;&nbsp;
-      <a href="#">ON@acceptance</a>
+      <span>on@acceptance</span>
     </p>
   </li>
   <li>
-    <% items = {marital_status: [:profile, 'fa-calendar'], birth_city: [:kundali, 'fa-calendar'], caste: [:religion, 'fa-calendar'], manglik: [:kundali, 'fa-calendar'], posted_by: [:profile, 'fa-calendar']  } %>
+    <% items = {marital_status: [:profile, 'fa-heart'], birth_city: [:kundali, 'fa-globe'], caste: [:religion, 'fa-certificate'], manglik: [:kundali, 'fa-sun-o'], posted_by: [:profile, 'fa-user']  } %>
     <% items.stringify_keys.each do |key, value| %>
     <p class="text-muted">
       <i class="fa <%= value[1] %>"></i>

@@ -1,4 +1,4 @@
-<%= render :partial =>'layouts/alert'%>
+<%= render :partial =>'layouts/alert', :locals => {:heading => "Tell us About Your Family", :description => ""}%>
 <%= form_tag({:action=>'modify_family'},{:remote => true, :class=>"smart-form"}) do %>
   <header>About your family</header>
   <fieldset>

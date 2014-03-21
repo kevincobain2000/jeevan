@@ -1,8 +1,8 @@
 class DashboardController < ApplicationController
   before_filter :get_current_user
   def index
-    @interests = {in: Interest.where(to_user_id: current_user.id), responses: Interest.where(user_id: current_user.id)}
-    @visitors = {out: current_user.visitors, in:Visitor.where(viewed_id: current_user.id)}
+    # @interests = {in: Interest.where(to_user_id: current_user.id), responses: Interest.where(user_id: current_user.id)}
+    # @visitors = {out: current_user.visitors, in:Visitor.where(viewed_id: current_user.id)}
 
     gon.dashboard = {}
     gon.dashboard['in_interests']   = make_gon_in_interests(Interest.where(to_user_id: current_user.id))
