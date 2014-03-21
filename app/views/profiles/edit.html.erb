@@ -16,6 +16,9 @@
         </h1>
       </div>
       <div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
+        <%= link_to profile_path(:id =>current_user.profile.id), :class=>"btn btn-default pull-right" do %>
+        <i class="fa fa-eye"></i> View My Profile
+        <% end %>
         <!-- sparks -->
         <%= render :partial =>'layouts/sparks', :locals => {:user => @user}%>
         <!-- end sparks -->

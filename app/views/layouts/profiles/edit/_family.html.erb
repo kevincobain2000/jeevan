@@ -35,7 +35,7 @@
     <div class="row">
       <% [ 'Rich', 'Middle' ].each do |status| %>
         <div class="col col-4">
-          <label class="radio state-success">
+          <label class="radio">
             <%= radio_button_tag(:status, status,(@user[:family][:status] == status)) %>
             <i></i>
             <%= status %>
@@ -56,7 +56,7 @@
           <% if  !@user[:family]['family_income'].nil? %>
             <% range = @user[:family]['family_income'].split(';') %>
           <% end %>
-          <input id="family-income-slider" type="text" name="family_income" value="1;100" data-type="double" data-step="1" data-prefix="Rs " data-postfix=" Lac" data-from="<%= range[0] %>" data-to="<%= range[1] %>" data-hasgrid="true">
+          <input id="family-income-slider" type="text" name="family_income" value="3;50" data-type="double" data-step="1" data-prefix="Rs " data-postfix=" Lac" data-from="<%= range[0] %>" data-to="<%= range[1] %>" data-hasgrid="true">
         </div>
       </div>
     </div>
