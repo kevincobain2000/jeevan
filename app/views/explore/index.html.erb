@@ -3,12 +3,7 @@
   <!-- MAIN CONTENT -->
   <div id="content">
     <div class="row">
-      <div class="input-group input-group hidden-mobile">
-        <input class="form-control input-lg selectize" type="text" placeholder="Search again..." id="search-project">
-          <button type="submit" class="btn btn-info">
-            <i class="fa fa-search"></i>
-          </button>
-      </div>
+      <%= render :partial =>'layouts/search'%>
     </div>
     <legend></legend>
     <div class="row">
@@ -20,12 +15,12 @@
                 <div class="well well-light well-sm no-margin no-padding">
                   <div class="row">
                     <div class="col-sm-12">
-                      <div class="row">
+                      <div class="col-sm-6">
                         <%= render :partial =>'layouts/avatar', :locals => {:user => @profiles[user_id]} %>
+                        </div>
                         <div class="col-sm-6">
                           <%= render :partial =>'layouts/cardinfo', :locals => {:user => @profiles[user_id], :show_profile_flag => true} %>
                         </div>
-                      </div>
                     </div>
                   </div>
                 </div>

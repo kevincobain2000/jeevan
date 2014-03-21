@@ -117,10 +117,11 @@ $(document).on "page:change", ->
                         '<div> <strong>'+item.title+'</strong><br><small>'+desc+'</small></div>'
       });
 
-  $(".dropzone").dropzone init: ->
+  # Dropzone.autoDiscover = false;
+  # $(".dropzone").dropzone init: ->
   # Hack: Add the dropzone class to the element
-    $(@element).addClass "dropzone"
-  return
+    # $(@element).addClass "dropzone"
+  # return
   Dropzone.options.myDropzone =
     dictDefaultMessage: '<div class="hero" style="height:500px;"><h2>Drag & Drop</h2><p>or click to upload images</p></div>'
     paramName: "avatar"

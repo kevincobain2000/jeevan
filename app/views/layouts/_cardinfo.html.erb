@@ -5,7 +5,7 @@
   <br>
     <small>
       <% dob = user[:dob].gsub("/","-") %>
-      <%= !dob.empty? ? distance_of_time_in_words(Date::strptime(dob, "%m-%d-%Y"), Time.now) : "" %></small>
+      <%= !dob.empty? ? distance_of_time_in_words(Date::strptime(dob, "%m-%d-%Y"), Time.now) : "" %> Old</small>
 </h1>
   <% if defined? show_profile_flag %>
   <b class="badge bg-color-gray bounceIn animated">
@@ -16,8 +16,7 @@
   <li>
     <p class="text-muted">
       <i class="fa fa-phone"></i>
-      &nbsp;&nbsp;
-      <strong>Last Online: </strong><span class="txt-color-darken"><%= time_ago_in_words(user[:updated_at]) %></span> Ago
+      <strong>Last Online: </strong><span class="txt-color-darken"><%= time_ago_in_words(user[:updated_at]) %> Ago</span>
     </p>
     <p class="text-muted">
       <i class="fa fa-phone"></i>
