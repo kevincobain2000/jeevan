@@ -1,27 +1,8 @@
-<!-- Widget ID (each widget will need unique ID)-->
-<!-- <div class="jarviswidget jarviswidget-color-darken" id="wid-id-4">
-  <header>
-    <span class="widget-icon">
-      <i class="fa fa-edit"></i>
-    </span>
-    <h2>Modify Desires</h2>
-  </header> -->
-  <!-- widget div-->
-  <!-- <div> -->
-    <!-- widget content -->
-    <!-- <div class="widget-body"> -->
-
-    <% categories = ['religion', 'mother_toungue', 'caste', 'sub_caste', 'native_place'] %>
-      <dl class="dl-horizontal">
-          <% categories.each do |category| %>
-          <% heading = category.gsub "_", " " %>
-          <dt><%= heading.capitalize %>:</dt>
-          <dd><%= @user[:religion][category] %></dd>
-      <% end %>
-      </dl>
-
-    <!-- </div> -->
-    <!-- end widget content -->
-  <!-- </div> -->
-  <!-- end widget div -->
-<!-- </div> -->
+<% categories = ['religion', 'mother_toungue', 'caste', 'sub_caste', 'native_place'] %>
+<dl class="dl-horizontal">
+  <% categories.each do |category| %>
+    <% heading = category.gsub "_", " " %>
+    <dt><%= heading.capitalize %>:</dt>
+    <dd><%= @user[:religion][category] %></dd>
+  <% end %>
+</dl>

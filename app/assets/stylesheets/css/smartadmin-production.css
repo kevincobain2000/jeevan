@@ -14670,7 +14670,7 @@ tr.unread.highlight td {
   margin-bottom: 10px;
 }
 .friends-list img {
-  width: 35px;
+  width: 65px;
   border: 1px solid #ffffff;
   outline: 1px solid #bfbfbf;
 }
@@ -20260,3 +20260,5 @@ img.away {
 .selectized {
   font-weight: bold;
 }
+.hoverDiv {background: #fff;}
+.hoverDiv:hover {background: #f5f5f5;}

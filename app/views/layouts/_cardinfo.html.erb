@@ -4,8 +4,7 @@
     <%= user[:name] %></span>
   <br>
     <small>
-      <% dob = user[:dob].gsub("/","-") %>
-      <%= !dob.empty? ? distance_of_time_in_words(Date::strptime(dob, "%m-%d-%Y"), Time.now) : "" %> Old</small>
+      <%= user[:age] %> Old</small>
 </h1>
 <ul class="list-unstyled">
   <li>
