@@ -21,14 +21,11 @@
             	<dt>Last Online:</dt>
             	<dd><strong class="txt-color-blue"><%= @similar_profiles[user_id][:updated_at] %></strong> <span class="text-muted">ago</span></dd>
 
-            	<dt></dt>
-            	<dd>
-            		<%= link_to profile_path(:id =>@similar_profiles[user_id][:profile][:id]), :class=>"btn btn-primary btn-xs" do %>
-                <i class="fa fa-eye"></i> Show Profile
-                <% end %>
-            	</dd>
             </dl>
           </li>
+          <%= link_to profile_path(:id =>@similar_profiles[user_id][:profile][:id]), :class=>"btn btn-primary btn-xs pull-right" do %>
+          <i class="fa fa-eye"></i> Show Profile
+          <% end %>
           <legend></legend>
         <% end %>
       </ul>
