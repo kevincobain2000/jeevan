@@ -26,7 +26,6 @@ Jeevan::Application.routes.draw do
     end
   end
 
-
   get "home/index"
   resources :dashboard
   devise_for :users

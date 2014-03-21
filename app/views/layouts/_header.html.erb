@@ -8,7 +8,7 @@
     </span>
     <!-- Note: The activity badge color changes when clicked and resets the number to 0
         Suggestion: You may want to set a flag when this happens to tick off all checked messages / notifications -->
-    <span id="activity" class="activity-dropdown"> <i class="fa fa-user"></i> <b class="badge">21</b>
+    <span id="activity" class="activity-dropdown"> <i class="fa fa-user"></i> <b class="badge">!</b>
     </span>
 
     <!-- AJAX-DROPDOWN : control this dropdown height, look and feel from the LESS variable file -->
@@ -22,22 +22,20 @@
 
       <!-- notification content -->
       <div class="ajax-notifications custom-scroll">
-
-        <div class="alert alert-transparent">
-          <h4>Click a button to show messages here</h4>
-          To Do
-        </div>
-        <hr>
-
+      <%= render :partial =>'layouts/notification', :locals => {:users => @interests_notification, :text => "Expressed interest in your profile" }%>
+      <%= render :partial =>'layouts/notification', :locals => {:users => @visitors_notification, :text => "Recently viewed your profile"} %>
+      <%= render :partial =>'layouts/notification', :locals => {:users => @got_accepted_notification, :text => "Accepted your Interest"} %>
+      <%= render :partial =>'layouts/notification', :locals => {:users => @got_rejected_notification, :text => "Is not Interested"} %>
       </div>
       <!-- end notification content -->
 
       <!-- footer: refresh area -->
       <span>
-        Last updated on: 12/12/2013 9:43AM
-        <button type="button" data-loading-text="<i class='fa fa-refresh fa-spin'></i>
-        Loading..." class="btn btn-xs btn-default pull-right">
-        <i class="fa fa-refresh"></i>
+        Showing Todays Activity
+        <button type="button" class="btn btn-xs btn-default pull-right">
+        <%= link_to "See All Past Activity ", dashboard_index_path %> <i class="fa fa-dashboard"></i>
+
+
       </button>
     </span>
     <!-- end footer --> </div>
@@ -50,7 +48,7 @@
         <!-- Suggestion: populate this list with fetch and push technique -->
         <ul class="dropdown-menu">
           <li>
-            <%= link_to "Search", explore_index_path %>
+            <%= link_to "Search", explore_path(:id => 'search') %>
           </li>
           <li class="divider"></li>
           <li>

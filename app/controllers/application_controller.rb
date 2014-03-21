@@ -4,22 +4,21 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   before_filter :authenticate_user!
   before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_filter :for_notification
   protect_from_forgery with: :exception
   after_filter :user_activity
   # protect_from_forgery with: :null_session
 
   def make_user(user)
-    # in_responses_waiting = Interest.where(to_user_id: current_user.id, response: nil)
-    # in_responses_waiting_profiles = []
-    # in_responses_waiting.each do |in_resp|
-    #   in_responses_waiting_profiles << Profile.find(user_id: in_resp.user_id)
-    # end
+    dob = user.dob.gsub("/","-")
+    age = user.dob.empty? ? nil: distance_of_time_in_words(Date::strptime(dob, "%m-%d-%Y"), Time.now)
 
     return {
       id:         user.id,
       dob:        user.dob,
+      age:        age,
       name:       user.name,
-      updated_at: user.updated_at,
+      updated_at: time_ago_in_words(user.updated_at),
       sex:        user.sex,
       visitors:   Visitor.where(viewed_id: user.id).count,
       profile:    user.profile,
@@ -48,5 +47,44 @@ class ApplicationController < ActionController::Base
   def user_activity
     current_user.try :touch
   end
+  def for_notification
+    @interests_notification = []
+    @got_accepted_notification = []
+    @got_rejected_notification = []
+    @visitors_notification = []
+
+    interests    = Interest.where(to_user_id: current_user.id).where("updated_at >= ?", Time.zone.now.beginning_of_day)
+    visitors     = Visitor.where(viewed_id: current_user.id).where("updated_at >= ?", Time.zone.now.beginning_of_day)
+    got_accepted = Interest.where(user_id: current_user.id, response: 1).where("updated_at >= ?", Time.zone.now.beginning_of_day)
+    got_rejected = Interest.where(user_id: current_user.id, response: 0).where("updated_at >= ?", Time.zone.now.beginning_of_day)
+
+    interests.each do |interest|
+      @interests_notification << make_user(User.find(interest.user_id))
+    end
+
+    visitors.each do |visitor|
+      @visitors_notification << make_user(User.find(visitor.user_id))
+    end
+
+    got_accepted.each do |gtr|
+      @got_accepted_notification << make_user(User.find(gtr.user_id))
+    end
+    got_rejected.each do |gtr|
+      @got_rejected_notification << make_user(User.find(gtr.user_id))
+    end
+  end
 
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
