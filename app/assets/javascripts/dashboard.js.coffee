@@ -5,8 +5,11 @@ $(document).on "page:change", ->
   $('#tabs').tabs()
 
   if (typeof gon != 'undefined' && gon.dashboard)
+    # $("#in_interests").dataTable().fnDestroy()
+    # $("#out_interests").dataTable().fnDestroy()
+    # $("#in_visitors").dataTable().fnDestroy()
+
     $("#in_interests").dataTable
-      # aaData:gon.dashboard['in_interests']
       aaData:gon.dashboard['in_interests']
       bFilter: true
       bLengthChange:false

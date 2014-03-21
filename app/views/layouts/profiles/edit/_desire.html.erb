@@ -1,4 +1,4 @@
-<%= render :partial =>'layouts/alert'%>
+<%= render :partial =>'layouts/alert', :locals => {:heading => "Contact Details", :description => "Your contact details are kept private and are only shown to other users once you accept their interest"}%>
 <%= form_tag({:action=>'modify_desire'},{:remote => true, :class=>"smart-form"}) do %>
   <header>Desires</header>
   <fieldset>
@@ -6,7 +6,7 @@
     <div class="row">
       <% [ 'Never Married', 'Divorced', "Getting a Divorce", "Widowed"].each do |desired_marital_status| %>
         <div class="col col-4">
-          <label class="radio state-success">
+          <label class="radio">
             <%= radio_button_tag(:desired_marital_status, desired_marital_status,(@user[:desire][:desired_marital_status] == desired_marital_status)) %>
             <i></i>
             <%= desired_marital_status %></label>
@@ -17,7 +17,7 @@
     <div class="row">
       <% [ 'Yes', 'No', 'Angshik (Partial)', "Does not Matter" ].each do |desired_manglik| %>
         <div class="col col-4">
-          <label class="radio state-success">
+          <label class="radio">
             <%= radio_button_tag(:desired_manglik, desired_manglik,(@user[:desire][:desired_manglik] == desired_manglik)) %>
             <i></i>
             <%= desired_manglik %></label>
@@ -28,7 +28,7 @@
     <div class="row">
       <% [ 'Vegeterian', 'Non Vegeterian', "Eggeterian", "Occasional Non Vegeterian","Does not Matter" ].each do |desired_diet| %>
         <div class="col col-4">
-          <label class="radio state-success">
+          <label class="radio">
             <%= radio_button_tag(:desired_diet, desired_diet,(@user[:desire][:desired_diet] == desired_diet)) %>
             <i></i>
             <%= desired_diet %></label>
@@ -39,7 +39,7 @@
     <div class="row">
       <% [ 'Yes', 'Light Smoker', 'Occasionally', 'Not at all' ].each do |desired_smoke| %>
         <div class="col col-4">
-          <label class="radio state-success">
+          <label class="radio">
             <%= radio_button_tag(:desired_smoke, desired_smoke,(@user[:desire][:desired_smoke] == desired_smoke)) %>
             <i></i>
             <%= desired_smoke %></label>
@@ -50,7 +50,7 @@
     <div class="row">
       <% [ 'Yes', 'Light Drinker', 'Occasional Drinks', 'Not at all' ].each do |desired_drink| %>
         <div class="col col-4">
-          <label class="radio state-success">
+          <label class="radio">
             <%= radio_button_tag(:desired_drink, desired_drink,(@user[:desire][:desired_drink] == desired_drink)) %>
             <i></i>
             <%= desired_drink %></label>
@@ -61,7 +61,7 @@
     <div class="row">
       <% [ 'White', 'Wheatish', 'Fair', "Yellow", "Dark", 'Does not Matter' ].each do |desired_complexion| %>
         <div class="col col-4">
-          <label class="radio state-success">
+          <label class="radio">
             <%= radio_button_tag(:desired_complexion, desired_complexion,(@user[:desire][:desired_complexion] == desired_complexion)) %>
             <i></i>
             <%= desired_complexion %></label>
@@ -78,7 +78,7 @@
           <% if  !@user[:desire]['desired_income'].nil? %>
             <% range_income = @user[:desire]['desired_income'].split(';') %>
           <% end %>
-          <input id="desired-income-slider" type="text" name="desired_income" value="2;100" data-type="double" data-step="1" data-prefix="Rs " data-postfix=" Lac" data-from="<%= range_income[0] %>" data-to="<%= range_income[1] %>" data-hasgrid="true"></div>
+          <input id="desired-income-slider" type="text" name="desired_income" value="2;50" data-type="double" data-step="1" data-prefix="Rs " data-postfix=" Lac" data-from="<%= range_income[0] %>" data-to="<%= range_income[1] %>" data-hasgrid="true"></div>
       </div>
     </div>
   </fieldset>
@@ -91,7 +91,7 @@
           <% if  !@user[:desire]['desired_height'].nil? %>
             <% range_height = @user[:desire]['desired_height'].split(';') %>
           <% end %>
-          <input id="desired-height-slider" type="text" name="desired_height" value="4;10" data-type="double" data-step="1" data-prefix="" data-postfix=" Ft" data-from="<%= range_height[0] %>" data-to="<%= range_height[1] %>" data-hasgrid="true"></div>
+          <input id="desired-height-slider" type="text" name="desired_height" value="4;7" data-type="double" data-step="1" data-prefix="" data-postfix=" Ft" data-from="<%= range_height[0] %>" data-to="<%= range_height[1] %>" data-hasgrid="true"></div>
       </div>
     </div>
   </fieldset>
@@ -104,7 +104,7 @@
           <% if  !@user[:desire]['desired_age'].nil? %>
             <% range_age = @user[:desire]['desired_age'].split(';') %>
           <% end %>
-          <input id="desired-age-slider" type="text" name="desired_age" value="18;70" data-type="double" data-step="1" data-prefix="" data-postfix=" Years" data-from="<%= range_height[0] %>" data-to="<%= range_height[1] %>" data-hasgrid="true"></div>
+          <input id="desired-age-slider" type="text" name="desired_age" value="18;40" data-type="double" data-step="1" data-prefix="" data-postfix=" Years" data-from="<%= range_height[0] %>" data-to="<%= range_height[1] %>" data-hasgrid="true"></div>
       </div>
     </div>
   </fieldset>

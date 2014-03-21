@@ -1,9 +1,14 @@
 <div class="col-sm-3 profile-pic">
   <%= image_tag user[:avatar].url(:thumb)%>
   <div class="padding-10">
-    <h4 class="font-md">
-      <strong> <b class="badge bg-color-green bounceIn animated"><%= link_to user[:image].count, profile_path(:id =>user[:profile][:id]), :class=> "txt-color-white" %></b></strong>
-      <small>Images</small>
-    </h4>
+    <h6 class="font-md">
+      <label class="badge badge-info"><i class="fa fa-picture-o"></i> <%= user[:image].count %> Images</label>
+    </h6>
+      <% if defined? show_profile_flag %>
+
+      <%= link_to profile_path(:id =>user[:profile][:id]), :class=> "btn btn-primary btn-xs" do %>
+      <i class="fa fa-eye"></i> Show Profile
+      <% end %>
+      <% end %>
   </div>
 </div>

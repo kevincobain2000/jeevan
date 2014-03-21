@@ -11,6 +11,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   def show
     touch_visitor
+    similar_profiles
   end
   def edit
   end
@@ -88,20 +89,25 @@ class ProfilesController < ApplicationController
         find_first.touch
       end
     end
-    redirect_to(explore_index_path)
+    render json: { :status => 200 }
+    # redirect_to(explore_index_path)
   end
 
   # When accept or reject button is clicked
   def interest_response
     commit = params[:commit]
-    interest = User.find(params[:from_user_id]).interests.where(:to_user_id => current_user.id).first
+    logger.info("Debug Params inspect #{params.inspect}")
+    logger.info("Debug current user id #{current_user.id}")
+    interest = Interest.where(:to_user_id => current_user.id, :user_id => params[:to_user_id]).first
+    logger.info("Debug Params inspect #{interest.inspect}")
+    logger.info("Debug Params inspect #{current_user.interests.inspect}")
     if commit == "Accept"
       interest.update(:response => 1)
-    else
+    elsif commit == "Reject"
       interest.update(:response => 0)
     end
 
-    redirect_to(explore_index_path)
+    render json: { :status => 200 }
   end
 
   protected
@@ -170,16 +176,27 @@ class ProfilesController < ApplicationController
   #===============================================*
   def touch_visitor
     visiting_user_id = Profile.find(params[:id]).user_id
-    logger.info("Debug Touching Visitor #{visiting_user_id}")
+    # logger.info("Debug Touching Visitor #{visiting_user_id}")
     if current_user.id != visiting_user_id
       find_first = Visitor.where(user_id: current_user.id, viewed_id: visiting_user_id).first
-      logger.info("Debug Touching Visitor #{find_first.inspect}")
+      # logger.info("Debug Touching Visitor #{find_first.inspect}")
       if !find_first
         current_user.visitors.create(user_id: current_user.id, viewed_id: visiting_user_id)
       else
         find_first.touch
       end
     end
+  end
+
+  def similar_profiles
+    @similar_profiles = Hash.new {|h, k| h[k] = [] }
+    # Todo Take interests donot add similar_profiles to show to whom interests have been sent
+    # users_not_my_gender = User.where.not(sex: current_user.sex, :id.in(@interests[:in])).order('created_at DESC').limit(1000)
+    users = User.where.not(sex: current_user.sex).order('created_at DESC').limit(10)
+    users.each do |user|
+      @similar_profiles[user.id] = make_user(user)
+    end
+    @similar_profiles_paginate = @similar_profiles.keys.paginate(:page => params[:page], :per_page => 2)
   end
 
 end

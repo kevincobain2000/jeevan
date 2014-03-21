@@ -1,25 +1,46 @@
-<div id="reset_pwd" class="reset_page">
-  <div class="container">
+<div id="main" role="main">
+  <!-- MAIN CONTENT -->
+  <div id="content" class="container">
     <div class="row">
-      <div class="span12 box_wrapper">
-        <div class="span12 box">
-          <div>
-            <div class="head">
-              <h4>Enter your email address below to receive instructions on how to reset your password.</h4>
-              <div class="line"></div>
-            </div>
-            <div class="form">
-              <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
-                <%= devise_error_messages! %>
-                <%= f.email_field :email, :autofocus => true, :placeholder => "Email", :style => "width:100%;" %>
-                <%= f.submit "Reset Password", :class => 'btn' %>
-              <% end %>
-            </div>
-          </div>
+      <div class="col-md-5 col-md-offset-3">
+        <div class="well no-padding">
+          <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put, :class => "smart-form client-form" }) do |f| %>
+              <%= devise_error_messages! %>
+              <%= f.hidden_field :reset_password_token %>
+            <header>Reset Password Instruction To do</header>
+            <fieldset>
+
+            <section>
+              <label class="label">Old Password</label>
+              <label class="input">
+                <i class="icon-append fa fa-user"></i>
+                <%= f.password_field :password, :autofocus => true, :placeholder => "Old Password" %>
+              </label>
+            </section>
+            <section>
+              <label class="label">New Password</label>
+              <label class="input">
+                <i class="icon-append fa fa-user"></i>
+                <%= f.password_field :password_confirmation, :placeholder => "Old Password" %>
+              </label>
+            </section>
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              Currently waiting confirmation for:
+              <%= resource.unconfirmed_email %>
+            <% end %>
+            <section>
+              <div class="note">
+                Already have an account ?
+                <%= render "devise/shared/links" %>
+              </div>
+            </section>
+
+            <footer>
+              <button type="submit" class="btn btn-primary">Update</button>
+            </footer>
+          </fieldset>
+          <% end %>
         </div>
-        <p class="already">Know your password?
-          <%= render "devise/shared/links" %></p>
       </div>
     </div>
   </div>
-</div>

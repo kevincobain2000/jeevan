@@ -1,8 +1,8 @@
 class DashboardController < ApplicationController
   before_filter :get_current_user
   def index
-    @interests = {in: Interest.where(to_user_id: current_user.id), responses: Interest.where(user_id: current_user.id)}
-    @visitors = {out: current_user.visitors, in:Visitor.where(viewed_id: current_user.id)}
+    # @interests = {in: Interest.where(to_user_id: current_user.id), responses: Interest.where(user_id: current_user.id)}
+    # @visitors = {out: current_user.visitors, in:Visitor.where(viewed_id: current_user.id)}
 
     gon.dashboard = {}
     gon.dashboard['in_interests']   = make_gon_in_interests(Interest.where(to_user_id: current_user.id))
@@ -22,7 +22,7 @@ class DashboardController < ApplicationController
       avatar = "<img src='#{user.avatar}' class='img-rounded' style='height:50px;width:50px' >"
       profile_link = "<a href='profiles/#{user.profile.id}'>#{user.name}</a>"
       dob = user[:dob].gsub("/","-")
-      age = time_ago_in_words(Date::strptime(dob, "%d-%m-%Y"), Time.now)
+      age = time_ago_in_words(Date::strptime(dob, "%m-%d-%Y"), Time.now)
 
       updated_at = "#{time_ago_in_words(user.updated_at)} ago"
 
