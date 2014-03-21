@@ -1,4 +1,4 @@
-<%= render :partial =>'layouts/alert'%>
+<%= render :partial =>'layouts/alert', :locals => {:heading => "Kundali", :description => "Tell your would be partner about your kundali details"}%>
 <%= form_tag({:action=>'modify_kundali'},{:remote => true, :class=>"smart-form"}) do %>
   <header>Nakshatra's for Kundali</header>
   <fieldset>

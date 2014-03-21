@@ -1,22 +1,8 @@
-<!-- <div class="jarviswidget" id="wid-id-8">
-  <header>
-    <span class="widget-icon">
-      <i class="fa fa-edit"></i>
-    </span>
-    <h2>Edit Hobbies</h2>
-  </header>
-  <div> -->
-    <!-- widget div-->
-    <!-- widget content -->
-    <!-- <div class="widget-body"> -->
-        <% categories = ['hobby', 'interest', 'music', 'read', 'dress', 'tv', 'movie', 'sports', 'cuisine', 'vacation'] %>
-      <dl class="dl-horizontal">
-          <% categories.each do |category| %>
-          <% heading = category.gsub "_", " " %>
-          <dt><%= heading.capitalize %></dt>
-          <dd><%= @user[:hobby][category] %></dd>
-      <% end %>
-      </dl>
-<!--     </div>
-  </div>
-</div> -->
+<% categories = ['hobby', 'interest', 'music', 'read', 'dress', 'tv', 'movie', 'sports', 'cuisine', 'vacation'] %>
+<dl class="dl-horizontal">
+  <% categories.each do |category| %>
+    <% heading = category.gsub "_", " " %>
+    <dt><%= heading.capitalize %>:</dt>
+    <dd><%= @user[:hobby][category] %></dd>
+  <% end %>
+</dl>

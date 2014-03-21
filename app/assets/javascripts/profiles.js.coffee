@@ -117,9 +117,11 @@ $(document).on "page:change", ->
                         '<div> <strong>'+item.title+'</strong><br><small>'+desc+'</small></div>'
       });
 
-
+  Dropzone.autoDiscover = false;
+  $(".dropzone").dropzone init: ->
+    return
   Dropzone.options.myDropzone =
-    dictDefaultMessage: '<div class="hero" style="height:100px;"><h2>Drag & Drop</h2><p>or click to upload images</p></div>'
+    dictDefaultMessage: '<div class="hero" style="height:500px;"><h2>Drag & Drop</h2><p>or click to upload images</p></div>'
     paramName: "avatar"
     maxFilesize: 2 #mb
     addRemoveLinks: false
@@ -132,7 +134,7 @@ $(document).on "page:change", ->
   $(".phone").inputmask("mask", {"mask": "(999) 9999-999-999"});
 
   $('form').submit ->
-    alertify.success("Done !")
+    alertify.success("<strong>Done !</strong>")
     jq_superbox_remov = $("#imageid").attr("value")
     $("#"+jq_superbox_remov).remove()
     $(".superbox-list").removeClass "active"

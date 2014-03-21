@@ -1,0 +1,39 @@
+<div class="col-sm-4">
+  <div class="well well-sm">
+    <h6 class="txt-color-green">Matching Profiles <br><small>A few profiles that match this profile's description</small> </h6>
+    <hr>
+      <ul class="list-inline friends-list">
+        <% @similar_profiles_paginate.each do |user_id| %>
+          <li class="friends-list">
+            <dl class="dl-horizontal">
+            	<dt><%= @similar_profiles[user_id][:image].count %> Images</dt>
+            	<dd><%= image_tag @similar_profiles[user_id][:avatar].url(:thumb) %></dd>
+
+            	<dt>Age:</dt>
+            	<dd><strong class="txt-color-blue"><%= @similar_profiles[user_id][:age] %></strong> <span class="text-muted">old</span></dd>
+
+            	<dt>Name:</dt>
+            	<dd><strong class="txt-color-blue"><%= @similar_profiles[user_id][:name] %></strong></dd>
+
+            	<dt>Religion:</dt>
+            	<dd><strong class="txt-color-blue"><%= @similar_profiles[user_id][:religion][:religion] %></strong></dd>
+
+            	<dt>Last Online:</dt>
+            	<dd><strong class="txt-color-blue"><%= @similar_profiles[user_id][:updated_at] %></strong> <span class="text-muted">ago</span></dd>
+
+            	<dt></dt>
+            	<dd>
+            	<button class="btn btn-xs btn-info">
+            		<i class="fa fa-user"></i>
+            		<%= link_to 'Show Profile', profile_path(:id =>@similar_profiles[user_id][:profile][:id]), :class=>"txt-color-white" %>
+            	</button>
+            	</dd>
+            </dl>
+          </li>
+          <legend></legend>
+        <% end %>
+      </ul>
+      <%= will_paginate @similar_profiles_paginate, :class =>"flickr_pagination" %>
+    </div>
+  </div>
+
