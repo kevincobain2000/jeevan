@@ -1,8 +1,8 @@
-<% categories = ['school', 'grad_college', 'grad', 'desired_country', 'post_grad', 'post_grad_college', 'highest_degree'] %>
+<% categories = ['school', 'grad_college', 'graduation', 'desired_country', 'post_grad', 'post_grad_college', 'highest_degree'] %>
 <dl class="dl-horizontal">
   <% categories.each do |category| %>
     <% heading = category.gsub "_", " " %>
-    <dt><%= heading.capitalize %>:</dt>
-    <dd><strong class="txt-color-blue"><%= @user[:education][category].to_s.capitalize %></strong></dd>
+    <dt class="text-muted"><%= heading.capitalize %>:</dt>
+    <dd><strong><%= @user[:education][category].to_s.capitalize %></strong></dd>
   <% end %>
 </dl>

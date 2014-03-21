@@ -1352,9 +1352,9 @@
         '<li><a data-event="fontSize" data-value="11"><i class="fa fa-check"></i> 11</a></li>' +
         '<li><a data-event="fontSize" data-value="12"><i class="fa fa-check"></i> 12</a></li>' +
         '<li><a data-event="fontSize" data-value="14"><i class="fa fa-check"></i> 14</a></li>' +
-        '<li><a data-event="fontSize" data-value="18"><i class="fa fa-check"></i> 18</a></li>' +
-        '<li><a data-event="fontSize" data-value="24"><i class="fa fa-check"></i> 24</a></li>' +
-        '<li><a data-event="fontSize" data-value="36"><i class="fa fa-check"></i> 36</a></li>' +
+        // '<li><a data-event="fontSize" data-value="18"><i class="fa fa-check"></i> 18</a></li>' +
+        // '<li><a data-event="fontSize" data-value="24"><i class="fa fa-check"></i> 24</a></li>' +
+        // '<li><a data-event="fontSize" data-value="36"><i class="fa fa-check"></i> 36</a></li>' +
         '</ul>',
       color:
         '<button type="button" class="btn btn-default note-recent-color" title="Recent Color" data-event="color" data-value=\'{"backColor":"yellow"}\' tabindex="-1"><i class="fa fa-font" style="color:black;background-color:yellow;"></i></button>' +

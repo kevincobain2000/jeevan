@@ -28,6 +28,7 @@ Jeevan::Application.routes.draw do
 
   get "home/index"
   resources :dashboard
+  resources :contact
   devise_for :users
   authenticated :user do
     root :to => 'explore#index', :as => :authenticated_root
