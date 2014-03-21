@@ -6,7 +6,9 @@
     </h6>
       <% if defined? show_profile_flag %>
 
-      <%= link_to 'Show Profile', profile_path(:id =>user[:profile][:id]), :class=> "btn btn-default"%>
+      <%= link_to profile_path(:id =>user[:profile][:id]), :class=> "btn btn-primary btn-xs" do %>
+      <i class="fa fa-eye"></i> Show Profile
+      <% end %>
       <% end %>
   </div>
 </div>
