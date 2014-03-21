@@ -16,10 +16,10 @@
                   <div class="row">
                     <div class="col-sm-12">
                       <div class="col-sm-6">
-                        <%= render :partial =>'layouts/avatar', :locals => {:user => @profiles[user_id]} %>
+                        <%= render :partial =>'layouts/avatar', :locals => {:user => @profiles[user_id], :show_profile_flag => true} %>
                         </div>
                         <div class="col-sm-6">
-                          <%= render :partial =>'layouts/cardinfo', :locals => {:user => @profiles[user_id], :show_profile_flag => true} %>
+                          <%= render :partial =>'layouts/cardinfo', :locals => {:user => @profiles[user_id]} %>
                         </div>
                     </div>
                   </div>
