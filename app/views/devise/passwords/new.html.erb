@@ -9,19 +9,11 @@
               <%= f.hidden_field :reset_password_token %>
             <header>Reset Password Instruction To do</header>
             <fieldset>
-
             <section>
-              <label class="label">Old Password</label>
+              <label class="label">Email Address used at the time of Registration</label>
               <label class="input">
-                <i class="icon-append fa fa-user"></i>
-                <%= f.password_field :password, :autofocus => true, :placeholder => "Old Password" %>
-              </label>
-            </section>
-            <section>
-              <label class="label">New Password</label>
-              <label class="input">
-                <i class="icon-append fa fa-user"></i>
-                <%= f.password_field :password_confirmation, :placeholder => "Old Password" %>
+                <i class="icon-append fa fa-envelope"></i>
+                <%= f.email_field :password_confirmation, :placeholder => "Email address" %>
               </label>
             </section>
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
