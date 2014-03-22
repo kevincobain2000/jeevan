@@ -6,34 +6,32 @@
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <div class="well well-sm">
           <%= render :partial =>'layouts/search'%>
-          <h1 class="font-md">
-            Search Profiles,
-            <span class="semi-bold">Found (<%= @profiles_paginate.length %> results)</span></h1>
         </div>
       </div>
       <div class="row">
-        <% @profiles_paginate.each do |user_id| %>
-          <div class="col-sm-12">
-            <div class="well well-sm">
-              <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-12">
-                  <div class="well well-light well-sm no-margin no-padding">
-                    <div class="row">
-                      <div class="col-sm-12">
-                        <div class="col-sm-6">
-                          <%= render :partial =>'layouts/avatar', :locals => {:user => @searched_profiles[user_id], :show_profile_flag => true} %>
-                        </div>
-                        <div class="col-sm-6">
-                          <%= render :partial =>'layouts/cardinfo', :locals => {:user => user} %>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        <% end %>
+        <div class="col-sm-12">
+        <div class="well bg-color-white">
+          <h3 class="text-primary">People Visited my Profile <small>Secondary text</small></h3>
+          <table class="table table-striped table-bordered table-hover" id="search">
+            <thead>
+              <tr>
+                <th><i class="fa fa-picture-o"></i> Image</th>
+                <th><i class="fa fa-picture-o"></i> Profile</th>
+                <th><i class="fa fa-picture-o"></i> Religion</th>
+                <th><i class="fa fa-picture-o"></i> Location</th>
+                <th><i class="fa fa-picture-o"></i> Age</th>
+                <th><i class="fa fa-picture-o"></i> Posted By</th>
+                <th><i class="fa fa-picture-o"></i> Last Online</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+
       </div>
     </div>
   </div>

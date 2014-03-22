@@ -41,9 +41,9 @@
     <!-- end footer --> </div>
   <!-- END AJAX-DROPDOWN -->
 </div>
-<div id="project-context" class="">
+<div id="project-context">
         <span class="label">Quick Navigation</span>
-        <span id="project-selector" class="popover-trigger-element dropdown-toggle" data-toggle="dropdown">Search <i class="fa fa-angle-down"></i></span>
+        <span id="project-selector" class="popover-trigger-element dropdown-toggle" data-toggle="dropdown"><i class="fa fa-search"></i> Search <i class="fa fa-angle-down"></i></span>
 
         <!-- Suggestion: populate this list with fetch and push technique -->
         <ul class="dropdown-menu">
@@ -125,30 +125,6 @@
             </ul>
           </li>
         </ul>
-
-  <div id="search-mobile" class="btn-header transparent pull-right">
-    <span>
-      <a href="javascript:void(0)" title="Search">
-        <i class="fa fa-search"></i>
-      </a>
-    </span>
-  </div>
-  <!-- end search mobile button -->
-
-  <!-- input: search field -->
-  <%= form_tag({:action=>'search', :controller => "/explore"}, :class=>"header-search pull-right") do %>
-    <input type="text" placeholder="Delhi and Hindu ..." id="search-fld">
-    <button type="submit">
-      <i class="fa fa-search"></i>
-    </button>
-    <a href="javascript:void(0);" id="cancel-search-js" title="Cancel Search">
-      <i class="fa fa-times"></i>
-    </a>
-    <% end %>
-  <!-- end input: search field -->
-  <!-- password change : find all flags in the image folder -->
-
-        <!-- end multiple lang -->
 </div>
 
 </header>

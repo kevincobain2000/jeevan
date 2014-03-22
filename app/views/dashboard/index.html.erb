@@ -16,7 +16,7 @@
       </div>
       <div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
       <%= link_to edit_profile_path(:id =>current_user.profile.id), :class=>"btn btn-default pull-right" do %>
-        <i class="fa fa-eye"></i> Edit My Profile
+        <i class="fa fa-edit"></i> Edit My Profile
         <% end %>
         <%= render :partial =>'layouts/sparks', :locals => {:user => @user}%>
       </div>
