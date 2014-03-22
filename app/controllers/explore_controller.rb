@@ -13,23 +13,27 @@ class ExploreController < ApplicationController
 
   def search
     gon.search = {}
-    gon.search['profiles']  = make_gon_search(Interest.find(:all))
+    gon.search['profiles']  = make_gon_search(Profile.find(:all))
     render 'search'
   end
 
   def make_gon_search(obj)
     ret = []
+    dashboard_methods = DashboardController.new
     obj.each do |i|
       user = User.find(i.user_id)
 
-      avatar = "<img src='#{user.avatar}' class='img-rounded' style='height:50px;width:50px' >"
-      profile_link = "<a href='profiles/#{user.profile.id}'>#{user.name}</a>"
-      dob = user[:dob].gsub("/","-")
-      age = time_ago_in_words(Date::strptime(dob, "%m-%d-%Y"), Time.now)
+      avatar         = dashboard_methods.get_avatar_from(user.avatar)
+      profile_link   = dashboard_methods.get_profile_link_from(user)
+      religion       = dashboard_methods.get_religion_from(user.religion.religion)
+      location       = dashboard_methods.get_location_from(user.kundali.birth_city)
+      visitors_count = dashboard_methods.get_visitors_count_from(user.visitors)
+      posted_by      = dashboard_methods.get_posted_by_from(user.profile.posted_by)
+      age            = dashboard_methods.get_user_age_from(user.dob)
+      updated_at     = dashboard_methods.get_updated_at_with_icon_from(time_ago_in_words(user.updated_at))
+      action         = dashboard_methods.get_action_based_on(user, 3)
 
-      updated_at = "#{time_ago_in_words(user.updated_at)} ago"
-
-      ret << [avatar, profile_link, user.religion.religion, user.kundali.birth_city, user.profile.posted_by, age, updated_at]
+      ret << [avatar, profile_link, religion, location, visitors_count, posted_by, age, action, updated_at]
     end
     return ret
   end
