@@ -1,8 +1,11 @@
-<% categories = ['birth_country', 'birth_city', 'dob', 'tob', 'manglik', 'sub_sign', 'moon_sign', 'nakshatra'] %>
+<h6 class="error-text-3">
+	Kundali
+</h6>
+<% categories = {'birth_country' => "fa fa-globe", 'birth_city' => "fa fa-map-marker", 'dob' => "fa fa-calendar", 'tob' => "fa fa-clock-o", 'manglik' => "fa fa-exclamation-circle", 'sun_sign' => "fa fa-certificate", 'moon_sign' => "fa fa-sun-o", 'nakshatra' => "fa fa-star"} %>
 <dl class="dl-horizontal">
-  <% categories.each do |category| %>
+  <% categories.each do |category, icon| %>
     <% heading = category.gsub "_", " " %>
-    <dt><%= heading.capitalize %>:</dt>
-    <dd><%= @user[:kundali][category] %></dd>
+    <dt class="txt-color-green"><%= heading.capitalize %> <i class="<%= icon %>"></i></dt>
+    <dd><strong><%= @user[:kundali][category] %></strong></dd>
   <% end %>
 </dl>

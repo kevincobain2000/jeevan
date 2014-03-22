@@ -1,8 +1,11 @@
-<% categories = ['religion', 'mother_toungue', 'caste', 'sub_caste', 'native_place'] %>
+<h6 class="error-text-3">
+	Religion
+</h6>
+<% categories = {'religion' => "fa fa-certificate", 'mother_toungue' => "fa fa-globe", 'caste' => "fa fa-bars", 'sub_caste' => "fa fa-arrows-v", 'native_place' => "fa fa-location-arrow"} %>
 <dl class="dl-horizontal">
-  <% categories.each do |category| %>
+  <% categories.each do |category, icon| %>
     <% heading = category.gsub "_", " " %>
-    <dt><%= heading.capitalize %>:</dt>
-    <dd><%= @user[:religion][category] %></dd>
+    <dt class="txt-color-blue"><%= heading.capitalize %> <i class="<%= icon %>"></i></dt>
+    <dd><strong><%= @user[:religion][category] %></strong></dd>
   <% end %>
 </dl>

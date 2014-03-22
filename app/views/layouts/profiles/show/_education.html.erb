@@ -1,8 +1,12 @@
-<% categories = ['school', 'grad_college', 'graduation', 'desired_country', 'post_grad', 'post_grad_college', 'highest_degree'] %>
+<h6 class="error-text-3">
+	Education
+</h6>
+<% categories = {'school' => "fa fa-superscript", 'grad_college' => "fa fa-map-marker", 'graduation' => "fa fa-book", 'desired_country' => "fa fa-globe", 'post_grad' => "fa fa-flask", 'post_grad_college' => "fa fa-map-marker", 'highest_degree' => "fa fa-bookmark"} %>
 <dl class="dl-horizontal">
-  <% categories.each do |category| %>
+  <% categories.each do |category, icon| %>
+  <% icon = "fa fa-angle-right" %>
     <% heading = category.gsub "_", " " %>
-    <dt class="text-muted"><%= heading.capitalize %>:</dt>
+    <dt class="txt-color-blue"><%= heading.capitalize %> <i class="<%= icon %>"></i></dt>
     <dd><strong><%= @user[:education][category].to_s.capitalize %></strong></dd>
   <% end %>
 </dl>
