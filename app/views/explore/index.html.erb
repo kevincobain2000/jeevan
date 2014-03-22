@@ -4,6 +4,9 @@
   <div id="content">
     <div class="row">
       <%#= render :partial =>'layouts/search'%>
+      <%= link_to explore_path(:id => "search"), :class=>"btn btn-info pull-right" do %>
+      <i class="fa fa-search"></i> Search Users
+      <% end %>
     </div>
     <legend></legend>
     <div class="row">
