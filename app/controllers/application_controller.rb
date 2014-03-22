@@ -48,6 +48,10 @@ class ApplicationController < ActionController::Base
     current_user.try :touch
   end
   def for_notification
+
+    if !defined? current_user.id
+      return
+    end
     @interests_notification = []
     @got_accepted_notification = []
     @got_rejected_notification = []

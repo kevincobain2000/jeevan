@@ -1,4 +1,13 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).on "page:change", ->
+  if (typeof gon != 'undefined' && gon.search)
+    console.log(gon.search);
+    oTable = $("#search").dataTable
+      aaData:gon.search['profiles']
+      bFilter: true
+      bLengthChange:false
+      iDisplayLength: 30
+
+    $(".dataTables_filter input").hide()
+    $(".dataTables_filter").children("label").hide()
+    $("#search-query").keyup ->
+      oTable.fnFilter $("#search-query").val()

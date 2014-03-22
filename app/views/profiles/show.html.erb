@@ -11,7 +11,7 @@
           <!-- PAGE HEADER -->
           <i class="fa-fw fa fa-file"></i>
           Profile Id
-            >
+            <i class="fa fa-angle-right fa-lg"></i>
           <%= @user[:profile]['id'] %>
         </h1>
       </div>
@@ -22,14 +22,17 @@
         <%= link_to edit_profile_path(:id =>current_user.profile.id), :class=>"btn btn-default pull-right" do %>
         <i class="fa fa-edit"></i> Edit My Profile
         <% end %>
+      <%= link_to root_path, :class=>"btn btn-primary pull-right" do %>
+        <i class="fa fa-copy"></i> Explore
+        <% end %>
         <%= render :partial =>'layouts/sparks', :locals => {:user => @user}%>
       </div>
       <!-- end col -->
     </div>
     <!-- end row -->
     <!-- row -->
-    <div class="col-sm-8">
-      <div class="well well-sm">
+    <div class="col-sm-7 animated fadeInDown">
+      <div class="well well-sm bg-color-white">
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-12">
             <div class="well well-light well-sm no-margin no-padding">
@@ -46,7 +49,7 @@
                         <br>
                       </div>
                     </div>
-                    <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                    <article class="col-xs-12 col-sm-6 col-md-6 col-lg-8 pull-right"> <!-- Dirty Hack pull-right -->
                       <%= render :partial =>'layouts/profiles/show/images'%>
                     </article>
                   </div>
@@ -61,31 +64,24 @@
             <%= raw @user[:about][:me] %>
           </article>
           <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <h3 class="text-primary">Religion</h3>
             <%= render :partial =>'layouts/profiles/show/religion'%>
           </article>
           <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <h3 class="text-primary">Kundali</h3>
             <%= render :partial =>'layouts/profiles/show/kundali'%>
           </article>
           <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <h3 class="text-primary">Education</h3>
             <%= render :partial =>'layouts/profiles/show/education'%>
           </article>
           <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <h3 class="text-primary">Family</h3>
             <%= render :partial =>'layouts/profiles/show/family'%>
           </article>
-          <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <h3 class="text-primary">Hobby</h3>
+          <article class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
             <%= render :partial =>'layouts/profiles/show/hobby'%>
           </article>
           <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <h3 class="text-primary">lifestyle</h3>
             <%= render :partial =>'layouts/profiles/show/lifestyle'%>
           </article>
           <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <h3 class="text-primary">Desire</h3>
             <%= render :partial =>'layouts/profiles/show/desire'%>
           </article>
         </div>
