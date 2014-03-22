@@ -21,7 +21,7 @@
       </div>
 
       <!-- notification content -->
-      <div class="ajax-notifications custom-scroll">
+      <div class="ajax-notifications custom-scroll bg-color-white">
       <%= render :partial =>'layouts/notification', :locals => {:users => @interests_notification, :text => "Expressed interest in your profile" }%>
       <%= render :partial =>'layouts/notification', :locals => {:users => @visitors_notification, :text => "Recently viewed your profile"} %>
       <%= render :partial =>'layouts/notification', :locals => {:users => @got_accepted_notification, :text => "Accepted your Interest"} %>
@@ -32,11 +32,9 @@
       <!-- footer: refresh area -->
       <span>
         Showing Todays Activity
-        <button type="button" class="btn btn-xs btn-default pull-right">
-        <%= link_to "See All Past Activity ", dashboard_index_path %> <i class="fa fa-dashboard"></i>
-
-
-      </button>
+          <%= link_to dashboard_index_path, :class=> "btn btn-xs btn-info pull-right" do %>See All Past Activity
+          <i class="fa fa-dashboard"></i>
+          <% end %>
     </span>
     <!-- end footer --> </div>
   <!-- END AJAX-DROPDOWN -->
@@ -53,7 +51,7 @@
             <% end %>
           </li>
           <li class="divider"></li>
-          <i class="fa fa-user"></i> Profile
+          <h6>Profile</h6>
           <li>
             <%= link_to profile_path(:id =>current_user.profile.id) do %>
             <i class="fa fa-file"></i> My Profile
@@ -65,7 +63,7 @@
             <% end %>
           </li>
           <li class="divider"></li>
-          <i class="fa fa-dashboard"></i> Dashboard
+          <h6>Dashboard</h6>
           <li>
             <%= link_to dashboard_index_path do %>
             <i class="fa fa-eye"></i> My Visitors

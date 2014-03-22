@@ -7,16 +7,16 @@
     <div class="row">
       <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
         <h1 class="page-title txt-color-blueDark">
-          <i class="fa fa-desktop fa-fw "></i>
-          UI Elements
-          <span>
-            JQuery UI
-          </span>
+          <i class="fa fa-dashboard fa-fw "></i>
+          My Dashboard
         </h1>
       </div>
       <div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
       <%= link_to edit_profile_path(:id =>current_user.profile.id), :class=>"btn btn-default pull-right" do %>
         <i class="fa fa-edit"></i> Edit My Profile
+        <% end %>
+      <%= link_to root_path, :class=>"btn btn-primary pull-right" do %>
+        <i class="fa fa-copy"></i> Explore
         <% end %>
         <%= render :partial =>'layouts/sparks', :locals => {:user => @user}%>
       </div>
@@ -24,19 +24,49 @@
     <!-- row -->
     <div class="row">
       <div class="col-sm-12">
+        <div class="well bg-color-white">
+          <h3 class="error-text-3">My <strong>Profile Visitors</strong></h3>
+          <%= render :partial =>'layouts/search', :locals=>{:css_id => "search-in-visitors"} %>
+          <table class="table table-bordered table-hover" id="in_visitors">
+            <thead>
+              <tr>
+                <th><i class="fa fa-picture-o"></i> Image</th>
+                <th><i class="fa fa-file"></i> Name</th>
+                <th><i class="fa fa-sun-o"></i> Religion</th>
+                <th><i class="fa fa-location-arrow"></i> Location</th>
+                <th><i class="fa fa-location-arrow"></i> Visitors</th>
+                <th><i class="fa fa-calender"></i> Age</th>
+                <th><i class="fa fa-calender"></i> Posted By</th>
+                <th><i class="fa fa-user"></i> Action</th>
+                <th><i class="fa fa-circle"></i> Last Online</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+        <!-- End well -->
 
-        <div class="well">
-          <h3 class="text-primary">People Visited my Profile <small>Secondary text</small></h3>
-          <table class="table table-striped table-bordered table-hover" id="in_interests">
+        <div class="well bg-color-white">
+          <h3 class="error-text-3">Profiles <strong>Interested !</strong> in Me</h3>
+          <div class="text-muted">
+            <small>Showing the List of Profiles who have sent you interests. You can <strong>filter</strong> the results by <strong>typing into the search bar</strong>. <strong>For Example</strong> "Delhi" will filter out results with profiles from Delhi. Or you can type in "21 years" would filter the age.</small>
+            <small class="txt-muted"><strong class="txt-color-red">Note that</strong> once you accept an interest, the user gets notified and will be able to email to you for further correspondence.</small>
+            <legend></legend>
+            </div>
+          <%= render :partial =>'layouts/search', :locals=>{:css_id => "search-in-interests"} %>
+          <table class="table table-hover" id="in_interests">
             <thead>
               <tr>
                 <th><i class="fa fa-picture-o"></i> Image</th>
-                <th><i class="fa fa-picture-o"></i> Profile</th>
-                <th><i class="fa fa-picture-o"></i> Religion</th>
-                <th><i class="fa fa-picture-o"></i> Location</th>
-                <th><i class="fa fa-picture-o"></i> Age</th>
-                <th><i class="fa fa-picture-o"></i> Posted By</th>
-                <th><i class="fa fa-picture-o"></i> Last Online</th>
+                <th><i class="fa fa-file"></i> Name</th>
+                <th><i class="fa fa-sun-o"></i> Religion</th>
+                <th><i class="fa fa-location-arrow"></i> Location</th>
+                <th><i class="fa fa-location-arrow"></i> Visitors</th>
+                <th><i class="fa fa-calender"></i> Age</th>
+                <th><i class="fa fa-calender"></i> Posted By</th>
+                <th><i class="fa fa-user"></i> Action</th>
+                <th><i class="fa fa-circle"></i> Last Online</th>
               </tr>
             </thead>
             <tbody>
@@ -44,37 +74,21 @@
           </table>
         </div>
         <!-- End well -->
-        <div class="well">
-          <h3 class="text-primary">People Visited my Profile <small>Secondary text</small></h3>
-          <table class="table table-striped table-bordered" id="out_interests">
+        <div class="well bg-color-white">
+          <h3 class="error-text-3">My Received <strong>Responses</strong></h3>
+          <%= render :partial =>'layouts/search', :locals=>{:css_id => "search-out-interests"} %>
+          <table class="table table-hover" id="out_interests">
             <thead>
               <tr>
                 <th><i class="fa fa-picture-o"></i> Image</th>
-                <th><i class="fa fa-picture-o"></i> Profile</th>
-                <th><i class="fa fa-picture-o"></i> Religion</th>
-                <th><i class="fa fa-picture-o"></i> Location</th>
-                <th><i class="fa fa-picture-o"></i> Age</th>
-                <th><i class="fa fa-picture-o"></i> Posted By</th>
-                <th><i class="fa fa-picture-o"></i> Last Online</th>
-              </tr>
-            </thead>
-            <tbody>
-            </tbody>
-          </table>
-        </div>
-        <!-- End well -->
-        <div class="well">
-          <h3 class="text-primary">People Visited my Profile <small>Secondary text</small></h3>
-          <table class="table table-striped table-bordered" id="in_visitors">
-            <thead>
-              <tr>
-                <th><i class="fa fa-picture-o"></i> Image</th>
-                <th><i class="fa fa-picture-o"></i> Profile</th>
-                <th><i class="fa fa-picture-o"></i> Religion</th>
-                <th><i class="fa fa-picture-o"></i> Location</th>
-                <th><i class="fa fa-picture-o"></i> Age</th>
-                <th><i class="fa fa-picture-o"></i> Posted By</th>
-                <th><i class="fa fa-picture-o"></i> Last Online</th>
+                <th><i class="fa fa-file"></i> Name</th>
+                <th><i class="fa fa-sun-o"></i> Religion</th>
+                <th><i class="fa fa-location-arrow"></i> Location</th>
+                <th><i class="fa fa-location-arrow"></i> Visitors</th>
+                <th><i class="fa fa-calender"></i> Age</th>
+                <th><i class="fa fa-calender"></i> Posted By</th>
+                <th><i class="fa fa-user"></i> Action</th>
+                <th><i class="fa fa-circle"></i> Last Online</th>
               </tr>
             </thead>
             <tbody>

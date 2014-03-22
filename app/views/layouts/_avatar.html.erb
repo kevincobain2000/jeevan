@@ -1,5 +1,6 @@
 <div class="col-sm-6 profile-pic">
   <%= image_tag user[:avatar].url(:thumb)%>
+  <br>
   <% if user[:updated_at].include? "minute" %>
     <i class="txt-color-greenLight fa fa-sm fa-circle"></i> <small><strong>Online</strong></small>
   <% else %>
