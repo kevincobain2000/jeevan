@@ -1,40 +1,18 @@
-<!-- Widget ID (each widget will need unique ID)-->
-<!-- <div class="jarviswidget" id="wid-id-12">
-  <header>
-    <span class="widget-icon">
-      <i class="fa fa-cloud"></i>
-    </span>
-    <h2>My Images Droparea!
-    </h2>
-  </header>
- -->  <!-- widget div-->
-  <!-- <div> -->
-    <!-- widget content -->
-    <!-- <div class="widget-body"> -->
-      <!-- well -->
-      <!-- <div class="well"> -->
-        <div id="myCarousel-2" class="carousel slide">
-          <ol class="carousel-indicators">
-            <% @user[:image].each_with_index do |image, counter| %>
-              <% active = (counter == 0) ? "active": "" %>
-              <li data-target="#myCarousel-2" data-slide-to="<%= counter %>" class="<%= active %>"></li>
-            <% end %></ol>
-          <div class="carousel-inner">
-            <!-- Slide 1 -->
-            <% @user[:image].each_with_index do |image, counter| %>
-              <% active = (counter == 0) ? "item active": "item" %>
-              <div class="<%= active %>">
-                <%= image_tag image.avatar.url(:medium) %></div>
-            <% end %></div>
-          <a class="left carousel-control" href="#myCarousel-2" data-slide="prev">
-          </a>
-          <a class="right carousel-control" href="#myCarousel-2" data-slide="next">
-          </a>
-        </div>
-      <!-- </div> -->
-    <!-- </div> -->
-    <!-- end widget content -->
-  <!-- </div> -->
-  <!-- end widget div -->
-<!-- </div> -->
-<!-- end widget -->
+<div id="myCarousel-2" class="carousel slide">
+  <ol class="carousel-indicators">
+    <% @user[:image].each_with_index do |image, counter| %>
+      <% active = (counter == 0) ? "active": "" %>
+      <li data-target="#myCarousel-2" data-slide-to="<%= counter %>" class="<%= active %>"></li>
+    <% end %></ol>
+  <div class="carousel-inner">
+    <!-- Slide 1 -->
+    <% @user[:image].each_with_index do |image, counter| %>
+      <% active = (counter == 0) ? "item active": "item" %>
+      <div class="<%= active %>">
+        <%= image_tag image.avatar.url(:medium) %></div>
+    <% end %></div>
+    <a class="left carousel-control" href="#myCarousel-2" data-slide="prev">
+  </a>
+  <a class="right carousel-control" href="#myCarousel-2" data-slide="next">
+  </a>
+</div>

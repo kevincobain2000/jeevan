@@ -1,12 +1,20 @@
 <% users.each do |user| %>
-	<legend></legend>
-    <div class="col-md-10 col-lg-2">
-      <%= image_tag user[:avatar].url(:tiny), :class=> "pull-left" %>
-    </div>
-    <div class="col-md-10 col-lg-6">
-      <%= link_to user[:name], profile_path(:id =>user[:profile][:id]) %> (<span class="font-xs"> <strong><%= user[:age] %></strong> old</span>)
-      <small class="text-muted"><%= text %></small>
-      <br>
-      <small class="muted">Last Online <strong><%= user[:updated_at] %></strong> ago</small>
-    </div>
+    <dl class="dl-horizontal">
+      <%= link_to profile_path(:id =>user[:profile][:id]) do %>
+        <dt>
+          <%= image_tag user[:avatar].url(:tiny), :class=> "btn btn-link pull-left" %>
+        </dt>
+      <% end %>
+        <dd>
+          <%= user[:name] %>
+          (<span class="font-xs">
+            <strong><%= user[:age] %></strong>
+            old</span>)
+          <small class="text-muted"><%= text %></small>
+          <br>
+          <small class="muted">Last Online
+            <strong><%= user[:updated_at] %></strong>
+            ago</small>
+        </dd>
+    </dl>
 <% end %>

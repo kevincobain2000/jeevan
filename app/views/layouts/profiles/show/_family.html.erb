@@ -1,11 +1,15 @@
+<h6 class="error-text-3">
+	Family
+</h6>
 <% categories = {'values' => nil, 'size' => nil, 'status' => nil, 'family_income' => "Lacs", 'father' => nil, 'mother' => nil, 'brother' => nil, 'sister' => nil, 'profile_handler' => nil} %>
 <dl class="dl-horizontal">
   <% categories.each do |category, post_fix| %>
     <% heading = category.gsub "_", " " %>
-    <dt><%= heading.capitalize %>:</dt>
-    <dd>
+    <dt class="txt-color-green"><%= heading.capitalize %> <i class="fa fa-angle-right fa-sm"></i></dt>
+    <dd><strong>
       <%= @user[:family][category].nil? ? @user[:family][category] : (@user[:family][category].gsub ";"," to ") %>
       <%= @user[:family][category].nil? ? "" : post_fix %>
+      </strong>
     </dd>
   <% end %>
 </dl>
