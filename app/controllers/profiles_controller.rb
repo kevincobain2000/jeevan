@@ -196,7 +196,7 @@ class ProfilesController < ApplicationController
     users.each do |user|
       @similar_profiles[user.id] = make_user(user)
     end
-    @similar_profiles_paginate = @similar_profiles.keys.paginate(:page => params[:page], :per_page => 2)
+    @similar_profiles_paginate = @similar_profiles.keys.paginate(:page => params[:page], :per_page => 6) # 6 is a good number
   end
 
 end
