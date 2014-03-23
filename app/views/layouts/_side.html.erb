@@ -17,7 +17,6 @@
       <!-- User image size is adjusted inside CSS, it should stay as it -->
       <%= image_tag current_user.avatar.url(:thumb), :class => "img-rounded" %>
       <a href="javascript:void(0);" id="show-shortcut">
-        <i class="fa fa-user"></i>
         <%= link_to truncate(current_user.name, length: 15), profile_path(:id =>current_user.profile.id)%>
       </a>
     </span>

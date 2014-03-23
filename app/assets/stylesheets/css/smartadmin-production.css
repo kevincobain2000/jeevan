@@ -17418,8 +17418,8 @@ button {
 }
 .login-info strong,
 .login-info a {
-  text-transform: capitalize;
-  font-size: 14px;
+  /*text-transform: capitalize;*/
+  /*font-size: 14px;*/
   /* 14px~ */
 
   display: inline-block;

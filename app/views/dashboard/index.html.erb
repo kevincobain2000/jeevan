@@ -25,6 +25,11 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="well bg-color-white">
+          <div class="text-muted">
+            <strong class="txt-color-green">Pro Tip ! </strong> <small>Showing the List of Profiles who have sent you interests. You can <strong>filter</strong> the results by <strong>typing into the search bar</strong>. <strong>For Example</strong> Delhi will filter out results with profiles from Delhi. Or you can type in, 21 years, which would filter the age.</small>
+            <small class="txt-muted"><strong class="txt-color-red">Note that</strong> once you accept an interest, the user gets notified and will be able to email to you for further correspondence.</small>
+            <legend></legend>
+            </div>
           <h3 class="error-text-3">My <strong>Profile Visitors</strong></h3>
           <%= render :partial =>'layouts/search', :locals=>{:css_id => "search-in-visitors"} %>
           <table class="table table-hover" id="in_visitors">
@@ -49,11 +54,6 @@
 
         <div class="well bg-color-white">
           <h3 class="error-text-3">Profiles <strong>Interested !</strong> in Me</h3>
-          <div class="text-muted">
-            <small>Showing the List of Profiles who have sent you interests. You can <strong>filter</strong> the results by <strong>typing into the search bar</strong>. <strong>For Example</strong> "Delhi" will filter out results with profiles from Delhi. Or you can type in "21 years" would filter the age.</small>
-            <small class="txt-muted"><strong class="txt-color-red">Note that</strong> once you accept an interest, the user gets notified and will be able to email to you for further correspondence.</small>
-            <legend></legend>
-            </div>
           <%= render :partial =>'layouts/search', :locals=>{:css_id => "search-in-interests"} %>
           <table class="table table-hover" id="in_interests">
             <thead>

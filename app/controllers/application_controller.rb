@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     dob = user.dob.gsub("/","-")
     age = user.dob.empty? ? nil: distance_of_time_in_words(Date::strptime(dob, "%m-%d-%Y"), Time.now)
 
-    return {
+    user_ret = {
       id:         user.id,
       dob:        user.dob,
       age:        age,
@@ -36,6 +36,7 @@ class ApplicationController < ActionController::Base
       in_response:  Interest.where(to_user_id: current_user.id, user_id: user.id).first,
       out_response: Interest.where(user_id: current_user.id, to_user_id: user.id).first
     }
+    return user_ret;
   end
   protected
   def configure_permitted_parameters
