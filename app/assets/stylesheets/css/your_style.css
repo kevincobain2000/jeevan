@@ -29,3 +29,6 @@
 .divhover:hover{
    background-color:#eceff6;
 }
+.divhover-light:hover{
+   background-color:#f7f7f7;
+}

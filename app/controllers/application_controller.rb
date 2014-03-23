@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   before_filter :authenticate_user!
   before_filter :configure_permitted_parameters, if: :devise_controller?
-  before_filter :for_notification
+  before_filter :for_notification, :some
   protect_from_forgery with: :exception
   after_filter :user_activity
   # protect_from_forgery with: :null_session
@@ -34,7 +34,9 @@ class ApplicationController < ActionController::Base
       image:      user.images.all,
       avatar:     user.avatar,
       in_response:  Interest.where(to_user_id: current_user.id, user_id: user.id).first,
-      out_response: Interest.where(user_id: current_user.id, to_user_id: user.id).first
+      out_response: Interest.where(user_id: current_user.id, to_user_id: user.id).first,
+      # in_response:  nil,
+      # out_response: nil
     }
     return user_ret;
   end
@@ -77,6 +79,17 @@ class ApplicationController < ActionController::Base
     got_rejected.each do |gtr|
       @got_rejected_notification << make_user(User.find(gtr.user_id))
     end
+  end
+
+  def some
+  #   @profiles = Hash.new {|h, k| h[k] = [] }
+  #   # Todo Take interests donot add profiles to show to whom interests have been sent
+  #   # users_not_my_gender = User.where.not(sex: current_user.sex, :id.in(@interests[:in])).order('created_at DESC').limit(1000)
+  #   users = User.find(:all)
+  #   users.each do |user|
+  #     @profiles[user.id] = make_user(user)
+  #   end
+  #   @profiles_paginate = @profiles.keys.paginate(:page => params[:page], :per_page => 4)
   end
 
 end
