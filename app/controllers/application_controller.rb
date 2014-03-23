@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   before_filter :authenticate_user!
   before_filter :configure_permitted_parameters, if: :devise_controller?
-  before_filter :for_notification, :some
+  before_filter :for_notification, :profiles_on_sign_up_page
   protect_from_forgery with: :exception
   after_filter :user_activity
   # protect_from_forgery with: :null_session
@@ -81,7 +81,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def some
+  def profiles_on_sign_up_page
   #   @profiles = Hash.new {|h, k| h[k] = [] }
   #   # Todo Take interests donot add profiles to show to whom interests have been sent
   #   # users_not_my_gender = User.where.not(sex: current_user.sex, :id.in(@interests[:in])).order('created_at DESC').limit(1000)
