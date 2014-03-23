@@ -142,7 +142,7 @@ $(document).on "page:change", ->
   $(".phone").inputmask("mask", {"mask": "(999) 9999-999-999"});
 
   $(".interest").click ->
-    $(".interest").hide()
+    $(this).hide()
 
   $('form').submit ->
     alertify.success("<strong>Done !</strong>")

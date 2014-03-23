@@ -1,7 +1,4 @@
-<h6 class="error-text-3">
-    Desire
-</h6>
-<% categories = {'desired_height' => 'Inches', 'desired_age' => 'Years', 'desired_marital_status' => nil, 'desired_country' => nil, 'desired_city' => nil, 'desired_religion' => nil, 'desired_caste' => nil, 'desired_mother_tongue' => nil, 'desired_manglik' => nil, 'desired_diet' => nil, 'desired_smoke' => nil, 'desired_drink' => nil, 'desired_complexion' => nil, 'desired_body' => nil, 'desired_challenged' => nil, 'desired_education' => nil, 'desired_occupation' => nil, 'desired_income' => "Lacs"} %>
+<h6 class="error-text-3 font-lg"><strong>Desired</strong> <i>partner</i></h6><% categories = {'desired_height' => 'Inches', 'desired_age' => 'Years', 'desired_marital_status' => nil, 'desired_country' => nil, 'desired_city' => nil, 'desired_religion' => nil, 'desired_caste' => nil, 'desired_mother_tongue' => nil, 'desired_manglik' => nil, 'desired_diet' => nil, 'desired_smoke' => nil, 'desired_drink' => nil, 'desired_complexion' => nil, 'desired_body' => nil, 'desired_challenged' => nil, 'desired_education' => nil, 'desired_occupation' => nil, 'desired_income' => "Lacs"} %>
 <dl class="dl-horizontal">
   <% categories.each do |category, post_fix| %>
     <% heading = category.gsub "_", " " %>
