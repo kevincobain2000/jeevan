@@ -25,7 +25,7 @@
         <section>
           <label>
             <i class="<%= icon %>"></i>
-            <%= heading.capitalize %></label><small class="text-muted">
+            <%= heading.titleize %></label><small class="text-muted">
             (Choose one from the Dropdown)</small>
           <input id="select-<%= id %>" name="<%= category %>" value="<%= @user[:kundali][category] %>" class="selectized" placeholder="Select your <%= heading %>">
         </div>

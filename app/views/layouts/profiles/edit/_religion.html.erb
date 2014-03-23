@@ -9,7 +9,7 @@
       <div class="col-sm-12">
         <label>
           <i class="<%= icon %>"></i>
-          <%= heading.capitalize %></label><small class="text-muted">
+          <%= heading.titleize %></label><small class="text-muted">
           (Choose one item)</small>
         <input id="select-<%= id %>" name="<%= category %>" value="<%= @user[:religion][category] %>" class="selectized" placeholder="Select one <%= heading %>">
       </div>

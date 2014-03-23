@@ -5,7 +5,7 @@
 <dl class="dl-horizontal">
   <% categories.each do |category, post_fix| %>
     <% heading = category.gsub "_", " " %>
-    <dt class="txt-color-green"><%= heading.capitalize %> <i class="fa fa-angle-right fa-sm"></i></dt>
+    <dt class="txt-color-green"><%= heading.titleize %> <i class="fa fa-angle-right fa-sm"></i></dt>
     <dd><strong>
       <%= @user[:family][category].nil? ? @user[:family][category] : (@user[:family][category].gsub ";"," to ") %>
       <%= @user[:family][category].nil? ? "" : post_fix %>

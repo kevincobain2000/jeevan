@@ -11,7 +11,7 @@
       <section>
         <label>
           <i class="<%= icon %>"></i>
-          <%= heading.capitalize %></label><small class="text-muted">
+          <%= heading.titleize %></label><small class="text-muted">
             (Add your item, if it is not in the list.)</small>
         <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:education][category] %>" placeholder="Choose or Add your <%= heading %>">
       </div>

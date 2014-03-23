@@ -9,7 +9,7 @@
       <section>
         <label>
           <i class="<%= icon %>"></i>
-          <%= heading.capitalize %></label><small class="text-muted">
+          <%= heading.titleize %></label><small class="text-muted">
           (You can add multiple items here !)</small>
         <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:hobby][category] %>" placeholder="Your Favourite <%= heading %>"(s)>
       </section>
