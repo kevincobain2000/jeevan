@@ -1,20 +1,27 @@
 <% users.each do |user| %>
-    <dl class="dl-horizontal">
-      <%= link_to profile_path(:id =>user[:profile][:id]) do %>
-        <dt>
-          <%= image_tag user[:avatar].url(:tiny), :class=> "btn btn-link pull-left" %>
-        </dt>
+  <dl class="dl-horizontal divhover">
+    <%= link_to profile_path(:id =>user[:profile][:id]) do %>
+      <dt>
+        <%= image_tag user[:avatar].url(:tiny), :class=> "btn btn-link pull-left", :style =>"height:50px;width:50px;" %>
+      </dt>
       <% end %>
-        <dd>
-          <%= user[:name] %>
-          (<span class="font-xs">
-            <strong><%= user[:age] %></strong>
-            old</span>)
-          <small class="text-muted"><%= text %></small>
-          <br>
-          <small class="muted">Last Online
-            <strong><%= user[:updated_at] %></strong>
-            ago</small>
-        </dd>
-    </dl>
+    <dd>
+      <%= user[:name] %>
+      (<span class="font-xs">
+        <strong><%= user[:age] %></strong>
+        old</span>)
+      <br>
+      <small class="text-muted"><%= text %></small>
+      <br>
+      <% if user[:updated_at].include? "minute" %>
+        <i class="txt-color-greenLight fa fa-sm fa-circle"></i>
+        <small><strong>Online</strong></small>
+      <% else %>
+        <small><strong>Offline</strong></small>
+      <% end %>
+      <span class="text-muted font-xs">
+        <%= user[:updated_at] %>
+        ago</span>
+    </dd>
+  </dl>
 <% end %>
