@@ -6,7 +6,7 @@
   <% categories.each do |category, icon| %>
   <% icon = "fa fa-angle-right" %>
     <% heading = category.gsub "_", " " %>
-    <dt class="txt-color-blue"><%= heading.capitalize %> <i class="<%= icon %>"></i></dt>
-    <dd><strong><%= @user[:education][category].to_s.capitalize %></strong></dd>
+    <dt class="txt-color-blue"><%= heading.titleize %> <i class="<%= icon %>"></i></dt>
+    <dd><strong><%= @user[:education][category].to_s.titleize %></strong></dd>
   <% end %>
 </dl>

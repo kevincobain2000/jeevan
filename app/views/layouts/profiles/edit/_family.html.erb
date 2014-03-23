@@ -69,7 +69,7 @@
         <% id = category.sub "_", "-" %>
         <div class="col-sm-12">
           <label>
-            <%= heading.capitalize %></label><small class="text-muted">
+            <%= heading.titleize %></label><small class="text-muted">
             (Choose one from the Dropdown)</small>
           <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:family][category] %>" placeholder="About my <%= heading %>">
         </div>
