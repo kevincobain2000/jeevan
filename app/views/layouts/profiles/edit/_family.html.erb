@@ -1,13 +1,13 @@
 <%= render :partial =>'layouts/alert', :locals => {:heading => "Tell us About Your Family", :description => ""}%>
 <%= form_tag({:action=>'modify_family'},{:remote => true, :class=>"smart-form"}) do %>
-  <header>About your family</header>
+  <h3 class="error-text-3"><strong>Family</strong></h3>
   <fieldset>
   <section>
     <label>Family Values</label>
     <div class="row">
       <% [ 'Liberal', 'Hypocrite' ].each do |values| %>
         <div class="col col-4">
-          <label class="radio state-success">
+          <label class="radio">
             <%= radio_button_tag(:values, values,(@user[:family][:values] == values)) %>
             <i></i>
             <%= values %>
@@ -21,7 +21,7 @@
     <div class="row">
       <% [ 'Nuclear', 'Hypocrite' ].each do |size| %>
         <div class="col col-4">
-          <label class="radio state-success">
+          <label class="radio">
             <%= radio_button_tag(:size, size,(@user[:family][:size] == size)) %>
             <i></i>
             <%= size %>
