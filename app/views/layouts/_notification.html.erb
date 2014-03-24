@@ -1,12 +1,11 @@
 <% users.each do |user| %>
-  <dl class="dl-horizontal divhover">
-    <%= link_to profile_path(:id =>user[:profile][:id]) do %>
+  <%= link_to profile_path(:id =>user[:profile][:id]), :class=> "btn btn-default btn-block" do %>
+  <dl class="padding0">
       <dt>
-        <%= image_tag user[:avatar].url(:tiny), :class=> "btn btn-link pull-left", :style =>"height:50px;width:50px;" %>
+        <%= image_tag user[:avatar].url(:thumb), :class=> "pull-left",:style =>"height:70px;width:70px;" %>
       </dt>
-      <% end %>
-    <dd>
-      <%= user[:name] %>
+    <dd class="">
+      <%= truncate(user[:name], length: 20) %>
       (<span class="font-xs">
         <strong><%= user[:age] %></strong>
         old</span>)
@@ -24,4 +23,5 @@
         ago</span>
     </dd>
   </dl>
+  <% end %>
 <% end %>

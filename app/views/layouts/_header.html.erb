@@ -21,7 +21,7 @@
       </div>
 
       <!-- notification content -->
-      <div class="ajax-notifications custom-scroll bg-color-white">
+      <div class="ajax-notifications bg-color-white">
       <%= render :partial =>'layouts/notification', :locals => {:users => @interests_notification, :text => "Expressed Interest" }%>
       <%= render :partial =>'layouts/notification', :locals => {:users => @visitors_notification, :text => "Viewed your profile"} %>
       <%= render :partial =>'layouts/notification', :locals => {:users => @got_accepted_notification, :text => "Accepted Interest"} %>

@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   before_filter :authenticate_user!
   before_filter :configure_permitted_parameters, if: :devise_controller?
-  before_filter :for_notification, :profiles_on_sign_up_page
+  before_filter :for_notification
   protect_from_forgery with: :exception
   after_filter :user_activity
   # protect_from_forgery with: :null_session
@@ -80,29 +80,4 @@ class ApplicationController < ActionController::Base
       @got_rejected_notification << make_user(User.find(gtr.user_id))
     end
   end
-
-  def profiles_on_sign_up_page
-  #   @profiles = Hash.new {|h, k| h[k] = [] }
-  #   # Todo Take interests donot add profiles to show to whom interests have been sent
-  #   # users_not_my_gender = User.where.not(sex: current_user.sex, :id.in(@interests[:in])).order('created_at DESC').limit(1000)
-  #   users = User.find(:all)
-  #   users.each do |user|
-  #     @profiles[user.id] = make_user(user)
-  #   end
-  #   @profiles_paginate = @profiles.keys.paginate(:page => params[:page], :per_page => 4)
-  end
-
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
