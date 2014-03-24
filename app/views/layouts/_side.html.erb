@@ -4,6 +4,7 @@
 <%= link_to "Show", dashboard_index_path, :id=>"hidden-side-dashboard", :class=>"hidden" %>
 <%= link_to "Edit", edit_profile_path(:id =>current_user.profile.id), :id=>"hidden-side-edit", :class=>"hidden" %>
 <%= link_to "Show", profile_path(:id =>current_user.profile.id), :id=>"hidden-side-myprofile", :class=>"hidden" %>
+<%= link_to "Show", contact_index_path, :id=>"hidden-side-connect", :class=>"hidden" %>
 
 
 <aside id="left-panel">
@@ -66,6 +67,12 @@
       <a href="javascript:void(0);" id="side-myprofile">
         <i class="fa fa-lg fa-fw fa-file"></i>
         <span class="menu-item-parent">Show My Profile</span>
+      </a>
+    </li>
+    <li>
+      <a href="javascript:void(0);" id="side-connect">
+        <i class="fa fa-lg fa-fw fa-link"></i>
+        <span class="menu-item-parent">Connect</span>
       </a>
     </li>
   </ul>
