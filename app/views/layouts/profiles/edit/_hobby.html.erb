@@ -1,14 +1,15 @@
 <%= render :partial =>'layouts/alert', :locals => {:heading => "What do you like to do", :description => "Let your would be partner know about inside you.."}%>
 <%= form_tag({:action=>'modify_hobby'},{:remote => true, :class=>"smart-form"}) do %>
-  <header>Hobbies</header>
+  <h3 class="error-text-3"><strong>Hobbies</strong> <i>of yours</i></h3>
   <fieldset>
-    <% categories = ["hobby", "music", "interest", "read", "dress", "tv", "movie", "sport", "cuisine", "vacation"] %>
-    <% categories.each do |category| %>
+    <% categories = {'hobby' => "fa fa-plus", 'interest' => "fa fa-asterisk", 'music' => "fa fa-music", 'read' => "fa fa-book", 'dress' => "fa fa-group", 'tv' => "fa fa-coffee", 'movie' => "fa fa-desktop", 'sport' => "fa fa-gamepad" , 'cuisine' => "fa fa-globe", 'vacation' => "fa fa-map-marker"} %>
+    <% categories.each do |category, icon| %>
       <% heading = category.sub "_", " " %>
       <% id = category.sub "_", "-" %>
       <section>
         <label>
-          <%= heading.capitalize %></label><small class="text-muted">
+          <i class="<%= icon %>"></i>
+          <%= heading.titleize %></label><small class="text-muted">
           (You can add multiple items here !)</small>
         <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:hobby][category] %>" placeholder="Your Favourite <%= heading %>"(s)>
       </section>

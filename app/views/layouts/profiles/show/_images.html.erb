@@ -1,12 +1,12 @@
 <div id="myCarousel-2" class="carousel slide">
   <ol class="carousel-indicators">
-    <% @user[:image].each_with_index do |image, counter| %>
+    <% user[:image].each_with_index do |image, counter| %>
       <% active = (counter == 0) ? "active": "" %>
       <li data-target="#myCarousel-2" data-slide-to="<%= counter %>" class="<%= active %>"></li>
     <% end %></ol>
   <div class="carousel-inner">
     <!-- Slide 1 -->
-    <% @user[:image].each_with_index do |image, counter| %>
+    <% user[:image].each_with_index do |image, counter| %>
       <% active = (counter == 0) ? "item active": "item" %>
       <div class="<%= active %>">
         <%= image_tag image.avatar.url(:medium) %></div>

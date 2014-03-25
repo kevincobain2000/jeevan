@@ -1,9 +1,9 @@
 <%= render :partial =>'layouts/alert', :locals => {:heading => "Basic Information about yourself ..", :description => "Basic information is shown on the profile card and appears when some does a search"}%>
 <%= form_tag({:action=>'modify_profile'}, {:remote => true, :class=>"smart-form"}) do %>
-  <header>Basic Profile Info</header>
+  <h3 class="error-text-3"><strong>Basic</strong> Information</h3>
   <fieldset>
   <section>
-      <label>Marital Status</label>
+      <label> <i class="fa fa-heart"></i> Marital Status</label>
       <div class="row">
         <div class="col col-4">
           <label class="radio state-success">
@@ -32,7 +32,7 @@
       </div>
       </section>
       <section>
-      <label>Profile Posted By</label>
+      <label> <i class="fa fa-user"></i> Profile Posted By</label>
       <div class="row">
         <div class="col col-4">
           <label class="radio state-success">
@@ -75,6 +75,6 @@
       </section>
   </fieldset>
   <footer>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Save</button>
   </footer>
 <% end %>

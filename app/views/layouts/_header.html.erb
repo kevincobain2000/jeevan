@@ -21,10 +21,10 @@
       </div>
 
       <!-- notification content -->
-      <div class="ajax-notifications custom-scroll bg-color-white">
-      <%= render :partial =>'layouts/notification', :locals => {:users => @interests_notification, :text => "Expressed interest in your profile" }%>
-      <%= render :partial =>'layouts/notification', :locals => {:users => @visitors_notification, :text => "Recently viewed your profile"} %>
-      <%= render :partial =>'layouts/notification', :locals => {:users => @got_accepted_notification, :text => "Accepted your Interest"} %>
+      <div class="ajax-notifications bg-color-white">
+      <%= render :partial =>'layouts/notification', :locals => {:users => @interests_notification, :text => "Expressed Interest" }%>
+      <%= render :partial =>'layouts/notification', :locals => {:users => @visitors_notification, :text => "Viewed your profile"} %>
+      <%= render :partial =>'layouts/notification', :locals => {:users => @got_accepted_notification, :text => "Accepted Interest"} %>
       <%= render :partial =>'layouts/notification', :locals => {:users => @got_rejected_notification, :text => "Is not Interested"} %>
       </div>
       <!-- end notification content -->

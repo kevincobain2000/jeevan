@@ -32,6 +32,13 @@ $(document).on "page:change", ->
     $("#search-in-visitors").keyup ->
       in_visitors.fnFilter $(this).val()
 
+    shortlist = $("#shortlist").dataTable
+      aaData:gon.dashboard['shortlist']
+      bFilter: true
+      bLengthChange:false
+    $("#search-shortlist").keyup ->
+      in_visitors.fnFilter $(this).val()
+
     $(".dataTables_filter input").hide()
     $(".dataTables_filter").children("label").hide()
 

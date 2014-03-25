@@ -75,14 +75,22 @@ $(document).on "page:change", ->
                     profile_handler:true
                     school:
                       create: true
+                      plugins: ['remove_button', 'restore_on_backspace']
                     grad_college:
                       create: true
+                      plugins: ['remove_button', 'restore_on_backspace']
                     graduation:
                       create: true
+                      plugins: ['remove_button', 'restore_on_backspace']
                     post_grad:
                       create: true
+                      plugins: ['remove_button', 'restore_on_backspace']
+                    post_grad_college:
+                      create: true
+                      plugins: ['remove_button', 'restore_on_backspace']
                     highest_degree:
                       create: true
+                      plugins: ['remove_button', 'restore_on_backspace']
                     desired_country:
                       create:true
                     desired_city:
@@ -134,7 +142,7 @@ $(document).on "page:change", ->
   $(".phone").inputmask("mask", {"mask": "(999) 9999-999-999"});
 
   $(".interest").click ->
-    $(".interest").hide()
+    $(this).hide()
 
   $('form').submit ->
     alertify.success("<strong>Done !</strong>")

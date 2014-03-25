@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
 
   has_many :visitors, :dependent => :destroy
   has_many :interests, :dependent => :destroy
+  has_many :shortlists, :dependent => :destroy
   has_many :images, :dependent => :destroy
 
   has_one :profile, :dependent => :destroy
