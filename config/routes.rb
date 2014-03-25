@@ -18,6 +18,7 @@ Jeevan::Application.routes.draw do
       post :remove
       post :interest
       post :interest_response
+      post :shortlist
     end
   end
   resources :explore do

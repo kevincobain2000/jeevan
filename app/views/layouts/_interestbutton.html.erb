@@ -3,11 +3,11 @@
   <%= form_tag({:action=>'interest', :controller => "profiles"}, :remote => true) do %>
     <%= hidden_field_tag 'to_user_id', user[:id] %>
     <button class="bounceIn animated btn btn-success interest" type="submit">
-      <i class="fa fa-thumbs-up"></i>
+      <i class="fa fa-link"></i>
       Express Interest
     </button>
     <br>
-    <small class="text-muted"> Express Interest to <strong class="txt-color-green"><%= user[:name] %></strong> by giving a thumbs up</small>
+    <small class="text-muted"> Express Interest to <strong class="txt-color-green"><%= user[:name] %></strong></small>
   <% end %>
 <% end %>
 
@@ -19,6 +19,9 @@
 	<% else %>
 	    <span class="text-muted">Interest Expressed: <strong class="txt-color-orange"><i class="fa fa-bell"></i> Waiting</strong> for response</span>
 	<% end %>
+  <%= link_to dashboard_index_path, :class=>"pull-right font-xs" do %>
+  <i class="fa fa-bars"></i> My Interests <i class="fa fa-arrow-right"></i>
+  <% end %>
 <% end %>
 
 <% if  current_user.id != user[:id] && !user[:in_response].nil? && user[:in_response].response.nil? %>

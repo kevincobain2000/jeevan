@@ -17,7 +17,8 @@
       </div>
       <div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
         <%= link_to profile_path(:id =>current_user.profile.id), :class=>"btn btn-default pull-right" do %>
-        <i class="fa fa-eye"></i> View My Profile
+          <i class="fa fa-eye"></i>
+          View My Profile
         <% end %>
         <!-- sparks -->
         <%= render :partial =>'layouts/sparks', :locals => {:user => @user}%>
@@ -32,27 +33,18 @@
             <div class="well well-light well-sm no-margin no-padding">
               <div class="row">
                 <div class="col-sm-12">
-                  <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-12">
-                      <div class="col-sm-6">
-                        <%= render :partial =>'layouts/avatar', :locals => {:user => @user}%>
-                      </div>
-                      <div class="col-sm-6">
-                      <blockquote>
-                        <p>Complete your profile</p>
-                        <small>
-                        A good Profile picture and images is worth a thousand words !
-                        </small>
-                      </blockquote>
-                        <%#= render :partial =>'layouts/cardinfo', :locals => {:user => @user}%>
-                      </div>
+                  <div class="col-sm-12">
+                    <div class="col-sm-6">
+                      <%= render :partial =>'layouts/avatar', :locals => {:user => @user}%>
+                    </div>
+                    <div class="col-sm-6">
+                      <%= render :partial =>'layouts/cardinfo', :locals => {:user => @user}%>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="row">
                 <div class="col-sm-12">
-                  <hr>
                   <div class="padding-10" id="tabs">
                     <ul class="nav nav-tabs">
                       <li class="active">
@@ -61,7 +53,7 @@
                       <li>
                         <a href="#a5" data-toggle="tab">Images</a>
                       </li>
-<!--                       <li>
+                      <!--                       <li>
                         <a href="#a3" data-toggle="tab">Contact</a>
                       </li> -->
                       <li>

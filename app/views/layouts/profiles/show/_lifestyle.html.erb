@@ -1,11 +1,9 @@
-<h6 class="error-text-3">
-	LifeStyle
-</h6>
-<% categories = {'diet' => "fa fa-leaf", 'smoke' => "fa fa-times", 'drink' => "fa fa-beer", 'complexion' => "fa fa-smile-o", 'body' => "fa fa-female", 'challenged' => "fa fa-wheelchair", 'blood' => "fa fa-medkit", 'weight' => "fa fa-male", 'residence' => "fa fa-globe", 'own_house' => "fa fa-home", 'own_car' => "fa fa-truck", 'language' => "fa fa-globe", 'pet' => "fa fa-heart", 'hiv' => "fa fa-exclamation"} %>
+<h6 class="error-text-3 font-lg"><strong>My Life</strong><i>Style</i></h6><% categories = {'diet' => "fa fa-leaf", 'smoke' => "fa fa-times", 'drink' => "fa fa-beer", 'complexion' => "fa fa-smile-o", 'body' => "fa fa-female", 'challenged' => "fa fa-wheelchair", 'blood' => "fa fa-medkit", 'weight' => "fa fa-male", 'residence' => "fa fa-globe", 'own_house' => "fa fa-home", 'own_car' => "fa fa-truck", 'language' => "fa fa-globe", 'pet' => "fa fa-heart", 'hiv' => "fa fa-exclamation"} %>
 <dl class="dl-horizontal">
   <% categories.each do |category, icon| %>
+  <% icon = "fa fa-angle-right" %>
     <% heading = category.gsub "_", " " %>
-    <dt class="txt-color-green"><%= heading.capitalize %> <i class="<%= icon %>"></i></dt>
+    <dt class="txt-color-green"><%= heading.titleize %> <i class="<%= icon %>"></i></dt>
     <dd>
     	<strong>
     		<%= @user[:lifestyle][category] %>

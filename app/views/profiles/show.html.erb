@@ -57,8 +57,10 @@
         </div>
         <div class="row">
           <article class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
-            <h3 class="text-primary">About Me</h3>
-            <%= raw @user[:about][:me] %>
+            <h6 class="error-text-3 font-lg">About <strong> Me</strong></h6>
+            <div class="wordwrap">
+            <%= raw truncate(@user[:about][:me], length:500, escape:false) %>
+            </div>
           </article>
           <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
             <%= render :partial =>'layouts/profiles/show/religion'%>
@@ -84,7 +86,7 @@
         </div>
       </div>
     </div>
-    <%= render :partial => 'layouts/profiles/similar' %>
+    <%= render :partial => 'layouts/profiles/similar', :locals => {:user => @user} %>
     <!-- end row -->
   </div>
   <!-- END MAIN CONTENT -->

@@ -1,0 +1,21 @@
+<% if  current_user.id != user[:id] && user[:shortlist].nil? %>
+<fieldset>
+  <%= form_tag({:action=>'shortlist', :controller => "profiles"}, {:remote => true, :class=>"smart-form"}) do %>
+    <%= hidden_field_tag 'to_user_id', user[:id] %>
+    <button class="btn btn-xs btn-default interest" type="submit">
+      <i class="fa fa-plus"></i>
+      Shortlist
+    </button>
+  <% end %>
+  </fieldset>
+  <% else %>
+  <fieldset>
+  <button class="btn btn-xs btn-default disabled"><i class="fa fa-check"></i> Shortlisted</button>
+  </fieldset>
+  <fieldset>
+  <%= link_to dashboard_index_path, :class=>"font-xs" do %>
+  <i class="fa fa-bars"></i> My shortlist <i class="fa fa-arrow-right"></i>
+  <% end %>
+  </fieldset>
+
+<% end %>

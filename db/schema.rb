@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140223042627) do
+ActiveRecord::Schema.define(version: 20140325111915) do
 
   create_table "abouts", force: true do |t|
     t.integer  "user_id"
@@ -188,6 +188,13 @@ ActiveRecord::Schema.define(version: 20140223042627) do
     t.string   "native_place",  limit: 64
     t.datetime "updated_at"
     t.datetime "created_at"
+  end
+
+  create_table "shortlists", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id",    limit: 8
+    t.integer  "to_user_id", limit: 8
   end
 
   create_table "users", force: true do |t|
