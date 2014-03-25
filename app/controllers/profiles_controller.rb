@@ -77,7 +77,10 @@ class ProfilesController < ApplicationController
     render json: { :status => 200 }
   end
 
-  # Express Interest Button
+  /#=================================================
+  #            # Express Interest Button            =
+  #=================================================*/
+
   def interest
     logger.info("Debug Params inspect #{params.inspect}")
     if current_user.id != params[:to_user_id].to_i
@@ -93,7 +96,9 @@ class ProfilesController < ApplicationController
     # redirect_to(explore_index_path)
   end
 
-  # When accept or reject button is clicked
+  /#=================================================
+  #            # Reject Button is Pressed           =
+  #=================================================*/
   def interest_response
     commit = params[:commit]
     logger.info("Debug Params inspect #{params.inspect}")
@@ -107,6 +112,17 @@ class ProfilesController < ApplicationController
       interest.update(:response => 0)
     end
 
+    render json: { :status => 200 }
+  end
+
+  def shortlist
+    if current_user.id != params[:to_user_id].to_i
+      find_first = current_user.shortlists.where(to_user_id: params[:to_user_id]).first
+      logger.info("Debug Params inspect #{params.inspect}")
+      if !find_first
+        current_user.shortlists.create(to_user_id: params[:to_user_id])
+      end
+    end
     render json: { :status => 200 }
   end
 
