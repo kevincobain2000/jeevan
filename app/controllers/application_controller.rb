@@ -35,8 +35,7 @@ class ApplicationController < ActionController::Base
       avatar:     user.avatar,
       in_response:  Interest.where(to_user_id: current_user.id, user_id: user.id).first,
       out_response: Interest.where(user_id: current_user.id, to_user_id: user.id).first,
-      # in_response:  nil,
-      # out_response: nil
+      shortlist:    Shortlist.where(user_id: current_user.id, to_user_id: user.id).first,
     }
     return user_ret;
   end
