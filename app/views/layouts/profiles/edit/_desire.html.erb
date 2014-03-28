@@ -1,6 +1,6 @@
 <%= render :partial =>'layouts/alert', :locals => {:heading => "Contact Details", :description => "Your contact details are kept private and are only shown to other users once you accept their interest"}%>
 <%= form_tag({:action=>'modify_desire'},{:remote => true, :class=>"smart-form"}) do %>
-  <header>Desires</header>
+  <h3 class="error-text-3"><strong>Desired</strong> <i>partner</i></h3>
   <fieldset>
     <label>Desired Marital Status</label>
     <div class="row">
@@ -116,7 +116,7 @@
         <% id = category.gsub "_", "-" %>
         <div class="col-sm-12">
           <label>
-            <%= heading.capitalize %></label>
+            <%= heading.titleize %></label>
           <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:desire][category] %>" placeholder="Choose your <%= heading %>">
         </div>
         <div class="col-sm-12">&nbsp;</div>

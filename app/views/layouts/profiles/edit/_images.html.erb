@@ -1,4 +1,5 @@
 <%= render :partial =>'layouts/alert', :locals => {:heading => "Load as many Images as you like", :description => "One image is worth a thousand words !"}%>
+<h3 class="error-text-3"><strong>Images</strong></h3>
 <div class="row">
   <%= form_tag({:action=>'remove_image'}, {:remote => true}) do %>
     <!-- SuperBox -->
