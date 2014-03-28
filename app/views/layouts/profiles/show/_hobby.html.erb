@@ -1,12 +1,9 @@
-<h6 class="error-text-3">
-  Hobby
-</h6>
-<% categories = {'hobby' => "fa fa-plus", 'interest' => "fa fa-asterisk", 'music' => "fa fa-music", 'read' => "fa fa-book", 'dress' => "fa fa-group", 'tv' => "fa fa-coffee", 'movie' => "fa fa-desktop", 'sports' => "fa fa-gamepad" , 'cuisine' => "fa fa-globe", 'vacation' => "fa fa-map-marker"} %>
+<h6 class="error-text-3 font-lg">My <strong>Hobbies</strong></h6><% categories = {'hobby' => "fa fa-plus", 'interest' => "fa fa-asterisk", 'music' => "fa fa-music", 'read' => "fa fa-book", 'dress' => "fa fa-group", 'tv' => "fa fa-coffee", 'movie' => "fa fa-desktop", 'sport' => "fa fa-gamepad" , 'cuisine' => "fa fa-globe", 'vacation' => "fa fa-map-marker"} %>
 <dl class="dl-horizontal">
   <% categories.each do |category, icon| %>
   <% icon = "fa fa-angle-right" %>
     <% heading = category.gsub "_", " " %>
-    <dt class="txt-color-blue"><%= heading.capitalize %> <i class="<%= icon %>"></i></dt>
+    <dt class="txt-color-blue"><%= heading.titleize %> <i class="<%= icon %>"></i></dt>
     <dd>
     <strong>
     	<%= @user[:hobby][category] %>

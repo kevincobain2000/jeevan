@@ -1,12 +1,12 @@
 <%= render :partial =>'layouts/alert', :locals => {:heading => "Your Lifestyle", :description => "What movies do you like ! What music do you listen to..."}%>
     <%= form_tag({:action=>'modify_lifestyle'}, {:remote => true, :class=>"smart-form"}) do %>
-      <header>Life</header>
+      <h3 class="error-text-3"><strong>Life</strong> Style</h3>
       <fieldset>
         <label>Diet</label>
         <div class="row">
           <% [ 'Veg', 'Non-Veg', "Eggeterian", "Occasional Non Veg" ].each do |diet| %>
             <div class="col col-4">
-              <label class="radio state-success">
+              <label class="radio">
                 <%= radio_button_tag(:diet, diet,(@user[:lifestyle][:diet] == diet)) %>
                 <i></i>
                 <%= diet %>
@@ -19,7 +19,7 @@
         <div class="row">
           <% [ 'Yes', 'No', 'Occasional', 'Quiting' ].each do |smoke| %>
             <div class="col col-4">
-              <label class="radio state-success">
+              <label class="radio">
                 <%= radio_button_tag(:smoke, smoke,(@user[:lifestyle][:smoke] == smoke)) %>
                 <i></i>
                 <%= smoke %>
@@ -32,7 +32,7 @@
         <div class="row">
           <% [ 'Yes', 'No', 'Occasional', 'Quiting' ].each do |drink| %>
             <div class="col col-4">
-              <label class="radio state-success">
+              <label class="radio">
                 <%= radio_button_tag(:drink, drink,(@user[:lifestyle][:drink] == drink)) %>
                 <i></i>
                 <%= drink %>
@@ -45,7 +45,7 @@
         <div class="row">
           <% [ 'Dark', 'White', 'Wheatish', 'Yellow', 'Fair' ].each do |complexion| %>
             <div class="col col-4">
-              <label class="radio state-success">
+              <label class="radio">
                 <%= radio_button_tag(:complexion, complexion,(@user[:lifestyle][:complexion] == complexion)) %>
                 <i></i>
                 <%= complexion %>
@@ -58,7 +58,7 @@
         <div class="row">
           <% [ 'Yes', 'No', 'Will Buy', 'May be in Future' ].each do |own_house| %>
             <div class="col col-4">
-              <label class="radio state-success">
+              <label class="radio">
                 <%= radio_button_tag(:own_house, own_house,(@user[:lifestyle][:own_house] == own_house)) %>
                 <i></i>
                 <%= own_house %>
@@ -71,7 +71,7 @@
         <div class="row">
           <% [ 'Yes', 'No', 'Will Buy', 'May be in future' ].each do |own_car| %>
             <div class="col col-4">
-              <label class="radio state-success">
+              <label class="radio">
                 <%= radio_button_tag(:own_car, own_car,(@user[:lifestyle][:own_car] == own_car)) %>
                 <i></i>
                 <%= own_car %>
@@ -84,7 +84,7 @@
         <div class="row">
           <% [ 'Dog', 'Cat', 'Dog & Cat', 'Other', 'May be in future' ].each do |own_pet| %>
             <div class="col col-4">
-              <label class="radio state-success">
+              <label class="radio">
                 <%= radio_button_tag(:own_pet, own_pet,(@user[:lifestyle][:own_pet] == own_pet)) %>
                 <i></i>
                 <%= own_pet %>
@@ -97,7 +97,7 @@
       <div class="row">
         <% ["O−","O+","A−","A+","B−","B+","AB−","AB+"].each do |blood| %>
         <div class="col col-4">
-              <label class="radio state-success">
+              <label class="radio">
                 <%= radio_button_tag(:blood, blood,(@user[:lifestyle][:blood] == blood)) %>
                 <i></i>
                 <%= blood %>

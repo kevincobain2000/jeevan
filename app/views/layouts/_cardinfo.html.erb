@@ -1,8 +1,9 @@
 <h1>
-  Profile of
+  <i class="fa fa-file"></i> Profile id <i class="fa fa-angle-right"></i>
   <span class="semi-bold">
-    <%= user[:name] %></span>
+    <%= user[:profile][:id] %></span>
   <br>
+  <i class="fa fa-calendar"></i>
     <small class="text-muted">
       <span class="semi-bold"><%= user[:age] %></span> Old</small>
 </h1>
@@ -15,6 +16,13 @@
     </p>
   </li>
   <li>
+    <p class="">
+      <i class="fa fa-picture-o"></i>
+      &nbsp;&nbsp;
+      <strong>Images: <%= user[:image].count %></strong>
+    </p>
+  </li>
+  <li>
     <% items = {marital_status: [:profile, 'fa-heart'], birth_city: [:kundali, 'fa-globe'], caste: [:religion, 'fa-bars'], manglik: [:kundali, 'fa-sun-o'], posted_by: [:profile, 'fa-user']  } %>
     <% items.stringify_keys.each do |key, value| %>
     <p class="text-muted">
@@ -22,7 +30,7 @@
       &nbsp;&nbsp;
       <span class="txt-color-darken">
       <strong>
-        <%= key.gsub('_', ' ').capitalize %>:
+        <%= key.gsub('_', ' ').titleize %>:
       </strong>
        <%= user[value[0]][key] %>
       </span>
@@ -30,3 +38,4 @@
     <% end %>
   </li>
 </ul>
+

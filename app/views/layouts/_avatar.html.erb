@@ -2,23 +2,28 @@
   <%= image_tag user[:avatar].url(:thumb)%>
   <br>
   <% if user[:updated_at].include? "minute" %>
-    <i class="txt-color-greenLight fa fa-sm fa-circle"></i> <small><strong>Online</strong></small>
+    <i class="txt-color-greenLight fa fa-sm fa-circle"></i>
+    <small><strong>Online</strong></small>
   <% else %>
-    <small><strong>Last Seen</strong></small>
+    <small><strong>Offline</strong></small>
   <% end %>
   <br>
-  <span class="text-muted font-xs"> <%= user[:updated_at] %> ago</span>
+  <span class="text-muted font-xs">
+    <%= user[:updated_at] %>
+    ago</span>
   <br>
-  <strong><%= number_with_delimiter(user[:visitors].to_i, :delimeter => ',') %></strong><span class="text-muted font-xs"> View(s)</span>
+  <strong><%= number_with_delimiter(user[:visitors].to_i, :delimeter => ',') %></strong><span class="text-muted font-xs">
+    view(s)</span>
   <div class="padding-10">
-    <h6 class="font-md">
-      <label class="badge badge-info"><i class="fa fa-picture-o"></i> <%= user[:image].count %> Images</label>
-    </h6>
-      <% if defined? show_profile_flag %>
-
+    <% if defined? show_profile_flag %>
+    <fieldset>
       <%= link_to profile_path(:id =>user[:profile][:id]), :class=> "btn btn-primary btn-xs" do %>
-      <i class="fa fa-eye"></i> Show Profile
+        <i class="fa fa-eye"></i>
+        Show Profile
       <% end %>
-      <% end %>
+    </fieldset>
+    <% end %>
+    <br>
+    <%= render :partial =>'layouts/shortlistbutton', :locals => {:user => user}%>
   </div>
 </div>

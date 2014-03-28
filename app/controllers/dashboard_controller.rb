@@ -5,6 +5,7 @@ class DashboardController < ApplicationController
     gon.dashboard['in_interests']   = make_gon_in_interests(Interest.where(to_user_id: current_user.id))
     gon.dashboard['out_interests']  = make_gon_out_interests(Interest.where(user_id: current_user.id))
     gon.dashboard['in_visitors']    = make_gon_in_visitors(Visitor.where(viewed_id: current_user.id))
+    gon.dashboard['shortlist']      = make_gon_shortlist(Shortlist.where(user_id: current_user.id))
   end
   def get_current_user
     @user = make_user(current_user)
@@ -31,6 +32,14 @@ class DashboardController < ApplicationController
     obj.each do |i|
       user = User.find(i.user_id)
       ret << make_gon_array(user, i.response)
+    end
+    return ret
+  end
+  def make_gon_shortlist(obj)
+    ret = []
+    obj.each do |i|
+      user = User.find(i.to_user_id)
+      ret << make_gon_array(user, 3)
     end
     return ret
   end
