@@ -87,7 +87,7 @@ class ProfilesController < ApplicationController
       find_first = current_user.interests.where(to_user_id: params[:to_user_id]).first
       logger.info("Debug Params inspect #{params.inspect}")
       if !find_first
-        current_user.interests.create(to_user_id: params[:to_user_id], :seen => 0)
+        current_user.interests.create(to_user_id: params[:to_user_id])
       else
         find_first.touch
       end
@@ -107,9 +107,9 @@ class ProfilesController < ApplicationController
     logger.info("Debug Params inspect #{interest.inspect}")
     logger.info("Debug Params inspect #{current_user.interests.inspect}")
     if commit == "Accept"
-      interest.update(:response => 1, :seen => 1)
+      interest.update(:response => 1)
     elsif commit == "Reject"
-      interest.update(:response => 0, :seen => 1)
+      interest.update(:response => 0)
     end
 
     render json: { :status => 200 }

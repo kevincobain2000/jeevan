@@ -16,8 +16,5 @@
  *= require selectize.bootstrap3
  *= require dropzone/basic
  *= require bootstrap-tagsinput
- *= require alertify/core
- *= require alertify/default
- *= require alertify/bootstrap
  *= require dataTables/jquery.dataTables.bootstrap3
  */
