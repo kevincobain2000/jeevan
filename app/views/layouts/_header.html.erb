@@ -6,9 +6,6 @@
         <%= image_tag("logo.png") %>
       </a>
     </span>
-    <%#= form_tag({:action=>'seen', :controller => 'notifications'},{:remote => true, :class=>"smart-form"}) do %>
-    <!-- <button class="hidden" type="submit" id="activity-hidden"></button> -->
-    <%# end %>
 
     <span id="activity" class="activity-dropdown"> <i class="fa fa-user"></i> <b class="badge">!</b>
     </span>
@@ -24,7 +21,7 @@
 
       <!-- notification content -->
       <div class="ajax-notifications">
-      <%= render :partial =>'layouts/notification', :locals => {:users => @interests_notification,    :text => "Expressed Interest" }%>
+      <%= render :partial =>'layouts/notification', :locals => {:users => @interests_notification,    :text => "Expressed Interest"} %>
       <%= render :partial =>'layouts/notification', :locals => {:users => @visitors_notification,     :text => "Viewed your profile"} %>
       <%= render :partial =>'layouts/notification', :locals => {:users => @got_accepted_notification, :text => "Accepted Interest"} %>
       <%= render :partial =>'layouts/notification', :locals => {:users => @got_rejected_notification, :text => "Is not Interested"} %>

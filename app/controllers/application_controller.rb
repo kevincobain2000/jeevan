@@ -59,10 +59,10 @@ class ApplicationController < ActionController::Base
     @got_rejected_notification = []
     @visitors_notification = []
 
-    interests    = Interest.where(to_user_id: current_user.id).where("updated_at >= ?", Time.zone.now.beginning_of_day)
-    visitors     = Visitor.where(viewed_id: current_user.id).where("updated_at >= ?", Time.zone.now.beginning_of_day)
-    got_accepted = Interest.where(user_id: current_user.id, response: 1).where("updated_at >= ?", Time.zone.now.beginning_of_day)
-    got_rejected = Interest.where(user_id: current_user.id, response: 0).where("updated_at >= ?", Time.zone.now.beginning_of_day)
+    interests    = Interest.where(to_user_id: current_user.id).where("updated_at BETWEEN ? AND ?", 1.week.ago, current_user.updated_at)
+    visitors     = Visitor.where(viewed_id: current_user.id).where("updated_at BETWEEN ? AND ?", 1.week.ago, current_user.updated_at)
+    got_accepted = Interest.where(user_id: current_user.id, response: 1).where("updated_at BETWEEN ? AND ?", 1.week.ago, current_user.updated_at)
+    got_rejected = Interest.where(user_id: current_user.id, response: 0).where("updated_at BETWEEN ? AND ?", 1.week.ago, current_user.updated_at)
 
     interests.each do |interest|
       @interests_notification << make_user(User.find(interest.user_id))

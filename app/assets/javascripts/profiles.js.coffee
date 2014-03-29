@@ -145,7 +145,14 @@ $(document).on "page:change", ->
     $(this).hide()
 
   $('form').submit ->
-    alertify.success("<strong>Done !</strong>")
+    $.smallBox
+      title : "Done !"
+      content : "<i class='fa fa-clock-o'></i> <i>You selection was made ..</i>"
+      color : "#296191"
+      iconSmall : "fa fa-thumbs-up bounce animated"
+      timeout : 2000
+
+    # Removing the image
     jq_superbox_remov = $("#imageid").attr("value")
     $("#"+jq_superbox_remov).remove()
     $(".superbox-list").removeClass "active"

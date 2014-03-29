@@ -22,16 +22,20 @@
       </div>
     </div>
     <!-- row -->
+    <legend></legend>
     <div class="row">
       <div class="col-sm-12">
-        <div class="well bg-color-white">
+        <div class="well-sm bg-color-white">
           <div class="text-muted">
             <strong class="txt-color-green">Pro Tip ! </strong> <small>Showing the List of Profiles who have sent you interests. You can <strong>filter</strong> the results by <strong>typing into the search bar</strong>. <strong>For Example</strong> Delhi will filter out results with profiles from Delhi. Or you can type in, 21 years, which would filter the age.</small>
             <small class="txt-muted"><strong class="txt-color-red">Note that</strong> once you accept an interest, the user gets notified and will be able to email to you for further correspondence.</small>
             <legend></legend>
             </div>
           <h3 class="error-text-3">My <strong>Profile Visitors</strong></h3>
-          <%= render :partial =>'layouts/search', :locals=>{:css_id => "search-in-visitors"} %>
+          <div class="alert alert-block alert-success">
+            <h4 class="alert-heading">Search!</h4>
+            <%= render :partial =>'layouts/search', :locals=>{:css_id => "search-in-visitors"} %>
+          </div>
           <table class="table table-hover" id="in_visitors">
             <thead>
               <tr>
@@ -52,9 +56,12 @@
         </div>
         <!-- End well -->
 
-        <div class="well bg-color-white">
+        <div class="well-sm bg-color-white">
           <h3 class="error-text-3">Profiles <strong>Interested !</strong> in Me</h3>
-          <%= render :partial =>'layouts/search', :locals=>{:css_id => "search-in-interests"} %>
+          <div class="alert alert-block alert-warning">
+            <h4 class="alert-heading">Search!</h4>
+            <%= render :partial =>'layouts/search', :locals=>{:css_id => "search-in-interests"} %>
+          </div>
           <table class="table table-hover" id="in_interests">
             <thead>
               <tr>
@@ -74,9 +81,12 @@
           </table>
         </div>
         <!-- End well -->
-        <div class="well bg-color-white">
+        <div class="well-sm bg-color-white">
           <h3 class="error-text-3">My Received <strong>Responses</strong></h3>
-          <%= render :partial =>'layouts/search', :locals=>{:css_id => "search-out-interests"} %>
+          <div class="alert alert-block alert-info">
+            <h4 class="alert-heading">Search!</h4>
+            <%= render :partial =>'layouts/search', :locals=>{:css_id => "search-out-interests"} %>
+          </div>
           <table class="table table-hover" id="out_interests">
             <thead>
               <tr>
@@ -96,9 +106,12 @@
           </table>
         </div>
         <!-- End well -->
-        <div class="well bg-color-white">
+        <div class="well-sm bg-color-white">
           <h3 class="error-text-3">My <strong>Short</strong> <i>List</i></h3>
-          <%= render :partial =>'layouts/search', :locals=>{:css_id => "search-shortlist"} %>
+          <div class="alert alert-block alert-danger">
+            <h4 class="alert-heading">Search!</h4>
+            <%= render :partial =>'layouts/search', :locals=>{:css_id => "search-shortlist"} %>
+          </div>
           <table class="table table-hover" id="shortlist">
             <thead>
               <tr>
