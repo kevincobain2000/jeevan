@@ -6,24 +6,24 @@
       <label> <i class="fa fa-heart"></i> Marital Status</label>
       <div class="row">
         <div class="col col-4">
-          <label class="radio state-success">
+          <label class="radio">
             <%= radio_button_tag(:marital_status, "Never Married", (@user[:profile][:marital_status] == "Never Married")) %>
             <i></i>
             Never Married
           </label>
-          <label class="radio state-success">
+          <label class="radio">
             <%= radio_button_tag(:marital_status, "Divorced", (@user[:profile][:marital_status] == "Divorced")) %>
             <i></i>
             Divorced
           </label>
         </div>
         <div class="col col-4">
-          <label class="radio state-success">
+          <label class="radio">
             <%= radio_button_tag(:marital_status, "Filed Divorce", (@user[:profile][:marital_status] == "Filed Divorce")) %>
             <i></i>
             Filed Divorce
           </label>
-          <label class="radio state-success">
+          <label class="radio">
             <%= radio_button_tag(:marital_status, "Widowed", (@user[:profile][:marital_status] == "Widowed")) %>
             <i></i>
             Widowed
@@ -35,24 +35,24 @@
       <label> <i class="fa fa-user"></i> Profile Posted By</label>
       <div class="row">
         <div class="col col-4">
-          <label class="radio state-success">
+          <label class="radio">
             <%= radio_button_tag(:posted_by, "Self", (@user[:profile][:posted_by] == "Self")) %>
             <i></i>
             Self
           </label>
-          <label class="radio state-success">
+          <label class="radio">
             <%= radio_button_tag(:posted_by, "Parents", (@user[:profile][:posted_by] == "Parents")) %>
             <i></i>
             Parents
           </label>
         </div>
         <div class="col col-4">
-          <label class="radio state-success">
+          <label class="radio">
             <%= radio_button_tag(:posted_by, "Brother", (@user[:profile][:posted_by] == "Brother")) %>
             <i></i>
             Brother
           </label>
-          <label class="radio state-success">
+          <label class="radio">
             <%= radio_button_tag(:posted_by, "Sister", (@user[:profile][:posted_by] == "Sister")) %>
             <i></i>
             Sister
@@ -60,12 +60,12 @@
         </div>
 
         <div class="col col-4">
-          <label class="radio state-success">
+          <label class="radio">
             <%= radio_button_tag(:posted_by, "Relatives", (@user[:profile][:posted_by] == "Relatives")) %>
             <i></i>
             Relatives
           </label>
-          <label class="radio state-success">
+          <label class="radio">
             <%= radio_button_tag(:posted_by, "Friends", (@user[:profile][:posted_by] == "Friends")) %>
             <i></i>
             Friends
@@ -75,6 +75,6 @@
       </section>
   </fieldset>
   <footer>
-    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="submit" class="btn btn-primary edit disabled">Save</button>
   </footer>
 <% end %>

@@ -144,6 +144,11 @@ $(document).on "page:change", ->
   $(".interest").click ->
     $(this).hide()
 
+  $(".edit").click ->
+    $(this).addClass('disabled')
+
+  $('form').change ->
+    $(".edit").removeClass('disabled')
   $('form').submit ->
     $.smallBox
       title : "Done !"
@@ -166,17 +171,25 @@ $(document).on "page:change", ->
     $("#desired-income-slider").ionRangeSlider
       prettify: false
       hasGrid: true
+      onFinish:(obj) -> # callback, is called on every change
+        $(".edit").removeClass('disabled')
     $("#desired-height-slider").ionRangeSlider
       prettify: false
       hasGrid: true
+      onFinish:(obj) -> # callback, is called on every change
+        $(".edit").removeClass('disabled')
     $("#desired-age-slider").ionRangeSlider
       prettify: false
       hasGrid: true
+      onFinish:(obj) -> # callback, is called on every change
+        $(".edit").removeClass('disabled')
 
   $("#tab-family").click (e) ->
     $("#family-income-slider").ionRangeSlider
       prettify: false
       hasGrid: true
+      onFinish:(obj) -> # callback, is called on every change
+        $(".edit").removeClass('disabled')
 
   $('.superbox').SuperBox()
   $(".superbox-list").click ->
