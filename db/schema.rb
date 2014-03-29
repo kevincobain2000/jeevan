@@ -124,7 +124,6 @@ ActiveRecord::Schema.define(version: 20140325111915) do
     t.integer  "response"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "seen_by",    limit: 1
   end
 
   create_table "kundalis", force: true do |t|
