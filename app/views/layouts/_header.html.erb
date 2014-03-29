@@ -21,10 +21,12 @@
 
       <!-- notification content -->
       <div class="ajax-notifications">
-      <%= render :partial =>'layouts/notification', :locals => {:users => @interests_notification,    :text => "Expressed Interest"} %>
-      <%= render :partial =>'layouts/notification', :locals => {:users => @visitors_notification,     :text => "Viewed your profile"} %>
-      <%= render :partial =>'layouts/notification', :locals => {:users => @got_accepted_notification, :text => "Accepted Interest"} %>
-      <%= render :partial =>'layouts/notification', :locals => {:users => @got_rejected_notification, :text => "Is not Interested"} %>
+      <%= render :partial =>'layouts/notification', :locals => {:users => @interests_notification,    :text => "Expressed Interest", :color=> "txt-color-green"} %>
+      <%= render :partial =>'layouts/notification', :locals => {:users => @visitors_notification,     :text => "Viewed your profile", :color=> "txt-color-orange"} %>
+      <%= render :partial =>'layouts/notification', :locals => {:users => @got_accepted_notification, :text => "Accepted Interest !", :color=> "txt-color-green"} %>
+      <%= render :partial =>'layouts/notification', :locals => {:users => @got_rejected_notification, :text => "Is not Interested",  :color=> "txt-color-red"} %>
+      <legend></legend>
+      <p class="text-center text-muted">No More Notifications</p>
       </div>
       <!-- end notification content -->
 
