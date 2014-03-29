@@ -26,6 +26,11 @@ Jeevan::Application.routes.draw do
       post :search
     end
   end
+  resources :notifications do
+    collection do
+      post :seen
+    end
+  end
 
   get "home/index"
   resources :dashboard
