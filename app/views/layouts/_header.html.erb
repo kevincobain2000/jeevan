@@ -6,8 +6,7 @@
         <%= image_tag("logo.png") %>
       </a>
     </span>
-    <!-- Note: The activity badge color changes when clicked and resets the number to 0
-        Suggestion: You may want to set a flag when this happens to tick off all checked messages / notifications -->
+
     <span id="activity" class="activity-dropdown"> <i class="fa fa-user"></i> <b class="badge">!</b>
     </span>
 
@@ -21,9 +20,9 @@
       </div>
 
       <!-- notification content -->
-      <div class="ajax-notifications bg-color-white">
-      <%= render :partial =>'layouts/notification', :locals => {:users => @interests_notification, :text => "Expressed Interest" }%>
-      <%= render :partial =>'layouts/notification', :locals => {:users => @visitors_notification, :text => "Viewed your profile"} %>
+      <div class="ajax-notifications">
+      <%= render :partial =>'layouts/notification', :locals => {:users => @interests_notification,    :text => "Expressed Interest"} %>
+      <%= render :partial =>'layouts/notification', :locals => {:users => @visitors_notification,     :text => "Viewed your profile"} %>
       <%= render :partial =>'layouts/notification', :locals => {:users => @got_accepted_notification, :text => "Accepted Interest"} %>
       <%= render :partial =>'layouts/notification', :locals => {:users => @got_rejected_notification, :text => "Is not Interested"} %>
       </div>
@@ -31,7 +30,7 @@
 
       <!-- footer: refresh area -->
       <span>
-        Showing Todays Activity
+        Showing Last Week's Activity
           <%= link_to dashboard_index_path, :class=> "btn btn-xs btn-info pull-right" do %>See All Past Activity
           <i class="fa fa-dashboard"></i>
           <% end %>
