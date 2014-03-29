@@ -17444,7 +17444,7 @@ button {
   margin-top: -3px;
   margin-right: 7px;
   margin-left: 0px;
-  border-left: 3px solid #ffffff;
+  /*border-left: 3px solid #ffffff;*/
 }
 img.online {
   border-left-color: #40ac2b !important;
