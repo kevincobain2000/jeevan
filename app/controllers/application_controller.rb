@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
       name:       user.name,
       updated_at: time_ago_in_words(user.updated_at),
       sex:        user.sex,
-      visitors:   Visitor.where(viewed_id: user.id).count,
+      visitors:   number_with_delimiter(Visitor.where(viewed_id: user.id).count),
       profile:    user.profile,
       contact:    user.contact,
       about:      user.about,
