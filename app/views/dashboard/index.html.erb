@@ -12,11 +12,13 @@
         </h1>
       </div>
       <div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
-      <%= link_to edit_profile_path(:id =>current_user.profile.id), :class=>"btn btn-default pull-right" do %>
-        <i class="fa fa-edit"></i> Edit My Profile
+        <%= link_to edit_profile_path(:id =>current_user.profile.id), :class=>"btn btn-default pull-right" do %>
+          <i class="fa fa-edit"></i>
+          Edit My Profile
         <% end %>
-      <%= link_to root_path, :class=>"btn btn-primary pull-right" do %>
-        <i class="fa fa-copy"></i> Explore
+        <%= link_to root_path, :class=>"btn btn-primary pull-right" do %>
+          <i class="fa fa-copy"></i>
+          Explore
         <% end %>
         <%= render :partial =>'layouts/sparks', :locals => {:user => @user}%>
       </div>
@@ -25,112 +27,27 @@
     <legend></legend>
     <div class="row">
       <div class="col-sm-12">
-        <div class="well-sm bg-color-white">
-          <div class="text-muted">
-            <strong class="txt-color-green">Pro Tip ! </strong> <small>Showing the List of Profiles who have sent you interests. You can <strong>filter</strong> the results by <strong>typing into the search bar</strong>. <strong>For Example</strong> Delhi will filter out results with profiles from Delhi. Or you can type in, 21 years, which would filter the age.</small>
-            <small class="txt-muted"><strong class="txt-color-red">Note that</strong> once you accept an interest, the user gets notified and will be able to email to you for further correspondence.</small>
-            <legend></legend>
-            </div>
-          <h3 class="error-text-3">My <strong>Profile Visitors</strong></h3>
-          <div class="alert alert-block alert-success">
-            <h4 class="alert-heading">Search!</h4>
-            <%= render :partial =>'layouts/search', :locals=>{:css_id => "search-in-visitors"} %>
-          </div>
-          <table class="table table-hover" id="in_visitors">
-            <thead>
-              <tr>
-                <th><i class="fa fa-picture-o"></i> Image</th>
-                <th><i class="fa fa-file"></i> Name</th>
-                <th><i class="fa fa-sun-o"></i> Religion</th>
-                <th><i class="fa fa-location-arrow"></i> Location</th>
-                <th><i class="fa fa-eye"></i> Visitors</th>
-                <th><i class="fa fa-calender"></i> Age</th>
-                <th><i class="fa fa-calender"></i> Posted By</th>
-                <th><i class="fa fa-user"></i> Action</th>
-                <th><i class="fa fa-circle"></i> Last Online</th>
-              </tr>
-            </thead>
-            <tbody>
-            </tbody>
-          </table>
+        <div class="text-muted">
+          <strong class="txt-color-green">Pro Tip !
+          </strong>
+          <small>Showing the List of Profiles who have sent you interests. You can
+            <strong>filter</strong>
+            the results by
+            <strong>typing into the search bar</strong>.
+            <strong>For Example</strong>
+            Delhi will filter out results with profiles from Delhi. Or you can type in, 21 years, which would filter the age.</small>
+          <small class="txt-muted"><strong class="txt-color-red">Note that</strong>
+            once you accept an interest, the user gets notified and will be able to email to you for further correspondence.</small>
+          <legend></legend>
         </div>
-        <!-- End well -->
-
-        <div class="well-sm bg-color-white">
-          <h3 class="error-text-3">Profiles <strong>Interested !</strong> in Me</h3>
-          <div class="alert alert-block alert-warning">
-            <h4 class="alert-heading">Search!</h4>
-            <%= render :partial =>'layouts/search', :locals=>{:css_id => "search-in-interests"} %>
-          </div>
-          <table class="table table-hover" id="in_interests">
-            <thead>
-              <tr>
-                <th><i class="fa fa-picture-o"></i> Image</th>
-                <th><i class="fa fa-file"></i> Name</th>
-                <th><i class="fa fa-sun-o"></i> Religion</th>
-                <th><i class="fa fa-location-arrow"></i> Location</th>
-                <th><i class="fa fa-eye"></i> Visitors</th>
-                <th><i class="fa fa-calender"></i> Age</th>
-                <th><i class="fa fa-calender"></i> Posted By</th>
-                <th><i class="fa fa-user"></i> Action</th>
-                <th><i class="fa fa-circle"></i> Last Online</th>
-              </tr>
-            </thead>
-            <tbody>
-            </tbody>
-          </table>
-        </div>
-        <!-- End well -->
-        <div class="well-sm bg-color-white">
-          <h3 class="error-text-3">My Received <strong>Responses</strong></h3>
-          <div class="alert alert-block alert-info">
-            <h4 class="alert-heading">Search!</h4>
-            <%= render :partial =>'layouts/search', :locals=>{:css_id => "search-out-interests"} %>
-          </div>
-          <table class="table table-hover" id="out_interests">
-            <thead>
-              <tr>
-                <th><i class="fa fa-picture-o"></i> Image</th>
-                <th><i class="fa fa-file"></i> Name</th>
-                <th><i class="fa fa-sun-o"></i> Religion</th>
-                <th><i class="fa fa-location-arrow"></i> Location</th>
-                <th><i class="fa fa-eye"></i> Visitors</th>
-                <th><i class="fa fa-calender"></i> Age</th>
-                <th><i class="fa fa-calender"></i> Posted By</th>
-                <th><i class="fa fa-user"></i> Action</th>
-                <th><i class="fa fa-circle"></i> Last Online</th>
-              </tr>
-            </thead>
-            <tbody>
-            </tbody>
-          </table>
-        </div>
-        <!-- End well -->
-        <div class="well-sm bg-color-white">
-          <h3 class="error-text-3">My <strong>Short</strong> <i>List</i></h3>
-          <div class="alert alert-block alert-danger">
-            <h4 class="alert-heading">Search!</h4>
-            <%= render :partial =>'layouts/search', :locals=>{:css_id => "search-shortlist"} %>
-          </div>
-          <table class="table table-hover" id="shortlist">
-            <thead>
-              <tr>
-                <th><i class="fa fa-picture-o"></i> Image</th>
-                <th><i class="fa fa-file"></i> Name</th>
-                <th><i class="fa fa-sun-o"></i> Religion</th>
-                <th><i class="fa fa-location-arrow"></i> Location</th>
-                <th><i class="fa fa-eye"></i> Visitors</th>
-                <th><i class="fa fa-calender"></i> Age</th>
-                <th><i class="fa fa-calender"></i> Posted By</th>
-                <th><i class="fa fa-user"></i> Action</th>
-                <th><i class="fa fa-circle"></i> Last Online</th>
-              </tr>
-            </thead>
-            <tbody>
-            </tbody>
-          </table>
-        </div>
-        <!-- End well -->
+        <%= render :partial =>'layouts/dashboard/searchdata.html.erb', :locals => {:title => "Profile Visitors", :id=>"in-visitors",:css_id=>"search-in-visitors"} %>
+        <legend></legend>
+        <%= render :partial =>'layouts/dashboard/searchdata.html.erb', :locals => {:title => "Incoming Interests", :id=>"in-interests", :css_id=>"search-in-interests"} %>
+        <legend></legend>
+        <%= render :partial =>'layouts/dashboard/searchdata.html.erb', :locals => {:title => "Received Responses", :id=>"out-interests", :css_id=>"search-out-interests"} %>
+        <legend></legend>
+        <%= render :partial =>'layouts/dashboard/searchdata.html.erb', :locals => {:title => "Shortlist", :id=>"shortlist", :css_id=>"search-shortlist"} %>
+        <legend></legend>
       </div>
       <!-- end row -->
     </div>
