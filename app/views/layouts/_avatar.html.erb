@@ -1,6 +1,7 @@
 <div class="col-sm-6 profile-pic">
   <%= image_tag user[:avatar].url(:thumb)%>
   <br>
+  <div class="pull-left">
   <%= render :partial =>'layouts/online', :locals => {:time => user[:updated_at]}%>
   <br>
   <span class="text-muted font-xs">
@@ -8,7 +9,7 @@
     ago</span>
   <br>
   <strong><%= number_with_delimiter(user[:visitors].to_i, :delimeter => ',') %></strong><span class="text-muted font-xs">
-    view(s)</span>
+    views</span>
   <div class="padding-10">
     <% if defined? show_profile_flag %>
     <fieldset>
@@ -20,5 +21,6 @@
     <% end %>
     <br>
     <%= render :partial =>'layouts/shortlistbutton', :locals => {:user => user}%>
+  </div>
   </div>
 </div>
