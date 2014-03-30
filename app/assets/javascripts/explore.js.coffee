@@ -1,4 +1,9 @@
 $(document).on "page:change", ->
+
+  try
+    $("#search").dataTable().fnDestroy()
+  catch e
+
   if (typeof gon != 'undefined' && gon.search)
     console.log(gon.search);
     oTable = $("#search").dataTable

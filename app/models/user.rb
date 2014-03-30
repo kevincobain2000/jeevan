@@ -4,13 +4,18 @@ class User < ActiveRecord::Base
   validates :sex, presence: true
   validates :name, presence: true
   validates :dob, presence: true
+  after_create :create_dependents
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
 
   include Paperclip::Glue
-  has_attached_file :avatar, :styles => {:original => "200x200#", :thumb => "100x100#", :mini => "25x25#", :tiny => "50x50#" }, :default_url => "/images/normal/missing.png"
+  # has_attached_file :avatar, :styles => {:original => "200x200#", :thumb => "100x100#", :mini => "25x25#", :tiny => "50x50#" }, :default_url => "/images/normal/missing.png"
+  has_attached_file :avatar, :styles => {:original => "200x200#", :thumb => "100x100#", :mini => "25x25#", :tiny => "50x50#" }, :default_url => :default_url_by_gender
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+  def default_url_by_gender
+    "/images/normal/#{sex}.png"
+  end
 
   has_many :visitors,   :dependent => :destroy
   has_many :interests,  :dependent => :destroy
@@ -29,7 +34,6 @@ class User < ActiveRecord::Base
   has_one :lifestyle, :dependent => :destroy
   has_one :occupation,:dependent => :destroy
 
-  after_create :create_dependents
 
   def online?
     updated_at > 10.minutes.ago

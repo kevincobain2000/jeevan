@@ -1,5 +1,4 @@
 Jeevan::Application.routes.draw do
-
   resources :profiles do
     collection do
       post :modify_profile
@@ -26,6 +25,11 @@ Jeevan::Application.routes.draw do
       post :search
     end
   end
+  resources :notifications do
+    collection do
+      post :seen
+    end
+  end
 
   get "home/index"
   resources :dashboard
@@ -35,4 +39,8 @@ Jeevan::Application.routes.draw do
     root :to => 'explore#index', :as => :authenticated_root
   end
   root :to => redirect('/users/sign_in')
+
+  if Rails.env.production?
+    get '*path' => redirect('/contact')
+  end
 end

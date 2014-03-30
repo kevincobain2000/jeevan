@@ -3,14 +3,19 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).on "page:change", ->
   $('#tabs').tabs()
-  # $("#in_interests").dataTable().fnDestroy()
-  # $("#out_interests").dataTable().fnDestroy()
-  # $("#in_visitors").dataTable().fnDestroy()
+
+  try
+    $("#in-interests").dataTable().fnDestroy()
+    $("#out-interests").dataTable().fnDestroy()
+    $("#in-visitors").dataTable().fnDestroy()
+    $("#shortlist").dataTable().fnDestroy()
+  catch e
+    # ...
+
 
   if (typeof gon != 'undefined' && gon.dashboard)
 
-
-    in_interests = $("#in_interests").dataTable
+    in_interests = $("#in-interests").dataTable
       aaData:gon.dashboard['in_interests']
       bFilter: true
       bLengthChange:false
@@ -18,14 +23,14 @@ $(document).on "page:change", ->
       in_interests.fnFilter $(this).val()
 
 
-    out_interests = $("#out_interests").dataTable
+    out_interests = $("#out-interests").dataTable
       aaData:gon.dashboard['out_interests']
       bFilter: true
       bLengthChange:false
     $("#search-out-interests").keyup ->
       out_interests.fnFilter $(this).val()
 
-    in_visitors = $("#in_visitors").dataTable
+    in_visitors = $("#in-visitors").dataTable
       aaData:gon.dashboard['in_visitors']
       bFilter: true
       bLengthChange:false

@@ -74,7 +74,7 @@ class DashboardController < ApplicationController
     return "<img src='#{avatar}' class='img-rounded' style='height:50px;width:50px' >"
   end
   def get_profile_link_from(user)
-    return "<a href='../profiles/#{user.profile.id}'>#{user.name}</a>"
+    return "<a class='semi-bold' href='../profiles/#{user.profile.id}'>#{user.name}</a>"
   end
   def get_action_based_on(user, response)
     if response.nil?
@@ -94,7 +94,7 @@ class DashboardController < ApplicationController
   def get_user_age_from(dob)
     db = dob.gsub("/","-")
     age = dob.empty? ? nil: distance_of_time_in_words(Date::strptime(db, "%m-%d-%Y"), Time.now)
-    return "<strong class='txt-color-green'>#{age}</strong><small class='text-muted'> old</small>"
+    return "<strong class='txt-color-green'>#{age}</strong><small class='text-muted'></small>"
   end
   def get_visitors_count_from(visitors)
     return "#{visitors.count}<small class='text-muted'> visitors</small>"

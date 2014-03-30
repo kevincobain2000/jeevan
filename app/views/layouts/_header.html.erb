@@ -6,8 +6,7 @@
         <%= image_tag("logo.png") %>
       </a>
     </span>
-    <!-- Note: The activity badge color changes when clicked and resets the number to 0
-        Suggestion: You may want to set a flag when this happens to tick off all checked messages / notifications -->
+
     <span id="activity" class="activity-dropdown"> <i class="fa fa-user"></i> <b class="badge">!</b>
     </span>
 
@@ -21,17 +20,19 @@
       </div>
 
       <!-- notification content -->
-      <div class="ajax-notifications bg-color-white">
-      <%= render :partial =>'layouts/notification', :locals => {:users => @interests_notification, :text => "Expressed Interest" }%>
-      <%= render :partial =>'layouts/notification', :locals => {:users => @visitors_notification, :text => "Viewed your profile"} %>
-      <%= render :partial =>'layouts/notification', :locals => {:users => @got_accepted_notification, :text => "Accepted Interest"} %>
-      <%= render :partial =>'layouts/notification', :locals => {:users => @got_rejected_notification, :text => "Is not Interested"} %>
+      <div class="ajax-notifications">
+      <%= render :partial =>'layouts/notification', :locals => {:users => @interests_notification,    :text => "Expressed Interest", :color=> "txt-color-green"} %>
+      <%= render :partial =>'layouts/notification', :locals => {:users => @visitors_notification,     :text => "Viewed your profile", :color=> "txt-color-orange"} %>
+      <%= render :partial =>'layouts/notification', :locals => {:users => @got_accepted_notification, :text => "Accepted Interest !", :color=> "txt-color-green"} %>
+      <%= render :partial =>'layouts/notification', :locals => {:users => @got_rejected_notification, :text => "Is not Interested",  :color=> "txt-color-red"} %>
+      <legend></legend>
+      <p class="text-center text-muted">No More Notifications</p>
       </div>
       <!-- end notification content -->
 
       <!-- footer: refresh area -->
       <span>
-        Showing Todays Activity
+        Showing Last Week's Activity
           <%= link_to dashboard_index_path, :class=> "btn btn-xs btn-info pull-right" do %>See All Past Activity
           <i class="fa fa-dashboard"></i>
           <% end %>
@@ -86,7 +87,7 @@
   <div id="hide-menu" class="btn-header pull-right">
     <span>
       <a href="javascript:void(0);" title="Collapse Menu">
-        <i class="fa fa-reorder"></i>
+        <i class="fa fa-bars"></i>
       </a>
     </span>
   </div>
@@ -110,15 +111,15 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-gear"></i> <i class="fa fa-angle-down"></i> </a>
             <ul class="dropdown-menu pull-right">
               <li>
-              <%= link_to edit_user_registration_path do %>
-              <i class="fa fa-lock"></i> Change your password
-              <% end %>
+                <%= link_to edit_user_registration_path do %>
+                <i class="fa fa-lock"></i> Change your password
+                <% end %>
               </li>
               <li class="divider"></li>
               <li>
-              <%= link_to contact_index_path do %>
-              <i class="fa fa-smile-o"></i> Meet Us !
-              <% end %>
+                <%= link_to contact_index_path do %>
+                <i class="fa fa-smile-o"></i> Meet Us !
+                <% end %>
               </li>
             </ul>
           </li>

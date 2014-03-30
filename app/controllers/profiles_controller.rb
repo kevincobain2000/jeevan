@@ -97,7 +97,7 @@ class ProfilesController < ApplicationController
   end
 
   /#=================================================
-  #            # Reject Button is Pressed           =
+  #            Accept Reject Button is Pressed
   #=================================================*/
   def interest_response
     commit = params[:commit]
