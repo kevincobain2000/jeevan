@@ -1,12 +1,37 @@
-<h2>Resend confirmation instructions</h2>
-
-<%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
-
-  <div><%= f.submit "Resend confirmation instructions" %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+<div id="main" role="main">
+  <!-- MAIN CONTENT -->
+  <div id="content" class="container">
+    <div class="row">
+      <div class="col-md-5 col-md-offset-3">
+        <div class="well no-padding">
+          <%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :put, :class => "smart-form client-form" }) do |f| %>
+              <%= devise_error_messages! %>
+            <header>Password Instructions</header>
+            <fieldset>
+            <section>
+              <label class="label">Email Address used at the time of Registration</label>
+              <label class="input">
+                <i class="icon-append fa fa-envelope"></i>
+                <%= f.email_field :email, :placeholder => "Email address", :autofocus => true %>
+              </label>
+            </section>
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              Currently waiting confirmation for:
+              <%= resource.unconfirmed_email %>
+            <% end %>
+            <section>
+              <div class="note">
+                Already have an account ?
+                <%= render "confirmable/shared/links" %>
+              </div>
+            </section>
+            <footer>
+              <button type="submit" class="btn btn-primary">Update</button>
+            </footer>
+          </fieldset>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
