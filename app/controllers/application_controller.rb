@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
       id:         user.id,
       dob:        user.dob,
       age:        age,
-      name:       user.name,
+      name:       truncate(user.name),
       updated_at: time_ago_in_words(user.updated_at),
       sex:        user.sex,
       visitors:   number_with_delimiter(Visitor.where(viewed_id: user.id).count),
