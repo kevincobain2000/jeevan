@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   validates :dob, presence: true
   after_create :create_dependents
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+         :recoverable, :rememberable, :trackable, :validatable#, :confirmable
 
 
   include Paperclip::Glue
