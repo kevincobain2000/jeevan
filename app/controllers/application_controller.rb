@@ -16,10 +16,10 @@ class ApplicationController < ActionController::Base
       id:         user.id,
       dob:        user.dob,
       age:        age,
-      name:       user.name,
+      name:       truncate(user.name),
       updated_at: time_ago_in_words(user.updated_at),
       sex:        user.sex,
-      visitors:   Visitor.where(viewed_id: user.id).count,
+      visitors:   number_with_delimiter(Visitor.where(viewed_id: user.id).count),
       profile:    user.profile,
       contact:    user.contact,
       about:      user.about,
@@ -58,8 +58,9 @@ class ApplicationController < ActionController::Base
     @got_rejected_notification = []
     @visitors_notification = []
 
-    today = Time.zone.now.beginning_of_day
-    interests    = Interest.where(to_user_id: current_user.id).where("updated_at >= ?", today)
+    # today = Time.zone.now.beginning_of_day
+    today = 1.week.ago
+    interests    = Interest.where(to_user_id: current_user.id).where("created_at >= ?", today)
     visitors     = Visitor.where(viewed_id: current_user.id).where("updated_at >= ?", today)
     got_accepted = Interest.where(user_id: current_user.id, response: 1).where("updated_at >= ?", today)
     got_rejected = Interest.where(user_id: current_user.id, response: 0).where("updated_at >= ?", today)
@@ -77,19 +78,6 @@ class ApplicationController < ActionController::Base
     end
     got_rejected.each do |gtr|
       @got_rejected_notification << make_user(User.find(gtr.user_id))
-    end
-  end
-  def page_not_found
-    respond_to do |format|
-      format.html { render template: 'errors/not_found_error', layout: 'layouts/application', status: 404 }
-      format.all  { render nothing: true, status: 404 }
-    end
-  end
-
-  def server_error
-    respond_to do |format|
-      format.html { render template: 'errors/not_found_error', layout: 'layouts/application', status: 404 }
-      format.all  { render nothing: true, status: 404 }
     end
   end
 end

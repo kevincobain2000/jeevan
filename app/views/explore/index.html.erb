@@ -9,8 +9,48 @@
       <% end %>
     </div>
     <legend></legend>
-    <div class="row">
+     <div class="row">
+       <div class="col-sm-12">
+         <h3>Recently Joined</h3>
+       </div>
       <% @profiles_paginate.each do |user_id| %>
+        <div class="col-sm-3">
+          <div class="well-sm bg-color-white">
+            <div class="row">
+              <div class="col-sm-4 col-md-4 col-lg-4">
+                <%= image_tag @profiles[user_id][:avatar].url(:thumb), :style=>"width:55px;height55px;", :class=>"img-rounded"%>
+              </div>
+              <div class="col-sm-4 col-md-4 col-lg-4">
+
+              <dl class="dl-horizontal">
+                <dt><i class="fa fa-eye"></i>
+                <%= link_to profile_path(:id => @profiles[user_id][:profile][:id]), :class=>"" do %>
+                <%= @profiles[user_id][:name] %>
+                <% end %>
+                </dt>
+              </dl>
+              <dl class="dl-horizontal">
+                <dt class="text-muted"><i class="fa fa-picture-o"></i> Images <i class="fa fa-angle-right"></i> <%= @profiles[user_id][:image].count %></dt>
+              </dl>
+              <dl class="dl-horizontal">
+                <dt class=""><i class="fa fa-calendar"></i> <%= @profiles[user_id][:age] %> old</dt>
+              </dl>
+            </div>
+          </div>
+          <%= render :partial =>'layouts/online', :locals => {:time => @profiles[user_id][:updated_at]}%>
+          <span class="text-muted font-xs pull-right"><%= @profiles[user_id][:visitors] %> views</span>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <!-- end row -->
+    <%= will_paginate @profiles_paginate, :class =>"flickr_pagination" %>
+    <legend></legend>
+    <div class="row">
+     <div class="col-sm-12">
+     <h3>Your Profile Matches <br><small> Profiles based on your desired partner, <%= link_to "edit my desired partner", dashboard_index_path %></small></h3>
+     </div>
+     <% @profiles_paginate.each do |user_id| %>
         <div class="col-sm-6">
           <div class="well well-sm">
             <div class="row">
@@ -18,10 +58,10 @@
                 <div class="well well-light well-sm no-margin divhover-light">
                   <div class="row">
                     <div class="col-sm-12">
-                      <div class="col-sm-5">
+                      <div class="col-sm-6">
                         <%= render :partial =>'layouts/avatar', :locals => {:user => @profiles[user_id], :show_profile_flag => true} %>
                         </div>
-                        <div class="col-sm-7">
+                        <div class="col-sm-5">
                           <%= render :partial =>'layouts/cardinfo', :locals => {:user => @profiles[user_id]} %>
                           <%= render :partial =>'layouts/interestbutton', :locals => {:user => @profiles[user_id]} %>
                         </div>
@@ -36,5 +76,41 @@
     </div>
     <!-- end row -->
     <%= will_paginate @profiles_paginate, :class =>"flickr_pagination" %></div>
+    <legend></legend>
+         <div class="row">
+       <div class="col-sm-12">
+         <h3>Profiles with photos <br></h3>
+       </div>
+      <% @profiles_paginate.each do |user_id| %>
+        <div class="col-sm-3">
+          <div class="well-sm bg-color-white">
+            <div class="row">
+              <div class="col-sm-4 col-md-4 col-lg-4">
+                <%= image_tag @profiles[user_id][:avatar].url(:thumb), :style=>"width:55px;height55px;", :class=>"img-rounded"%>
+              </div>
+              <div class="col-sm-4 col-md-4 col-lg-4">
+
+              <dl class="dl-horizontal">
+                <dt><i class="fa fa-eye"></i>
+                <%= link_to profile_path(:id => @profiles[user_id][:profile][:id]), :class=>"" do %>
+                <%= @profiles[user_id][:name] %>
+                <% end %>
+                </dt>
+              </dl>
+              <dl class="dl-horizontal">
+                <dt class="text-muted"><i class="fa fa-picture-o"></i> Images <i class="fa fa-angle-right"></i> <%= @profiles[user_id][:image].count %></dt>
+              </dl>
+              <dl class="dl-horizontal">
+                <dt class=""><i class="fa fa-calendar"></i> <%= @profiles[user_id][:age] %> old</dt>
+              </dl>
+            </div>
+          </div>
+          <%= render :partial =>'layouts/online', :locals => {:time => @profiles[user_id][:updated_at]}%>
+          <span class="text-muted font-xs pull-right"><%= @profiles[user_id][:visitors] %> views</span>
+        </div>
+      </div>
+      <% end %>
+    </div>
+    <%= will_paginate @profiles_paginate, :class =>"flickr_pagination" %>
   <!-- END MAIN CONTENT -->
 </div>
