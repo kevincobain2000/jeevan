@@ -1,6 +1,6 @@
 <% users.each do |user| %>
   <br>
-  <dl>
+  <dl class="dl-horizontal">
     <dt>
       <%= image_tag user[:avatar].url(:thumb), :class=> "pull-left",:style =>"height:45px;width:45px;" %>
     </dt>
@@ -9,7 +9,7 @@
       <%= link_to profile_path(:id =>user[:profile][:id]), :class=> "" do %>
         <strong><%= truncate(user[:name], length: 20) %></strong>
       <% end %>
-      <small><%= text %></small>
+      <strong class="<%= color %>"><%= text %></strong>
       (
       <% if user[:updated_at].include? "minute" %>
         <i class="txt-color-greenLight fa fa-sm fa-circle"></i>

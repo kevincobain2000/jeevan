@@ -16,10 +16,11 @@
     </p>
   </li>
   <li>
-    <p class="">
+    <p class="text-muted">
       <i class="fa fa-picture-o"></i>
       &nbsp;&nbsp;
-      <strong>Images: <%= user[:image].count %></strong>
+      <strong>Images: </strong>
+      <strong class="txt-color-blueDark"><%= user[:image].count %></strong>
     </p>
   </li>
   <li>
@@ -28,12 +29,12 @@
     <p class="text-muted">
       <i class="fa <%= value[1] %>"></i>
       &nbsp;&nbsp;
-      <span class="txt-color-darken">
       <strong>
         <%= key.gsub('_', ' ').titleize %>:
       </strong>
-       <%= user[value[0]][key] %>
-      </span>
+       <strong class="txt-color-blueDark">
+         <%= user[value[0]][key] %>
+       </strong>
     </p>
     <% end %>
   </li>
