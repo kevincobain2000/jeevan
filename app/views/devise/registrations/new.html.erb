@@ -1,11 +1,11 @@
-<body id="login" class="animated fadeInDown">
+<div id="login" class="animated fadeInDown">
   <!-- possible classes: minified, no-right-panel, fixed-ribbon, fixed-header, fixed-width-->
   <header id="header">
     <span id="logo"></span>
     <div id="logo-group">
       <span id="logo">
-      <%= image_tag("logo.png") %>
-        </span>
+        <%= image_tag("logo.png") %>
+      </span>
       <!-- END AJAX-DROPDOWN -->
     </div>
     <span id="login-header-space">
@@ -30,102 +30,105 @@
               </div>
             </div>
             <img src="../images/demo/iphoneview.png" class="pull-right display-image" alt="" style="width:210px"></div>
-            <div class="row">
-              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <h5 class="about-heading">About SmartAdmin - Are you up to date?</h5>
-                <p>
-                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.
-                </p>
-              </div>
-              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                <h5 class="about-heading">Not just your average template!</h5>
-                <p>
-                  Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi voluptatem accusantium!
-                </p>
-              </div>
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <h5 class="about-heading">About SmartAdmin - Are you up to date?</h5>
+              <p>
+                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.
+              </p>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+              <h5 class="about-heading">Not just your average template!</h5>
+              <p>
+                Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi voluptatem accusantium!
+              </p>
             </div>
           </div>
-          <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
-            <div class="well no-padding">
-              <%= form_for(resource, :as => resource_name, :html => {:class => "smart-form client-form"}, :url => registration_path(resource_name)) do |f| %>
-                <header>Sign Up</header>
-                <fieldset>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
+          <div class="well no-padding">
+            <%= form_for(resource, :as => resource_name, :html => {:class => "smart-form client-form"}, :url => registration_path(resource_name)) do |f| %>
+              <header>Sign Up</header>
+              <fieldset>
                 <section>
                   <%= devise_error_messages! %>
                 </section>
-                  <section>
-                  <label class="label">Your <strong>Nick</strong> Name</label>
-                    <label class="input">
-                      <i class="icon-append fa fa-user"></i>
-                      <%= f.text_field :name, :autofocus => true, :placeholder => "Name" %>
-                    </label>
+                <section>
+                  <label class="label">Your
+                    <strong>Nick</strong>
+                    Name</label>
+                  <label class="input">
+                    <i class="icon-append fa fa-user"></i>
+                    <%= f.text_field :name, :autofocus => true, :placeholder => "Name" %>
+                  </label>
+                </section>
+                <section>
+                  <label class="label">Email</label>
+                  <label class="input">
+                    <i class="icon-append fa fa-user"></i>
+                    <%= f.email_field :email, :placeholder => "Email" %>
+                  </label>
+                </section>
+                <section>
+                  <label class="label">Password</label>
+                  <label class="input">
+                    <i class="icon-append fa fa-lock"></i>
+                    <%= f.password_field :password, :placeholder => "Password" %>
+                  </label>
+                </section>
+                <section>
+                  <label class="label">Password Confirmation</label>
+                  <label class="input">
+                    <i class="icon-append fa fa-lock"></i>
+                    <%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %>
+                  </label>
+                </section>
+              </fieldset>
+              <fieldset>
+                <section>
+                  <div class="row">
+                    <div class="col col-4">
+                      <label class="label">Gender</label>
+                      <label class="radio"><%= f.radio_button :sex, "Male" %><i></i>Male</label>
+                      <label class="radio"><%= f.radio_button :sex, "Female" %><i></i>Female</label>
+                    </div>
                   </section>
                   <section>
-                    <label class="label">Email</label>
-                    <label class="input">
-                      <i class="icon-append fa fa-user"></i>
-                      <%= f.email_field :email, :placeholder => "Email" %>
-                    </label>
+                    <div class="input-group">
+                      <input class="form-control" id="dob" type="text" name="user[dob]" value="01/01/1985">
+                      <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                    <div class="note">
+                      <strong>Choose Date of Birth:</strong>
+                      From the calender or enter manually dd/mm/yyyy
+                    </div>
+                    <script type="text/javascript">
+                      $("#dob").datepicker({
+                      });
+                    </script>
                   </section>
+                  <label class="checkbox">
+                    <input type="checkbox" name="terms" id="terms">
+                    <i></i>I agree with the
+                    <a href="#" data-toggle="modal" data-target="#myModal">
+                      Terms and Conditions
+                    </a></label>
                   <section>
-                    <label class="label">Password</label>
-                    <label class="input">
-                      <i class="icon-append fa fa-lock"></i>
-                      <%= f.password_field :password, :placeholder => "Password" %>
-                    </label>
+                    <div class="note">
+                      Already have an account ?
+                      <%= render "devise/shared/links" %>
+                    </div>
                   </section>
-                  <section>
-                    <label class="label">Password Confirmation</label>
-                    <label class="input">
-                      <i class="icon-append fa fa-lock"></i>
-                      <%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %>
-                    </label>
-                  </section>
-                  </fieldset>
-                  <fieldset>
-                  <section>
-                    <div class="row">
-                      <div class="col col-4">
-                        <label class="label">Gender</label>
-                        <label class="radio"><%= f.radio_button :sex, "Male" %><i></i>Male</label>
-                        <label class="radio"><%= f.radio_button :sex, "Female" %><i></i>Female</label>
-                      </div>
-                    </section>
-                    <section>
-                      <div class="input-group">
-                        <input class="form-control" id="dob" type="text" name="user[dob]" value="01/01/1985">
-                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                      </div>
-                      <div class="note">
-                        <strong>Choose Date of Birth:</strong>
-                        From the calender or enter manually dd/mm/yyyy
-                      </div>
-                      <script type="text/javascript">
-                        $("#dob").datepicker({
-                        });
-                      </script>
-                    </section>
-                    <label class="checkbox">
-                      <input type="checkbox" name="terms" id="terms">
-                      <i></i>I agree with the <a href="#" data-toggle="modal" data-target="#myModal"> Terms and Conditions </a></label>
-
-                    <section>
-                      <div class="note">
-                        Already have an account ?
-                        <%= render "devise/shared/links" %>
-                      </div>
-                    </section>
-                    </fieldset>
-                  <footer>
-                    <button type="submit" class="btn btn-primary">Sign Up</button>
-                  </footer>
-                <% end %>
-              </div>
+                </fieldset>
+                <footer>
+                  <button type="submit" class="btn btn-primary">Sign Up</button>
+                </footer>
+              <% end %>
             </div>
           </div>
         </div>
       </div>
-    </body>
+    </div>
+  </div>
+</div>
 <%= render :partial =>'layouts/terms'%>
-
-
