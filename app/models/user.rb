@@ -4,8 +4,9 @@ class User < ActiveRecord::Base
   validates :sex, presence: true
   validates :name, presence: true
   validates :dob, presence: true
+  after_create :create_dependents
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
 
   include Paperclip::Glue
@@ -33,7 +34,6 @@ class User < ActiveRecord::Base
   has_one :lifestyle, :dependent => :destroy
   has_one :occupation,:dependent => :destroy
 
-  after_create :create_dependents
 
   def online?
     updated_at > 10.minutes.ago

@@ -4,16 +4,15 @@
     <div class="row">
       <div class="col-md-5 col-md-offset-3">
         <div class="well no-padding">
-          <%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put, :class => "smart-form client-form" }) do |f| %>
+          <%= form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :put, :class => "smart-form client-form" }) do |f| %>
               <%= devise_error_messages! %>
-              <%= f.hidden_field :reset_password_token %>
-            <header>Reset Password Instruction To do</header>
+            <header>Confirm Email</header>
             <fieldset>
             <section>
               <label class="label">Email Address used at the time of Registration</label>
               <label class="input">
                 <i class="icon-append fa fa-envelope"></i>
-                <%= f.email_field :password_confirmation, :placeholder => "Email address" %>
+                <%= f.email_field :email, :placeholder => "Email address", :autofocus => true %>
               </label>
             </section>
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -23,10 +22,9 @@
             <section>
               <div class="note">
                 Already have an account ?
-                <%= render "devise/shared/links" %>
+                <%= render "confirmable/shared/links" %>
               </div>
             </section>
-
             <footer>
               <button type="submit" class="btn btn-primary">Update</button>
             </footer>
