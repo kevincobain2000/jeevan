@@ -1,5 +1,10 @@
 <div id="main" role="main">
-  <%= render :partial =>"layouts/ribbon", :locals => {:papa => "Home", :son => "Profile"} %>
+  <% if current_user.id == @user[:id] %>
+    <%= render :partial =>"layouts/ribbon", :locals => {:papa => "Home", :son => "My Profile"} %>
+  <% else %>
+    <%= render :partial =>"layouts/ribbon", :locals => {:papa => "Home", :son => "Profile of #{@user[:name]}"} %>
+  <% end %>
+
   <!-- MAIN CONTENT -->
   <div id="content">
     <!-- Bread crumb is created dynamically -->
