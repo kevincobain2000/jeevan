@@ -1,13 +1,27 @@
 class ExploreController < ApplicationController
   def index
-    @profiles = Hash.new {|h, k| h[k] = [] }
-    # Todo Take interests donot add profiles to show to whom interests have been sent
-    # users_not_my_gender = User.where.not(sex: current_user.sex, :id.in(@interests[:in])).order('created_at DESC').limit(1000)
-    users = User.where.not(sex: current_user.sex).order('created_at DESC').limit(1000)
+    @profiles_joined_recently = Hash.new {|h, k| h[k] = [] }
+    # users = User.where.not(sex: current_user.sex).order('created_at DESC').limit(1000)
+    users = User.where.not(sex: current_user.sex).where('created_at >= ?', 1.week.ago)
     users.each do |user|
-      @profiles[user.id] = make_user(user)
+      @profiles_joined_recently[user.id] = make_user(user)
     end
-    @profiles_paginate = @profiles.keys.paginate(:page => params[:page], :per_page => 4)
+    @profiles_paginate_joined_recently = @profiles_joined_recently.keys.paginate(:page => params[:joined], :per_page => 4)
+
+    @profiles_matches = Hash.new {|h, k| h[k] = [] }
+    users = User.where.not(sex: current_user.sex).order('updated_at DESC').limit(1000)
+    users.each do |user|
+      @profiles_matches[user.id] = make_user(user)
+    end
+    @profiles_paginate_matches = @profiles_matches.keys.paginate(:page => params[:matches], :per_page => 4)
+
+    @profiles_visitors = Hash.new {|h, k| h[k] = [] }
+    visitors_ids  = Visitor.where(viewed_id: current_user.id).where("updated_at >= ?", 1.week.ago).pluck(:user_id).uniq
+    users = User.find(visitors_ids)
+    users.each do |user|
+      @profiles_visitors[user.id] = make_user(user)
+    end
+    @profiles_paginate_visitors = @profiles_visitors.keys.paginate(:page => params[:visitors], :per_page => 4)
 
   end
 

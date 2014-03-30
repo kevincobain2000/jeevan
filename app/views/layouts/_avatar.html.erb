@@ -1,19 +1,15 @@
 <div class="col-sm-6 profile-pic">
   <%= image_tag user[:avatar].url(:thumb)%>
   <br>
-  <% if user[:updated_at].include? "minute" %>
-    <i class="txt-color-greenLight fa fa-sm fa-circle"></i>
-    <small><strong>Online</strong></small>
-  <% else %>
-    <small><strong>Offline</strong></small>
-  <% end %>
+  <div class="pull-left">
+  <%= render :partial =>'layouts/online', :locals => {:time => user[:updated_at]}%>
   <br>
   <span class="text-muted font-xs">
     <%= user[:updated_at] %>
     ago</span>
   <br>
   <strong><%= number_with_delimiter(user[:visitors].to_i, :delimeter => ',') %></strong><span class="text-muted font-xs">
-    view(s)</span>
+    views</span>
   <div class="padding-10">
     <% if defined? show_profile_flag %>
     <fieldset>
@@ -25,5 +21,6 @@
     <% end %>
     <br>
     <%= render :partial =>'layouts/shortlistbutton', :locals => {:user => user}%>
+  </div>
   </div>
 </div>

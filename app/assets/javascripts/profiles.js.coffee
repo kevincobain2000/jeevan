@@ -144,8 +144,20 @@ $(document).on "page:change", ->
   $(".interest").click ->
     $(this).hide()
 
+  $(".edit").click ->
+    $(this).addClass('disabled')
+
+  $('form').change ->
+    $(".edit").removeClass('disabled')
   $('form').submit ->
-    alertify.success("<strong>Done !</strong>")
+    $.smallBox
+      title : "Done !"
+      content : "<i class='fa fa-clock-o'></i> <i>You selection was made ..</i>"
+      color : "#296191"
+      iconSmall : "fa fa-thumbs-up bounce animated"
+      timeout : 2000
+
+    # Removing the image
     jq_superbox_remov = $("#imageid").attr("value")
     $("#"+jq_superbox_remov).remove()
     $(".superbox-list").removeClass "active"
@@ -159,17 +171,25 @@ $(document).on "page:change", ->
     $("#desired-income-slider").ionRangeSlider
       prettify: false
       hasGrid: true
+      onFinish:(obj) -> # callback, is called on every change
+        $(".edit").removeClass('disabled')
     $("#desired-height-slider").ionRangeSlider
       prettify: false
       hasGrid: true
+      onFinish:(obj) -> # callback, is called on every change
+        $(".edit").removeClass('disabled')
     $("#desired-age-slider").ionRangeSlider
       prettify: false
       hasGrid: true
+      onFinish:(obj) -> # callback, is called on every change
+        $(".edit").removeClass('disabled')
 
   $("#tab-family").click (e) ->
     $("#family-income-slider").ionRangeSlider
       prettify: false
       hasGrid: true
+      onFinish:(obj) -> # callback, is called on every change
+        $(".edit").removeClass('disabled')
 
   $('.superbox').SuperBox()
   $(".superbox-list").click ->
