@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   before_filter :do_notifications
   protect_from_forgery with: :exception
   after_filter :user_activity
+  helper_method :make_user
   # protect_from_forgery with: :null_session
 
   def make_user(user)
