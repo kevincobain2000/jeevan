@@ -96,9 +96,14 @@ class ProfilesController < ApplicationController
     # redirect_to(explore_index_path)
   end
 
-  /#=================================================
+  #=============================================
+  #            Mark Notification as read
+  #=============================================
+
+
+  #=================================================
   #            Accept Reject Button is Pressed
-  #=================================================*/
+  #=================================================
   def interest_response
     commit = params[:commit]
     logger.info("Debug Params inspect #{params.inspect}")
@@ -195,9 +200,9 @@ class ProfilesController < ApplicationController
     # logger.info("Debug Touching Visitor #{visiting_user_id}")
     if current_user.id != visiting_user_id
       find_first = Visitor.where(user_id: current_user.id, viewed_id: visiting_user_id).first
-      # logger.info("Debug Touching Visitor #{find_first.inspect}")
       if !find_first
         current_user.visitors.create(user_id: current_user.id, viewed_id: visiting_user_id)
+        User.find(visiting_user_id).notifications.create(user_id: visiting_user_id, to_user_id: current_user.id, flag: 0)
       else
         find_first.touch
       end
