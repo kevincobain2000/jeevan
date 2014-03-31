@@ -202,7 +202,7 @@ class ProfilesController < ApplicationController
       find_first = Visitor.where(user_id: current_user.id, viewed_id: visiting_user_id).first
       if !find_first
         current_user.visitors.create(user_id: current_user.id, viewed_id: visiting_user_id)
-        User.find(visiting_user_id).notifications.create(user_id: visiting_user_id, to_user_id: current_user.id, flag: 0)
+        User.find(visiting_user_id).notifications.create(user_id: visiting_user_id, to_user_id: current_user.id, flag: NotificationsController::FLAG_VISITOR)
       else
         find_first.touch
       end
