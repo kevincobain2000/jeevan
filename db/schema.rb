@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140330100732) do
+ActiveRecord::Schema.define(version: 20140331134717) do
 
   create_table "abouts", force: true do |t|
     t.integer  "user_id"
@@ -157,6 +157,15 @@ ActiveRecord::Schema.define(version: 20140330100732) do
     t.string   "pet",        limit: 64
     t.string   "hiv",        limit: 4
     t.string   "height",     limit: 4
+  end
+
+  create_table "notifications", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "to_user_id"
+    t.integer  "flag",       limit: 1
+    t.integer  "seen",       limit: 1
   end
 
   create_table "occupations", force: true do |t|
