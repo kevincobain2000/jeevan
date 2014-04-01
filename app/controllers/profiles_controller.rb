@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
   before_filter :load_gon
   before_filter :is_this_user_profile, only: [:edit]
   before_filter :get_current_user, only: [:edit]
-  before_filter :get_showing_user, only: [:show]
+  before_filter :not_same_sex, :get_showing_user, only: [:show]
 
   # GET /profiles
   def index
@@ -149,6 +149,12 @@ class ProfilesController < ApplicationController
   end
   def get_showing_user
     @user = make_user(User.find(Profile.find(params[:id]).user_id))
+  end
+  def not_same_sex
+    user = User.find(Profile.find(params[:id]).user_id)
+    if user.id != current_user.id && current_user.sex == user.sex
+      redirect_to explore_index_path
+    end
   end
 
   private
