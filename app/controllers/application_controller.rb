@@ -63,7 +63,7 @@ class ApplicationController < ActionController::Base
     @notifications_unread_count = 0
     notifications = current_user.notifications().where("created_at >= ?", 1.week.ago).order(:seen, :created_at)
     notifications.each do |notification|
-      __user = User.find(notification.to_user_id)
+      __user = User.find(notification.from_user_id)
       user = {}
       user[:avatar]     = __user.avatar
       user[:name]       = titleize(__user.name)
