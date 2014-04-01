@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   after_filter :user_activity
   helper_method :make_user
+  layout :dirty_layout_hack
   # protect_from_forgery with: :null_session
 
   def make_user(user)
@@ -78,6 +79,12 @@ class ApplicationController < ActionController::Base
       if notification.seen.nil?
         @notifications_unread_count += 1
       end
+    end
+  end
+
+  def dirty_layout_hack
+    if controller_name == "registrations" && action_name == "edit"
+      return false
     end
   end
 end
