@@ -149,7 +149,7 @@ $(document).on "page:change", ->
 
   $('form').change ->
     $(".edit").removeClass('disabled')
-  $('form').submit ->
+  $('form.smart-form').submit ->
     $.smallBox
       title : "Done !"
       content : "<i class='fa fa-clock-o'></i> <i>You selection was made ..</i>"

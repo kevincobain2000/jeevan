@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   validates :dob, presence: true
   after_create :create_dependents
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable
+         :recoverable, :rememberable, :trackable, :validatable#, :confirmable
 
 
   include Paperclip::Glue
@@ -17,10 +17,11 @@ class User < ActiveRecord::Base
     "/images/normal/#{sex}.png"
   end
 
-  has_many :visitors,   :dependent => :destroy
-  has_many :interests,  :dependent => :destroy
-  has_many :shortlists, :dependent => :destroy
-  has_many :images,     :dependent => :destroy
+  has_many :visitors,       :dependent => :destroy
+  has_many :interests,      :dependent => :destroy
+  has_many :notifications,  :dependent => :destroy
+  has_many :shortlists,     :dependent => :destroy
+  has_many :images,         :dependent => :destroy
 
   has_one :profile,   :dependent => :destroy
   has_one :contact,   :dependent => :destroy

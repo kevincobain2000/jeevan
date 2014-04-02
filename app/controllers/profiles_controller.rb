@@ -2,7 +2,7 @@ class ProfilesController < ApplicationController
   before_filter :load_gon
   before_filter :is_this_user_profile, only: [:edit]
   before_filter :get_current_user, only: [:edit]
-  before_filter :get_showing_user, only: [:show]
+  before_filter :not_same_sex, :get_showing_user, only: [:show]
 
   # GET /profiles
   def index
@@ -96,9 +96,23 @@ class ProfilesController < ApplicationController
     # redirect_to(explore_index_path)
   end
 
-  /#=================================================
+  #=============================================
+  #            Mark Notification as read
+  #=============================================
+  def seen_notification
+    notification = Notification.find(params[:notification_id])
+    if notification.created_at < 1.month.ago
+      notification.delete()
+    else
+      notification.update(seen: 1)
+    end
+    render json: { :status => 200 }
+  end
+
+
+  #=================================================
   #            Accept Reject Button is Pressed
-  #=================================================*/
+  #=================================================
   def interest_response
     commit = params[:commit]
     logger.info("Debug Params inspect #{params.inspect}")
@@ -144,6 +158,12 @@ class ProfilesController < ApplicationController
   end
   def get_showing_user
     @user = make_user(User.find(Profile.find(params[:id]).user_id))
+  end
+  def not_same_sex
+    user = User.find(Profile.find(params[:id]).user_id)
+    if user.id != current_user.id && current_user.sex == user.sex
+      redirect_to explore_index_path
+    end
   end
 
   private
@@ -195,9 +215,9 @@ class ProfilesController < ApplicationController
     # logger.info("Debug Touching Visitor #{visiting_user_id}")
     if current_user.id != visiting_user_id
       find_first = Visitor.where(user_id: current_user.id, viewed_id: visiting_user_id).first
-      # logger.info("Debug Touching Visitor #{find_first.inspect}")
       if !find_first
         current_user.visitors.create(user_id: current_user.id, viewed_id: visiting_user_id)
+        User.find(visiting_user_id).notifications.create(user_id: visiting_user_id, from_user_id: current_user.id, flag: 0)
       else
         find_first.touch
       end
