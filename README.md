@@ -54,7 +54,7 @@ flexslider.js LINE 822 Change the following manually, for some reason options do
 #### AJAX
 
 ```
-<%= form_tag({:action=>'modify'}, {:remote => true}) do %>
+<%= form_tag({:action=>'modify_family', :controller => "blah"},{:remote => true, :class=>"smart-form"}) do %>
 ```
 
 Works even with turbolinks
@@ -81,4 +81,10 @@ Works even with turbolinks
                 <li>
                   <%= link_to "Edit", edit_profile_path(:id =>current_user.profile.id), "data-no-turbolink" => true %>
 
+```
+
+#### Ruby
+
+```
+ Hash.new {|h, k| h[k] = [] }
 ```
