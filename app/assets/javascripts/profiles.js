@@ -185,7 +185,7 @@ $(document).on("page:change", function() {
     var jq_superbox_remov;
     $.smallBox({
       title: "Done !",
-      content: "<i class='fa fa-clock-o'></i> <i>You selection was made ..</i>",
+      // content: "<i class='fa fa-clock-o'></i> <i>You selection was made ..</i>",
       color: "#296191",
       iconSmall: "fa fa-thumbs-up bounce animated",
       timeout: 2000
