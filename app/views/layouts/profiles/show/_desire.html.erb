@@ -4,10 +4,10 @@
     <% heading = category.gsub "_", " " %>
     <dt class="txt-color-blue"><%= heading.titleize %> <i class="fa fa-angle-right fa-sm"></i></dt>
     <dd>
-    <strong>
+    <span>
     <%= @user[:desire][category].nil? ? @user[:desire][category] : (@user[:desire][category].gsub ";"," to ") %>
     <%= @user[:desire][category].nil? ? "" : post_fix %>
     </dd>
-    </strong>
+    </span>
   <% end %>
 </dl>
