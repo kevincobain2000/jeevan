@@ -82,7 +82,7 @@
         <br>
         <label>Own Pet</label>
         <div class="row">
-          <% [ 'Dog', 'Cat', 'Dog & Cat', 'Other', 'May be in future' ].each do |own_pet| %>
+          <% [ 'Dog', 'Cat', 'Dog & Cat', 'No', 'May be in future' ].each do |own_pet| %>
             <div class="col col-4">
               <label class="radio">
                 <%= radio_button_tag(:own_pet, own_pet,(@user[:lifestyle][:own_pet] == own_pet)) %>
@@ -112,7 +112,7 @@
             <strong>Your Height in Ft Inches: </strong>Example: 5.7 is 5ft 7 Inches</small>
             <label class="input">
               <i class="icon-append fa fa-male"></i>
-              <input class="form-control" type="number" step= "any" name="height">
+              <input class="form-control" type="number" step= "any" name="height" placeholder="Height in numbers" min="2" max="7">
             </label>
           </div>
           <div class="col-sm-2">
@@ -122,7 +122,7 @@
             <strong>Your Weight in </strong>Kgs</small>
             <label class="input">
               <i class="icon-append fa fa-male"></i>
-              <input class="form-control" type="number" name="weight">
+              <input class="form-control" type="number" name="weight" placeholder="Weight in numbers" min="25" max="120">
             </label>
           </div>
       </fieldset>
