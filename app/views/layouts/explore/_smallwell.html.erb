@@ -18,7 +18,7 @@
             <label class="label label-success"><%= profiles[user_id][:image].count %></label>
             <small class="text-muted">Images</small>
             <br>
-            <strong class="font-sm txt-color-green"><%= profiles[user_id][:age] %></strong> <small class="text-muted">old</small>
+            <strong class="font-sm txt-color-green"><%= profiles[user_id][:age] %></strong> <small class="text-muted">yrs old</small>
           </div>
         </div>
         <%= render :partial =>'layouts/online', :locals => {:time => profiles[user_id][:updated_at]}%>
