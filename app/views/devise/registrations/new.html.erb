@@ -1,13 +1,6 @@
 <div id="login" class="animated fadeInDown">
   <!-- possible classes: minified, no-right-panel, fixed-ribbon, fixed-header, fixed-width-->
   <header id="header">
-    <span id="logo"></span>
-    <div id="logo-group">
-      <span id="logo">
-        <%= image_tag("logo.png") %>
-      </span>
-      <!-- END AJAX-DROPDOWN -->
-    </div>
     <span id="login-header-space">
       <span class="hidden-mobile">Already Have an Account ?</span>
       <%= render "devise/shared/links" %>
@@ -67,16 +60,21 @@
                     </div>
                   </section>
                   <section>
-                    <div class="input-group">
-                      <input class="form-control" id="dob" type="text" name="user[dob]" value="01/01/1985">
-                      <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                    </div>
+                    <label class="input">
+                      <i class="icon-append fa fa-calendar"></i>
+                      <input class="form-control" id="dob" type="text" name="user[dob]" value="01/09/1985">
+                    </label>
                     <div class="note">
                       <strong>Choose Date of Birth:</strong>
                       From the calender or enter manually dd/mm/yyyy
                     </div>
                     <script type="text/javascript">
                       $("#dob").datepicker({
+                        format: 'dd/mm/yyyy',
+                        startView: "decade",
+                      });
+                      $('#dob').on('changeDate', function(ev){
+                        $(this).datepicker('hide');
                       });
                     </script>
                   </section>
