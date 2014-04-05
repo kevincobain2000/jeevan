@@ -1,5 +1,7 @@
 <%= render :partial =>'layouts/alert', :locals => {:heading => "Load as many Images as you like", :description => "One image is worth a thousand words !"}%>
 <h3 class="error-text-3"><strong>Images</strong></h3>
+<%= form_tag({:action=>'modify_image'}, {:authenticity_token => true, :multipart => true, :remote => true, :class => 'dropzone', :id => 'my-dropzone'}) do %>
+<% end %>
 <div class="row">
   <%= form_tag({:action=>'remove_image'}, {:remote => true}) do %>
     <!-- SuperBox -->
@@ -16,5 +18,3 @@
     <div class="superbox-show" style="height:300px; display: none"></div>
   <% end %>
 </div>
-<%= form_tag({:action=>'modify_image'}, {:authenticity_token => true, :multipart => true, :remote => true, :class => 'dropzone', :id => 'my-dropzone'}) do %>
-<% end %>
