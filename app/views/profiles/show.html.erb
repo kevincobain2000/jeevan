@@ -23,7 +23,7 @@
     </div>
     <!-- end row -->
     <div class="row">
-    <div class="col-sm-7 animated fadeInDown">
+    <div class="col-sm-8 animated fadeInDown">
       <div class="well-sm bg-color-white">
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-12">
@@ -38,7 +38,7 @@
                       <div class="col-sm-6">
                         <%= render :partial =>'layouts/cardinfo', :locals => {:user => @user}%>
                         <%= render :partial =>'layouts/interestbutton', :locals => {:user => @user}%>
-                        <br>
+                        <%= render :partial =>'layouts/contactinfo', :locals => {:user => @user}%>
                       </div>
                     </div>
                   </div>
