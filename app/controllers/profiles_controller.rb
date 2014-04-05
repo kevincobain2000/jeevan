@@ -30,6 +30,7 @@ class ProfilesController < ApplicationController
     render json: { :status => 200 }
   end
   def remove_image
+    logger.info("Debug #{remove_image_params}")
     current_user.images.destroy(remove_image_params['imageid'])
     render json: { :status => 200 }
   end
