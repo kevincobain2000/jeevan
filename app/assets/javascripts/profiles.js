@@ -79,46 +79,77 @@ $(document).on("page:change", function() {
       create: true,
       plugins: ['remove_button', 'restore_on_backspace']
     },
-    father: true,
-    mother: true,
-    brother: true,
-    sister: true,
+    father: {
+      maxItems: 2,
+      create: true,
+      plugins: ['remove_button', 'restore_on_backspace']
+    },
+    mother: {
+      maxItems: 2,
+      create: true,
+      plugins: ['remove_button', 'restore_on_backspace']
+    },
+    brother: {
+      maxItems: 2,
+      create: true,
+      plugins: ['remove_button', 'restore_on_backspace']
+    },
+    sister: {
+      maxItems: 2,
+      create: true,
+      plugins: ['remove_button', 'restore_on_backspace']
+    },
     profile_handler: true,
     school: {
       create: true,
       plugins: ['remove_button', 'restore_on_backspace']
     },
     grad_college: {
+      maxItems: 2,
       create: true,
       plugins: ['remove_button', 'restore_on_backspace']
     },
     graduation: {
+      maxItems: 2,
       create: true,
       plugins: ['remove_button', 'restore_on_backspace']
     },
     post_grad: {
+      maxItems: 2,
       create: true,
       plugins: ['remove_button', 'restore_on_backspace']
     },
     post_grad_college: {
+      maxItems: 2,
       create: true,
       plugins: ['remove_button', 'restore_on_backspace']
     },
     highest_degree: {
+      maxItems: 2,
       create: true,
       plugins: ['remove_button', 'restore_on_backspace']
     },
     desired_country: {
-      create: true
+      maxItems: 2,
+      create: true,
+      plugins: ['remove_button', 'restore_on_backspace']
     },
     desired_city: {
-      create: true
+      maxItems: 2,
+      create: true,
+      plugins: ['remove_button', 'restore_on_backspace']
     },
     desired_religion: true,
     desired_caste: true,
     desired_mother_tongue: true,
-    desired_education: true,
-    desired_occupation: true
+    desired_education: {
+      create:true,
+      plugins: ['remove_button', 'restore_on_backspace']
+    },
+    desired_occupation:{
+      create: true,
+      plugins: ['remove_button', 'restore_on_backspace']
+    },
   };
   for (name in selectize_items) {
     options = selectize_items[name];
