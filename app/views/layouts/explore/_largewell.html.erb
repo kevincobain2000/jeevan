@@ -1,8 +1,6 @@
 <div class="row">
   <div class="col-sm-12">
-    <h2><%= heading %>
-      <br><small>Profiles based on your desired partner,
-        <%= link_to "edit my desired partner", dashboard_index_path %></small></h2>
+    <h2 class="error-text-3"><strong><%= heading %></strong></h2>
   </div>
   <% paginate.each do |user_id| %>
     <div class="col-sm-6" style="height:400px;">
