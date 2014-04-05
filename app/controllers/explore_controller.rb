@@ -1,4 +1,9 @@
 class ExploreController < ApplicationController
+
+  /#=====================================================
+  #Basic search criteria for the user on the explore page
+  #======================================================/
+
   def index
     @profiles_joined_recently = Hash.new {|h, k| h[k] = [] }
     # users = User.where.not(sex: current_user.sex).order('created_at DESC').limit(1000)
