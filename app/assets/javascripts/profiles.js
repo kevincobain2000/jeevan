@@ -153,10 +153,11 @@ $(document).on("page:change", function() {
       });
     }
   }
-  Dropzone.autoDiscover = false;
-  $(".dropzone").dropzone({
-    init: function() {}
-  });
+  // Dropzone.autoDiscover = false;
+  // $(".dropzone").dropzone({
+  //   init: function() {}
+  // });
+
   Dropzone.options.myDropzone = {
     dictDefaultMessage: '<div class="hero" style="height:500px;"><h2>Drag & Drop</h2><p>or click to upload images</p></div>',
     paramName: "avatar",
@@ -166,7 +167,9 @@ $(document).on("page:change", function() {
     thumbnailWidth: 300,
     thumbnailHeight: 300,
     init: function() {
-      return this.on('addedfile', function(file) {});
+      return this.on('addedfile', function(file) {
+        console.log("file uploaded")
+      });
     }
   };
   // $(".phone").inputmask("mask", {
