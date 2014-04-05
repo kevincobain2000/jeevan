@@ -113,14 +113,14 @@
                     <a href="#" data-toggle="modal" data-target="#myModal">
                       Terms and Conditions
                     </a></label>
-                  <section>
-                    <div class="note">
-                      Already have an account ?
-                      <%= render "devise/shared/links" %>
-                    </div>
-                  </section>
                 </fieldset>
                 <footer>
+                  We will send you a confirmation link. Please confirm your Email address by logging into your email account. Depending on your email provider please also check your spam folder.
+                  <div class="note">
+                    Already have an account ?
+                    <%= render "devise/shared/links" %>
+                  </div>
+                  <legend></legend>
                   <button type="submit" class="btn btn-primary">Sign Up</button>
                 </footer>
               <% end %>
