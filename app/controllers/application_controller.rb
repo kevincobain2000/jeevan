@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
     user_ret = {
       id:         user.id,
       dob:        user.dob,
-      age:        age,
+      age:        age.titleize,
       name:       titleize(truncate(user.name)),
       updated_at: time_ago_in_words(user.updated_at),
       sex:        titleize(user.sex),
