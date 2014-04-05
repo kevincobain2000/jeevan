@@ -1,40 +1,41 @@
-<%= render :partial =>'layouts/alert', :locals => {:heading => "Profile Pic", :description => "Upload your profile picture"}%>
+<%= render :partial =>'layouts/alert', :locals => {:heading => "Contact Details", :description => "Your contact details will be shown to other users upon your acceptance"}%>
 <%= form_tag({:action=>'modify_contact'}, {:remote=>true, :class=>"smart-form"}) do %>
   <fieldset>
     <legend>
-      Mobile or Fixed Line Numbers!
+      Contact Details
     </legend>
+
     <section>
-    <div class="form-group">
-      <label>Mother's Number</label><small class="text-muted">
-            (Choose one from the Dropdown)</small>
-      <div class="input-group">
-        <input name="mother_no" class="form-control phone" type="text" value="<%= @user[:contact][:mother_no] %>">
-        <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-      </div>
-    </div>
+      <label class="label">Skype Id</label>
+      <label class="input">
+        <i class="icon-append fa fa-skype"></i>
+        <input name="s_id" class="form-control" type="text" value="<%= @user[:contact][:s_id] %>" placeholder="Your Skype Id">
+      </label>
     </section>
     <section>
-    <div class="form-group">
-      <label>Father's Number</label><small class="text-muted">
-            (Choose one from the Dropdown)</small>
-      <div class="input-group">
-        <input name="father_no" class="form-control phone" type="text"  value="<%= @user[:contact][:father_no] %>">
-        <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-      </div>
-    </div>
+      <label class="label">Google Chat Id</label>
+      <label class="input">
+        <i class="icon-append fa fa-google-plus"></i>
+        <input name="g_id" class="form-control" type="text" value="<%= @user[:contact][:g_id] %>" placeholder="Your Google Plus/Chat Id">
+      </label>
     </section>
     <section>
-    <div class="form-group">
-      <label>My Number</label><small class="text-muted">
-            (Choose one from the Dropdown)</small>
-      <div class="input-group">
-        <input name="self_no" class="form-control phone" type="text" required="true" value="<%= @user[:contact][:self_no] %>">
-        <span class="input-group-addon"><i class="fa fa-phone"></i></span>
-      </div>
-    </div>
+      <label class="label">WhatsApp!</label>
+      <label class="input">
+        <i class="icon-append fa fa-star"></i>
+        <input name="w_id" class="form-control" type="text" value="<%= @user[:contact][:w_id] %>" placeholder="WhatsApp Account">
+      </label>
     </section>
-  </fieldset>
+    <section>
+      <label class="label">LinkedIn Url</label>
+      <label class="input">
+        <i class="icon-append fa fa-linkedin"></i>
+        <input name="ln_link" class="form-control" type="text" value="<%= @user[:contact][:ln_link] %>" placeholder="Paste Your LinkedIn Url">
+      </label>
+    </section>
+
+
+ </fieldset>
   <footer>
     <button type="submit" class="btn btn-primary edit disabled">Save</button>
   </footer>

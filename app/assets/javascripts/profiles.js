@@ -169,16 +169,16 @@ $(document).on("page:change", function() {
       return this.on('addedfile', function(file) {});
     }
   };
-  $(".phone").inputmask("mask", {
-    "mask": "(999) 9999-999-999"
-  });
+  // $(".phone").inputmask("mask", {
+  //   "mask": "(999) 9999-999-999"
+  // });
   $(".interest").click(function() {
     return $(this).hide();
   });
   $(".edit").click(function() {
     return $(this).addClass('disabled');
   });
-  $('form').change(function() {
+  $('form').bind("keyup change", function(e) {
     return $(".edit").removeClass('disabled');
   });
   $('form.smart-form').submit(function() {
