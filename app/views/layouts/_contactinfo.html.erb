@@ -1,0 +1,58 @@
+<legend></legend>
+<% if  current_user.id != user[:id] && !user[:out_response].nil? %>
+  <% if user[:out_response].response == 1 %>
+    <dl class="dl-horizontal pull-left font-sm">
+      <dt>
+        <i class='fa fa-skype txt-color-blue'></i>
+        Skype:
+      </dt>
+      <dd>
+        <%= user[:contact][:s_id]  %>
+      </dd>
+      <br>
+      <dt>
+        <i class='fa fa-google-plus txt-color-red'></i>
+        Google:
+      </dt>
+      <dd>
+        <%= user[:contact][:g_id]  %>
+      </dd>
+      <br>
+      <dt>
+        <i class='fa fa-star txt-color-green'></i>
+        WhatsApp:
+      </dt>
+      <dd>
+        <%= user[:contact][:w_id]  %>
+      </dd>
+      <br>
+    </dl>
+  <% else %>
+    <dl class="dl-horizontal pull-left font-sm">
+      <dt>
+        <i class='fa fa-skype txt-color-blue'></i>
+        Skype:
+      </dt>
+      <dd>
+        On Acceptance !
+      </dd>
+      <br>
+      <dt>
+        <i class='fa fa-google-plus txt-color-red'></i>
+        Google:
+      </dt>
+      <dd>
+        On Acceptance !
+      </dd>
+      <br>
+      <dt>
+        <i class='fa fa-star txt-color-green'></i>
+        WhatsApp:
+      </dt>
+      <dd>
+        On Acceptance !
+      </dd>
+      <br>
+    </dl>
+  <% end %>
+<% end %>
