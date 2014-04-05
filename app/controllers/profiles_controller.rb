@@ -88,6 +88,7 @@ class ProfilesController < ApplicationController
       logger.info("Debug Params inspect #{params.inspect}")
       if !find_first
         current_user.interests.create(to_user_id: params[:to_user_id])
+        User.find(params[:to_user_id]).notifications.create(user_id: params[:to_user_id], from_user_id: current_user.id, flag: 1)
       else
         find_first.touch
       end
@@ -115,15 +116,13 @@ class ProfilesController < ApplicationController
   #=================================================
   def interest_response
     commit = params[:commit]
-    logger.info("Debug Params inspect #{params.inspect}")
-    logger.info("Debug current user id #{current_user.id}")
     interest = Interest.where(:to_user_id => current_user.id, :user_id => params[:to_user_id]).first
-    logger.info("Debug Params inspect #{interest.inspect}")
-    logger.info("Debug Params inspect #{current_user.interests.inspect}")
     if commit == "Accept"
       interest.update(:response => 1)
+      User.find(params[:to_user_id]).notifications.create(user_id: params[:to_user_id], from_user_id: current_user.id, flag: 2)
     elsif commit == "Reject"
       interest.update(:response => 0)
+      User.find(params[:to_user_id]).notifications.create(user_id: params[:to_user_id], from_user_id: current_user.id, flag: 3)
     end
 
     render json: { :status => 200 }
