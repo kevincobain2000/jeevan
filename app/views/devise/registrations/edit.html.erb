@@ -1,75 +1,91 @@
-<div id="main" role="main">
-  <!-- MAIN CONTENT -->
-  <div id="content" class="container">
-    <div class="row">
-      <div class="col-md-5 col-md-offset-3">
-        <div class="well no-padding">
-          <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => "smart-form client-form" }) do |f| %>
-            <header>Change Password</header>
-            <fieldset>
-              <section>
-                <%= devise_error_messages! %>
-              </section>
-              <section>
-                <label class="label">Old Password</label>
-                <label class="input">
-                  <i class="icon-append fa fa-lock"></i>
-                  <%= f.password_field :current_password, :placeholder => "Old Password" %>
-                </label>
-              </section>
-              <section>
-                <label class="label">New Password</label>
-                <label class="input">
-                  <i class="icon-append fa fa-lock"></i>
-                  <%= f.password_field :password, :autocomplete => "off", :placeholder => "New Password"%>
-                </label>
-              </section>
-              <section>
-                <label class="label">Confirm Password</label>
-                <label class="input">
-                  <i class="icon-append fa fa-lock"></i>
-                  <%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %>
-                </label>
-              </section>
-              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-                Currently waiting confirmation for:
-                <%= resource.unconfirmed_email %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jeevan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no" />
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" =>
+  true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" =>
+  true %>
+    <%= csrf_meta_tags %>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700"></head>
+  <body class="smart-style-3">
+    <div id="main" role="main">
+      <!-- MAIN CONTENT -->
+      <div id="content" class="container">
+        <div class="row">
+          <div class="col-md-5 col-md-offset-3">
+            <div class="well no-padding">
+              <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => "smart-form client-form" }) do |f| %>
+                <header>Change Password</header>
+                <fieldset>
+                  <section>
+                    <%= devise_error_messages! %>
+                  </section>
+                  <section>
+                    <label class="label">Old Password</label>
+                    <label class="input">
+                      <i class="icon-append fa fa-lock"></i>
+                      <%= f.password_field :current_password, :placeholder => "Old Password" %>
+                    </label>
+                  </section>
+                  <section>
+                    <label class="label">New Password</label>
+                    <label class="input">
+                      <i class="icon-append fa fa-lock"></i>
+                      <%= f.password_field :password, :autocomplete => "off", :placeholder => "New Password"%>
+                    </label>
+                  </section>
+                  <section>
+                    <label class="label">Confirm Password</label>
+                    <label class="input">
+                      <i class="icon-append fa fa-lock"></i>
+                      <%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %>
+                    </label>
+                  </section>
+                  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                    Currently waiting confirmation for:
+                    <%= resource.unconfirmed_email %>
+                  <% end %>
+                  <footer>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button class="btn btn-default"><i class="fa fa-arrow-left"></i> window(history go back)Go Back</button>
+                  </footer>
+                </fieldset>
               <% end %>
-              <footer>
-                <button type="submit" class="btn btn-primary">Update</button>
-              </footer>
-            </fieldset>
-          <% end %>
+            </div>
+            <!-- <button class="btn btn-danger btn-sm pull-right"><i class="fa fa-times"></i> Delete My Account</button> -->
+            <button class="btn btn-danger btn-sm pull-right" data-toggle="modal" data-target="#destroy">
+              <i class="fa fa-times"></i>
+              Delete Your Account
+            </button>
+          </div>
         </div>
-        <!-- <button class="btn btn-danger btn-sm pull-right"><i class="fa fa-times"></i> Delete My Account</button> -->
-        <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#destroy">
-          <i class="fa fa-times"></i>
-          Delete Your Account
-        </button>
       </div>
     </div>
-  </div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="destroy" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-          &times;
-        </button>
-        <h4 class="modal-title" id="myModalLabel">Delete Account</h4>
-      </div>
-      <div class="modal-body">
-        Are you sure you want to delete your account.
-        <strong>This cannot be undone !</strong>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">
-          Cancel
-        </button>
-        <%= link_to "Remove", user_registration_path(resource_name), :method => :delete, :class=>"btn btn-danger" %>.
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+    <!-- Modal -->
+    <div class="modal fade" id="destroy" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+              &times;
+            </button>
+            <h4 class="modal-title" id="myModalLabel">Delete Account</h4>
+          </div>
+          <div class="modal-body">
+            Are you sure you want to delete your account.
+            <strong>This cannot be undone !</strong>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">
+              Cancel
+            </button>
+            <%= link_to "Remove", user_registration_path(resource_name), :method => :delete, :class=>"btn btn-danger" %>.
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <%= render :partial =>'layouts/footer'%>
+  </body>
+</html>
