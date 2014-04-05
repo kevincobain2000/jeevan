@@ -68,10 +68,10 @@ class DashboardController < ApplicationController
 
   def get_age_from(dob)
     dob = dob.gsub("/","-")
-    return "#{time_ago_in_words(Date::strptime(dob, "%m-%d-%Y"), Time.now)} old"
+    return "#{time_ago_in_words(Date::strptime(dob, "%m-%d-%Y"), Time.now)}"
   end
   def get_avatar_from(avatar)
-    return "<img src='#{avatar}' class='img-rounded' style='height:50px;width:50px' >"
+    return "<img src='#{avatar}' class='img-rounded' style='height:25px;width:25px' >"
   end
   def get_profile_link_from(user)
     return "<a class='semi-bold' href='../profiles/#{user.profile.id}'>#{user.name}</a>"
@@ -93,8 +93,8 @@ class DashboardController < ApplicationController
   end
   def get_user_age_from(dob)
     db = dob.gsub("/","-")
-    age = dob.empty? ? nil: distance_of_time_in_words(Date::strptime(db, "%m-%d-%Y"), Time.now)
-    return "<strong class='txt-color-green'>#{age}</strong><small class='text-muted'></small>"
+    age = calculate_age(db)
+    return "<strong class='txt-color-green'>#{age} years</strong>"
   end
   def get_visitors_count_from(visitors)
     return "#{visitors.count}<small class='text-muted'> visitors</small>"

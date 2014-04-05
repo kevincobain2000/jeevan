@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   def make_user(user)
     dob = user.dob.gsub("/","-")
-    age = user.dob.empty? ? nil: distance_of_time_in_words(Date::strptime(dob, "%m-%d-%Y"), Time.now)
+    age = calculate_age(dob)
     user_ret = {
       id:         user.id,
       dob:        user.dob,
@@ -39,6 +39,9 @@ class ApplicationController < ActionController::Base
       shortlist:    Shortlist.where(user_id: current_user.id, to_user_id: user.id).first,
     }
     return user_ret;
+  end
+  def calculate_age(birthday)
+    Date.today.year - birthday.to_date.year
   end
   protected
   def configure_permitted_parameters
@@ -88,10 +91,3 @@ class ApplicationController < ActionController::Base
     end
   end
 end
-
-
-
-
-
-
-
