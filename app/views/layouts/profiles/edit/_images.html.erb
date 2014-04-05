@@ -3,7 +3,7 @@
 <%= form_tag({:action=>'modify_image'}, {:authenticity_token => true, :multipart => true, :remote => true, :class => 'dropzone', :id => 'my-dropzone'}) do %>
 <% end %>
 <div class="row">
-  <%= form_tag({:action=>'remove_image'}, {:remote => true}) do %>
+  <%= form_tag({:action=>'remove_image'}, {:remote => true, :class=>"smart-form"}) do %>
     <!-- SuperBox -->
     <div class="superbox col-sm-12">
       <% @user[:image].each do |image| %>

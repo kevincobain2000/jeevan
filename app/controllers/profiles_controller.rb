@@ -30,6 +30,7 @@ class ProfilesController < ApplicationController
     render json: { :status => 200 }
   end
   def remove_image
+    logger.info("Debug #{remove_image_params}")
     current_user.images.destroy(remove_image_params['imageid'])
     render json: { :status => 200 }
   end
@@ -225,9 +226,7 @@ class ProfilesController < ApplicationController
 
   def similar_profiles
     @similar_profiles = Hash.new {|h, k| h[k] = [] }
-    # Todo Take interests donot add similar_profiles to show to whom interests have been sent
-    # users_not_my_gender = User.where.not(sex: current_user.sex, :id.in(@interests[:in])).order('created_at DESC').limit(1000)
-    users = User.where.not(sex: current_user.sex).order('created_at DESC').limit(10)
+    users = User.where.not(sex: current_user.sex).order('created_at DESC').limit(100)
     users.each do |user|
       @similar_profiles[user.id] = make_user(user)
     end

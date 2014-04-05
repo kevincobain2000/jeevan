@@ -30,10 +30,12 @@ Jeevan::Application.routes.draw do
   get "home/index"
   resources :dashboard
   resources :contact
-  devise_for :users
+  # devise_for :users
   authenticated :user do
     root :to => 'explore#index', :as => :authenticated_root
   end
+  devise_for :users, :controllers => { :registrations => "registrations", :sessions => "sessions" }
+
   root :to => redirect('/users/sign_in')
 
   if Rails.env.production?
