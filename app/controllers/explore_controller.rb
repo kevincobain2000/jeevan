@@ -34,7 +34,8 @@ class ExploreController < ApplicationController
 
   def search
     gon.search = {}
-    users_ids = User.where.not(sex: current_user.sex).limit(3000).pluck(:id)
+    # users_ids = User.where.not(sex: current_user.sex).limit(3000).pluck(:id)
+    users_ids = User.where(sex: current_user.sex).limit(3000).pluck(:id)
     gon.search['profiles']  = make_gon_search(Profile.find(users_ids))
     render 'search'
   end
@@ -55,7 +56,7 @@ class ExploreController < ApplicationController
       updated_at     = dashboard_methods.get_updated_at_with_icon_from(time_ago_in_words(user.updated_at))
       action         = dashboard_methods.get_action_based_on(user, 3)
 
-      ret << [avatar, profile_link, religion, location, visitors_count, posted_by, age, action, updated_at]
+      ret << [avatar, profile_link, religion, location, visitors_count, age, posted_by, action, updated_at]
     end
     return ret
   end
