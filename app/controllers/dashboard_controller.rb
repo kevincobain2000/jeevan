@@ -66,12 +66,8 @@ class DashboardController < ApplicationController
     end
   end
 
-  def get_age_from(dob)
-    dob = dob.gsub("/","-")
-    return "#{time_ago_in_words(Date::strptime(dob, "%m-%d-%Y"), Time.now)}"
-  end
   def get_avatar_from(avatar)
-    return "<img src='#{avatar}' class='img-rounded' style='height:25px;width:25px' >"
+    return "<img src='#{avatar}' class='img-rounded' style='height:20px;width:20px' >"
   end
   def get_profile_link_from(user)
     return "<a class='semi-bold' href='../profiles/#{user.profile.id}'>#{user.name}</a>"

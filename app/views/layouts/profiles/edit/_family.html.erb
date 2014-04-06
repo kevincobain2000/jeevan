@@ -1,4 +1,4 @@
-<%= render :partial =>'layouts/alert', :locals => {:heading => "Tell us About Your Family", :description => ""}%>
+<%= render :partial =>'layouts/alert', :locals => {:heading => "Tell us About Your Family", :description => "", :icon=>"fa fa-group"}%>
 <%= form_tag({:action=>'modify_family'},{:remote => true, :class=>"smart-form"}) do %>
   <h3 class="error-text-3"><strong>Family</strong></h3>
   <fieldset>
@@ -70,7 +70,7 @@
         <div class="col-sm-12">
           <label>
             <%= heading.titleize %></label><small class="text-muted">
-            (Choose one from the Dropdown)</small>
+            (Choose or Add New)</small>
           <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:family][category] %>" placeholder="About my <%= heading %>">
         </div>
       <div class="col-sm-12">&nbsp;</div>

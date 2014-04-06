@@ -1,4 +1,4 @@
-<%= render :partial =>'layouts/alert', :locals => {:heading => "Education Section", :description => "You can add your school or college if we don't have it in the list"}%>
+<%= render :partial =>'layouts/alert', :locals => {:heading => "Education Section", :description => "You can add your school or college if we don't have it in the list", :icon=>"fa fa-flask"}%>
 <%= form_tag({:action=>'modify_education'}, {:remote => true, :class=>"smart-form"}) do %>
   <h3 class="error-text-3"><strong>Education</strong> <i>school & degree</i></h3>
   <fieldset>
