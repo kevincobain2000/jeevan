@@ -1,4 +1,4 @@
-<%= render :partial =>'layouts/alert', :locals => {:heading => "Your Religion, Caste ..", :description => "Please select one from the dropdown"}%>
+<%= render :partial =>'layouts/alert', :locals => {:heading => "Your Religion, Caste ..", :description => "Please select one from the dropdown", :icon=>"fa fa-sun-o"}%>
 <%= form_tag({:action=>'modify_religion'},{:remote => true, :class=>"smart-form"}) do %>
   <h3 class="error-text-3"><strong>Religion</strong> and <i>Caste</i></h3>
   <fieldset>

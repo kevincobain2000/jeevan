@@ -1,10 +1,17 @@
-<%= render :partial =>'layouts/alert', :locals => {:heading => "Contact Details", :description => "Your contact details will be shown to other users upon your acceptance"}%>
+<%= render :partial =>'layouts/alert', :locals => {:heading => "Contact Details", :description => "Your contact details will be shown to other users upon your acceptance", :icon=>"fa fa-telephone"}%>
 <%= form_tag({:action=>'modify_contact'}, {:remote=>true, :class=>"smart-form"}) do %>
   <fieldset>
     <legend>
       Contact Details
     </legend>
 
+    <section>
+      <label class="label">Telephone No.</label>
+      <label class="input">
+        <i class="icon-append fa fa-phone"></i>
+        <input name="self_no" class="form-control phone" type="text" value="<%= @user[:contact][:self_no] %>" >
+      </label>
+    </section>
     <section>
       <label class="label">Skype Id</label>
       <label class="input">
@@ -22,7 +29,7 @@
     <section>
       <label class="label">WhatsApp!</label>
       <label class="input">
-        <i class="icon-append fa fa-star"></i>
+        <i class="icon-append fa fa-comment"></i>
         <input name="w_id" class="form-control" type="text" value="<%= @user[:contact][:w_id] %>" placeholder="WhatsApp Account">
       </label>
     </section>

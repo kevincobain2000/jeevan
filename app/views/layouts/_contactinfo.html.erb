@@ -3,13 +3,21 @@
   <% if user[:out_response].response == 1 %>
     <dl class="dl-horizontal pull-left font-sm">
       <dt>
+        <i class='fa fa-phone'></i>
+        Telephone:
+      </dt>
+      <dd>
+        <%= user[:contact][:self_no]  %>
+      </dd>
+
+      <dt>
         <i class='fa fa-skype txt-color-blue'></i>
         Skype:
       </dt>
       <dd>
         <%= user[:contact][:s_id]  %>
       </dd>
-      <br>
+
       <dt>
         <i class='fa fa-google-plus txt-color-red'></i>
         Google:
@@ -17,42 +25,50 @@
       <dd>
         <%= user[:contact][:g_id]  %>
       </dd>
-      <br>
+
       <dt>
-        <i class='fa fa-star txt-color-green'></i>
+        <i class='fa fa-comment txt-color-green'></i>
         WhatsApp:
       </dt>
       <dd>
         <%= user[:contact][:w_id]  %>
       </dd>
-      <br>
+
     </dl>
   <% else %>
-    <dl class="dl-horizontal pull-left font-sm">
+  <dl class="dl-horizontal pull-left font-sm">
+    <dt>
+    <i class='fa fa-phone'></i>
+      Telephone:
+    </dt>
+    <dd>
+     <small class="text-muted"> On Acceptance !</small>
+    </dd>
+
       <dt>
         <i class='fa fa-skype txt-color-blue'></i>
         Skype:
       </dt>
       <dd>
-        On Acceptance !
+       <small class="text-muted"> On Acceptance !</small>
       </dd>
-      <br>
+
       <dt>
         <i class='fa fa-google-plus txt-color-red'></i>
         Google:
       </dt>
       <dd>
-        On Acceptance !
+       <small class="text-muted"> On Acceptance !</small>
       </dd>
-      <br>
+
       <dt>
-        <i class='fa fa-star txt-color-green'></i>
+        <i class='fa fa-comment txt-color-green'></i>
         WhatsApp:
       </dt>
       <dd>
-        On Acceptance !
+       <small class="text-muted"> On Acceptance !</small>
       </dd>
-      <br>
+
     </dl>
   <% end %>
 <% end %>

@@ -203,9 +203,9 @@ $(document).on("page:change", function() {
       });
     }
   };
-  // $(".phone").inputmask("mask", {
-  //   "mask": "(999) 9999-999-999"
-  // });
+  $(".phone").inputmask("mask", {
+    "mask": "(999) 9999-999-999"
+  });
   $(".interest").click(function() {
     return $(this).hide();
   });

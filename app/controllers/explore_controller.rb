@@ -55,7 +55,7 @@ class ExploreController < ApplicationController
       updated_at     = dashboard_methods.get_updated_at_with_icon_from(time_ago_in_words(user.updated_at))
       action         = dashboard_methods.get_action_based_on(user, 3)
 
-      ret << [avatar, profile_link, religion, location, visitors_count, posted_by, age, action, updated_at]
+      ret << [avatar, profile_link, religion, location, visitors_count, age, posted_by, action, updated_at]
     end
     return ret
   end
