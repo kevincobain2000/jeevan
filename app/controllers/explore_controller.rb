@@ -34,7 +34,8 @@ class ExploreController < ApplicationController
 
   def search
     gon.search = {}
-    users_ids = User.where.not(sex: current_user.sex).limit(3000).pluck(:id)
+    # users_ids = User.where.not(sex: current_user.sex).limit(3000).pluck(:id)
+    users_ids = User.where(sex: current_user.sex).limit(3000).pluck(:id)
     gon.search['profiles']  = make_gon_search(Profile.find(users_ids))
     render 'search'
   end
