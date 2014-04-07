@@ -54,12 +54,37 @@
                 <section>
                   <div class="row">
                     <div class="col col-4">
-                      <label class="label">Gender</label>
+                      <label class="label">Your Gender</label>
                       <label class="radio"><%= f.radio_button :sex, "Male" %><i></i>Male</label>
                       <label class="radio"><%= f.radio_button :sex, "Female" %><i></i>Female</label>
                     </div>
                   </section>
                   <section>
+                    <label class="label">
+                    <i class="fa fa-sun-o"></i> Religion
+                  </label>
+                  <input name="user[devotion]" class="selectized" id="select-devotion" placeholder="Religion">
+                  <script type="text/javascript">
+                  $("#select-devotion").selectize({
+                    maxItems: 1,
+                    valueField: "title",
+                    labelField: "title",
+                    searchField: "title",
+                    options: [{title: "Hindu"}, {title: "Muslim"}, {title: "Christian"},{title: "Buddhist"}, {title: "Jain"}, {title: "Parsi"}, {title: "Other"}],
+                    create: false,
+                    render: {
+                      option: function(item, escape) {
+                        var desc;
+                        desc = item.desc ? item.desc : "";
+                        return '<div> <strong>' + item.title + '</strong><br><small>' + desc + '</small></div>';
+                      }
+                    }
+                  });
+                </script>
+              </section>
+            </section>
+            <section>
+                  <label class="label">Date of Birth</label>
                     <label class="input">
                       <i class="icon-append fa fa-calendar"></i>
                       <input class="form-control" id="dob" type="text" name="user[dob]" value="01/09/1985">

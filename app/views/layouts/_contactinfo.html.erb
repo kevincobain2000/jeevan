@@ -1,74 +1,84 @@
-<legend></legend>
-<% if  current_user.id != user[:id] && !user[:out_response].nil? %>
-  <% if user[:out_response].response == 1 %>
-    <dl class="dl-horizontal pull-left font-sm">
-      <dt>
-        <i class='fa fa-phone'></i>
-        Telephone:
-      </dt>
-      <dd>
-        <%= user[:contact][:self_no]  %>
-      </dd>
-
-      <dt>
-        <i class='fa fa-skype txt-color-blue'></i>
-        Skype:
-      </dt>
-      <dd>
-        <%= user[:contact][:s_id]  %>
-      </dd>
-
-      <dt>
-        <i class='fa fa-google-plus txt-color-red'></i>
-        Google:
-      </dt>
-      <dd>
-        <%= user[:contact][:g_id]  %>
-      </dd>
-
-      <dt>
-        <i class='fa fa-comment txt-color-green'></i>
-        WhatsApp:
-      </dt>
-      <dd>
-        <%= user[:contact][:w_id]  %>
-      </dd>
-
-    </dl>
-  <% else %>
-  <dl class="dl-horizontal pull-left font-sm">
-    <dt>
-    <i class='fa fa-phone'></i>
-      Telephone:
-    </dt>
-    <dd>
-     <small class="text-muted"> On Acceptance !</small>
-    </dd>
-
-      <dt>
-        <i class='fa fa-skype txt-color-blue'></i>
-        Skype:
-      </dt>
-      <dd>
-       <small class="text-muted"> On Acceptance !</small>
-      </dd>
-
-      <dt>
-        <i class='fa fa-google-plus txt-color-red'></i>
-        Google:
-      </dt>
-      <dd>
-       <small class="text-muted"> On Acceptance !</small>
-      </dd>
-
-      <dt>
-        <i class='fa fa-comment txt-color-green'></i>
-        WhatsApp:
-      </dt>
-      <dd>
-       <small class="text-muted"> On Acceptance !</small>
-      </dd>
-
-    </dl>
-  <% end %>
+<% if  current_user.id != user[:id] && !user[:out_response] == 1 %>
+  <% contactinfo_self = user[:contact][:self_no]  %>
+  <% contactinfo_s_id = user[:contact][:s_id]  %>
+  <% contactinfo_g_id = user[:contact][:g_id]  %>
+  <% contactinfo_w_id = user[:contact][:w_id]  %>
+<% else %>
+  <% contactinfo_self = "On Acceptance"  %>
+  <% contactinfo_s_id = "On Acceptance"  %>
+  <% contactinfo_g_id = "On Acceptance"  %>
+  <% contactinfo_w_id = "On Acceptance"  %>
 <% end %>
+
+<legend></legend>
+<div class="tree">
+  <ul role="tree">
+    <li class="parent_li" role="treeitem">
+      <span title="Expand this branch"> <i class="fa fa-lg fa-plus-circle"></i>
+        Contact Details: Meet or Invite <%= user[:name] %>
+      </span>
+      <ul role="group">
+        <li class="parent_li" role="treeitem" style="display: list-item;">
+          <span class="label label-success" title="Expand this branch"> <i class="fa fa-lg fa-plus-circle"></i>
+            Telephone
+          </span>
+          <ul role="group">
+            <li style="display: none;">
+              <span>
+                <i class="fa fa-phone"></i>
+              </span>
+              –
+              <strong><%= contactinfo_self %></strong>
+            </li>
+          </ul>
+        </li>
+        <li class="parent_li" role="treeitem" style="display: list-item;">
+          <span class="label label-success" title="Expand this branch">
+            <i class="fa fa-lg fa-plus-circle"></i>
+            Skype
+          </span>
+          <ul role="group">
+            <li>
+              <span>
+                <i class="fa fa-skype"></i>
+              </span>
+              –
+              <%= contactinfo_s_id %>
+            </li>
+          </ul>
+        </li>
+        <li class="parent_li" role="treeitem" style="display: list-item;">
+          <span class="label label-warning" title="Expand this branch">
+            <i class="fa fa-lg fa-plus-circle"></i>
+            Google !
+          </span>
+          <ul role="group">
+            <li>
+              <span>
+                <i class="fa fa-google-plus"></i>
+              </span>
+              –
+              <%= contactinfo_g_id %>
+            </li>
+          </ul>
+        </li>
+        <li class="parent_li" role="treeitem" style="display: list-item;">
+          <span class="label label-danger" title="Expand this branch">
+            <i class="fa fa-lg fa-plus-circle"></i>
+            WhatsApp !
+          </span>
+          <ul role="group">
+            <li>
+              <span>
+                <i class="fa fa-comment"></i>
+              </span>
+              –
+              <%= contactinfo_w_id %>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </li>
+</ul>
+</div>

@@ -26,6 +26,7 @@ class ApplicationController < ActionController::Base
       contact:    user.contact,
       about:      user.about,
       religion:   user.religion,
+      devotion:   user.devotion,
       kundali:    user.kundali,
       family:     user.family,
       hobby:      user.hobby,
@@ -48,6 +49,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << :sex
     devise_parameter_sanitizer.for(:sign_up) << :name
     devise_parameter_sanitizer.for(:sign_up) << :dob
+    devise_parameter_sanitizer.for(:sign_up) << :devotion
   end
   private
   def user_activity
@@ -72,7 +74,6 @@ class ApplicationController < ActionController::Base
       user[:avatar]     = __user.avatar
       user[:name]       = titleize(__user.name)
       user[:profile]    = __user.profile
-      # user[:updated_at] = time_ago_in_words(__user.updated_at)
       user[:message]    = messages[notification.flag][0]
       user[:icon]       = messages[notification.flag][1]
       user[:seen]       = notification.seen

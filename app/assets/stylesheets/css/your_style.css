@@ -277,9 +277,9 @@
 .error-text-3 {
   text-align: center;
   font-size: 150%;
-  font-weight: bold;
-  font-weight: 100;
-  color: #333;
+  font-weight: normal;
+  font-weight: 70;
+  color: black;
   line-height: 3;
   letter-spacing: -0.05em;
   background-image: -webkit-linear-gradient(92deg, #333333, #ed1c24);
