@@ -8,14 +8,7 @@
       <span class="semi-bold"><%= user[:age] %></span> Years Old</small>
 </h1>
 <ul class="list-unstyled">
-<!--   <li>
-    <p class="text-muted">
-      <i class="fa fa-envelope"></i>
-      &nbsp;&nbsp;
-      <span>on@acceptance</span>
-    </p>
-  </li>
- -->  <li>
+ <li>
     <p class="text-muted">
       <i class="fa fa-picture-o"></i>
       &nbsp;&nbsp;
@@ -24,7 +17,7 @@
     </p>
   </li>
   <li>
-    <% items = {marital_status: [:profile, 'fa-heart'], birth_city: [:kundali, 'fa-globe'], religion: [:religion, 'fa-bars'], manglik: [:kundali, 'fa-sun-o'], posted_by: [:profile, 'fa-user']  } %>
+    <% items = {marital_status: [:profile, 'fa-heart'], birth_city: [:kundali, 'fa-globe'], manglik: [:kundali, 'fa-sun-o'], posted_by: [:profile, 'fa-user']  } %>
     <% items.stringify_keys.each do |key, value| %>
     <p class="text-muted">
       <i class="fa <%= value[1] %>"></i>
