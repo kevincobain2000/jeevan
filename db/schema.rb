@@ -184,7 +184,6 @@ ActiveRecord::Schema.define(version: 20140331134717) do
 
   create_table "religions", force: true do |t|
     t.integer  "user_id"
-    t.string   "religion",      limit: 32
     t.string   "mother_tongue", limit: 64
     t.string   "caste",         limit: 64
     t.string   "sub_caste",     limit: 64
@@ -224,6 +223,7 @@ ActiveRecord::Schema.define(version: 20140331134717) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.string   "devotion"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
