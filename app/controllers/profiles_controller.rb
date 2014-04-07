@@ -226,7 +226,7 @@ class ProfilesController < ApplicationController
 
   def similar_profiles
     @similar_profiles = Hash.new {|h, k| h[k] = [] }
-    users = User.where.not(sex: current_user.sex).order('created_at DESC').limit(100)
+    users = User.where.not(sex: current_user.sex).order('created_at DESC').limit(50)
     users.each do |user|
       @similar_profiles[user.id] = make_user(user)
     end
