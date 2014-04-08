@@ -51,8 +51,8 @@ class DashboardController < ApplicationController
     age            = get_user_age_from(user.dob)
     visitors_count = get_visitors_count_from(user.visitors)
     action         = get_action_based_on(user, response)
-    location       = get_location_from(user.kundali.birth_city)
-    religion       = get_religion_from(user.religion.religion)
+    location       = get_location_from(user.profile.home)
+    religion       = get_religion_from(user.religion)
     posted_by      = get_posted_by_from(user.profile.posted_by)
 
     return [avatar, profile_link, religion, location, visitors_count, age, posted_by, action, updated_at]

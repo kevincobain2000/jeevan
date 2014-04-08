@@ -1,12 +1,12 @@
-<h1>
-  <i class="fa fa-file"></i> Profile of <i class="fa fa-angle-right"></i>
+<h3>
+  <i class="fa fa-file"></i> Profile of
   <span class="semi-bold">
     <%= user[:name] %></span>
   <br>
   <i class="fa fa-calendar"></i>
     <small class="text-muted">
       <span class="semi-bold"><%= user[:age] %></span> Years Old</small>
-</h1>
+</h3>
 <ul class="list-unstyled">
  <li>
     <p class="text-muted">
@@ -17,7 +17,7 @@
     </p>
   </li>
   <li>
-    <% items = {marital_status: [:profile, 'fa-heart'], birth_city: [:kundali, 'fa-globe'], manglik: [:kundali, 'fa-sun-o'], posted_by: [:profile, 'fa-user']  } %>
+    <% items = {residence: [:lifestyle, 'fa-home'], caste: [:religion, 'fa-bars'], posted_by: [:profile, 'fa-user']  } %>
     <% items.stringify_keys.each do |key, value| %>
     <p class="text-muted">
       <i class="fa <%= value[1] %>"></i>
@@ -26,7 +26,7 @@
         <%= key.gsub('_', ' ').titleize %>:
       </strong>
        <strong class="txt-color-blueDark">
-         <%= user[value[0]][key] %>
+       <%= truncate(titleize(user[value[0]][key]), length: 10) %>
        </strong>
     </p>
     <% end %>

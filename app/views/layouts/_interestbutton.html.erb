@@ -1,4 +1,3 @@
-<legend></legend>
 <% if  current_user.id != user[:id] && user[:out_response].nil? && user[:in_response].nil? %>
   <%= form_tag({:action=>'interest', :controller => "profiles"}, :remote => true) do %>
     <%= hidden_field_tag 'to_user_id', user[:id] %>
