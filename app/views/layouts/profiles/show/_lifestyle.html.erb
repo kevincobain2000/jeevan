@@ -5,9 +5,9 @@
     <% heading = category.gsub "_", " " %>
     <dt class="txt-color-green"><%= heading.titleize %> <i class="<%= icon %>"></i></dt>
     <dd>
-    	<strong>
-    		<%= @user[:lifestyle][category] %>
-    	</strong>
+    	<span>
+    		<%= @user[:lifestyle][category].to_s.gsub ",", ", " %>
+    	</span>
     </dd>
   <% end %>
 </dl>

@@ -2038,6 +2038,7 @@ birth_country:
 
   - title: "Zimbabwe"
     desc: ""
+
 birth_city:
   -
     title: "Madhya Pradesh"
@@ -2619,101 +2620,153 @@ music:
     desc: ""
 interest:
   -
-    title: "First Entry"
+    title: "Sports"
     desc: ""
   -
-    title: "Second Entry"
+    title: "TV"
     desc: ""
 read:
   -
-    title: "First Entry"
+    title: "Thriller"
     desc: ""
   -
-    title: "Second Entry"
+    title: "Art & Design"
     desc: ""
 dress:
   -
-    title: "First Entry"
+    title: "Traditional"
     desc: ""
   -
-    title: "Second Entry"
+    title: "Jeans & T Shirt"
     desc: ""
 tv:
   -
-    title: "First Entry"
+    title: "Indian"
     desc: ""
   -
-    title: "Second Entry"
+    title: "Western"
     desc: ""
+
 movie:
   -
-    title: "First Entry"
+    title: ""
     desc: ""
-  -
-    title: "Second Entry"
-    desc: ""
-  -
-    title: "Second Entry"
-    desc: ""
-  -
-    title: "Second Entry"
-    desc: ""
+
 sport:
   -
-    title: "First Entry"
-    desc: ""
-  -
-    title: "Second Entry"
+    title: ""
     desc: ""
 cuisine:
   -
-    title: "First Entry"
+    title: ""
     desc: ""
-  -
-    title: "Second Entry"
-    desc: ""
+
 vacation:
   -
-    title: "First Entry"
+    title: ""
     desc: ""
-  -
-    title: "Second Entry"
-    desc: ""
-family_income:
-  -
-    title: "First Entry"
-    desc: ""
-  -
-    title: "Second Entry"
-    desc: ""
+
 father:
   -
-    title: "First Entry"
+    title: "Large Business"
     desc: ""
+
   -
-    title: "Second Entry"
+    title: "Government Employee"
     desc: ""
+
+  -
+    title: "Private Employee"
+    desc: ""
+
+  -
+    title: "Small Business"
+    desc: ""
+
+  -
+    title: "Unemployed"
+    desc: ""
+
+  -
+    title: "Expired"
+    desc: ""
+
 mother:
   -
-    title: "First Entry"
+    title: "Large Business"
     desc: ""
+
   -
-    title: "Second Entry"
+    title: "Government Employee"
     desc: ""
+
+  -
+    title: "Private Employee"
+    desc: ""
+
+  -
+    title: "Small Business"
+    desc: ""
+
+  -
+    title: "Housewife"
+    desc: ""
+
+  -
+    title: "Expired"
+    desc: ""
+
+
 brother:
   -
-    title: "First Entry"
+    title: "Large Business"
     desc: ""
+
   -
-    title: "Second Entry"
+    title: "Government Employee"
     desc: ""
+
+  -
+    title: "Private Employee"
+    desc: ""
+
+  -
+    title: "Small Business"
+    desc: ""
+
+  -
+    title: "Unemployed"
+    desc: ""
+
+  -
+    title: "Married"
+    desc: ""
+
 sister:
   -
-    title: "First Entry"
+    title: "Large Business"
     desc: ""
+
   -
-    title: "Second Entry"
+    title: "Government Employee"
     desc: ""
+
+  -
+    title: "Private Employee"
+    desc: ""
+
+  -
+    title: "Small Business"
+    desc: ""
+
+  -
+    title: "Unemployed"
+    desc: ""
+
+  -
+    title: "Married"
+    desc: ""
+
 profile_handler:
   -
     title: "Parents"
@@ -4809,15 +4862,10 @@ desired_mother_tongue:
 
 desired_education:
   -
-    title: "First Entry"
+    title: ""
     desc: ""
-  -
-    title: "Second Entry"
-    desc: ""
+
 desired_occupation:
   -
-    title: "First Entry"
-    desc: ""
-  -
-    title: "Second Entry"
+    title: ""
     desc: ""

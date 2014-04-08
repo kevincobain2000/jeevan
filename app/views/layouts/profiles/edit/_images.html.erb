@@ -1,7 +1,9 @@
-<%= render :partial =>'layouts/alert', :locals => {:heading => "Load as many Images as you like", :description => "One image is worth a thousand words !"}%>
+<%= render :partial =>'layouts/alert', :locals => {:heading => "Load as many Images as you like", :description => "One image is worth a thousand words !",:icon=>"fa fa-picture-o"}%>
 <h3 class="error-text-3"><strong>Images</strong></h3>
+<%= form_tag({:action=>'modify_image'}, {:authenticity_token => true, :multipart => true, :remote => true, :class => 'dropzone', :id => 'my-dropzone'}) do %>
+<% end %>
 <div class="row">
-  <%= form_tag({:action=>'remove_image'}, {:remote => true}) do %>
+  <%= form_tag({:action=>'remove_image'}, {:remote => true, :class=>"smart-form"}) do %>
     <!-- SuperBox -->
     <div class="superbox col-sm-12">
       <% @user[:image].each do |image| %>
@@ -16,5 +18,3 @@
     <div class="superbox-show" style="height:300px; display: none"></div>
   <% end %>
 </div>
-<%= form_tag({:action=>'modify_image'}, {:authenticity_token => true, :multipart => true, :remote => true, :class => 'dropzone', :id => 'my-dropzone'}) do %>
-<% end %>
