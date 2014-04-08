@@ -12,16 +12,16 @@
             	<dd><%= image_tag @similar_profiles[user_id][:avatar].url(:thumb) %></dd>
 
             	<dt>Age:</dt>
-            	<dd><strong class="txt-color-blue"><%= @similar_profiles[user_id][:age] %></strong> <span class="text-muted"></span></dd>
+            	<dd><strong class="txt-color-blue"><%= truncate( titleize(@similar_profiles[user_id][:age]), length: 10) %></strong> <span class="text-muted"></span></dd>
 
             	<dt>Name:</dt>
-            	<dd><strong class="txt-color-green"><%= @similar_profiles[user_id][:name] %></strong></dd>
+            	<dd><strong class="txt-color-green"><%= truncate(titleize(@similar_profiles[user_id][:name]), length: 10) %></strong></dd>
 
-            	<dt>Religion:</dt>
-            	<dd><strong class="txt-color-blue"><%= @similar_profiles[user_id][:religion][:religion] %></strong></dd>
+            	<dt>Caste:</dt>
+            	<dd><strong class="txt-color-blue"><%= truncate( titleize(@similar_profiles[user_id][:religion][:caste]), length: 10) %></strong></dd>
 
             	<dt>Last Online:</dt>
-            	<dd><strong class="txt-color-green"><%= @similar_profiles[user_id][:updated_at] %></strong> <span class="text-muted">ago</span></dd>
+            	<dd><strong class="txt-color-green"><%= truncate(titleize(@similar_profiles[user_id][:updated_at]), length: 10) %></strong> <span class="text-muted">ago</span></dd>
 
             </dl>
           </li>
