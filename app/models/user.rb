@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   validates :sex, presence: true
   validates :name, presence: true
+  validates :devotion, presence: true
   validates :dob, presence: true
   after_create :create_dependents
   devise :database_authenticatable, :registerable,

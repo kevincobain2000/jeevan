@@ -4,6 +4,6 @@
   <% icon = "fa fa-angle-right" %>
     <% heading = category.gsub "_", " " %>
     <dt class="txt-color-blue"><%= heading.titleize %> <i class="<%= icon %>"></i></dt>
-    <dd><strong><%= @user[:education][category].to_s.titleize %></strong></dd>
+    <dd><span><%= @user[:education][category].to_s.titleize %></span></dd>
   <% end %>
 </dl>

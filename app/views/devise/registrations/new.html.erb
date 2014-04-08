@@ -1,13 +1,6 @@
 <div id="login" class="animated fadeInDown">
   <!-- possible classes: minified, no-right-panel, fixed-ribbon, fixed-header, fixed-width-->
   <header id="header">
-    <span id="logo"></span>
-    <div id="logo-group">
-      <span id="logo">
-        <%= image_tag("logo.png") %>
-      </span>
-      <!-- END AJAX-DROPDOWN -->
-    </div>
     <span id="login-header-space">
       <span class="hidden-mobile">Already Have an Account ?</span>
       <%= render "devise/shared/links" %>
@@ -17,34 +10,7 @@
     <!-- MAIN CONTENT -->
     <div id="content" class="container">
       <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 hidden-xs hidden-sm">
-          <h1 class="txt-color-red login-header-big">SmartAdmin</h1>
-          <div class="hero">
-            <div class="pull-left login-desc-box-l">
-              <h4 class="paragraph-header">
-                It's Okay to be Smart. Experience the simplicity of SmartAdmin, everywhere you go!
-              </h4>
-              <div class="login-app-icons">
-                <a href="javascript:void(0);" class="btn btn-danger btn-sm">Frontend Template</a>
-                <a href="javascript:void(0);" class="btn btn-danger btn-sm">Find out more</a>
-              </div>
-            </div>
-            <img src="../images/demo/iphoneview.png" class="pull-right display-image" alt="" style="width:210px"></div>
-          <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-              <h5 class="about-heading">About SmartAdmin - Are you up to date?</h5>
-              <p>
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa.
-              </p>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-              <h5 class="about-heading">Not just your average template!</h5>
-              <p>
-                Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi voluptatem accusantium!
-              </p>
-            </div>
-          </div>
-        </div>
+        <%= render :partial =>'layouts/signuptext'%>
         <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4">
           <div class="well no-padding">
             <%= form_for(resource, :as => resource_name, :html => {:class => "smart-form client-form"}, :url => registration_path(resource_name)) do |f| %>
@@ -88,22 +54,52 @@
                 <section>
                   <div class="row">
                     <div class="col col-4">
-                      <label class="label">Gender</label>
+                      <label class="label">Your Gender</label>
                       <label class="radio"><%= f.radio_button :sex, "Male" %><i></i>Male</label>
                       <label class="radio"><%= f.radio_button :sex, "Female" %><i></i>Female</label>
                     </div>
                   </section>
                   <section>
-                    <div class="input-group">
-                      <input class="form-control" id="dob" type="text" name="user[dob]" value="01/01/1985">
-                      <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                    </div>
+                    <label class="label">
+                    <i class="fa fa-sun-o"></i> Religion
+                  </label>
+                  <input name="user[devotion]" class="selectized" id="select-devotion" placeholder="Religion">
+                  <script type="text/javascript">
+                  $("#select-devotion").selectize({
+                    maxItems: 1,
+                    valueField: "title",
+                    labelField: "title",
+                    searchField: "title",
+                    options: [{title: "Hindu"}, {title: "Muslim"}, {title: "Christian"},{title: "Buddhist"}, {title: "Jain"}, {title: "Parsi"}, {title: "Other"}],
+                    create: false,
+                    render: {
+                      option: function(item, escape) {
+                        var desc;
+                        desc = item.desc ? item.desc : "";
+                        return '<div> <strong>' + item.title + '</strong><br><small>' + desc + '</small></div>';
+                      }
+                    }
+                  });
+                </script>
+              </section>
+            </section>
+            <section>
+                  <label class="label">Date of Birth</label>
+                    <label class="input">
+                      <i class="icon-append fa fa-calendar"></i>
+                      <input class="form-control" id="dob" type="text" name="user[dob]" value="01/09/1985">
+                    </label>
                     <div class="note">
                       <strong>Choose Date of Birth:</strong>
                       From the calender or enter manually dd/mm/yyyy
                     </div>
                     <script type="text/javascript">
                       $("#dob").datepicker({
+                        format: 'dd/mm/yyyy',
+                        startView: "decade",
+                      });
+                      $('#dob').on('changeDate', function(ev){
+                        $(this).datepicker('hide');
                       });
                     </script>
                   </section>
@@ -113,14 +109,14 @@
                     <a href="#" data-toggle="modal" data-target="#myModal">
                       Terms and Conditions
                     </a></label>
-                  <section>
-                    <div class="note">
-                      Already have an account ?
-                      <%= render "devise/shared/links" %>
-                    </div>
-                  </section>
                 </fieldset>
                 <footer>
+                  We will send you a confirmation link. Please confirm your Email address by logging into your email account. Depending on your email provider please also check your spam folder.
+                  <div class="note">
+                    Already have an account ?
+                    <%= render "devise/shared/links" %>
+                  </div>
+                  <legend></legend>
                   <button type="submit" class="btn btn-primary">Sign Up</button>
                 </footer>
               <% end %>
@@ -128,7 +124,9 @@
           </div>
         </div>
       </div>
+      <%= render :partial =>'layouts/signuptext2'%>
     </div>
   </div>
 </div>
 <%= render :partial =>'layouts/terms'%>
+

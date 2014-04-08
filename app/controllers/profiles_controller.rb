@@ -30,6 +30,7 @@ class ProfilesController < ApplicationController
     render json: { :status => 200 }
   end
   def remove_image
+    logger.info("Debug #{remove_image_params}")
     current_user.images.destroy(remove_image_params['imageid'])
     render json: { :status => 200 }
   end
@@ -88,6 +89,7 @@ class ProfilesController < ApplicationController
       logger.info("Debug Params inspect #{params.inspect}")
       if !find_first
         current_user.interests.create(to_user_id: params[:to_user_id])
+        User.find(params[:to_user_id]).notifications.create(user_id: params[:to_user_id], from_user_id: current_user.id, flag: 1)
       else
         find_first.touch
       end
@@ -115,15 +117,13 @@ class ProfilesController < ApplicationController
   #=================================================
   def interest_response
     commit = params[:commit]
-    logger.info("Debug Params inspect #{params.inspect}")
-    logger.info("Debug current user id #{current_user.id}")
     interest = Interest.where(:to_user_id => current_user.id, :user_id => params[:to_user_id]).first
-    logger.info("Debug Params inspect #{interest.inspect}")
-    logger.info("Debug Params inspect #{current_user.interests.inspect}")
     if commit == "Accept"
       interest.update(:response => 1)
+      User.find(params[:to_user_id]).notifications.create(user_id: params[:to_user_id], from_user_id: current_user.id, flag: 2)
     elsif commit == "Reject"
       interest.update(:response => 0)
+      User.find(params[:to_user_id]).notifications.create(user_id: params[:to_user_id], from_user_id: current_user.id, flag: 3)
     end
 
     render json: { :status => 200 }
@@ -226,9 +226,7 @@ class ProfilesController < ApplicationController
 
   def similar_profiles
     @similar_profiles = Hash.new {|h, k| h[k] = [] }
-    # Todo Take interests donot add similar_profiles to show to whom interests have been sent
-    # users_not_my_gender = User.where.not(sex: current_user.sex, :id.in(@interests[:in])).order('created_at DESC').limit(1000)
-    users = User.where.not(sex: current_user.sex).order('created_at DESC').limit(10)
+    users = User.where.not(sex: current_user.sex).order('created_at DESC').limit(50)
     users.each do |user|
       @similar_profiles[user.id] = make_user(user)
     end

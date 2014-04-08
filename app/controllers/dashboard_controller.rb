@@ -51,8 +51,8 @@ class DashboardController < ApplicationController
     age            = get_user_age_from(user.dob)
     visitors_count = get_visitors_count_from(user.visitors)
     action         = get_action_based_on(user, response)
-    location       = get_location_from(user.kundali.birth_city)
-    religion       = get_religion_from(user.religion.religion)
+    location       = get_location_from(user.profile.home)
+    religion       = get_religion_from(user.religion)
     posted_by      = get_posted_by_from(user.profile.posted_by)
 
     return [avatar, profile_link, religion, location, visitors_count, age, posted_by, action, updated_at]
@@ -66,12 +66,8 @@ class DashboardController < ApplicationController
     end
   end
 
-  def get_age_from(dob)
-    dob = dob.gsub("/","-")
-    return "#{time_ago_in_words(Date::strptime(dob, "%m-%d-%Y"), Time.now)} old"
-  end
   def get_avatar_from(avatar)
-    return "<img src='#{avatar}' class='img-rounded' style='height:50px;width:50px' >"
+    return "<img src='#{avatar}' class='img-rounded' style='height:20px;width:20px' >"
   end
   def get_profile_link_from(user)
     return "<a class='semi-bold' href='../profiles/#{user.profile.id}'>#{user.name}</a>"
@@ -93,8 +89,8 @@ class DashboardController < ApplicationController
   end
   def get_user_age_from(dob)
     db = dob.gsub("/","-")
-    age = dob.empty? ? nil: distance_of_time_in_words(Date::strptime(db, "%m-%d-%Y"), Time.now)
-    return "<strong class='txt-color-green'>#{age}</strong><small class='text-muted'></small>"
+    age = calculate_age(db)
+    return "<strong class='txt-color-green'>#{age} years</strong>"
   end
   def get_visitors_count_from(visitors)
     return "#{visitors.count}<small class='text-muted'> visitors</small>"

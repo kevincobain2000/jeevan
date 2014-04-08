@@ -1,4 +1,3 @@
-<legend></legend>
 <% if  current_user.id != user[:id] && user[:out_response].nil? && user[:in_response].nil? %>
   <%= form_tag({:action=>'interest', :controller => "profiles"}, :remote => true) do %>
     <%= hidden_field_tag 'to_user_id', user[:id] %>
@@ -8,35 +7,47 @@
     </button>
   <% end %>
 <% end %>
-
 <% if !user[:out_response].nil? %>
-	<% if user[:out_response].response == 0 %>
-		<small class="text-muted">Interest Expressed: <strong class="txt-color-red"><i class="fa fa-frown-o"></i> Rejected</strong> your Interest</small>
-	<% elsif user[:out_response].response == 1 %>
-	<small class="text-muted">Interest Expressed: <strong class="txt-color-green"><i class="fa fa-smile-o"></i> Accepted</strong> your Interest</small>
-	<% else %>
-	    <small class="text-muted">Interest Expressed: <strong class="txt-color-orange"><i class="fa fa-bell"></i> Waiting</strong> for response</small>
-	<% end %>
+  <% if user[:out_response].response == 0 %>
+    <small class="text-muted">Interest Expressed:
+      <strong class="txt-color-red"><i class="fa fa-frown-o"></i>
+        Rejected</strong>
+      your Interest</small>
+  <% elsif user[:out_response].response == 1 %>
+    <small class="text-muted">Interest Expressed:
+      <strong class="txt-color-green"><i class="fa fa-smile-o"></i>
+        Accepted</strong>
+      your Interest</small>
+  <% else %>
+    <small class="text-muted">Interest Expressed:
+      <strong class="txt-color-orange"><i class="fa fa-bell"></i>
+        Waiting</strong>
+      for response</small>
+  <% end %>
 <% end %>
-
 <% if  current_user.id != user[:id] && !user[:in_response].nil? && user[:in_response].response.nil? %>
   <%= form_tag({:action=>'interest_response', :controller => "profiles"}, :remote => true) do %>
     <%= hidden_field_tag 'to_user_id', user[:id] %>
     <button class="bounceIn animated btn btn-xs btn-success interest" name="commit" value="Accept" type="submit">
-    <i class="fa fa-check"></i>
-    	Accept
+      <i class="fa fa-check"></i>
+      Accept
     </button>
     <button class="bounceIn animated btn btn-xs btn-danger interest" name="commit" value="Reject" type="submit">
-    	<i class="fa fa-times"></i>
-    	Not Interested
+      <i class="fa fa-times"></i>
+      Not Interested
     </button>
   <% end %>
 <% end %>
-
 <% if !user[:in_response].nil? %>
-	<% if user[:in_response].response == 0 %>
-		<small class="text-muted">You have <strong class="txt-color-red"><i class="fa fa-times"></i> Rejected</strong> interest of this profile</small>
-	<% elsif user[:in_response].response == 1 %>
-		<small class="text-muted">You have <strong class="txt-color-green"><i class="fa fa-check"></i> Accepted</strong> interest of this profile</small>
-	<% end %>
+  <% if user[:in_response].response == 0 %>
+    <small class="text-muted">You have
+      <strong class="txt-color-red"><i class="fa fa-times"></i>
+        Rejected</strong>
+      interest of this profile</small>
+  <% elsif user[:in_response].response == 1 %>
+    <small class="text-muted">You have
+      <strong class="txt-color-green"><i class="fa fa-check"></i>
+        Accepted</strong>
+      interest of this profile</small>
+  <% end %>
 <% end %>

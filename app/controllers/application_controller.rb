@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   def make_user(user)
     dob = user.dob.gsub("/","-")
-    age = user.dob.empty? ? nil: distance_of_time_in_words(Date::strptime(dob, "%m-%d-%Y"), Time.now)
+    age = calculate_age(dob)
     user_ret = {
       id:         user.id,
       dob:        user.dob,
@@ -26,6 +26,7 @@ class ApplicationController < ActionController::Base
       contact:    user.contact,
       about:      user.about,
       religion:   user.religion,
+      devotion:   user.devotion,
       kundali:    user.kundali,
       family:     user.family,
       hobby:      user.hobby,
@@ -40,11 +41,15 @@ class ApplicationController < ActionController::Base
     }
     return user_ret;
   end
+  def calculate_age(birthday)
+    Date.today.year - birthday.to_date.year
+  end
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :sex
     devise_parameter_sanitizer.for(:sign_up) << :name
     devise_parameter_sanitizer.for(:sign_up) << :dob
+    devise_parameter_sanitizer.for(:sign_up) << :devotion
   end
   private
   def user_activity
@@ -69,7 +74,6 @@ class ApplicationController < ActionController::Base
       user[:avatar]     = __user.avatar
       user[:name]       = titleize(__user.name)
       user[:profile]    = __user.profile
-      # user[:updated_at] = time_ago_in_words(__user.updated_at)
       user[:message]    = messages[notification.flag][0]
       user[:icon]       = messages[notification.flag][1]
       user[:seen]       = notification.seen
@@ -88,10 +92,3 @@ class ApplicationController < ActionController::Base
     end
   end
 end
-
-
-
-
-
-
-
