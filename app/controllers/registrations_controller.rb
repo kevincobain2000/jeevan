@@ -1,7 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
-  protected
+  # protected
 
-  def after_sign_up_path_for(resource)
-    '/users/sign_up'
-  end
+  # def after_sign_up_path_for(resource)
+  #   '/profiles/#{id}/edit'
+  # end
 end
