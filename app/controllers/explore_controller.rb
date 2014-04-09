@@ -17,9 +17,6 @@ class ExploreController < ApplicationController
     @profiles_matches = Hash.new {|h, k| h[k] = [] }
     users = User.where(devotion: current_user.devotion).where.not(sex: current_user.sex).order('updated_at DESC').limit(1000)
     users.each do |user|
-      if Visitor.where(user_id: current_user.id, :viewed_id => user.id)
-        next
-      end
       @profiles_matches[user.id] = make_user(user)
     end
     @profiles_paginate_matches = @profiles_matches.keys.paginate(:page => params[:matches], :per_page => 10)
