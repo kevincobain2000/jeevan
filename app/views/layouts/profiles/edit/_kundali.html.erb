@@ -23,11 +23,11 @@
         <% id = category.sub "_", "-" %>
         <div class="col-sm-12">
         <section>
-          <label>
+          <label class="label">
             <i class="<%= icon %>"></i>
-            <%= heading.titleize %></label><small class="text-muted">
-            (Choose one from the Dropdown)</small>
-          <input id="select-<%= id %>" name="<%= category %>" value="<%= @user[:kundali][category] %>" class="selectized" placeholder="Select your <%= heading %>">
+            <%= heading.titleize %><small class="text-muted">
+            (Choose one from the Dropdown)</small></label>
+              <input id="select-<%= id %>" name="<%= category %>" value="<%= @user[:kundali][category] %>" class="selectized" placeholder="Select your <%= heading %>">
         </div>
         </section>
       <% end %>

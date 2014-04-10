@@ -48,7 +48,7 @@ class ExploreController < ApplicationController
 
       avatar         = dashboard_methods.get_avatar_from(user.avatar)
       profile_link   = dashboard_methods.get_profile_link_from(user)
-      religion       = dashboard_methods.get_religion_from(user.devotion)
+      caste          = dashboard_methods.get_caste_from(user.religion.caste)
       location       = dashboard_methods.get_location_from(user.kundali.birth_city)
       visitors_count = dashboard_methods.get_visitors_count_from(user.visitors)
       posted_by      = dashboard_methods.get_posted_by_from(user.profile.posted_by)
@@ -56,7 +56,7 @@ class ExploreController < ApplicationController
       updated_at     = dashboard_methods.get_updated_at_with_icon_from(time_ago_in_words(user.updated_at))
       action         = dashboard_methods.get_action_based_on(user, 3)
 
-      ret << [avatar, profile_link, religion, location, visitors_count, age, posted_by, action, updated_at]
+      ret << [avatar, profile_link, caste, location, visitors_count, age, posted_by, action, updated_at]
     end
     return ret
   end
