@@ -115,7 +115,7 @@
         <% heading = category.gsub "_", " " %>
         <% id = category.gsub "_", "-" %>
         <div class="col-sm-12">
-          <label>
+          <label class="label">
             <%= heading.titleize %></label>
           <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:desire][category] %>" placeholder="Choose your <%= heading %>">
         </div>

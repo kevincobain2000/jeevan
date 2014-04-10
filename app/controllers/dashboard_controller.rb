@@ -51,11 +51,11 @@ class DashboardController < ApplicationController
     age            = get_user_age_from(user.dob)
     visitors_count = get_visitors_count_from(user.visitors)
     action         = get_action_based_on(user, response)
-    location       = get_location_from(user.profile.home)
-    religion       = get_religion_from(user.religion)
+    location       = get_location_from(user.kundali.birth_city)
+    caste          = get_caste_from(user.religion.caste)
     posted_by      = get_posted_by_from(user.profile.posted_by)
 
-    return [avatar, profile_link, religion, location, visitors_count, age, posted_by, action, updated_at]
+    return [avatar, profile_link, caste, location, visitors_count, age, posted_by, action, updated_at]
   end
 
   def get_updated_at_with_icon_from(updated_at_in_words)
@@ -98,8 +98,8 @@ class DashboardController < ApplicationController
   def get_location_from(birth_city)
     return "<strong>#{birth_city}</strong>"
   end
-  def get_religion_from(religion)
-    return "<strong class='txt-color-green'>#{religion}</strong>"
+  def get_caste_from(caste)
+    return "<strong class='txt-color-green'>#{caste}</strong>"
   end
   def get_posted_by_from(posted_by)
     return "<strong class='txt-color-blue'>#{posted_by}</strong>"
