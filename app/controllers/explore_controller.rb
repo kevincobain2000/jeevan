@@ -48,7 +48,7 @@ class ExploreController < ApplicationController
 
       avatar         = dashboard_methods.get_avatar_from(user.avatar)
       profile_link   = dashboard_methods.get_profile_link_from(user)
-      religion       = dashboard_methods.get_religion_from(user.religion.religion)
+      religion       = dashboard_methods.get_religion_from(user.devotion)
       location       = dashboard_methods.get_location_from(user.kundali.birth_city)
       visitors_count = dashboard_methods.get_visitors_count_from(user.visitors)
       posted_by      = dashboard_methods.get_posted_by_from(user.profile.posted_by)
