@@ -184,25 +184,7 @@ $(document).on("page:change", function() {
       });
     }
   }
-  // Dropzone.autoDiscover = false;
-  // $(".dropzone").dropzone({
-  //   init: function() {}
-  // });
 
-  Dropzone.options.myDropzone = {
-    dictDefaultMessage: '<div class="hero" style="height:500px;"><h2>Drag & Drop</h2><p>or click to upload images</p></div>',
-    paramName: "avatar",
-    maxFilesize: 2,
-    addRemoveLinks: false,
-    acceptedFiles: ".jpeg,.jpg,.png,.gif,.JPEG,.JPG,.PNG,.GIF",
-    thumbnailWidth: 300,
-    thumbnailHeight: 300,
-    init: function() {
-      return this.on('addedfile', function(file) {
-        console.log("file uploaded")
-      });
-    }
-  };
   $(".phone").inputmask("mask", {
     "mask": "(999) 9999-999-999"
   });
@@ -272,4 +254,27 @@ $(document).on("page:change", function() {
     currentimg = $(this).find(".superbox-img");
     $("#imageid").attr("value", currentimg.attr("id"));
   });
+});
+
+
+$(document).ready(function($) {
+  Dropzone.autoDiscover = false;
+  $(".dropzone").dropzone({
+    init: function() {}
+  });
+
+  Dropzone.options.myDropzone = {
+    dictDefaultMessage: '<div class="hero" style="height:500px;"><h2>Drag & Drop</h2><p>or click to upload images</p></div>',
+    paramName: "avatar",
+    maxFilesize: 2,
+    addRemoveLinks: false,
+    acceptedFiles: ".jpeg,.jpg,.png,.gif,.JPEG,.JPG,.PNG,.GIF",
+    thumbnailWidth: 300,
+    thumbnailHeight: 300,
+    init: function() {
+      return this.on('addedfile', function(file) {
+        console.log("file uploaded")
+      });
+    }
+  };
 });
