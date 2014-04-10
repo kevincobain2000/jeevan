@@ -2,7 +2,7 @@
 <%= link_to "Show", root_path, :id=>"hidden-side-explore", :class=>"hidden" %>
 <%= link_to "Show", explore_path(:id => 'search'), :id=>"hidden-side-search", :class=>"hidden" %>
 <%= link_to "Show", dashboard_index_path, :id=>"hidden-side-dashboard", :class=>"hidden" %>
-<%= link_to "Edit", edit_profile_path(:id =>current_user.profile.id), :id=>"hidden-side-edit", :class=>"hidden", "data-no-turbolink" => true  %>
+<%= link_to "Edit", edit_profile_path(:id =>current_user.profile.id), :id=>"hidden-side-edit", :class=>"hidden" %>
 <%= link_to "Show", profile_path(:id =>current_user.profile.id), :id=>"hidden-side-myprofile", :class=>"hidden" %>
 <%= link_to "Show", contact_index_path, :id=>"hidden-side-connect", :class=>"hidden" %>
 
