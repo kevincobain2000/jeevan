@@ -226,8 +226,12 @@ class ProfilesController < ApplicationController
 
   def similar_profiles
     @similar_profiles = Hash.new {|h, k| h[k] = [] }
-    users = User.where.not(sex: current_user.sex).order('created_at DESC').limit(50)
+    visiting_user = User.find(Profile.find(params[:id]).user_id)
+    users = User.where(devotion: visiting_user.devotion).order('created_at DESC').limit(100)
     users.each do |user|
+      if ! user.religion.caste.to_s.start_with?(visiting_user.religion.caste.to_s)
+        next
+      end
       @similar_profiles[user.id] = make_user(user)
     end
     @similar_profiles_paginate = @similar_profiles.keys.paginate(:page => params[:page], :per_page => 6) # 6 is a good number
