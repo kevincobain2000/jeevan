@@ -6,11 +6,7 @@
       <label class="label">
         <strong>Home</strong> <span class="text-muted">Your Current Residential Location</span>
       </label>
-      <!-- There is a bug selectize doesn't seem to work here -->
-      <label class="input">
-        <i class="icon-prepend fa fa-home"></i>
-        <input id="select-home" name="home" value="<%= @user[:profile][:home] %>" class="Home Location">
-      </label>
+        <input id="select-home" name="home" value="<%= @user[:profile][:home] %>" class="selectized">
     </section>
   </fieldset>
   <fieldset>

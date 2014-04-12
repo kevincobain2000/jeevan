@@ -7,6 +7,7 @@ $(document).on("page:change", function() {
     return $("#hidden-" + this.id)[0].click();
   });
   selectize_items = {
+    home:true,
     religion: true,
     mother_tongue: {
       create: true
@@ -84,22 +85,18 @@ $(document).on("page:change", function() {
       plugins: ['remove_button', 'restore_on_backspace']
     },
     father: {
-      maxItems: 2,
       create: true,
       plugins: ['remove_button', 'restore_on_backspace']
     },
     mother: {
-      maxItems: 2,
       create: true,
       plugins: ['remove_button', 'restore_on_backspace']
     },
     brother: {
-      maxItems: 2,
       create: true,
       plugins: ['remove_button', 'restore_on_backspace']
     },
     sister: {
-      maxItems: 2,
       create: true,
       plugins: ['remove_button', 'restore_on_backspace']
     },
@@ -129,7 +126,6 @@ $(document).on("page:change", function() {
       plugins: ['remove_button', 'restore_on_backspace']
     },
     highest_degree: {
-      maxItems: 2,
       create: true,
       plugins: ['remove_button', 'restore_on_backspace']
     },
@@ -178,7 +174,7 @@ $(document).on("page:change", function() {
         options: gon.select_profile_edit_items[name],
         create: options.create ? options.create : false,
         plugins: options.plugins ? options.plugins : [],
-        delimeter: options.delimeter ? options.delimeter : ",",
+        // delimeter: options.delimeter ? options.delimeter : ",",
         render: {
           option: function(item, escape) {
             var desc;

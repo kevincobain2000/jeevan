@@ -4868,3 +4868,141 @@ desired_occupation:
   -
     title: ""
     desc: ""
+home:
+  -
+    title: "Madhya Pradesh"
+    desc: ""
+  -
+    title: "Maharashtra"
+    desc: ""
+  -
+    title: "Andhra Pradesh"
+    desc: ""
+
+  -
+    title: "Uttar Pradesh"
+    desc: ""
+
+  -
+    title: "Jammu and Kashmir"
+    desc: ""
+
+  -
+    title: "Gujarat"
+    desc: ""
+
+  -
+    title: "Karnataka"
+    desc: ""
+
+  -
+    title: "Odisha"
+    desc: ""
+
+  -
+    title: "Chhattisgarh"
+    desc: ""
+
+  -
+    title: "Tamil Nadu"
+    desc: ""
+
+  -
+    title: "Bihar"
+    desc: ""
+
+  -
+    title: "West Bengal"
+    desc: ""
+
+  -
+    title: "Arunachal Pradesh"
+    desc: ""
+
+  -
+    title: "Jharkhand"
+    desc: ""
+
+  -
+    title: "Assam"
+    desc: ""
+
+  -
+    title: "Himachal Pradesh"
+    desc: ""
+
+  -
+    title: "Uttarakhand"
+    desc: ""
+
+  -
+    title: "Punjab"
+    desc: ""
+
+  -
+    title: "Haryana"
+    desc: ""
+
+  -
+    title: "Kerala"
+    desc: ""
+
+  -
+    title: "Meghalaya"
+    desc: ""
+
+  -
+    title: "Manipur"
+    desc: ""
+
+  -
+    title: "Mizoram"
+    desc: ""
+
+  -
+    title: "Nagaland"
+    desc: ""
+
+  -
+    title: "Tripura"
+    desc: ""
+
+  -
+    title: "Andaman and Nicobar Islands"
+    desc: ""
+
+  -
+    title: "Sikkim"
+    desc: ""
+
+  -
+    title: "Goa"
+    desc: ""
+
+  -
+    title: "Delhi"
+    desc: ""
+
+  -
+    title: "Puducherry"
+    desc: ""
+
+  -
+    title: "Dadra and Nagar Haveli"
+    desc: ""
+
+  -
+    title: "Chandigarh"
+    desc: ""
+
+  -
+    title: "Daman and Diu"
+    desc: ""
+
+  -
+    title: "Lakshadweep"
+    desc: ""
+
+  -
+    title: "Rajasthan"
+    desc: ""
