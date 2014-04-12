@@ -180,6 +180,7 @@ ActiveRecord::Schema.define(version: 20140331134717) do
     t.datetime "updated_at"
     t.string   "posted_by",      limit: 32
     t.string   "marital_status", limit: 32
+    t.string   "home"
   end
 
   create_table "religions", force: true do |t|
