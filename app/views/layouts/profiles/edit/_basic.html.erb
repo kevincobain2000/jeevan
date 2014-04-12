@@ -2,8 +2,20 @@
 <%= form_tag({:action=>'modify_profile'}, {:remote => true, :class=>"smart-form"}) do %>
   <h3 class="error-text-3"><strong>Basic</strong> Information</h3>
   <fieldset>
+    <section>
+      <label class="label">
+        <strong>Home</strong> <span class="text-muted">Your Current Residential Location</span>
+      </label>
+      <!-- There is a bug selectize doesn't seem to work here -->
+      <label class="input">
+        <i class="icon-prepend fa fa-home"></i>
+        <input id="select-home" name="home" value="<%= @user[:profile][:home] %>" class="Home Location">
+      </label>
+    </section>
+  </fieldset>
+  <fieldset>
   <section>
-      <label> <i class="fa fa-heart"></i> Marital Status</label>
+      <label class="label"><strong>Marital</strong> Status</label>
       <div class="row">
         <div class="col col-4">
           <label class="radio">
@@ -32,7 +44,7 @@
       </div>
       </section>
       <section>
-      <label> <i class="fa fa-user"></i> Profile Posted By</label>
+      <label class="label"><strong>Profile</strong> Posted By</label>
       <div class="row">
         <div class="col col-4">
           <label class="radio">

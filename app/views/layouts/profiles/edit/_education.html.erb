@@ -9,10 +9,10 @@
       <% id = category.gsub "_", "-" %>
       <div class="col-sm-12">
       <section>
-        <label>
-          <i class="<%= icon %>"></i>
-          <%= heading.titleize %></label><small class="text-muted">
-            (Add your item, if it is not in the list.)</small>
+        <label class="label">
+          <i class="<%= icon %>"></i><strong>
+          <%= heading.titleize %></strong><small class="text-muted">
+            (Add your item, if it is not in the list.)</small></label>
         <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:education][category] %>" placeholder="Choose or Add your <%= heading %>">
       </div>
       </section>

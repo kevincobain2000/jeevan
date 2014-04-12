@@ -1,9 +1,9 @@
 $(document).on("page:change", function() {
+  // $("#tabs").tabs();
   var css_id, key, name, obj, options, selectize_items, val, value, _ref;
-  pageSetUp();
-  $("#tabs").tabs();
+  // pageSetUp();
+
   $("[id^=side]").click(function() {
-    console.log(this);
     return $("#hidden-" + this.id)[0].click();
   });
   selectize_items = {
@@ -11,7 +11,9 @@ $(document).on("page:change", function() {
     mother_tongue: {
       create: true
     },
-    caste: true,
+    caste: {
+      create: true
+    },
     sub_caste: {
       create: true
     },
@@ -27,7 +29,9 @@ $(document).on("page:change", function() {
     manglik: true,
     sun_sign: true,
     moon_sign: true,
-    nakshatra: true,
+    nakshatra:{
+      create: true
+    },
     hobby: {
       maxItems: 10,
       create: true,
@@ -164,6 +168,7 @@ $(document).on("page:change", function() {
         });
       }
     }
+
     if (typeof gon !== 'undefined' && gon.select_profile_edit_items) {
       obj = $("#select-" + css_id).selectize({
         maxItems: options.maxItems ? options.maxItems : 1,
@@ -184,25 +189,7 @@ $(document).on("page:change", function() {
       });
     }
   }
-  // Dropzone.autoDiscover = false;
-  // $(".dropzone").dropzone({
-  //   init: function() {}
-  // });
 
-  Dropzone.options.myDropzone = {
-    dictDefaultMessage: '<div class="hero" style="height:500px;"><h2>Drag & Drop</h2><p>or click to upload images</p></div>',
-    paramName: "avatar",
-    maxFilesize: 2,
-    addRemoveLinks: false,
-    acceptedFiles: ".jpeg,.jpg,.png,.gif,.JPEG,.JPG,.PNG,.GIF",
-    thumbnailWidth: 300,
-    thumbnailHeight: 300,
-    init: function() {
-      return this.on('addedfile', function(file) {
-        console.log("file uploaded")
-      });
-    }
-  };
   $(".phone").inputmask("mask", {
     "mask": "(999) 9999-999-999"
   });
@@ -272,4 +259,27 @@ $(document).on("page:change", function() {
     currentimg = $(this).find(".superbox-img");
     $("#imageid").attr("value", currentimg.attr("id"));
   });
+});
+
+
+$(document).ready(function($) {
+  Dropzone.autoDiscover = false;
+  $(".dropzone").dropzone({
+    init: function() {}
+  });
+
+  Dropzone.options.myDropzone = {
+    dictDefaultMessage: '<div class="hero" style="height:500px;"><h2>Drag & Drop</h2><p>or click to upload images</p></div>',
+    paramName: "avatar",
+    maxFilesize: 2,
+    addRemoveLinks: false,
+    acceptedFiles: ".jpeg,.jpg,.png,.gif,.JPEG,.JPG,.PNG,.GIF",
+    thumbnailWidth: 300,
+    thumbnailHeight: 300,
+    init: function() {
+      return this.on('addedfile', function(file) {
+        console.log("file uploaded")
+      });
+    }
+  };
 });

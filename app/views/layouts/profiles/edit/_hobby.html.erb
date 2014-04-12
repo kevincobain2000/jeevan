@@ -7,10 +7,10 @@
       <% heading = category.sub "_", " " %>
       <% id = category.sub "_", "-" %>
       <section>
-        <label>
-          <i class="<%= icon %>"></i>
-          <%= heading.titleize %></label><small class="text-muted">
-          (You can add multiple items here !)</small>
+        <label class="label">
+          <i class="<%= icon %>"></i><strong>
+          <%= heading.titleize %></strong><small class="text-muted">
+          (You can add multiple items here !)</small></label>
         <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:hobby][category] %>" placeholder="Your Favourite <%= heading %>"(s)>
       </section>
     <% end %>

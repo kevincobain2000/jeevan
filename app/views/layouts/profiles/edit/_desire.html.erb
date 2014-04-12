@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="form-group">
-          <label>Desired Income</label>
+          <label class="label">Desired <strong>Income</strong></label>
           <% range_income = [5,15] %>
           <% if  !@user[:desire]['desired_income'].nil? %>
             <% range_income = @user[:desire]['desired_income'].split(';') %>
@@ -18,7 +18,7 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="form-group">
-          <label>Desired Height</label>
+          <label class="label">Desired <strong>Height</strong></label>
           <% range_height = [5,7] %>
           <% if  !@user[:desire]['desired_height'].nil? %>
             <% range_height = @user[:desire]['desired_height'].split(';') %>
@@ -31,7 +31,7 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="form-group">
-          <label>Desired Age</label>
+          <label class="label">Desired <strong>Age</strong></label>
           <% range_height = [24,30] %>
           <% if  !@user[:desire]['desired_age'].nil? %>
             <% range_age = @user[:desire]['desired_age'].split(';') %>
@@ -41,7 +41,7 @@
     </div>
   </fieldset>
   <fieldset>
-    <label>Desired Marital Status</label>
+    <label class="label">Desired Marital <strong>Status</strong></label>
     <div class="row">
       <% [ 'Never Married', 'Divorced', "Getting a Divorce", "Widowed"].each do |desired_marital_status| %>
         <div class="col col-4">
@@ -52,7 +52,7 @@
         </div>
       <% end %></div>
     <br>
-    <label>Desired Manglik</label>
+    <label class="label">Desired <strong>Manglik</strong></label>
     <div class="row">
       <% [ 'Yes', 'No', 'Angshik (Partial)', "Does not Matter" ].each do |desired_manglik| %>
         <div class="col col-4">
@@ -63,7 +63,7 @@
         </div>
       <% end %></div>
     <br>
-    <label>Desired Diet</label>
+    <label class="label">Desired <strong>Diet</strong></label>
     <div class="row">
       <% [ 'Vegeterian', 'Non Vegeterian', "Eggeterian", "Occasional Non Vegeterian","Does not Matter" ].each do |desired_diet| %>
         <div class="col col-4">
@@ -74,9 +74,9 @@
         </div>
       <% end %></div>
     <br>
-    <label>Desired Smoking</label>
+    <label class="label">Desired <strong>Smoking</strong></label>
     <div class="row">
-      <% [ 'Yes', 'Light Smoker', 'Occasionally', 'Not at all' ].each do |desired_smoke| %>
+      <% [ 'Yes', 'No' ].each do |desired_smoke| %>
         <div class="col col-4">
           <label class="radio">
             <%= radio_button_tag(:desired_smoke, desired_smoke,(@user[:desire][:desired_smoke] == desired_smoke)) %>
@@ -85,7 +85,7 @@
         </div>
       <% end %></div>
     <br>
-    <label>Desired Drinking Habits</label>
+    <label class="label">Desired Drinking <strong>Habits</strong></label>
     <div class="row">
       <% [ 'Yes', 'Light Drinker', 'Occasional Drinks', 'Not at all' ].each do |desired_drink| %>
         <div class="col col-4">
@@ -96,7 +96,7 @@
         </div>
       <% end %></div>
     <br>
-    <label>Complexion</label>
+    <label class="label"><strong>Complexion</strong></label>
     <div class="row">
       <% [ 'White', 'Wheatish', 'Fair', "Yellow", "Dark", 'Does not Matter' ].each do |desired_complexion| %>
         <div class="col col-4">
@@ -115,9 +115,8 @@
         <% heading = category.gsub "_", " " %>
         <% id = category.gsub "_", "-" %>
         <div class="col-sm-12">
-          <label>
-            <%= heading.titleize %></label>
-          <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:desire][category] %>" placeholder="Choose your <%= heading %>">
+        <label class="label"><strong><%= heading.titleize %></strong></label>
+            <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:desire][category] %>" placeholder="Choose your <%= heading %>">
         </div>
         <div class="col-sm-12">&nbsp;</div>
       <% end %>
