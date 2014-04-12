@@ -1,42 +1,40 @@
 <%= render :partial =>'layouts/alert', :locals => {:heading => "Contact Details", :description => "Your contact details will be shown to other users upon your acceptance", :icon=>"fa fa-telephone"}%>
 <%= form_tag({:action=>'modify_contact'}, {:remote=>true, :class=>"smart-form"}) do %>
+<h3 class="error-text-3"><strong>Contact</strong> Details</h3>
   <fieldset>
-    <legend>
-      Contact Details
-    </legend>
 
     <section>
-      <label class="label">Telephone No.</label>
+      <label class="label"><strong>Telephone</strong> No.</label>
       <label class="input">
-        <i class="icon-append fa fa-phone"></i>
+        <i class="icon-prepend fa fa-phone"></i>
         <input name="self_no" class="form-control phone" type="text" value="<%= @user[:contact][:self_no] %>" >
       </label>
     </section>
     <section>
-      <label class="label">Skype Id</label>
+      <label class="label"><strong>Skype</strong> Id</label>
       <label class="input">
-        <i class="icon-append fa fa-skype"></i>
+        <i class="icon-prepend fa fa-skype"></i>
         <input name="s_id" class="form-control" type="text" value="<%= @user[:contact][:s_id] %>" placeholder="Your Skype Id">
       </label>
     </section>
     <section>
-      <label class="label">Google Chat Id</label>
+      <label class="label"><strong>Google</strong> Chat Id</label>
       <label class="input">
-        <i class="icon-append fa fa-google-plus"></i>
+        <i class="icon-prepend fa fa-google-plus"></i>
         <input name="g_id" class="form-control" type="text" value="<%= @user[:contact][:g_id] %>" placeholder="Your Google Plus/Chat Id">
       </label>
     </section>
     <section>
-      <label class="label">WhatsApp!</label>
+      <label class="label"><strong>WhatsApp</strong>!</label>
       <label class="input">
-        <i class="icon-append fa fa-comment"></i>
+        <i class="icon-prepend fa fa-comment"></i>
         <input name="w_id" class="form-control" type="text" value="<%= @user[:contact][:w_id] %>" placeholder="WhatsApp Account">
       </label>
     </section>
     <section>
-      <label class="label">LinkedIn Url</label>
+      <label class="label"><strong>LinkedIn</strong> Url</label>
       <label class="input">
-        <i class="icon-append fa fa-linkedin"></i>
+        <i class="icon-prepend fa fa-linkedin"></i>
         <input name="ln_link" class="form-control" type="text" value="<%= @user[:contact][:ln_link] %>" placeholder="Paste Your LinkedIn Url">
       </label>
     </section>

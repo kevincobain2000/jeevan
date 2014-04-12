@@ -15,7 +15,7 @@ class ExploreController < ApplicationController
 
     #-----  Matches  ------
     @profiles_matches = Hash.new {|h, k| h[k] = [] }
-    users = User.where(devotion: current_user.devotion).where.not(sex: current_user.sex).order('updated_at DESC').limit(1000)
+    users = User.where.not(sex: current_user.sex).where(devotion: current_user.devotion).order('updated_at DESC').limit(1000)
     users.each do |user|
       @profiles_matches[user.id] = make_user(user)
     end
@@ -35,7 +35,7 @@ class ExploreController < ApplicationController
   def search
     gon.search = {}
     # users_ids = User.where.not(sex: current_user.sex).limit(3000).pluck(:id)
-    users_ids = User.where(sex: current_user.sex).limit(3000).pluck(:id)
+    users_ids = User.where.not(sex: current_user.sex).where(devotion: current_user.devotion).order('created_at DESC').limit(1000).pluck(:id)
     gon.search['profiles']  = make_gon_search(Profile.find(users_ids))
     render 'search'
   end

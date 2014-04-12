@@ -32,6 +32,7 @@ gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
 gem "nilify_blanks"
 
+# gem 'rake', '~> 10.1.1'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

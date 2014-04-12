@@ -1,132 +1,130 @@
-<%= render :partial =>'layouts/alert', :locals => {:heading => "Your Lifestyle", :description => "What movies do you like ! What music do you listen to...",:icon=>"fa fa-cutlery"}%>
-    <%= form_tag({:action=>'modify_lifestyle'}, {:remote => true, :class=>"smart-form"}) do %>
-      <h3 class="error-text-3"><strong>Life</strong> Style</h3>
-      <fieldset>
-        <label>Diet</label>
-        <div class="row">
-          <% [ 'Veg', 'Non-Veg', "Eggeterian", "Occasional Non Veg" ].each do |diet| %>
-            <div class="col col-4">
-              <label class="radio">
-                <%= radio_button_tag(:diet, diet,(@user[:lifestyle][:diet] == diet)) %>
-                <i></i>
-                <%= diet %>
-              </label>
-            </div>
-          <% end %>
-        </div>
-        <br>
-        <label>Smoke</label>
-        <div class="row">
-          <% [ 'Yes', 'No', 'Occasional', 'Quiting' ].each do |smoke| %>
-            <div class="col col-4">
-              <label class="radio">
-                <%= radio_button_tag(:smoke, smoke,(@user[:lifestyle][:smoke] == smoke)) %>
-                <i></i>
-                <%= smoke %>
-              </label>
-            </div>
-          <% end %>
-        </div>
-        <br>
-        <label>Drink</label>
-        <div class="row">
-          <% [ 'Yes', 'No', 'Occasional', 'Quiting' ].each do |drink| %>
-            <div class="col col-4">
-              <label class="radio">
-                <%= radio_button_tag(:drink, drink,(@user[:lifestyle][:drink] == drink)) %>
-                <i></i>
-                <%= drink %>
-              </label>
-            </div>
-          <% end %>
-        </div>
-        <br>
-        <label>Complexion</label>
-        <div class="row">
-          <% [ 'Dark', 'White', 'Wheatish', 'Yellow', 'Fair' ].each do |complexion| %>
-            <div class="col col-4">
-              <label class="radio">
-                <%= radio_button_tag(:complexion, complexion,(@user[:lifestyle][:complexion] == complexion)) %>
-                <i></i>
-                <%= complexion %>
-              </label>
-            </div>
-          <% end %>
-        </div>
-        <br>
-        <label>Own House</label>
-        <div class="row">
-          <% [ 'Yes', 'No', 'Will Buy', 'May be in Future' ].each do |own_house| %>
-            <div class="col col-4">
-              <label class="radio">
-                <%= radio_button_tag(:own_house, own_house,(@user[:lifestyle][:own_house] == own_house)) %>
-                <i></i>
-                <%= own_house %>
-              </label>
-            </div>
-          <% end %>
-        </div>
-        <br>
-        <label>Own Car</label>
-        <div class="row">
-          <% [ 'Yes', 'No', 'Will Buy', 'May be in future' ].each do |own_car| %>
-            <div class="col col-4">
-              <label class="radio">
-                <%= radio_button_tag(:own_car, own_car,(@user[:lifestyle][:own_car] == own_car)) %>
-                <i></i>
-                <%= own_car %>
-              </label>
-            </div>
-          <% end %>
-        </div>
-        <br>
-        <label>Own Pet</label>
-        <div class="row">
-          <% [ 'Dog', 'Cat', 'Dog & Cat', 'No', 'May be in future' ].each do |own_pet| %>
-            <div class="col col-4">
-              <label class="radio">
-                <%= radio_button_tag(:own_pet, own_pet,(@user[:lifestyle][:own_pet] == own_pet)) %>
-                <i></i>
-                <%= own_pet %>
-              </label>
-            </div>
-          <% end %>
-        </div>
-        <br>
-        <label>Blood Group</label>
-      <div class="row">
-        <% ["O−","O+","A−","A+","B−","B+","AB−","AB+"].each do |blood| %>
-        <div class="col col-4">
-              <label class="radio">
-                <%= radio_button_tag(:blood, blood,(@user[:lifestyle][:blood] == blood)) %>
-                <i></i>
-                <%= blood %>
-              </label>
-            </div>
-          <% end %>
-        </div>
-        </fieldset>
-        <fieldset>
-          <div class="col-sm-5">
-            <label class="label">Height</label><small class="text-muted">
-            <strong>Your Height in Ft Inches: </strong>Example: 5.7 is 5ft 7 Inches</small>
-            <label class="input">
-              <i class="icon-append fa fa-male"></i>
-              <input class="form-control" type="number" step= "any" name="height" placeholder="Height in numbers" min="2" max="7">
-            </label>
-          </div>
-          <div class="col-sm-2">
-          </div>
-          <div class="col-sm-5">
-            <label class="label">Weight</label><small class="text-muted">
-            <strong>Your Weight in </strong>Kgs</small>
-            <label class="input">
-              <i class="icon-append fa fa-male"></i>
-              <input class="form-control" type="number" name="weight" placeholder="Weight in numbers" min="25" max="120">
-            </label>
-          </div>
-      </fieldset>
-      <footer>
-        <button type="submit" class="btn btn-primary edit disabled">Save</button>
-      </footer>
-    <% end %>
+<%= render :partial =>
+'layouts/alert', :locals => {:heading => "Your Lifestyle", :description => "What movies do you like ! What music do you listen to...",:icon=>"fa fa-cutlery"}%>
+<%= form_tag({:action=>
+'modify_lifestyle'}, {:remote => true, :class=>"smart-form"}) do %>
+<h3 class="error-text-3"> <strong>Life</strong>
+  Style
+</h3>
+<fieldset>
+  <div class="col-sm-5">
+    <label class="label"><strong>Height</strong></label>
+    <small class="text-muted"> <strong>Your Height in Ft Inches:</strong>
+      Example: 5.7 is 5ft 7 Inches
+    </small>
+    <label class="input"> <i class="icon-append fa fa-male"></i>
+      <input class="form-control" type="number" step= "any" name="height" placeholder="Height in numbers" min="2" max="7"></label>
+  </div>
+  <div class="col-sm-2"></div>
+  <div class="col-sm-5">
+    <label class="label"><strong>Weight</strong></label>
+    <small class="text-muted">
+      <strong>Your Weight in</strong>
+      Kgs
+    </small>
+    <label class="input"> <i class="icon-append fa fa-male"></i>
+      <input class="form-control" type="number" name="weight" placeholder="Weight in numbers" min="25" max="120"></label>
+  </div>
+</fieldset>
+
+<fieldset>
+  <section>
+    <label class="label"><strong>Diet</strong></label>
+    <div class="row">
+      <% [ 'Veg', 'Non-Veg', "Eggeterian", "Occasional Non Veg" ].each do |diet| %>
+      <div class="col col-4">
+        <label class="radio">
+          <%= radio_button_tag(:diet, diet,(@user[:lifestyle][:diet] == diet)) %>
+          <i></i>
+          <%= diet %></label>
+      </div>
+      <% end %></div>
+  </section>
+  <section>
+    <label class="label"><strong>Smoke</strong></label>
+    <div class="row">
+      <% [ 'Yes', 'No'].each do |smoke| %>
+      <div class="col col-4">
+        <label class="radio">
+          <%= radio_button_tag(:smoke, smoke,(@user[:lifestyle][:smoke] == smoke)) %>
+          <i></i>
+          <%= smoke %></label>
+      </div>
+      <% end %></div>
+  </section>
+  <section>
+  <label class="label"><strong>Drink</strong></label>
+  <div class="row">
+    <% [ 'Yes', 'No', 'Occasional', 'Quiting' ].each do |drink| %>
+    <div class="col col-4">
+      <label class="radio">
+        <%= radio_button_tag(:drink, drink,(@user[:lifestyle][:drink] == drink)) %>
+        <i></i>
+        <%= drink %></label>
+    </div>
+    <% end %></div>
+    </section>
+  <section>
+    <label class="label"><strong>Complexion</strong></label>
+    <div class="row">
+      <% [ 'Dark', 'White', 'Wheatish', 'Yellow', 'Fair' ].each do |complexion| %>
+      <div class="col col-4">
+        <label class="radio">
+          <%= radio_button_tag(:complexion, complexion,(@user[:lifestyle][:complexion] == complexion)) %>
+          <i></i>
+          <%= complexion %></label>
+      </div>
+      <% end %></div>
+  </section>
+  <section>
+    <label class="label"><strong>Own</strong> House</label>
+    <div class="row">
+      <% [ 'Yes', 'No', 'Will Buy', 'May be in Future' ].each do |own_house| %>
+      <div class="col col-4">
+        <label class="radio">
+          <%= radio_button_tag(:own_house, own_house,(@user[:lifestyle][:own_house] == own_house)) %>
+          <i></i>
+          <%= own_house %></label>
+      </div>
+      <% end %></div>
+  </section>
+  <section>
+    <label class="label"><strong>Own</strong> Car</label>
+    <div class="row">
+      <% [ 'Yes', 'No', 'Will Buy', 'May be in future' ].each do |own_car| %>
+      <div class="col col-4">
+        <label class="radio">
+          <%= radio_button_tag(:own_car, own_car,(@user[:lifestyle][:own_car] == own_car)) %>
+          <i></i>
+          <%= own_car %></label>
+      </div>
+      <% end %></div>
+  </section>
+  <section>
+    <label class="label"><strong>Own</strong> Pet</label>
+    <div class="row">
+      <% [ 'Dog', 'Cat', 'Dog & Cat', 'No', 'May be in future' ].each do |own_pet| %>
+      <div class="col col-4">
+        <label class="radio">
+          <%= radio_button_tag(:own_pet, own_pet,(@user[:lifestyle][:own_pet] == own_pet)) %>
+          <i></i>
+          <%= own_pet %></label>
+      </div>
+      <% end %></div>
+  </section>
+  <section>
+    <label class="label"><strong>Blood</strong> Group</label>
+    <div class="row">
+      <% ["O−","O+","A−","A+","B−","B+","AB−","AB+"].each do |blood| %>
+      <div class="col col-4">
+        <label class="radio">
+          <%= radio_button_tag(:blood, blood,(@user[:lifestyle][:blood] == blood)) %>
+          <i></i>
+          <%= blood %></label>
+      </div>
+      <% end %></div>
+  </section>
+</fieldset>
+<footer>
+  <button type="submit" class="btn btn-primary edit disabled">Save</button>
+</footer>
+<% end %>
