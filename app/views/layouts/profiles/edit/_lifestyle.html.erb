@@ -1,7 +1,7 @@
 <%= render :partial =>
 'layouts/alert', :locals => {:heading => "Your Lifestyle", :description => "What movies do you like ! What music do you listen to...",:icon=>"fa fa-cutlery"}%>
 <%= form_tag({:action=>
-'modify_lifestyle'}, {:remote => true, :class=>"smart-form"}) do %>
+'modify_lifestyle'}, {:remote => true, :class=>"smart-form edit"}) do %>
 <h3 class="error-text-3"> <strong>Life</strong>
   Style
 </h3>

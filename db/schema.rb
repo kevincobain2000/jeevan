@@ -26,12 +26,13 @@ ActiveRecord::Schema.define(version: 20140331134717) do
     t.string   "mother_no",  limit: 32, default: ""
     t.string   "father_no",  limit: 32
     t.string   "self_no",    limit: 32
-    t.string   "g_id",       limit: 32
-    t.string   "s_id",       limit: 32
+    t.string   "g_id"
+    t.string   "s_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "ln_link",               default: ""
+    t.text     "ln_link"
     t.string   "w_id"
+    t.text     "fb_link"
   end
 
   create_table "desires", force: true do |t|
