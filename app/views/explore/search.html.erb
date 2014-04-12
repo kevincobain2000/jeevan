@@ -5,13 +5,27 @@
   <div id="content">
     <div class="row">
       <div class="col-sm-12">
+        <div class="text-muted">
+          <strong class="txt-color-green">Pro Tip !
+          </strong>
+          <small>Showing the List of Profiles who have sent you interests. You can
+            <strong>filter</strong>
+            the results by
+            <strong>typing into the search bar</strong>.
+            <strong>For Example</strong>
+            Delhi will filter out results with profiles from Delhi. Or you can type in, 21 years, which would filter the age.</small>
+          <small class="txt-muted"><strong class="txt-color-red">Note that</strong>
+            once you accept an interest, the user gets notified and will be able to email to you for further correspondence.</small>
+          <legend></legend>
+        </div>
+      </div>
+      <div class="col-sm-12">
         <div class="row">
           <div class="col-sm-12">
             <%= render :partial =>'layouts/dashboard/searchdata.html.erb', :locals => {:title => "User Search", :id=>"search", :css_id=>"search-query"} %>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>

@@ -4,7 +4,7 @@
   <fieldset>
     <div class="col-sm-12">&nbsp;</div>
     <div class="col-sm-12">
-      <label class="label">Time of Birth</label>
+      <label class="label"><strong>Time of Birth</strong></label>
       <label class="input">
       <i class="icon-append fa fa-clock-o"></i>
         <input class="form-control" name="tob" id="tob" type="time">
@@ -24,8 +24,8 @@
         <div class="col-sm-12">
         <section>
           <label class="label">
-            <i class="<%= icon %>"></i>
-            <%= heading.titleize %><small class="text-muted">
+            <i class="<%= icon %>"></i><strong>
+            <%= heading.titleize %></strong><small class="text-muted">
             (Choose one from the Dropdown)</small></label>
               <input id="select-<%= id %>" name="<%= category %>" value="<%= @user[:kundali][category] %>" class="selectized" placeholder="Select your <%= heading %>">
         </div>

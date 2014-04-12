@@ -3,7 +3,7 @@
   <h3 class="error-text-3"><strong>Family</strong></h3>
   <fieldset>
   <section>
-    <label>Family Values</label>
+    <label class="label">Family <strong>Values</strong></label>
     <div class="row">
       <% [ 'Liberal', 'Hypocrite' ].each do |values| %>
         <div class="col col-4">
@@ -17,7 +17,7 @@
     </div>
     </section>
     <section>
-    <label>Family Size</label>
+    <label class="label">Family <strong>Size</strong></label>
     <div class="row">
       <% [ 'Nuclear', 'Hypocrite' ].each do |size| %>
         <div class="col col-4">
@@ -31,7 +31,7 @@
     </div>
     </section>
     <section>
-    <label>Family Status</label>
+    <label class="label">Family <strong>Status</strong></label>
     <div class="row">
       <% [ 'Rich', 'Middle' ].each do |status| %>
         <div class="col col-4">
@@ -49,9 +49,7 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="form-group">
-          <label>
-            Family Income
-          </label>
+          <label class="label">Family <strong>Income</strong></label>
           <% range = [2,15] %>
           <% if  !@user[:family]['family_income'].nil? %>
             <% range = @user[:family]['family_income'].split(';') %>
@@ -68,8 +66,8 @@
         <% heading = category.sub "_", " " %>
         <% id = category.sub "_", "-" %>
         <div class="col-sm-12">
-          <label>
-            <%= heading.titleize %></label><small class="text-muted">
+          <label class="label"><strong>
+            <%= heading.titleize %></strong></label><small class="text-muted">
             (Choose or Add New)</small>
           <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:family][category] %>" placeholder="About my <%= heading %>">
         </div>
