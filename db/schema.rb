@@ -64,27 +64,27 @@ ActiveRecord::Schema.define(version: 20140331134717) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "school",            limit: 64
-    t.string   "grad_college",      limit: 64
-    t.string   "post_grad",         limit: 32
-    t.string   "post_grad_college", limit: 64
-    t.string   "highest_degree",    limit: 32
-    t.string   "graduation",        limit: 64
+    t.text     "school"
+    t.text     "grad_college"
+    t.text     "post_grad"
+    t.text     "post_grad_college"
+    t.text     "highest_degree"
+    t.text     "graduation"
   end
 
   create_table "families", force: true do |t|
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "values",          limit: 32
-    t.string   "size",            limit: 32
-    t.string   "status",          limit: 32
-    t.string   "family_income",   limit: 64
-    t.string   "father",          limit: 32
-    t.string   "mother",          limit: 32
-    t.string   "brother",         limit: 64
-    t.string   "sister",          limit: 64
-    t.string   "profile_handler", limit: 32
+    t.string   "values"
+    t.string   "size"
+    t.string   "status"
+    t.string   "family_income"
+    t.text     "father"
+    t.text     "mother"
+    t.text     "brother"
+    t.text     "sister"
+    t.string   "profile_handler", limit: 64, default: ""
   end
 
   create_table "hobbies", force: true do |t|
@@ -125,30 +125,30 @@ ActiveRecord::Schema.define(version: 20140331134717) do
     t.integer  "user_id"
     t.datetime "updated_at"
     t.datetime "created_at"
-    t.string   "birth_country", limit: 64
-    t.string   "birth_city",    limit: 64
-    t.string   "tob",           limit: 32
-    t.string   "manglik",       limit: 32
-    t.string   "sun_sign",      limit: 64
-    t.string   "moon_sign",     limit: 64
-    t.string   "nakshatra",     limit: 64
+    t.text     "birth_country"
+    t.text     "birth_city"
+    t.text     "tob"
+    t.text     "manglik"
+    t.text     "sun_sign"
+    t.text     "moon_sign"
+    t.text     "nakshatra"
   end
 
   create_table "lifestyles", force: true do |t|
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "diet",       limit: 64
-    t.string   "smoke",      limit: 32
-    t.string   "drink",      limit: 64
-    t.string   "complexion", limit: 64
-    t.string   "body",       limit: 64
+    t.string   "diet"
+    t.string   "smoke"
+    t.string   "drink"
+    t.string   "complexion"
+    t.string   "body"
     t.string   "challenged", limit: 4
     t.string   "blood",      limit: 4
     t.string   "weight",     limit: 4
     t.string   "own_house",  limit: 64
     t.string   "own_car",    limit: 64
-    t.string   "language",   limit: 128, default: ""
+    t.text     "language"
     t.string   "pet",        limit: 64
     t.string   "hiv",        limit: 4
     t.string   "height",     limit: 4
@@ -167,28 +167,28 @@ ActiveRecord::Schema.define(version: 20140331134717) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "status",         limit: 16
-    t.string   "occupation",     limit: 64
-    t.string   "company",        limit: 64
-    t.string   "annual_income",  limit: 64
-    t.string   "setting_abroad", limit: 4
+    t.text     "status"
+    t.text     "occupation"
+    t.text     "company"
+    t.text     "annual_income"
+    t.text     "setting_abroad"
   end
 
   create_table "profiles", force: true do |t|
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "posted_by",      limit: 32
-    t.string   "marital_status", limit: 32
+    t.string   "posted_by",      limit: 64
+    t.string   "marital_status", limit: 64
     t.string   "home"
   end
 
   create_table "religions", force: true do |t|
     t.integer  "user_id"
-    t.string   "mother_tongue", limit: 64
-    t.string   "caste",         limit: 64
-    t.string   "sub_caste",     limit: 64
-    t.string   "native_place",  limit: 64
+    t.text     "mother_tongue"
+    t.text     "caste"
+    t.text     "sub_caste"
+    t.text     "native_place"
     t.datetime "updated_at"
     t.datetime "created_at"
   end
