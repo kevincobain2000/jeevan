@@ -51,7 +51,7 @@ class DashboardController < ApplicationController
     age            = get_user_age_from(user.dob)
     visitors_count = get_visitors_count_from(user.visitors)
     action         = get_action_based_on(user, response)
-    location       = get_location_from(user.kundali.birth_city)
+    location       = get_location_from(user.profile.home)
     caste          = get_caste_from(user.religion.caste)
     posted_by      = get_posted_by_from(user.profile.posted_by)
 

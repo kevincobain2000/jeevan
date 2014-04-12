@@ -1,9 +1,9 @@
 $(document).on("page:change", function() {
+  // $("#tabs").tabs();
   var css_id, key, name, obj, options, selectize_items, val, value, _ref;
-  pageSetUp();
-  $("#tabs").tabs();
+  // pageSetUp();
+
   $("[id^=side]").click(function() {
-    console.log(this);
     return $("#hidden-" + this.id)[0].click();
   });
   selectize_items = {
@@ -11,7 +11,9 @@ $(document).on("page:change", function() {
     mother_tongue: {
       create: true
     },
-    caste: true,
+    caste: {
+      create: true
+    },
     sub_caste: {
       create: true
     },
@@ -27,7 +29,9 @@ $(document).on("page:change", function() {
     manglik: true,
     sun_sign: true,
     moon_sign: true,
-    nakshatra: true,
+    nakshatra:{
+      create: true
+    },
     hobby: {
       maxItems: 10,
       create: true,
@@ -164,6 +168,7 @@ $(document).on("page:change", function() {
         });
       }
     }
+
     if (typeof gon !== 'undefined' && gon.select_profile_edit_items) {
       obj = $("#select-" + css_id).selectize({
         maxItems: options.maxItems ? options.maxItems : 1,

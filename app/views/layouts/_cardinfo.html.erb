@@ -17,7 +17,7 @@
     </p>
   </li>
   <li>
-    <% items = {residence: [:lifestyle, 'fa-home'], caste: [:religion, 'fa-bars'], posted_by: [:profile, 'fa-user']  } %>
+    <% items = {home: [:profile, 'fa-home'], caste: [:religion, 'fa-bars'], posted_by: [:profile, 'fa-user']  } %>
     <% items.stringify_keys.each do |key, value| %>
     <p class="text-muted">
       <i class="fa <%= value[1] %>"></i>
