@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(version: 20140331134717) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "hobby",      limit: 64, default: ""
+    t.text     "hobby"
     t.text     "interest"
     t.text     "music"
     t.text     "read"
