@@ -1,5 +1,5 @@
 <%= render :partial =>'layouts/alert', :locals => {:heading => "Basic Information about yourself ..", :description => "Basic information is shown on the profile card and appears when some does a search", :icon=>"fa fa-bookmark"}%>
-<%= form_tag({:action=>'modify_profile'}, {:remote => true, :class=>"smart-form"}) do %>
+<%= form_tag({:action=>'modify_profile'}, {:remote => true, :class=>"smart-form edit"}) do %>
   <h3 class="error-text-3"><strong>Basic</strong> Information</h3>
   <fieldset>
     <section>

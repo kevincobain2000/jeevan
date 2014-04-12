@@ -74,7 +74,7 @@ class DashboardController < ApplicationController
   end
   def get_action_based_on(user, response)
     if response.nil?
-      action = "<a href='../profiles/#{user.profile.id}' class='label label-info'><i class='fa fa-check'></i> Interested</a>"
+      action = "<a href='../profiles/#{user.profile.id}' class='label label-info'><i class='fa fa-bell'></i> Waiting</a>"
     end
     if response == 0
       action = "<a href='../profiles/#{user.profile.id}' class='label label-danger'><i class='fa fa-times'></i> Not Accepted</a>"

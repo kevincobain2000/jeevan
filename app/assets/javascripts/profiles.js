@@ -190,27 +190,40 @@ $(document).on("page:change", function() {
     "mask": "(999) 9999-999-999"
   });
   $(".interest").click(function() {
-    return $(this).hide();
+    $(this).html('<i class="fa fa-check"></i>Done!')
+    $(this).addClass('disabled');
   });
   $(".edit").click(function() {
-    return $(this).addClass('disabled');
+    // $(".edit").removeClass('btn-info');
+    // $(".edit").addClass('btn-success');
+    $(this).removeClass('btn-info');
+    $(this).addClass('btn-success');
+    $(this).addClass('disabled');
   });
-  $('form').bind("keyup change", function(e) {
-    return $(".edit").removeClass('disabled');
+  $('form.edit').bind("keyup change", function(e) {
+    // $(".edit").text('Save');
+    // $(".edit").removeClass('btn-success');
+    // $(".edit").removeClass('disabled');
+    // $(".edit").addClass('btn-info');
+    $(this).find(':submit').html('<i class="fa fa-save"></i>Save');
+    $(this).find(':submit').removeClass('btn-success');
+    $(this).find(':submit').removeClass('disabled');
+    $(this).find(':submit').addClass('btn-info');
   });
-  $('form.smart-form').submit(function() {
+  $('form.edit').submit(function() {
+    $(this).find(':submit').html('<i class="fa fa-check"></i>Done!');
+    // $.smallBox({
+    //   title: "Done !",
+    //   content: "<i class='fa fa-clock-o'></i> <i>You selection was made ..</i>",
+    //   color: "#296191",
+    //   iconSmall: "fa fa-thumbs-up bounce animated",
+    //   timeout: 2000
+    // });
     var jq_superbox_remov;
-    $.smallBox({
-      title: "Done !",
-      // content: "<i class='fa fa-clock-o'></i> <i>You selection was made ..</i>",
-      color: "#296191",
-      iconSmall: "fa fa-thumbs-up bounce animated",
-      timeout: 2000
-    });
     jq_superbox_remov = $("#imageid").attr("value");
     $("#" + jq_superbox_remov).remove();
     $(".superbox-list").removeClass("active");
-    return $(".superbox-current-img").animate({
+    $(".superbox-current-img").animate({
       opacity: 0
     }, 200, function() {
       $(".superbox-show").slideUp();
