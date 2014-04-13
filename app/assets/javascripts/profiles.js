@@ -84,44 +84,28 @@ $(document).on("page:change", function() {
       create: true,
       plugins: ['remove_button', 'restore_on_backspace']
     },
-    father: {
-      create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
-    },
-    mother: {
-      create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
-    },
-    brother: {
-      create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
-    },
-    sister: {
-      create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
-    },
+    father: true,
+    mother: true,
+    brother: true,
+    sister: true,
     profile_handler: true,
     school: {
       create: true,
       plugins: ['remove_button', 'restore_on_backspace']
     },
     grad_college: {
-      maxItems: 2,
       create: true,
       plugins: ['remove_button', 'restore_on_backspace']
     },
     graduation: {
-      maxItems: 2,
       create: true,
       plugins: ['remove_button', 'restore_on_backspace']
     },
     post_grad: {
-      maxItems: 2,
       create: true,
       plugins: ['remove_button', 'restore_on_backspace']
     },
     post_grad_college: {
-      maxItems: 2,
       create: true,
       plugins: ['remove_button', 'restore_on_backspace']
     },
