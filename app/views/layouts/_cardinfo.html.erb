@@ -9,22 +9,20 @@
 </h3>
 <ul class="list-unstyled">
  <li>
-    <p class="text-muted">
+    <p>
       <i class="fa fa-picture-o"></i>
-      &nbsp;&nbsp;
-      <strong>Images: </strong>
+      &nbsp;
+      Images:
       <strong class="txt-color-blueDark"><%= user[:image].count %></strong>
     </p>
   </li>
   <li>
     <% items = {home: [:profile, 'fa-home'], caste: [:religion, 'fa-bars'], posted_by: [:profile, 'fa-user']  } %>
     <% items.stringify_keys.each do |key, value| %>
-    <p class="text-muted">
+    <p>
       <i class="fa <%= value[1] %>"></i>
-      &nbsp;&nbsp;
-      <strong>
+      &nbsp;
         <%= key.gsub('_', ' ').titleize %>:
-      </strong>
        <strong class="txt-color-blueDark">
        <%= truncate(titleize(user[value[0]][key]), length: 10) %>
        </strong>
