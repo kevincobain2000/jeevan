@@ -90,7 +90,7 @@ class ProfilesController < ApplicationController
       # if !find_first
         # current_user.interests.create(to_user_id: params[:to_user_id])
         current_user.interests.first_or_create(to_user_id: params[:to_user_id])
-        current_user.notifications.first_or_create(to_user_id: params[:to_user_id], flag: 1)
+        current_user.notifications.create(to_user_id: params[:to_user_id], flag: 1)
         # User.find(params[:to_user_id]).notifications.create(user_id: params[:to_user_id], from_user_id: current_user.id, flag: 1)
       # else
         # find_first.touch
@@ -122,12 +122,10 @@ class ProfilesController < ApplicationController
     interest = Interest.where(:to_user_id => current_user.id, :user_id => params[:to_user_id]).first
     if commit == "Accept"
       interest.update(:response => 1)
-      # User.find(params[:to_user_id]).notifications.create(user_id: params[:to_user_id], from_user_id: current_user.id, flag: 2)
-      current_user.notifications.find_or_create(to_user_id: params[:to_user_id], flag: 2)
+      current_user.notifications.create(to_user_id: params[:to_user_id], flag: 2)
     elsif commit == "Reject"
       interest.update(:response => 0)
-      # User.find(params[:to_user_id]).notifications.create(user_id: params[:to_user_id], from_user_id: current_user.id, flag: 3)
-      current_user.notifications.find_or_create(to_user_id: params[:to_user_id], flag: 3)
+      current_user.notifications.create(to_user_id: params[:to_user_id], flag: 3)
     end
 
     render json: { :status => 200 }
@@ -232,7 +230,7 @@ class ProfilesController < ApplicationController
   def similar_profiles
     @similar_profiles = Hash.new {|h, k| h[k] = [] }
     visiting_user = User.find(Profile.find(params[:id]).user_id)
-    users = User.where(devotion: visiting_user.devotion).order('created_at DESC').limit(100)
+    users = User.where("devotion = ? AND sex <> ?", visiting_user.devotion, visiting_user.sex).order('created_at DESC').limit(100)
     users.each do |user|
       if ! user.religion.caste.to_s.start_with?(visiting_user.religion.caste.to_s)
         next
