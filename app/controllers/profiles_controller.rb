@@ -87,12 +87,14 @@ class ProfilesController < ApplicationController
     if current_user.id != params[:to_user_id].to_i
       find_first = current_user.interests.where(to_user_id: params[:to_user_id]).first
       logger.info("Debug Params inspect #{params.inspect}")
-      if !find_first
-        current_user.interests.create(to_user_id: params[:to_user_id])
-        User.find(params[:to_user_id]).notifications.create(user_id: params[:to_user_id], from_user_id: current_user.id, flag: 1)
-      else
-        find_first.touch
-      end
+      # if !find_first
+        # current_user.interests.create(to_user_id: params[:to_user_id])
+        current_user.interests.first_or_create(to_user_id: params[:to_user_id])
+        current_user.notifications.first_or_create(to_user_id: params[:to_user_id], flag: 1)
+        # User.find(params[:to_user_id]).notifications.create(user_id: params[:to_user_id], from_user_id: current_user.id, flag: 1)
+      # else
+        # find_first.touch
+      # end
     end
     render json: { :status => 200 }
     # redirect_to(explore_index_path)
@@ -120,10 +122,12 @@ class ProfilesController < ApplicationController
     interest = Interest.where(:to_user_id => current_user.id, :user_id => params[:to_user_id]).first
     if commit == "Accept"
       interest.update(:response => 1)
-      User.find(params[:to_user_id]).notifications.create(user_id: params[:to_user_id], from_user_id: current_user.id, flag: 2)
+      # User.find(params[:to_user_id]).notifications.create(user_id: params[:to_user_id], from_user_id: current_user.id, flag: 2)
+      current_user.notifications.find_or_create(to_user_id: params[:to_user_id], flag: 2)
     elsif commit == "Reject"
       interest.update(:response => 0)
-      User.find(params[:to_user_id]).notifications.create(user_id: params[:to_user_id], from_user_id: current_user.id, flag: 3)
+      # User.find(params[:to_user_id]).notifications.create(user_id: params[:to_user_id], from_user_id: current_user.id, flag: 3)
+      current_user.notifications.find_or_create(to_user_id: params[:to_user_id], flag: 3)
     end
 
     render json: { :status => 200 }
@@ -214,13 +218,14 @@ class ProfilesController < ApplicationController
     visiting_user_id = Profile.find(params[:id]).user_id
     # logger.info("Debug Touching Visitor #{visiting_user_id}")
     if current_user.id != visiting_user_id
-      find_first = Visitor.where(user_id: current_user.id, viewed_id: visiting_user_id).first
-      if !find_first
-        current_user.visitors.create(user_id: current_user.id, viewed_id: visiting_user_id)
-        User.find(visiting_user_id).notifications.create(user_id: visiting_user_id, from_user_id: current_user.id, flag: 0)
-      else
-        find_first.touch
-      end
+      # find_first = Visitor.where(user_id: current_user.id, viewed_id: visiting_user_id).first
+      # if !find_first
+        current_user.visitors.first_or_create(user_id: current_user.id, viewed_id: visiting_user_id)
+        # User.find(visiting_user_id).notifications.create(user_id: visiting_user_id, from_user_id: current_user.id, flag: 0)
+        current_user.notifications.first_or_create(to_user_id: visiting_user_id, flag: 0)
+      # else
+        # find_first.touch
+      # end
     end
   end
 
