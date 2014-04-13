@@ -16,6 +16,8 @@
       <!-- possible classes: minified, fixed-ribbon, fixed-header, fixed-width-->
       <%= render :partial =>'layouts/header'%>
       <%= render :partial =>'layouts/side'%>
+      <% else %>
+      <body>
     <% end %>
     <%= yield %>
     <%= render :partial =>'layouts/footer'%>
