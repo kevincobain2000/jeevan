@@ -13,14 +13,14 @@
           <% else %>
           <blockquote class="text-muted font-sm pull-right">
           <% end %>
-            <p class="font-sm semi-bold"><i class="<%= user[:icon] %>"></i>
-            <strong><%= truncate(user[:name], length: 20) %></strong>
-            <br>
-              <%= user[:message] %>
-              </p>
-            <small>
+            <p class="font-sm semi-bold">
               <% if user[:seen] != 1 %><i class="fa fa-circle txt-color-blue"></i>
               <% end %>
+              <strong><%= truncate(user[:name], length: 20) %></strong>
+            <br>
+              <i class="<%= user[:icon] %>"></i> <%= user[:message] %>
+              </p>
+            <small>
               <%= user[:created_at] %>
               ago
             </small>

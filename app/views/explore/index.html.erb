@@ -1,19 +1,15 @@
 <div id="main" role="main">
   <%= render :partial =>"layouts/ribbon", :locals => {:papa => "Home", :son => "Explore"} %>
   <!-- MAIN CONTENT -->
-  <div id="content">
+  <div id="content" class="container">
     <div class="row">
       <%#= render :partial =>'layouts/search'%>
       <%= link_to explore_path(:id => "search"), :class=>"btn btn-info pull-right" do %>
       <i class="fa fa-search"></i> Search Users
       <% end %>
     </div>
-    <legend></legend>
      <%= render :partial =>'layouts/explore/smallwell', :locals => {:paginate => @profiles_paginate_joined_recently, :profiles => @profiles_joined_recently, :heading => "Recently Joined", :param => "joined"}%>
-    <legend></legend>
     <%= render :partial =>'layouts/explore/largewell', :locals => {:paginate => @profiles_paginate_matches, :profiles => @profiles_matches, :heading => "Best Matches", :param => "matches"}%>
-    <legend></legend>
     <%= render :partial =>'layouts/explore/smallwell', :locals => {:paginate => @profiles_paginate_visitors, :profiles => @profiles_visitors, :heading => "My Profile Visitors, since last week", :param => "visitors"}%>
-  <!-- END MAIN CONTENT -->
-</div>
+  </div>
 </div>
