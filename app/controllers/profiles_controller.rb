@@ -87,14 +87,12 @@ class ProfilesController < ApplicationController
     if current_user.id != params[:to_user_id].to_i
       find_first = current_user.interests.where(to_user_id: params[:to_user_id]).first
       logger.info("Debug Params inspect #{params.inspect}")
-      # if !find_first
-        # current_user.interests.create(to_user_id: params[:to_user_id])
-        current_user.interests.first_or_create(to_user_id: params[:to_user_id])
+      if !find_first
+        current_user.interests.create(to_user_id: params[:to_user_id])
         current_user.notifications.create(to_user_id: params[:to_user_id], flag: 1)
-        # User.find(params[:to_user_id]).notifications.create(user_id: params[:to_user_id], from_user_id: current_user.id, flag: 1)
-      # else
-        # find_first.touch
-      # end
+      else
+        find_first.touch
+      end
     end
     render json: { :status => 200 }
     # redirect_to(explore_index_path)

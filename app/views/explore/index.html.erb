@@ -8,8 +8,6 @@
       <i class="fa fa-search"></i> Search Users
       <% end %>
     </div>
-     <%= render :partial =>'layouts/explore/smallwell', :locals => {:paginate => @profiles_paginate_joined_recently, :profiles => @profiles_joined_recently, :heading => "Recently Joined", :param => "joined"}%>
-    <%= render :partial =>'layouts/explore/largewell', :locals => {:paginate => @profiles_paginate_matches, :profiles => @profiles_matches, :heading => "Best Matches", :param => "matches"}%>
-    <%= render :partial =>'layouts/explore/smallwell', :locals => {:paginate => @profiles_paginate_visitors, :profiles => @profiles_visitors, :heading => "My Profile Visitors, since last week", :param => "visitors"}%>
+    <%= render :partial =>'layouts/explore/largewell', :locals => {:paginate => @profiles_paginate_matches, :profiles => @profiles_matches, :param => "matches"}%>
   </div>
 </div>
