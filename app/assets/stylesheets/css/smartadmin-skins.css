@@ -398,7 +398,8 @@ border-top: 1px solid #303031;
 }
 
 body.smart-style-2 {
-	background:#fff;
+	/*background:#fff;*/
+	background: url('../mybg.png') #ffffff;
 }
 
 .smart-style-2 #header, .smart-style-2 .inbox-footer, .smart-style-2 .superbox-show {
