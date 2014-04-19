@@ -1,8 +1,10 @@
 <div class="row">
   <div class="col-sm-12">
     <div class="well-sm bg-color-white">
-      <h3 class="error-text-3">My
-        <strong><%= title %></strong></h3>
+      <h1>
+        My
+        <span class="semi-bold">
+          <%= title %></span></h1>
       <%= render :partial =>'layouts/search', :locals=>{:css_id => css_id} %>
       <table class="table table-hover table-striped" id="<%= id %>">
         <thead>
