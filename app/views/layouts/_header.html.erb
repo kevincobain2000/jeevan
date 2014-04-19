@@ -64,13 +64,12 @@
         <!-- end logout button -->
 
         <!-- search mobile button (this is hidden till mobile view port) -->
-        <form action="#search.html" class="header-search pull-right">
-          <input type="text" placeholder="Search by Caste/Location" id="search-fld">
+        <%= form_tag({:action=>'search', :controller => "explore"},{:class=>"header-search pull-right"}) do %>
+          <input type="text" placeholder="Caste or Location or Age" name="query">
           <button type="submit">
             <i class="fa fa-search"></i>
           </button>
-          <a href="javascript:void(0);" id="cancel-search-js" title="Cancel Search"><i class="fa fa-times"></i></a>
-        </form>
+        <% end %>
 
 
 <!--         <ul class="header-dropdown-list hidden-xs">
