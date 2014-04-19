@@ -37,45 +37,7 @@
         <!-- end footer --> </div>
         <!-- END AJAX-DROPDOWN -->
       </div>
-      <div id="project-context">
-        <span class="label">Quick Navigation</span>
-        <span id="project-selector" class="popover-trigger-element dropdown-toggle dropdown-large" data-toggle="dropdown"><i class="fa fa-search"></i> Search <i class="fa fa-angle-down"></i></span>
-
-        <!-- Suggestion: populate this list with fetch and push technique -->
-        <ul class="dropdown-menu">
-          <li class="dropdown">
-            <%= link_to explore_path(:id => 'search') do %>
-            <i class="fa fa-search"></i> Search
-            <% end %>
-          </li>
-          <li class="divider"></li>
-          <h6>Profile</h6>
-          <li>
-            <%= link_to profile_path(:id =>current_user.profile.id) do %>
-            <i class="fa fa-file"></i> My Profile
-            <% end %>
-          </li>
-          <li>
-            <%= link_to edit_profile_path(:id =>current_user.profile.id) do %>
-            <i class="fa fa-edit"></i> Edit My Profile
-            <% end %>
-          </li>
-          <li class="divider"></li>
-          <h6>Dashboard</h6>
-          <li>
-            <%= link_to dashboard_index_path do %>
-            <i class="fa fa-eye"></i> My Visitors
-            <% end %>
-          </li>
-          <li>
-            <%= link_to dashboard_index_path do %>
-            <i class="fa fa-heart"></i> Interests
-            <% end %>
-          </li>
-        </ul>
-        <!-- end dropdown-menu-->
-
-      </div>
+      <%= render :partial =>'layouts/headermenu', :locals => {:notifications => @notifications} %>
 
       <!-- pulled right: nav area -->
       <div class="pull-right">
@@ -102,33 +64,33 @@
         <!-- end logout button -->
 
         <!-- search mobile button (this is hidden till mobile view port) -->
-<!--         <form action="#search.html" class="header-search pull-right">
-          <input type="text" placeholder="Search by Profile Id" id="search-fld">
+        <form action="#search.html" class="header-search pull-right">
+          <input type="text" placeholder="Search by Caste/Location" id="search-fld">
           <button type="submit">
             <i class="fa fa-search"></i>
           </button>
           <a href="javascript:void(0);" id="cancel-search-js" title="Cancel Search"><i class="fa fa-times"></i></a>
-        </form> -->
+        </form>
 
 
-        <ul class="header-dropdown-list hidden-xs">
+<!--         <ul class="header-dropdown-list hidden-xs">
           <li>
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-gear"></i> <i class="fa fa-angle-down"></i> </a>
             <ul class="dropdown-menu pull-right">
               <li>
-                <%= link_to edit_user_registration_path do %>
+                <%#= link_to edit_user_registration_path do %>
                 <i class="fa fa-lock"></i> Change your password
-                <% end %>
+                <%# end %>
               </li>
               <li class="divider"></li>
               <li>
-                <%= link_to contact_index_path do %>
+                <%#= link_to contact_index_path do %>
                 <i class="fa fa-facebook"></i> Meet Us !
-                <% end %>
+                <%# end %>
               </li>
             </ul>
           </li>
-        </ul>
+        </ul> -->
       </div>
 
     </header>
