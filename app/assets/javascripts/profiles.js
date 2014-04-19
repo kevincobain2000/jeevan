@@ -1,5 +1,6 @@
 $(document).on("page:change", function() {
-  // $("#tabs").tabs();
+  $('#tabs').tabs({
+  });
   var css_id, key, name, obj, options, selectize_items, val, value, _ref;
   // pageSetUp();
 
@@ -185,24 +186,24 @@ $(document).on("page:change", function() {
     $(this).addClass('disabled');
   });
   $('form.edit').bind("keyup change", function(e) {
-    // $(".edit").text('Save');
-    // $(".edit").removeClass('btn-success');
-    // $(".edit").removeClass('disabled');
-    // $(".edit").addClass('btn-info');
-    $(this).find(':submit').html('<i class="fa fa-save"></i>Save');
-    $(this).find(':submit').removeClass('btn-success');
-    $(this).find(':submit').removeClass('disabled');
-    $(this).find(':submit').addClass('btn-info');
+    show_save_button($(this));
   });
+
+  function show_save_button (el) {
+    el.find(':submit').html('<i class="fa fa-save"></i> Save');
+    el.find(':submit').removeClass('btn-success');
+    el.find(':submit').removeClass('disabled');
+    el.find(':submit').addClass('btn-info');
+  }
+
   $('form.edit').submit(function() {
     $(this).find(':submit').html('<i class="fa fa-check"></i>Done!');
-    // $.smallBox({
-    //   title: "Done !",
-    //   content: "<i class='fa fa-clock-o'></i> <i>You selection was made ..</i>",
-    //   color: "#296191",
-    //   iconSmall: "fa fa-thumbs-up bounce animated",
-    //   timeout: 2000
-    // });
+    remove_image();
+
+  });
+
+  function remove_image () {
+    // For deleting images
     var jq_superbox_remov;
     jq_superbox_remov = $("#imageid").attr("value");
     $("#" + jq_superbox_remov).remove();
@@ -212,28 +213,31 @@ $(document).on("page:change", function() {
     }, 200, function() {
       $(".superbox-show").slideUp();
     });
-  });
+  }
+
+  /*======================================
+  #=            Set up Sliders
+  #======================================*/
   $("#tab-desire").click(function(e) {
-    console.log("desire");
     $("#desired-income-slider").ionRangeSlider({
       prettify: false,
       hasGrid: true,
       onFinish: function(obj) {
-        return $(".edit").removeClass('disabled');
+        show_save_button($(".edit"))
       }
     });
     $("#desired-height-slider").ionRangeSlider({
       prettify: false,
       hasGrid: true,
       onFinish: function(obj) {
-        return $(".edit").removeClass('disabled');
+        show_save_button($(".edit"))
       }
     });
     return $("#desired-age-slider").ionRangeSlider({
       prettify: false,
       hasGrid: true,
       onFinish: function(obj) {
-        return $(".edit").removeClass('disabled');
+        show_save_button($(".edit"))
       }
     });
   });
@@ -242,16 +246,40 @@ $(document).on("page:change", function() {
       prettify: false,
       hasGrid: true,
       onFinish: function(obj) {
-        return $(".edit").removeClass('disabled');
+        show_save_button($(".edit"))
       }
     });
   });
+
+  /*-----  End of Set up Sliders  ------*/
+  
+  
+
   $('.superbox').SuperBox();
   return $(".superbox-list").click(function() {
     var currentimg;
     currentimg = $(this).find(".superbox-img");
     $("#imageid").attr("value", currentimg.attr("id"));
   });
+
+
+  /*=============================
+  =            Hacks            =
+  =============================*/
+  $('form').on('focus', 'input[type=number]', function (e) {
+    $(this).on('mousewheel.disableScroll', function (e) {
+      e.preventDefault();
+    });
+  });
+  $('form').on('blur', 'input[type=number]', function (e) {
+    $(this).off('mousewheel.disableScroll')
+  });
+  
+  
+  /*-----  End of Hacks  ------*/
+  
+  
+
 });
 
 
