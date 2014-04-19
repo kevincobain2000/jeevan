@@ -19,7 +19,7 @@ class ExploreController < ApplicationController
     users.each do |user|
       @profiles_matches[user.id] = make_user(user)
     end
-    @profiles_paginate_matches = @profiles_matches.keys.paginate(:page => params[:matches], :per_page => 10)
+    @profiles_paginate_matches = @profiles_matches.keys.paginate(:page => params[:matches], :per_page => 7)
 
     #-----  Visitors  ------
     # @profiles_visitors = Hash.new {|h, k| h[k] = [] }

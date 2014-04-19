@@ -2,12 +2,6 @@
   <%= render :partial =>"layouts/ribbon", :locals => {:papa => "Home", :son => "Explore"} %>
   <!-- MAIN CONTENT -->
   <div id="content" class="container">
-    <div class="row">
-      <%#= render :partial =>'layouts/search'%>
-      <%= link_to explore_path(:id => "search"), :class=>"btn btn-info pull-right" do %>
-      <i class="fa fa-search"></i> Search Users
-      <% end %>
-    </div>
     <%= render :partial =>'layouts/explore/largewell', :locals => {:paginate => @profiles_paginate_matches, :profiles => @profiles_matches, :param => "matches"}%>
   </div>
 </div>

@@ -14,6 +14,12 @@ class ApplicationController < ActionController::Base
   def make_user(user)
     dob = user.dob.gsub("/","-")
     age = calculate_age(dob)
+    if user.sex == "Male"
+      it = "He"
+    else
+      it = "She"
+    end
+
     user_ret = {
       id:         user.id,
       dob:        user.dob,
@@ -21,6 +27,7 @@ class ApplicationController < ActionController::Base
       name:       titleize(truncate(user.name)),
       updated_at: time_ago_in_words(user.updated_at),
       sex:        titleize(user.sex),
+      it:         it,
       visitors:   number_with_delimiter(Visitor.where(viewed_id: user.id).count),
       profile:    user.profile,
       contact:    user.contact,

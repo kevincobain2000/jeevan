@@ -8,14 +8,6 @@
       <span class="semi-bold"><%= user[:age] %></span> Years Old</small>
 </h3>
 <ul class="list-unstyled">
- <li>
-    <p>
-      <i class="fa fa-picture-o"></i>
-      &nbsp;
-      Images:
-      <strong class="txt-color-blueDark"><%= user[:image].count %></strong>
-    </p>
-  </li>
   <li>
     <% items = {home: [:profile, 'fa-home'], caste: [:religion, 'fa-bars'], posted_by: [:profile, 'fa-user']  } %>
     <% items.stringify_keys.each do |key, value| %>

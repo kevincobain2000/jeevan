@@ -1,25 +1,50 @@
 <div class="row">
-  <div class="col-sm-12">
-    <h3 class="text-center">Get perfect life Partner ? <strong>Explore Interesting Profiles ...</strong></h3>
-  </div>
-  <% paginate.each do |user_id| %>
-    <div class="col-sm-6" style="height:350px;">
-      <div class="col-sm-12 col-md-12 col-lg-12">
-        <div class="well well-light well-sm no-margin divhover-light" style="height:280px;">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="col-sm-5">
-                <%= render :partial =>'layouts/avatar', :locals => {:user => profiles[user_id], :show_profile_flag => true} %>
-              </div>
-              <div class="col-sm-6">
-                <%= render :partial =>'layouts/cardinfo', :locals => {:user => profiles[user_id]} %>
-                <%= render :partial =>'layouts/interestbutton', :locals => {:user => profiles[user_id]} %>
-              </div>
-            </div>
+  <div class="col-sm-12 bg-color-white">
+    <h1>
+      Profiles
+      <span class="semi-bold">Matching</span>
+      My Profile</h1>
+    <% paginate.each do |user_id| %>
+      <div class="search-results clearfix divhover-light">
+        <h4>
+          <%= link_to profile_path(:id => profiles[user_id][:profile][:id]) do %>
+          <strong><%= profiles[user_id][:name] %>, <%= profiles[user_id][:age] %></strong> years old
+          <% end %>
+          <i class="fa fa-caret-right fa-lg"></i>
+          Profile Id: <%= profiles[user_id][:profile][:id] %>
+          <%= render :partial =>'layouts/online', :locals => {:time => profiles[user_id][:updated_at]}%>
+          <small class="text-muted">Last online <%= profiles[user_id][:updated_at] %> ago</small>
+        </h4>
+        <% if profiles[user_id][:avatar].url.ends_with?("normal/Male.png") || profiles[user_id][:avatar].url.ends_with?("normal/Female.png") %>
+        <% else %>
+        <%= image_tag profiles[user_id][:avatar].url(:thumb) %>
+        <% end %>
+        <div>
+          <p class="note">
+            <%= render :partial =>'layouts/shortlistbutton', :locals => {:user => profiles[user_id]} %>
+          </p>
+          <div class="url text-success">
+          <i class="fa fa-angle-right"></i>
+            <strong><%= number_with_delimiter(profiles[user_id][:visitors].to_i, :delimeter => ',') %></strong><span class="text-muted font-xs">
+            views</span>
           </div>
+          <p class="description">
+            <i class="fa fa-link"></i>
+            <strong><%= profiles[user_id][:name] %>'s</strong> <%= "profile is posted by #{profiles[user_id][:profile][:posted_by]}" %>. <%= profiles[user_id][:image].count %> photos in gallery
+            <br> 
+          </p>
         </div>
+        <p class="description">
+          <%= raw truncate(profiles[user_id][:about][:me], length:500, escape:false) %>
+        </p>
+        <%= render :partial =>'layouts/interestbutton', :locals => {:user => profiles[user_id]} %>
+        <%= link_to profile_path(:id => profiles[user_id][:profile][:id]) do %>
+        Show Full Profile
+        <% end %>
       </div>
+      <% end %>
     </div>
-  <% end %>
-</div>
-<%= will_paginate paginate, :class =>"flickr_pagination", :param_name => param %>
+    <legend></legend>
+    <%= will_paginate paginate, :class =>"flickr_pagination", :param_name => param %>
+  </div>
+

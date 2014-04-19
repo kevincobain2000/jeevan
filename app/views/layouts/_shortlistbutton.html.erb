@@ -2,7 +2,7 @@
 <fieldset>
   <%= form_tag({:action=>'shortlist', :controller => "profiles"}, {:remote => true, :class=>"smart-form"}) do %>
     <%= hidden_field_tag 'to_user_id', user[:id] %>
-    <button class="btn btn-xs btn-default interest" type="submit">
+    <button class="btn btn-xs btn-link interest" type="submit">
       <i class="fa fa-plus"></i>
       Shortlist
     </button>
