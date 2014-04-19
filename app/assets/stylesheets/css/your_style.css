@@ -39,7 +39,8 @@
 #footer {
     min-height: 260px;
     margin-top: 140px;
-    background-color: #252528;
+    background: url('../mybg.png') #ffffff;
+    /*background-color: #252528;*/
     color: #fff;
     padding-top: 35px;
 }
