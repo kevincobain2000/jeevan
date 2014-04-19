@@ -1,11 +1,11 @@
 <div class="row">
-  <div class="col-sm-12 bg-color-white">
       <h1>
       Profiles
       <span class="semi-bold">Matching</span>
       My Profile</h1>
+  <div class="col-sm-12 bg-color-white pin">
     <% paginate.each do |user_id| %>
-      <div class="search-results clearfix divhover-light">
+      <div class="search-results divhover-light">
         <h4>
           <%= link_to profile_path(:id => profiles[user_id][:profile][:id]) do %>
           <strong><%= profiles[user_id][:name] %>, <%= profiles[user_id][:age] %></strong> years old
@@ -45,7 +45,6 @@
       </div>
       <% end %>
     </div>
-    <legend></legend>
     <%= will_paginate paginate, :class =>"flickr_pagination", :param_name => param %>
   </div>
 

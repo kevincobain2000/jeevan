@@ -15,7 +15,7 @@ class ExploreController < ApplicationController
 
     #-----  Matches  ------
     @profiles_matches = Hash.new {|h, k| h[k] = [] }
-    users = User.where.not(sex: current_user.sex).where(devotion: current_user.devotion).order('updated_at DESC').limit(1000)
+    users = User.where.not(sex: current_user.sex).where(devotion: current_user.devotion).order('avatar_updated_at DESC').limit(1000)
     users.each do |user|
       @profiles_matches[user.id] = make_user(user)
     end
