@@ -1,0 +1,45 @@
+<div class="search-results">
+  <h4>
+    <%= link_to profile_path(:id => user[:profile][:id]) do %>
+      <strong><%= user[:name] %>,
+        <%= user[:age] %></strong>
+      years old
+    <% end %>
+    <i class="fa fa-caret-right fa-lg"></i>
+    Profile Id:
+    <%= user[:profile][:id] %>
+    <%= render :partial =>'layouts/online', :locals => {:time => user[:updated_at]}%>
+    <small class="text-muted">Last online
+      <%= user[:updated_at] %>
+      ago</small>
+  </h4>
+  <% if user[:avatar].url.ends_with?("normal/Male.png") || user[:avatar].url.ends_with?("normal/Female.png") %>
+  <% else %>
+    <%= image_tag user[:avatar].url(:thumb) %>
+  <% end %>
+  <div>
+    <p class="note">
+      <%= render :partial =>'layouts/shortlistbutton', :locals => {:user => user} %>
+    </p>
+    <div class="url text-success">
+      <i class="fa fa-angle-right"></i>
+      <strong><%= number_with_delimiter(user[:visitors].to_i, :delimeter => ',') %></strong><span class="text-muted font-xs">
+        views</span>
+    </div>
+    <p class="description">
+      <i class="fa fa-link"></i>
+      <%= "Profile is posted by #{user[:profile][:posted_by]}" %>.
+      <%= user[:image].count %>
+      photos in gallery
+      <br>
+    </p>
+  </div>
+  <p class="description">
+    <%= raw truncate(user[:about][:me], length:500, escape:false) %>
+  </p>
+  <%= render :partial =>'layouts/interestbutton', :locals => {:user => user} %>
+  <br>
+  <%= link_to profile_path(:id => user[:profile][:id]), :class=> "pull-right" do %>
+    Show Full Profile
+  <% end %>
+</div>
