@@ -17,9 +17,18 @@
 <div class="tree">
   <ul role="tree">
     <li class="parent_li" role="treeitem">
-      <span title="Expand this branch"> <i class="fa fa-lg fa-plus-circle"></i>
+      <span title="Collapse this branch"> <i class="fa fa-lg fa-plus-circle"></i>
         Contact Details: Meet or Invite <%= user[:name] %>
       </span>
+      <script type="text/javascript">
+        // Dirty hack to keep this tree branch collapsed
+        $(function () {
+         $('.tree li.parent_li > span').on('click', function (e) {
+          $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
+          e.stopPropagation();
+        }).click();
+       });
+      </script>
       <ul role="group">
         <li class="parent_li" role="treeitem" style="display: list-item;">
           <span class="label label-success" title="Expand this branch"> <i class="fa fa-lg fa-plus-circle"></i>

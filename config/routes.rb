@@ -39,6 +39,6 @@ Jeevan::Application.routes.draw do
   root :to => redirect('/users/sign_in')
 
   if Rails.env.production?
-    get '*path' => redirect('/contact')
+    get '*path' => redirect('/')
   end
 end
