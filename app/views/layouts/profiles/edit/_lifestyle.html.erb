@@ -1,7 +1,7 @@
 <%= render :partial =>
 'layouts/alert', :locals => {:heading => "Your Lifestyle", :description => "What movies do you like ! What music do you listen to...",:icon=>"fa fa-cutlery"}%>
 <%= form_tag({:action=>
-'modify_lifestyle'}, {:remote => true, :class=>"smart-form"}) do %>
+'modify_lifestyle'}, {:remote => true, :class=>"smart-form edit"}) do %>
 <h3 class="error-text-3"> <strong>Life</strong>
   Style
 </h3>
@@ -9,7 +9,7 @@
   <div class="col-sm-5">
     <label class="label"><strong>Height</strong></label>
     <small class="text-muted"> <strong>Your Height in Ft Inches:</strong>
-      Example: 5.7 is 5ft 7 Inches
+      <strong>Example</strong> 5.7
     </small>
     <label class="input"> <i class="icon-append fa fa-male"></i>
       <input class="form-control" type="number" step= "any" name="height" placeholder="Height in numbers" min="2" max="7"></label>
@@ -19,7 +19,7 @@
     <label class="label"><strong>Weight</strong></label>
     <small class="text-muted">
       <strong>Your Weight in</strong>
-      Kgs
+      Kgs <strong>Example 55</strong>
     </small>
     <label class="input"> <i class="icon-append fa fa-male"></i>
       <input class="form-control" type="number" name="weight" placeholder="Weight in numbers" min="25" max="120"></label>

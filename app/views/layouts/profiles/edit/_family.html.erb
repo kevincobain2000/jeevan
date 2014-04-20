@@ -1,5 +1,5 @@
 <%= render :partial =>'layouts/alert', :locals => {:heading => "Tell us About Your Family", :description => "", :icon=>"fa fa-group"}%>
-<%= form_tag({:action=>'modify_family'},{:remote => true, :class=>"smart-form"}) do %>
+<%= form_tag({:action=>'modify_family'},{:remote => true, :class=>"smart-form edit"}) do %>
   <h3 class="error-text-3"><strong>Family</strong></h3>
   <fieldset>
   <section>

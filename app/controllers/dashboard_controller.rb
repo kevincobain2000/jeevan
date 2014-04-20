@@ -67,14 +67,14 @@ class DashboardController < ApplicationController
   end
 
   def get_avatar_from(avatar)
-    return "<img src='#{avatar}' class='img-rounded' style='height:20px;width:20px' >"
+    return "<img src='#{avatar}' class='img-rounded' style='height:70px;width:70px' >"
   end
   def get_profile_link_from(user)
     return "<a class='semi-bold' href='../profiles/#{user.profile.id}'>#{user.name}</a>"
   end
   def get_action_based_on(user, response)
     if response.nil?
-      action = "<a href='../profiles/#{user.profile.id}' class='label label-info'><i class='fa fa-check'></i> Interested</a>"
+      action = "<a href='../profiles/#{user.profile.id}' class='label label-info'><i class='fa fa-bell'></i> Waiting</a>"
     end
     if response == 0
       action = "<a href='../profiles/#{user.profile.id}' class='label label-danger'><i class='fa fa-times'></i> Not Accepted</a>"

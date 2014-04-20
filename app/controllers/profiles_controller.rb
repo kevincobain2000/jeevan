@@ -89,7 +89,7 @@ class ProfilesController < ApplicationController
       logger.info("Debug Params inspect #{params.inspect}")
       if !find_first
         current_user.interests.create(to_user_id: params[:to_user_id])
-        User.find(params[:to_user_id]).notifications.create(user_id: params[:to_user_id], from_user_id: current_user.id, flag: 1)
+        current_user.notifications.create(to_user_id: params[:to_user_id], flag: 1)
       else
         find_first.touch
       end
@@ -98,9 +98,9 @@ class ProfilesController < ApplicationController
     # redirect_to(explore_index_path)
   end
 
-  #=============================================
-  #            Mark Notification as read
-  #=============================================
+  /#==============================================
+  #            Mark Notification as read         =
+  #==============================================*/
   def seen_notification
     notification = Notification.find(params[:notification_id])
     if notification.created_at < 1.month.ago
@@ -112,18 +112,19 @@ class ProfilesController < ApplicationController
   end
 
 
-  #=================================================
-  #            Accept Reject Button is Pressed
-  #=================================================
+  /#=================================================
+  #            Accept Reject Button is Pressed      =
+  #=================================================*/
+
   def interest_response
     commit = params[:commit]
     interest = Interest.where(:to_user_id => current_user.id, :user_id => params[:to_user_id]).first
     if commit == "Accept"
       interest.update(:response => 1)
-      User.find(params[:to_user_id]).notifications.create(user_id: params[:to_user_id], from_user_id: current_user.id, flag: 2)
+      current_user.notifications.create(to_user_id: params[:to_user_id], flag: 2)
     elsif commit == "Reject"
       interest.update(:response => 0)
-      User.find(params[:to_user_id]).notifications.create(user_id: params[:to_user_id], from_user_id: current_user.id, flag: 3)
+      current_user.notifications.create(to_user_id: params[:to_user_id], flag: 3)
     end
 
     render json: { :status => 200 }
@@ -214,20 +215,21 @@ class ProfilesController < ApplicationController
     visiting_user_id = Profile.find(params[:id]).user_id
     # logger.info("Debug Touching Visitor #{visiting_user_id}")
     if current_user.id != visiting_user_id
-      find_first = Visitor.where(user_id: current_user.id, viewed_id: visiting_user_id).first
-      if !find_first
-        current_user.visitors.create(user_id: current_user.id, viewed_id: visiting_user_id)
-        User.find(visiting_user_id).notifications.create(user_id: visiting_user_id, from_user_id: current_user.id, flag: 0)
-      else
-        find_first.touch
-      end
+      # find_first = Visitor.where(user_id: current_user.id, viewed_id: visiting_user_id).first
+      # if !find_first
+        current_user.visitors.first_or_create(user_id: current_user.id, viewed_id: visiting_user_id)
+        # User.find(visiting_user_id).notifications.create(user_id: visiting_user_id, from_user_id: current_user.id, flag: 0)
+        current_user.notifications.first_or_create(to_user_id: visiting_user_id, flag: 0)
+      # else
+        # find_first.touch
+      # end
     end
   end
 
   def similar_profiles
     @similar_profiles = Hash.new {|h, k| h[k] = [] }
     visiting_user = User.find(Profile.find(params[:id]).user_id)
-    users = User.where(devotion: visiting_user.devotion).order('created_at DESC').limit(100)
+    users = User.where("devotion = ? AND sex = ?", visiting_user.devotion, visiting_user.sex).order('created_at DESC').limit(100)
     users.each do |user|
       if ! user.religion.caste.to_s.start_with?(visiting_user.religion.caste.to_s)
         next

@@ -398,7 +398,8 @@ border-top: 1px solid #303031;
 }
 
 body.smart-style-2 {
-	background:#fff;
+	/*background:#fff;*/
+	background: url('../mybg.png') #ffffff;
 }
 
 .smart-style-2 #header, .smart-style-2 .inbox-footer, .smart-style-2 .superbox-show {
@@ -472,12 +473,13 @@ body.smart-style-2 {
 }
 
 .smart-style-2 aside {
-	background: #F7F7F7;
+	background: url('../mybg.png') #ffffff;
+/*	background: #F7F7F7;
 	background: -webkit-gradient(linear,left top,right top,color-stop(99%,#F7F7F7),color-stop(100%,#CACACA));
 	background: -webkit-linear-gradient(left,#F7F7F7 99%,#CACACA 100%);
 	background: -webkit-gradient(linear,top left,top right,from(#F7F7F7),to(#CACACA));
-	background: linear-gradient(to right,#F7F7F7 99%,#CACACA 100%);
-	min-height: 100%;
+	background: linear-gradient(to right,#F7F7F7 99%,#CACACA 100%);*/
+	min-height: 50%;
 }
 
 .smart-style-2 #left-panel {
