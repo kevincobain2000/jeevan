@@ -1,5 +1,5 @@
 <div class="search-results">
-  <h4>
+  <h6>
     <%= link_to profile_path(:id => user[:profile][:id]) do %>
       <strong><%= user[:name] %>,
         <%= user[:age] %></strong>
@@ -12,10 +12,10 @@
     <small class="text-muted">Last online
       <%= user[:updated_at] %>
       ago</small>
-  </h4>
+  </h6>
   <% if user[:avatar].url.ends_with?("normal/Male.png") || user[:avatar].url.ends_with?("normal/Female.png") %>
   <% else %>
-    <%= image_tag user[:avatar].url(:thumb) %>
+    <%= image_tag user[:avatar].url(:original) %>
   <% end %>
   <div>
     <p class="note">
@@ -26,16 +26,15 @@
       <span class="">Images <i class="fa fa-angle-right"></i> </span><strong><%= user[:image].count %></strong> <br>
       <span class="">Caste <i class="fa fa-angle-right"></i> </span><strong><%= user[:religion][:caste] %></strong> <br>
       <span class="">Religion <i class="fa fa-angle-right"></i> </span><strong><%= user[:devotion] %></strong> <br>
-      <span class="">Date of Birth <i class="fa fa-angle-right"></i> </span><strong><%= user[:dob] %></strong>
-      <hr>
+      <span class="">Date of Birth <i class="fa fa-angle-right"></i> </span><strong><%= user[:dob] %></strong> <br>
       <span class="">Total Profile Views <i class="fa fa-angle-right"></i> </span><strong><%= number_with_delimiter(user[:visitors].to_i, :delimeter => ',') %></strong>
     </p>
   </div>
   <br>
   <%= render :partial =>'layouts/interestbutton', :locals => {:user => user} %>
   <br>
-  <span class="text-muted"><i class="fa fa-file"></i> More About <%= (user[:sex] == "Female")? "Her": "Him" %> </span><i class="fa fa-angle-right"></i> 
   <% if user[:about][:me] %>
+  <span class="text-muted"><i class="fa fa-file"></i> More About <%= (user[:sex] == "Female")? "Her": "Him" %> </span><i class="fa fa-angle-right"></i> 
   <div class="wordwrap hidden-xs">
     <span><%= raw truncate(user[:about][:me], length:500, escape:false) %></span> <br>
   </div>
