@@ -70,7 +70,7 @@ class DashboardController < ApplicationController
     return "<img src='#{avatar}' class='img-rounded' style='height:70px;width:70px' >"
   end
   def get_profile_link_from(user)
-    return "<a class='semi-bold' href='../profiles/#{user.profile.id}'>#{user.name}</a>"
+    return "<a class='semi-bold' href='../profiles/#{user.profile.id}'>#{user.profile.id}</a>"
   end
   def get_action_based_on(user, response)
     if response.nil?
