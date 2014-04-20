@@ -14,11 +14,17 @@ class ApplicationController < ActionController::Base
   def make_user(user)
     dob = user.dob.gsub("/","-")
     age = calculate_age(dob)
+
+    in_response  = Interest.where(to_user_id: current_user.id, user_id: user.id).first
+    out_response = Interest.where(user_id: current_user.id, to_user_id: user.id).first
+
+    name = show_name_to_accepted(in_response, out_response) ? user[:name] : "name showed on acceptance"
+
     user_ret = {
       id:         user.id,
       dob:        user.dob,
       age:        age,
-      name:       titleize(truncate(user.name)),
+      name:       titleize(truncate(name)),
       updated_at: time_ago_in_words(user.updated_at),
       sex:        titleize(user.sex),
       visitors:   number_with_delimiter(Visitor.where(viewed_id: user.id).count),
@@ -35,14 +41,19 @@ class ApplicationController < ActionController::Base
       desire:     user.desire,
       image:      user.images.all,
       avatar:     user.avatar,
-      in_response:  Interest.where(to_user_id: current_user.id, user_id: user.id).first,
-      out_response: Interest.where(user_id: current_user.id, to_user_id: user.id).first,
+      in_response:  in_response,
+      out_response: out_response,
       shortlist:    Shortlist.where(user_id: current_user.id, to_user_id: user.id).first,
     }
     return user_ret;
   end
   def calculate_age(birthday)
     Date.today.year - birthday.to_date.year
+  end
+  def show_name_to_accepted(in_response, out_response)
+    if (in_response) || (out_response && out_response.response == 1)
+      return true
+    end
   end
   protected
   def configure_permitted_parameters
@@ -67,9 +78,10 @@ class ApplicationController < ActionController::Base
     messages = [ ["Viewed Your Profile", "fa fa-eye"], ["Expressed Interest !", "fa fa-connect"], ["Accepted Interest !", "fa fa-check"], ["Rejected Interest", "fa fa-times"] ]
     @notifications = Hash.new {|h, k| h[k] = [] }
     @notifications_unread_count = 0
-    notifications = current_user.notifications().where("created_at >= ?", 1.week.ago).order(:seen, :created_at)
+    # notifications = current_user.notifications().where("created_at >= ?", 1.week.ago).order(:seen, :created_at)
+    notifications = Notification.where(to_user_id: current_user.id).where("created_at >= ?", 1.week.ago).order(:seen, :created_at)
     notifications.each do |notification|
-      __user = User.find(notification.from_user_id)
+      __user = User.find(notification.user_id)
       user = {}
       user[:avatar]     = __user.avatar
       user[:name]       = titleize(__user.name)

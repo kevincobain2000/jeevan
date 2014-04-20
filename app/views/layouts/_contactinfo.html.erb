@@ -3,11 +3,15 @@
   <% contactinfo_s_id = user[:contact][:s_id]  %>
   <% contactinfo_g_id = user[:contact][:g_id]  %>
   <% contactinfo_w_id = user[:contact][:w_id]  %>
+  <% contactinfo_fb_link = user[:contact][:fb_link]  %>
+  <% contactinfo_ln_link = user[:contact][:ln_link]  %>
 <% else %>
   <% contactinfo_self = "On Acceptance"  %>
   <% contactinfo_s_id = "On Acceptance"  %>
   <% contactinfo_g_id = "On Acceptance"  %>
   <% contactinfo_w_id = "On Acceptance"  %>
+  <% contactinfo_fb_link = "On Acceptance"  %>
+  <% contactinfo_ln_link = "On Acceptance"  %>
 <% end %>
 
 <div class="tree">
@@ -73,6 +77,28 @@
               </span>
               –
               <%= contactinfo_w_id %>
+            </li>
+          </ul>
+        </li>
+        <li class="parent_li" role="treeitem" style="display: list-item;">
+          <span class="label label-danger" title="Expand this branch">
+            <i class="fa fa-lg fa-plus-circle"></i>
+            Social Links
+          </span>
+          <ul role="group">
+            <li>
+              <span>
+                <i class="fa fa-facebook"></i>
+              </span>
+              –
+              <%= contactinfo_fb_link %>
+            </li>
+            <li>
+              <span>
+                <i class="fa fa-linkedin"></i>
+              </span>
+              –
+              <%= contactinfo_ln_link %>
             </li>
           </ul>
         </li>

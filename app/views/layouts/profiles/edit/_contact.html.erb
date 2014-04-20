@@ -1,5 +1,5 @@
 <%= render :partial =>'layouts/alert', :locals => {:heading => "Contact Details", :description => "Your contact details will be shown to other users upon your acceptance", :icon=>"fa fa-telephone"}%>
-<%= form_tag({:action=>'modify_contact'}, {:remote=>true, :class=>"smart-form"}) do %>
+<%= form_tag({:action=>'modify_contact'}, {:remote=>true, :class=>"smart-form edit"}) do %>
 <h3 class="error-text-3"><strong>Contact</strong> Details</h3>
   <fieldset>
 
@@ -38,8 +38,13 @@
         <input name="ln_link" class="form-control" type="text" value="<%= @user[:contact][:ln_link] %>" placeholder="Paste Your LinkedIn Url">
       </label>
     </section>
-
-
+    <section>
+      <label class="label"><strong>Facebook</strong> Url</label>
+      <label class="input">
+        <i class="icon-prepend fa fa-facebook"></i>
+        <input name="fb_link" class="form-control" type="text" value="<%= @user[:contact][:fb_link] %>" placeholder="Paste Your Facebook Profile Link">
+      </label>
+    </section>
  </fieldset>
   <footer>
     <button type="submit" class="btn btn-primary edit disabled">Save</button>

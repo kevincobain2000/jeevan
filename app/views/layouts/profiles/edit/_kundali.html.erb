@@ -1,5 +1,5 @@
 <%= render :partial =>'layouts/alert', :locals => {:heading => "Kundali", :description => "Tell your would be partner about your kundali details", :icon=>"fa fa-star-o"}%>
-<%= form_tag({:action=>'modify_kundali'},{:remote => true, :class=>"smart-form"}) do %>
+<%= form_tag({:action=>'modify_kundali'},{:remote => true, :class=>"smart-form edit"}) do %>
   <h3 class="error-text-3"><strong>Kundali</strong> and Nakshatra</h3>
   <fieldset>
     <div class="col-sm-12">&nbsp;</div>

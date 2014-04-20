@@ -6,29 +6,29 @@ class ExploreController < ApplicationController
 
   def index
     #-----  Recently joined  ------
-    @profiles_joined_recently = Hash.new {|h, k| h[k] = [] }
-    users = User.where.not(sex: current_user.sex).where('created_at >= ?', 1.week.ago).limit(500)
-    users.each do |user|
-      @profiles_joined_recently[user.id] = make_user(user)
-    end
-    @profiles_paginate_joined_recently = @profiles_joined_recently.keys.paginate(:page => params[:joined], :per_page => 4)
+    # @profiles_joined_recently = Hash.new {|h, k| h[k] = [] }
+    # users = User.where.not(sex: current_user.sex).where('created_at >= ?', 1.week.ago).limit(500)
+    # users.each do |user|
+    #   @profiles_joined_recently[user.id] = make_user(user)
+    # end
+    # @profiles_paginate_joined_recently = @profiles_joined_recently.keys.paginate(:page => params[:joined], :per_page => 4)
 
     #-----  Matches  ------
     @profiles_matches = Hash.new {|h, k| h[k] = [] }
-    users = User.where.not(sex: current_user.sex).where(devotion: current_user.devotion).order('updated_at DESC').limit(1000)
+    users = User.where.not(sex: current_user.sex).where(devotion: current_user.devotion).order('avatar_updated_at DESC').limit(1000)
     users.each do |user|
       @profiles_matches[user.id] = make_user(user)
     end
-    @profiles_paginate_matches = @profiles_matches.keys.paginate(:page => params[:matches], :per_page => 10)
+    @profiles_paginate_matches = @profiles_matches.keys.paginate(:page => params[:matches], :per_page => 7)
 
     #-----  Visitors  ------
-    @profiles_visitors = Hash.new {|h, k| h[k] = [] }
-    visitors_ids  = Visitor.where(viewed_id: current_user.id).where("updated_at >= ?", 1.week.ago).limit(1000).pluck(:user_id).uniq
-    users = User.find(visitors_ids)
-    users.each do |user|
-      @profiles_visitors[user.id] = make_user(user)
-    end
-    @profiles_paginate_visitors = @profiles_visitors.keys.paginate(:page => params[:visitors], :per_page => 4)
+    # @profiles_visitors = Hash.new {|h, k| h[k] = [] }
+    # visitors_ids  = Visitor.where(viewed_id: current_user.id).where("updated_at >= ?", 1.week.ago).limit(1000).pluck(:user_id).uniq
+    # users = User.find(visitors_ids)
+    # users.each do |user|
+    #   @profiles_visitors[user.id] = make_user(user)
+    # end
+    # @profiles_paginate_visitors = @profiles_visitors.keys.paginate(:page => params[:visitors], :per_page => 4)
 
   end
 
@@ -37,6 +37,7 @@ class ExploreController < ApplicationController
     # users_ids = User.where.not(sex: current_user.sex).limit(3000).pluck(:id)
     users_ids = User.where.not(sex: current_user.sex).where(devotion: current_user.devotion).order('created_at DESC').limit(1000).pluck(:id)
     gon.search['profiles']  = make_gon_search(Profile.find(users_ids))
+    gon.search['query']     = params[:query] ? params[:query] : "";
     render 'search'
   end
 
