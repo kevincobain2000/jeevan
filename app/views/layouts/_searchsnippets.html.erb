@@ -21,25 +21,23 @@
     <p class="note">
       <%= render :partial =>'layouts/shortlistbutton', :locals => {:user => user} %>
     </p>
-    <div class="url text-success">
-      <i class="fa fa-angle-right"></i>
-      <strong><%= number_with_delimiter(user[:visitors].to_i, :delimeter => ',') %></strong><span class="text-muted font-xs">
-        views</span>
-    </div>
     <p class="description">
-      <i class="fa fa-link"></i>
-      <%= "Profile is posted by #{user[:profile][:posted_by]}" %>.
-      <%= user[:image].count %>
-      photos in gallery
-      <br>
+      <i class="fa fa-eye"></i> Total Profile Views <i class="fa fa-angle-right"></i> <strong><%= number_with_delimiter(user[:visitors].to_i, :delimeter => ',') %></strong> <br>
+      <i class="fa fa-picture-o"></i> Images <i class="fa fa-angle-right"></i> <strong><%= user[:image].count %></strong> <br>
+      <i class="fa fa-sun-o"></i> Religion <i class="fa fa-angle-right"></i> <strong><%= user[:devotion] %></strong> <br>
+      <i class="fa fa-calendar"></i> Date of Birth <i class="fa fa-angle-right"></i> <strong><%= user[:dob] %></strong> <br>
+      <i class="fa fa-bars"></i> Caste <i class="fa fa-angle-right"></i> <strong><%= user[:religion][:caste] %></strong> <br>
     </p>
   </div>
-  <p class="description">
-    <%= raw truncate(user[:about][:me], length:500, escape:false) %>
-  </p>
-  <%= render :partial =>'layouts/interestbutton', :locals => {:user => user} %>
   <br>
+  <%= render :partial =>'layouts/interestbutton', :locals => {:user => user} %>
   <%= link_to profile_path(:id => user[:profile][:id]), :class=> "pull-right" do %>
     Show Full Profile
   <% end %>
+  <br>
+  <i class="fa fa-file"></i> More About <%= (user[:sex] == "Female")? "Her": "Him" %> <i class="fa fa-angle-right"></i> 
+  <p class="description wordwrap">
+    <span><%= raw truncate(user[:about][:me], length:500, escape:false) %></span> <br>
+  </p>
 </div>
+
