@@ -9,20 +9,20 @@
 <% end %>
 <% if !user[:out_response].nil? %>
   <% if user[:out_response].response == 0 %>
-    <small class="text-muted">Interest Expressed:
+    <span class="text-muted">Interest Expressed:
       <strong class="txt-color-red"><i class="fa fa-frown-o"></i>
         Rejected</strong>
-      your Interest</small>
+      your Interest</span>
   <% elsif user[:out_response].response == 1 %>
-    <small class="text-muted">Interest Expressed:
+    <span class="text-muted">Interest Expressed:
       <strong class="txt-color-green"><i class="fa fa-smile-o"></i>
         Accepted</strong>
-      your Interest</small>
+      your Interest</span>
   <% else %>
-    <small class="text-muted">Interest Expressed:
+    <span class="text-muted">Interest Expressed:
       <strong class="txt-color-orange"><i class="fa fa-bell"></i>
         Waiting</strong>
-      for response</small>
+      for response</span>
   <% end %>
 <% end %>
 <% if  current_user.id != user[:id] && !user[:in_response].nil? && user[:in_response].response.nil? %>
@@ -40,14 +40,14 @@
 <% end %>
 <% if !user[:in_response].nil? %>
   <% if user[:in_response].response == 0 %>
-    <small class="text-muted">You have
+    <span class="text-muted">You have
       <strong class="txt-color-red"><i class="fa fa-times"></i>
         Rejected</strong>
-      interest of this profile</small>
+      interest of this profile</span>
   <% elsif user[:in_response].response == 1 %>
-    <small class="text-muted">You have
+    <span class="text-muted">You have
       <strong class="txt-color-green"><i class="fa fa-check"></i>
         Accepted</strong>
-      interest of this profile</small>
+      interest of this profile</span>
   <% end %>
 <% end %>
