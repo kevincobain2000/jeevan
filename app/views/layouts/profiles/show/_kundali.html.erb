@@ -1,4 +1,10 @@
-<h6 class="error-text-3 font-lg"><strong> Kundali</strong></h6>
+<h3>Kundali
+<% if  current_user.profile.id == @user[:profile][:id] %>
+	<button class="btn btn-xs btn-default" data-toggle="modal" data-target="#modal-edit-kundali">
+		<i class="fa fa-edit"></i> edit
+</button>
+<% end %>
+</h3>
 <% categories = {'birth_country' => "fa fa-globe", 'birth_city' => "fa fa-map-marker", 'tob' => "fa fa-clock-o", 'manglik' => "fa fa-exclamation-circle", 'sun_sign' => "fa fa-certificate", 'moon_sign' => "fa fa-sun-o", 'nakshatra' => "fa fa-star"} %>
 <dl class="dl-horizontal">
   <% categories.each do |category, icon| %>
