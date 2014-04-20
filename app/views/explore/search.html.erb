@@ -1,13 +1,37 @@
 <%= include_gon %>
 <div id="main" role="main">
-  <%= render :partial =>"layouts/ribbon", :locals => {:papa => "Home", :son => "Search"} %>
+  <%= render :partial =>
+  "layouts/ribbon", :locals => {:papa => "Home", :son => "Search"} %>
   <!-- MAIN CONTENT -->
   <div id="content">
     <div class="row">
-      <div class="col-sm-12">
+      <div class="col-sm-12 bg-color-white pin">
+        <h1>
+          <span class="semi-bold">Matching</span>
+          Profiles
+      </h1>
         <div class="row">
           <div class="col-sm-12">
-            <%= render :partial =>'layouts/dashboard/searchdata.html.erb', :locals => {:title => "User Search", :id=>"search", :css_id=>"search-query"} %>
+            <%= render :partial =>'layouts/search', :locals=>{:css_id => "search-query"} %>
+            <table class="table table-hover table-striped" id="search">
+              <thead style="display:none;">
+                <tr>
+                  <th>
+                    <i class="fa fa-picture-o"></i>
+                    Description
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @search_profiles.each do |user| %>
+                  <tr>
+                    <td>
+                      <%= render :partial =>'layouts/searchsnippets', :locals=>{:user => user} %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
