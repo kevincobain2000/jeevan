@@ -1,4 +1,4 @@
-<div class="col-sm-6 profile-pic">
+<div class="col-sm-4 profile-pic">
   <%= image_tag user[:avatar].url(:thumb)%>
   <div>
   <%= render :partial =>'layouts/online', :locals => {:time => user[:updated_at]}%>
