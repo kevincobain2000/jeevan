@@ -67,7 +67,7 @@ class DashboardController < ApplicationController
   end
 
   def get_avatar_from(avatar)
-    return "<img src='#{avatar}' class='img-rounded' style='height:70px;width:70px' >"
+    return "<img src='#{avatar}' class='img-rounded' style='height:40px;width:40px' >"
   end
   def get_profile_link_from(user)
     return "<a class='semi-bold' href='../profiles/#{user.profile.id}'>#{user.profile.id}</a>"

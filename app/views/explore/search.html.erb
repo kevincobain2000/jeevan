@@ -23,13 +23,6 @@
                 </tr>
               </thead>
               <tbody>
-                <% @search_profiles.each do |user| %>
-                  <tr>
-                    <td>
-                      <%= render :partial =>'layouts/searchsnippets', :locals=>{:user => user} %>
-                    </td>
-                  </tr>
-                <% end %>
               </tbody>
             </table>
           </div>

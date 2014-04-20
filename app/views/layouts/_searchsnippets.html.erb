@@ -22,22 +22,23 @@
       <%= render :partial =>'layouts/shortlistbutton', :locals => {:user => user} %>
     </p>
     <p class="description">
-      <i class="fa fa-eye"></i> Total Profile Views <i class="fa fa-angle-right"></i> <strong><%= number_with_delimiter(user[:visitors].to_i, :delimeter => ',') %></strong> <br>
-      <i class="fa fa-picture-o"></i> Images <i class="fa fa-angle-right"></i> <strong><%= user[:image].count %></strong> <br>
-      <i class="fa fa-sun-o"></i> Religion <i class="fa fa-angle-right"></i> <strong><%= user[:devotion] %></strong> <br>
-      <i class="fa fa-calendar"></i> Date of Birth <i class="fa fa-angle-right"></i> <strong><%= user[:dob] %></strong> <br>
-      <i class="fa fa-bars"></i> Caste <i class="fa fa-angle-right"></i> <strong><%= user[:religion][:caste] %></strong> <br>
+      <span class="">Home <i class="fa fa-angle-right"></i> </span><strong><%= user[:profile][:home] %></strong> <br>
+      <span class="">Images <i class="fa fa-angle-right"></i> </span><strong><%= user[:image].count %></strong> <br>
+      <span class="">Caste <i class="fa fa-angle-right"></i> </span><strong><%= user[:religion][:caste] %></strong> <br>
+      <span class="">Religion <i class="fa fa-angle-right"></i> </span><strong><%= user[:devotion] %></strong> <br>
+      <span class="">Date of Birth <i class="fa fa-angle-right"></i> </span><strong><%= user[:dob] %></strong>
+      <hr>
+      <span class="">Total Profile Views <i class="fa fa-angle-right"></i> </span><strong><%= number_with_delimiter(user[:visitors].to_i, :delimeter => ',') %></strong>
     </p>
   </div>
   <br>
   <%= render :partial =>'layouts/interestbutton', :locals => {:user => user} %>
-  <%= link_to profile_path(:id => user[:profile][:id]), :class=> "pull-right" do %>
-    Show Full Profile
-  <% end %>
   <br>
-  <i class="fa fa-file"></i> More About <%= (user[:sex] == "Female")? "Her": "Him" %> <i class="fa fa-angle-right"></i> 
-  <p class="description wordwrap">
+  <span class="text-muted"><i class="fa fa-file"></i> More About <%= (user[:sex] == "Female")? "Her": "Him" %> </span><i class="fa fa-angle-right"></i> 
+  <% if user[:about][:me] %>
+  <div class="wordwrap hidden-xs">
     <span><%= raw truncate(user[:about][:me], length:500, escape:false) %></span> <br>
-  </p>
+  </div>
+  <% end %>
 </div>
 
