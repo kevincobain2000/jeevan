@@ -5,8 +5,17 @@ $(document).on("page:change", function() {
   // pageSetUp();
 
   $("[id^=side]").click(function() {
-    return $("#hidden-" + this.id)[0].click();
+    $("#hidden-" + this.id)[0].click();
   });
+  $(".close-edit-modal").click(function() {
+    $("#hidden-side-myprofile")[0].click();
+  });
+  $(".open-edit-modal").click(function() {
+    reinit_family_range_slider();
+    reinit_desire_range_slider();
+  });
+
+
   selectize_items = {
     home:true,
     religion: true,
@@ -219,6 +228,10 @@ $(document).on("page:change", function() {
   #=            Set up Sliders
   #======================================*/
   $("#tab-desire").click(function(e) {
+    reinit_desire_range_slider();
+  });
+
+  function reinit_desire_range_slider() {
     $("#desired-income-slider").ionRangeSlider({
       prettify: false,
       hasGrid: true,
@@ -233,23 +246,28 @@ $(document).on("page:change", function() {
         show_save_button($(".edit"))
       }
     });
-    return $("#desired-age-slider").ionRangeSlider({
+    $("#desired-age-slider").ionRangeSlider({
       prettify: false,
       hasGrid: true,
       onFinish: function(obj) {
         show_save_button($(".edit"))
       }
     });
-  });
+  }
+
   $("#tab-family").click(function(e) {
-    return $("#family-income-slider").ionRangeSlider({
+    reinit_family_range_slider();
+  });
+
+  function reinit_family_range_slider() {
+   $("#family-income-slider").ionRangeSlider({
       prettify: false,
       hasGrid: true,
       onFinish: function(obj) {
         show_save_button($(".edit"))
       }
     });
-  });
+  }
 
   /*-----  End of Set up Sliders  ------*/
   

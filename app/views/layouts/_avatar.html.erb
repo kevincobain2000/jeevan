@@ -1,6 +1,10 @@
 <div class="col-sm-5 profile-pic">
   <%= image_tag user[:avatar].url(:thumb)%>
-  <div>
+  <% if current_user.profile.id == @user[:profile][:id] %>
+  <button class="btn btn-primary btn-xs pull-right" data-toggle="modal" data-target="#modal-edit-avatar">
+  <i class="fa fa-edit"></i> Change Profile Pic
+  </button>
+  <% end %>
   <%= render :partial =>'layouts/online', :locals => {:time => user[:updated_at]}%>
   <p class="text-muted font-xs">
     <%= user[:updated_at] %>
@@ -18,6 +22,5 @@
     <% end %>
     <br>
     <%= render :partial =>'layouts/shortlistbutton', :locals => {:user => user}%>
-  </div>
   </div>
 </div>
