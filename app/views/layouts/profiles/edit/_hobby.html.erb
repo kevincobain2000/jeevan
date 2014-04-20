@@ -1,5 +1,5 @@
 <%= render :partial =>'layouts/alert', :locals => {:heading => "What do you like to do", :description => "Let your would be partner know about inside you..", :icon=>"fa fa-coffee"}%>
-<%= form_tag({:action=>'modify_hobby'},{:remote => true, :class=>"smart-form"}) do %>
+<%= form_tag({:action=>'modify_hobby'},{:remote => true, :class=>"smart-form edit"}) do %>
   <h3 class="error-text-3"><strong>Hobbies</strong> <i>of yours</i></h3>
   <fieldset>
     <% categories = {'hobby' => "fa fa-plus", 'interest' => "fa fa-asterisk", 'music' => "fa fa-music", 'read' => "fa fa-book", 'dress' => "fa fa-group", 'tv' => "fa fa-coffee", 'movie' => "fa fa-desktop", 'sport' => "fa fa-gamepad" , 'cuisine' => "fa fa-globe", 'vacation' => "fa fa-map-marker"} %>

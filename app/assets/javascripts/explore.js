@@ -7,17 +7,25 @@ $(document).on("page:change", function() {
 
   }
   if (typeof gon !== 'undefined' && gon.search) {
-    console.log(gon.search);
+    $("#search-query").focus();
     oTable = $("#search").dataTable({
       aaData: gon.search['profiles'],
       bFilter: true,
       bLengthChange: false,
-      iDisplayLength: 30
+      iDisplayLength: 30,
     });
+
     $(".dataTables_filter input").hide();
     $(".dataTables_filter").children("label").hide();
-    return $("#search-query").keyup(function() {
-      return oTable.fnFilter($("#search-query").val());
+    $("#search-query").keyup(function() {
+       oTable.fnFilter($("#search-query").val());
     });
+
+
+    if (gon.search.query != "") {
+      $("#search-query").val(gon.search.query);
+      oTable.fnFilter(gon.search.query)
+    }
   }
+
 });

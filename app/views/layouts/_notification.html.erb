@@ -5,18 +5,22 @@
     <div class="divhover-light">
       <dl class="dl-horizontal">
         <dt>
-          <%= image_tag user[:avatar].url(:thumb), :class=> "img-rounded pull-left",:style =>"height:75px;width:75px;" %>
+          <%= image_tag user[:avatar].url(:thumb), :class=> "img-rounded pull-left",:style =>"height:55px;width:55px;" %>
         </dt>
         <dd class="dl-horizontal">
+          <% if user[:seen] != 1 %>
+          <blockquote class="font-sm pull-right">
+          <% else %>
           <blockquote class="text-muted font-sm pull-right">
-            <p class="font-sm semi-bold"><i class="<%= user[:icon] %>"></i>
-            <strong><%= truncate(user[:name], length: 20) %></strong>
-            <br>
-              <%= user[:message] %>
-              </p>
-            <small>
+          <% end %>
+            <p class="font-sm semi-bold">
               <% if user[:seen] != 1 %><i class="fa fa-circle txt-color-blue"></i>
               <% end %>
+              <strong><%= truncate(user[:name], length: 20) %></strong>
+            <br>
+              <i class="<%= user[:icon] %>"></i> <%= user[:message] %>
+              </p>
+            <small>
               <%= user[:created_at] %>
               ago
             </small>

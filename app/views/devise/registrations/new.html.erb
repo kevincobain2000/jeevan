@@ -1,12 +1,12 @@
 <div id="login" class="animated fadeInDown">
   <!-- possible classes: minified, no-right-panel, fixed-ribbon, fixed-header, fixed-width-->
-  <header id="header">
+  <div id="main" role="main">
+    <header id="header">
     <span id="login-header-space">
       <span class="hidden-mobile">Already Have an Account ?</span>
       <%= render "devise/shared/links" %>
     </span>
   </header>
-  <div id="main" role="main">
     <!-- MAIN CONTENT -->
     <div id="content" class="container">
       <div class="row">
@@ -20,9 +20,9 @@
                   <%= devise_error_messages! %>
                 </section>
                 <section>
-                  <label class="label">Your
-                    <strong>Nick</strong>
-                    Name</label>
+                  <label class="label">
+                    <strong>Name</strong></label>
+                    <small>Your name will only appear when you accept someone's interest or send an interest</small>
                   <label class="input">
                     <i class="icon-append fa fa-user"></i>
                     <%= f.text_field :name, :autofocus => true, :placeholder => "Name" %>
@@ -123,7 +123,6 @@
             </div>
           </div>
         </div>
-        <legend></legend>
         <%= render :partial =>'layouts/signuptext2'%>
       </div>
     </div>
@@ -131,3 +130,13 @@
 </div>
 <%= render :partial =>'layouts/terms'%>
 
+  <script type="text/javascript">
+    $("#main").bgStretcher({
+        images: ["../../images/demo/sample-1.jpg","../../images/demo/sample-2.jpg","../../images/demo/sample-3.jpg",],
+        slideShow: true,
+        transitionEffect: "fade",
+        nextSlideDelay: 10000,
+        imageWidth: 1600,
+        imageHeight: 1200
+      })
+    </script>

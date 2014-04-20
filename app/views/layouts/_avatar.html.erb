@@ -1,16 +1,13 @@
 <div class="col-sm-6 profile-pic">
   <%= image_tag user[:avatar].url(:thumb)%>
-  <br>
-  <div class="">
+  <div>
   <%= render :partial =>'layouts/online', :locals => {:time => user[:updated_at]}%>
-  <br>
-  <span class="text-muted font-xs">
+  <p class="text-muted font-xs">
     <%= user[:updated_at] %>
-    ago</span>
-  <br>
-  <strong><%= number_with_delimiter(user[:visitors].to_i, :delimeter => ',') %></strong><span class="text-muted font-xs">
+    ago</p>
+    <strong><%= number_with_delimiter(user[:visitors].to_i, :delimeter => ',') %></strong><span class="text-muted font-xs">
     views</span>
-  <div class="padding-10">
+  <div>
     <% if defined? show_profile_flag %>
     <fieldset>
       <%= link_to profile_path(:id =>user[:profile][:id]), :class=> "btn btn-primary btn-xs" do %>
