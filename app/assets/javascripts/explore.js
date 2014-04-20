@@ -9,7 +9,8 @@ $(document).on("page:change", function() {
   if (typeof gon !== 'undefined' && gon.search) {
     $("#search-query").focus();
     oTable = $("#search").dataTable({
-      bFilter: true,
+      aaData: gon.search['profiles'],
+      "bSort": false,
       bLengthChange: false,
       iDisplayLength: 30,
     });

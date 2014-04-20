@@ -23,21 +23,15 @@ class ExploreController < ApplicationController
 
   def search
     gon.search = {}
-    # users_ids = User.where.not(sex: current_user.sex).limit(3000).pluck(:id)
-    users_ids = User.where.not(sex: current_user.sex).where(devotion: current_user.devotion).order('created_at DESC').limit(10000).pluck(:id)
     gon.search['query'] = params[:query] ? params[:query] : "";
-    @search_profiles = make_gon_search(Profile.find(users_ids))
-    render 'search'
-  end
+    users = User.where.not(sex: current_user.sex).where(devotion: current_user.devotion).order('avatar_updated_at DESC').limit(10000)
 
-  def make_gon_search(obj)
-    ret = []
-    dashboard_methods = DashboardController.new
-    obj.each do |i|
-      user = User.find(i.user_id)
-      ret << make_user(user)
+    search_profiles = []
+    users.each do |user|
+      search_profiles << [render_to_string(:partial => "layouts/searchsnippets", :locals => {:user => make_user(user)})]
     end
-    return ret
+    gon.search['profiles'] = search_profiles
+    render 'search'
   end
 
   def show
