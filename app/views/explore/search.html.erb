@@ -3,17 +3,13 @@
   <%= render :partial =>
   "layouts/ribbon", :locals => {:papa => "Home", :son => "Search"} %>
   <!-- MAIN CONTENT -->
-  <div id="content">
-    <div class="row">
-      <div class="col-sm-12 bg-color-white pin">
+  <div id="content" class="container pin">
         <h1>
           <span class="semi-bold">Matching</span>
           Profiles
-      </h1>
-        <div class="row">
-          <div class="col-sm-12">
+        </h1>
             <%= render :partial =>'layouts/search', :locals=>{:css_id => "search-query"} %>
-            <table class="table table-hover table-striped" id="search">
+            <table class="table table-hover" id="search">
               <thead style="display:none;">
                 <tr>
                   <th>
@@ -25,9 +21,5 @@
               <tbody>
               </tbody>
             </table>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
