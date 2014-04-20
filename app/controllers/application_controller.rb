@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
   after_filter :user_activity
   helper_method :make_user
   layout :dirty_layout_hack
+  rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
   # protect_from_forgery with: :null_session
 
   def make_user(user)
@@ -102,5 +103,8 @@ class ApplicationController < ActionController::Base
     if controller_name == "registrations" && action_name == "edit"
       return false
     end
+  end
+  def record_not_found
+    redirect_to root_path
   end
 end

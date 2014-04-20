@@ -9,11 +9,10 @@
 </h3>
 <ul class="list-unstyled">
   <li>
-    <% items = {home: [:profile, 'fa-home'], caste: [:religion, 'fa-bars'], posted_by: [:profile, 'fa-user']  } %>
+    <% items = {home: [:profile, 'fa-home'], caste: [:religion, 'fa-bars'], posted_by: [:profile, 'fa-user'], height: [:lifestyle, "fa fa-male"], weight: [:lifestyle, "fa fa-female"], smoke: [:lifestyle, "fa fa-times"], drink: [:lifestyle, "fa fa-beer"], complexion: [:lifestyle, "fa fa-smile-o"] } %>
     <% items.stringify_keys.each do |key, value| %>
     <p>
       <i class="fa <%= value[1] %>"></i>
-      &nbsp;
         <%= key.gsub('_', ' ').titleize %>:
        <strong class="txt-color-blueDark">
        <%= truncate(titleize(user[value[0]][key]), length: 10) %>
