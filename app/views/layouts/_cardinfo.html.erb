@@ -19,7 +19,7 @@
       <i class="fa <%= value[1] %>"></i>
         <%= key.gsub('_', ' ').titleize %>:
        <strong class="txt-color-blueDark">
-       <%= truncate(titleize(user[value[0]][key]), length: 10) %>
+       <%= truncate(titleize(user[value[0]][key]), length: 20) %>
        </strong>
     </p>
     <% end %>

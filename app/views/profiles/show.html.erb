@@ -39,6 +39,9 @@
                         <%= render :partial =>'layouts/cardinfo', :locals => {:user => @user}%>
                       </div>
                       <div class="col-sm-6">
+                        <button class="btn btn-xs btn-default" data-toggle="modal" data-target="#modal-edit-contact">
+                          <i class="fa fa-edit"></i> edit contact
+                        </button>
                         <%= render :partial =>'layouts/contactinfo', :locals => {:user => @user}%>
                       </div>
                       <div class="col-sm-6">
@@ -116,6 +119,7 @@
   <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-lifestyle", :tpl => "lifestyle"} %>
   <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-desire", :tpl => "desire"} %>
   <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-avatar", :tpl => "avatar"} %>
+  <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-contact", :tpl => "contact"} %>
 
 
 
