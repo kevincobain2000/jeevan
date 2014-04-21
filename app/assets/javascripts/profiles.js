@@ -7,14 +7,6 @@ $(document).on("page:change", function() {
   $("[id^=side]").click(function() {
     $("#hidden-" + this.id)[0].click();
   });
-  $(".close-edit-modal").click(function() {
-    $("#hidden-side-myprofile")[0].click();
-  });
-  $(".open-edit-modal").click(function() {
-    reinit_family_range_slider();
-    reinit_desire_range_slider();
-  });
-
 
   selectize_items = {
     home:true,
@@ -145,29 +137,41 @@ $(document).on("page:change", function() {
       plugins: ['remove_button', 'restore_on_backspace']
     },
   };
-  for (name in selectize_items) {
-    options = selectize_items[name];
-    css_id = name.replace(/_/g, "-");
-    val = $('#select-' + css_id).val();
-    if (val) {
-      _ref = val.split(",");
-      for (key in _ref) {
-        value = _ref[key];
-        gon.select_profile_edit_items[name].push({
-          title: value
-        });
-      }
-    }
 
-    if (typeof gon !== 'undefined' && gon.select_profile_edit_items) {
-      obj = $("#select-" + css_id).selectize({
-        maxItems: options.maxItems ? options.maxItems : 1,
-        valueField: options.valueField ? options.valueField : "title",
-        labelField: options.labelField ? options.labelField : "title",
-        searchField: options.searchField ? options.searchField : "title",
-        options: gon.select_profile_edit_items[name],
-        create: options.create ? options.create : false,
-        plugins: options.plugins ? options.plugins : [],
+  $(".close-edit-modal").click(function() {
+    $("#hidden-side-myprofile")[0].click();
+  });
+  $(".open-edit-modal").click(function() {
+    populate_selectize(selectize_items)
+    reinit_family_range_slider();
+    reinit_desire_range_slider();
+  });
+
+  populate_selectize(selectize_items)
+  function populate_selectize(selectize_items) {
+    for (name in selectize_items) {
+      options = selectize_items[name];
+      css_id = name.replace(/_/g, "-");
+      val = $('#select-' + css_id).val();
+      if (val) {
+        _ref = val.split(",");
+        for (key in _ref) {
+          value = _ref[key];
+          gon.select_profile_edit_items[name].push({
+            title: value
+          });
+        }
+      }
+
+      if (typeof gon !== 'undefined' && gon.select_profile_edit_items) {
+        obj = $("#select-" + css_id).selectize({
+          maxItems: options.maxItems ? options.maxItems : 1,
+          valueField: options.valueField ? options.valueField : "title",
+          labelField: options.labelField ? options.labelField : "title",
+          searchField: options.searchField ? options.searchField : "title",
+          options: gon.select_profile_edit_items[name],
+          create: options.create ? options.create : false,
+          plugins: options.plugins ? options.plugins : [],
         // delimeter: options.delimeter ? options.delimeter : ",",
         render: {
           option: function(item, escape) {
@@ -177,6 +181,7 @@ $(document).on("page:change", function() {
           }
         }
       });
+      }
     }
   }
 
@@ -261,24 +266,24 @@ $(document).on("page:change", function() {
 
   function reinit_family_range_slider() {
    $("#family-income-slider").ionRangeSlider({
-      prettify: false,
-      hasGrid: true,
-      onFinish: function(obj) {
-        show_save_button($(".edit"))
-      }
-    });
-  }
-
-  /*-----  End of Set up Sliders  ------*/
-  
-  
-
-  $('.superbox').SuperBox();
-  return $(".superbox-list").click(function() {
-    var currentimg;
-    currentimg = $(this).find(".superbox-img");
-    $("#imageid").attr("value", currentimg.attr("id"));
+    prettify: false,
+    hasGrid: true,
+    onFinish: function(obj) {
+      show_save_button($(".edit"))
+    }
   });
+ }
+
+ /*-----  End of Set up Sliders  ------*/
+
+
+
+ $('.superbox').SuperBox();
+ return $(".superbox-list").click(function() {
+  var currentimg;
+  currentimg = $(this).find(".superbox-img");
+  $("#imageid").attr("value", currentimg.attr("id"));
+});
 
 
   /*=============================
