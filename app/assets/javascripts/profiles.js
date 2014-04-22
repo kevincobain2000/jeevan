@@ -177,7 +177,7 @@ $(document).on("page:change", function() {
           option: function(item, escape) {
             var desc;
             desc = item.desc ? item.desc : "";
-            return '<div> <strong>' + item.title + '</strong><br><small>' + desc + '</small></div>';
+            return '<div>' + item.title + '<br><small>' + desc + '</small></div>';
           }
         }
       });
