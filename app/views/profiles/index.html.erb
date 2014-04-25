@@ -1,10 +1,9 @@
 <div id="main" role="main">
   <%= render :partial =>"layouts/ribbon", :locals => {:papa => "Home", :son => "Explore"} %>
   <!-- MAIN CONTENT -->
-  <div id="content">
-    <div class="row">
-      <!-- <div class="col-sm-12"> -->
-      <div class="col-md-5 col-md-offset-3">
+  <div class="row">
+    <div id="wrapper">
+      <div id="columns">
         <h1>
           <span class="semi-bold">Matching</span>
           Profiles</h1>
@@ -12,7 +11,7 @@
           <%= render :partial =>'layouts/searchsnippets', :locals=>{:user => make_user(user)} %>
         <% end %>
       </div>
+      <%= will_paginate @profiles_paginate_matches, :class =>"flickr_pagination", :param_name => "matches" %>
     </div>
-    <%= will_paginate @profiles_paginate_matches, :class =>"flickr_pagination", :param_name => "matches" %>    
   </div>
 </div>
