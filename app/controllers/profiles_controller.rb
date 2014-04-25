@@ -52,6 +52,13 @@ class ProfilesController < ApplicationController
   end
   def modify_about
     logger.info("Debug #{about_params}")
+    text = about_params[:me].split()
+    text.each do |word| 
+      if word.length > 50
+        # Donot save
+        render json: { :status => 200 }
+      end
+    end
     current_user.about.update(about_params)
     render json: { :status => 200 }
   end
