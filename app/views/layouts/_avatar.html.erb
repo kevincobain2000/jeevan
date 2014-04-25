@@ -5,6 +5,7 @@
   <i class="fa fa-edit"></i> Change Profile Pic
   </button>
   <% end %>
+  <legend></legend>
   <%= render :partial =>'layouts/online', :locals => {:time => user[:updated_at]}%>
   <p class="text-muted font-xs">
     <%= user[:updated_at] %>
