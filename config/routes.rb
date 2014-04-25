@@ -25,7 +25,6 @@ Jeevan::Application.routes.draw do
   end
   resources :explore do
     collection do
-      post :search
     end
   end
 

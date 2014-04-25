@@ -16,7 +16,6 @@ class ProfilesController < ApplicationController
   def edit
   end
 
-
   #-====================================
   #            Edit Profile Page       =
   #=====================================
@@ -234,7 +233,7 @@ class ProfilesController < ApplicationController
   def similar_profiles
     @similar_profiles = Hash.new {|h, k| h[k] = [] }
     visiting_user = User.find(Profile.find(params[:id]).user_id)
-    users = User.where("id <> ? AND devotion = ? AND sex = ?", visiting_user.id, visiting_user.devotion, visiting_user.sex).order('created_at DESC').limit(100)
+    users = User.where("id <> ? AND devotion = ? AND sex = ?", visiting_user.id, visiting_user.devotion, visiting_user.sex).order('created_at DESC').limit(6)
     users.each do |user|
       if ! user.religion.caste.to_s.start_with?(visiting_user.religion.caste.to_s)
         next

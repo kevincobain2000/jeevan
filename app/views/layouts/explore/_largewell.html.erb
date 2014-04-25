@@ -4,8 +4,8 @@
         <h1>
       <span class="semi-bold">Matching</span>
       Profiles</h1>
-    <% paginate.each do |user_id| %>
-     <%= render :partial =>'layouts/searchsnippets', :locals=>{:user => profiles[user_id]} %>
+    <% paginate.each do |user| %>
+     <%= render :partial =>'layouts/searchsnippets', :locals=>{:user => make_user(user)} %>
     <% end %>
     </div>
     <%= will_paginate paginate, :class =>"flickr_pagination", :param_name => param %>

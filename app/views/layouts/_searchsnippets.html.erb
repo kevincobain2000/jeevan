@@ -14,6 +14,7 @@
       ago</small>
   </h6>
   <% if user[:avatar].url.ends_with?("normal/Male.png") || user[:avatar].url.ends_with?("normal/Female.png") %>
+  <%= image_tag user[:avatar].url(:thumb) %>
   <% else %>
     <%= image_tag user[:avatar].url(:thumb) %>
   <% end %>
@@ -46,4 +47,3 @@
   </div>
   <br>
 </div>
-

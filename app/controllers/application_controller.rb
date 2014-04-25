@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
   layout :dirty_layout_hack
   rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
   # protect_from_forgery with: :null_session
+  helper_method :make_user
 
   def make_user(user)
     dob = user.dob.gsub("/","-")
@@ -48,6 +49,7 @@ class ApplicationController < ActionController::Base
     }
     return user_ret;
   end
+
   def calculate_age(birthday)
     Date.today.year - birthday.to_date.year
   end
