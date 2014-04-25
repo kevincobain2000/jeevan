@@ -142,13 +142,26 @@ $(document).on("page:change", function() {
     $("#hidden-side-myprofile")[0].click();
   });
   $(".open-edit-modal").click(function() {
-    populate_selectize(selectize_items)
     reinit_family_range_slider();
     reinit_desire_range_slider();
   });
 
-  populate_selectize(selectize_items)
-  function populate_selectize(selectize_items) {
+
+  get_and_populate_selectize()
+  function get_and_populate_selectize() {
+    $.ajax({
+      url: '/profiles/get_selectize',
+      type: 'POST',
+    })
+    .done(function(data) {
+      select_profile_edit_items = data.data;
+      console.log(data)
+      populate_selectize()
+    })
+  }
+
+
+  function populate_selectize() {
     for (name in selectize_items) {
       options = selectize_items[name];
       css_id = name.replace(/_/g, "-");
@@ -157,32 +170,31 @@ $(document).on("page:change", function() {
         _ref = val.split(",");
         for (key in _ref) {
           value = _ref[key];
-          gon.select_profile_edit_items[name].push({
+          select_profile_edit_items[name].push({
             title: value
           });
         }
       }
 
-      if (typeof gon !== 'undefined' && gon.select_profile_edit_items) {
-        obj = $("#select-" + css_id).selectize({
-          maxItems: options.maxItems ? options.maxItems : 1,
-          valueField: options.valueField ? options.valueField : "title",
-          labelField: options.labelField ? options.labelField : "title",
+      $("#select-" + css_id).selectize({
+          maxItems:    options.maxItems ? options.maxItems : 1,
+          valueField:  options.valueField ? options.valueField : "title",
+          labelField:  options.labelField ? options.labelField : "title",
           searchField: options.searchField ? options.searchField : "title",
-          options: gon.select_profile_edit_items[name],
-          create: options.create ? options.create : false,
-          plugins: options.plugins ? options.plugins : [],
-        // delimeter: options.delimeter ? options.delimeter : ",",
-        render: {
-          option: function(item, escape) {
-            var desc;
-            desc = item.desc ? item.desc : "";
-            return '<div>' + item.title + '<br><small>' + desc + '</small></div>';
-          }
-        }
-      });
-      }
-    }
+          options:     select_profile_edit_items[name],
+          create:      options.create ? options.create : false,
+          plugins:     options.plugins ? options.plugins : [],
+          delimeter:   options.delimeter ? options.delimeter : ",",
+          render: {
+            option: function(item, escape) {
+             var desc;
+             desc = item.desc ? item.desc : "";
+             return '<div>' + item.title + '<br><small>' + desc + '</small></div>';
+           }
+         }
+       });
+     }
+     select_profile_edit_items = null;
   }
 
   $(".phone").inputmask("mask", {

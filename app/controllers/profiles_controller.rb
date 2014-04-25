@@ -141,6 +141,18 @@ class ProfilesController < ApplicationController
     render json: { :status => 200 }
   end
 
+  #==================================
+  #            Ajax Calls
+  #==================================
+
+
+  def get_selectize
+    selectize_yml_path = "#{Rails.root}/app/assets/yaml/selectize/profile/edit/items.yml"
+    select_profile_edit_items = YAML.load_file(selectize_yml_path)
+    render json: { :data => select_profile_edit_items }
+  end
+  #-----  End of Ajax Calls  ------#
+
   protected
 
   def load_gon
