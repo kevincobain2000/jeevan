@@ -12,32 +12,16 @@ class ExploreController < ApplicationController
 
     #-----  Matches  ------
     # @profiles_matches = Hash.new {|h, k| h[k] = [] }
-    # users = User.where.not(sex: current_user.sex).where(devotion: current_user.devotion).order('avatar_updated_at DESC').limit(1000)
+    # users = User.where.not(sex: current_user.sex).where(devotion: current_user.devotion).order('avatar_updated_at DESC').limit(100)
     # users.each do |user|
     #   @profiles_matches[user.id] = make_user(user)
     # end
     # @profiles_paginate_matches = @profiles_matches.keys.paginate(:page => params[:matches], :per_page => 7)
-
-    search
-  end
-
-  def search
-    gon.search = {}
-    gon.search['query'] = params[:query] ? params[:query] : "";
-    users = User.where.not(sex: current_user.sex).where(devotion: current_user.devotion).order('avatar_updated_at DESC').limit(10000)
-
-    search_profiles = []
-    users.each do |user|
-      search_profiles << [render_to_string(:partial => "layouts/searchsnippets", :locals => {:user => make_user(user)})]
-    end
-    gon.search['profiles'] = search_profiles
-    render 'search'
+    @profiles_paginate_matches = User.paginate(:page => params[:page], :per_page => 10)
+    # search
   end
 
   def show
-    if params[:id] == 'search'
-      search
-    end
   end
 
   protected
