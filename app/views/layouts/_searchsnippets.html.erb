@@ -1,4 +1,4 @@
-<div class="search-results pin">
+<div class="pin">
   <h6>
     <%= link_to profile_path(:id => user[:profile][:id]) do %>
       <strong><%= user[:devotion] %>, <%= user[:religion][:caste] %> 
@@ -13,11 +13,13 @@
       <%= user[:updated_at] %>
       ago</small>
   </h6>
-  <% if user[:avatar].url.ends_with?("normal/Male.png") || user[:avatar].url.ends_with?("normal/Female.png") %>
-  <%= image_tag user[:avatar].url(:thumb) %>
-  <% else %>
+  <div class="text-center">
+    <% if user[:avatar].url.ends_with?("normal/Male.png") || user[:avatar].url.ends_with?("normal/Female.png") %>
     <%= image_tag user[:avatar].url(:thumb) %>
-  <% end %>
+    <% else %>
+    <%= image_tag user[:avatar].url(:thumb) %>
+    <% end %>
+  </div>
   <div>
     <p class="note">
       <%= render :partial =>'layouts/shortlistbutton', :locals => {:user => user} %>
