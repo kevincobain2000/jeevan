@@ -4,10 +4,6 @@ class ProfilesController < ApplicationController
   before_filter :get_current_user, only: [:edit]
   before_filter :not_same_sex, :get_showing_user, only: [:show]
 
-  # GET /profiles
-  def index
-  end
-
   # GET /profiles/1
   def show
     touch_visitor
@@ -160,19 +156,7 @@ class ProfilesController < ApplicationController
   #-----  End of Ajax Calls  ------#
 
   def index
-    # Currently the search results are shown as datatables. The other way is to use will_paginate. 
-    # If want to do will_paginate way then uncomment the following Matches and comment the bottom search
-    # Experiment if the datatables are able to handle 10000 records
-
-    #-----  Matches  ------
-    # @profiles_matches = Hash.new {|h, k| h[k] = [] }
-    # users = User.where.not(sex: current_user.sex).where(devotion: current_user.devotion).order('avatar_updated_at DESC').limit(100)
-    # users.each do |user|
-    #   @profiles_matches[user.id] = make_user(user)
-    # end
-    # @profiles_paginate_matches = @profiles_matches.keys.paginate(:page => params[:matches], :per_page => 7)
-    @profiles_paginate_matches = User.paginate(:page => params[:page], :per_page => 10)
-    # search
+    @profiles_paginate_matches = User.where.not(sex: current_user.sex).where(devotion: current_user.devotion).order('avatar_updated_at DESC').paginate(:page => params[:page], :per_page => 10)
   end
 
   protected
@@ -254,16 +238,8 @@ class ProfilesController < ApplicationController
   end
 
   def similar_profiles
-    @similar_profiles = Hash.new {|h, k| h[k] = [] }
     visiting_user = User.find(Profile.find(params[:id]).user_id)
-    users = User.where("id <> ? AND devotion = ? AND sex = ?", visiting_user.id, visiting_user.devotion, visiting_user.sex).order('created_at DESC').limit(6)
-    users.each do |user|
-      if ! user.religion.caste.to_s.start_with?(visiting_user.religion.caste.to_s)
-        next
-      end
-      @similar_profiles[user.id] = make_user(user)
-    end
-    @similar_profiles_paginate = @similar_profiles.keys.paginate(:page => params[:page], :per_page => 6) # 6 is a good number
+    @similar_profiles_paginate = User.where("id <> ? AND devotion = ? AND sex = ?", visiting_user.id, visiting_user.devotion, visiting_user.sex).take(20).paginate(:page => params[:page], :per_page => 6) # 6 is a good number
   end
 
 end
