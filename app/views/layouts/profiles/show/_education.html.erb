@@ -1,4 +1,11 @@
-<h6 class="error-text-3 font-lg"><strong>Education</strong></h6><% categories = {'school' => "fa fa-superscript", 'grad_college' => "fa fa-map-marker", 'graduation' => "fa fa-book", 'post_grad' => "fa fa-flask", 'post_grad_college' => "fa fa-map-marker", 'highest_degree' => "fa fa-bookmark"} %>
+<h3>Education
+<% if  current_user.profile.id == @user[:profile][:id] %>
+	<button class="btn btn-xs btn-default" data-toggle="modal" data-target="#modal-edit-education">
+		<i class="fa fa-edit"></i> edit
+</button>
+<% end %>
+</h3>
+<% categories = {'school' => "fa fa-superscript", 'grad_college' => "fa fa-map-marker", 'graduation' => "fa fa-book", 'post_grad' => "fa fa-flask", 'post_grad_college' => "fa fa-map-marker", 'highest_degree' => "fa fa-bookmark"} %>
 <dl class="dl-horizontal">
   <% categories.each do |category, icon| %>
   <% icon = "fa fa-angle-right" %>

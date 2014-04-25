@@ -9,7 +9,9 @@ class ApplicationController < ActionController::Base
   after_filter :user_activity
   helper_method :make_user
   layout :dirty_layout_hack
+  rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
   # protect_from_forgery with: :null_session
+  helper_method :make_user
 
   def make_user(user)
     dob = user.dob.gsub("/","-")
@@ -18,7 +20,7 @@ class ApplicationController < ActionController::Base
     in_response  = Interest.where(to_user_id: current_user.id, user_id: user.id).first
     out_response = Interest.where(user_id: current_user.id, to_user_id: user.id).first
 
-    name = show_name_to_accepted(in_response, out_response) ? user[:name] : "name showed on acceptance"
+    name = show_name_to_accepted(in_response, out_response) ? user[:name] : "name upon acceptance"
 
     user_ret = {
       id:         user.id,
@@ -47,6 +49,7 @@ class ApplicationController < ActionController::Base
     }
     return user_ret;
   end
+
   def calculate_age(birthday)
     Date.today.year - birthday.to_date.year
   end
@@ -102,5 +105,8 @@ class ApplicationController < ActionController::Base
     if controller_name == "registrations" && action_name == "edit"
       return false
     end
+  end
+  def record_not_found
+    redirect_to root_path
   end
 end

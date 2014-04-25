@@ -1,0 +1,49 @@
+<div class="search-results pin">
+  <h6>
+    <%= link_to profile_path(:id => user[:profile][:id]) do %>
+      <strong><%= user[:devotion] %>, <%= user[:religion][:caste] %> 
+        <%= user[:age] %></strong>
+      years old
+    <% end %>
+    <i class="fa fa-caret-right fa-lg"></i>
+    Profile Id:
+    <%= user[:profile][:id] %>
+    <%= render :partial =>'layouts/online', :locals => {:time => user[:updated_at]}%>
+    <small class="text-muted">Last online
+      <%= user[:updated_at] %>
+      ago</small>
+  </h6>
+  <% if user[:avatar].url.ends_with?("normal/Male.png") || user[:avatar].url.ends_with?("normal/Female.png") %>
+  <%= image_tag user[:avatar].url(:thumb) %>
+  <% else %>
+    <%= image_tag user[:avatar].url(:thumb) %>
+  <% end %>
+  <div>
+    <p class="note">
+      <%= render :partial =>'layouts/shortlistbutton', :locals => {:user => user} %>
+    </p>
+    <p class="description">
+      <span class="text-muted">Home <i class="fa fa-angle-right"></i> </span><strong><%= user[:profile][:home] %></strong> <br>
+      <span class="text-muted">Images <i class="fa fa-angle-right"></i> </span><strong><%= user[:image].count %></strong> <br>
+      <span class="text-muted">Caste <i class="fa fa-angle-right"></i> </span><strong><%= user[:religion][:caste] %></strong> <br>
+      <span class="text-muted">Religion <i class="fa fa-angle-right"></i> </span><strong><%= user[:devotion] %></strong> <br>
+      <span class="text-muted">Date of Birth <i class="fa fa-angle-right"></i> </span><strong><%= user[:dob] %></strong> <br>
+      <span class="text-muted">Total Profile Views <i class="fa fa-angle-right"></i> </span><strong><%= number_with_delimiter(user[:visitors].to_i, :delimeter => ',') %></strong>
+    </p>
+  </div>
+  <% if user[:about][:me] %>
+  <br>
+  <span class="text-muted"><i class="fa fa-file"></i> More About <%= (user[:sex] == "Female")? "Her": "Him" %> </span><i class="fa fa-angle-right"></i> 
+  <div class="hidden-xs">
+    <span><%= raw truncate(user[:about][:me], length:500, escape:false) %></span> <br>
+  </div>
+  <% end %>
+  <br>
+  <div class="pull-right">
+    <%#= render :partial =>'layouts/interestbutton', :locals => {:user => user} %>
+    <%= link_to profile_path(:id => user[:profile][:id]) do %>
+    Show Full Profile
+    <% end %>
+  </div>
+  <br>
+</div>

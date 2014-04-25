@@ -20,12 +20,6 @@
           <%= @user[:profile]['id'] %>
         </h1>
       </div>
-      <div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
-        <%= link_to explore_path(:id =>'search'), :class=>"btn btn-default pull-right" do %>
-          <i class="fa fa-file"></i>
-          Explore More
-        <% end %>
-      </div>
     </div>
     <!-- end row -->
     <div class="row">
@@ -40,10 +34,19 @@
                     <div class="col-sm-12 col-md-12 col-lg-12">
                       <div class="col-sm-6">
                         <%= render :partial =>'layouts/avatar', :locals => {:user => @user}%>
+                      </div>
+                      <div class="col-sm-6">
                         <%= render :partial =>'layouts/cardinfo', :locals => {:user => @user}%>
                       </div>
                       <div class="col-sm-6">
+                      <% if  current_user.profile.id == @user[:profile][:id] %>
+                        <button class="btn btn-xs btn-default" data-toggle="modal" data-target="#modal-edit-contact">
+                          <i class="fa fa-edit"></i> edit contact
+                        </button>
+                        <% end %>
                         <%= render :partial =>'layouts/contactinfo', :locals => {:user => @user}%>
+                      </div>
+                      <div class="col-sm-6">
                         <legend></legend>
                         <%= render :partial =>'layouts/interestbutton', :locals => {:user => @user}%>
                         <legend></legend>
@@ -56,10 +59,21 @@
           </div>
         </div>
         <div class="row">
+        <article class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
+          <% if current_user.profile.id == @user[:profile][:id] %>
+          <button class="btn btn-primary btn-xs pull-right" data-toggle="modal" data-target="#modal-edit-images">
+            <i class="fa fa-edit"></i> Upload Images
+          </button>
+          <% end %>
+        </article>
           <article class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
-            <h6 class="error-text-2 font-lg">About
-              <strong>
-                Me</strong></h6>
+            <h3>About
+              <% if  current_user.profile.id == @user[:profile][:id] %>
+              <button class="btn btn-xs btn-default" data-toggle="modal" data-target="#modal-edit-about">
+                <i class="fa fa-edit"></i> edit
+              </button>
+              <% end %>
+            </h3>
             <div class="wordwrap">
               <%= raw truncate(@user[:about][:me], length:500, escape:false) %>
             </div>
@@ -94,3 +108,17 @@
   </div>
   <!-- END MAIN CONTENT -->
 </div>
+
+
+<!-- Modals -->
+  <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-about", :tpl => "aboutme"} %>
+  <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-images", :tpl => "images"} %>
+  <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-religion", :tpl => "religion"} %>
+  <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-kundali", :tpl => "kundali"} %>
+  <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-education", :tpl => "education"} %>
+  <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-family", :tpl => "family"} %>
+  <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-hobby", :tpl => "hobby"} %>
+  <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-lifestyle", :tpl => "lifestyle"} %>
+  <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-desire", :tpl => "desire"} %>
+  <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-avatar", :tpl => "avatar"} %>
+  <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-contact", :tpl => "contact"} %>
