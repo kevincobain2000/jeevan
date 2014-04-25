@@ -27,13 +27,17 @@ Jeevan::Application.routes.draw do
     collection do
     end
   end
+  resources :profile do
+    collection do
+    end
+  end
 
   get "home/index"
   resources :dashboard
   resources :contact
   # devise_for :users
   authenticated :user do
-    root :to => 'explore#index', :as => :authenticated_root
+    root :to => 'profiles#index', :as => :authenticated_root
   end
   devise_for :users, :controllers => { :registrations => "registrations", :sessions => "sessions" }
 
