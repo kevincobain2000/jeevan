@@ -5,28 +5,29 @@
     <h6 class="txt-color-green">More Matching Profiles <i class="fa fa-exclamation"></i> <br><small>A few profiles that match this profile's description</small> </h6>
     <hr>
       <ul class="list-inline friends-list">
-        <% @similar_profiles_paginate.each do |user_id| %>
+        <% @similar_profiles_paginate.each do |_user| %>
+        <% user = make_user(_user) %>
           <li class="friends-list">
             <dl class="dl-horizontal">
-            	<dt><%= @similar_profiles[user_id][:image].count %> Images</dt>
-            	<dd><%= image_tag @similar_profiles[user_id][:avatar].url(:thumb) %></dd>
+              <dt><%= user[:image].count %> Images</dt>
+              <dd><%= image_tag user[:avatar].url(:thumb) %></dd>
 
-            	<dt>Age:</dt>
-            	<dd><strong class="txt-color-blue"><%= truncate( titleize(@similar_profiles[user_id][:age]), length: 10) %></strong> <span class="text-muted"></span></dd>
+              <dt>Age:</dt>
+              <dd><strong class="txt-color-blue"><%= truncate( titleize(user[:age]), length: 10) %></strong> <span class="text-muted"></span></dd>
 
-            	<dt>Name:</dt>
-            	<dd><strong class="txt-color-green"><%= truncate(titleize(@similar_profiles[user_id][:name]), length: 10) %></strong></dd>
+              <dt>Name:</dt>
+              <dd><strong class="txt-color-green"><%= truncate(titleize(user[:name]), length: 10) %></strong></dd>
 
-            	<dt>Caste:</dt>
-            	<dd><strong class="txt-color-blue"><%= truncate( titleize(@similar_profiles[user_id][:religion][:caste]), length: 10) %></strong></dd>
+              <dt>Caste:</dt>
+              <dd><strong class="txt-color-blue"><%= truncate( titleize(user[:religion][:caste]), length: 10) %></strong></dd>
 
-            	<dt>Last Online:</dt>
-            	<dd><strong class="txt-color-green"><%= truncate(titleize(@similar_profiles[user_id][:updated_at]), length: 10) %></strong> <span class="text-muted">ago</span></dd>
+              <dt>Last Online:</dt>
+              <dd><strong class="txt-color-green"><%= truncate(titleize(user[:updated_at]), length: 10) %></strong> <span class="text-muted">ago</span></dd>
 
             </dl>
           </li>
           <br>
-          <%= link_to profile_path(:id =>@similar_profiles[user_id][:profile][:id]), :class=>"btn btn-primary btn-xs pull-right" do %>
+          <%= link_to profile_path(:id =>user[:profile][:id]), :class=>"btn btn-primary btn-xs pull-right" do %>
           <i class="fa fa-eye"></i> Show Profile
           <% end %>
           <legend></legend>

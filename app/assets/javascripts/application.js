@@ -36,16 +36,16 @@
 
 
 $(document).ready(function($) {
-	$("#header-search").click(function(event) {
-		console.log("asd");
-		$(this).animate({'width': '400px'}, 'medium');
-		$(this).focus();
-	});
+	// $("#header-search").click(function(event) {
+	// 	console.log("asd");
+	// 	$(this).animate({'width': '400px'}, 'medium');
+	// 	$(this).focus();
+	// });
 
-	$("#header-search").blur(function(event) {
-		$(this).animate({'width': '100px'}, 'medium');
-		$(this).focus();
-	});
+	// $("#header-search").blur(function(event) {
+	// 	$(this).animate({'width': '100px'}, 'medium');
+	// 	$(this).focus();
+	// });
 
 
 });

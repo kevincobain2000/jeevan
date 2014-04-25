@@ -5,8 +5,9 @@ $(document).on("page:change", function() {
   // pageSetUp();
 
   $("[id^=side]").click(function() {
-    return $("#hidden-" + this.id)[0].click();
+    $("#hidden-" + this.id)[0].click();
   });
+
   selectize_items = {
     home:true,
     religion: true,
@@ -136,39 +137,64 @@ $(document).on("page:change", function() {
       plugins: ['remove_button', 'restore_on_backspace']
     },
   };
-  for (name in selectize_items) {
-    options = selectize_items[name];
-    css_id = name.replace(/_/g, "-");
-    val = $('#select-' + css_id).val();
-    if (val) {
-      _ref = val.split(",");
-      for (key in _ref) {
-        value = _ref[key];
-        gon.select_profile_edit_items[name].push({
-          title: value
-        });
-      }
-    }
 
-    if (typeof gon !== 'undefined' && gon.select_profile_edit_items) {
-      obj = $("#select-" + css_id).selectize({
-        maxItems: options.maxItems ? options.maxItems : 1,
-        valueField: options.valueField ? options.valueField : "title",
-        labelField: options.labelField ? options.labelField : "title",
-        searchField: options.searchField ? options.searchField : "title",
-        options: gon.select_profile_edit_items[name],
-        create: options.create ? options.create : false,
-        plugins: options.plugins ? options.plugins : [],
-        // delimeter: options.delimeter ? options.delimeter : ",",
-        render: {
-          option: function(item, escape) {
-            var desc;
-            desc = item.desc ? item.desc : "";
-            return '<div> <strong>' + item.title + '</strong><br><small>' + desc + '</small></div>';
-          }
+  $(".close-edit-modal").click(function() {
+    $("#hidden-side-myprofile")[0].click();
+  });
+  $(".open-edit-modal").click(function() {
+    reinit_family_range_slider();
+    reinit_desire_range_slider();
+  });
+
+
+  get_and_populate_selectize()
+  function get_and_populate_selectize() {
+    $.ajax({
+      url: '/profiles/get_selectize',
+      type: 'POST',
+    })
+    .done(function(data) {
+      select_profile_edit_items = data.data;
+      console.log(data)
+      populate_selectize()
+    })
+  }
+
+
+  function populate_selectize() {
+    for (name in selectize_items) {
+      options = selectize_items[name];
+      css_id = name.replace(/_/g, "-");
+      val = $('#select-' + css_id).val();
+      if (val) {
+        _ref = val.split(",");
+        for (key in _ref) {
+          value = _ref[key];
+          select_profile_edit_items[name].push({
+            title: value
+          });
         }
-      });
-    }
+      }
+
+      $("#select-" + css_id).selectize({
+          maxItems:    options.maxItems ? options.maxItems : 1,
+          valueField:  options.valueField ? options.valueField : "title",
+          labelField:  options.labelField ? options.labelField : "title",
+          searchField: options.searchField ? options.searchField : "title",
+          options:     select_profile_edit_items[name],
+          create:      options.create ? options.create : false,
+          plugins:     options.plugins ? options.plugins : [],
+          delimeter:   options.delimeter ? options.delimeter : ",",
+          render: {
+            option: function(item, escape) {
+             var desc;
+             desc = item.desc ? item.desc : "";
+             return '<div>' + item.title + '<br><small>' + desc + '</small></div>';
+           }
+         }
+       });
+     }
+     select_profile_edit_items = null;
   }
 
   $(".phone").inputmask("mask", {
@@ -219,6 +245,10 @@ $(document).on("page:change", function() {
   #=            Set up Sliders
   #======================================*/
   $("#tab-desire").click(function(e) {
+    reinit_desire_range_slider();
+  });
+
+  function reinit_desire_range_slider() {
     $("#desired-income-slider").ionRangeSlider({
       prettify: false,
       hasGrid: true,
@@ -233,34 +263,39 @@ $(document).on("page:change", function() {
         show_save_button($(".edit"))
       }
     });
-    return $("#desired-age-slider").ionRangeSlider({
+    $("#desired-age-slider").ionRangeSlider({
       prettify: false,
       hasGrid: true,
       onFinish: function(obj) {
         show_save_button($(".edit"))
       }
     });
-  });
+  }
+
   $("#tab-family").click(function(e) {
-    return $("#family-income-slider").ionRangeSlider({
-      prettify: false,
-      hasGrid: true,
-      onFinish: function(obj) {
-        show_save_button($(".edit"))
-      }
-    });
+    reinit_family_range_slider();
   });
 
-  /*-----  End of Set up Sliders  ------*/
-  
-  
-
-  $('.superbox').SuperBox();
-  return $(".superbox-list").click(function() {
-    var currentimg;
-    currentimg = $(this).find(".superbox-img");
-    $("#imageid").attr("value", currentimg.attr("id"));
+  function reinit_family_range_slider() {
+   $("#family-income-slider").ionRangeSlider({
+    prettify: false,
+    hasGrid: true,
+    onFinish: function(obj) {
+      show_save_button($(".edit"))
+    }
   });
+ }
+
+ /*-----  End of Set up Sliders  ------*/
+
+
+
+ $('.superbox').SuperBox();
+ return $(".superbox-list").click(function() {
+  var currentimg;
+  currentimg = $(this).find(".superbox-img");
+  $("#imageid").attr("value", currentimg.attr("id"));
+});
 
 
   /*=============================

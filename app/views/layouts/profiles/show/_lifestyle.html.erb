@@ -1,4 +1,11 @@
-<h6 class="error-text-3 font-lg"><strong>My Life</strong><i>Style</i></h6><% categories = {'diet' => "fa fa-leaf", 'smoke' => "fa fa-times", 'drink' => "fa fa-beer", 'complexion' => "fa fa-smile-o", 'body' => "fa fa-female", 'challenged' => "fa fa-wheelchair", 'blood' => "fa fa-medkit", 'weight' => "fa fa-male", 'residence' => "fa fa-globe", 'own_house' => "fa fa-home", 'own_car' => "fa fa-truck", 'language' => "fa fa-globe", 'pet' => "fa fa-heart", 'hiv' => "fa fa-exclamation"} %>
+<h3>My Lifestyle
+<% if current_user.profile.id == @user[:profile][:id] %>
+  <button class="btn btn-xs btn-default" data-toggle="modal" data-target="#modal-edit-lifestyle">
+    <i class="fa fa-edit"></i> edit
+</button>
+<% end %>
+</h3>
+<% categories = {'diet' => "fa fa-leaf", 'smoke' => "fa fa-times", 'drink' => "fa fa-beer", 'complexion' => "fa fa-smile-o", 'blood' => "fa fa-medkit", 'height' => "fa fa-male",'weight' => "fa fa-male", 'own_house' => "fa fa-home", 'own_car' => "fa fa-truck", 'pet' => "fa fa-heart"} %>
 <dl class="dl-horizontal">
   <% categories.each do |category, icon| %>
   <% icon = "fa fa-angle-right" %>

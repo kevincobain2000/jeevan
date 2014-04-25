@@ -143,13 +143,10 @@ ActiveRecord::Schema.define(version: 20140331134717) do
     t.string   "smoke"
     t.string   "drink"
     t.string   "complexion"
-    t.string   "body"
-    t.string   "challenged", limit: 4
     t.string   "blood",      limit: 4
     t.string   "weight",     limit: 4
     t.string   "own_house",  limit: 64
     t.string   "own_car",    limit: 64
-    t.text     "language"
     t.string   "pet",        limit: 64
     t.string   "hiv",        limit: 4
     t.string   "height",     limit: 4

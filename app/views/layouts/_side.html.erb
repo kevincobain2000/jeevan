@@ -1,6 +1,6 @@
 <!-- Left panel : Navigation area -->
 <%= link_to "Show", root_path, :id=>"hidden-side-explore", :class=>"hidden" %>
-<%= link_to "Show", explore_path(:id => 'search'), :id=>"hidden-side-search", :class=>"hidden" %>
+<%= link_to "Show", profiles_path, :id=>"hidden-side-search", :class=>"hidden" %>
 <%= link_to "Show", dashboard_index_path, :id=>"hidden-side-dashboard", :class=>"hidden" %>
 <%= link_to "Edit", edit_profile_path(:id =>current_user.profile.id), :id=>"hidden-side-edit", :class=>"hidden" %>
 <%= link_to "Show", profile_path(:id =>current_user.profile.id), :id=>"hidden-side-myprofile", :class=>"hidden" %>
@@ -38,22 +38,22 @@
         traditional hre="" links. See documentation for details.
         -->
   <ul>
-    <li>
+<!--     <li>
       <a href="" id="side-explore">
         <i class="fa fa-lg fa-fw fa-copy"></i>
         <span class="menu-item-parent">Explore</span>
       </a>
-    </li>
+    </li> -->
     <li>
       <a href="" id="side-search">
         <i class="fa fa-lg fa-fw fa-search"></i>
-        <span class="menu-item-parent">Search</span>
+        <span class="menu-item-parent">Explore Profiles</span>
       </a>
     </li>
     <li>
       <a href="" id="side-dashboard">
         <i class="fa fa-lg fa-fw fa-dashboard"></i>
-        <span class="menu-item-parent">Dashboard</span>
+        <span class="menu-item-parent">My History</span>
       </a>
     </li>
     <li>
@@ -71,7 +71,7 @@
     <li>
       <a href="javascript:void(0);" id="side-connect">
         <i class="fa fa-lg fa-fw fa-link"></i>
-        <span class="menu-item-parent">Connect</span>
+        <span class="menu-item-parent">Connect with Us</span>
       </a>
     </li>
   </ul>
