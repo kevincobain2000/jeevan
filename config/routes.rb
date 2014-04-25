@@ -19,11 +19,16 @@ Jeevan::Application.routes.draw do
       post :interest_response
       post :shortlist
       post :seen_notification
+      #ajax
+      post :get_selectize
     end
   end
   resources :explore do
     collection do
-      post :search
+    end
+  end
+  resources :profile do
+    collection do
     end
   end
 
@@ -32,13 +37,13 @@ Jeevan::Application.routes.draw do
   resources :contact
   # devise_for :users
   authenticated :user do
-    root :to => 'explore#index', :as => :authenticated_root
+    root :to => 'profiles#index', :as => :authenticated_root
   end
   devise_for :users, :controllers => { :registrations => "registrations", :sessions => "sessions" }
 
   root :to => redirect('/users/sign_in')
 
   if Rails.env.production?
-    get '*path' => redirect('/contact')
+    get '*path' => redirect('/')
   end
 end

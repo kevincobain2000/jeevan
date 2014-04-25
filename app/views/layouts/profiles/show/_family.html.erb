@@ -1,4 +1,10 @@
-<h6 class="error-text-3 font-lg"><strong>Family</strong></h6>
+<h3>Family
+<% if  current_user.profile.id == @user[:profile][:id] %>
+	<button class="btn btn-xs btn-default" data-toggle="modal" data-target="#modal-edit-family">
+		<i class="fa fa-edit"></i> edit
+</button>
+<% end %>
+</h3>
 <% categories = {'values' => nil, 'size' => nil, 'status' => nil, 'family_income' => "Lacs", 'father' => nil, 'mother' => nil, 'brother' => nil, 'sister' => nil, 'profile_handler' => nil} %>
 <dl class="dl-horizontal">
   <% categories.each do |category, post_fix| %>

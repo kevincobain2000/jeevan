@@ -11,7 +11,6 @@ class User < ActiveRecord::Base
 
 
   include Paperclip::Glue
-  # has_attached_file :avatar, :styles => {:original => "200x200#", :thumb => "100x100#", :mini => "25x25#", :tiny => "50x50#" }, :default_url => "/images/normal/missing.png"
   has_attached_file :avatar, :styles => {:original => "200x200#", :thumb => "100x100#", :mini => "25x25#", :tiny => "50x50#" }, :default_url => :default_url_by_gender
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   def default_url_by_gender
