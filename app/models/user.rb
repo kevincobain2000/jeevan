@@ -11,6 +11,12 @@ class User < ActiveRecord::Base
 
   delegate :posted_by, to: :profile
   delegate :mother_tongue,:caste,:native_place, to: :religion
+  delegate :birth_country,:birth_city,:sun_sign, to: :kundali
+  delegate :complexion,:blood, to: :lifestyle
+  delegate :me, to: :about
+  delegate :status,:size, to: :family
+  delegate :highest_degree, to: :education
+  delegate :interest,:music, :read,:dress, :tv,:movie, :sport,:vacation, to: :hobby
 
   include Paperclip::Glue
   has_attached_file :avatar, :styles => {:original => "200x200#", :thumb => "100x100#", :mini => "25x25#", :tiny => "50x50#" }, :default_url => :default_url_by_gender
@@ -40,6 +46,13 @@ class User < ActiveRecord::Base
   searchable do
     text :posted_by
     text :mother_tongue, :caste, :native_place
+    text :birth_country,:birth_city,:sun_sign
+    text :complexion,:blood
+    text :me
+    text :status,:size
+    text :highest_degree
+    text :interest, :music, :read,:dress, :tv,:movie, :sport,:vacation
+    string :sex
   end
 
   # after_touch :index # do something
