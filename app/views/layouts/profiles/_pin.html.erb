@@ -1,0 +1,17 @@
+<div id="main" role="main">
+  <%= render :partial =>"layouts/ribbon", :locals => {:papa => "Home", :son => "Explore"} %>
+  <!-- MAIN CONTENT -->
+  <div id="content">
+    <!-- <div id="wrapper"> -->
+      <h1>
+        <span class="semi-bold"><%= h %></span>
+        <%= hsm %></h1>
+      <div id="columns">
+        <% paginate.each do |user| %>
+          <%= render :partial =>'layouts/searchsnippets', :locals=>{:user => make_user(user)} %>
+        <% end %>
+      </div>
+      <%= will_paginate paginate, :class =>"flickr_pagination"%>
+    <!-- </div> -->
+  </div>
+</div>
