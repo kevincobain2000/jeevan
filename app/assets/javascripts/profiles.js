@@ -1,5 +1,6 @@
 $(document).on("page:change", function() {
-  // pageSetUp();
+  $( "#tabs" ).tabs();
+  pageSetUp();
 
   $("[id^=side]").click(function() {
     $("#hidden-" + this.id)[0].click();
@@ -139,8 +140,8 @@ $(document).on("page:change", function() {
     $("#hidden-side-myprofile")[0].click();
   });
   $(".open-edit-modal").click(function() {
-    reinit_family_range_slider();
-    reinit_desire_range_slider();
+    // reinit_family_range_slider();
+    // reinit_desire_range_slider();
   });
 
 
@@ -220,8 +221,12 @@ $(document).on("page:change", function() {
 
   $('form.edit').submit(function() {
     $(this).find(':submit').html('<i class="fa fa-check"></i>Done!');
+  });
+
+  $('.superbox').on('click', '.removeimage', function() {
     remove_image();
   });
+
 
   function remove_image () {
     // For deleting images
@@ -314,11 +319,6 @@ $(document).on("page:change", function() {
 $(document).ready(function($) {
   Dropzone.autoDiscover = false;
   $(".dropzone").dropzone({
-    init: function() {}
-  });
-
-  Dropzone.options.myDropzone = {
-    dictDefaultMessage: '<div class="hero" style="height:500px;"><h2>Drag & Drop</h2><p>or click to upload images</p></div>',
     paramName: "avatar",
     maxFilesize: 2,
     addRemoveLinks: false,
@@ -326,9 +326,8 @@ $(document).ready(function($) {
     thumbnailWidth: 300,
     thumbnailHeight: 300,
     init: function() {
-      return this.on('addedfile', function(file) {
-        console.log("file uploaded")
-      });
+      this.on('success', function(file){
+      })
     }
-  };
+  });
 });
