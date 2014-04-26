@@ -289,10 +289,10 @@ $(document).on("page:change", function() {
  /*-----  End of Set up Sliders  ------*/
 
  $('.superbox').SuperBox();
-   $(".superbox-list").click(function() {
-    var currentimg;
-    currentimg = $(this).find(".superbox-img");
-    $("#imageid").attr("value", currentimg.attr("id"));
+ $(".superbox-list").click(function() {
+  var currentimg;
+  currentimg = $(this).find(".superbox-img");
+  $("#imageid").attr("value", currentimg.attr("id"));
   });
 
 
