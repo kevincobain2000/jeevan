@@ -185,7 +185,12 @@ class ProfilesController < ApplicationController
 
   def search
     query_string = params[:query]
-    render json: { :data => 100 }
+    query_string = "Self"
+    @solr = User.search do
+      fulltext query_string
+      paginate :page => params[:page], :per_page => 12
+    end
+    @search = @solr.results
   end
 
   def similar_profiles

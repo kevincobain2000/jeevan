@@ -68,6 +68,7 @@ GEM
     execjs (2.0.2)
     font-awesome-sass (4.0.3)
       sass (~> 3.2)
+    highline (1.6.21)
     hike (1.2.3)
     i18n (0.6.9)
     jbuilder (1.5.3)
@@ -97,12 +98,16 @@ GEM
       treetop (~> 1.4.8)
     method_source (0.8.2)
     mime-types (1.25.1)
+    mini_portile (0.5.3)
     minitest (4.7.5)
     multi_json (1.8.4)
     mysql2 (0.3.15)
     nilify_blanks (1.0.3)
       activerecord (>= 3.0.0)
       activesupport (>= 3.0.0)
+    nokogiri (1.6.1)
+      mini_portile (~> 0.5.0)
+    options (2.3.2)
     orm_adapter (0.5.0)
     paperclip (3.4.2)
       activemodel (>= 3.0.0)
@@ -113,6 +118,10 @@ GEM
     parsley-rails (1.2.3.0)
       railties (>= 3.0.0)
     polyglot (0.3.3)
+    pr_geohash (1.0.0)
+    progress_bar (1.0.0)
+      highline (~> 1.6.1)
+      options (~> 2.3.0)
     pry (0.9.12.6)
       coderay (~> 1.0)
       method_source (~> 0.8)
@@ -142,6 +151,8 @@ GEM
       json (~> 1.4)
     ref (1.0.5)
     remotipart (1.2.1)
+    rsolr (1.0.10)
+      builder (>= 2.1.2)
     sass (3.2.14)
     sass-rails (4.0.1)
       railties (>= 4.0.0, < 5.0)
@@ -161,6 +172,14 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+    sunspot (2.1.0)
+      pr_geohash (~> 1.0)
+      rsolr (~> 1.0.7)
+    sunspot_rails (2.1.0)
+      nokogiri
+      rails (>= 3)
+      sunspot (= 2.1.0)
+    sunspot_solr (2.1.0)
     tapp (1.4.0)
       thor
     therubyracer (0.12.1)
@@ -213,6 +232,7 @@ DEPENDENCIES
   nilify_blanks
   paperclip (~> 3.0)
   parsley-rails
+  progress_bar
   pry-rails
   quiet_assets
   rails (= 4.0.2)
@@ -220,6 +240,8 @@ DEPENDENCIES
   sass-rails (~> 4.0.0)
   sdoc
   selectize-rails
+  sunspot_rails
+  sunspot_solr
   tapp
   therubyracer
   turbolinks

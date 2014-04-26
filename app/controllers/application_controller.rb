@@ -28,6 +28,7 @@ class ApplicationController < ActionController::Base
       age:        age,
       name:       titleize(truncate(name)),
       updated_at: time_ago_in_words(user.updated_at),
+      created_at: time_ago_in_words(user.created_at),
       sex:        titleize(user.sex),
       visitors:   number_with_delimiter(Visitor.where(viewed_id: user.id).count),
       profile:    user.profile,
