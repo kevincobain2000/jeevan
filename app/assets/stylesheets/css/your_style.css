@@ -289,14 +289,14 @@
 }
 
 #columns {
-  -webkit-column-count: 4;
-  -webkit-column-gap: 30px;
+  -webkit-column-count: 5;
+  -webkit-column-gap: 10px;
   -webkit-column-fill: auto;
-  -moz-column-count: 4;
-  -moz-column-gap: 30px;
+  -moz-column-count: 5;
+  -moz-column-gap: 10px;
   -moz-column-fill: auto;
-  column-count: 4;
-  column-gap: 45px;
+  column-count: 5;
+  column-gap: 10px;
   column-fill: auto;
 }
 
@@ -319,7 +319,7 @@
     -moz-column-break-inside: avoid;
     column-break-inside: avoid;
     padding: 3px;
-    padding-bottom: 5px;
+    padding-bottom: 15px;
     background: -webkit-linear-gradient(45deg, #FFF, #F9F9F9);
     opacity: 1;
     -webkit-transition: all .2s ease;

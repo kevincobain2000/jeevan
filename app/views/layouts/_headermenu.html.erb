@@ -35,7 +35,7 @@
         </li>
         <li class="col-sm-3">
           <ul>
-            <li class="dropdown-header">Dashboard</li>
+            <li class="dropdown-header">Activity</li>
             <li>
               <%= link_to visitors_profiles_path do %>
               My Profile Visitors
@@ -54,6 +54,11 @@
             <li>
               <%= link_to outgoings_profiles_path do %>
               My Interests Responses
+              <% end %>
+            </li>
+            <li>
+              <%= link_to accepted_profiles_path do %>
+              <strong>Accepted !</strong>
               <% end %>
             </li>
           </ul>
