@@ -1,7 +1,7 @@
 <% if  current_user.id != user[:id] && user[:out_response].nil? && user[:in_response].nil? %>
   <%= form_tag({:action=>'interest', :controller => "profiles"}, :remote => true, :class => "smart-form") do %>
     <%= hidden_field_tag 'to_user_id', user[:id] %>
-    <button class="btn txt-color-white bg-color-pinkDark btn-sm interest" type="submit">
+    <button class="btn txt-color-white bg-color-pinkDark btn-xs interest" type="submit">
       <i class="fa fa-link"></i>
        Express Interest
     </button>
@@ -28,7 +28,7 @@
 <% if  current_user.id != user[:id] && !user[:in_response].nil? && user[:in_response].response.nil? %>
   <%= form_tag({:action=>'interest_response', :controller => "profiles"}, :remote => true, :class => "smart-form") do %>
     <%= hidden_field_tag 'to_user_id', user[:id] %>
-    <button class="btn txt-color-white bg-color-pinkDark btn-sm interest" name="commit" value="Accept" type="submit">
+    <button class="btn txt-color-white bg-color-pinkDark btn-xs interest" name="commit" value="Accept" type="submit">
       <i class="fa fa-check"></i>
       Accept
     </button>
