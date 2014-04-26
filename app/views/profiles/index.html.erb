@@ -1,12 +1,12 @@
 <div id="main" role="main">
   <%= render :partial =>"layouts/ribbon", :locals => {:papa => "Home", :son => "Explore"} %>
   <!-- MAIN CONTENT -->
-  <div class="row">
+  <div id="content">
     <div id="wrapper">
+      <h1>
+        <span class="semi-bold">Matching</span>
+        Profiles</h1>
       <div id="columns">
-        <h1>
-          <span class="semi-bold">Matching</span>
-          Profiles</h1>
         <% @profiles_paginate_matches.each do |user| %>
           <%= render :partial =>'layouts/searchsnippets', :locals=>{:user => make_user(user)} %>
         <% end %>
