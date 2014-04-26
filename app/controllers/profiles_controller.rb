@@ -179,7 +179,7 @@ class ProfilesController < ApplicationController
     @shortlists = User.find(shortlists).paginate(:page => params[:page], :per_page => 10)
   end
   def accepted
-    accepted = Interest.where("user_id = ? AND response <> ?", 1, current_user.id).pluck(:user_id)
+    accepted = Interest.where("user_id = ? AND response = ?", current_user.id, 1).pluck(:user_id)
     @accepted = User.find(accepted).paginate(:page => params[:page], :per_page => 10)
   end
 
@@ -205,7 +205,7 @@ class ProfilesController < ApplicationController
     @sparks[:incoming] = number_with_delimiter(Interest.where(to_user_id: current_user.id).count)
     @sparks[:outgoing] = number_with_delimiter(Interest.where("user_id = ? AND response <> NULL", current_user.id).count)
     @sparks[:shortlist] = number_with_delimiter(Shortlist.where(user_id: current_user.id).count)
-    @sparks[:accepted] = number_with_delimiter(Interest.where("user_id = ? AND response <> ?", 1, current_user.id).count)
+    @sparks[:accepted] = number_with_delimiter(Interest.where("user_id = ? AND response = ?", current_user.id, 1).count)
   end
 
   protected
