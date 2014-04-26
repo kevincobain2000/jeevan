@@ -306,11 +306,7 @@ $(document).on("page:change", function() {
   $('form').on('blur', 'input[type=number]', function (e) {
     $(this).off('mousewheel.disableScroll')
   });
-  
-  
   /*-----  End of Hacks  ------*/
-  
-  
 
 });
 
@@ -325,8 +321,20 @@ $(document).ready(function($) {
     thumbnailWidth: 300,
     thumbnailHeight: 300,
     init: function() {
-      this.on('success', function(file){
-      })
+      this.on('success', function(file, response){
+        if (response.status == 422) {
+          file.previewElement.classList.add("dz-error");
+          _ref = file.previewElement.querySelectorAll("[data-dz-errormessage]");
+          _results = [];
+          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+            node = _ref[_i];
+            _results.push(node.textContent = response.error);
+          }
+          return _results;
+        };
+      });
     }
   });
 });
+
+
