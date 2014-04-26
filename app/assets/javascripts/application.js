@@ -43,7 +43,7 @@ $(document).ready(function($) {
 	});
 
 	$("#header-search").blur(function(event) {
-		$(this).animate({'width': '100px'}, 'medium');
+		$(this).animate({'width': '300px'}, 'medium');
 		$(this).focus();
 	});
 

@@ -15,9 +15,18 @@
       <!-- <div class="col-md-5 col-md-offset-3"> -->
         <% paginate.each do |_user| %>
         <% user = make_user(_user) %>
+
         <div class="pin shadow-inner">
-          <%= image_tag user[:avatar].url(:original) %>
+          <%= image_tag user[:avatar].url(:original), :class=>"pinimg" %>
           <div class="padding-10">
+            <% user[:image].each do |image| %>
+            <a href="<%= image.avatar.url(:original) %>" data-lightbox="roadtrip">
+              <%= image_tag image.avatar.url(:tiny) %>
+            </a>
+            <% end %>
+            <% if user[:image].count > 0 %>
+            <hr>
+          <% end %>
           <span class="text-muted pull-right"> <%= number_with_delimiter(user[:visitors].to_i, :delimeter => ',') %>
             profile views</span>
           <h6>
