@@ -19,6 +19,7 @@ Jeevan::Application.routes.draw do
       post :interest_response
       post :shortlist
       post :seen_notification
+      post :search
       #ajax
       post :get_selectize
       #other gets
@@ -26,6 +27,7 @@ Jeevan::Application.routes.draw do
       get :outgoings
       get :visitors
       get :shortlists
+      get :accepted
     end
   end
   resources :explore do

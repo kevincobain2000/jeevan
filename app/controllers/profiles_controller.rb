@@ -159,7 +159,8 @@ class ProfilesController < ApplicationController
   #            Pages            =
   #==============================#/
   def index
-    @matching = User.where.not(sex: current_user.sex).where(devotion: current_user.devotion).order('avatar_updated_at DESC').paginate(:page => params[:page], :per_page => 10)
+    already_visited = Visitor.where(user_id: current_user.id).pluck(:viewed_id)
+    @matching = User.where("sex <> ? AND devotion = ? AND id NOT IN (?)", current_user.sex, current_user.devotion, already_visited).order('updated_at DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => 10)
   end
   def incomings
     incomings = Interest.where(to_user_id: current_user.id).pluck(:user_id)
@@ -177,10 +178,19 @@ class ProfilesController < ApplicationController
     shortlists = Shortlist.where(user_id: current_user.id).pluck(:to_user_id)
     @shortlists = User.find(shortlists).paginate(:page => params[:page], :per_page => 10)
   end
+  def accepted
+    accepted = Interest.where("user_id = ? AND response <> ?", 1, current_user.id).pluck(:user_id)
+    @accepted = User.find(accepted).paginate(:page => params[:page], :per_page => 10)
+  end
+
+  def search
+    query_string = params[:query]
+    render json: { :data => 100 }
+  end
 
   def similar_profiles
     visiting_user = User.find(Profile.find(params[:id]).user_id)
-    @similar_profiles_paginate = User.where("id <> ? AND devotion = ? AND sex = ?", visiting_user.id, visiting_user.devotion, visiting_user.sex).take(20).paginate(:page => params[:page], :per_page => 6) # 6 is a good number
+    @similar_profiles_paginate = User.where("id <> ? AND devotion = ? AND sex = ?", visiting_user.id, visiting_user.devotion, visiting_user.sex).order('updated_at DESC, avatar_updated_at DESC').take(20).paginate(:page => params[:page], :per_page => 6) # 6 is a good number
   end
 
   #-----  End of Pages  -----#
@@ -190,6 +200,7 @@ class ProfilesController < ApplicationController
     @sparks[:incoming] = number_with_delimiter(Interest.where(to_user_id: current_user.id).count)
     @sparks[:outgoing] = number_with_delimiter(Interest.where("user_id = ? AND response <> NULL", current_user.id).count)
     @sparks[:shortlist] = number_with_delimiter(Shortlist.where(user_id: current_user.id).count)
+    @sparks[:accepted] = number_with_delimiter(Interest.where("user_id = ? AND response <> ?", 1, current_user.id).count)
   end
 
   protected
