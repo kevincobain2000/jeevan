@@ -1,0 +1,82 @@
+<div id="main" role="main">
+  <%= render :partial =>"layouts/ribbon", :locals => {:papa => "Home", :son => "Explore"} %>
+  <!-- MAIN CONTENT -->
+  <div id="content"class="font-xs">
+    <h1>
+      <span class="semi-bold"><%= h %></span>
+      <%= hsm %></h1>
+      <div id="wrapper">
+    <div id="columns">
+      <!-- <div class="col-md-5 col-md-offset-3"> -->
+        <% paginate.each do |_user| %>
+        <% user = make_user(_user) %>
+        <div class="pin shadow-inner">
+          <%= image_tag user[:avatar].url(:original) %>
+          <div class="padding-10">
+          <span class="text-muted pull-right"> <%= number_with_delimiter(user[:visitors].to_i, :delimeter => ',') %>
+            profile views</span>
+          <h6>
+            <%= link_to profile_path(:id => user[:profile][:id]) do %>
+              <strong><%= user[:devotion] %>
+                <%= user[:religion][:caste] %>,
+                <small><%= user[:age] %>
+              years old</small>
+              </strong>
+            <% end %>
+            <br>
+            <%= render :partial =>'layouts/online', :locals => {:time => user[:updated_at]}%>
+            <small class="text-muted">Last online
+              <%= user[:updated_at] %>
+              ago</small>
+          </h6>
+          <div class="text-center">
+            <div class="padding-10">
+              <%= render :partial =>'layouts/interestbutton', :locals => {:user => user} %>
+            </div>
+          </div>
+          <div class="text-center">
+            <div class="padding-10">
+            <%= render :partial =>'layouts/shortlistbutton', :locals => {:user => user} %>
+          </div>
+        </div>
+          <p class="description">
+            <span class="text-muted">
+            Joined shaadiMatch
+            <%= user[:created_at] %> ago. 
+            </span> <%= (user[:sex] == "Female")? "Her": "His" %> date of birth is <strong><%= user[:dob] %></strong>
+            <span class="text-muted">
+              and <%= (user[:sex] == "Female")? "she": "he" %> belongs to a
+            </span><strong><%= user[:profile][:home] %></strong>
+             <%= user[:devotion] %>  <strong><%= user[:religion][:caste] %></strong> family...
+          </p>
+          <% if user[:about][:me] %>
+            <br>
+            <span class="text-muted"><i class="fa fa-file"></i>
+              More About
+              <%= (user[:sex] == "Female")? "Her": "Him" %>
+            </span><i class="fa fa-angle-right"></i>
+            <div class="hidden-xs">
+              <span><%= raw truncate(user[:about][:me], length:100, escape:false) %></span>
+              <br>
+            </div>
+          <% end %>
+          <br>
+          <div class="pull-right">
+            <%= link_to profile_path(:id => user[:profile][:id]), :class=>""  do %>
+              has <%= user[:image].count %> images (view profile)
+              <i class="fa fa-arrow-right"></i>
+            <% end %>
+            <%#= link_to profile_path(:id => user[:profile][:id]) do %>
+              <!-- Show Full Profile -->
+              <%# end %>
+            </div>
+            <br>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+      <legend></legend>
+      <%= will_paginate paginate, :class =>"flickr_pagination"%>
+    </div>
+  </div>
