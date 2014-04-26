@@ -287,7 +287,6 @@ $(document).on("page:change", function() {
  }
 
  /*-----  End of Set up Sliders  ------*/
-
  $('.superbox').SuperBox();
  $(".superbox-list").click(function() {
   var currentimg;

@@ -9,8 +9,10 @@
     <% user[:image].each_with_index do |image, counter| %>
       <% active = (counter == 0) ? "item active": "item" %>
       <div class="<%= active %>">
-        <%= image_tag image.avatar.url(:medium) %></div>
-    <% end %></div>
+        <%= image_tag image.avatar.url(:medium) %>
+      </div>
+    <% end %>
+  </div>
     <a class="left carousel-control" href="#myCarousel-2" data-slide="prev">
   </a>
   <a class="right carousel-control" href="#myCarousel-2" data-slide="next">
@@ -21,4 +23,11 @@
   <button class="btn btn-primary bg-color-pinkDark btn-md pull-right" data-toggle="modal" data-target="#modal-edit-images">
     <i class="fa fa-upload"></i> Upload More Images
   </button>
+  
   <% end %>
+
+      <% user[:image].each do |image| %>
+      <a href="<%= image.avatar.url(:original) %>" data-lightbox="roadtrip">
+      <%= image_tag image.avatar.url(:thumb) %>
+      </a>
+      <% end %>
