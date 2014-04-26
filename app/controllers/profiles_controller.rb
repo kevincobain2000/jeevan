@@ -17,8 +17,14 @@ class ProfilesController < ApplicationController
   #=====================================
   # After the save on edit is pressed
   def modify_image
-    current_user.images.create(image_params)
-    render json: { :status => 200 }
+    upload_limit = 20
+    if current_user.images.count > upload_limit
+      response =  { :error => "Sorry, Limit is #{upload_limit} images", :status => 422 }
+    else
+      response = {:status => 200}
+      current_user.images.create(image_params)
+    end
+    render json: response
   end
   def modify_avatar
     current_user.update(avatar_params)
