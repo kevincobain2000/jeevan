@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   before_filter :is_this_user_profile, only: [:edit]
-  before_filter :count_sparks, only: [:index, :incomings, :outgoings, :visitors, :shortlists]
+  before_filter :count_sparks, only: [:index, :incomings, :outgoings, :visitors, :shortlists, :search]
   before_filter :get_current_user, only: [:edit]
   before_filter :not_same_sex, :get_showing_user, only: [:show]
 
@@ -185,9 +185,9 @@ class ProfilesController < ApplicationController
 
   def search
     query_string = params[:query]
-    query_string = "Self"
     @solr = User.search do
       fulltext query_string
+      without(:sex).equal_to(current_user.sex)
       paginate :page => params[:page], :per_page => 12
     end
     @search = @solr.results

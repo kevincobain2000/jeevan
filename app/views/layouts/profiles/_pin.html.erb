@@ -4,9 +4,14 @@
   <div id="content"class="font-xs">
     <h1>
       <span class="semi-bold"><%= h %></span>
-      <%= hsm %></h1>
-      <div id="wrapper">
-    <div id="columns">
+      <%= hsm %>
+      <small>
+        <% if defined? @solr  %> 
+        found <%= number_with_delimiter(@solr.total) %> profiles
+        <% end %>
+      </small>
+      </h1>
+        <div id="columns">
       <!-- <div class="col-md-5 col-md-offset-3"> -->
         <% paginate.each do |_user| %>
         <% user = make_user(_user) %>
@@ -75,7 +80,6 @@
         </div>
         <% end %>
       </div>
-    </div>
       <legend></legend>
       <%= will_paginate paginate, :class =>"flickr_pagination"%>
     </div>
