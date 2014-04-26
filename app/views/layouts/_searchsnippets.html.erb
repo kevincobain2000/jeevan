@@ -1,4 +1,5 @@
 <div class="pin">
+  <%= image_tag user[:avatar].url(:thumb) %>
   <h6>
     <%= link_to profile_path(:id => user[:profile][:id]) do %>
       <strong><%= user[:devotion] %>, <%= user[:religion][:caste] %> 
@@ -14,11 +15,9 @@
       ago</small>
   </h6>
   <div class="text-center">
-    <% if user[:avatar].url.ends_with?("normal/Male.png") || user[:avatar].url.ends_with?("normal/Female.png") %>
-    <%= image_tag user[:avatar].url(:thumb) %>
-    <% else %>
-    <%= image_tag user[:avatar].url(:thumb) %>
-    <% end %>
+    <div class="padding-10">
+      <%= render :partial =>'layouts/interestbutton', :locals => {:user => user} %>
+    </div>
   </div>
     <p class="note">
       <%= render :partial =>'layouts/shortlistbutton', :locals => {:user => user} %>
@@ -40,10 +39,12 @@
   <% end %>
   <br>
   <div class="pull-right">
-    <%= render :partial =>'layouts/interestbutton', :locals => {:user => user} %>
-    <%= link_to profile_path(:id => user[:profile][:id]) do %>
-    Show Full Profile
-    <% end %>
+  <%= link_to profile_path(:id => user[:profile][:id]), :class=>"btn txt-color-white bg-color-teal btn-xs"  do %>
+      Profile <i class="fa fa-arrow-right"></i>
+      <% end %>
+    <%#= link_to profile_path(:id => user[:profile][:id]) do %>
+    <!-- Show Full Profile -->
+    <%# end %>
   </div>
   <br>
 </div>

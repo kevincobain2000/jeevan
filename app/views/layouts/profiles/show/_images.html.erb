@@ -16,3 +16,8 @@
   <a class="right carousel-control" href="#myCarousel-2" data-slide="next">
   </a>
 </div>
+<% if current_user.profile.id == @user[:profile][:id] %>
+  <button class="btn btn-primary btn-md pull-right" data-toggle="modal" data-target="#modal-edit-images">
+    <i class="fa fa-edit"></i> Upload More Images
+  </button>
+  <% end %>
