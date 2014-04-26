@@ -1,5 +1,6 @@
 class ProfilesController < ApplicationController
   before_filter :is_this_user_profile, only: [:edit]
+  before_filter :count_sparks, only: [:index, :incomings, :outgoings, :visitors, :shortlists]
   before_filter :get_current_user, only: [:edit]
   before_filter :not_same_sex, :get_showing_user, only: [:show]
 
@@ -154,9 +155,9 @@ class ProfilesController < ApplicationController
   end
   #-----  End of Ajax Calls  ------#
 
-  #*=============================
+  /#=============================
   #            Pages            =
-  #==============================
+  #==============================#/
   def index
     @matching = User.where.not(sex: current_user.sex).where(devotion: current_user.devotion).order('avatar_updated_at DESC').paginate(:page => params[:page], :per_page => 10)
   end
@@ -174,7 +175,6 @@ class ProfilesController < ApplicationController
   end
   def shortlists
     shortlists = Shortlist.where(user_id: current_user.id).pluck(:to_user_id)
-    logger.info("Debug #{shortlists.inspect}")
     @shortlists = User.find(shortlists).paginate(:page => params[:page], :per_page => 10)
   end
 
@@ -184,6 +184,13 @@ class ProfilesController < ApplicationController
   end
 
   #-----  End of Pages  -----#
+  def count_sparks
+    @sparks = Hash.new {|h, k| h[k] = [] }
+    @sparks[:visitors] = number_with_delimiter(Visitor.where(viewed_id: current_user.id).count)
+    @sparks[:incoming] = number_with_delimiter(Interest.where(to_user_id: current_user.id).count)
+    @sparks[:outgoing] = number_with_delimiter(Interest.where("user_id = ? AND response <> NULL", current_user.id).count)
+    @sparks[:shortlist] = number_with_delimiter(Shortlist.where(user_id: current_user.id).count)
+  end
 
   protected
 
