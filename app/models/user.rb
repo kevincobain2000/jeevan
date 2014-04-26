@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable#, :confirmable
 
+  delegate :posted_by, to: :profile
+  delegate :mother_tongue,:caste,:native_place, to: :religion
 
   include Paperclip::Glue
   has_attached_file :avatar, :styles => {:original => "200x200#", :thumb => "100x100#", :mini => "25x25#", :tiny => "50x50#" }, :default_url => :default_url_by_gender
@@ -35,6 +37,12 @@ class User < ActiveRecord::Base
   has_one :lifestyle, :dependent => :destroy
   has_one :occupation,:dependent => :destroy
 
+  searchable do
+    text :posted_by
+    text :mother_tongue, :caste, :native_place
+  end
+
+  # after_touch :index # do something
 
   def online?
     updated_at > 10.minutes.ago

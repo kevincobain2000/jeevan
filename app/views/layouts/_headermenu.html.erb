@@ -35,25 +35,30 @@
         </li>
         <li class="col-sm-3">
           <ul>
-            <li class="dropdown-header">Dashboard</li>
+            <li class="dropdown-header">Activity</li>
             <li>
-              <%= link_to dashboard_index_path do %>
+              <%= link_to visitors_profiles_path do %>
               My Profile Visitors
               <% end %>
             </li>
             <li>
-              <%= link_to dashboard_index_path do %>
+              <%= link_to shortlists_profiles_path do %>
               Profiles I shortlisted
               <% end %>
             </li>
             <li>
-              <%= link_to dashboard_index_path do %>
+              <%= link_to incomings_profiles_path do %>
               My Incoming Interests
               <% end %>
             </li>
             <li>
-              <%= link_to dashboard_index_path do %>
+              <%= link_to outgoings_profiles_path do %>
               My Interests Responses
+              <% end %>
+            </li>
+            <li>
+              <%= link_to accepted_profiles_path do %>
+              <strong>Accepted !</strong>
               <% end %>
             </li>
           </ul>
