@@ -16,10 +16,10 @@
 //= require turbolinks
 //= require_tree .
 //= require jquery.ui.all
-//= require parsley
+// require parsley
 //= require bootstrap-datepicker
-//= require bootstrap-timepicker
-//= require parsley.extend
+// require bootstrap-timepicker
+// require parsley.extend
 //= require selectize
 //= require jquery.remotipart
 //= require dropzone
@@ -27,11 +27,11 @@
 //= require jquery.inputmask.extensions
 //= require jquery.inputmask.numeric.extensions
 //= require jquery.inputmask.date.extensions
-//= require angular
-//= require dataTables/jquery.dataTables
-//= require dataTables/jquery.dataTables.bootstrap3
-//= require bootstrap-tagsinput
-//= require twitter/typeahead
+// require angular
+//  require dataTables/jquery.dataTables
+//  require dataTables/jquery.dataTables.bootstrap3
+// require bootstrap-tagsinput
+// require twitter/typeahead
 
 
 

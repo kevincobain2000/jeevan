@@ -1,7 +1,4 @@
 $(document).on("page:change", function() {
-  $('#tabs').tabs({
-  });
-  var css_id, key, name, obj, options, selectize_items, val, value, _ref;
   // pageSetUp();
 
   $("[id^=side]").click(function() {
@@ -153,9 +150,8 @@ $(document).on("page:change", function() {
       url: '/profiles/get_selectize',
       type: 'POST',
     })
-    .done(function(data) {
+    .success(function(data) {
       select_profile_edit_items = data.data;
-      console.log(data)
       populate_selectize()
     })
   }
@@ -225,7 +221,6 @@ $(document).on("page:change", function() {
   $('form.edit').submit(function() {
     $(this).find(':submit').html('<i class="fa fa-check"></i>Done!');
     remove_image();
-
   });
 
   function remove_image () {
@@ -288,14 +283,12 @@ $(document).on("page:change", function() {
 
  /*-----  End of Set up Sliders  ------*/
 
-
-
  $('.superbox').SuperBox();
- return $(".superbox-list").click(function() {
-  var currentimg;
-  currentimg = $(this).find(".superbox-img");
-  $("#imageid").attr("value", currentimg.attr("id"));
-});
+   $(".superbox-list").click(function() {
+    var currentimg;
+    currentimg = $(this).find(".superbox-img");
+    $("#imageid").attr("value", currentimg.attr("id"));
+  });
 
 
   /*=============================
