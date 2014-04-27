@@ -17,11 +17,10 @@
 //= require_tree .
 //= require jquery.ui.all
 // require parsley
-//= require bootstrap-datepicker
-// require bootstrap-timepicker
+//= require bootstrap-datepicker/core
 // require parsley.extend
 //= require selectize
-//= require jquery.remotipart
+// require jquery.remotipart
 //= require dropzone
 //= require jquery.inputmask
 //= require jquery.inputmask.extensions
