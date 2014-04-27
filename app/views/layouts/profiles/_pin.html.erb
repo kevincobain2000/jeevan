@@ -5,11 +5,11 @@
     <h1>
       <span class="semi-bold"><%= h %></span>
       <%= hsm %>
-      <small>
+      <span>
         <% if defined? @solr  %> 
         found <%= number_with_delimiter(@solr.total) %> profiles
         <% end %>
-      </small>
+      </span>
       </h1>
         <div id="columns">
       <!-- <div class="col-md-5 col-md-offset-3"> -->
@@ -24,23 +24,23 @@
             </a>
             <% end %>
             <br>
-            <small class="text-muted"><strong>h</strong>as <%= user[:image].count %> Picture(s)</small>
+            <span class=""><strong>h</strong>as <%= user[:image].count %> Picture(s)</span>
             <hr>
-           <span class="text-muted pull-right"> <%= number_with_delimiter(user[:visitors].to_i, :delimeter => ',') %>
+           <span class="pull-right"> <%= number_with_delimiter(user[:visitors].to_i, :delimeter => ',') %>
             profile views</span>
           <h6>
             <%= link_to profile_path(:id => user[:profile][:id]) do %>
               <strong><%= user[:devotion] %>
                 <%= user[:religion][:caste] %>,
-                <small><%= user[:age] %>
-              years old</small>
+                <span><%= user[:age] %>
+              years old</span>
               </strong>
             <% end %>
             <br>
             <%= render :partial =>'layouts/online', :locals => {:time => user[:updated_at]}%>
-            <small class="text-muted">Last online
+            <span class="">Last online
               <%= user[:updated_at] %>
-              ago</small>
+              ago</span>
           </h6>
           <div class="text-center">
             <div class="padding-10">
@@ -53,18 +53,18 @@
           </div>
         </div>
           <p class="description">
-            <span class="text-muted">
+            <span class="">
             Joined shaadiMatch
             <%= user[:created_at] %> ago. 
             </span> <%= (user[:sex] == "Female")? "Her": "His" %> date of birth is <strong><%= user[:dob] %></strong>
-            <span class="text-muted">
+            <span class="">
               and <%= (user[:sex] == "Female")? "she": "he" %> belongs to a
             </span><strong><%= user[:profile][:home] %></strong>
              <%= user[:devotion] %>  <strong><%= user[:religion][:caste] %></strong> family...
           </p>
           <% if user[:about][:me] %>
             <br>
-            <span class="text-muted"><i class="fa fa-file"></i>
+            <span class=""><i class="fa fa-file"></i>
               More About
               <%= (user[:sex] == "Female")? "Her": "Him" %>
             </span><i class="fa fa-angle-right"></i>
