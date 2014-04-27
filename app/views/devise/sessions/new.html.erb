@@ -1,12 +1,18 @@
 <div id="login" class="animated fadeInDown">
-  <!-- possible classes: minified, no-right-panel, fixed-ribbon, fixed-header, fixed-width-->
   <div id="main" role="main">
-    <header id="header">
+<!--     <header id="header">
+      <div id="logo-group">
+        <span id="logo">
+          <a href="/">
+            <%#= image_tag("logo.png") %>
+          </a>
+        </span>
+      </div>
     <span id="login-header-space">
       <span class="hidden-mobile">Need an account?</span>
-      <%= render "devise/shared/links" %>
+      <%#= render "devise/shared/links" %>
     </span>
-  </header>
+  </header> -->
     <!-- MAIN CONTENT -->
     <div id="content" class="container">
       <div class="row">
@@ -52,14 +58,14 @@
             <% end %>
           </div>
         </div>
+        <%= render :partial =>'layouts/signuptext2'%>
       </div>
-      <%= render :partial =>'layouts/signuptext2'%>
     </div>
   </div>
 </div>
   <script type="text/javascript">
     $("#main").bgStretcher({
-        images: ["../../images/demo/sample-1.jpg","../../images/demo/sample-2.jpg","../../images/demo/sample-3.jpg","../../images/demo/sample-4.jpg","../../images/demo/sample-5.jpg","../../images/demo/sample-6.jpg",],
+        images: ["../../images/demo/sample-0.jpg"],
         slideShow: true,
         transitionEffect: "fade",
         nextSlideDelay: 10000,
