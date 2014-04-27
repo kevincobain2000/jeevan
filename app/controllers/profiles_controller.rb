@@ -293,8 +293,8 @@ class ProfilesController < ApplicationController
   def touch_visitor
     visiting_user_id = Profile.find(params[:id]).user_id
     if current_user.id != visiting_user_id
-        current_user.visitors.first_or_create(user_id: current_user.id, viewed_id: visiting_user_id)
-        current_user.notifications.first_or_create(to_user_id: visiting_user_id, flag: 0)
+        Visitor.find_or_create_by(user_id: current_user.id, viewed_id: visiting_user_id)
+        Notification.find_or_create_by(to_user_id: visiting_user_id, flag: 0)
     end
   end
 
