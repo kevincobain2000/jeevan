@@ -1,4 +1,4 @@
-<% if  current_user.id != user[:id] && user[:out_response] && user[:out_response][:response] == 1 %>
+<% if  current_user.id == user[:id] || (user[:out_response] && user[:out_response][:response] == 1) %>
   <% contactinfo_self = user[:contact][:self_no]  %>
   <% contactinfo_s_id = user[:contact][:s_id]  %>
   <% contactinfo_g_id = user[:contact][:g_id]  %>
@@ -18,7 +18,7 @@
   <ul role="tree">
     <li class="parent_li" role="treeitem">
       <span title="Collapse this branch"> <i class="fa fa-lg fa-plus-circle"></i>
-        Contact Details: Meet or Invite <%= user[:name] %>
+        Contact Details
       </span>
       <script type="text/javascript">
         // Dirty hack to keep this tree branch collapsed
@@ -30,8 +30,25 @@
        });
       </script>
       <ul role="group">
+        <% if  current_user.profile.id == @user[:profile][:id] %>
         <li class="parent_li" role="treeitem" style="display: list-item;">
-          <span class="label label-success" title="Expand this branch"> <i class="fa fa-lg fa-plus-circle"></i>
+          <span class="label label-success" title="Collapse this branch"> <i class="fa fa-lg fa-plus-circle"></i>
+            Edit
+          </span>
+          <ul role="group">
+            <li style="display: none;">
+              <span>
+                <i class="fa fa-edit"></i>
+              </span>
+              <button class="btn btn-xs btn-default" data-toggle="modal" data-target="#modal-edit-contact">
+                edit contact
+              </button>
+            </li>
+          </ul>
+        </li>
+        <% end %>
+        <li class="parent_li" role="treeitem" style="display: list-item;">
+          <span class="label label-success" title="Collapse this branch"> <i class="fa fa-lg fa-plus-circle"></i>
             Telephone
           </span>
           <ul role="group">
