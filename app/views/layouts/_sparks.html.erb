@@ -1,10 +1,9 @@
 <div class="row hidden-xs">
-  <div class="col-xs-12 col-sm-5 col-md-5 col-lg-12">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <ul id="sparks" class="">
       <li class="sparks-info">
       <%= link_to profiles_path do %>
         <h5>
-          All Matches
           <span class="txt-color-purple"><i class="fa fa-search"></i>&nbsp;Explore..</span></h5>
           <% end %>
       </li>
@@ -26,7 +25,7 @@
       <%= link_to outgoings_profiles_path do %>
         <h5>
           Received Responses
-          <span class="txt-color-greenDark"><i class="fa fa-link"></i>&nbsp;<%= @sparks[:outgoing] %></span></h5>
+          <span class="txt-color-greenDark"><i class="fa fa-envelope"></i>&nbsp;<%= @sparks[:outgoing] %></span></h5>
           <% end %>
       </li>
       <li class="sparks-info">
