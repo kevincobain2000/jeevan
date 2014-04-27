@@ -23,7 +23,8 @@
               <%= image_tag image.avatar.url(:tiny) %>
             </a>
             <% end %>
-            <i><small class="text-muted">Has <%= user[:image].count %> Images</small></i>
+            <br>
+            <small class="text-muted"><strong>h</strong>as <%= user[:image].count %> Picture(s)</small>
             <hr>
            <span class="text-muted pull-right"> <%= number_with_delimiter(user[:visitors].to_i, :delimeter => ',') %>
             profile views</span>

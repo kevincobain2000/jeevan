@@ -23,6 +23,7 @@ class ProfilesController < ApplicationController
     else
       response = {:status => 200}
       current_user.images.create(image_params)
+      current_user.update(:images_count => current_user.images.count)
     end
     render json: response
   end
@@ -166,10 +167,10 @@ class ProfilesController < ApplicationController
   #==============================#/
   def index
     already_visited    = [current_user.id]
-    already_visited   += Visitor.where(user_id: current_user.id).pluck(:viewed_id)
-    already_visited   += Interest.where("user_id = ?", current_user.id).pluck(:to_user_id)
-    already_visited   += Shortlist.where("user_id = ?", current_user.id).pluck(:to_user_id)
-    @matching = User.where("sex <> ? AND devotion = ? AND id NOT IN (?)", current_user.sex, current_user.devotion, already_visited).order('updated_at DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => 10)
+    # already_visited   += Visitor.where(user_id: current_user.id).pluck(:viewed_id)
+    # already_visited   += Interest.where("user_id = ?", current_user.id).pluck(:to_user_id)
+    # already_visited   += Shortlist.where("user_id = ?", current_user.id).pluck(:to_user_id)
+    @matching = User.where("sex <> ? AND devotion = ? AND id NOT IN (?)", current_user.sex, current_user.devotion, already_visited).order('images_count DESC, avatar_updated_at DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => 10)
   end
   def incomings
     incomings = Interest.where(to_user_id: current_user.id).pluck(:user_id)
