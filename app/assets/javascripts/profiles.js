@@ -124,8 +124,16 @@ $(document).on("page:change", function() {
       plugins: ['remove_button', 'restore_on_backspace']
     },
     desired_religion: true,
-    desired_caste: true,
-    desired_mother_tongue: true,
+    desired_caste: {
+      maxItems: 3,
+      create: true,
+      plugins: ['remove_button', 'restore_on_backspace']
+    },
+    desired_mother_tongue:{
+      maxItems: 3,
+      create: true,
+      plugins: ['remove_button', 'restore_on_backspace']
+    },
     desired_education: {
       create:true,
       plugins: ['remove_button', 'restore_on_backspace']
@@ -140,8 +148,8 @@ $(document).on("page:change", function() {
     $("#hidden-side-myprofile")[0].click();
   });
   $(".open-edit-modal").click(function() {
-    // reinit_family_range_slider();
-    // reinit_desire_range_slider();
+    reinit_family_range_slider();
+    reinit_desire_range_slider();
   });
 
 

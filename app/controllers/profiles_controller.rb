@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   before_filter :is_this_user_profile, only: [:edit]
-  before_filter :count_sparks, only: [:index, :incomings, :outgoings, :visitors, :shortlists, :search]
+  before_filter :count_sparks, only: [:index, :incomings, :outgoings, :visitors, :shortlists,:accepted, :waiting,:search]
   before_filter :get_current_user, only: [:edit]
   before_filter :not_same_sex, :get_showing_user, only: [:show]
 
@@ -174,7 +174,12 @@ class ProfilesController < ApplicationController
   end
   def outgoings
     outgoings = Interest.where(user_id: current_user.id).pluck(:to_user_id)
+    outgoings = Interest.where("user_id = ? AND response <> NULL", current_user.id).pluck(:to_user_id)
     @outgoings = User.find(outgoings).paginate(:page => params[:page], :per_page => 10)
+  end
+  def waiting
+    waiting = Interest.where("user_id = ? AND response IS NULL", current_user.id).pluck(:to_user_id)
+    @waiting = User.find(waiting).paginate(:page => params[:page], :per_page => 10)
   end
   def visitors
     visitors = Visitor.where(viewed_id: current_user.id).pluck(:user_id)
@@ -210,6 +215,7 @@ class ProfilesController < ApplicationController
     @sparks[:visitors] = number_with_delimiter(Visitor.where(viewed_id: current_user.id).count)
     @sparks[:incoming] = number_with_delimiter(Interest.where(to_user_id: current_user.id).count)
     @sparks[:outgoing] = number_with_delimiter(Interest.where("user_id = ? AND response <> NULL", current_user.id).count)
+    @sparks[:waiting] = number_with_delimiter(Interest.where("user_id = ? AND response IS NULL", current_user.id).count)
     @sparks[:shortlist] = number_with_delimiter(Shortlist.where(user_id: current_user.id).count)
     @sparks[:accepted] = number_with_delimiter(Interest.where("user_id = ? AND response = ?", current_user.id, 1).count)
   end

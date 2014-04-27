@@ -10,7 +10,8 @@
           <% if  !@user[:desire]['desired_income'].nil? %>
             <% range_income = @user[:desire]['desired_income'].split(';') %>
           <% end %>
-          <input id="desired-income-slider" type="text" name="desired_income" value="2;50" data-type="double" data-step="1" data-prefix="Rs " data-postfix=" Lac" data-from="<%= range_income[0] %>" data-to="<%= range_income[1] %>" data-hasgrid="true"></div>
+          <input id="desired-income-slider" class="form-control" type="text" name="desired_income" value="2;50" data-type="double" data-step="1" data-prefix="Rs " data-postfix=" Lac" data-from="<%= range_income[0] %>" data-to="<%= range_income[1] %>" data-hasgrid="true">
+          </div>
       </div>
     </div>
   </fieldset>
@@ -23,7 +24,7 @@
           <% if  !@user[:desire]['desired_height'].nil? %>
             <% range_height = @user[:desire]['desired_height'].split(';') %>
           <% end %>
-          <input id="desired-height-slider" type="text" name="desired_height" value="4;7" data-type="double" data-step="1" data-prefix="" data-postfix=" Ft" data-from="<%= range_height[0] %>" data-to="<%= range_height[1] %>" data-hasgrid="true"></div>
+          <input id="desired-height-slider" class="form-control" type="text" name="desired_height" value="4;7" data-type="double" data-step="1" data-prefix="" data-postfix=" Ft" data-from="<%= range_height[0] %>" data-to="<%= range_height[1] %>" data-hasgrid="true"></div>
       </div>
     </div>
   </fieldset>
@@ -36,7 +37,7 @@
           <% if  !@user[:desire]['desired_age'].nil? %>
             <% range_age = @user[:desire]['desired_age'].split(';') %>
           <% end %>
-          <input id="desired-age-slider" type="text" name="desired_age" value="18;40" data-type="double" data-step="1" data-prefix="" data-postfix=" Years" data-from="<%= range_height[0] %>" data-to="<%= range_height[1] %>" data-hasgrid="true"></div>
+          <input id="desired-age-slider" class="form-control" type="text" name="desired_age" value="18;40" data-type="double" data-step="1" data-prefix="" data-postfix=" Years" data-from="<%= range_height[0] %>" data-to="<%= range_height[1] %>" data-hasgrid="true"></div>
       </div>
     </div>
   </fieldset>

@@ -19,7 +19,7 @@
     <section>
     <label class="label">Family <strong>Size</strong></label>
     <div class="row">
-      <% [ 'Nuclear', 'Hypocrite' ].each do |size| %>
+      <% [ 'Nuclear', 'Joint', 'Other' ].each do |size| %>
         <div class="col col-4">
           <label class="radio">
             <%= radio_button_tag(:size, size,(@user[:family][:size] == size)) %>
@@ -33,7 +33,7 @@
     <section>
     <label class="label">Family <strong>Status</strong></label>
     <div class="row">
-      <% [ 'Rich', 'Middle' ].each do |status| %>
+      <% [ 'Rich', 'Upper Middle','Middle', 'Lower Middle', 'Other' ].each do |status| %>
         <div class="col col-4">
           <label class="radio">
             <%= radio_button_tag(:status, status,(@user[:family][:status] == status)) %>
@@ -54,7 +54,7 @@
           <% if  !@user[:family]['family_income'].nil? %>
             <% range = @user[:family]['family_income'].split(';') %>
           <% end %>
-          <input id="family-income-slider" type="text" name="family_income" value="3;50" data-type="double" data-step="1" data-prefix="Rs " data-postfix=" Lac" data-from="<%= range[0] %>" data-to="<%= range[1] %>" data-hasgrid="true">
+          <input id="family-income-slider" class="form-control" type="text" name="family_income" value="3;50" data-type="double" data-step="1" data-prefix="Rs " data-postfix=" Lac" data-from="<%= range[0] %>" data-to="<%= range[1] %>" data-hasgrid="true">
         </div>
       </div>
     </div>
