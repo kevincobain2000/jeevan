@@ -1,5 +1,5 @@
 <div class="row hidden-xs">
-  <div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">
+  <div class="col-xs-12 col-sm-5 col-md-5 col-lg-12">
     <ul id="sparks" class="">
       <li class="sparks-info">
       <%= link_to profiles_path do %>
@@ -11,7 +11,7 @@
       <li class="sparks-info">
       <%= link_to visitors_profiles_path do %>
         <h5>
-          My Profile Visitors
+          Profile Visitors
           <span class="txt-color-purple"><i class="fa fa-eye"></i>&nbsp;<%= @sparks[:visitors] %></span></h5>
           <% end %>
       </li>
@@ -27,6 +27,13 @@
         <h5>
           Received Responses
           <span class="txt-color-greenDark"><i class="fa fa-link"></i>&nbsp;<%= @sparks[:outgoing] %></span></h5>
+          <% end %>
+      </li>
+      <li class="sparks-info">
+      <%= link_to waiting_profiles_path do %>
+        <h5>
+          Waiting
+          <span class="txt-color-greenDark"><i class="fa fa-link"></i>&nbsp;<%= @sparks[:waiting] %></span></h5>
           <% end %>
       </li>
       <li class="sparks-info">
