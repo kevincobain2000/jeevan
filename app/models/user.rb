@@ -44,6 +44,7 @@ class User < ActiveRecord::Base
   has_one :occupation,:dependent => :destroy
 
   searchable do
+    integer :images_count
     text :posted_by
     text :mother_tongue, :caste, :native_place
     text :birth_country,:birth_city,:sun_sign

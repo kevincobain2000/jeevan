@@ -203,6 +203,7 @@ class ProfilesController < ApplicationController
     @solr = User.search do
       fulltext query_string
       without(:sex).equal_to(current_user.sex)
+      order_by(:images_count, :desc)
       paginate :page => params[:page], :per_page => 12
     end
     @search = @solr.results
