@@ -15,7 +15,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-//= require jquery.ui.all
+// require jquery.ui.all
+//= require jquery.ui.tabs
 // require parsley
 //= require bootstrap-datepicker/core
 // require parsley.extend
@@ -23,9 +24,9 @@
 // require jquery.remotipart
 //= require dropzone
 //= require jquery.inputmask
-//= require jquery.inputmask.extensions
-//= require jquery.inputmask.numeric.extensions
-//= require jquery.inputmask.date.extensions
+// require jquery.inputmask.extensions
+// require jquery.inputmask.numeric.extensions
+// require jquery.inputmask.date.extensions
 // require angular
 //  require dataTables/jquery.dataTables
 //  require dataTables/jquery.dataTables.bootstrap3
