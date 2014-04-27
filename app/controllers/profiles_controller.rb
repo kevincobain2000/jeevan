@@ -165,7 +165,10 @@ class ProfilesController < ApplicationController
   #            Pages            =
   #==============================#/
   def index
-    already_visited = Visitor.where(user_id: current_user.id).pluck(:viewed_id)
+    already_visited    = [current_user.id]
+    already_visited   += Visitor.where(user_id: current_user.id).pluck(:viewed_id)
+    already_visited   += Interest.where("user_id = ?", current_user.id).pluck(:to_user_id)
+    already_visited   += Shortlist.where("user_id = ?", current_user.id).pluck(:to_user_id)
     @matching = User.where("sex <> ? AND devotion = ? AND id NOT IN (?)", current_user.sex, current_user.devotion, already_visited).order('updated_at DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => 10)
   end
   def incomings
