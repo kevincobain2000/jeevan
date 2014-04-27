@@ -22,7 +22,9 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, :styles => {:thumb => "200x200#", :tiny => "50x50#" }, :convert_options => {:thumb => "-quality 100", :tiny => "-quality 100" },:default_url => :default_url_by_gender
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   def default_url_by_gender
-    "/images/normal/#{sex}.png"
+    # random = rand(0)
+    random = 0
+    "/images/normal/#{sex}-#{random}.png"
   end
 
   has_many :visitors,       :dependent => :destroy
