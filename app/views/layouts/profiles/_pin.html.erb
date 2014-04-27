@@ -15,7 +15,7 @@
       <!-- <div class="col-md-5 col-md-offset-3"> -->
         <% paginate.each do |_user| %>
         <% user = make_user(_user) %>
-        <div class="pin">
+        <div class="pin shadow-inner">
           <%= image_tag user[:avatar].url(:original), :class=>"pinimg" %>
           <div class="padding-10">
             <% user[:image].each do |image| %>
@@ -23,10 +23,9 @@
               <%= image_tag image.avatar.url(:tiny) %>
             </a>
             <% end %>
-            <% if user[:image].count > 0 %>
+            <i><small class="text-muted">Has <%= user[:image].count %> Images</small></i>
             <hr>
-          <% end %>
-          <span class="text-muted pull-right"> <%= number_with_delimiter(user[:visitors].to_i, :delimeter => ',') %>
+           <span class="text-muted pull-right"> <%= number_with_delimiter(user[:visitors].to_i, :delimeter => ',') %>
             profile views</span>
           <h6>
             <%= link_to profile_path(:id => user[:profile][:id]) do %>
@@ -76,7 +75,7 @@
           <br>
           <div class="pull-right">
             <%= link_to profile_path(:id => user[:profile][:id]), :class=>""  do %>
-              has <%= user[:image].count %> images (view profile)
+              view profile
               <i class="fa fa-arrow-right"></i>
             <% end %>
             <%#= link_to profile_path(:id => user[:profile][:id]) do %>
