@@ -15,18 +15,18 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-//= require jquery.ui.all
+// require jquery.ui.all
+//= require jquery.ui.tabs
 // require parsley
-//= require bootstrap-datepicker
-// require bootstrap-timepicker
+//= require bootstrap-datepicker/core
 // require parsley.extend
 //= require selectize
-//= require jquery.remotipart
+// require jquery.remotipart
 //= require dropzone
 //= require jquery.inputmask
-//= require jquery.inputmask.extensions
-//= require jquery.inputmask.numeric.extensions
-//= require jquery.inputmask.date.extensions
+// require jquery.inputmask.extensions
+// require jquery.inputmask.numeric.extensions
+// require jquery.inputmask.date.extensions
 // require angular
 //  require dataTables/jquery.dataTables
 //  require dataTables/jquery.dataTables.bootstrap3
@@ -36,15 +36,15 @@
 
 
 $(document).ready(function($) {
-	$("#header-search").click(function(event) {
-		console.log("asd");
-		$(this).animate({'width': '400px'}, 'medium');
-		$(this).focus();
-	});
+	// $("#header-search").click(function(event) {
+	// 	console.log("asd");
+	// 	$(this).animate({'width': '400px'}, 'medium');
+	// 	$(this).focus();
+	// });
 
-	$("#header-search").blur(function(event) {
-		$(this).animate({'width': '100px'}, 'medium');
-		$(this).focus();
-	});
+	// $("#header-search").blur(function(event) {
+	// 	$(this).animate({'width': '300px'}, 'medium');
+	// 	$(this).focus();
+	// });
 
 });

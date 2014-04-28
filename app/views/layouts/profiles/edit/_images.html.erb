@@ -8,7 +8,7 @@
     <div class="superbox col-sm-12">
       <% @user[:image].each do |image| %>
         <div class="superbox-list">
-          <%= image_tag image.avatar.url(:thumb), {"data-img" => image.avatar.url(:medium), :class => "superbox-img", "alt"=>"Edit this Image", :value=>image.id, :name=>"img", :id=>image.id} %>
+          <%= image_tag image.avatar.url(:thumb), {"data-img" => image.avatar.url(:thumb), :class => "superbox-img", :style=>"width:50px;height50px;","alt"=>"Edit this Image", :value=>image.id, :name=>"img", :id=>image.id} %>
         </div>
       <% end %>
       <input type="hidden" name="imageid" value="" id="imageid">

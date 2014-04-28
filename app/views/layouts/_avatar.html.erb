@@ -1,7 +1,7 @@
 <div class="col-sm-5 profile-pic">
   <%= image_tag user[:avatar].url(:thumb)%>
   <% if current_user.profile.id == @user[:profile][:id] %>
-  <button class="btn btn-primary btn-xs pull-right" data-toggle="modal" data-target="#modal-edit-avatar">
+  <button class="btn btn-primary btn-xs pull-right hidden-xs" data-toggle="modal" data-target="#modal-edit-avatar">
   <i class="fa fa-edit"></i> Change Profile Pic
   </button>
   <% end %>
