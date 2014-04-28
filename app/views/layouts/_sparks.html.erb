@@ -1,0 +1,54 @@
+<div class="row hidden-xs">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <ul id="sparks" class="">
+      <li class="sparks-info">
+      <%= link_to profiles_path do %>
+        <h5>
+          <span class="txt-color-purple"><i class="fa fa-search"></i>&nbsp;Explore..</span></h5>
+          <% end %>
+      </li>
+      <li class="sparks-info">
+      <%= link_to visitors_profiles_path do %>
+        <h5>
+          Profile Visitors
+          <span class="txt-color-purple"><i class="fa fa-eye"></i>&nbsp;<%= @sparks[:visitors] %></span></h5>
+          <% end %>
+      </li>
+      <li class="sparks-info">
+      <%= link_to incomings_profiles_path do %>
+        <h5>
+          Incoming Interests
+          <span class="txt-color-greenDark"><i class="fa fa-arrow-circle-down"></i>&nbsp;<%= @sparks[:incoming] %></span></h5>
+          <% end %>
+      </li>
+      <li class="sparks-info">
+      <%= link_to outgoings_profiles_path do %>
+        <h5>
+          Received Responses
+          <span class="txt-color-greenDark"><i class="fa fa-envelope"></i>&nbsp;<%= @sparks[:outgoing] %></span></h5>
+          <% end %>
+      </li>
+      <li class="sparks-info">
+      <%= link_to waiting_profiles_path do %>
+        <h5>
+          Waiting
+          <span class="txt-color-greenDark"><i class="fa fa-link"></i>&nbsp;<%= @sparks[:waiting] %></span></h5>
+          <% end %>
+      </li>
+      <li class="sparks-info">
+      <%= link_to accepted_profiles_path do %>
+        <h5>
+          Accepted
+          <span class="txt-color-greenDark"><i class="fa fa-check"></i>&nbsp;<%= @sparks[:accepted] %></span></h5>
+          <% end %>
+      </li>
+      <li class="sparks-info">
+      <%= link_to shortlists_profiles_path do %>
+        <h5>
+          Shortlists
+          <span class="txt-color-greenDark"><i class="fa fa-plus"></i>&nbsp;<%= @sparks[:shortlist] %></span></h5>
+          <% end %>
+      </li>
+    </ul>
+  </div>
+</div>

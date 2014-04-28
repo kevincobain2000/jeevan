@@ -1,4 +1,4 @@
-/*
+
  * It is advised not to edit the smartadmin_production.css
  * as this will override any changes you make in the 
  * later versions of this theme. 
@@ -288,25 +288,67 @@
   -webkit-text-fill-color: transparent;
 }
 
+#wrapper {
+  width: 90%;
+  max-width: 1100px;
+  min-width: 800px;
+  margin: 50px auto;
+}
+#columns {
+  -webkit-column-count: 5;
+  -webkit-column-gap: 20px;
+  -webkit-column-fill: auto;
+  -moz-column-count: 5;
+  -moz-column-gap: 20px;
+  -moz-column-fill: auto;
+  column-count: 5;
+  column-gap: 20px;
+  column-fill: auto;
+}
+
+@media (max-width: 640px) {
+  #columns {
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1;
+  }
+}
+
 .pin {
-    /*display: inline-block;*/
-    background: #FEFEFE;
-    border: 2px solid #FAFAFA;
-    box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+    width: 100%;
+    display: inline-block;
+    background: #ffffff;
+    /*border: 2px solid #FAFAFA;*/
+    box-shadow: 0 2px 2px rgba(33, 25, 25, 0.4);
     margin: 0 2px 15px;
     -webkit-column-break-inside: avoid;
     -moz-column-break-inside: avoid;
     column-break-inside: avoid;
-    padding: 15px;
-    padding-bottom: 5px;
+    padding: 0px;
+    padding-bottom: 15px;
     /*background: -webkit-linear-gradient(45deg, #FFF, #F9F9F9);*/
     opacity: 1;
     -webkit-transition: all .2s ease;
     -moz-transition: all .2s ease;
     -o-transition: all .2s ease;
     transition: all .2s ease;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.pin img.pinimg {
+  display:block;
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 15px;
+  margin-bottom: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
 }
 
+.pin:hover{
+   /*background-color:#ffffff;*/
+}
 .dropdown-large {
   position: static !important;
 }
@@ -370,4 +412,3 @@
     padding: 3px 15px !important;
   }
 }
-*/

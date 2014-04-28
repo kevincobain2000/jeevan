@@ -9,12 +9,22 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable#, :confirmable
 
+  delegate :posted_by, to: :profile
+  delegate :mother_tongue,:caste,:native_place, to: :religion
+  delegate :birth_country,:birth_city,:sun_sign, to: :kundali
+  delegate :complexion,:blood, to: :lifestyle
+  delegate :me, to: :about
+  delegate :status,:size, to: :family
+  delegate :highest_degree, to: :education
+  delegate :interest,:music, :read,:dress, :tv,:movie, :sport,:vacation, to: :hobby
 
   include Paperclip::Glue
-  has_attached_file :avatar, :styles => {:original => "200x200#", :thumb => "100x100#", :mini => "25x25#", :tiny => "50x50#" }, :default_url => :default_url_by_gender
+  has_attached_file :avatar, :styles => {:thumb => "200x200#", :tiny => "50x50#" }, :convert_options => {:thumb => "-quality 100", :tiny => "-quality 100" },:default_url => :default_url_by_gender
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   def default_url_by_gender
-    "/images/normal/#{sex}.png"
+    # random = rand(0)
+    random = 0
+    "/images/normal/#{sex}-#{random}.png"
   end
 
   has_many :visitors,       :dependent => :destroy
@@ -35,6 +45,20 @@ class User < ActiveRecord::Base
   has_one :lifestyle, :dependent => :destroy
   has_one :occupation,:dependent => :destroy
 
+  searchable do
+    integer :images_count
+    text :posted_by
+    text :mother_tongue, :caste, :native_place
+    text :birth_country,:birth_city,:sun_sign
+    text :complexion,:blood
+    text :me
+    text :status,:size
+    text :highest_degree
+    text :interest, :music, :read,:dress, :tv,:movie, :sport,:vacation
+    string :sex
+  end
+
+  # after_touch :index # do something
 
   def online?
     updated_at > 10.minutes.ago

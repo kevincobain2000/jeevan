@@ -21,6 +21,11 @@ rake db:schema:load
 <%= render :partial =>'layouts/side'%>
 ```
 
+Centering a Div
+```
+<div class="col-md-5 col-md-offset-3">
+```
+
 No turbolinks
 
 ```
@@ -87,4 +92,15 @@ Works even with turbolinks
 
 ```
  Hash.new {|h, k| h[k] = [] }
+```
+
+
+#### Irb
+
+Create Random User
+```
+for i in (101..200)
+  u = User.new(:email => "#{i}@gmail.com", :password=>"123456", :devotion=>"Hindu", :sex=>"Male", :name=>"kevin", :dob=>"01/09/1985")
+  u.save
+ end
 ```
