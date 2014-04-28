@@ -223,6 +223,7 @@ ActiveRecord::Schema.define(version: 20140331134717) do
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
     t.string   "devotion"
+    t.integer  "images_count",           limit: 1
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

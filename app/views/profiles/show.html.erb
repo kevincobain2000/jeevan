@@ -39,11 +39,6 @@
                         <%= render :partial =>'layouts/cardinfo', :locals => {:user => @user}%>
                       </div>
                       <div class="col-sm-6">
-                      <% if  current_user.profile.id == @user[:profile][:id] %>
-                        <button class="btn btn-xs btn-default" data-toggle="modal" data-target="#modal-edit-contact">
-                          <i class="fa fa-edit"></i> edit contact
-                        </button>
-                        <% end %>
                         <%= render :partial =>'layouts/contactinfo', :locals => {:user => @user}%>
                       </div>
                       <div class="col-sm-6">
@@ -62,7 +57,7 @@
           <article class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
             <h3>About
               <% if  current_user.profile.id == @user[:profile][:id] %>
-              <button class="btn btn-xs btn-default" data-toggle="modal" data-target="#modal-edit-about">
+              <button class="btn btn-xs btn-default hidden-xs" data-toggle="modal" data-target="#modal-edit-about">
                 <i class="fa fa-edit"></i> edit
               </button>
               <% end %>

@@ -18,7 +18,9 @@
       <% else %>
       <body>
     <% end %>
-    <%= yield %>      
+    <%= yield %>
+    <% if current_user %>
     <%= render :partial =>'layouts/footer'%>
+    <% end %>
   </body>
 </html>

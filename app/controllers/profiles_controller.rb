@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   before_filter :is_this_user_profile, only: [:edit]
-  before_filter :count_sparks, only: [:index, :incomings, :outgoings, :visitors, :shortlists, :search]
+  before_filter :count_sparks, only: [:index, :incomings, :outgoings, :visitors, :shortlists,:accepted, :waiting,:search]
   before_filter :get_current_user, only: [:edit]
   before_filter :not_same_sex, :get_showing_user, only: [:show]
 
@@ -17,8 +17,15 @@ class ProfilesController < ApplicationController
   #=====================================
   # After the save on edit is pressed
   def modify_image
-    current_user.images.create(image_params)
-    render json: { :status => 200 }
+    upload_limit = 20
+    if current_user.images.count > upload_limit
+      response =  { :error => "Sorry, Limit is #{upload_limit} images", :status => 422 }
+    else
+      response = {:status => 200}
+      current_user.images.create(image_params)
+      current_user.update(:images_count => current_user.images.count)
+    end
+    render json: response
   end
   def modify_avatar
     current_user.update(avatar_params)
@@ -159,8 +166,11 @@ class ProfilesController < ApplicationController
   #            Pages            =
   #==============================#/
   def index
-    already_visited = Visitor.where(user_id: current_user.id).pluck(:viewed_id)
-    @matching = User.where("sex <> ? AND devotion = ? AND id NOT IN (?)", current_user.sex, current_user.devotion, already_visited).order('updated_at DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => 10)
+    already_visited    = [current_user.id]
+    # already_visited   += Visitor.where(user_id: current_user.id).pluck(:viewed_id)
+    # already_visited   += Interest.where("user_id = ?", current_user.id).pluck(:to_user_id)
+    # already_visited   += Shortlist.where("user_id = ?", current_user.id).pluck(:to_user_id)
+    @matching = User.where("sex <> ? AND devotion = ? AND id NOT IN (?)", current_user.sex, current_user.devotion, already_visited).order('images_count DESC, avatar_updated_at DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => 10)
   end
   def incomings
     incomings = Interest.where(to_user_id: current_user.id).pluck(:user_id)
@@ -168,7 +178,12 @@ class ProfilesController < ApplicationController
   end
   def outgoings
     outgoings = Interest.where(user_id: current_user.id).pluck(:to_user_id)
+    outgoings = Interest.where("user_id = ? AND response <> NULL", current_user.id).pluck(:to_user_id)
     @outgoings = User.find(outgoings).paginate(:page => params[:page], :per_page => 10)
+  end
+  def waiting
+    waiting = Interest.where("user_id = ? AND response IS NULL", current_user.id).pluck(:to_user_id)
+    @waiting = User.find(waiting).paginate(:page => params[:page], :per_page => 10)
   end
   def visitors
     visitors = Visitor.where(viewed_id: current_user.id).pluck(:user_id)
@@ -179,7 +194,7 @@ class ProfilesController < ApplicationController
     @shortlists = User.find(shortlists).paginate(:page => params[:page], :per_page => 10)
   end
   def accepted
-    accepted = Interest.where("user_id = ? AND response <> ?", 1, current_user.id).pluck(:user_id)
+    accepted = Interest.where("user_id = ? AND response = ?", current_user.id, 1).pluck(:user_id)
     @accepted = User.find(accepted).paginate(:page => params[:page], :per_page => 10)
   end
 
@@ -188,6 +203,7 @@ class ProfilesController < ApplicationController
     @solr = User.search do
       fulltext query_string
       without(:sex).equal_to(current_user.sex)
+      order_by(:images_count, :desc)
       paginate :page => params[:page], :per_page => 12
     end
     @search = @solr.results
@@ -204,8 +220,9 @@ class ProfilesController < ApplicationController
     @sparks[:visitors] = number_with_delimiter(Visitor.where(viewed_id: current_user.id).count)
     @sparks[:incoming] = number_with_delimiter(Interest.where(to_user_id: current_user.id).count)
     @sparks[:outgoing] = number_with_delimiter(Interest.where("user_id = ? AND response <> NULL", current_user.id).count)
+    @sparks[:waiting] = number_with_delimiter(Interest.where("user_id = ? AND response IS NULL", current_user.id).count)
     @sparks[:shortlist] = number_with_delimiter(Shortlist.where(user_id: current_user.id).count)
-    @sparks[:accepted] = number_with_delimiter(Interest.where("user_id = ? AND response <> ?", 1, current_user.id).count)
+    @sparks[:accepted] = number_with_delimiter(Interest.where("user_id = ? AND response = ?", current_user.id, 1).count)
   end
 
   protected
@@ -276,8 +293,8 @@ class ProfilesController < ApplicationController
   def touch_visitor
     visiting_user_id = Profile.find(params[:id]).user_id
     if current_user.id != visiting_user_id
-        current_user.visitors.first_or_create(user_id: current_user.id, viewed_id: visiting_user_id)
-        current_user.notifications.first_or_create(to_user_id: visiting_user_id, flag: 0)
+        Visitor.find_or_create_by(user_id: current_user.id, viewed_id: visiting_user_id)
+        Notification.find_or_create_by(to_user_id: visiting_user_id, flag: 0)
     end
   end
 

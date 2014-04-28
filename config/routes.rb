@@ -26,6 +26,7 @@ Jeevan::Application.routes.draw do
       get :incomings
       get :outgoings
       get :visitors
+      get :waiting
       get :shortlists
       get :accepted
     end
