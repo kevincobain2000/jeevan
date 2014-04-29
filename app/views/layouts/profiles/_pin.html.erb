@@ -14,7 +14,7 @@
         <div id="columns">
       <!-- <div class="col-md-5 col-md-offset-3"> -->
         <% paginate.each do |_user| %>
-        <% user = make_user(_user) %>
+        <% user = make_user_snippet(_user) %>
         <div class="pin">
           <%= image_tag user[:avatar].url(:original), :class=>"pinimg" %>
           <div class="padding-10">
