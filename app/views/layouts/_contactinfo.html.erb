@@ -22,31 +22,19 @@
       </span>
       <script type="text/javascript">
         // Dirty hack to keep this tree branch collapsed
-        $(function () {
-         $('.tree li.parent_li > span').on('click', function (e) {
-          $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
-          e.stopPropagation();
-        }).click();
-       });
+       //  $(function () {
+       //   $('.tree li.parent_li > span').on('click', function (e) {
+       //    $('.tree li:has(ul)').addClass('parent_li').find(' > span').attr('title', 'Collapse this branch');
+       //    e.stopPropagation();
+       //  }).click();
+       // });
       </script>
+      <% if  current_user.profile.id == @user[:profile][:id] %>
+      <button class="btn btn-xs btn-default hidden-xs" data-toggle="modal" data-target="#modal-edit-contact">
+        edit contact
+      </button>
+      <% end %>
       <ul role="group">
-        <% if  current_user.profile.id == @user[:profile][:id] %>
-        <li class="parent_li hidden-xs" role="treeitem" style="display: list-item;">
-          <span class="label label-success" title="Collapse this branch"> <i class="fa fa-lg fa-plus-circle"></i>
-            Edit
-          </span>
-          <ul role="group">
-            <li style="display: none;">
-              <span>
-                <i class="fa fa-edit"></i>
-              </span>
-              <button class="btn btn-xs btn-default" data-toggle="modal" data-target="#modal-edit-contact">
-                edit contact
-              </button>
-            </li>
-          </ul>
-        </li>
-        <% end %>
         <li class="parent_li" role="treeitem" style="display: list-item;">
           <span class="label label-success" title="Collapse this branch"> <i class="fa fa-lg fa-plus-circle"></i>
             Telephone
