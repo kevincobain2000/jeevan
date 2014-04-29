@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(version: 20140331134717) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "desired_about"
-    t.string   "desired_height",         limit: 32
-    t.string   "desired_age",            limit: 32
+    t.string   "desired_height"
+    t.string   "desired_age"
     t.string   "desired_marital_status", limit: 32
     t.string   "desired_country",        limit: 64
     t.string   "desired_city",           limit: 64
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20140331134717) do
     t.string   "desired_challenged",     limit: 4
     t.string   "desired_education",      limit: 128
     t.string   "desired_occupation",     limit: 128
-    t.string   "desired_income",         limit: 64
+    t.string   "desired_income"
     t.text     "desired_notes"
   end
 

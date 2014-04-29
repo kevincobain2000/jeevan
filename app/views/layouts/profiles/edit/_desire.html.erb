@@ -2,46 +2,6 @@
 <%= form_tag({:action=>'modify_desire'},{:remote => true, :class=>"smart-form edit"}) do %>
   <h3 class="error-text-3"><strong>Desired</strong> <i>partner</i></h3>
   <fieldset>
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="form-group">
-          <label class="label">Desired <strong>Income</strong></label>
-          <% range_income = [5,15] %>
-          <% if  !@user[:desire]['desired_income'].nil? %>
-            <% range_income = @user[:desire]['desired_income'].split(';') %>
-          <% end %>
-          <input id="desired-income-slider" class="form-control" type="text" name="desired_income" value="2;50" data-type="double" data-step="1" data-prefix="Rs " data-postfix=" Lac" data-from="<%= range_income[0] %>" data-to="<%= range_income[1] %>" data-hasgrid="true">
-          </div>
-      </div>
-    </div>
-  </fieldset>
-  <fieldset>
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="form-group">
-          <label class="label">Desired <strong>Height</strong></label>
-          <% range_height = [5,7] %>
-          <% if  !@user[:desire]['desired_height'].nil? %>
-            <% range_height = @user[:desire]['desired_height'].split(';') %>
-          <% end %>
-          <input id="desired-height-slider" class="form-control" type="text" name="desired_height" value="4;7" data-type="double" data-step="1" data-prefix="" data-postfix=" Ft" data-from="<%= range_height[0] %>" data-to="<%= range_height[1] %>" data-hasgrid="true"></div>
-      </div>
-    </div>
-  </fieldset>
-  <fieldset>
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="form-group">
-          <label class="label">Desired <strong>Age</strong></label>
-          <% range_height = [24,30] %>
-          <% if  !@user[:desire]['desired_age'].nil? %>
-            <% range_age = @user[:desire]['desired_age'].split(';') %>
-          <% end %>
-          <input id="desired-age-slider" class="form-control" type="text" name="desired_age" value="18;40" data-type="double" data-step="1" data-prefix="" data-postfix=" Years" data-from="<%= range_height[0] %>" data-to="<%= range_height[1] %>" data-hasgrid="true"></div>
-      </div>
-    </div>
-  </fieldset>
-  <fieldset>
     <label class="label">Desired Marital <strong>Status</strong></label>
     <div class="row">
       <% [ 'Never Married', 'Divorced', "Getting a Divorce", "Widowed"].each do |desired_marital_status| %>
@@ -111,14 +71,17 @@
   </fieldset>
   <fieldset>
     <div class="col-sm-12">
-      <% categories = ["desired_country", "desired_city", "desired_religion", "desired_caste", "desired_mother_tongue", "desired_education", "desired_occupation"] %>
+      <% categories = ["desired_income","desired_height","desired_age", "desired_country", "desired_city", "desired_religion", "desired_caste", "desired_mother_tongue", "desired_education", "desired_occupation"] %>
       <% categories.each do |category| %>
         <% heading = category.gsub "_", " " %>
         <% id = category.gsub "_", "-" %>
-        <div class="col-sm-12">
+        <div class="col-sm-6">
         <label class="label"><strong><%= heading.titleize %></strong></label>
-            <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:desire][category] %>" placeholder="Choose your <%= heading %>">
+            
         </div>
+        <div class="col-sm-6">
+          <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:desire][category] %>" placeholder="Choose your <%= heading %>">
+      </div>
         <div class="col-sm-12">&nbsp;</div>
       <% end %>
     </div>

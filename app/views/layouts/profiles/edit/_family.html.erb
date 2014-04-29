@@ -46,28 +46,18 @@
     </section>
   </fieldset>
   <fieldset>
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="form-group">
-          <label class="label">Family <strong>Income</strong></label>
-          <% range = [2,15] %>
-          <% if  !@user[:family]['family_income'].nil? %>
-            <% range = @user[:family]['family_income'].split(';') %>
-          <% end %>
-          <input id="family-income-slider" class="form-control" type="text" name="family_income" value="3;50" data-type="double" data-step="1" data-prefix="Rs " data-postfix=" Lac" data-from="<%= range[0] %>" data-to="<%= range[1] %>" data-hasgrid="true">
-        </div>
-      </div>
-    </div>
-  </fieldset>
-  <fieldset>
     <div class="col-sm-12">
-      <% categories = ["father", "mother", "brother", "sister"] %>
+      <% categories = ["father", "mother", "brother", "sister", "family_income"] %>
       <% categories.each do |category| %>
         <% heading = category.sub "_", " " %>
         <% id = category.sub "_", "-" %>
-        <div class="col-sm-12">
+        <div class="col-sm-6">
           <label class="label"><strong>
-            <%= heading.titleize %></strong></label><small class="text-muted">
+            <%= heading.titleize %></strong></label>
+        
+          </div>
+          <div class="col-sm-6">
+            <small class="text-muted">
             (Choose or Add New)</small>
           <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:family][category] %>" placeholder="About my <%= heading %>">
         </div>
