@@ -7,16 +7,17 @@
   <input type="hidden" name="me" id="about-me" type="hidden">
   <button type="submit" id="submit-about-me" class="btn btn-success pull-right hidden"></button>
 <% end %>
-  <fieldset>
-    <div class="col-sm-12">
-      <div class="click2edit"><%= raw @user[:about][:me] %>
-      </div>
-      <button id="edit" class="btn btn-xs btn-info pull-right" onclick="edit()"><i class="fa fa-edit"></i>
-      Edit</button><i></i>
-        <button id="save" type="submit" class="btn btn-xs btn-success pull-right" onclick="save()"><i class="fa fa-check"></i>
-          Save</button>
-        </div>
-      </fieldset>
+<div class="pull-left">
+  <button id="edit" class="btn btn-md btn-info" onclick="edit()"><i class="fa fa-edit"></i>
+    Edit</button>
+  <button id="save" type="submit" class="btn btn-md btn-primary" onclick="save()"><i class="fa fa-check"></i>
+    Save</button>
+</div>
+<legend></legend>
+<fieldset>
+  <div class="click2edit"><%= raw @user[:about][:me] %>
+  </div>
+</fieldset>
 <script type="text/javascript">
   var edit = function() {
       $(".click2edit").summernote({
