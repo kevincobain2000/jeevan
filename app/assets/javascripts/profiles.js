@@ -49,53 +49,43 @@ $(document).on("page:change", function() {
     hobby: {
       maxItems: 10,
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace'],
       delimeter: ","
     },
     interest: {
       maxItems: 10,
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     music: {
       maxItems: 10,
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     read: {
       maxItems: 10,
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     dress: {
       maxItems: 10,
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     tv: {
       maxItems: 10,
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     movie: {
       maxItems: 10,
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     sport: {
       maxItems: 10,
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     cuisine: {
       maxItems: 10,
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     vacation: {
       maxItems: 10,
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     father: true,
     mother: true,
@@ -105,27 +95,21 @@ $(document).on("page:change", function() {
     profile_handler: true,
     school: {
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     grad_college: {
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     graduation: {
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     post_grad: {
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     post_grad_college: {
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     highest_degree: {
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     desired_marital_status: true,
     desired_manglik: true,
@@ -139,31 +123,25 @@ $(document).on("page:change", function() {
     desired_country: {
       maxItems: 2,
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     desired_city: {
       maxItems: 2,
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     desired_religion: true,
     desired_caste: {
       maxItems: 3,
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     desired_mother_tongue:{
       maxItems: 3,
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     desired_education: {
       create:true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     desired_occupation:{
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
   };
 
@@ -207,7 +185,7 @@ $(document).on("page:change", function() {
           searchField: options.searchField ? options.searchField : "title",
           options:     select_profile_edit_items[name],
           create:      options.create ? options.create : false,
-          plugins:     options.plugins ? options.plugins : [],
+          plugins:     options.plugins ? options.plugins : ['remove_button', 'restore_on_backspace'],
           delimeter:   options.delimeter ? options.delimeter : ",",
           render: {
             option: function(item, escape) {
