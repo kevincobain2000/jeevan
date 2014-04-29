@@ -6,13 +6,19 @@
     <% categories.each do |category, icon| %>
       <% heading = category.gsub "_", " " %>
       <% id = category.gsub "_", "-" %>
-      <section>
+      <fieldset>
+      <div class="col-sm-4">
         <label class="label">
           <i class="<%= icon %>"></i><strong>
-          <%= heading.titleize %></strong><small class="text-muted">
-            (Add your item, if it is not in the list.)</small></label>
+          <%= heading.titleize %></strong>
+        </label>
+      </div>
+        <div class="col-sm-6">
+          <small class="text-muted">
+            (Add your item, if it is not in the list.)</small>
               <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:education][category] %>" placeholder="Choose or Add your <%= heading %>">
-      </section>
+            </div>
+      </fieldset>
     <% end %>
   </fieldset>
   <footer>

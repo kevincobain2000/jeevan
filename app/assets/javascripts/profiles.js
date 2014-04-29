@@ -1,5 +1,5 @@
 $(document).on("page:change", function() {
-  $( "#tabs" ).tabs();
+  // $( "#tabs" ).tabs();
   pageSetUp();
 
   $("[id^=side]").click(function() {
@@ -27,6 +27,14 @@ $(document).on("page:change", function() {
     birth_city: {
       create: true
     },
+    smoke: true,
+    drink: true,
+    diet: true,
+    own_house: true,
+    own_pet: true,
+    own_car: true,
+    complexion: true,
+    blood_group: true,
     manglik: true,
     sun_sign: true,
     moon_sign: true,
@@ -206,14 +214,10 @@ $(document).on("page:change", function() {
     "mask": "(999) 9999-999-999"
   });
   $(".interest").click(function() {
-    $(this).html('<i class="fa fa-check"></i>Done!')
+    $(this).html('<i class="fa fa-check"></i> Done!')
     $(this).addClass('disabled');
   });
   $(".edit").click(function() {
-    // $(".edit").removeClass('btn-info');
-    // $(".edit").addClass('btn-success');
-    $(this).removeClass('btn-info');
-    $(this).addClass('btn-success');
     $(this).addClass('disabled');
   });
   $('form.edit').bind("keyup change", function(e) {
@@ -221,14 +225,12 @@ $(document).on("page:change", function() {
   });
 
   function show_save_button (el) {
-    el.find(':submit').html('<i class="fa fa-save"></i> Save');
-    el.find(':submit').removeClass('btn-success');
+    el.find(':submit').html('Save');
     el.find(':submit').removeClass('disabled');
-    el.find(':submit').addClass('btn-info');
   }
 
   $('form.edit').submit(function() {
-    $(this).find(':submit').html('<i class="fa fa-check"></i>Done!');
+    $(this).find(':submit').html('Done');
   });
 
   $('.superbox').on('click', '.removeimage', function() {
