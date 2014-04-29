@@ -2242,6 +2242,23 @@ sister:
     title: "Married"
     desc: ""
 
+family_income:
+  -
+    title: "1 - 5 Lac"
+    desc: ""
+  -
+    title: "5 - 10 Lac"
+    desc: ""
+  -
+    title: "10 - 15 Lac"
+    desc: ""
+  -
+    title: "15 - 35 Lac"
+    desc: ""
+  -
+    title: "35 plus"
+    desc: ""
+
 profile_handler:
   -
     title: "Parents"
@@ -2297,6 +2314,40 @@ highest_degree:
     desc: ""
   -
     title: "Other"
+    desc: ""
+
+desired_income:
+  -
+    title: "1 - 5 Lac"
+    desc: ""
+  -
+    title: "5 - 10 Lac"
+    desc: ""
+  -
+    title: "10 - 15 Lac"
+    desc: ""
+  -
+    title: "15 - 35 Lac"
+    desc: ""
+  -
+    title: "35 plus"
+    desc: ""
+desired_height:
+  -
+    title: "18 - 20 Yrs"
+    desc: ""
+  -
+    title: "20 - 23 Yrs"
+    desc: ""
+  -
+    title: "23 - 26 Yrs"
+    desc: ""
+  -
+    title: "26 - 30 Yrs"
+    desc: ""
+desired_age:
+  -
+    title: "Afghanistan"
     desc: ""
 
 desired_country:

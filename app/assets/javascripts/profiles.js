@@ -88,6 +88,7 @@ $(document).on("page:change", function() {
     mother: true,
     brother: true,
     sister: true,
+    family_income: true,
     profile_handler: true,
     school: {
       create: true,
@@ -113,6 +114,9 @@ $(document).on("page:change", function() {
       create: true,
       plugins: ['remove_button', 'restore_on_backspace']
     },
+    desired_income: true,
+    desired_height: true,
+    desired_age: true,
     desired_country: {
       maxItems: 2,
       create: true,
@@ -146,10 +150,6 @@ $(document).on("page:change", function() {
 
   $(".close-edit-modal").click(function() {
     $("#hidden-side-myprofile")[0].click();
-  });
-  $(".open-edit-modal").click(function() {
-    reinit_family_range_slider();
-    reinit_desire_range_slider();
   });
 
 
@@ -248,51 +248,6 @@ $(document).on("page:change", function() {
       $(".superbox-show").slideUp();
     });
   }
-
-  /*======================================
-  #=            Set up Sliders
-  #======================================*/
-  $("#tab-desire").click(function(e) {
-    reinit_desire_range_slider();
-  });
-
-  function reinit_desire_range_slider() {
-    $("#desired-income-slider").ionRangeSlider({
-      prettify: false,
-      hasGrid: true,
-      onFinish: function(obj) {
-        show_save_button($(".edit"))
-      }
-    });
-    $("#desired-height-slider").ionRangeSlider({
-      prettify: false,
-      hasGrid: true,
-      onFinish: function(obj) {
-        show_save_button($(".edit"))
-      }
-    });
-    $("#desired-age-slider").ionRangeSlider({
-      prettify: false,
-      hasGrid: true,
-      onFinish: function(obj) {
-        show_save_button($(".edit"))
-      }
-    });
-  }
-
-  $("#tab-family").click(function(e) {
-    reinit_family_range_slider();
-  });
-
-  function reinit_family_range_slider() {
-   $("#family-income-slider").ionRangeSlider({
-    prettify: false,
-    hasGrid: true,
-    onFinish: function(obj) {
-      show_save_button($(".edit"))
-    }
-  });
- }
 
  /*-----  End of Set up Sliders  ------*/
  $('.superbox').SuperBox();
