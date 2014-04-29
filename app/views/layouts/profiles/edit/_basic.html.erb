@@ -2,17 +2,22 @@
 <%= form_tag({:action=>'modify_profile'}, {:remote => true, :class=>"smart-form edit"}) do %>
   <h3 class="error-text-3"><strong>Basic</strong> Information</h3>
   <fieldset>
-    <section>
+    <div class="col-sm-4">
       <label class="label">
         <strong>Home</strong> <span class="text-muted">Your Current Residential Location</span>
       </label>
+    </div>
+      <div class="col-sm-6">
         <input id="select-home" name="home" value="<%= @user[:profile][:home] %>" class="selectized">
-    </section>
+      </div>
+
   </fieldset>
+  
   <fieldset>
-  <section>
+  <div class="col-sm-4">
       <label class="label"><strong>Marital</strong> Status</label>
-      <div class="row">
+      </div>
+      <div class="col-sm-6">
         <div class="col col-4">
           <label class="radio">
             <%= radio_button_tag(:marital_status, "Never Married", (@user[:profile][:marital_status] == "Never Married")) %>
@@ -38,10 +43,13 @@
           </label>
         </div>
       </div>
-      </section>
-      <section>
+      </fieldset>
+
+      <fieldset>
+      <div class="col-sm-4">
       <label class="label"><strong>Profile</strong> Posted By</label>
-      <div class="row">
+      </div>
+      <div class="col-sm-6">
         <div class="col col-4">
           <label class="radio">
             <%= radio_button_tag(:posted_by, "Self", (@user[:profile][:posted_by] == "Self")) %>
@@ -80,8 +88,7 @@
           </label>
         </div>
       </div>
-      </section>
-  </fieldset>
+    </fieldset>
   <footer>
     <button type="submit" class="btn btn-primary edit disabled">Save</button>
   </footer>

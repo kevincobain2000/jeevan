@@ -2,8 +2,10 @@
 <%= form_tag({:action=>'modify_desire'},{:remote => true, :class=>"smart-form edit"}) do %>
   <h3 class="error-text-3"><strong>Desired</strong> <i>partner</i></h3>
   <fieldset>
+  <div class="col-sm-4">
     <label class="label">Desired Marital <strong>Status</strong></label>
-    <div class="row">
+  </div>
+    <div class="col-sm-6">
       <% [ 'Never Married', 'Divorced', "Getting a Divorce", "Widowed"].each do |desired_marital_status| %>
         <div class="col col-4">
           <label class="radio">
@@ -12,20 +14,27 @@
             <%= desired_marital_status %></label>
         </div>
       <% end %></div>
-    <br>
-    <label class="label">Desired <strong>Manglik</strong></label>
-    <div class="row">
-      <% [ 'Yes', 'No', 'Angshik (Partial)', "Does not Matter" ].each do |desired_manglik| %>
-        <div class="col col-4">
-          <label class="radio">
-            <%= radio_button_tag(:desired_manglik, desired_manglik,(@user[:desire][:desired_manglik] == desired_manglik)) %>
-            <i></i>
-            <%= desired_manglik %></label>
+      </fieldset>
+      <fieldset>
+        <div class="col-sm-4">
+          <label class="label">Desired <strong>Manglik</strong></label>
         </div>
-      <% end %></div>
-    <br>
-    <label class="label">Desired <strong>Diet</strong></label>
-    <div class="row">
+        <div class="col-sm-6">
+          <% [ 'Yes', 'No', 'Angshik (Partial)', "Does not Matter" ].each do |desired_manglik| %>
+          <div class="col col-4">
+            <label class="radio">
+              <%= radio_button_tag(:desired_manglik, desired_manglik,(@user[:desire][:desired_manglik] == desired_manglik)) %>
+              <i></i>
+              <%= desired_manglik %></label>
+            </div>
+            <% end %></div>
+          </fieldset>
+
+    <fieldset>
+    <div class="col-sm-4">
+      <label class="label">Desired <strong>Diet</strong></label>
+    </div>
+      <div class="col-sm-6">
       <% [ 'Vegeterian', 'Non Vegeterian', "Eggeterian", "Occasional Non Vegeterian","Does not Matter" ].each do |desired_diet| %>
         <div class="col col-4">
           <label class="radio">
@@ -34,20 +43,29 @@
             <%= desired_diet %></label>
         </div>
       <% end %></div>
-    <br>
-    <label class="label">Desired <strong>Smoking</strong></label>
-    <div class="row">
-      <% [ 'Yes', 'No' ].each do |desired_smoke| %>
-        <div class="col col-4">
-          <label class="radio">
-            <%= radio_button_tag(:desired_smoke, desired_smoke,(@user[:desire][:desired_smoke] == desired_smoke)) %>
-            <i></i>
-            <%= desired_smoke %></label>
-        </div>
-      <% end %></div>
-    <br>
-    <label class="label">Desired Drinking <strong>Habits</strong></label>
-    <div class="row">
+      </fieldset>
+
+      <fieldset>
+      <div class="col-sm-4">
+        <label class="label">Desired <strong>Smoking</strong></label>
+      </div>
+      <div class="col-sm-6">
+          <% [ 'Yes', 'No' ].each do |desired_smoke| %>
+          <div class="col col-4">
+            <label class="radio">
+              <%= radio_button_tag(:desired_smoke, desired_smoke,(@user[:desire][:desired_smoke] == desired_smoke)) %>
+              <i></i>
+              <%= desired_smoke %></label>
+            </div>
+            <% end %>
+          </div>
+    </fieldset>
+
+    <fieldset>
+    <div class="col-sm-4">
+      <label class="label">Desired Drinking <strong>Habits</strong></label>
+    </div>
+    <div class="col-sm-6">
       <% [ 'Yes', 'Light Drinker', 'Occasional Drinks', 'Not at all' ].each do |desired_drink| %>
         <div class="col col-4">
           <label class="radio">
@@ -56,9 +74,13 @@
             <%= desired_drink %></label>
         </div>
       <% end %></div>
-    <br>
-    <label class="label"><strong>Complexion</strong></label>
-    <div class="row">
+    </fieldset>
+    <fieldset>
+
+    <div class="col-sm-4">
+      <label class="label"><strong>Complexion</strong></label>
+    </div>
+    <div class="col-sm-6">
       <% [ 'White', 'Wheatish', 'Fair', "Yellow", "Dark", 'Does not Matter' ].each do |desired_complexion| %>
         <div class="col col-4">
           <label class="radio">
@@ -67,25 +89,25 @@
             <%= desired_complexion %></label>
         </div>
       <% end %></div>
-    <br>
   </fieldset>
-  <fieldset>
-    <div class="col-sm-12">
+  
+
       <% categories = ["desired_income","desired_height","desired_age", "desired_country", "desired_city", "desired_religion", "desired_caste", "desired_mother_tongue", "desired_education", "desired_occupation"] %>
       <% categories.each do |category| %>
+      <fieldset>
         <% heading = category.gsub "_", " " %>
         <% id = category.gsub "_", "-" %>
-        <div class="col-sm-6">
-        <label class="label"><strong><%= heading.titleize %></strong></label>
+        <div class="col-sm-4">
+        <label class="label">
+          <strong><%= heading.titleize %></strong></label>
             
         </div>
         <div class="col-sm-6">
           <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:desire][category] %>" placeholder="Choose your <%= heading %>">
       </div>
-        <div class="col-sm-12">&nbsp;</div>
+        </fieldset>
       <% end %>
-    </div>
-  </fieldset>
+  
   <footer>
     <button type="submit" class="btn btn-primary edit disabled">Save</button>
   </footer>

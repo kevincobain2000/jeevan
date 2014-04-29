@@ -1,3 +1,65 @@
+smoke:
+  -
+    title: "Yes"
+    desc: ""
+  -
+    title: "No"
+    desc: ""
+drink:
+  -
+    title: "Yes"
+    desc: ""
+  -
+    title: "No"
+    desc: ""
+diet:
+  -
+    title: "Vegetarian"
+    desc: ""
+  -
+    title: "Non Vegetarian"
+    desc: ""
+own_house:
+  -
+    title: "Yes"
+    desc: ""
+  -
+    title: "No"
+    desc: ""
+own_car:
+  -
+    title: "Yes"
+    desc: ""
+  -
+    title: "No"
+    desc: ""
+own_pet:
+  -
+    title: "Yes"
+    desc: ""
+  -
+    title: "No"
+    desc: ""
+complexion:
+  -
+    title: "white"
+    desc: ""
+  -
+    title: "dark"
+    desc: ""
+  -
+    title: "fair"
+    desc: ""
+blood_group:
+  -
+    title: "O+"
+    desc: ""
+  -
+    title: "AB"
+    desc: ""
+  -
+    title: "A+"
+    desc: ""
 religion:
   -
     title: "Hindu"

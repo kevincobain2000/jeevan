@@ -2,9 +2,10 @@
 <%= form_tag({:action=>'modify_family'},{:remote => true, :class=>"smart-form edit"}) do %>
   <h3 class="error-text-3"><strong>Family</strong></h3>
   <fieldset>
-  <section>
+  <div class="col-sm-4">
     <label class="label">Family <strong>Values</strong></label>
-    <div class="row">
+    </div>
+    <div class="col-sm-6">
       <% [ 'Liberal', 'Hypocrite' ].each do |values| %>
         <div class="col col-4">
           <label class="radio">
@@ -15,10 +16,12 @@
         </div>
       <% end %>
     </div>
-    </section>
-    <section>
-    <label class="label">Family <strong>Size</strong></label>
-    <div class="row">
+    </fieldset>
+    <fieldset>
+    <div class="col-sm-4">
+      <label class="label">Family <strong>Size</strong></label>
+    </div>
+    <div class="col-sm-6">
       <% [ 'Nuclear', 'Joint', 'Other' ].each do |size| %>
         <div class="col col-4">
           <label class="radio">
@@ -29,10 +32,12 @@
         </div>
       <% end %>
     </div>
-    </section>
-    <section>
-    <label class="label">Family <strong>Status</strong></label>
-    <div class="row">
+    </fieldset>
+    <fieldset>
+    <div class="col-sm-4">
+      <label class="label">Family <strong>Status</strong></label>
+    </div>
+    <div class="col-sm-6">
       <% [ 'Rich', 'Upper Middle','Middle', 'Lower Middle', 'Other' ].each do |status| %>
         <div class="col col-4">
           <label class="radio">
@@ -43,15 +48,14 @@
         </div>
       <% end %>
     </div>
-    </section>
-  </fieldset>
-  <fieldset>
-    <div class="col-sm-12">
+    </fieldset>
+  
       <% categories = ["father", "mother", "brother", "sister", "family_income"] %>
       <% categories.each do |category| %>
+      <fieldset>
         <% heading = category.sub "_", " " %>
         <% id = category.sub "_", "-" %>
-        <div class="col-sm-6">
+        <div class="col-sm-4">
           <label class="label"><strong>
             <%= heading.titleize %></strong></label>
         
@@ -61,9 +65,9 @@
             (Choose or Add New)</small>
           <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:family][category] %>" placeholder="About my <%= heading %>">
         </div>
+      </fieldset>
       <% end %>
-    </div>
-  </fieldset>
+  
   <footer>
     <button type="submit" class="btn btn-primary edit disabled">Save</button>
   </footer>
