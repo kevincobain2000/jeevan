@@ -1,98 +1,7 @@
 <%= render :partial =>'layouts/alert', :locals => {:heading => "Contact Details", :description => "Your contact details are kept private and are only shown to other users once you accept their interest", :icon=>"fa fa-heart"}%>
 <%= form_tag({:action=>'modify_desire'},{:remote => true, :class=>"smart-form edit"}) do %>
-  <h3 class="error-text-3"><strong>Desired</strong> <i>partner</i></h3>
-  <fieldset>
-  <div class="col-sm-4">
-    <label class="label">Desired Marital <strong>Status</strong></label>
-  </div>
-    <div class="col-sm-6">
-      <% [ 'Never Married', 'Divorced', "Getting a Divorce", "Widowed"].each do |desired_marital_status| %>
-        <div class="col col-4">
-          <label class="radio">
-            <%= radio_button_tag(:desired_marital_status, desired_marital_status,(@user[:desire][:desired_marital_status] == desired_marital_status)) %>
-            <i></i>
-            <%= desired_marital_status %></label>
-        </div>
-      <% end %></div>
-      </fieldset>
-      <fieldset>
-        <div class="col-sm-4">
-          <label class="label">Desired <strong>Manglik</strong></label>
-        </div>
-        <div class="col-sm-6">
-          <% [ 'Yes', 'No', 'Angshik (Partial)', "Does not Matter" ].each do |desired_manglik| %>
-          <div class="col col-4">
-            <label class="radio">
-              <%= radio_button_tag(:desired_manglik, desired_manglik,(@user[:desire][:desired_manglik] == desired_manglik)) %>
-              <i></i>
-              <%= desired_manglik %></label>
-            </div>
-            <% end %></div>
-          </fieldset>
-
-    <fieldset>
-    <div class="col-sm-4">
-      <label class="label">Desired <strong>Diet</strong></label>
-    </div>
-      <div class="col-sm-6">
-      <% [ 'Vegeterian', 'Non Vegeterian', "Eggeterian", "Occasional Non Vegeterian","Does not Matter" ].each do |desired_diet| %>
-        <div class="col col-4">
-          <label class="radio">
-            <%= radio_button_tag(:desired_diet, desired_diet,(@user[:desire][:desired_diet] == desired_diet)) %>
-            <i></i>
-            <%= desired_diet %></label>
-        </div>
-      <% end %></div>
-      </fieldset>
-
-      <fieldset>
-      <div class="col-sm-4">
-        <label class="label">Desired <strong>Smoking</strong></label>
-      </div>
-      <div class="col-sm-6">
-          <% [ 'Yes', 'No' ].each do |desired_smoke| %>
-          <div class="col col-4">
-            <label class="radio">
-              <%= radio_button_tag(:desired_smoke, desired_smoke,(@user[:desire][:desired_smoke] == desired_smoke)) %>
-              <i></i>
-              <%= desired_smoke %></label>
-            </div>
-            <% end %>
-          </div>
-    </fieldset>
-
-    <fieldset>
-    <div class="col-sm-4">
-      <label class="label">Desired Drinking <strong>Habits</strong></label>
-    </div>
-    <div class="col-sm-6">
-      <% [ 'Yes', 'Light Drinker', 'Occasional Drinks', 'Not at all' ].each do |desired_drink| %>
-        <div class="col col-4">
-          <label class="radio">
-            <%= radio_button_tag(:desired_drink, desired_drink,(@user[:desire][:desired_drink] == desired_drink)) %>
-            <i></i>
-            <%= desired_drink %></label>
-        </div>
-      <% end %></div>
-    </fieldset>
-    <fieldset>
-
-    <div class="col-sm-4">
-      <label class="label"><strong>Complexion</strong></label>
-    </div>
-    <div class="col-sm-6">
-      <% [ 'White', 'Wheatish', 'Fair', "Yellow", "Dark", 'Does not Matter' ].each do |desired_complexion| %>
-        <div class="col col-4">
-          <label class="radio">
-            <%= radio_button_tag(:desired_complexion, desired_complexion,(@user[:desire][:desired_complexion] == desired_complexion)) %>
-            <i></i>
-            <%= desired_complexion %></label>
-        </div>
-      <% end %></div>
-  </fieldset>
-  
-
-      <% categories = ["desired_income","desired_height","desired_age", "desired_country", "desired_city", "desired_religion", "desired_caste", "desired_mother_tongue", "desired_education", "desired_occupation"] %>
+  <h3 class=""><strong>Desired</strong> <i>partner</i></h3>
+      <% categories = ["desired_marital_status", "desired_manglik","desired_diet","desired_smoke","desired_drink","desired_complexion", "desired_income","desired_height","desired_age", "desired_country", "desired_city", "desired_religion", "desired_caste", "desired_mother_tongue", "desired_education", "desired_occupation"] %>
       <% categories.each do |category| %>
       <fieldset>
         <% heading = category.gsub "_", " " %>
@@ -100,14 +9,12 @@
         <div class="col-sm-4">
         <label class="label">
           <strong><%= heading.titleize %></strong></label>
-            
         </div>
         <div class="col-sm-6">
           <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:desire][category] %>" placeholder="Choose your <%= heading %>">
       </div>
         </fieldset>
       <% end %>
-  
   <footer>
     <button type="submit" class="btn btn-primary edit disabled">Save</button>
   </footer>

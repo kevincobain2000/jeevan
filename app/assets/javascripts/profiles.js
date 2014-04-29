@@ -27,6 +27,11 @@ $(document).on("page:change", function() {
     birth_city: {
       create: true
     },
+    posted_by: true,
+    marital_status: true,
+    values: true,
+    size: true,
+    status: true,
     smoke: true,
     drink: true,
     diet: true,
@@ -122,6 +127,12 @@ $(document).on("page:change", function() {
       create: true,
       plugins: ['remove_button', 'restore_on_backspace']
     },
+    desired_marital_status: true,
+    desired_manglik: true,
+    desired_diet: true,
+    desired_smoke: true,
+    desired_drink: true,
+    desired_complexion: true,
     desired_income: true,
     desired_height: true,
     desired_age: true,

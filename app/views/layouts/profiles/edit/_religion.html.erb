@@ -1,6 +1,6 @@
 <%= render :partial =>'layouts/alert', :locals => {:heading => "Your Religion, Caste ..", :description => "Please select one from the dropdown", :icon=>"fa fa-sun-o"}%>
 <%= form_tag({:action=>'modify_religion'},{:remote => true, :class=>"smart-form edit"}) do %>
-  <h3 class="error-text-3"><strong>Religion</strong> and <i>Caste</i></h3>
+  <h3 class=""><strong>Religion</strong> and <i>Caste</i></h3>
 
     <% categories = {'mother_tongue' => "fa fa-globe", 'caste' => "fa fa-bars", 'sub_caste' => "fa fa-arrows-v", 'native_place' => "fa fa-location-arrow"} %>
     <% categories.each do |category, icon| %>
@@ -12,11 +12,11 @@
           <i class="<%= icon %>"></i><strong>
           <%= heading.titleize %></strong>
         </label>
+        <small class="text-muted">
+          Select one from list or add a new one
+        </small>
       </div>
       <div class="col-sm-6">
-          <small class="text-muted">
-          Choose or Add new Entry
-          </small>
         <input id="select-<%= id %>" name="<%= category %>" value="<%= @user[:religion][category] %>" class="selectized" placeholder="Select or Add One <%= heading %>">
       </div>
       </fieldset>
