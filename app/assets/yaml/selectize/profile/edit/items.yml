@@ -1,4 +1,87 @@
+posted_by:
+  -
+    title: "Parents"
+    desc: ""
+  -
+    title: "Self"
+    desc: ""
+  -
+    title: "Brother"
+    desc: ""
+  -
+    title: "Sister"
+    desc: ""
+  -
+    title: "Relative"
+    desc: ""
+desired_marital_status:
+  -
+    title: "Single"
+    desc: ""
+  -
+    title: "Married"
+    desc: ""
+  -
+    title: "Divorced"
+    desc: ""
+  -
+    title: "Widowed"
+    desc: ""
+marital_status:
+  -
+    title: "Single"
+    desc: ""
+  -
+    title: "Married"
+    desc: ""
+  -
+    title: "Divorced"
+    desc: ""
+  -
+    title: "Widowed"
+    desc: ""
+values:
+  -
+    title: "Liberal"
+    desc: ""
+  -
+    title: "Hypocrite"
+    desc: ""
+size:
+  -
+    title: "Nuclear"
+    desc: ""
+  -
+    title: "Joint"
+    desc: ""
+status:
+  -
+    title: "Rich"
+    desc: ""
+  -
+    title: "Upper Middle"
+    desc: ""
+  -
+    title: "Middle"
+    desc: ""
+  -
+    title: "Lower Middle"
+    desc: ""
+desired_smoke:
+  -
+    title: "Yes"
+    desc: ""
+  -
+    title: "No"
+    desc: ""
 smoke:
+  -
+    title: "Yes"
+    desc: ""
+  -
+    title: "No"
+    desc: ""
+desired_drink:
   -
     title: "Yes"
     desc: ""
@@ -11,6 +94,13 @@ drink:
     desc: ""
   -
     title: "No"
+    desc: ""
+desired_diet:
+  -
+    title: "Vegetarian"
+    desc: ""
+  -
+    title: "Non Vegetarian"
     desc: ""
 diet:
   -
@@ -39,6 +129,16 @@ own_pet:
     desc: ""
   -
     title: "No"
+    desc: ""
+desired_complexion:
+  -
+    title: "white"
+    desc: ""
+  -
+    title: "dark"
+    desc: ""
+  -
+    title: "fair"
     desc: ""
 complexion:
   -
@@ -1718,6 +1818,19 @@ birth_city:
     title: "Rajasthan"
     desc: ""
 
+desired_manglik:
+  -
+    title: "No"
+    desc: ""
+  -
+    title: "Yes"
+    desc: ""
+  -
+    title: "Angshik (Partial)"
+    desc: ""
+  -
+    title: "Don't Know"
+    desc: ""
 manglik:
   -
     title: "No"

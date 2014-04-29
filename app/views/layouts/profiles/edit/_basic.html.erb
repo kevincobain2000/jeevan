@@ -1,6 +1,6 @@
 <%= render :partial =>'layouts/alert', :locals => {:heading => "Basic Information about yourself ..", :description => "Basic information is shown on the profile card and appears when some does a search", :icon=>"fa fa-bookmark"}%>
 <%= form_tag({:action=>'modify_profile'}, {:remote => true, :class=>"smart-form edit"}) do %>
-  <h3 class="error-text-3"><strong>Basic</strong> Information</h3>
+  <h3 class=""><strong>Basic</strong> Information</h3>
   <fieldset>
     <div class="col-sm-4">
       <label class="label">
@@ -13,82 +13,23 @@
 
   </fieldset>
   
-  <fieldset>
-  <div class="col-sm-4">
-      <label class="label"><strong>Marital</strong> Status</label>
-      </div>
-      <div class="col-sm-6">
-        <div class="col col-4">
-          <label class="radio">
-            <%= radio_button_tag(:marital_status, "Never Married", (@user[:profile][:marital_status] == "Never Married")) %>
-            <i></i>
-            Never Married
-          </label>
-          <label class="radio">
-            <%= radio_button_tag(:marital_status, "Divorced", (@user[:profile][:marital_status] == "Divorced")) %>
-            <i></i>
-            Divorced
-          </label>
-        </div>
-        <div class="col col-4">
-          <label class="radio">
-            <%= radio_button_tag(:marital_status, "Filed Divorce", (@user[:profile][:marital_status] == "Filed Divorce")) %>
-            <i></i>
-            Filed Divorce
-          </label>
-          <label class="radio">
-            <%= radio_button_tag(:marital_status, "Widowed", (@user[:profile][:marital_status] == "Widowed")) %>
-            <i></i>
-            Widowed
-          </label>
-        </div>
-      </div>
-      </fieldset>
-
+    <% categories = ["posted_by", "marital_status"] %>
+      <% categories.each do |category| %>
       <fieldset>
-      <div class="col-sm-4">
-      <label class="label"><strong>Profile</strong> Posted By</label>
-      </div>
-      <div class="col-sm-6">
-        <div class="col col-4">
-          <label class="radio">
-            <%= radio_button_tag(:posted_by, "Self", (@user[:profile][:posted_by] == "Self")) %>
-            <i></i>
-            Self
-          </label>
-          <label class="radio">
-            <%= radio_button_tag(:posted_by, "Parents", (@user[:profile][:posted_by] == "Parents")) %>
-            <i></i>
-            Parents
-          </label>
+        <% heading = category.sub "_", " " %>
+        <% id = category.sub "_", "-" %>
+        <div class="col-sm-4">
+          <label class="label"><strong>
+            <%= heading.titleize %></strong></label>
+            <small class="text-muted">
+            Choose One</small>
+          </div>
+          <div class="col-sm-6">
+          <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:profile][category] %>" placeholder="<%= heading %>">
         </div>
-        <div class="col col-4">
-          <label class="radio">
-            <%= radio_button_tag(:posted_by, "Brother", (@user[:profile][:posted_by] == "Brother")) %>
-            <i></i>
-            Brother
-          </label>
-          <label class="radio">
-            <%= radio_button_tag(:posted_by, "Sister", (@user[:profile][:posted_by] == "Sister")) %>
-            <i></i>
-            Sister
-          </label>
-        </div>
+      </fieldset>
+      <% end %>
 
-        <div class="col col-4">
-          <label class="radio">
-            <%= radio_button_tag(:posted_by, "Relatives", (@user[:profile][:posted_by] == "Relatives")) %>
-            <i></i>
-            Relatives
-          </label>
-          <label class="radio">
-            <%= radio_button_tag(:posted_by, "Friends", (@user[:profile][:posted_by] == "Friends")) %>
-            <i></i>
-            Friends
-          </label>
-        </div>
-      </div>
-    </fieldset>
   <footer>
     <button type="submit" class="btn btn-primary edit disabled">Save</button>
   </footer>

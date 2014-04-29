@@ -1,56 +1,8 @@
 <%= render :partial =>'layouts/alert', :locals => {:heading => "Tell us About Your Family", :description => "", :icon=>"fa fa-group"}%>
 <%= form_tag({:action=>'modify_family'},{:remote => true, :class=>"smart-form edit"}) do %>
-  <h3 class="error-text-3"><strong>Family</strong></h3>
-  <fieldset>
-  <div class="col-sm-4">
-    <label class="label">Family <strong>Values</strong></label>
-    </div>
-    <div class="col-sm-6">
-      <% [ 'Liberal', 'Hypocrite' ].each do |values| %>
-        <div class="col col-4">
-          <label class="radio">
-            <%= radio_button_tag(:values, values,(@user[:family][:values] == values)) %>
-            <i></i>
-            <%= values %>
-          </label>
-        </div>
-      <% end %>
-    </div>
-    </fieldset>
-    <fieldset>
-    <div class="col-sm-4">
-      <label class="label">Family <strong>Size</strong></label>
-    </div>
-    <div class="col-sm-6">
-      <% [ 'Nuclear', 'Joint', 'Other' ].each do |size| %>
-        <div class="col col-4">
-          <label class="radio">
-            <%= radio_button_tag(:size, size,(@user[:family][:size] == size)) %>
-            <i></i>
-            <%= size %>
-          </label>
-        </div>
-      <% end %>
-    </div>
-    </fieldset>
-    <fieldset>
-    <div class="col-sm-4">
-      <label class="label">Family <strong>Status</strong></label>
-    </div>
-    <div class="col-sm-6">
-      <% [ 'Rich', 'Upper Middle','Middle', 'Lower Middle', 'Other' ].each do |status| %>
-        <div class="col col-4">
-          <label class="radio">
-            <%= radio_button_tag(:status, status,(@user[:family][:status] == status)) %>
-            <i></i>
-            <%= status %>
-          </label>
-        </div>
-      <% end %>
-    </div>
-    </fieldset>
+  <h3 class=""><strong>Family</strong></h3>
   
-      <% categories = ["father", "mother", "brother", "sister", "family_income"] %>
+      <% categories = ["values", "size", "status", "father", "mother", "brother", "sister", "family_income"] %>
       <% categories.each do |category| %>
       <fieldset>
         <% heading = category.sub "_", " " %>
@@ -58,11 +10,10 @@
         <div class="col-sm-4">
           <label class="label"><strong>
             <%= heading.titleize %></strong></label>
-        
+            <small class="text-muted">
+            Choose one</small>
           </div>
           <div class="col-sm-6">
-            <small class="text-muted">
-            (Choose or Add New)</small>
           <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:family][category] %>" placeholder="About my <%= heading %>">
         </div>
       </fieldset>

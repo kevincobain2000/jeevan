@@ -2,17 +2,17 @@
 'layouts/alert', :locals => {:heading => "Your Lifestyle", :description => "What movies do you like ! What music do you listen to...",:icon=>"fa fa-cutlery"}%>
 <%= form_tag({:action=>
 'modify_lifestyle'}, {:remote => true, :class=>"smart-form edit"}) do %>
-<h3 class="error-text-3"> <strong>Life</strong>
+<h3 class=""> <strong>Life</strong>
   Style
 </h3>
 <fieldset>
   <div class="col-sm-4">
     <label class="label"><strong>Height</strong></label>
-  </div>
-  <div class="col-sm-6">
     <small class="text-muted"> <strong>Your Height in Ft Inches:</strong>
       <strong>Example</strong> 5.7
     </small>
+  </div>
+  <div class="col-sm-6">
     <label class="input"> <i class="icon-append fa fa-male"></i>
       <input class="form-control" type="number" step= "any" name="height" placeholder="Height in numbers" min="2" max="7"></label>
   </div>
@@ -20,12 +20,12 @@
   <fieldset>
   <div class="col-sm-4">
     <label class="label"><strong>Weight</strong></label>
-  </div>
-  <div class="col-sm-6">
     <small class="text-muted">
       <strong>Your Weight in</strong>
       Kgs <strong>Example 55</strong>
     </small>
+  </div>
+  <div class="col-sm-6">
     <label class="input"> <i class="icon-append fa fa-male"></i>
       <input class="form-control" type="number" name="weight" placeholder="Weight in numbers" min="25" max="120"></label>
   </div>
@@ -39,6 +39,8 @@
     <div class="col-sm-4">
       <label class="label">
         <strong><%= heading.titleize %></strong></label>
+        <small class="text-muted">
+            Choose one</small>
       </div>
       <div class="col-sm-6">
         <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:lifestyle][category] %>" placeholder="Choose your <%= heading %>">
