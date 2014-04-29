@@ -111,6 +111,7 @@ class ProfilesController < ApplicationController
   #            Mark Notification as read         =
   #==============================================*/
   def seen_notification
+    logger.info("Debug yay");
     notification = Notification.find(params[:notification_id])
     if notification.created_at < 1.month.ago
       notification.delete()

@@ -1,36 +1,35 @@
-<% notifications.each do |notification_id, user| %>
-  <%= form_tag({:action=>'seen_notification', :controller => "profiles"}, {:remote => true}) do %>
-  <%= link_to profile_path(:id => user[:profile][:id]), :type=> "submit", :onclick=>"$(this).closest('form').submit()" do %>
+  <% notifications.each do |notification_id, user| %>
+  <%= form_tag({:action=>'seen_notification', :controller => "profiles"}, {:remote => true}) do %>  
+    <% if user[:seen] == 1 %>
+    <% form_submit = "" %>
+    <% else %>
+    <% form_submit = "$(this).closest('form').submit()" %>
+    <% end %>
+    <%= link_to profile_path(:id => user[:profile][:id]), :type=> "submit", :onclick=>"#{form_submit}" do %>
   <input type="hidden" name="notification_id" value="<%= notification_id %>">
-    <div class="divhover-light">
-      <dl class="dl-horizontal">
-        <dt>
-          <%= image_tag user[:avatar].url(:thumb), :class=> "img-rounded pull-left",:style =>"height:55px;width:55px;" %>
-        </dt>
-        <dd class="dl-horizontal">
-          <% if user[:seen] != 1 %>
-          <blockquote class="font-sm pull-right">
-          <% else %>
-          <blockquote class="text-muted font-sm pull-right">
-          <% end %>
-            <p class="font-sm semi-bold">
-              <% if user[:seen] != 1 %><i class="fa fa-circle txt-color-blue"></i>
-              <% end %>
-              <strong><%= truncate(user[:name], length: 20) %></strong>
-            <br>
-              <i class="<%= user[:icon] %>"></i> <%= user[:message] %>
-              </p>
-            <small>
-              <%= user[:created_at] %>
-              ago
-            </small>
-          </blockquote>
-        </dd>
-      </dl>
-    </div>
+  <ul class="notification-body">
+    <li>
+    <% if user[:seen] != 1 %>
+      <span class="padding-10 unread">
+      <% else %>
+      <span class="padding-10">
+      <% end %>
+      <span class="padding-5">
+        <%= image_tag user[:avatar].url(:thumb), :class=> "img-rounded pull-left",:style =>"height:55px;width:55px;" %>
+      </span>
+      
+      <span class="padding-5">
+         <i class="<%= user[:icon] %>"></i> <span class="text-primary">
+           <strong><%= truncate(user[:name], length: 20) %></strong>
+         </span> <%= user[:message] %>
+         <br>
+         <span class="pull-right font-xs text-muted"><i><%= user[:created_at] %> ago...</i></span>
+      </span>
+      
+    </span>
+  </li>
+  
+  </ul>
   <% end %>
-  <!-- End Link -->
-  <% end %>
-  <!-- End Form -->
 <% end %>
-<!-- End Loop -->
+<% end %>

@@ -108,7 +108,7 @@ class ApplicationController < ActionController::Base
     if !defined? current_user.id
       return
     end
-    messages = [ ["Viewed Your Profile", "fa fa-eye"], ["Expressed Interest !", "fa fa-connect"], ["Accepted Interest !", "fa fa-check"], ["Rejected Interest", "fa fa-times"] ]
+    messages = [ ["Viewed Your Profile", "fa fa-thumbs-up"], ["Expressed Interest !", "fa fa-connect"], ["Accepted Interest !", "fa fa-check"], ["Rejected Interest", "fa fa-times"] ]
     @notifications = Hash.new {|h, k| h[k] = [] }
     @notifications_unread_count = 0
     # notifications = current_user.notifications().where("created_at >= ?", 1.week.ago).order(:seen, :created_at)
