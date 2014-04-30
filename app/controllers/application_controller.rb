@@ -20,16 +20,16 @@ class ApplicationController < ActionController::Base
     in_response  = Interest.where(to_user_id: current_user.id, user_id: user.id).first
     out_response = Interest.where(user_id: current_user.id, to_user_id: user.id).first
 
-    name = show_name_to_accepted(in_response, out_response) ? user[:name] : "name upon acceptance"
+    name = show_name_to_accepted(in_response, out_response) ? user[:name] : "name on acceptance"
 
     user_ret = {
       id:         user.id,
-      dob:        user.dob,
+      dob:        dob,
       age:        age,
-      name:       titleize(truncate(name)),
+      name:       truncate(name).capitalize,
       updated_at: time_ago_in_words(user.updated_at),
       created_at: time_ago_in_words(user.created_at),
-      sex:        titleize(user.sex),
+      sex:        user.sex.capitalize,
       visitors:   number_with_delimiter(Visitor.where(viewed_id: user.id).count),
       profile:    user.profile,
       contact:    user.contact,
@@ -43,6 +43,7 @@ class ApplicationController < ActionController::Base
       lifestyle:  user.lifestyle,
       desire:     user.desire,
       image:      user.images.all,
+      images_count:      user.images_count,
       avatar:     user.avatar,
       in_response:  in_response,
       out_response: out_response,
@@ -61,7 +62,7 @@ class ApplicationController < ActionController::Base
 
     user_ret = {
       id:         user.id,
-      dob:        user.dob,
+      dob:        dob,
       age:        age,
       name:       titleize(truncate(name)),
       updated_at: time_ago_in_words(user.updated_at),

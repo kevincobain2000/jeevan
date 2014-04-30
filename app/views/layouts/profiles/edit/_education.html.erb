@@ -1,7 +1,6 @@
 <%= render :partial =>'layouts/alert', :locals => {:heading => "Education Section", :description => "You can add your school or college if we don't have it in the list", :icon=>"fa fa-flask"}%>
 <%= form_tag({:action=>'modify_education'}, {:remote => true, :class=>"smart-form edit"}) do %>
   <h3 class=""><strong>Education</strong> <i>school & degree</i></h3>
-  <fieldset>
     <% categories = {'school' => "fa fa-superscript", 'grad_college' => "fa fa-map-marker", 'graduation' => "fa fa-book", 'post_grad' => "fa fa-flask", 'post_grad_college' => "fa fa-map-marker", 'highest_degree' => "fa fa-bookmark"} %>
     <% categories.each do |category, icon| %>
       <% heading = category.gsub "_", " " %>
@@ -20,7 +19,6 @@
             </div>
       </fieldset>
     <% end %>
-  </fieldset>
   <footer>
     <button type="submit" class="btn btn-primary edit disabled">Save</button>
   </footer>

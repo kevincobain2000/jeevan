@@ -1,16 +1,16 @@
 <div class="col-sm-5 profile-pic">
   <%= image_tag user[:avatar].url(:thumb)%>
-  <% if current_user.profile.id == @user[:profile][:id] %>
+  <% if @user && current_user.profile.id == @user[:profile][:id] %>
   <button class="btn btn-primary btn-xs pull-right hidden-xs" data-toggle="modal" data-target="#modal-edit-avatar">
-  <i class="fa fa-edit"></i> Change Profile Pic
+  <i class="fa fa-edit"></i> Change picture
   </button>
   <% end %>
   <legend></legend>
   <%= render :partial =>'layouts/online', :locals => {:time => user[:updated_at]}%>
-  <p class="text-muted font-xs">
+  <p class="text-muted">
     <%= user[:updated_at] %>
     ago</p>
-    <strong><%= number_with_delimiter(user[:visitors].to_i, :delimeter => ',') %></strong><span class="text-muted font-xs">
+    <strong><%= number_with_delimiter(user[:visitors].to_i, :delimeter => ',') %></strong><span class="text-muted">
     views</span>
   <div>
     <% if defined? show_profile_flag %>

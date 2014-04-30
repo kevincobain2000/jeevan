@@ -4,15 +4,15 @@
   <fieldset>
     <div class="col-sm-4">
       <label class="label">
-        <strong>Home</strong> <span class="text-muted">Your Current Residential Location</span>
+        <strong>Home</strong> 
       </label>
+        <small class="text-muted">Your Current Residential Location</small>
     </div>
       <div class="col-sm-6">
         <input id="select-home" name="home" value="<%= @user[:profile][:home] %>" class="selectized">
       </div>
 
   </fieldset>
-  
     <% categories = ["posted_by", "marital_status"] %>
       <% categories.each do |category| %>
       <fieldset>
