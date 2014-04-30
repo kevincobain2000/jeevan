@@ -14,69 +14,54 @@
         <div id="columns">
       <!-- <div class="col-md-5 col-md-offset-3"> -->
         <% paginate.each do |_user| %>
-        <% user = make_user_snippet(_user) %>
+        <% user = make_user(_user) %>
         <div class="pin">
-          <%= image_tag user[:avatar].url(:original), :class=>"pinimg" %>
+          <div class="carousel profile-carousel">
+            <%= image_tag user[:avatar].url(:original), :class=>"pinimg" %>
+          <div class="air air-bottom-right padding-5">
+            <%= render :partial =>'layouts/shortlistbutton', :locals => {:user => user} %>
+          </div>
+          <div class="air air-bottom-left padding-5">
+            <%= link_to profile_path(:id => user[:profile][:id]), :class=>"btn btn-primary btn-xs"  do %>
+              <small class=""><%= number_with_delimiter(user[:visitors].to_i, :delimeter => ',') %> views</small>
+              <i class="fa fa-arrow-right"></i>
+              <% end %>
+          </div>
+          <div class="air air-top-left padding-5">
+            <%= render :partial =>'layouts/online', :locals => {:time => user[:updated_at]}%>
+          </div>
+        </div>
+          <!-- All Images tiny -->
           <div class="padding-10">
+          <% if user[:image].count > 1 %>
             <% user[:image].each do |image| %>
             <a href="<%= image.avatar.url(:original) %>" data-lightbox="roadtrip">
               <%= image_tag image.avatar.url(:tiny) %>
             </a>
             <% end %>
-          <h6>
-            <%= link_to profile_path(:id => user[:profile][:id]) do %>
-              <strong><%= user[:devotion] %>
-                <%= user[:religion][:caste] %>,
-                <span><%= user[:age] %>
-              years old</span>
-              </strong>
-            <% end %>
-          </h6>
-          <%= render :partial =>'layouts/online', :locals => {:time => user[:updated_at]}%>
-          <span class="">Last online
+            <hr>
+          <% end %>
+          <strong>Last online
             <%= user[:updated_at] %>
-            ago</span>
-          <div class="text-center">
-            <div class="padding-10">
-            <%= render :partial =>'layouts/shortlistbutton', :locals => {:user => user} %>
-          </div>
-        </div>
-          <p class="description">
-            <span class="">
-            Joined shaadiMatch
-            <%= user[:created_at] %> ago. 
-            </span> <%= (user[:sex] == "Female")? "Her": "His" %> date of birth is <strong><%= user[:dob] %></strong>
-            <span class="">
-              and <%= (user[:sex] == "Female")? "she": "he" %> belongs to a
-            </span><strong><%= user[:profile][:home] %></strong>
-             <%= user[:devotion] %>  <strong><%= user[:religion][:caste] %></strong> family...
-          </p>
+            ago</strong>
+        <%= render :partial =>'layouts/cardinfo', :locals => {:user => user} %>
           <% if user[:about][:me] %>
             <br>
-            <span class=""><i class="fa fa-file"></i>
+            <span class="text-muted"><i class="fa fa-file"></i>
               More About
               <%= (user[:sex] == "Female")? "Her": "Him" %>
             </span><i class="fa fa-angle-right"></i>
             <div class="hidden-xs">
-              <span><%= raw truncate(user[:about][:me], length:100, escape:false) %></span>
+              <span><%= raw truncate(user[:about][:me], length:200, escape:false) %></span>
               <br>
             </div>
           <% end %>
-          <br>
-            <div class="text-center">
-              <div class="padding-10">
-                <%= render :partial =>'layouts/interestbutton', :locals => {:user => user} %>
-              </div>
-            </div>
-            <hr>
-            <div class="pull-right">
-            <%= link_to profile_path(:id => user[:profile][:id]), :class=>""  do %>
-              view profile
-              <i class="fa fa-arrow-right"></i>
-              <% end %>
-              <br>
-              <small class="text-muted pull-right"><%= number_with_delimiter(user[:visitors].to_i, :delimeter => ',') %> views</small>
-            </div>
+          <!-- <br> -->
+            <!-- <div class="text-center"> -->
+              <!-- <div class="padding-10"> -->
+                <%#= render :partial =>'layouts/interestbutton', :locals => {:user => user} %>
+              <!-- </div> -->
+            <!-- </div> -->
           </div>
         </div>
         <% end %>
