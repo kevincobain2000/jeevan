@@ -104,3 +104,12 @@ for i in (101..200)
   u.save
  end
 ```
+
+### app/assets/stylesheets/bootstrap.css
+
+Edits done here
+
+```
+.carousel-indicators li {
+  visibility: hidden;
+```
