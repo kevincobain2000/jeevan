@@ -5,9 +5,10 @@
         Rejected</strong>
       your Interest</strong>
   <% elsif user[:out_response].response == 1 %>
+
     <strong class="text-muted">
-      <strong class="txt-color-green"><i class="fa fa-smile-o"></i>
-        Accepted</strong>
+      <strong class="txt-color-green"><i class="fa fa-check"></i>
+<%= user[:name] %> has        Accepted</strong>
       your Interest</strong>
   <% else %>
     <strong class="text-muted">

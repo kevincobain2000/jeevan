@@ -21,8 +21,8 @@
               <dt>Caste:</dt>
               <dd><strong class="txt-color-blue"><%= truncate( titleize(user[:religion][:caste]), length: 10) %></strong></dd>
 
-              <dt>Last Online:</dt>
-              <dd><strong class="txt-color-green"><%= truncate(titleize(user[:updated_at]), length: 10) %></strong> <span class="text-muted">ago</span></dd>
+              <dt>Last seen:</dt>
+              <dd><%= render :partial =>'layouts/online', :locals => {:time => user[:updated_at]}%><%= truncate(titleize(user[:updated_at]), length: 10) %> ago</strong></dd>
 
             </dl>
           </li>

@@ -20,7 +20,9 @@ class ApplicationController < ActionController::Base
     in_response  = Interest.where(to_user_id: current_user.id, user_id: user.id).first
     out_response = Interest.where(user_id: current_user.id, to_user_id: user.id).first
 
-    name = show_name_to_accepted(in_response, out_response) ? user[:name] : "name on acceptance"
+    profile = user.profile
+
+    name = show_name_to_accepted(in_response, out_response) ? user[:name] : "Profile id - #{profile.id}"
 
     user_ret = {
       id:         user.id,
@@ -31,7 +33,7 @@ class ApplicationController < ActionController::Base
       created_at: time_ago_in_words(user.created_at),
       sex:        user.sex.capitalize,
       visitors:   number_with_delimiter(Visitor.where(viewed_id: user.id).count),
-      profile:    user.profile,
+      profile:    profile,
       contact:    user.contact,
       about:      user.about,
       religion:   user.religion,
@@ -58,7 +60,7 @@ class ApplicationController < ActionController::Base
     in_response  = Interest.where(to_user_id: current_user.id, user_id: user.id).first
     out_response = Interest.where(user_id: current_user.id, to_user_id: user.id).first
 
-    name = show_name_to_accepted(in_response, out_response) ? user[:name] : "name upon acceptance"
+    name = show_name_to_accepted(in_response, out_response) ? user[:name] : "Profile id - #{profile.id}"
 
     user_ret = {
       id:         user.id,
@@ -109,11 +111,12 @@ class ApplicationController < ActionController::Base
     if !defined? current_user.id
       return
     end
+
     messages = [ ["Viewed Your Profile", "fa fa-thumbs-up"], ["Expressed Interest !", "fa fa-connect"], ["Accepted Interest !", "fa fa-check"], ["Rejected Interest", "fa fa-times"] ]
     @notifications = Hash.new {|h, k| h[k] = [] }
     @notifications_unread_count = 0
-    # notifications = current_user.notifications().where("created_at >= ?", 1.week.ago).order(:seen, :created_at)
     notifications = Notification.where(to_user_id: current_user.id).where("created_at >= ?", 1.week.ago).order(:seen, :created_at)
+    return #remove me *(return) and fix the following # TODO ONCE enter the loop it goes to the redirect loop
     notifications.each do |notification|
       __user = User.find(notification.user_id)
       user = {}

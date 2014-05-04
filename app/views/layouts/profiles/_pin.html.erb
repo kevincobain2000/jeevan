@@ -17,8 +17,8 @@
         <% user = make_user(_user) %>
         <div class="pin">
           <div class="carousel profile-carousel">
-            <%= image_tag user[:avatar].url(:original), :class=>"pinimg" %>
-          <div class="air air-bottom-right padding-5">
+            <%= image_tag user[:avatar].url(:thumb), :class=>"pinimg img-circle" %>
+          <div class="air air-top-right padding-5">
             <%= render :partial =>'layouts/interestbutton', :locals => {:user => user} %>
           </div>
           <div class="air air-top-left padding-5">
@@ -39,9 +39,10 @@
             <hr>
           <% end %>
           <%= render :partial =>'layouts/online', :locals => {:time => user[:updated_at]}%>
-          <strong>Last online
+          <span class="text-muted font-xs">last seen
             <%= user[:updated_at] %>
-            ago</strong>
+            ago</span >
+            <br>
         <%= render :partial =>'layouts/cardinfo', :locals => {:user => user} %>
           <% if user[:about][:me] %>
             <br>
@@ -54,18 +55,6 @@
               <br>
             </div>
           <% end %>
-          <div class="pull-right">
-            <%= link_to profile_path(:id => user[:profile][:id]), :class=>"btn btn-link btn-xs"  do %>
-            <small class=""> <%= pluralize(user[:visitors].to_i, "Profile view") %></small>
-            <i class="fa fa-arrow-right"></i>
-            <% end %>
-          </div>
-          <!-- <br> -->
-            <!-- <div class="text-center"> -->
-              <!-- <div class="padding-10"> -->
-                <%#= render :partial =>'layouts/interestbutton', :locals => {:user => user} %>
-              <!-- </div> -->
-            <!-- </div> -->
           </div>
         </div>
         <% end %>
