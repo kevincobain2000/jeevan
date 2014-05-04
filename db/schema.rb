@@ -165,11 +165,11 @@ ActiveRecord::Schema.define(version: 20140331134717) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "status"
+    t.text     "work_status"
     t.text     "occupation"
     t.text     "company"
     t.text     "annual_income"
-    t.text     "setting_abroad"
+    t.text     "settling_abroad"
   end
 
   create_table "profiles", force: true do |t|
