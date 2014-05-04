@@ -77,6 +77,10 @@ class ProfilesController < ApplicationController
     current_user.education.update(education_params)
     render json: { :status => 200 }
   end
+  def modify_occupation
+    current_user.occupation.update(occupation_params)
+    render json: { :status => 200 }
+  end
   def modify_lifestyle
     current_user.lifestyle.update(lifestyle_params)
     render json: { :status => 200 }
@@ -280,6 +284,9 @@ class ProfilesController < ApplicationController
   end
   def education_params
     params.permit(Education.columns.map {|c| c.name })
+  end
+  def occupation_params
+    params.permit(Occupation.columns.map {|c| c.name })
   end
   def lifestyle_params
     params.permit(Lifestyle.columns.map {|c| c.name })

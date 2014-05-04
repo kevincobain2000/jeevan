@@ -143,6 +143,21 @@ $(document).on("page:change", function() {
     desired_occupation:{
       create: true,
     },
+    work_status:{
+      create: true
+    },
+    occupation:{
+      create: true
+    },
+    company:{
+      create: true
+    },
+    annual_income:{
+      create: true
+    },
+    settling_abroad:{
+      create: true
+    },
   };
 
   $(".close-edit-modal").click(function() {

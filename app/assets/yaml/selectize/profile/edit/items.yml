@@ -1,3 +1,59 @@
+work_status:
+  -
+    title: "Employed"
+    desc: ""
+  -
+    title: "Unemployed"
+    desc: ""
+  -
+    title: "Looking"
+    desc: ""
+  -
+    title: "Small Business"
+    desc: ""
+  -
+    title: "Large Business"
+    desc: ""
+occupation:
+  -
+    title: "Engineer"
+    desc: ""
+  -
+    title: "Doctor"
+    desc: ""
+  -
+    title: "Manager"
+    desc: ""
+  -
+    title: "Owner"
+    desc: ""
+company:
+  -
+    title: ""
+    desc: ""
+annual_income:
+  -
+    title: "1 - 5 Lac"
+    desc: ""
+  -
+    title: "5 - 10 Lac"
+    desc: ""
+  -
+    title: "10 - 15 Lac"
+    desc: ""
+  -
+    title: "15 - 35 Lac"
+    desc: ""
+  -
+    title: "35 plus"
+    desc: ""
+settling_abroad:
+  -
+    title: "Yes"
+    desc: ""
+  -
+    title: "No"
+    desc: ""
 posted_by:
   -
     title: "Parents"

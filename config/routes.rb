@@ -10,6 +10,7 @@ Jeevan::Application.routes.draw do
       post :modify_hobby
       post :modify_family
       post :modify_education
+      post :modify_occupation
       post :modify_lifestyle
       post :modify_desire
       post :modify_image

@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
 
     profile = user.profile
 
-    name = show_name_to_accepted(in_response, out_response) ? user[:name] : "Profile id - #{profile.id}"
+    name = show_name_to_accepted(in_response, out_response) ? user[:name] : "Profile Id: #{profile.id}"
 
     user_ret = {
       id:         user.id,
@@ -40,6 +40,7 @@ class ApplicationController < ActionController::Base
       devotion:   user.devotion,
       kundali:    user.kundali,
       family:     user.family,
+      occupation:     user.occupation,
       hobby:      user.hobby,
       education:  user.education,
       lifestyle:  user.lifestyle,
