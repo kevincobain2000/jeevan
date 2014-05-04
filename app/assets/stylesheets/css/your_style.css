@@ -295,13 +295,13 @@
   margin: 50px auto;
 }
 #columns {
-  -webkit-column-count: 4;
+  -webkit-column-count: 5;
   -webkit-column-gap: 20px;
   -webkit-column-fill: auto;
-  -moz-column-count: 4;
+  -moz-column-count: 5;
   -moz-column-gap: 20px;
   -moz-column-fill: auto;
-  column-count: 4;
+  column-count: 5;
   column-gap: 20px;
   column-fill: auto;
 }

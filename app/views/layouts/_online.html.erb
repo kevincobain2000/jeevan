@@ -1,5 +1,5 @@
   <% if time.include? "minute" %>
-    <span class="badge bg-color-greenLight">Online</span>
+    <small><label class="badge bg-color-greenLight font-xs">Online</label></small>
   <% else %>
-    <span class="badge">Offline</span>
+    <small><label class="badge font-xs bg-color-red">Offline</label></small>
   <% end %>
