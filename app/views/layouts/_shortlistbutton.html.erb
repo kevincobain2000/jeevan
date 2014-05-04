@@ -3,9 +3,7 @@
     <%= hidden_field_tag 'to_user_id', user[:id] %>
     <button class="btn btn-xs btn-default interest" type="submit">
       <i class="fa fa-plus"></i>
-      Shortlist
+      Save
     </button>
   <% end %>
-  <% elsif current_user.id != user[:id] %>
-  <button class="btn btn-xs btn-default disabled"><i class="fa fa-check"></i> Shortlisted</button>
 <% end %>

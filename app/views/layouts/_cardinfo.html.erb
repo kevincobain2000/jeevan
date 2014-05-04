@@ -1,31 +1,34 @@
-<h6>
-  <i class="fa fa-file"></i>
-  <span class="">
-    <%= link_to profile_path(:id => user[:profile][:id]), :class=>""  do %>
+  <span class="font-md">
     <%= user[:name] %>
-    <% end %>
-    </span>
+  </span>
+  <%= link_to profile_path(:id => user[:profile][:id]), :class=>""  do %>
+  <small class="txt-color-blue"><%= pluralize(user[:visitors].to_i, "profile view") %></small>
+  <% end %>
   <hr>
-  <i class="fa fa-calendar"></i>
-      <span class=""><%= user[:age] %> Years Old</span>
-<!--   <br> -->
-  <i class="fa fa-sun-o"></i>
-    <span class="">
-      <span class=""><%= user[:devotion] %></span></span>
-</h6>
 <ul class="list-unstyled">
   <li>
-    <% items = {home: [:profile, 'fa-home'],caste: [:religion, 'fa-bars'], posted_by: [:profile, 'fa-user'], height: [:lifestyle, "fa fa-male"], weight: [:lifestyle, "fa fa-female"], smoke: [:lifestyle, "fa fa-times"], drink: [:lifestyle, "fa fa-beer"], complexion: [:lifestyle, "fa fa-smile-o"] } %>
-    <% items.stringify_keys.each do |key, value| %>
-    <% if user[value[0]][key] %>
     <p>
-      <i class="fa <%= value[1] %>"></i>
-        <%= key.gsub('_', ' ').titleize %>:
-       <strong class="txt-color-blueDark">
-       <%= truncate(titleize(user[value[0]][key]), length: 20) %>
-       </strong>
+      <i class="fa fa-sun-o"></i> Religion: 
+      <%= user[:devotion] %>
     </p>
-    <% end %>
+  </li>
+  <li>
+    <p>
+      <i class="fa fa-calendar"></i> Age: 
+    </p>
+  </li>
+  <li>
+    <% items = {home: [:profile, 'fa-home'], caste: [:religion, 'fa-bars'], posted_by: [:profile, 'fa-user'], manglik: [:kundali, "fa fa-circle"] } %>
+    <% items.stringify_keys.each do |key, value| %>
+    <p>
+      <i class="fa <%= value[1] %>"></i> <%= key.gsub('_', ' ').titleize %>:
+
+        <% if user[value[0]][key] %>
+        <strong class="txt-color-blueDark">
+         <%= truncate(titleize(user[value[0]][key]), length: 20) %>
+       </strong>
+       <% end %>
+    </p>
     <% end %>
   </li>
 </ul>
