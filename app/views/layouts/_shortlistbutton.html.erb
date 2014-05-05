@@ -1,9 +1,7 @@
 <% if  current_user.id != user[:id] && user[:shortlist].nil? %>
   <%= form_tag({:action=>'shortlist', :controller => "profiles"}, {:remote => true, :class=>"smart-form"}) do %>
     <%= hidden_field_tag 'to_user_id', user[:id] %>
-    <button class="btn btn-xs btn-default interest" type="submit">
-      <i class="fa fa-plus"></i>
-      Save
+    <button class="btn btn-xs btn-default interest" type="submit"><i class="fa fa-plus"></i>
     </button>
   <% end %>
 <% end %>

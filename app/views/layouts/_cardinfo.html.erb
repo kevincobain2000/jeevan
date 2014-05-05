@@ -1,20 +1,16 @@
 <ul class="list-unstyled">
   <li>
-    <p>
+    <p class="text-right">
       <i class="fa fa-file"></i> <%= user[:name] %>
-      <small class="txt-color-blue">(<%= pluralize(user[:visitors].to_i, "profile view") %>)
+    </p>
+    <p class="text-right">
+      <small class="txt-color-blue"><%= pluralize(user[:visitors].to_i, "profile view") %>
       </small>
     </p>
   </li>
   <li>
-    <p>
-      <i class="fa fa-sun-o"></i> Religion: 
-      <%= user[:devotion] %>
-    </p>
-  </li>
-  <li>
-    <p>
-      <i class="text-muted fa fa-calendar"></i> Age: 
+    <p class="text-right font-xs text-muted">
+      <%= user[:age] %> years old, <%= user[:devotion].downcase %>
     </p>
   </li>
   <li>
