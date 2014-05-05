@@ -2,10 +2,8 @@
   <li>
     <p>
       <i class="fa fa-file"></i> <%= user[:name] %>
-      <%= link_to profile_path(:id => user[:profile][:id]), :class=>""  do %>
       <small class="txt-color-blue">(<%= pluralize(user[:visitors].to_i, "profile view") %>)
       </small>
-  <% end %>
     </p>
   </li>
   <li>

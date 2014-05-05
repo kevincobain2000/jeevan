@@ -348,6 +348,10 @@
   /*border-radius: 50%;*/
 }
 
+.pin:hover{
+   background-color:#eceff6;
+}
+
 .dropdown-large {
   position: static !important;
 }

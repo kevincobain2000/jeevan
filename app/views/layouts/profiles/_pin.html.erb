@@ -17,15 +17,14 @@
         <% user = make_user(_user) %>
         <div class="pin">
           <div class="carousel profile-carousel">
-            <%= image_tag user[:avatar].url(:thumb), :class=>"pinimg img-circle" %>
+            <%= link_to profile_path(:id =>user[:profile][:id]), :class=>"" do %>
+            <%= image_tag user[:avatar].url(:thumb), :class=>"pinimg" %>
+            <% end %>
           <div class="air air-top-right padding-5">
             <%= render :partial =>'layouts/interestbutton', :locals => {:user => user} %>
           </div>
           <div class="air air-top-left padding-5">
           <%= render :partial =>'layouts/shortlistbutton', :locals => {:user => user} %>
-          </div>
-          <div class="air air-top-left padding-5">
-            <%#= render :partial =>'layouts/online', :locals => {:time => user[:updated_at]}%>
           </div>
         </div>
           <!-- All Images tiny -->
