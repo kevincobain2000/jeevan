@@ -20,8 +20,15 @@
             <%= link_to profile_path(:id =>user[:profile][:id]), :class=>"" do %>
             <%= image_tag user[:avatar].url(:thumb), :class=>"pinimg" %>
             <% end %>
-          <div class="air air-top-right padding-5">
+          <div class="air air-bottom-right padding-0">
             <%= render :partial =>'layouts/interestbutton', :locals => {:user => user} %>
+          </div>
+          <div class="air air-top-right padding-5 hidden-xs">
+            <small class="pull-right"><%= user[:occupation][:work_status] %></small><br>
+            <small class="text-muted pull-right"><%= truncate(user[:occupation][:company], :length => 18) %></small><br>
+            <small class="text-muted pull-right"><%= truncate(user[:lifestyle][:diet], :length => 18) %></small><br>
+            <small class="text-muted pull-right"><%= truncate(user[:kundali][:sun_sign], :length => 18) %></small><br>
+            <small class="text-muted pull-right"><%= truncate(user[:hobby][:dress], :length => 18) %></small><br>
           </div>
           <div class="air air-top-left padding-5">
           <%= render :partial =>'layouts/shortlistbutton', :locals => {:user => user} %>

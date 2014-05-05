@@ -143,9 +143,7 @@ $(document).on("page:change", function() {
     desired_occupation:{
       create: true,
     },
-    work_status:{
-      create: true
-    },
+    work_status:true,
     occupation:{
       create: true
     },
