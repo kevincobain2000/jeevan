@@ -23,10 +23,9 @@
   <% else %>
     <% items = {home: [:profile, 'fa-home'], caste: [:religion, 'fa-bars'], posted_by: [:profile, 'fa-user'], manglik: [:kundali, "fa fa-circle"], occupation: [:occupation, "fa fa-suitcase"], company: [:occupation, "fa fa-bookmark"], annual_income: [:occupation, "fa fa-money"] } %>
   <% end %>
-    
-    <% items.stringify_keys.each do |key, value| %>
-    <p>
-      <i class="text-muted fa <%= value[1] %>"></i> <%= key.gsub('_', ' ').titleize %>:
+      <% items.stringify_keys.each do |key, value| %>
+      <p>
+        <i class="text-muted fa <%= value[1] %>"></i> <%= key.gsub('_', ' ').titleize %>:
 
         <% if user[value[0]][key] %>
         <strong class="txt-color-blueDark">
@@ -37,4 +36,3 @@
     <% end %>
   </li>
 </ul>
-
