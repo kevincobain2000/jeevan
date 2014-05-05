@@ -302,7 +302,8 @@ class ProfilesController < ApplicationController
     visiting_user_id = Profile.find(params[:id]).user_id
     if current_user.id != visiting_user_id
         Visitor.find_or_create_by(user_id: current_user.id, viewed_id: visiting_user_id)
-        Notification.find_or_create_by(to_user_id: visiting_user_id, flag: 0)
+        # Notification.find_or_create_by(to_user_id: visiting_user_id, flag: 0)
+        Notification.where(user_id: current_user.id, to_user_id: visiting_user_id).update_all(flag: 0)
     end
   end
 
