@@ -183,7 +183,7 @@ class ProfilesController < ApplicationController
   end
   def outgoings
     outgoings = Interest.where(user_id: current_user.id).pluck(:to_user_id)
-    outgoings = Interest.where("user_id = ? AND response <> NULL", current_user.id).pluck(:to_user_id)
+    outgoings = Interest.where("user_id = ?", current_user.id).pluck(:to_user_id)
     @outgoings = User.find(outgoings).paginate(:page => params[:page], :per_page => 10)
   end
   def waiting
@@ -222,12 +222,12 @@ class ProfilesController < ApplicationController
   #-----  End of Pages  -----#
   def count_sparks
     @sparks = Hash.new {|h, k| h[k] = [] }
-    @sparks[:visitors] = number_with_delimiter(Visitor.where(viewed_id: current_user.id).count)
-    @sparks[:incoming] = number_with_delimiter(Interest.where(to_user_id: current_user.id).count)
-    @sparks[:outgoing] = number_with_delimiter(Interest.where("user_id = ? AND response <> NULL", current_user.id).count)
-    @sparks[:waiting] = number_with_delimiter(Interest.where("user_id = ? AND response IS NULL", current_user.id).count)
+    @sparks[:visitors]  = number_with_delimiter(Visitor.where(viewed_id: current_user.id).count)
+    @sparks[:incoming]  = number_with_delimiter(Interest.where(to_user_id: current_user.id).count)
+    @sparks[:outgoing]  = number_with_delimiter(Interest.where("user_id = ?", current_user.id).count)
+    @sparks[:waiting]   = number_with_delimiter(Interest.where("user_id = ? AND response IS NULL", current_user.id).count)
     @sparks[:shortlist] = number_with_delimiter(Shortlist.where(user_id: current_user.id).count)
-    @sparks[:accepted] = number_with_delimiter(Interest.where("user_id = ? AND response = ?", current_user.id, 1).count)
+    @sparks[:accepted]  = number_with_delimiter(Interest.where("user_id = ? AND response = ?", current_user.id, 1).count)
   end
 
   protected
