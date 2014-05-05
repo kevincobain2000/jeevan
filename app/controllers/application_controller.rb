@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   before_filter :authenticate_user!
   before_filter :configure_permitted_parameters, if: :devise_controller?
-  before_filter :do_notifications
   protect_from_forgery with: :exception
   after_filter :user_activity
   helper_method :make_user
@@ -12,6 +11,7 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
   # protect_from_forgery with: :null_session
   helper_method :make_user, :make_user_snippet
+  before_filter :do_notifications, :except => [:new, :create, :destroy]
 
   def make_user(user)
     dob = user.dob.gsub("/","-")
@@ -109,14 +109,15 @@ class ApplicationController < ActionController::Base
   # flag = 2 accepted Interest
   # flag = 3 rejected Interest
   def do_notifications
-    if !defined? current_user.id
+    @notifications = Hash.new {|h, k| h[k] = [] }
+    if !user_signed_in?
       return
     end
 
     messages = [ ["Viewed Your Profile", "fa fa-thumbs-up"], ["Expressed Interest !", "fa fa-connect"], ["Accepted Interest !", "fa fa-check"], ["Rejected Interest", "fa fa-times"] ]
-    @notifications = Hash.new {|h, k| h[k] = [] }
     @notifications_unread_count = 0
     notifications = Notification.where(to_user_id: current_user.id).where("created_at >= ?", 1.week.ago).order(:seen, :created_at)
+
     return #remove me *(return) and fix the following # TODO ONCE enter the loop it goes to the redirect loop
     notifications.each do |notification|
       __user = User.find(notification.user_id)
