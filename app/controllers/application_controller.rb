@@ -116,11 +116,12 @@ class ApplicationController < ActionController::Base
 
     messages = [ ["Viewed Your Profile", "fa fa-thumbs-up"], ["Expressed Interest !", "fa fa-connect"], ["Accepted Interest !", "fa fa-check"], ["Rejected Interest", "fa fa-times"] ]
     @notifications_unread_count = 0
+    user_ids = Notification.where(to_user_id: current_user.id).where("created_at >= ?", 1.week.ago).order(:seen, :created_at).pluck(:user_id)
     notifications = Notification.where(to_user_id: current_user.id).where("created_at >= ?", 1.week.ago).order(:seen, :created_at)
+    users = User.find(user_ids)
 
-    return #remove me *(return) and fix the following # TODO ONCE enter the loop it goes to the redirect loop
-    notifications.each do |notification|
-      __user = User.find(notification.user_id)
+    # return #remove me *(return) and fix the following # TODO ONCE enter the loop it goes to the redirect loop
+    users.zip(notifications).each do |__user, notification|
       user = {}
       user[:avatar]     = __user.avatar
       user[:name]       = titleize(__user.name)
