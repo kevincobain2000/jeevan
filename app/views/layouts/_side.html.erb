@@ -6,9 +6,9 @@
 <%= link_to "Show", contact_index_path, :id=>"hidden-side-connect", :class=>"hidden" %>
 <hr>
 <aside id="left-panel">
-<span class="minifyme">
+<!-- <span class="minifyme">
   <i class="fa fa-arrow-circle-left hit"></i>
-</span>
+</span> -->
 
   <!-- User info -->
   <div class="login-info">
@@ -16,7 +16,7 @@
       <!-- User image size is adjusted inside CSS, it should stay as it -->
       <%= image_tag current_user.avatar.url(:thumb), :class => "img-rounded" %>
       <a href="javascript:void(0);" id="show-shortcut">
-        <%= link_to truncate(current_user.name, length: 15), profile_path(:id =>current_user.profile.id)%>
+        <%= link_to truncate(current_user.name, length: 10), profile_path(:id =>current_user.profile.id)%>
       </a>
     </span>
   </div>

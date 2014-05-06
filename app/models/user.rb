@@ -68,7 +68,11 @@ class User < ActiveRecord::Base
     build_contact
     build_religion
     build_kundali
-    build_about
+    logger.info("Debug #{dob}")
+    db = dob.to_s.gsub("/","-")
+    age = Date.today.year - db.to_date.year
+    randome_hi = ["Hi", "Hello", "Namaste"].sample
+    build_about(:me => "#{randome_hi}! I am #{age} years old #{devotion} #{sex}")
     build_family
     build_desire
     build_education
