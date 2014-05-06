@@ -215,9 +215,15 @@ $(document).on("page:change", function() {
   $(".phone").inputmask("mask", {
     "mask": "(999) 9999-999-999"
   });
+  $.extend($.gritter.options, { 
+        position: 'bottom-left', // defaults to 'top-right' but can be 'bottom-left', 'bottom-right', 'top-left', 'top-right' (added in 1.7.1)
+        fade_in_speed: 'medium', // how fast notifications fade in (string or int)
+        fade_out_speed: 1000, // how fast the notices fade out
+        time: 3000 // hang on the screen for...
+  });
   $(".interest").click(function() {
-    $.gritter.add({ image: $(this).data("img"), title: $(this).data("title"), text: 'Your have successfully ' + $(this).data("msg") + "<br>" +$(this).data("url")  });
-    $(this).html('<i class="fa fa-check"></i> Done!')
+    $.gritter.add({ image: $(this).data("img"), title: $(this).data("title"), text: 'Your have successfully ' + $(this).data("msg") + "<br>" +$(this).data("url") });
+    // $(this).html('<i class="fa fa-check"></i> Done!')
     $(this).addClass('disabled');
   });
   $(".edit").click(function() {
@@ -233,7 +239,7 @@ $(document).on("page:change", function() {
   }
 
   $('form.edit').submit(function() {
-    $(this).find(':submit').html('Done');
+    $(this).find(':submit').html('Saved');
   });
 
   $('.superbox').on('click', '.removeimage', function() {
