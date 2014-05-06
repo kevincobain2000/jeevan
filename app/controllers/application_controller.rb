@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
 
     profile = user.profile
 
-    name = show_name_to_accepted(in_response, out_response) ? user[:name] : "Profile Id: #{profile.id}"
+    name = show_name_to_accepted(in_response, out_response) ? user[:name] : "Id: #{profile.id}"
 
     user_ret = {
       id:         user.id,
