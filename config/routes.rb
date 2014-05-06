@@ -33,10 +33,6 @@ Jeevan::Application.routes.draw do
       get :accepted
     end
   end
-  resources :explore do
-    collection do
-    end
-  end
   resources :profile do
     collection do
     end

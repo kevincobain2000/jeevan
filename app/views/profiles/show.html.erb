@@ -124,15 +124,17 @@
   <!-- END MAIN CONTENT -->
 </div>
 <!-- Modals -->
-<%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-about", :tpl => "aboutme"} %>
-<%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-images", :tpl => "images"} %>
-<%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-religion", :tpl => "religion"} %>
-<%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-kundali", :tpl => "kundali"} %>
-<%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-education", :tpl => "education"} %>
-<%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-occupation", :tpl => "occupation"} %>
-<%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-family", :tpl => "family"} %>
-<%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-hobby", :tpl => "hobby"} %>
-<%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-lifestyle", :tpl => "lifestyle"} %>
-<%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-desire", :tpl => "desire"} %>
-<%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-avatar", :tpl => "avatar"} %>
-<%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-contact", :tpl => "contact"} %>
+<% if  current_user.profile.id == @user[:profile][:id] %>
+  <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-about", :tpl => "aboutme"} %>
+  <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-images", :tpl => "images"} %>
+  <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-religion", :tpl => "religion"} %>
+  <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-kundali", :tpl => "kundali"} %>
+  <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-education", :tpl => "education"} %>
+  <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-occupation", :tpl => "occupation"} %>
+  <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-family", :tpl => "family"} %>
+  <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-hobby", :tpl => "hobby"} %>
+  <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-lifestyle", :tpl => "lifestyle"} %>
+  <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-desire", :tpl => "desire"} %>
+  <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-avatar", :tpl => "avatar"} %>
+  <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-contact", :tpl => "contact"} %>
+<% end %>
