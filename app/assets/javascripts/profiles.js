@@ -216,7 +216,7 @@ $(document).on("page:change", function() {
     "mask": "(999) 9999-999-999"
   });
   $(".interest").click(function() {
-    $.gritter.add({ image: $(this).data("img"), title: $(this).data("title"), text: 'Your have successfully ' + $(this).data("msg") });
+    $.gritter.add({ image: $(this).data("img"), title: $(this).data("title"), text: 'Your have successfully ' + $(this).data("msg") + "<br>" +$(this).data("url")  });
     $(this).html('<i class="fa fa-check"></i> Done!')
     $(this).addClass('disabled');
   });

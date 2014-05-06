@@ -1,7 +1,7 @@
 <% if  current_user.id != user[:id] && user[:out_response].nil? && user[:in_response].nil? %>
   <%= form_tag({:action=>'interest', :controller => "profiles"}, :remote => true, :class => "smart-form") do %>
     <%= hidden_field_tag 'to_user_id', user[:id] %>
-    <button class="btn btn-info btn-xs interest" type="submit" data-img="<%= user[:avatar].url(:tiny) %>" data-title="Interest Expressed" data-msg="expressed interest in the profile">
+    <button class="btn btn-info btn-xs interest" type="submit" data-img="<%= user[:avatar].url(:tiny) %>" data-url='<%= link_to "view profile", profile_path(:id =>user[:profile][:id]) %>' data-title="Interest Expressed" data-msg="expressed interest in the profile">
       <i class="fa fa-heart"></i> Send interest
     </button>
   <% end %>
