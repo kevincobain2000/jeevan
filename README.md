@@ -99,7 +99,7 @@ Works even with turbolinks
 
 Create Random User
 ```
-for i in (1..10)
+for i in (122..125)
   u = User.new(:email => "#{i}@gmail.com", :password=>"12345678910", :devotion=>"Hindu", :sex=>"Female", :name=>"kevin", :dob=>"01/09/1985")
   u.save
  end
