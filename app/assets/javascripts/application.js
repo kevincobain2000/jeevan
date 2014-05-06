@@ -32,6 +32,7 @@
 //  require dataTables/jquery.dataTables.bootstrap3
 // require bootstrap-tagsinput
 // require twitter/typeahead
+//= require gritter
 
 
 

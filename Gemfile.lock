@@ -68,6 +68,7 @@ GEM
     execjs (2.0.2)
     font-awesome-sass (4.0.3)
       sass (~> 3.2)
+    gritter (1.1.0)
     highline (1.6.21)
     hike (1.2.3)
     i18n (0.6.9)
@@ -221,6 +222,7 @@ DEPENDENCIES
   devise
   dropzonejs-rails
   font-awesome-sass
+  gritter (= 1.1.0)
   jbuilder (~> 1.2)
   jquery-datatables-rails
   jquery-inputmask-rails

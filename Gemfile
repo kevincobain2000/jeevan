@@ -34,6 +34,7 @@ gem "nilify_blanks"
 gem 'sunspot_rails'
 gem 'sunspot_solr'
 gem 'progress_bar'
+gem "gritter", "1.1.0"
 
 # gem 'rake', '~> 10.1.1'
 
