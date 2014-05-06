@@ -15457,10 +15457,12 @@ input[type="color"]:focus,
 }
 body.container {
   position: relative;
-  padding: 0;
+  padding: 0px;
   border-left: 1px solid #bfbfbf;
   border-right: 1px solid #bfbfbf;
   box-shadow: 0 2px 70px rgba(0, 0, 0, 0.45);
+  height: auto;
+  overflow: hidden;
 }
 .no-content-padding {
   margin: -10px -14px 0 -14px;
