@@ -1,5 +1,5 @@
-<%= render :partial =>"layouts/sparks", :locals => {:sparks => @sparks} %>
 <div id="main" role="main">
 	<%= render :partial =>"layouts/ribbon", :locals => {:papa => "Home", :son => "Saved profiles"} %>
+	<%= render :partial =>"layouts/sparks", :locals => {:sparks => @sparks} %>
 <%= render :partial =>"layouts/profiles/pin", :locals => {:paginate => @shortlists, :h => "My Shortlisted", :hsm => "profiles"} %>
 </div>

@@ -459,7 +459,7 @@ body.smart-style-2 {
 }
 
 .smart-style-2 #ribbon {
-	background:#fff;
+	/*background:#fff;*/
 }
 
 .smart-style-2 .btn.btn-ribbon {
@@ -470,7 +470,7 @@ body.smart-style-2 {
 .smart-style-2 #ribbon .breadcrumb>.active, 
 .smart-style-2 #ribbon .breadcrumb, 
 .smart-style-2 #ribbon .breadcrumb a {
-	color: #7C7C7C !important;
+	/*color: #7C7C7C !important;*/
 }
 
 .smart-style-2 aside {
