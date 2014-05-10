@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
   has_many :shortlists,     :dependent => :destroy
   has_many :images,         :dependent => :destroy
 
-  has_one :bagge,     :dependent => :destroy
+  has_one :badge,     :dependent => :destroy
   has_one :profile,   :dependent => :destroy
   has_one :contact,   :dependent => :destroy
   has_one :religion,  :dependent => :destroy
@@ -66,14 +66,11 @@ class User < ActiveRecord::Base
   end
   def create_dependents
     build_profile
+    build_badge
     build_contact
     build_religion
     build_kundali
-    logger.info("Debug #{dob}")
-    db = dob.to_s.gsub("/","-")
-    age = Date.today.year - db.to_date.year
-    randome_hi = ["Hi", "Hello", "Namaste"].sample
-    build_about(:me => "#{randome_hi}! I am #{age} years old #{devotion} #{sex}")
+    build_about
     build_family
     build_desire
     build_education

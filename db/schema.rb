@@ -24,10 +24,10 @@ ActiveRecord::Schema.define(version: 20140510050046) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.integer  "visitors"
-    t.integer  "interests"
-    t.integer  "accepted"
-    t.integer  "rejected"
+    t.integer  "visitor",    default: 0
+    t.integer  "interest",   default: 0
+    t.integer  "accepted",   default: 0
+    t.integer  "rejected",   default: 0
   end
 
   create_table "contacts", force: true do |t|

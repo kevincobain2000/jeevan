@@ -1,4 +1,4 @@
-<div class="row hidden-xs padding-10 bg-color-white pin">
+  <div class="row hidden-xs padding-10 bg-color-white pin">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <ul id="sparks" class="">
       <li class="sparks-info">
@@ -10,8 +10,9 @@
       <li class="sparks-info">
       <%= link_to visitors_profiles_path do %>
         <h5>
-          <small><label class="badge bg-color-red font-xs"></label></small> Profile Visitors
-          <span class="txt-color-purple"><i class="fa fa-thumbs-up txt-color-pinkDark"></i><%= @sparks[:visitors] %>
+        <% badge = current_user.badge.visitor > 0 ? "red bounceIn animated" : "blue" %>
+        <small><label class="badge bg-color-<%= badge %> font-xs"><%= current_user.badge.visitor %></label></small> Profile Visitors
+          <span class="txt-color-purple"><i class="fa fa-thumbs-up txt-color-pinkDark"></i>&nbsp;<%= @sparks[:visitors] %>
           </span>
           </h5>
           <% end %>
@@ -19,6 +20,8 @@
       <li class="sparks-info">
       <%= link_to incomings_profiles_path do %>
         <h5>
+        <% badge = current_user.badge.interest > 0 ? "red bounceIn animated" : "blue" %>
+        <small><label class="badge bg-color-<%= badge %> font-xs"><%= current_user.badge.interest %></label></small>
            Incoming Interests
           <span class="txt-color-greenDark"><i class="fa fa-heart txt-color-blue"></i>&nbsp;<%= @sparks[:incoming] %>
           </span></h5>
@@ -27,13 +30,17 @@
       <li class="sparks-info">
       <%= link_to accepted_profiles_path do %>
         <h5>
-           Got Accepted
+        <% badge = current_user.badge.accepted > 0 ? "red bounceIn animated" : "blue" %>
+        <small><label class="badge bg-color-<%= badge %> font-xs"><%= current_user.badge.accepted %></label></small>
+          Got Accepted
           <span class="txt-color-greenDark"><i class="fa fa-check txt-color-green"></i>&nbsp;<%= @sparks[:accepted] %></span></h5>
           <% end %>
       </li>
       <li class="sparks-info">
       <%= link_to outgoings_profiles_path do %>
         <h5>
+        <% badge = current_user.badge.rejected > 0 ? "red bounceIn animated" : "blue" %>
+        <small><label class="badge bg-color-<%= badge %> font-xs"><%= current_user.badge.rejected %></label></small>
            Got Rejected
           <span class="txt-color-greenDark"><i class="fa fa-times txt-color-red"></i>&nbsp;<%= @sparks[:rejected] %></span></h5>
           <% end %>

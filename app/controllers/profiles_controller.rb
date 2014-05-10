@@ -119,10 +119,10 @@ class ProfilesController < ApplicationController
     interest = Interest.where(:to_user_id => current_user.id, :user_id => params[:to_user_id]).first
     if commit == "Accept"
       interest.update(:response => 1)
-      notify_growl("accepted",params[:to_user_id], "Accepted Interest")
+      notify_growl(:accepted, params[:to_user_id], "Accepted Interest")
     elsif commit == "Reject"
       interest.update(:response => 0)
-      notify_growl("rejected",params[:to_user_id], "Rejected Interest")
+      notify_growl(:rejected, params[:to_user_id], "Rejected Interest")
     end
 
     render json: { :status => 200 }
@@ -164,26 +164,30 @@ class ProfilesController < ApplicationController
   def incomings
     incomings = Interest.where(to_user_id: current_user.id).pluck(:user_id)
     @incomings = User.find(incomings).paginate(:page => params[:page], :per_page => 10)
+    badge_reset(current_user, "interest")
+  end
+  def accepted
+    accepted = Interest.where("user_id = ? AND response = ?", current_user.id, 1).pluck(:user_id)
+    @accepted = User.find(accepted).paginate(:page => params[:page], :per_page => 10)
+    badge_reset(current_user, "accepted")
   end
   def outgoings
     rejected = Interest.where("user_id = ? AND response = ?", current_user.id, 3).pluck(:to_user_id)
     @rejected = User.find(rejected).paginate(:page => params[:page], :per_page => 10)
+    badge_reset(current_user, "rejected")
+  end
+  def visitors
+    visitors = Visitor.where(viewed_id: current_user.id).pluck(:user_id)
+    @visitors = User.find(visitors).paginate(:page => params[:page], :per_page => 10)
+    badge_reset(current_user, "visitor")
   end
   def waiting
     waiting = Interest.where("user_id = ? AND response IS NULL", current_user.id).pluck(:to_user_id)
     @waiting = User.find(waiting).paginate(:page => params[:page], :per_page => 10)
   end
-  def visitors
-    visitors = Visitor.where(viewed_id: current_user.id).pluck(:user_id)
-    @visitors = User.find(visitors).paginate(:page => params[:page], :per_page => 10)
-  end
   def shortlists
     shortlists = Shortlist.where(user_id: current_user.id).pluck(:to_user_id)
     @shortlists = User.find(shortlists).paginate(:page => params[:page], :per_page => 10)
-  end
-  def accepted
-    accepted = Interest.where("user_id = ? AND response = ?", current_user.id, 1).pluck(:user_id)
-    @accepted = User.find(accepted).paginate(:page => params[:page], :per_page => 10)
   end
 
   def search
@@ -298,8 +302,30 @@ class ProfilesController < ApplicationController
     data[:title] = title
     data[:profile_id] = current_user.profile.id
     WebsocketRails[channel_name].trigger(event, data)
+    badge_increment(visiting_user, event.to_s)
   end
-
+  def badge_increment(user, event)
+    if event == "interest"
+      user.badge.update(interest: user.badge.interest + 1)
+    elsif event == "visitor"
+      user.badge.update(visitor: user.badge.visitor + 1)
+    elsif event == "accepted"
+      user.badge.update(accepted: user.badge.accepted + 1)
+    elsif event == "rejected"
+      user.badge.update(rejected: user.badge.rejected + 1)
+    end
+  end
+  def badge_reset(user, event)
+    if event == "interest"
+      user.badge.update(interest: 0)
+    elsif event == "visitor"
+      user.badge.update(visitor: 0)
+    elsif event == "accepted"
+      user.badge.update(accepted: 0)
+    elsif event == "rejected"
+      user.badge.update(rejected: 0)
+    end
+  end
 end
 
 
