@@ -56,7 +56,9 @@
             </span><i class="fa fa-angle-right"></i>
             <div class="hidden-xs">
               <span><%= raw truncate(user[:about][:me], length:200, escape:false) %></span>
-              <br>
+              <% if user[:about][:me].length > 1 %>
+                <hr>
+              <% end %>
             </div>
           <% end %>
           <div class="text-center">
