@@ -35,6 +35,10 @@
                         <div id="myCarousel" class="carousel profile-carousel">
                           <div class="air air-bottom-right padding-10">
                             <%= render :partial =>'layouts/interestbutton', :locals => {:user => @user}%>
+                            <h3 class="txt-color-white font-md">
+                              <%= render :partial =>'layouts/interesttext', :locals => {:user => @user}%>
+                            </h3>
+                            <%= render :partial =>'layouts/interestact', :locals => {:user => @user}%>
                           </div>
                           <div class="air air-bottom-left padding-10">
                             <%= render :partial =>'layouts/shortlistbutton', :locals => {:user => @user}%>
@@ -65,9 +69,6 @@
                         </div>
                         <div class="col-sm-6">
                           <%= render :partial =>'layouts/cardinfo', :locals => {:user => @user}%>
-                          <hr>
-                          <%= render :partial =>'layouts/interesttext', :locals => {:user => @user}%>
-                          <%= render :partial =>'layouts/interestact', :locals => {:user => @user}%>
                         </div>
                       </div>
                     </div>
