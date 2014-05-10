@@ -4,7 +4,6 @@
   <% else %>
     <%= render :partial =>"layouts/ribbon", :locals => {:papa => "Home", :son => "Profile of #{@user[:name]}"} %>
   <% end %>
-
   <!-- MAIN CONTENT -->
   <div id="content">
     <!-- Bread crumb is created dynamically -->
@@ -23,28 +22,54 @@
     </div>
     <!-- end row -->
     <div class="row">
-    <div class="col-sm-8 animated fadeInDown">
-      <div class="well-sm bg-color-white">
-        <div class="row">
-          <div class="col-sm-12 col-md-12 col-lg-12">
-            <div class="well well-light well-sm no-margin no-padding">
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="row">
-                    <div class="col-sm-12 col-md-12 col-lg-12">
-                      <div class="col-sm-6">
-                        <%= render :partial =>'layouts/avatar', :locals => {:user => @user}%>
+      <div class="col-sm-8 animated fadeInDown">
+        <div class="well-sm bg-color-white">
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+              <div class="well well-light well-sm no-margin no-padding">
+                <div class="row">
+                  <!-- carousel Starts -->
+                  <div class="col-sm-12">
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <div id="myCarousel" class="carousel profile-carousel">
+                          <div class="air air-bottom-right padding-10">
+                            <%= render :partial =>'layouts/interestbutton', :locals => {:user => @user}%>
+                            <h3 class="txt-color-white font-md">
+                              <%= render :partial =>'layouts/interesttext', :locals => {:user => @user}%>
+                            </h3>
+                            <%= render :partial =>'layouts/interestact', :locals => {:user => @user}%>
+                          </div>
+                          <div class="air air-bottom-left padding-10">
+                            <%= render :partial =>'layouts/shortlistbutton', :locals => {:user => @user}%>
+                          </div>
+                          <div class="air air-top-left padding-10">
+                            <h3 class="txt-color-white font-md">
+                              <%= @user[:age] %>
+                              years old <%= @user[:devotion] %> <%= (@user[:sex] == "Female")? "Bride": "Groom" %>
+                            </h3>
+                          </div>
+                          <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                          </ol>
+                          <div class="carousel-inner">
+                            <!-- Slide 1 -->
+                            <div class="item active">
+                              <img src="../../images/demo/sample-<%=  rand(1..2) %>.jpg" alt="">
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                      <div class="col-sm-6">
-                        <%= render :partial =>'layouts/cardinfo', :locals => {:user => @user}%>
-                      </div>
-                      <div class="col-sm-6">
-                        <%= render :partial =>'layouts/contactinfo', :locals => {:user => @user}%>
-                      </div>
-                      <div class="col-sm-6">
-                        <legend></legend>
-                        <%= render :partial =>'layouts/interestbutton', :locals => {:user => @user}%>
-                        <legend></legend>
+                      <!-- carousel Ends -->
+                      <div class="col-sm-12 col-md-12 col-lg-12">
+                        <div class="col-sm-6">
+                          <%= render :partial =>'layouts/avatar', :locals => {:user => @user}%>
+                          <legend></legend>
+                          <%= render :partial =>'layouts/contactinfo', :locals => {:user => @user}%>
+                        </div>
+                        <div class="col-sm-6">
+                          <%= render :partial =>'layouts/cardinfo', :locals => {:user => @user}%>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -52,61 +77,65 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <article class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
-            <h3>About
-              <% if  current_user.profile.id == @user[:profile][:id] %>
-              <button class="btn btn-xs btn-default hidden-xs" data-toggle="modal" data-target="#modal-edit-about">
-                <i class="fa fa-edit"></i> edit
-              </button>
-              <% end %>
-            </h3>
-            <div class="">
-              <%= raw truncate(@user[:about][:me], length:500, escape:false) %>
-            </div>
-          </article>
-          <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <%= render :partial =>'layouts/profiles/show/religion'%>
-          </article>
-          <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <%= render :partial =>'layouts/profiles/show/kundali'%>
-          </article>
-          <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <%= render :partial =>'layouts/profiles/show/education'%>
-          </article>
-          <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <%= render :partial =>'layouts/profiles/show/family'%>
-          </article>
-          <article class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
-            <%= render :partial =>'layouts/profiles/show/hobby'%>
-          </article>
-          <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <%= render :partial =>'layouts/profiles/show/lifestyle'%>
-          </article>
-          <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-            <%= render :partial =>'layouts/profiles/show/desire'%>
-          </article>
+          <div class="row">
+            <article class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
+              <h3>About
+                <% if  current_user.profile.id == @user[:profile][:id] %>
+                  <button class="btn btn-xs btn-default hidden-xs" data-toggle="modal" data-target="#modal-edit-about">
+                    <i class="fa fa-edit"></i>
+                    edit
+                  </button>
+                <% end %>
+              </h3>
+              <div class="">
+                <%= raw truncate(@user[:about][:me], length:500, escape:false) %>
+              </div>
+            </article>
+            <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+              <%= render :partial =>'layouts/profiles/show/religion'%>
+            </article>
+            <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+              <%= render :partial =>'layouts/profiles/show/kundali'%>
+            </article>
+            <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+              <%= render :partial =>'layouts/profiles/show/education'%>
+            </article>
+            <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+              <%= render :partial =>'layouts/profiles/show/occupation'%>
+            </article>
+            <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+              <%= render :partial =>'layouts/profiles/show/family'%>
+            </article>
+            <article class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
+              <%= render :partial =>'layouts/profiles/show/hobby'%>
+            </article>
+            <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+              <%= render :partial =>'layouts/profiles/show/lifestyle'%>
+            </article>
+            <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+              <%= render :partial =>'layouts/profiles/show/desire'%>
+            </article>
+          </div>
         </div>
       </div>
-    </div>
-    <%= render :partial => 'layouts/profiles/similar', :locals => {:user => @user} %>
+      <%= render :partial => 'layouts/profiles/similar', :locals => {:user => @user} %>
     </div>
     <!-- end row -->
   </div>
   <!-- END MAIN CONTENT -->
 </div>
-
-
 <!-- Modals -->
+<% if  current_user.profile.id == @user[:profile][:id] %>
   <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-about", :tpl => "aboutme"} %>
   <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-images", :tpl => "images"} %>
   <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-religion", :tpl => "religion"} %>
   <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-kundali", :tpl => "kundali"} %>
   <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-education", :tpl => "education"} %>
+  <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-occupation", :tpl => "occupation"} %>
   <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-family", :tpl => "family"} %>
   <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-hobby", :tpl => "hobby"} %>
   <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-lifestyle", :tpl => "lifestyle"} %>
   <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-desire", :tpl => "desire"} %>
   <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-avatar", :tpl => "avatar"} %>
   <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-contact", :tpl => "contact"} %>
+<% end %>

@@ -1,28 +1,34 @@
-<h3>
-  <i class="fa fa-file"></i>
-  <span class="semi-bold">
-    <%= user[:name] %></span>
-  <br>
-  <i class="fa fa-calendar"></i>
-    <small class="text-muted">
-      <span class="semi-bold"><%= user[:age] %></span> Years Old</small>
-  <br>
-  <i class="fa fa-sun-o"></i>
-    <small class="text-muted">
-      <span class="semi-bold"><%= user[:devotion] %></span></small>
-</h3>
 <ul class="list-unstyled">
   <li>
-    <% items = {home: [:profile, 'fa-home'],caste: [:religion, 'fa-bars'], posted_by: [:profile, 'fa-user'], height: [:lifestyle, "fa fa-male"], weight: [:lifestyle, "fa fa-female"], smoke: [:lifestyle, "fa fa-times"], drink: [:lifestyle, "fa fa-beer"], complexion: [:lifestyle, "fa fa-smile-o"] } %>
-    <% items.stringify_keys.each do |key, value| %>
-    <p>
-      <i class="fa <%= value[1] %>"></i>
-        <%= key.gsub('_', ' ').titleize %>:
-       <strong class="txt-color-blueDark">
-       <%= truncate(titleize(user[value[0]][key]), length: 20) %>
+    <p class="text-right">
+      <i class="fa fa-file"></i> <%= user[:name] %>
+    </p>
+    <p class="text-right">
+      <small class="txt-color-blue"><%= pluralize(user[:visitors].to_i, "profile view") %>
+      </small>
+    </p>
+  </li>
+  <li>
+    <p class="text-right font-md">
+      <%= user[:age] %> years old, <%= user[:devotion].downcase %> <%= user[:religion][:caste] %>
+    </p>
+  </li>
+  <li>
+  <% if current_user.sex == "Female" %>
+    <% items = {posted_by: [:profile, 'fa-user'], manglik: [:kundali, "fa fa-circle"], occupation: [:occupation, "fa fa-suitcase"], desired_income: [:desire, "fa fa-money"] } %>
+  <% else %>
+    <% items = {home: [:profile, 'fa-home'], caste: [:religion, 'fa-bars'], posted_by: [:profile, 'fa-user'], manglik: [:kundali, "fa fa-circle"], occupation: [:occupation, "fa fa-suitcase"], company: [:occupation, "fa fa-bookmark"], annual_income: [:occupation, "fa fa-money"] } %>
+  <% end %>
+      <% items.stringify_keys.each do |key, value| %>
+      <p>
+        <i class="text-muted fa <%= value[1] %>"></i> <%= key.gsub('_', ' ').titleize %>:
+
+        <% if user[value[0]][key] %>
+        <strong class="txt-color-blueDark">
+         <%= truncate(titleize(user[value[0]][key]), length: 20) %>
        </strong>
+       <% end %>
     </p>
     <% end %>
   </li>
 </ul>
-

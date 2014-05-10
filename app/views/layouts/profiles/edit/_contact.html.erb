@@ -1,51 +1,67 @@
 <%= render :partial =>'layouts/alert', :locals => {:heading => "Contact Details", :description => "Your contact details will be shown to other users upon your acceptance", :icon=>"fa fa-telephone"}%>
 <%= form_tag({:action=>'modify_contact'}, {:remote=>true, :class=>"smart-form edit"}) do %>
-  <h3 class="error-text-3"><strong>Contact</strong> Details<br><small>Your contact details will only be shown to other users upon your acceptance</small> </h3>
-  <fieldset>
+  <h3 class=""><strong>Contact</strong> Details<br><small>Your contact details will only be shown to other users upon your acceptance</small> </h3>
 
-    <section>
+    <fieldset>
+    <div class="col-sm-4">
       <label class="label"><strong>Telephone</strong> No.</label>
+    </div>
+    <div class="col-sm-6">
       <label class="input">
         <i class="icon-prepend fa fa-phone"></i>
         <input name="self_no" class="form-control phone" type="text" value="<%= @user[:contact][:self_no] %>" >
       </label>
-    </section>
-    <section>
+    </fieldset>
+    <fieldset>
+    <div class="col-sm-4">
       <label class="label"><strong>Skype</strong> Id</label>
+    </div>
+    <div class="col-sm-6">
       <label class="input">
         <i class="icon-prepend fa fa-skype"></i>
         <input name="s_id" class="form-control" type="text" value="<%= @user[:contact][:s_id] %>" placeholder="Your Skype Id">
       </label>
-    </section>
-    <section>
+    </fieldset>
+    <fieldset>
+    <div class="col-sm-4">
       <label class="label"><strong>Google</strong> Chat Id</label>
+    </div>
+    <div class="col-sm-6">
       <label class="input">
         <i class="icon-prepend fa fa-google-plus"></i>
         <input name="g_id" class="form-control" type="text" value="<%= @user[:contact][:g_id] %>" placeholder="Your Google Plus/Chat Id">
       </label>
-    </section>
-    <section>
+    </fieldset>
+    <fieldset>
+    <div class="col-sm-4">
       <label class="label"><strong>WhatsApp</strong>!</label>
+    </div>
+    <div class="col-sm-6">
       <label class="input">
         <i class="icon-prepend fa fa-comment"></i>
         <input name="w_id" class="form-control" type="text" value="<%= @user[:contact][:w_id] %>" placeholder="WhatsApp Account">
       </label>
-    </section>
-    <section>
+    </fieldset>
+    <fieldset>
+    <div class="col-sm-4">
       <label class="label"><strong>LinkedIn</strong> Url</label>
+    </div>
+    <div class="col-sm-6">
       <label class="input">
         <i class="icon-prepend fa fa-linkedin"></i>
         <input name="ln_link" class="form-control" type="text" value="<%= @user[:contact][:ln_link] %>" placeholder="Paste Your LinkedIn Url">
       </label>
-    </section>
-    <section>
+    </fieldset>
+    <fieldset>
+    <div class="col-sm-4">
       <label class="label"><strong>Facebook</strong> Url</label>
+    </div>
+    <div class="col-sm-6">
       <label class="input">
         <i class="icon-prepend fa fa-facebook"></i>
         <input name="fb_link" class="form-control" type="text" value="<%= @user[:contact][:fb_link] %>" placeholder="Paste Your Facebook Profile Link">
       </label>
-    </section>
- </fieldset>
+    </fieldset>
   <footer>
     <button type="submit" class="btn btn-primary edit disabled">Save</button>
   </footer>

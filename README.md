@@ -99,8 +99,17 @@ Works even with turbolinks
 
 Create Random User
 ```
-for i in (101..200)
-  u = User.new(:email => "#{i}@gmail.com", :password=>"123456", :devotion=>"Hindu", :sex=>"Male", :name=>"kevin", :dob=>"01/09/1985")
+for i in (122..125)
+  u = User.new(:email => "#{i}@gmail.com", :password=>"12345678910", :devotion=>"Hindu", :sex=>"Female", :name=>"kevin", :dob=>"01/09/1985")
   u.save
  end
+```
+
+### app/assets/stylesheets/bootstrap.css
+
+Edits done here
+
+```
+.carousel-indicators li {
+  visibility: hidden;
 ```
