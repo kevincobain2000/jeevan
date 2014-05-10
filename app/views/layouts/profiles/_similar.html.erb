@@ -9,28 +9,25 @@
         <% user = make_user(_user) %>
           <li class="friends-list">
             <dl class="dl-horizontal">
-              <dt><%= user[:image].count %> Images</dt>
-              <dd><%= image_tag user[:avatar].url(:thumb) %></dd>
-
-              <dt>Age:</dt>
-              <dd><strong class="txt-color-blue"><%= truncate( titleize(user[:age]), length: 10) %></strong> <span class="text-muted"></span></dd>
-
-              <dt>Name:</dt>
-              <dd><strong class="txt-color-green"><%= truncate(titleize(user[:name]), length: 20) %></strong></dd>
-
-              <dt>Caste:</dt>
-              <dd><strong class="txt-color-blue"><%= truncate(titleize(user[:religion][:caste]), length: 20) %></strong></dd>
-
-              <dt>Active:</dt>
-              <dd><%= render :partial =>'layouts/online', :locals => {:time => user[:updated_at]}%></dd>
+              <dt>
+                <%= link_to profile_path(:id =>user[:profile][:id]) do %>
+                <%= image_tag user[:avatar].url(:thumb) %>
+                <% end %>
+              </dt>
+              <dd>
+                <strong class="txt-color-blue"><%= truncate(titleize(user[:devotion]), length: 20) %></strong>
+                <strong class="txt-color-blue"><%= truncate(titleize(user[:religion][:caste]), length: 20) %></strong>
+                <br>
+                <strong class="txt-color-green"><%= truncate(titleize(user[:name]), length: 20) %></strong>
+                <br>
+                <strong class="txt-color-blue"><%= truncate( titleize(user[:age]), length: 10) %></strong> yrs<span class="text-muted"></span>
+                <br>
+                <%= render :partial =>'layouts/online', :locals => {:time => user[:updated_at]}%>
+              </dd>
 
             </dl>
           </li>
-          <br>
-          <%= link_to profile_path(:id =>user[:profile][:id]), :class=>"pull-right" do %>
-           <i class="fa fa-arrow-left"></i> Show Profile 
-          <% end %>
-          <legend></legend>
+          <hr>
         <% end %>
       </ul>
       <%= will_paginate @similar_profiles_paginate, :class =>"flickr_pagination" %>

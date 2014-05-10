@@ -33,6 +33,7 @@ class User < ActiveRecord::Base
   has_many :shortlists,     :dependent => :destroy
   has_many :images,         :dependent => :destroy
 
+  has_one :bagge,     :dependent => :destroy
   has_one :profile,   :dependent => :destroy
   has_one :contact,   :dependent => :destroy
   has_one :religion,  :dependent => :destroy
