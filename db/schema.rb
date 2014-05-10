@@ -152,15 +152,6 @@ ActiveRecord::Schema.define(version: 20140331134717) do
     t.string   "height",     limit: 4
   end
 
-  create_table "notifications", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-    t.integer  "to_user_id"
-    t.integer  "flag",       limit: 1
-    t.integer  "seen",       limit: 1
-  end
-
   create_table "occupations", force: true do |t|
     t.integer  "user_id"
     t.datetime "created_at"

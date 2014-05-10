@@ -11,7 +11,6 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
   # protect_from_forgery with: :null_session
   helper_method :make_user, :make_user_snippet
-  before_filter :do_notifications, :except => [:new, :create, :destroy]
 
   def make_user(user)
     dob = user.dob.gsub("/","-")
@@ -102,40 +101,6 @@ class ApplicationController < ActionController::Base
   private
   def user_activity
     current_user.try :touch
-  end
-
-  # flag = 0 visited Profile
-  # flag = 1 expressed Interest
-  # flag = 2 accepted Interest
-  # flag = 3 rejected Interest
-  def do_notifications
-    @notifications = Hash.new {|h, k| h[k] = [] }
-    if !user_signed_in?
-      return
-    end
-
-    messages = [ ["Viewed Your Profile", "fa fa-thumbs-up"], ["Expressed Interest !", "fa fa-connect"], ["Accepted Interest !", "fa fa-check"], ["Rejected Interest", "fa fa-times"] ]
-    @notifications_unread_count = 0
-    user_ids = Notification.where(to_user_id: current_user.id).where("created_at >= ?", 1.week.ago).order(:seen, :created_at).pluck(:user_id)
-    notifications = Notification.where(to_user_id: current_user.id).where("created_at >= ?", 1.week.ago).order(:seen, :created_at)
-
-    return #remove me *(return) and fix the following # TODO ONCE enter the loop it goes to the redirect loop
-    users = User.find(user_ids)
-    users.zip(notifications).each do |__user, notification|
-      user = {}
-      user[:avatar]     = __user.avatar
-      user[:name]       = titleize(__user.name)
-      user[:profile]    = __user.profile
-      user[:message]    = messages[notification.flag][0]
-      user[:icon]       = messages[notification.flag][1]
-      user[:seen]       = notification.seen
-      user[:created_at] = time_ago_in_words(notification.created_at)
-      @notifications[notification.id] = user
-
-      if notification.seen.nil?
-        @notifications_unread_count += 1
-      end
-    end
   end
 
   def dirty_layout_hack
