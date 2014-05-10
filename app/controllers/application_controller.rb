@@ -45,7 +45,7 @@ class ApplicationController < ActionController::Base
       lifestyle:  user.lifestyle,
       desire:     user.desire,
       image:      user.images.all,
-      images_count:      user.images_count,
+      images_count:      user.images_count.to_i,
       avatar:     user.avatar,
       in_response:  in_response,
       out_response: out_response,

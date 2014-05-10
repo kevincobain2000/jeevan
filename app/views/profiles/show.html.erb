@@ -40,13 +40,12 @@
                             </h3>
                             <%= render :partial =>'layouts/interestact', :locals => {:user => @user}%>
                           </div>
-                          <div class="air air-bottom-left padding-10">
-                            <%= render :partial =>'layouts/shortlistbutton', :locals => {:user => @user}%>
-                          </div>
                           <div class="air air-top-left padding-10">
                             <h3 class="txt-color-white font-md">
-                              <%= @user[:age] %>
-                              years old <%= @user[:devotion] %> <%= (@user[:sex] == "Female")? "Bride": "Groom" %>
+                              Profile <%= @user[:name] %>,
+                              <%= @user[:devotion] %> <%= (@user[:sex] == "Female")? "Bride": "Groom" %>
+                              <br>
+                              <%= render :partial =>'layouts/shortlistbutton', :locals => {:user => @user}%>
                             </h3>
                           </div>
                           <ol class="carousel-indicators">
@@ -64,7 +63,6 @@
                       <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="col-sm-6">
                           <%= render :partial =>'layouts/avatar', :locals => {:user => @user}%>
-                          <legend></legend>
                           <%= render :partial =>'layouts/contactinfo', :locals => {:user => @user}%>
                         </div>
                         <div class="col-sm-6">

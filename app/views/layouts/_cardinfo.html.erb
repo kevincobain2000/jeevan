@@ -1,16 +1,14 @@
 <ul class="list-unstyled">
   <li>
-    <p class="text-right">
-      <i class="fa fa-file"></i> <%= user[:name] %>
-    </p>
-    <p class="text-right">
-      <small class="txt-color-blue"><%= pluralize(user[:visitors].to_i, "profile view") %>
-      </small>
+    <p class="font-md">
+    <%= link_to profile_path(:id =>user[:profile][:id]) do %>
+    <%= user[:age] %> years old, <%= user[:devotion].downcase %> <%= user[:religion][:caste] %>
+    <% end %>
     </p>
   </li>
   <li>
-    <p class="text-right font-md">
-      <%= user[:age] %> years old, <%= user[:devotion].downcase %> <%= user[:religion][:caste] %>
+    <p class="">
+      <i class="fa fa-file"></i> Profile <%= user[:name] %>
     </p>
   </li>
   <li>
