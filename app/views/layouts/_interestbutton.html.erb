@@ -1,53 +1,8 @@
 <% if  current_user.id != user[:id] && user[:out_response].nil? && user[:in_response].nil? %>
   <%= form_tag({:action=>'interest', :controller => "profiles"}, :remote => true, :class => "smart-form") do %>
     <%= hidden_field_tag 'to_user_id', user[:id] %>
-    <button class="btn txt-color-white bg-color-pinkDark btn-xs interest" type="submit">
-      <i class="fa fa-link"></i>
-       Express Interest
+    <button class="btn btn-info btn-xs interest" type="submit" data-img="<%= user[:avatar].url(:tiny) %>" data-url='<%= link_to "view profile", profile_path(:id =>user[:profile][:id]), :class=>"txt-color-white" %>' data-title="Interest Expressed" data-msg="expressed interest in the profile">
+      <i class="fa fa-heart"></i> Send interest
     </button>
-  <% end %>
-<% end %>
-<% if !user[:out_response].nil? %>
-  <% if user[:out_response].response == 0 %>
-    <span class="text-muted semi-bold">Interest Expressed:
-      <strong class="txt-color-red"><i class="fa fa-frown-o"></i>
-        Rejected</strong>
-      your Interest</span>
-  <% elsif user[:out_response].response == 1 %>
-    <span class="text-muted semi-bold">Interest Expressed:
-      <strong class="txt-color-green"><i class="fa fa-smile-o"></i>
-        Accepted</strong>
-      your Interest</span>
-  <% else %>
-    <span class="text-muted semi-bold">Interest Expressed:
-      <strong class="txt-color-orange"><i class="fa fa-bell"></i>
-        Waiting</strong>
-      for response</span>
-  <% end %>
-<% end %>
-<% if  current_user.id != user[:id] && !user[:in_response].nil? && user[:in_response].response.nil? %>
-  <%= form_tag({:action=>'interest_response', :controller => "profiles"}, :remote => true, :class => "smart-form") do %>
-    <%= hidden_field_tag 'to_user_id', user[:id] %>
-    <button class="btn txt-color-white bg-color-pinkDark btn-xs interest" name="commit" value="Accept" type="submit">
-      <i class="fa fa-check"></i>
-      Accept
-    </button>
-    <button class="btn btn-danger interest" name="commit" value="Reject" type="submit">
-      <i class="fa fa-times"></i>
-      Not Interested
-    </button>
-  <% end %>
-<% end %>
-<% if !user[:in_response].nil? %>
-  <% if user[:in_response].response == 0 %>
-    <span class="text-muted semi-bold">You have
-      <strong class="txt-color-red"><i class="fa fa-times"></i>
-        Rejected</strong>
-      interest of this profile</span>
-  <% elsif user[:in_response].response == 1 %>
-    <span class="text-muted semi-bold">You have
-      <strong class="txt-color-green"><i class="fa fa-check"></i>
-        Accepted</strong>
-      interest of this profile</span>
   <% end %>
 <% end %>

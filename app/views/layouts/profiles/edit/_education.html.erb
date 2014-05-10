@@ -1,20 +1,24 @@
 <%= render :partial =>'layouts/alert', :locals => {:heading => "Education Section", :description => "You can add your school or college if we don't have it in the list", :icon=>"fa fa-flask"}%>
 <%= form_tag({:action=>'modify_education'}, {:remote => true, :class=>"smart-form edit"}) do %>
-  <h3 class="error-text-3"><strong>Education</strong> <i>school & degree</i></h3>
-  <fieldset>
+  <h3 class=""><strong>Education</strong> <i>school & degree</i></h3>
     <% categories = {'school' => "fa fa-superscript", 'grad_college' => "fa fa-map-marker", 'graduation' => "fa fa-book", 'post_grad' => "fa fa-flask", 'post_grad_college' => "fa fa-map-marker", 'highest_degree' => "fa fa-bookmark"} %>
     <% categories.each do |category, icon| %>
       <% heading = category.gsub "_", " " %>
       <% id = category.gsub "_", "-" %>
-      <section>
+      <fieldset>
+      <div class="col-sm-4">
         <label class="label">
           <i class="<%= icon %>"></i><strong>
-          <%= heading.titleize %></strong><small class="text-muted">
-            (Add your item, if it is not in the list.)</small></label>
+          <%= heading.titleize %></strong>
+        </label>
+        <small class="text-muted">
+          Select one from list or add a new one</small>
+      </div>
+        <div class="col-sm-6">
               <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:education][category] %>" placeholder="Choose or Add your <%= heading %>">
-      </section>
+            </div>
+      </fieldset>
     <% end %>
-  </fieldset>
   <footer>
     <button type="submit" class="btn btn-primary edit disabled">Save</button>
   </footer>

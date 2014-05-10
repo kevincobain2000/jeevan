@@ -1,2 +1,5 @@
 <%= render :partial =>"layouts/sparks", :locals => {:sparks => @sparks} %>
-<%= render :partial =>"layouts/profiles/pin", :locals => {:paginate => @outgoings, :h => "My Received", :hsm => "in Responses"} %>
+<div id="main" role="main">
+	<%= render :partial =>"layouts/ribbon", :locals => {:papa => "Home", :son => "Interests rejected you"} %>
+<%= render :partial =>"layouts/profiles/pin", :locals => {:paginate => @rejected, :h => "My Received", :hsm => "in Responses"} %>
+</div>

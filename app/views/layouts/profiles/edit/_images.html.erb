@@ -1,5 +1,5 @@
 <%= render :partial =>'layouts/alert', :locals => {:heading => "Load as many Images as you like", :description => "One image is worth a thousand words !",:icon=>"fa fa-picture-o"}%>
-<h3 class="error-text-3"><strong>Images</strong></h3>
+<h3 class=""><strong>Images</strong></h3>
 <%= form_tag({:action=>'modify_image'}, {:authenticity_token => true, :multipart => true, :remote => true, :class => 'dropzone', :id => 'my-dropzone'}) do %>
 <% end %>
 <div class="row">

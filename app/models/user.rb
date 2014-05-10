@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   delegate :interest,:music, :read,:dress, :tv,:movie, :sport,:vacation, to: :hobby
 
   include Paperclip::Glue
-  has_attached_file :avatar, :styles => {:thumb => "200x200#", :tiny => "50x50#" }, :convert_options => {:thumb => "-quality 100", :tiny => "-quality 100" },:default_url => :default_url_by_gender
+  has_attached_file :avatar, :styles => {:thumb => "200x200#", :tiny => "50x50#"}, :convert_options => {:thumb => "-quality 100", :tiny => "-quality 100" },:default_url => :default_url_by_gender
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   def default_url_by_gender
     # random = rand(0)
@@ -33,6 +33,7 @@ class User < ActiveRecord::Base
   has_many :shortlists,     :dependent => :destroy
   has_many :images,         :dependent => :destroy
 
+  has_one :badge,     :dependent => :destroy
   has_one :profile,   :dependent => :destroy
   has_one :contact,   :dependent => :destroy
   has_one :religion,  :dependent => :destroy
@@ -65,6 +66,7 @@ class User < ActiveRecord::Base
   end
   def create_dependents
     build_profile
+    build_badge
     build_contact
     build_religion
     build_kundali

@@ -1,4 +1,5 @@
 Jeevan::Application.routes.draw do
+  devise_for :users, :controllers => { :registrations => "registrations", :sessions => "sessions" }
   resources :profiles do
     collection do
       post :modify_profile
@@ -10,6 +11,7 @@ Jeevan::Application.routes.draw do
       post :modify_hobby
       post :modify_family
       post :modify_education
+      post :modify_occupation
       post :modify_lifestyle
       post :modify_desire
       post :modify_image
@@ -31,23 +33,24 @@ Jeevan::Application.routes.draw do
       get :accepted
     end
   end
-  resources :explore do
-    collection do
-    end
-  end
   resources :profile do
     collection do
     end
   end
 
+  resources :dashboard do
+    collection do
+    end
+  end
+  resources :contact do
+    collection do
+    end
+  end
+
   get "home/index"
-  resources :dashboard
-  resources :contact
-  # devise_for :users
   authenticated :user do
     root :to => 'profiles#index', :as => :authenticated_root
   end
-  devise_for :users, :controllers => { :registrations => "registrations", :sessions => "sessions" }
 
   root :to => redirect('/users/sign_in')
 
