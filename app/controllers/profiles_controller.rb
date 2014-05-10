@@ -102,6 +102,7 @@ class ProfilesController < ApplicationController
       logger.info("Debug Params inspect #{params.inspect}")
       if !find_first
         current_user.interests.create(to_user_id: params[:to_user_id])
+        notify_growl(:interest, params[:to_user_id], "Expressed Interest in You")
         current_user.notifications.create(to_user_id: params[:to_user_id], flag: 1)
       else
         find_first.touch
@@ -115,7 +116,6 @@ class ProfilesController < ApplicationController
   #            Mark Notification as read         =
   #==============================================*/
   def seen_notification
-    logger.info("Debug yay");
     notification = Notification.find(params[:notification_id])
     if notification.created_at < 1.month.ago
       notification.delete()
@@ -300,10 +300,42 @@ class ProfilesController < ApplicationController
   def touch_visitor
     visiting_user_id = Profile.find(params[:id]).user_id
     if current_user.id != visiting_user_id
+      if Visitor.where(user_id: current_user.id, viewed_id: visiting_user_id).count == 0
         Visitor.find_or_create_by(user_id: current_user.id, viewed_id: visiting_user_id)
-        # Notification.find_or_create_by(to_user_id: visiting_user_id, flag: 0)
-        Notification.where(user_id: current_user.id, to_user_id: visiting_user_id).update_all(flag: 0)
+        notify_growl(:visitor, visiting_user_id, "Profile Viewed")
+      end
+      # Notification.find_or_create_by(to_user_id: visiting_user_id, flag: 0)
     end
+  end
+  def notify_growl(event, visiting_user_id, title)
+    channel_name = "socket_user_#{visiting_user_id}"
+    visited_user = User.find(visiting_user_id)
+    data = {}
+    data[:img]   = visited_user.avatar
+    data[:title] = title
+    data[:profile_id] = current_user.profile.id
+    WebsocketRails[channel_name].trigger(event, data)
   end
 
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -118,9 +118,9 @@ class ApplicationController < ActionController::Base
     @notifications_unread_count = 0
     user_ids = Notification.where(to_user_id: current_user.id).where("created_at >= ?", 1.week.ago).order(:seen, :created_at).pluck(:user_id)
     notifications = Notification.where(to_user_id: current_user.id).where("created_at >= ?", 1.week.ago).order(:seen, :created_at)
-    users = User.find(user_ids)
 
-    # return #remove me *(return) and fix the following # TODO ONCE enter the loop it goes to the redirect loop
+    return #remove me *(return) and fix the following # TODO ONCE enter the loop it goes to the redirect loop
+    users = User.find(user_ids)
     users.zip(notifications).each do |__user, notification|
       user = {}
       user[:avatar]     = __user.avatar
