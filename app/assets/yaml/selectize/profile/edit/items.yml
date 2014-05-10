@@ -1,3 +1,221 @@
+work_status:
+  -
+    title: "Employed"
+    desc: ""
+  -
+    title: "Unemployed"
+    desc: ""
+  -
+    title: "Looking"
+    desc: ""
+  -
+    title: "Small Business"
+    desc: ""
+  -
+    title: "Large Business"
+    desc: ""
+occupation:
+  -
+    title: "Engineer"
+    desc: ""
+  -
+    title: "Doctor"
+    desc: ""
+  -
+    title: "Manager"
+    desc: ""
+  -
+    title: "Owner"
+    desc: ""
+company:
+  -
+    title: ""
+    desc: ""
+annual_income:
+  -
+    title: "1 - 5 Lac"
+    desc: ""
+  -
+    title: "5 - 10 Lac"
+    desc: ""
+  -
+    title: "10 - 15 Lac"
+    desc: ""
+  -
+    title: "15 - 35 Lac"
+    desc: ""
+  -
+    title: "35 plus"
+    desc: ""
+settling_abroad:
+  -
+    title: "Yes"
+    desc: ""
+  -
+    title: "No"
+    desc: ""
+posted_by:
+  -
+    title: "Parents"
+    desc: ""
+  -
+    title: "Self"
+    desc: ""
+  -
+    title: "Brother"
+    desc: ""
+  -
+    title: "Sister"
+    desc: ""
+  -
+    title: "Relative"
+    desc: ""
+desired_marital_status:
+  -
+    title: "Single"
+    desc: ""
+  -
+    title: "Married"
+    desc: ""
+  -
+    title: "Divorced"
+    desc: ""
+  -
+    title: "Widowed"
+    desc: ""
+marital_status:
+  -
+    title: "Single"
+    desc: ""
+  -
+    title: "Married"
+    desc: ""
+  -
+    title: "Divorced"
+    desc: ""
+  -
+    title: "Widowed"
+    desc: ""
+values:
+  -
+    title: "Liberal"
+    desc: ""
+  -
+    title: "Hypocrite"
+    desc: ""
+size:
+  -
+    title: "Nuclear"
+    desc: ""
+  -
+    title: "Joint"
+    desc: ""
+status:
+  -
+    title: "Rich"
+    desc: ""
+  -
+    title: "Upper Middle"
+    desc: ""
+  -
+    title: "Middle"
+    desc: ""
+  -
+    title: "Lower Middle"
+    desc: ""
+desired_smoke:
+  -
+    title: "Yes"
+    desc: ""
+  -
+    title: "No"
+    desc: ""
+smoke:
+  -
+    title: "Yes"
+    desc: ""
+  -
+    title: "No"
+    desc: ""
+desired_drink:
+  -
+    title: "Yes"
+    desc: ""
+  -
+    title: "No"
+    desc: ""
+drink:
+  -
+    title: "Yes"
+    desc: ""
+  -
+    title: "No"
+    desc: ""
+desired_diet:
+  -
+    title: "Vegetarian"
+    desc: ""
+  -
+    title: "Non Vegetarian"
+    desc: ""
+diet:
+  -
+    title: "Vegetarian"
+    desc: ""
+  -
+    title: "Non Vegetarian"
+    desc: ""
+own_house:
+  -
+    title: "Yes"
+    desc: ""
+  -
+    title: "No"
+    desc: ""
+own_car:
+  -
+    title: "Yes"
+    desc: ""
+  -
+    title: "No"
+    desc: ""
+own_pet:
+  -
+    title: "Yes"
+    desc: ""
+  -
+    title: "No"
+    desc: ""
+desired_complexion:
+  -
+    title: "white"
+    desc: ""
+  -
+    title: "dark"
+    desc: ""
+  -
+    title: "fair"
+    desc: ""
+complexion:
+  -
+    title: "white"
+    desc: ""
+  -
+    title: "dark"
+    desc: ""
+  -
+    title: "fair"
+    desc: ""
+blood_group:
+  -
+    title: "O+"
+    desc: ""
+  -
+    title: "AB"
+    desc: ""
+  -
+    title: "A+"
+    desc: ""
 religion:
   -
     title: "Hindu"
@@ -1656,6 +1874,19 @@ birth_city:
     title: "Rajasthan"
     desc: ""
 
+desired_manglik:
+  -
+    title: "No"
+    desc: ""
+  -
+    title: "Yes"
+    desc: ""
+  -
+    title: "Angshik (Partial)"
+    desc: ""
+  -
+    title: "Don't Know"
+    desc: ""
 manglik:
   -
     title: "No"
@@ -2242,6 +2473,23 @@ sister:
     title: "Married"
     desc: ""
 
+family_income:
+  -
+    title: "1 - 5 Lac"
+    desc: ""
+  -
+    title: "5 - 10 Lac"
+    desc: ""
+  -
+    title: "10 - 15 Lac"
+    desc: ""
+  -
+    title: "15 - 35 Lac"
+    desc: ""
+  -
+    title: "35 plus"
+    desc: ""
+
 profile_handler:
   -
     title: "Parents"
@@ -2297,6 +2545,40 @@ highest_degree:
     desc: ""
   -
     title: "Other"
+    desc: ""
+
+desired_income:
+  -
+    title: "1 - 5 Lac"
+    desc: ""
+  -
+    title: "5 - 10 Lac"
+    desc: ""
+  -
+    title: "10 - 15 Lac"
+    desc: ""
+  -
+    title: "15 - 35 Lac"
+    desc: ""
+  -
+    title: "35 plus"
+    desc: ""
+desired_height:
+  -
+    title: "18 - 20 Yrs"
+    desc: ""
+  -
+    title: "20 - 23 Yrs"
+    desc: ""
+  -
+    title: "23 - 26 Yrs"
+    desc: ""
+  -
+    title: "26 - 30 Yrs"
+    desc: ""
+desired_age:
+  -
+    title: "Afghanistan"
     desc: ""
 
 desired_country:

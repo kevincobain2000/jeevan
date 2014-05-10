@@ -1,5 +1,5 @@
 $(document).on("page:change", function() {
-  $( "#tabs" ).tabs();
+  // $( "#tabs" ).tabs();
   pageSetUp();
 
   $("[id^=side]").click(function() {
@@ -27,6 +27,19 @@ $(document).on("page:change", function() {
     birth_city: {
       create: true
     },
+    posted_by: true,
+    marital_status: true,
+    values: true,
+    size: true,
+    status: true,
+    smoke: true,
+    drink: true,
+    diet: true,
+    own_house: true,
+    own_pet: true,
+    own_car: true,
+    complexion: true,
+    blood_group: true,
     manglik: true,
     sun_sign: true,
     moon_sign: true,
@@ -36,120 +49,117 @@ $(document).on("page:change", function() {
     hobby: {
       maxItems: 10,
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace'],
       delimeter: ","
     },
     interest: {
       maxItems: 10,
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     music: {
       maxItems: 10,
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     read: {
       maxItems: 10,
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     dress: {
       maxItems: 10,
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     tv: {
       maxItems: 10,
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     movie: {
       maxItems: 10,
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     sport: {
       maxItems: 10,
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     cuisine: {
       maxItems: 10,
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     vacation: {
       maxItems: 10,
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     father: true,
     mother: true,
     brother: true,
     sister: true,
+    family_income: true,
     profile_handler: true,
     school: {
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     grad_college: {
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     graduation: {
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     post_grad: {
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     post_grad_college: {
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     highest_degree: {
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
+    desired_marital_status: true,
+    desired_manglik: true,
+    desired_diet: true,
+    desired_smoke: true,
+    desired_drink: true,
+    desired_complexion: true,
+    desired_income: true,
+    desired_height: true,
+    desired_age: true,
     desired_country: {
       maxItems: 2,
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     desired_city: {
       maxItems: 2,
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     desired_religion: true,
     desired_caste: {
       maxItems: 3,
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     desired_mother_tongue:{
       maxItems: 3,
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     desired_education: {
       create:true,
-      plugins: ['remove_button', 'restore_on_backspace']
     },
     desired_occupation:{
       create: true,
-      plugins: ['remove_button', 'restore_on_backspace']
+    },
+    work_status:true,
+    occupation:{
+      create: true
+    },
+    company:{
+      create: true
+    },
+    annual_income:{
+      create: true
+    },
+    settling_abroad:{
+      create: true
     },
   };
 
   $(".close-edit-modal").click(function() {
     $("#hidden-side-myprofile")[0].click();
-  });
-  $(".open-edit-modal").click(function() {
-    reinit_family_range_slider();
-    reinit_desire_range_slider();
   });
 
 
@@ -188,7 +198,7 @@ $(document).on("page:change", function() {
           searchField: options.searchField ? options.searchField : "title",
           options:     select_profile_edit_items[name],
           create:      options.create ? options.create : false,
-          plugins:     options.plugins ? options.plugins : [],
+          plugins:     options.plugins ? options.plugins : ['remove_button', 'restore_on_backspace'],
           delimeter:   options.delimeter ? options.delimeter : ",",
           render: {
             option: function(item, escape) {
@@ -205,15 +215,18 @@ $(document).on("page:change", function() {
   $(".phone").inputmask("mask", {
     "mask": "(999) 9999-999-999"
   });
+  $.extend($.gritter.options, { 
+        position: 'bottom-left', // defaults to 'top-right' but can be 'bottom-left', 'bottom-right', 'top-left', 'top-right' (added in 1.7.1)
+        fade_in_speed: 'medium', // how fast notifications fade in (string or int)
+        fade_out_speed: 2000, // how fast the notices fade out
+        time: 3000 // hang on the screen for...
+  });
   $(".interest").click(function() {
-    $(this).html('<i class="fa fa-check"></i>Done!')
+    $.gritter.add({ image: $(this).data("img"), title: $(this).data("title"), text: 'Your have successfully ' + $(this).data("msg") + "<br>" +$(this).data("url") });
+    // $(this).html('<i class="fa fa-check"></i> Done!')
     $(this).addClass('disabled');
   });
   $(".edit").click(function() {
-    // $(".edit").removeClass('btn-info');
-    // $(".edit").addClass('btn-success');
-    $(this).removeClass('btn-info');
-    $(this).addClass('btn-success');
     $(this).addClass('disabled');
   });
   $('form.edit').bind("keyup change", function(e) {
@@ -221,14 +234,12 @@ $(document).on("page:change", function() {
   });
 
   function show_save_button (el) {
-    el.find(':submit').html('<i class="fa fa-save"></i> Save');
-    el.find(':submit').removeClass('btn-success');
+    el.find(':submit').html('Save');
     el.find(':submit').removeClass('disabled');
-    el.find(':submit').addClass('btn-info');
   }
 
   $('form.edit').submit(function() {
-    $(this).find(':submit').html('<i class="fa fa-check"></i>Done!');
+    $(this).find(':submit').html('Saved');
   });
 
   $('.superbox').on('click', '.removeimage', function() {
@@ -248,51 +259,6 @@ $(document).on("page:change", function() {
       $(".superbox-show").slideUp();
     });
   }
-
-  /*======================================
-  #=            Set up Sliders
-  #======================================*/
-  $("#tab-desire").click(function(e) {
-    reinit_desire_range_slider();
-  });
-
-  function reinit_desire_range_slider() {
-    $("#desired-income-slider").ionRangeSlider({
-      prettify: false,
-      hasGrid: true,
-      onFinish: function(obj) {
-        show_save_button($(".edit"))
-      }
-    });
-    $("#desired-height-slider").ionRangeSlider({
-      prettify: false,
-      hasGrid: true,
-      onFinish: function(obj) {
-        show_save_button($(".edit"))
-      }
-    });
-    $("#desired-age-slider").ionRangeSlider({
-      prettify: false,
-      hasGrid: true,
-      onFinish: function(obj) {
-        show_save_button($(".edit"))
-      }
-    });
-  }
-
-  $("#tab-family").click(function(e) {
-    reinit_family_range_slider();
-  });
-
-  function reinit_family_range_slider() {
-   $("#family-income-slider").ionRangeSlider({
-    prettify: false,
-    hasGrid: true,
-    onFinish: function(obj) {
-      show_save_button($(".edit"))
-    }
-  });
- }
 
  /*-----  End of Set up Sliders  ------*/
  $('.superbox').SuperBox();
@@ -343,6 +309,30 @@ $(document).ready(function($) {
       });
     }
   });
+
+  /*===============================
+  =            SOCKETS            =
+  ===============================*/
+
+  var dispatcher = new WebSocketRails('localhost:3000/websocket');
+  var channel = dispatcher.subscribe('socket_user_'+$("#user").data("id"));
+
+  channel.bind('visitor', function(data) {
+    $.gritter.add({ image: data.img, title: data.title, text: '<a class="txt-color-white" href="/profiles/'+data.profile_id+'">view profile</a>' });
+  });
+  channel.bind('interest', function(data) {
+    $.gritter.add({ image: data.img, title: data.title, text: '<a class="txt-color-white" href="/profiles/'+data.profile_id+'">view profile</a>' });
+  });
+  channel.bind('accepted', function(data) {
+    $.gritter.add({ image: data.img, title: data.title, text: '<a class="txt-color-white" href="/profiles/'+data.profile_id+'">view profile</a>' });
+  });
+  channel.bind('rejected', function(data) {
+    $.gritter.add({ image: data.img, title: data.title, text: '<a class="txt-color-white" href="/profiles/'+data.profile_id+'">view profile</a>' });
+  });
+
+  /*-----  End of SOCKETS  ------*/
+
+
 });
 
 

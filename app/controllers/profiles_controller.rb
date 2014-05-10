@@ -77,12 +77,15 @@ class ProfilesController < ApplicationController
     current_user.education.update(education_params)
     render json: { :status => 200 }
   end
+  def modify_occupation
+    current_user.occupation.update(occupation_params)
+    render json: { :status => 200 }
+  end
   def modify_lifestyle
     current_user.lifestyle.update(lifestyle_params)
     render json: { :status => 200 }
   end
   def modify_desire
-    logger.info("Debug #{desire_params}")
     current_user.desire.update(desire_params)
     render json: { :status => 200 }
   end
@@ -92,32 +95,18 @@ class ProfilesController < ApplicationController
   #=================================================*/
 
   def interest
-    logger.info("Debug Params inspect #{params.inspect}")
     if current_user.id != params[:to_user_id].to_i
       find_first = current_user.interests.where(to_user_id: params[:to_user_id]).first
       logger.info("Debug Params inspect #{params.inspect}")
       if !find_first
         current_user.interests.create(to_user_id: params[:to_user_id])
-        current_user.notifications.create(to_user_id: params[:to_user_id], flag: 1)
+        notify_growl(:interest, params[:to_user_id], "Expressed Interest in You")
       else
         find_first.touch
       end
     end
     render json: { :status => 200 }
     # redirect_to(explore_index_path)
-  end
-
-  /#==============================================
-  #            Mark Notification as read         =
-  #==============================================*/
-  def seen_notification
-    notification = Notification.find(params[:notification_id])
-    if notification.created_at < 1.month.ago
-      notification.delete()
-    else
-      notification.update(seen: 1)
-    end
-    render json: { :status => 200 }
   end
 
 
@@ -130,10 +119,10 @@ class ProfilesController < ApplicationController
     interest = Interest.where(:to_user_id => current_user.id, :user_id => params[:to_user_id]).first
     if commit == "Accept"
       interest.update(:response => 1)
-      current_user.notifications.create(to_user_id: params[:to_user_id], flag: 2)
+      notify_growl(:accepted, params[:to_user_id], "Accepted Interest")
     elsif commit == "Reject"
       interest.update(:response => 0)
-      current_user.notifications.create(to_user_id: params[:to_user_id], flag: 3)
+      notify_growl(:rejected, params[:to_user_id], "Rejected Interest")
     end
 
     render json: { :status => 200 }
@@ -175,27 +164,30 @@ class ProfilesController < ApplicationController
   def incomings
     incomings = Interest.where(to_user_id: current_user.id).pluck(:user_id)
     @incomings = User.find(incomings).paginate(:page => params[:page], :per_page => 10)
+    badge_reset(current_user, "interest")
+  end
+  def accepted
+    accepted = Interest.where("user_id = ? AND response = ?", current_user.id, 1).pluck(:user_id)
+    @accepted = User.find(accepted).paginate(:page => params[:page], :per_page => 10)
+    badge_reset(current_user, "accepted")
   end
   def outgoings
-    outgoings = Interest.where(user_id: current_user.id).pluck(:to_user_id)
-    outgoings = Interest.where("user_id = ? AND response <> NULL", current_user.id).pluck(:to_user_id)
-    @outgoings = User.find(outgoings).paginate(:page => params[:page], :per_page => 10)
+    rejected = Interest.where("user_id = ? AND response = ?", current_user.id, 3).pluck(:to_user_id)
+    @rejected = User.find(rejected).paginate(:page => params[:page], :per_page => 10)
+    badge_reset(current_user, "rejected")
+  end
+  def visitors
+    visitors = Visitor.where(viewed_id: current_user.id).pluck(:user_id)
+    @visitors = User.find(visitors).paginate(:page => params[:page], :per_page => 10)
+    badge_reset(current_user, "visitor")
   end
   def waiting
     waiting = Interest.where("user_id = ? AND response IS NULL", current_user.id).pluck(:to_user_id)
     @waiting = User.find(waiting).paginate(:page => params[:page], :per_page => 10)
   end
-  def visitors
-    visitors = Visitor.where(viewed_id: current_user.id).pluck(:user_id)
-    @visitors = User.find(visitors).paginate(:page => params[:page], :per_page => 10)
-  end
   def shortlists
     shortlists = Shortlist.where(user_id: current_user.id).pluck(:to_user_id)
     @shortlists = User.find(shortlists).paginate(:page => params[:page], :per_page => 10)
-  end
-  def accepted
-    accepted = Interest.where("user_id = ? AND response = ?", current_user.id, 1).pluck(:user_id)
-    @accepted = User.find(accepted).paginate(:page => params[:page], :per_page => 10)
   end
 
   def search
@@ -217,12 +209,12 @@ class ProfilesController < ApplicationController
   #-----  End of Pages  -----#
   def count_sparks
     @sparks = Hash.new {|h, k| h[k] = [] }
-    @sparks[:visitors] = number_with_delimiter(Visitor.where(viewed_id: current_user.id).count)
-    @sparks[:incoming] = number_with_delimiter(Interest.where(to_user_id: current_user.id).count)
-    @sparks[:outgoing] = number_with_delimiter(Interest.where("user_id = ? AND response <> NULL", current_user.id).count)
-    @sparks[:waiting] = number_with_delimiter(Interest.where("user_id = ? AND response IS NULL", current_user.id).count)
+    @sparks[:visitors]  = number_with_delimiter(Visitor.where(viewed_id: current_user.id).count)
+    @sparks[:incoming]  = number_with_delimiter(Interest.where(to_user_id: current_user.id).count)
+    @sparks[:rejected]  = number_with_delimiter(Interest.where("user_id = ? AND response = ?", current_user.id, 3).count)
+    @sparks[:waiting]   = number_with_delimiter(Interest.where("user_id = ? AND response IS NULL", current_user.id).count)
     @sparks[:shortlist] = number_with_delimiter(Shortlist.where(user_id: current_user.id).count)
-    @sparks[:accepted] = number_with_delimiter(Interest.where("user_id = ? AND response = ?", current_user.id, 1).count)
+    @sparks[:accepted]  = number_with_delimiter(Interest.where("user_id = ? AND response = ?", current_user.id, 1).count)
   end
 
   protected
@@ -280,6 +272,9 @@ class ProfilesController < ApplicationController
   def education_params
     params.permit(Education.columns.map {|c| c.name })
   end
+  def occupation_params
+    params.permit(Occupation.columns.map {|c| c.name })
+  end
   def lifestyle_params
     params.permit(Lifestyle.columns.map {|c| c.name })
   end
@@ -293,9 +288,63 @@ class ProfilesController < ApplicationController
   def touch_visitor
     visiting_user_id = Profile.find(params[:id]).user_id
     if current_user.id != visiting_user_id
+      if Visitor.where(user_id: current_user.id, viewed_id: visiting_user_id).count == 0
         Visitor.find_or_create_by(user_id: current_user.id, viewed_id: visiting_user_id)
-        Notification.find_or_create_by(to_user_id: visiting_user_id, flag: 0)
+        notify_growl(:visitor, visiting_user_id, "Profile Viewed")
+      end
     end
   end
-
+  def notify_growl(event, visiting_user_id, title)
+    channel_name = "socket_user_#{visiting_user_id}"
+    visited_user = User.find(visiting_user_id)
+    data = {}
+    data[:img]   = visited_user.avatar
+    data[:title] = title
+    data[:profile_id] = current_user.profile.id
+    WebsocketRails[channel_name].trigger(event, data)
+    badge_increment(visiting_user, event.to_s)
+  end
+  def badge_increment(user, event)
+    if event == "interest"
+      user.badge.update(interest: user.badge.interest + 1)
+    elsif event == "visitor"
+      user.badge.update(visitor: user.badge.visitor + 1)
+    elsif event == "accepted"
+      user.badge.update(accepted: user.badge.accepted + 1)
+    elsif event == "rejected"
+      user.badge.update(rejected: user.badge.rejected + 1)
+    end
+  end
+  def badge_reset(user, event)
+    if event == "interest"
+      user.badge.update(interest: 0)
+    elsif event == "visitor"
+      user.badge.update(visitor: 0)
+    elsif event == "accepted"
+      user.badge.update(accepted: 0)
+    elsif event == "rejected"
+      user.badge.update(rejected: 0)
+    end
+  end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

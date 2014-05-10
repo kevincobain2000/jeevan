@@ -32,6 +32,8 @@
 //  require dataTables/jquery.dataTables.bootstrap3
 // require bootstrap-tagsinput
 // require twitter/typeahead
+//= require gritter
+//= require websocket_rails/main
 
 
 
@@ -47,4 +49,5 @@ $(document).ready(function($) {
 	// 	$(this).focus();
 	// });
 
-});
+});//= require websocket_rails/main
+

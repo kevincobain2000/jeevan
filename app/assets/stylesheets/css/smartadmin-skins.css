@@ -400,6 +400,7 @@ border-top: 1px solid #303031;
 body.smart-style-2 {
 	/*background:#fff;*/
 	background: url('../mybg.png') #ffffff;
+	font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
 }
 
 .smart-style-2 #header, .smart-style-2 .inbox-footer, .smart-style-2 .superbox-show {
@@ -498,7 +499,7 @@ body.smart-style-2 {
 
 .smart-style-2 .login-info span {
 	padding: 5px 10px 7px;
-	background: white;
+	/*background: white;*/
 	border-radius: 4px;
 }
 

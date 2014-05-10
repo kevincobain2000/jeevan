@@ -11,13 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140331134717) do
+ActiveRecord::Schema.define(version: 20140510050046) do
 
   create_table "abouts", force: true do |t|
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "me"
+  end
+
+  create_table "badges", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "visitor",    default: 0
+    t.integer  "interest",   default: 0
+    t.integer  "accepted",   default: 0
+    t.integer  "rejected",   default: 0
   end
 
   create_table "contacts", force: true do |t|
@@ -40,8 +50,8 @@ ActiveRecord::Schema.define(version: 20140331134717) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "desired_about"
-    t.string   "desired_height",         limit: 32
-    t.string   "desired_age",            limit: 32
+    t.string   "desired_height"
+    t.string   "desired_age"
     t.string   "desired_marital_status", limit: 32
     t.string   "desired_country",        limit: 64
     t.string   "desired_city",           limit: 64
@@ -57,7 +67,7 @@ ActiveRecord::Schema.define(version: 20140331134717) do
     t.string   "desired_challenged",     limit: 4
     t.string   "desired_education",      limit: 128
     t.string   "desired_occupation",     limit: 128
-    t.string   "desired_income",         limit: 64
+    t.string   "desired_income"
     t.text     "desired_notes"
   end
 
@@ -152,24 +162,15 @@ ActiveRecord::Schema.define(version: 20140331134717) do
     t.string   "height",     limit: 4
   end
 
-  create_table "notifications", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-    t.integer  "to_user_id"
-    t.integer  "flag",       limit: 1
-    t.integer  "seen",       limit: 1
-  end
-
   create_table "occupations", force: true do |t|
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "status"
+    t.text     "work_status"
     t.text     "occupation"
     t.text     "company"
     t.text     "annual_income"
-    t.text     "setting_abroad"
+    t.text     "settling_abroad"
   end
 
   create_table "profiles", force: true do |t|

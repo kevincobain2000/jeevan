@@ -1,36 +1,13 @@
-<% notifications.each do |notification_id, user| %>
-  <%= form_tag({:action=>'seen_notification', :controller => "profiles"}, {:remote => true}) do %>
-  <%= link_to profile_path(:id => user[:profile][:id]), :type=> "submit", :onclick=>"$(this).closest('form').submit()" do %>
-  <input type="hidden" name="notification_id" value="<%= notification_id %>">
-    <div class="divhover-light">
-      <dl class="dl-horizontal">
-        <dt>
-          <%= image_tag user[:avatar].url(:thumb), :class=> "img-rounded pull-left",:style =>"height:55px;width:55px;" %>
-        </dt>
-        <dd class="dl-horizontal">
-          <% if user[:seen] != 1 %>
-          <blockquote class="font-sm pull-right">
-          <% else %>
-          <blockquote class="text-muted font-sm pull-right">
-          <% end %>
-            <p class="font-sm semi-bold">
-              <% if user[:seen] != 1 %><i class="fa fa-circle txt-color-blue"></i>
-              <% end %>
-              <strong><%= truncate(user[:name], length: 20) %></strong>
-            <br>
-              <i class="<%= user[:icon] %>"></i> <%= user[:message] %>
-              </p>
-            <small>
-              <%= user[:created_at] %>
-              ago
-            </small>
-          </blockquote>
-        </dd>
-      </dl>
-    </div>
-  <% end %>
-  <!-- End Link -->
-  <% end %>
-  <!-- End Form -->
-<% end %>
-<!-- End Loop -->
+<ui class="notification-body">
+  <li>
+    <span class="unread">
+      <a href="javascript:void(0);" class="msg">
+        <img src="images/normal/Male-0.png" alt="" class="air air-top-left margin-top-5" width="40" height="40">
+        <span class="from">Christine
+          <i class="icon-paperclip"></i></span>
+        <span class="subject">Welcome to shaadiMatch!</span>
+        <span class="msg-body">Help menu</span>
+      </a>
+    </span>
+  </li>
+</ui>
