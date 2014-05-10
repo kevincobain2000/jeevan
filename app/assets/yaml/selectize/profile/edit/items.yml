@@ -188,13 +188,13 @@ own_pet:
     desc: ""
 desired_complexion:
   -
-    title: "white"
+    title: "White"
     desc: ""
   -
-    title: "dark"
+    title: "Dark"
     desc: ""
   -
-    title: "fair"
+    title: "Fair"
     desc: ""
 complexion:
   -
@@ -2571,13 +2571,13 @@ desired_age:
     title: "20 - 23 Yrs"
     desc: ""
   -
-    title: "23 - 26 Yrs"
+    title: "23 - 29 Yrs"
     desc: ""
   -
-    title: "26 - 30 Yrs"
+    title: "29 - 35 Yrs"
     desc: ""
   -
-    title: "30 - 40 Yrs"
+    title: "35 - 40 Yrs"
     desc: ""
   -
     title: "40 above"
