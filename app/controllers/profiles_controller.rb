@@ -101,26 +101,12 @@ class ProfilesController < ApplicationController
       if !find_first
         current_user.interests.create(to_user_id: params[:to_user_id])
         notify_growl(:interest, params[:to_user_id], "Expressed Interest in You")
-        current_user.notifications.create(to_user_id: params[:to_user_id], flag: 1)
       else
         find_first.touch
       end
     end
     render json: { :status => 200 }
     # redirect_to(explore_index_path)
-  end
-
-  /#==============================================
-  #            Mark Notification as read         =
-  #==============================================*/
-  def seen_notification
-    notification = Notification.find(params[:notification_id])
-    if notification.created_at < 1.month.ago
-      notification.delete()
-    else
-      notification.update(seen: 1)
-    end
-    render json: { :status => 200 }
   end
 
 
@@ -136,7 +122,6 @@ class ProfilesController < ApplicationController
       notify_growl("accepted",params[:to_user_id], "Accepted Interest")
     elsif commit == "Reject"
       interest.update(:response => 0)
-      current_user.notifications.create(to_user_id: params[:to_user_id], flag: 3)
       notify_growl("rejected",params[:to_user_id], "Rejected Interest")
     end
 
@@ -303,7 +288,6 @@ class ProfilesController < ApplicationController
         Visitor.find_or_create_by(user_id: current_user.id, viewed_id: visiting_user_id)
         notify_growl(:visitor, visiting_user_id, "Profile Viewed")
       end
-      # Notification.find_or_create_by(to_user_id: visiting_user_id, flag: 0)
     end
   end
   def notify_growl(event, visiting_user_id, title)
