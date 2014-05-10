@@ -12,6 +12,7 @@
   <div class="click2edit"><%= raw @user[:about][:me] %>
   </div>
 </fieldset>
+<div class="limit txt-color-red"></div>
 <legend></legend>
 <div class="pull-right">
   <button id="edit" class="btn btn-md btn-info" onclick="edit()"><i class="fa fa-edit"></i>
@@ -24,14 +25,29 @@
       $(".click2edit").summernote({
         focus: true,
         height: 350,
-        toolbar: [['style', ['bold', 'italic', 'underline', 'clear']], ['fontsize', ['fontsize']], ['color', ['color']], ['para', ['ul', 'ol', 'paragraph']], ['height', ['height']], ['help', ['help']]]
+        shortcuts: {},
+        toolbar: [['style', ['bold', 'italic', 'underline', 'clear']], ['fontsize', ['fontsize']], ['color', ['color']], ['para', ['ul', 'ol', 'paragraph']], ['height', ['height']], ['help', ['help']]],
+        onkeyup: function(e) {
+          char_len = $('.click2edit').code().length;
+          if (char_len > 5000) {
+            $(".limit").html('Exceeding limit')
+          } else {
+            $(".limit").html("")
+          }
+        }
   });
   
   };
   var save = function() {
     var aHTML = $('.click2edit').code();
+    if (char_len > 5000) {
+      $(".limit").html("Exceeded limit cannot save")
+      return
+    };
     $("#about-me").val(aHTML);
     $("#submit-about-me").click();
     $('.click2edit').destroy();
   };
+
+
 </script>
