@@ -302,7 +302,7 @@ class ProfilesController < ApplicationController
     data[:title] = title
     data[:profile_id] = current_user.profile.id
     WebsocketRails[channel_name].trigger(event, data)
-    badge_increment(visiting_user, event.to_s)
+    badge_increment(visited_user, event.to_s)
   end
   def badge_increment(user, event)
     if event == "interest"
@@ -327,24 +327,3 @@ class ProfilesController < ApplicationController
     end
   end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

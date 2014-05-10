@@ -86,7 +86,7 @@
                 <% end %>
               </h3>
               <div class="">
-                <%= raw truncate(@user[:about][:me], length:500, escape:false) %>
+                <%= raw @user[:about][:me] %>
               </div>
             </article>
             <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
