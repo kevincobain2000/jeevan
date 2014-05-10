@@ -144,18 +144,10 @@ $(document).on("page:change", function() {
       create: true,
     },
     work_status:true,
-    occupation:{
-      create: true
-    },
-    company:{
-      create: true
-    },
-    annual_income:{
-      create: true
-    },
-    settling_abroad:{
-      create: true
-    },
+    occupation:true,
+    company:true,
+    annual_income:true,
+    settling_abroad:true,
   };
 
   $(".close-edit-modal").click(function() {

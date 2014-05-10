@@ -295,12 +295,13 @@ class ProfilesController < ApplicationController
     end
   end
   def notify_growl(event, visiting_user_id, title)
-    channel_name = "socket_user_#{visiting_user_id}"
     visited_user = User.find(visiting_user_id)
     data = {}
     data[:img]   = visited_user.avatar
     data[:title] = title
     data[:profile_id] = current_user.profile.id
+
+    channel_name = "socket_user_#{visiting_user_id}"
     WebsocketRails[channel_name].trigger(event, data)
     badge_increment(visited_user, event.to_s)
   end

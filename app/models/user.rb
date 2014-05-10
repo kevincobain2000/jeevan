@@ -72,7 +72,7 @@ class User < ActiveRecord::Base
     build_kundali
     build_about
     build_family
-    build_desire
+    build_desire(:desired_religion => devotion)
     build_education
     build_hobby
     build_lifestyle
