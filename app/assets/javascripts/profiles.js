@@ -323,6 +323,12 @@ $(document).ready(function($) {
   channel.bind('interest', function(data) {
     $.gritter.add({ image: data.img, title: data.title, text: '<a class="txt-color-white" href="/profiles/'+data.profile_id+'">view profile</a>' });
   });
+  channel.bind('accepted', function(data) {
+    $.gritter.add({ image: data.img, title: data.title, text: '<a class="txt-color-white" href="/profiles/'+data.profile_id+'">view profile</a>' });
+  });
+  channel.bind('rejected', function(data) {
+    $.gritter.add({ image: data.img, title: data.title, text: '<a class="txt-color-white" href="/profiles/'+data.profile_id+'">view profile</a>' });
+  });
 
   /*-----  End of SOCKETS  ------*/
 

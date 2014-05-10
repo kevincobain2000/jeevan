@@ -10,8 +10,8 @@
       <li class="sparks-info">
       <%= link_to visitors_profiles_path do %>
         <h5>
-          <small><label class="badge bg-color-blue font-xs">0</label></small> Profile Visitors
-          <span class="txt-color-purple"><i class="fa fa-thumbs-up"></i><%= @sparks[:visitors] %>
+          <small><label class="badge bg-color-red font-xs"></label></small> Profile Visitors
+          <span class="txt-color-purple"><i class="fa fa-thumbs-up txt-color-pinkDark"></i><%= @sparks[:visitors] %>
           </span>
           </h5>
           <% end %>
@@ -19,37 +19,37 @@
       <li class="sparks-info">
       <%= link_to incomings_profiles_path do %>
         <h5>
-          <small><label class="badge bg-color-blue font-xs">0</label></small> Incoming Interests
-          <span class="txt-color-greenDark"><i class="fa fa-arrow-circle-down"></i>&nbsp;<%= @sparks[:incoming] %>
+           Incoming Interests
+          <span class="txt-color-greenDark"><i class="fa fa-heart txt-color-blue"></i>&nbsp;<%= @sparks[:incoming] %>
           </span></h5>
           <% end %>
       </li>
       <li class="sparks-info">
       <%= link_to accepted_profiles_path do %>
         <h5>
-          <small><label class="badge bg-color-blue font-xs">0</label></small> Got Accepted
-          <span class="txt-color-greenDark"><i class="fa fa-check"></i>&nbsp;<%= @sparks[:accepted] %></span></h5>
-          <% end %>
-      </li>
-      <li class="sparks-info">
-      <%= link_to waiting_profiles_path do %>
-        <h5>
-          <small><label class="badge bg-color-blue font-xs">0</label></small> Waiting
-          <span class="txt-color-greenDark"><i class="fa fa-bell"></i>&nbsp;<%= @sparks[:waiting] %></span></h5>
-          <% end %>
-      </li>
-      <li class="sparks-info">
-      <%= link_to shortlists_profiles_path do %>
-        <h5>
-          <small><label class="badge bg-color-blue font-xs">0</label></small> Saved Profiles
-          <span class="txt-color-greenDark"><i class="fa fa-plus"></i>&nbsp;<%= @sparks[:shortlist] %></span></h5>
+           Got Accepted
+          <span class="txt-color-greenDark"><i class="fa fa-check txt-color-green"></i>&nbsp;<%= @sparks[:accepted] %></span></h5>
           <% end %>
       </li>
       <li class="sparks-info">
       <%= link_to outgoings_profiles_path do %>
         <h5>
-          <small><label class="badge bg-color-blue font-xs">0</label></small> Got Rejected
-          <span class="txt-color-greenDark"><i class="fa fa-times"></i>&nbsp;<%= @sparks[:rejected] %></span></h5>
+           Got Rejected
+          <span class="txt-color-greenDark"><i class="fa fa-times txt-color-red"></i>&nbsp;<%= @sparks[:rejected] %></span></h5>
+          <% end %>
+      </li>
+      <li class="sparks-info">
+      <%= link_to waiting_profiles_path do %>
+        <h5>
+          Waiting
+          <span class="txt-color-greenDark"><i class="fa fa-bell txt-color-orange"></i>&nbsp;<%= @sparks[:waiting] %></span></h5>
+          <% end %>
+      </li>
+      <li class="sparks-info">
+      <%= link_to shortlists_profiles_path do %>
+        <h5>
+          Saved Profiles
+          <span class="txt-color-greenDark"><i class="fa fa-plus"></i>&nbsp;<%= @sparks[:shortlist] %></span></h5>
           <% end %>
       </li>
     </ul>
