@@ -218,7 +218,7 @@ $(document).on("page:change", function() {
   $.extend($.gritter.options, { 
         position: 'bottom-left', // defaults to 'top-right' but can be 'bottom-left', 'bottom-right', 'top-left', 'top-right' (added in 1.7.1)
         fade_in_speed: 'medium', // how fast notifications fade in (string or int)
-        fade_out_speed: 1000, // how fast the notices fade out
+        fade_out_speed: 2000, // how fast the notices fade out
         time: 3000 // hang on the screen for...
   });
   $(".interest").click(function() {
@@ -309,6 +309,24 @@ $(document).ready(function($) {
       });
     }
   });
+
+  /*===============================
+  =            SOCKETS            =
+  ===============================*/
+
+  var dispatcher = new WebSocketRails('localhost:3000/websocket');
+  var channel = dispatcher.subscribe('socket_user_'+$("#user").data("id"));
+
+  channel.bind('visitor', function(data) {
+    $.gritter.add({ image: data.img, title: data.title, text: '<a class="txt-color-white" href="/profiles/'+data.profile_id+'">view profile</a>' });
+  });
+  channel.bind('interest', function(data) {
+    $.gritter.add({ image: data.img, title: data.title, text: '<a class="txt-color-white" href="/profiles/'+data.profile_id+'">view profile</a>' });
+  });
+
+  /*-----  End of SOCKETS  ------*/
+
+
 });
 
 
