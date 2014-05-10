@@ -86,7 +86,6 @@ class ProfilesController < ApplicationController
     render json: { :status => 200 }
   end
   def modify_desire
-    logger.info("Debug #{desire_params}")
     current_user.desire.update(desire_params)
     render json: { :status => 200 }
   end
@@ -96,7 +95,6 @@ class ProfilesController < ApplicationController
   #=================================================*/
 
   def interest
-    logger.info("Debug Params inspect #{params.inspect}")
     if current_user.id != params[:to_user_id].to_i
       find_first = current_user.interests.where(to_user_id: params[:to_user_id]).first
       logger.info("Debug Params inspect #{params.inspect}")
@@ -135,10 +133,11 @@ class ProfilesController < ApplicationController
     interest = Interest.where(:to_user_id => current_user.id, :user_id => params[:to_user_id]).first
     if commit == "Accept"
       interest.update(:response => 1)
-      current_user.notifications.create(to_user_id: params[:to_user_id], flag: 2)
+      notify_growl("accepted",params[:to_user_id], "Accepted Interest")
     elsif commit == "Reject"
       interest.update(:response => 0)
       current_user.notifications.create(to_user_id: params[:to_user_id], flag: 3)
+      notify_growl("rejected",params[:to_user_id], "Rejected Interest")
     end
 
     render json: { :status => 200 }

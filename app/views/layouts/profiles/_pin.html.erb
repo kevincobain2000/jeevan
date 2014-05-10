@@ -45,7 +45,7 @@
             <% end %>
             <hr>
           <% end %>
-            <br>
+          <br>
         <%= render :partial =>'layouts/cardinfo', :locals => {:user => user} %>
           <% if user[:about][:me] %>
             <br>
@@ -58,10 +58,10 @@
               <br>
             </div>
           <% end %>
-          <hr>
           <div class="text-center">
             <%= render :partial =>'layouts/interesttext', :locals => {:user => user} %>
           </div>
+          <hr>
           <div class="pull-right">
             <%= link_to profile_path(:id =>user[:profile][:id]), :class=>"" do %>
             full profile <i class="fa fa-arrow-right"></i>
