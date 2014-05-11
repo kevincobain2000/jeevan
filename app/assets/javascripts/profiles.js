@@ -281,7 +281,7 @@ $(document).ready(function($) {
   Dropzone.autoDiscover = false;
   $(".dropzone").dropzone({
     paramName: "avatar",
-    maxFilesize: 2,
+    maxFilesize: 1,
     addRemoveLinks: false,
     acceptedFiles: ".jpeg,.jpg,.png,.gif,.JPEG,.JPG,.PNG,.GIF",
     thumbnailWidth: 300,
