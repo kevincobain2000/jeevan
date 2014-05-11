@@ -1,4 +1,9 @@
 Jeevan::Application.routes.draw do
+  resources :others do
+    collection do
+      get :confirmemail
+    end
+  end
   devise_for :users, :controllers => { :registrations => "registrations", :sessions => "sessions" }
   resources :profiles do
     collection do

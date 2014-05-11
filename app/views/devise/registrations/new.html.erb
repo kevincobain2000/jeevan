@@ -35,10 +35,10 @@
                   </label>
                 </section>
                 <section>
-                  <label class="label">Email</label>
+                  <label class="label"><strong>Email</strong> (private)</label>
                   <label class="input">
                     <i class="icon-append fa fa-user"></i>
-                    <%= f.email_field :email, :placeholder => "Email" %>
+                    <%= f.email_field :email, :placeholder => "Private" %>
                   </label>
                 </section>
                 <section>
@@ -60,14 +60,14 @@
                 <section>
                   <div class="row">
                     <div class="col col-4">
-                      <label class="label">Your Gender</label>
+                    <label class="label">Your <strong>Gender</strong></label>
                       <label class="radio"><%= f.radio_button :sex, "Male" %><i></i>Male</label>
                       <label class="radio"><%= f.radio_button :sex, "Female" %><i></i>Female</label>
                     </div>
                   </section>
                   <section>
                     <label class="label">
-                    <i class="fa fa-sun-o"></i> Religion
+                    <i class="fa fa-sun-o"></i> <strong>Religion</strong>
                   </label>
                   <input name="user[devotion]" class="selectized" id="select-devotion" placeholder="Religion">
                   <script type="text/javascript">
@@ -90,7 +90,7 @@
               </section>
             </section>
             <section>
-                  <label class="label">Date of Birth</label>
+                  <label class="label"><strong>Date of Birth</strong></label>
                     <label class="input">
                       <i class="icon-append fa fa-calendar"></i>
                       <input class="form-control" id="dob" type="text" name="user[dob]" value="01/09/1985">
@@ -118,6 +118,7 @@
                 </fieldset>
                 <footer>
                   We will send you a confirmation link. Please confirm your Email address by logging into your email account. Depending on your email provider please also check your spam folder.
+                  <hr>
                   <div class="note">
                     Already have an account ?
                     <%= render "devise/shared/links" %>
