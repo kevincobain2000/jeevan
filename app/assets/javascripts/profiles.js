@@ -306,7 +306,12 @@ $(document).ready(function($) {
   =            SOCKETS            =
   ===============================*/
 
-  var dispatcher = new WebSocketRails('localhost:3000/websocket');
+  pathArray = window.location.href.split( '/' );
+  protocol = pathArray[0];
+  host = pathArray[2];
+  url = protocol + '//' + host + "/websocket";
+
+  var dispatcher = new WebSocketRails(url);
   var channel = dispatcher.subscribe('socket_user_'+$("#user").data("id"));
 
   channel.bind('visitor', function(data) {
