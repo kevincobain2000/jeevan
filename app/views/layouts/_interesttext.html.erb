@@ -1,32 +1,23 @@
 <% if !user[:out_response].nil? %>
   <% if user[:out_response].response == 0 %>
-    <strong class="">
       <strong class="txt-color-red"><i class="fa fa-times"></i>
-        Rejected</strong>
-      your Interest</strong>
+        Got Rejected</strong>
   <% elsif user[:out_response].response == 1 %>
 
-    <strong class="">
       <strong class="txt-color-green"><i class="fa fa-check"></i>
-<%= user[:name] %> has        Accepted</strong>
-      your Interest</strong>
+<%= user[:name] %> Accepted</strong>
   <% else %>
-    <strong class="">
       <strong class="txt-color-orange"><i class="fa fa-bell"></i>
         Waiting</strong>
-      for response</strong>
   <% end %>
 <% end %>
 <% if !user[:in_response].nil? %>
   <% if user[:in_response].response == 0 %>
-    <strong class="">You have
+  You have
       <strong class="txt-color-red"><i class="fa fa-times"></i>
         Rejected</strong>
-      interest of this profile</strong>
-  <% elsif user[:in_response].response == 1 %>
-    <strong class="">You have
+  <% elsif user[:in_response].response == 1 %>You
       <strong class="txt-color-green"><i class="fa fa-check"></i>
         Accepted</strong>
-      interest of this profile</strong>
   <% end %>
 <% end %>
