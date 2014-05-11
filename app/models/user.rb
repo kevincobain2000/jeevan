@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   validates :dob, presence: true
   after_create :create_dependents
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable#, :confirmable
+         :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   delegate :posted_by, to: :profile
   delegate :mother_tongue,:caste,:native_place, to: :religion
