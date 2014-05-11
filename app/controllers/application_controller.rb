@@ -107,6 +107,9 @@ class ApplicationController < ActionController::Base
     if controller_name == "registrations" && action_name == "edit"
       return false
     end
+    if controller_name == "others"
+      return false
+    end
   end
   def record_not_found
     redirect_to root_path

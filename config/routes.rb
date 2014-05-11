@@ -62,4 +62,5 @@ Jeevan::Application.routes.draw do
   if Rails.env.production?
     get '*path' => redirect('/')
   end
+  get '*path' => redirect('/')
 end

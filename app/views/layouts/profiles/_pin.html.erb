@@ -12,6 +12,11 @@
       </h1>
       <%= will_paginate paginate, :class =>"flickr_pagination"%>
       <legend></legend>
+      <% if paginate.empty? %>
+      <div class="error-box">
+        <h3 class="text-center">Sorry, no profiles ...</h3>
+      </div>
+      <% end %>
       <% paginate.each do |_user| %>
         <% user = make_user(_user) %>
         <div class="col-md-6 col-xs-12 well shadow-box" style="height:250px;">

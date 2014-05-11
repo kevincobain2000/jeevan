@@ -38,16 +38,34 @@
 
 
 $(document).ready(function($) {
-	// $("#header-search").click(function(event) {
-	// 	console.log("asd");
-	// 	$(this).animate({'width': '400px'}, 'medium');
-	// 	$(this).focus();
-	// });
+  /*===============================
+  =            SOCKETS            =
+  ===============================*/
 
-	// $("#header-search").blur(function(event) {
-	// 	$(this).animate({'width': '300px'}, 'medium');
-	// 	$(this).focus();
-	// });
+  pathArray = window.location.href.split( '/' );
+  protocol = pathArray[0];
+  host = pathArray[2];
+  url = protocol + '//' + host + "/websocket";
+  var dispatcher = new WebSocketRails(url);
+  // var channel = dispatcher.subscribe('socket_user_'+$("#user").data("id"));
+  var channel = dispatcher.subscribe("channel_name");
+  channel.bind('event', function(data) {
+    $.gritter.add({ image: data.img, title: data.title, text: '<a class="txt-color-white" href="/profiles/'+data.profile_id+'">view profile</a>' });
+  });
+  channel.bind('visitor', function(data) {
+    $.gritter.add({ image: data.img, title: data.title, text: '<a class="txt-color-white" href="/profiles/'+data.profile_id+'">view profile</a>' });
+  });
+  channel.bind('interest', function(data) {
+    $.gritter.add({ image: data.img, title: data.title, text: '<a class="txt-color-white" href="/profiles/'+data.profile_id+'">view profile</a>' });
+  });
+  channel.bind('accepted', function(data) {
+    $.gritter.add({ image: data.img, title: data.title, text: '<a class="txt-color-white" href="/profiles/'+data.profile_id+'">view profile</a>' });
+  });
+  channel.bind('rejected', function(data) {
+    $.gritter.add({ image: data.img, title: data.title, text: '<a class="txt-color-white" href="/profiles/'+data.profile_id+'">view profile</a>' });
+  });
 
-});//= require websocket_rails/main
+  /*-----  End of SOCKETS  ------*/
+
+});
 
