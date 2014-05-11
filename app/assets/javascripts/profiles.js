@@ -302,33 +302,6 @@ $(document).ready(function($) {
     }
   });
 
-  /*===============================
-  =            SOCKETS            =
-  ===============================*/
-
-  pathArray = window.location.href.split( '/' );
-  protocol = pathArray[0];
-  host = pathArray[2];
-  url = protocol + '//' + host + "/websocket";
-
-  var dispatcher = new WebSocketRails(url);
-  var channel = dispatcher.subscribe('socket_user_'+$("#user").data("id"));
-
-  channel.bind('visitor', function(data) {
-    $.gritter.add({ image: data.img, title: data.title, text: '<a class="txt-color-white" href="/profiles/'+data.profile_id+'">view profile</a>' });
-  });
-  channel.bind('interest', function(data) {
-    $.gritter.add({ image: data.img, title: data.title, text: '<a class="txt-color-white" href="/profiles/'+data.profile_id+'">view profile</a>' });
-  });
-  channel.bind('accepted', function(data) {
-    $.gritter.add({ image: data.img, title: data.title, text: '<a class="txt-color-white" href="/profiles/'+data.profile_id+'">view profile</a>' });
-  });
-  channel.bind('rejected', function(data) {
-    $.gritter.add({ image: data.img, title: data.title, text: '<a class="txt-color-white" href="/profiles/'+data.profile_id+'">view profile</a>' });
-  });
-
-  /*-----  End of SOCKETS  ------*/
-
 
 });
 

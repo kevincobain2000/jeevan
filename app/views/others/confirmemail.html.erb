@@ -1,11 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jeevan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no" />
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" =>
+  true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" =>
+  true %>
+    <%= csrf_meta_tags %>
+    <%= favicon_link_tag '/favicon.ico' %>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700"></head>
 <body>
-
     <div id="main" role="main">
-
       <!-- MAIN CONTENT -->
 
-      <form class="lockscreen animated flipInY" action="index.html">
-      <%= image_tag("logo.png") %>
+      <div class="lockscreen animated flipInY">
+      <div class="center">
+        <%= image_tag("logo.png") %>
+      </div>
         <div class="logo">
         </div>
         <div>
@@ -29,9 +41,10 @@
         <p class="font-xs margin-top-5">
           Copyright shaadiMatch 2014.
         </p>
-      </form>
+      </div>
     </div>
   </body>
+</html>
 <style type="text/css">
   .lockscreen {
   height: 250px;

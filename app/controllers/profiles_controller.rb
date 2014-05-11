@@ -159,7 +159,7 @@ class ProfilesController < ApplicationController
     # already_visited   += Visitor.where(user_id: current_user.id).pluck(:viewed_id)
     # already_visited   += Interest.where("user_id = ?", current_user.id).pluck(:to_user_id)
     # already_visited   += Shortlist.where("user_id = ?", current_user.id).pluck(:to_user_id)
-    @matching = User.where("sex <> ? AND devotion = ? AND id NOT IN (?)", current_user.sex, current_user.devotion, already_visited).order('images_count DESC, avatar_updated_at DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => 10)
+    @matching = User.where("sex <> ? AND devotion = ? AND id NOT IN (?)", current_user.sex, current_user.devotion, already_visited).order('images_count DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => 10)
   end
   def incomings
     incomings = Interest.where(to_user_id: current_user.id).pluck(:user_id)
@@ -192,6 +192,7 @@ class ProfilesController < ApplicationController
 
   def search
     query_string = params[:query]
+    query_string = query_string.length > 0 ? query_string : current_user.devotion
     @solr = User.search do
       fulltext query_string
       without(:sex).equal_to(current_user.sex)
@@ -296,13 +297,15 @@ class ProfilesController < ApplicationController
   end
   def notify_growl(event, visiting_user_id, title)
     visited_user = User.find(visiting_user_id)
+    send_growl_to = visited_user.id
+
     data = {}
     data[:img]   = visited_user.avatar
     data[:title] = title
     data[:profile_id] = current_user.profile.id
 
-    channel_name = "socket_user_#{visiting_user_id}"
-    WebsocketRails[channel_name].trigger(event, data)
+    channel_name = "socket_user_#{send_growl_to}"
+    WebsocketRails[:channel_name].trigger(:event, data)
     badge_increment(visited_user, event.to_s)
   end
   def badge_increment(user, event)
