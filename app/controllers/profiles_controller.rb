@@ -223,7 +223,7 @@ class ProfilesController < ApplicationController
   # for editing profile
   def is_this_user_profile
     if (current_user.profile.id != params[:id].to_i)
-      redirect_to(explore_index_path)
+      redirect_to(profiles_index_path)
     end
   end
   def get_current_user
@@ -235,7 +235,7 @@ class ProfilesController < ApplicationController
   def not_same_sex
     user = User.find(Profile.find(params[:id]).user_id)
     if user.id != current_user.id && current_user.sex == user.sex
-      redirect_to explore_index_path
+      redirect_to profiles_index_path
     end
   end
 
