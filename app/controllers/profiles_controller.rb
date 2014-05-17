@@ -155,6 +155,7 @@ class ProfilesController < ApplicationController
   #            Pages            =
   #==============================#/
   def index
+
     already_visited    = [current_user.id]
     # already_visited   += Visitor.where(user_id: current_user.id).pluck(:viewed_id)
     # already_visited   += Interest.where("user_id = ?", current_user.id).pluck(:to_user_id)
@@ -297,15 +298,16 @@ class ProfilesController < ApplicationController
   end
   def notify_growl(event, visiting_user_id, title)
     visited_user = User.find(visiting_user_id)
-    send_growl_to = visited_user.id
+    to_user_id = visited_user.id
 
     data = {}
     data[:img]   = visited_user.avatar
     data[:title] = title
     data[:profile_id] = current_user.profile.id
+    data[:event] = event
 
-    channel_name = "socket_user_#{send_growl_to}"
-    WebsocketRails[:channel_name].trigger(:event, data)
+    channel_name = "/messages/#{to_user_id}"
+    PrivatePub.publish_to channel_name, :data => data
     badge_increment(visited_user, event.to_s)
   end
   def badge_increment(user, event)
