@@ -27,7 +27,7 @@
                 </section>
                 <section>
                   <label class="label">
-                    <strong>Name</strong></label>
+                    <strong>Your Name</strong></label>
                     <small>Your name will only appear when you accept someone's interest or send an interest</small>
                   <label class="input">
                     <i class="icon-append fa fa-user"></i>
@@ -35,12 +35,21 @@
                   </label>
                 </section>
                 <section>
-                  <label class="label"><strong>Email</strong> (private)</label>
+                  <label class="label">
+                    <strong>Username</strong></label>
+                    <small>Used for login</small>
                   <label class="input">
                     <i class="icon-append fa fa-user"></i>
-                    <%= f.email_field :email, :placeholder => "Private" %>
+                    <%= f.text_field :username, :autofocus => true, :placeholder => "username" %>
                   </label>
                 </section>
+                <!-- <section> -->
+                  <!-- <label class="label"><strong>Email</strong> (private)</label> -->
+                  <!-- <label class="input"> -->
+                    <!-- <i class="icon-append fa fa-user"></i> -->
+                    <%#= f.email_field :email, :placeholder => "Private" %>
+                  <!-- </label> -->
+                <!-- </section> -->
                 <section>
                   <label class="label">Password</label>
                   <label class="input">
@@ -121,7 +130,8 @@
                   <hr>
                   <div class="note">
                     Already have an account ?
-                    <%= render "devise/shared/links" %>
+                    <%#= render "devise/shared/links" %>
+                    <a href="/users/sign_in" class="">Sign In</a>
                   </div>
                   <legend></legend>
                   <button type="submit" class="btn btn-primary">Sign Up</button>
