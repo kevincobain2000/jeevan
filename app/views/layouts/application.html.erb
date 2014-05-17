@@ -1,8 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Jeevan</title>
+  <% if current_user %>
+  <title>
+    <% bdge = current_user.badge %>
+    <% fav_num = bdge.interest.to_i + bdge.visitor.to_i + bdge.accepted.to_i + bdge.rejected.to_i %>
+    <%= (fav_num > 0) ? "(#{fav_num})" : "" %>
+    shaadiMatch - Updates in Realtime</title>
+  <% else %>
+  <title>shaadiMatch - Updates in Realtime</title>
+  <% end %>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no" />
+    <meta name="description" content="India's fastest growing Matrimonial website which will keep you indulged with real time updates" />
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" =>
   true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" =>

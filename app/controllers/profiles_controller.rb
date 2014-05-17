@@ -32,12 +32,10 @@ class ProfilesController < ApplicationController
     render json: { :status => 200 }
   end
   def remove_image
-    logger.info("Debug #{remove_image_params}")
     current_user.images.destroy(remove_image_params['imageid'])
     render json: { :status => 200 }
   end
   def modify_profile
-    logger.info("Debug #{profile_params}")
     current_user.profile.update(profile_params)
     render json: { :status => 200 }
   end
@@ -54,7 +52,6 @@ class ProfilesController < ApplicationController
     render json: { :status => 200 }
   end
   def modify_about
-    logger.info("Debug #{about_params}")
     text = about_params[:me].split()
     text.each do |word| 
       if word.length > 50
@@ -97,7 +94,6 @@ class ProfilesController < ApplicationController
   def interest
     if current_user.id != params[:to_user_id].to_i
       find_first = current_user.interests.where(to_user_id: params[:to_user_id]).first
-      logger.info("Debug Params inspect #{params.inspect}")
       if !find_first
         current_user.interests.create(to_user_id: params[:to_user_id])
         notify_growl(:interest, params[:to_user_id], "Expressed Interest in You")
@@ -106,7 +102,6 @@ class ProfilesController < ApplicationController
       end
     end
     render json: { :status => 200 }
-    # redirect_to(explore_index_path)
   end
 
 
@@ -131,7 +126,6 @@ class ProfilesController < ApplicationController
   def shortlist
     if current_user.id != params[:to_user_id].to_i
       find_first = current_user.shortlists.where(to_user_id: params[:to_user_id]).first
-      logger.info("Debug Params inspect #{params.inspect}")
       if !find_first
         current_user.shortlists.create(to_user_id: params[:to_user_id])
       end
