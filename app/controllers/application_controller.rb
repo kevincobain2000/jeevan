@@ -97,6 +97,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << :name
     devise_parameter_sanitizer.for(:sign_up) << :dob
     devise_parameter_sanitizer.for(:sign_up) << :devotion
+    devise_parameter_sanitizer.for(:sign_up) << :username
+    devise_parameter_sanitizer.for(:sign_in) << :username
   end
   private
   def user_activity

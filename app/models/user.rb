@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validates :devotion, presence: true
   validates :dob, presence: true
+  validates :username, presence: true, :length => { :minimum => 5, :maximum => 50 }
   after_create :create_dependents
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable#, :confirmable
@@ -77,5 +78,12 @@ class User < ActiveRecord::Base
     build_hobby
     build_lifestyle
     build_occupation
+  end
+  def email_required?
+    false
+  end
+
+  def email_changed?
+    false
   end
 end
