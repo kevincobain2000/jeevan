@@ -113,3 +113,9 @@ Edits done here
 .carousel-indicators li {
   visibility: hidden;
 ```
+
+#### Faye
+
+```
+rackup private_pub.ru -s thin -E production
+```
