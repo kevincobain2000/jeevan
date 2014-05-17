@@ -119,3 +119,10 @@ Edits done here
 ```
 rackup private_pub.ru -s thin -E production
 ```
+
+#### SOlr
+
+```
+rake sunspot:solr:start
+rake sunspot:solr:start RAILS_ENV=production
+```
