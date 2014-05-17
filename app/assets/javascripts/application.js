@@ -33,38 +33,17 @@
 // require bootstrap-tagsinput
 // require twitter/typeahead
 //= require gritter
-//= require websocket_rails/main
-
+//= require private_pub
 
 
 $(document).ready(function($) {
   /*===============================
   =            SOCKETS            =
   ===============================*/
-
-  pathArray = window.location.href.split( '/' );
-  protocol = pathArray[0];
-  host = pathArray[2];
-  url = protocol + '//' + host + "/websocket";
-  var dispatcher = new WebSocketRails(url);
-  // var channel = dispatcher.subscribe('socket_user_'+$("#user").data("id"));
-  var channel = dispatcher.subscribe("channel_name");
-  channel.bind('event', function(data) {
-    $.gritter.add({ image: data.img, title: data.title, text: '<a class="txt-color-white" href="/profiles/'+data.profile_id+'">view profile</a>' });
+  PrivatePub.subscribe("/messages/"+$("#user").data("id"), function(data, channel) {
+  	dt = data.data
+  	$.gritter.add({ image: dt.img, title: dt.title, text: '<a class="txt-color-white" href="/profiles/'+dt.profile_id+'">view profile</a>' });
   });
-  channel.bind('visitor', function(data) {
-    $.gritter.add({ image: data.img, title: data.title, text: '<a class="txt-color-white" href="/profiles/'+data.profile_id+'">view profile</a>' });
-  });
-  channel.bind('interest', function(data) {
-    $.gritter.add({ image: data.img, title: data.title, text: '<a class="txt-color-white" href="/profiles/'+data.profile_id+'">view profile</a>' });
-  });
-  channel.bind('accepted', function(data) {
-    $.gritter.add({ image: data.img, title: data.title, text: '<a class="txt-color-white" href="/profiles/'+data.profile_id+'">view profile</a>' });
-  });
-  channel.bind('rejected', function(data) {
-    $.gritter.add({ image: data.img, title: data.title, text: '<a class="txt-color-white" href="/profiles/'+data.profile_id+'">view profile</a>' });
-  });
-
   /*-----  End of SOCKETS  ------*/
 
 });
