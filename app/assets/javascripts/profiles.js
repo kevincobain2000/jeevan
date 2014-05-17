@@ -155,7 +155,9 @@ $(document).on("page:change", function() {
   });
 
 
-  get_and_populate_selectize()
+  if ($("#user").data("id")) {
+    get_and_populate_selectize();
+  };
   function get_and_populate_selectize() {
     $.ajax({
       url: '/profiles/get_selectize',

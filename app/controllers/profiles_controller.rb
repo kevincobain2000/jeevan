@@ -173,7 +173,7 @@ class ProfilesController < ApplicationController
     badge_reset(current_user, "accepted")
   end
   def outgoings
-    rejected = Interest.where("user_id = ? AND response = ?", current_user.id, 3).pluck(:to_user_id)
+    rejected = Interest.where("user_id = ? AND response = ?", current_user.id, 0).pluck(:to_user_id)
     @rejected = User.find(rejected).paginate(:page => params[:page], :per_page => 10)
     badge_reset(current_user, "rejected")
   end
