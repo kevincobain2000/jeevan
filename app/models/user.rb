@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   validates :username, presence: true, :length => { :minimum => 5, :maximum => 50 }
   after_create :create_dependents
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable#, :confirmable
+          :rememberable, :trackable, :validatable#, :confirmable, :recoverable
 
   delegate :posted_by, to: :profile
   delegate :mother_tongue,:caste,:native_place, to: :religion
@@ -30,7 +30,6 @@ class User < ActiveRecord::Base
 
   has_many :visitors,       :dependent => :destroy
   has_many :interests,      :dependent => :destroy
-  has_many :notifications,  :dependent => :destroy
   has_many :shortlists,     :dependent => :destroy
   has_many :images,         :dependent => :destroy
 

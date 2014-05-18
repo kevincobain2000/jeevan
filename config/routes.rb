@@ -25,7 +25,6 @@ Jeevan::Application.routes.draw do
       post :interest
       post :interest_response
       post :shortlist
-      post :seen_notification
       post :search
       post :index
       #ajax

@@ -1,9 +1,8 @@
 <% if !user[:out_response].nil? %>
   <% if user[:out_response].response == 0 %>
-      <strong class="txt-color-red"><i class="fa fa-times"></i>
+      <strong class="txt-color-red"><i class="fa fa-thumbs-down"></i>
         Got Rejected</strong>
   <% elsif user[:out_response].response == 1 %>
-
       <strong class="txt-color-green"><i class="fa fa-check"></i>
 <%= user[:name] %> Accepted</strong>
   <% else %>
@@ -13,7 +12,7 @@
 <% end %>
 <% if !user[:in_response].nil? %>
   <% if user[:in_response].response == 0 %>
-  You have
+  You
       <strong class="txt-color-red"><i class="fa fa-thumbs-down"></i>
         Rejected</strong>
   <% elsif user[:in_response].response == 1 %>You
