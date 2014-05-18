@@ -87,6 +87,11 @@ class ProfilesController < ApplicationController
     current_user.desire.update(desire_params)
     render json: { :status => 200 }
   end
+  def destroy_everything
+    user = User.find(current_user.id)
+    user.destroy
+    redirect_to root_path
+  end
 
   /#=================================================
   #            # Express Interest Button            =

@@ -7,6 +7,7 @@ Jeevan::Application.routes.draw do
   devise_for :users, :controllers => { :registrations => "registrations", :sessions => "sessions" }
   resources :profiles do
     collection do
+      delete :destroy_everything
       post :modify_profile
       post :modify_avatar
       post :modify_contact

@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   after_filter :user_activity
   helper_method :make_user
-  layout :dirty_layout_hack
+  # layout :dirty_layout_hack
   rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
   # protect_from_forgery with: :null_session
   helper_method :make_user, :make_user_snippet

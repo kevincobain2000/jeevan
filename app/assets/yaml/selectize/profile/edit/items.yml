@@ -75,9 +75,6 @@ desired_marital_status:
     title: "Single"
     desc: ""
   -
-    title: "Married"
-    desc: ""
-  -
     title: "Divorced"
     desc: ""
   -
@@ -86,9 +83,6 @@ desired_marital_status:
 marital_status:
   -
     title: "Single"
-    desc: ""
-  -
-    title: "Married"
     desc: ""
   -
     title: "Divorced"
