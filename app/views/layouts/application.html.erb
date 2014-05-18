@@ -24,7 +24,7 @@
   <span class="hidden" data-id="<%= current_user.id %>" id="user"></span>
   <%= subscribe_to "/messages/#{current_user.id}" %>
     <!-- <body class="smart-style-2"> -->
-    <body class="smart-style-2 container">
+    <body class="smart-style-2 fixed-header fixed-navigation fixed-ribbon fixed-width">
       <!-- possible classes: minified, fixed-ribbon, fixed-header, fixed-width-->
       <%= render :partial =>'layouts/header'%>
       <%= render :partial =>'layouts/side'%>
