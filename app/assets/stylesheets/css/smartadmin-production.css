@@ -15356,8 +15356,8 @@ html {
 body {
   margin: 0;
   padding: 0;
-  height: 100%;
-  /*overflow:hidden;*/
+  /*height: 100%;*/
+  overflow:hidden;
   background: url('../mybg.png') #ffffff;
   direction: ltr;
 }
@@ -19761,7 +19761,8 @@ img.away {
     left: 0px;
   }
   .fixed-navigation #left-panel {
-    position: absolute !important;
+    /*position: absolute !important;*/
+    position: fixed;
   }
   /*
   	 * fixed ribbon

@@ -398,6 +398,7 @@ border-top: 1px solid #303031;
 }
 
 body.smart-style-2 {
+	overflow: hidden;
 	/*background:#fff;*/
 	background: url('../mybg.png') #ffffff;
 	font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
@@ -474,13 +475,14 @@ body.smart-style-2 {
 }
 
 .smart-style-2 aside {
+	position:fixed;
 	background: url('../mybg.png') #ffffff;
 /*	background: #F7F7F7;
 	background: -webkit-gradient(linear,left top,right top,color-stop(99%,#F7F7F7),color-stop(100%,#CACACA));
 	background: -webkit-linear-gradient(left,#F7F7F7 99%,#CACACA 100%);
 	background: -webkit-gradient(linear,top left,top right,from(#F7F7F7),to(#CACACA));
 	background: linear-gradient(to right,#F7F7F7 99%,#CACACA 100%);*/
-	min-height: 50%;
+	/*min-height: 50%;*/
 }
 
 .smart-style-2 #left-panel {
