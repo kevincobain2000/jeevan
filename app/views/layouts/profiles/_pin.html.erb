@@ -1,4 +1,5 @@
-
+<%= render :partial =>"layouts/sparks2" %>
+<%= render :partial =>"layouts/search"%>
   <!-- MAIN CONTENT -->
   <div id="content"class="font-sm">
     <h1>
@@ -19,7 +20,7 @@
       <% end %>
       <% paginate.each do |_user| %>
         <% user = make_user(_user) %>
-        <div class="col-md-6 col-xs-12 well shadow-box" style="height:270px;">
+        <div class="col-md-6 col-xs-12 well shadow-box" style="height:290px;">
           <div class="col-md-3 col-xs-6">
           <%= link_to profile_path(:id =>user[:profile][:id]), :class=>"" do %>
               <%= image_tag user[:avatar].url(:thumb), :class=>"", :style=>"width:100px;height:100px;" %>
@@ -39,7 +40,7 @@
               <%= render :partial =>'layouts/interesttext', :locals => {:user => user} %>
               <%= render :partial =>'layouts/interestact', :locals => {:user => user} %>
               <hr>
-                        <% if user[:image].count > 1 %>
+                        <% if user[:image].count >= 1 %>
                         <h1><small>Images</small></h1>
                         <% user[:image][0..6].each do |image| %>
                           <a href="<%= image.avatar.url(:original) %>" data-lightbox="roadtrip">
@@ -47,7 +48,7 @@
                           </a>
                         <% end %>
                         <%= link_to profile_path(:id =>user[:profile][:id]), :class=>"pull-right" do %>
-                        <%= user[:images_count] - 6 %> more images ..
+                        <%= (user[:images_count] - 6) > 0 ? user[:images_count] - 6 : "0" %> more images ..
                         <% end %>
                         <hr>
                         <% elsif user[:about][:me] %>

@@ -49,7 +49,6 @@ class User < ActiveRecord::Base
 
   searchable do
     integer :images_count
-    text :posted_by
     text :mother_tongue, :caste, :native_place
     text :birth_country,:birth_city,:sun_sign
     text :complexion,:blood
@@ -66,12 +65,15 @@ class User < ActiveRecord::Base
     updated_at > 10.minutes.ago
   end
   def create_dependents
+    dateofbirth = dob.to_s.gsub("/","-")
+    _age = Date.today.year - dateofbirth.to_date.year
+
     build_profile
     build_badge
     build_contact
     build_religion
     build_kundali
-    build_about
+    build_about(:me => "I am #{_age} years old #{devotion} #{sex}")
     build_family
     build_desire(:desired_religion => devotion)
     build_education
