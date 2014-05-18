@@ -188,13 +188,13 @@ own_pet:
     desc: ""
 desired_complexion:
   -
-    title: "white"
+    title: "White"
     desc: ""
   -
-    title: "dark"
+    title: "Dark"
     desc: ""
   -
-    title: "fair"
+    title: "Fair"
     desc: ""
 complexion:
   -
@@ -2563,7 +2563,7 @@ desired_income:
   -
     title: "35 plus"
     desc: ""
-desired_height:
+desired_age:
   -
     title: "18 - 20 Yrs"
     desc: ""
@@ -2571,40 +2571,31 @@ desired_height:
     title: "20 - 23 Yrs"
     desc: ""
   -
-    title: "23 - 26 Yrs"
+    title: "23 - 29 Yrs"
     desc: ""
   -
-    title: "26 - 30 Yrs"
+    title: "29 - 35 Yrs"
     desc: ""
-desired_age:
   -
-    title: "Afghanistan"
+    title: "35 - 40 Yrs"
+    desc: ""
+  -
+    title: "40 above"
+    desc: ""
+desired_height:
+  -
+    title: "short - medium"
+    desc: ""
+  -
+    title: "medium - tall"
+    desc: ""
+  -
+    title: "tall"
     desc: ""
 
 desired_country:
   -
-    title: "Afghanistan"
-    desc: ""
-  -
-    title: "Albania"
-    desc: ""
-  -
-    title: "Algeria"
-    desc: ""
-  -
-    title: "Andorra"
-    desc: ""
-  -
-    title: "Angola"
-    desc: ""
-  -
-    title: "Antigua & Deps"
-    desc: ""
-  -
     title: "Argentina"
-    desc: ""
-  -
-    title: "Armenia"
     desc: ""
   -
     title: "Australia"
@@ -2612,10 +2603,6 @@ desired_country:
   -
     title: "Austria"
     desc: ""
-  -
-    title: "Azerbaijan"
-    desc: ""
-  -
     title: "Bahamas"
     desc: ""
   -
@@ -2667,91 +2654,7 @@ desired_country:
     title: "Burundi"
     desc: ""
   -
-    title: "Cambodia"
-    desc: ""
-  -
-    title: "Cameroon"
-    desc: ""
-  -
     title: "Canada"
-    desc: ""
-  -
-    title: "Cape Verde"
-    desc: ""
-  -
-    title: "Central African Rep"
-    desc: ""
-  -
-    title: "Chad"
-    desc: ""
-  -
-    title: "Chile"
-    desc: ""
-  -
-    title: "China"
-    desc: ""
-  -
-    title: "Colombia"
-    desc: ""
-  -
-    title: "Comoros"
-    desc: ""
-  -
-    title: "Congo"
-    desc: ""
-  -
-    title: "Congo {Democratic Rep}"
-    desc: ""
-  -
-    title: "Costa Rica"
-    desc: ""
-  -
-    title: "Croatia"
-    desc: ""
-  -
-    title: "Cuba"
-    desc: ""
-  -
-    title: "Cyprus"
-    desc: ""
-  -
-    title: "Czech Republic"
-    desc: ""
-  -
-    title: "Denmark"
-    desc: ""
-  -
-    title: "Djibouti"
-    desc: ""
-  -
-    title: "Dominica"
-    desc: ""
-  -
-    title: "Dominican Republic"
-    desc: ""
-  -
-    title: "East Timor"
-    desc: ""
-  -
-    title: "Ecuador"
-    desc: ""
-  -
-    title: "Egypt"
-    desc: ""
-  -
-    title: "El Salvador"
-    desc: ""
-  -
-    title: "Equatorial Guinea"
-    desc: ""
-  -
-    title: "Eritrea"
-    desc: ""
-  -
-    title: "Estonia"
-    desc: ""
-  -
-    title: "Ethiopia"
     desc: ""
   -
     title: "Fiji"
@@ -2763,46 +2666,10 @@ desired_country:
     title: "France"
     desc: ""
   -
-    title: "Gabon"
-    desc: ""
-  -
-    title: "Gambia"
-    desc: ""
-  -
-    title: "Georgia"
-    desc: ""
-  -
     title: "Germany"
     desc: ""
   -
-    title: "Ghana"
-    desc: ""
-  -
     title: "Greece"
-    desc: ""
-  -
-    title: "Grenada"
-    desc: ""
-  -
-    title: "Guatemala"
-    desc: ""
-  -
-    title: "Guinea"
-    desc: ""
-  -
-    title: "Guinea-Bissau"
-    desc: ""
-  -
-    title: "Guyana"
-    desc: ""
-  -
-    title: "Haiti"
-    desc: ""
-  -
-    title: "Honduras"
-    desc: ""
-  -
-    title: "Hungary"
     desc: ""
   -
     title: "Iceland"
@@ -2814,145 +2681,19 @@ desired_country:
     title: "Indonesia"
     desc: ""
   -
-    title: "Iran"
-    desc: ""
-  -
-    title: "Iraq"
-    desc: ""
-  -
-    title: "Ireland {Republic}"
-    desc: ""
-  -
-    title: "Israel"
-    desc: ""
-  -
-    title: "Italy"
-    desc: ""
-  -
-    title: "Ivory Coast"
-    desc: ""
-  -
     title: "Jamaica"
     desc: ""
   -
     title: "Japan"
     desc: ""
   -
-    title: "Jordan"
-    desc: ""
-  -
-    title: "Kazakhstan"
-    desc: ""
-  -
-    title: "Kenya"
-    desc: ""
-  -
-    title: "Kiribati"
-    desc: ""
-  -
-    title: "Korea North"
-    desc: ""
-  -
-    title: "Korea South"
-    desc: ""
-  -
-    title: "Kosovo"
-    desc: ""
-  -
-    title: "Kuwait"
-    desc: ""
-  -
-    title: "Kyrgyzstan"
-    desc: ""
-  -
-    title: "Laos"
-    desc: ""
-  -
-    title: "Latvia"
-    desc: ""
-  -
-    title: "Lebanon"
-    desc: ""
-  -
-    title: "Lesotho"
-    desc: ""
-  -
-    title: "Liberia"
-    desc: ""
-  -
-    title: "Libya"
-    desc: ""
-  -
-    title: "Liechtenstein"
-    desc: ""
-  -
-    title: "Lithuania"
-    desc: ""
-  -
-    title: "Luxembourg"
-    desc: ""
-  -
-    title: "Macedonia"
-    desc: ""
-  -
-    title: "Madagascar"
-    desc: ""
-  -
-    title: "Malawi"
-    desc: ""
-  -
     title: "Malaysia"
-    desc: ""
-  -
-    title: "Maldives"
-    desc: ""
-  -
-    title: "Mali"
-    desc: ""
-  -
-    title: "Malta"
-    desc: ""
-  -
-    title: "Marshall Islands"
-    desc: ""
-  -
-    title: "Mauritania"
     desc: ""
   -
     title: "Mauritius"
     desc: ""
   -
     title: "Mexico"
-    desc: ""
-  -
-    title: "Micronesia"
-    desc: ""
-  -
-    title: "Moldova"
-    desc: ""
-  -
-    title: "Monaco"
-    desc: ""
-  -
-    title: "Mongolia"
-    desc: ""
-  -
-    title: "Montenegro"
-    desc: ""
-  -
-    title: "Morocco"
-    desc: ""
-  -
-    title: "Mozambique"
-    desc: ""
-  -
-    title: "Myanmar, {Burma}"
-    desc: ""
-  -
-    title: "Namibia"
-    desc: ""
-  -
-    title: "Nauru"
     desc: ""
   -
     title: "Nepal"
@@ -2962,36 +2703,6 @@ desired_country:
     desc: ""
   -
     title: "New Zealand"
-    desc: ""
-  -
-    title: "Nicaragua"
-    desc: ""
-  -
-    title: "Niger"
-    desc: ""
-  -
-    title: "Nigeria"
-    desc: ""
-  -
-    title: "Norway"
-    desc: ""
-  -
-    title: "Oman"
-    desc: ""
-  -
-    title: "Pakistan"
-    desc: ""
-  -
-    title: "Palau"
-    desc: ""
-  -
-    title: "Panama"
-    desc: ""
-  -
-    title: "Papua New Guinea"
-    desc: ""
-  -
-    title: "Paraguay"
     desc: ""
   -
     title: "Peru"
@@ -3009,43 +2720,7 @@ desired_country:
     title: "Qatar"
     desc: ""
   -
-    title: "Romania"
-    desc: ""
-  -
-    title: "Russian Federation"
-    desc: ""
-  -
-    title: "Rwanda"
-    desc: ""
-  -
-    title: "St Kitts & Nevis"
-    desc: ""
-  -
-    title: "St Lucia"
-    desc: ""
-  -
-    title: "Saint Vincent & the Grenadines"
-    desc: ""
-  -
-    title: "Samoa"
-    desc: ""
-  -
-    title: "San Marino"
-    desc: ""
-  -
-    title: "Sao Tome & Principe"
-    desc: ""
-  -
     title: "Saudi Arabia"
-    desc: ""
-  -
-    title: "Senegal"
-    desc: ""
-  -
-    title: "Serbia"
-    desc: ""
-  -
-    title: "Seychelles"
     desc: ""
   -
     title: "Sierra Leone"
@@ -3054,34 +2729,13 @@ desired_country:
     title: "Singapore"
     desc: ""
   -
-    title: "Slovakia"
-    desc: ""
-  -
-    title: "Slovenia"
-    desc: ""
-  -
-    title: "Solomon Islands"
-    desc: ""
-  -
-    title: "Somalia"
-    desc: ""
-  -
     title: "South Africa"
-    desc: ""
-  -
-    title: "South Sudan"
     desc: ""
   -
     title: "Spain"
     desc: ""
   -
     title: "Sri Lanka"
-    desc: ""
-  -
-    title: "Sudan"
-    desc: ""
-  -
-    title: "Suriname"
     desc: ""
   -
     title: "Swaziland"
@@ -3099,34 +2753,10 @@ desired_country:
     title: "Taiwan"
     desc: ""
   -
-    title: "Tajikistan"
-    desc: ""
-  -
-    title: "Tanzania"
-    desc: ""
-  -
     title: "Thailand"
     desc: ""
   -
-    title: "Togo"
-    desc: ""
-  -
-    title: "Tonga"
-    desc: ""
-  -
-    title: "Trinidad & Tobago"
-    desc: ""
-  -
-    title: "Tunisia"
-    desc: ""
-  -
     title: "Turkey"
-    desc: ""
-  -
-    title: "Turkmenistan"
-    desc: ""
-  -
-    title: "Tuvalu"
     desc: ""
   -
     title: "Uganda"
@@ -3144,28 +2774,7 @@ desired_country:
     title: "United States"
     desc: ""
   -
-    title: "Uruguay"
-    desc: ""
-  -
-    title: "Uzbekistan"
-    desc: ""
-  -
-    title: "Vanuatu"
-    desc: ""
-  -
-    title: "Vatican City"
-    desc: ""
-  -
-    title: "Venezuela"
-    desc: ""
-  -
     title: "Vietnam"
-    desc: ""
-  -
-    title: "Yemen"
-    desc: ""
-  -
-    title: "Zambia"
     desc: ""
 
   - title: "Zimbabwe"

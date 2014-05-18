@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140510050046) do
+ActiveRecord::Schema.define(version: 20140517144352) do
 
   create_table "abouts", force: true do |t|
     t.integer  "user_id"
@@ -50,21 +50,21 @@ ActiveRecord::Schema.define(version: 20140510050046) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "desired_about"
-    t.string   "desired_height"
-    t.string   "desired_age"
-    t.string   "desired_marital_status", limit: 32
-    t.string   "desired_country",        limit: 64
-    t.string   "desired_city",           limit: 64
-    t.string   "desired_religion",       limit: 64,  default: ""
-    t.string   "desired_caste",          limit: 64
-    t.string   "desired_mother_tongue",  limit: 64
-    t.string   "desired_manglik",        limit: 32
-    t.string   "desired_diet",           limit: 64
-    t.string   "desired_smoke",          limit: 32
-    t.string   "desired_drink",          limit: 32
-    t.string   "desired_complexion",     limit: 64
+    t.string   "desired_height",                     default: "medium - tall"
+    t.string   "desired_age",                        default: "23 - 29 Yrs"
+    t.string   "desired_marital_status",             default: "Single"
+    t.string   "desired_country",                    default: "India"
+    t.string   "desired_city"
+    t.string   "desired_religion"
+    t.string   "desired_caste"
+    t.string   "desired_mother_tongue",              default: "Hindi"
+    t.string   "desired_manglik",        limit: 64,  default: "No"
+    t.string   "desired_diet"
+    t.string   "desired_smoke",          limit: 32,  default: "No"
+    t.string   "desired_drink",          limit: 32,  default: "No"
+    t.string   "desired_complexion",     limit: 64,  default: "Fair"
     t.string   "desired_body",           limit: 32
-    t.string   "desired_challenged",     limit: 4
+    t.string   "desired_challenged",     limit: 4,   default: "No"
     t.string   "desired_education",      limit: 128
     t.string   "desired_occupation",     limit: 128
     t.string   "desired_income"
@@ -87,10 +87,10 @@ ActiveRecord::Schema.define(version: 20140510050046) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "values"
+    t.string   "values",                     default: "Liberal"
     t.string   "size"
     t.string   "status"
-    t.string   "family_income"
+    t.string   "family_income",              default: "10 - 15 Lac"
     t.text     "father"
     t.text     "mother"
     t.text     "brother"
@@ -136,13 +136,13 @@ ActiveRecord::Schema.define(version: 20140510050046) do
     t.integer  "user_id"
     t.datetime "updated_at"
     t.datetime "created_at"
-    t.text     "birth_country"
+    t.string   "birth_country", default: "India"
     t.text     "birth_city"
     t.text     "tob"
-    t.text     "manglik"
-    t.text     "sun_sign"
-    t.text     "moon_sign"
-    t.text     "nakshatra"
+    t.string   "manglik",       default: "No"
+    t.string   "sun_sign",      default: ""
+    t.string   "moon_sign",     default: ""
+    t.string   "nakshatra",     default: ""
   end
 
   create_table "lifestyles", force: true do |t|
@@ -150,15 +150,15 @@ ActiveRecord::Schema.define(version: 20140510050046) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "diet"
-    t.string   "smoke"
-    t.string   "drink"
+    t.string   "smoke",                 default: "No"
+    t.string   "drink",                 default: "No"
     t.string   "complexion"
     t.string   "blood",      limit: 4
     t.string   "weight",     limit: 4
     t.string   "own_house",  limit: 64
-    t.string   "own_car",    limit: 64
-    t.string   "pet",        limit: 64
-    t.string   "hiv",        limit: 4
+    t.string   "own_car",    limit: 64, default: "Yes"
+    t.string   "pet",        limit: 64, default: "No"
+    t.string   "hiv",        limit: 4,  default: "No"
     t.string   "height",     limit: 4
   end
 
@@ -166,11 +166,11 @@ ActiveRecord::Schema.define(version: 20140510050046) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.text     "work_status"
-    t.text     "occupation"
-    t.text     "company"
-    t.text     "annual_income"
-    t.text     "settling_abroad"
+    t.string   "work_status",     default: "Employed"
+    t.string   "occupation",      default: ""
+    t.string   "company",         default: ""
+    t.string   "annual_income",   default: ""
+    t.string   "settling_abroad", default: "No"
   end
 
   create_table "profiles", force: true do |t|
@@ -178,16 +178,16 @@ ActiveRecord::Schema.define(version: 20140510050046) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "posted_by",      limit: 64, default: "Self"
-    t.string   "marital_status", limit: 64
+    t.string   "marital_status", limit: 64, default: "Single"
     t.string   "home"
   end
 
   create_table "religions", force: true do |t|
     t.integer  "user_id"
-    t.text     "mother_tongue"
-    t.text     "caste"
-    t.text     "sub_caste"
-    t.text     "native_place"
+    t.string   "mother_tongue", default: "Hindi"
+    t.string   "caste",         default: ""
+    t.string   "sub_caste",     default: ""
+    t.string   "native_place",  default: ""
     t.datetime "updated_at"
     t.datetime "created_at"
   end
@@ -225,11 +225,12 @@ ActiveRecord::Schema.define(version: 20140510050046) do
     t.string   "unconfirmed_email"
     t.string   "devotion"
     t.integer  "images_count",           limit: 1
+    t.string   "username"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["username"], name: "username", unique: true, using: :btree
 
   create_table "visitors", force: true do |t|
     t.integer  "user_id"

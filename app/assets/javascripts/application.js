@@ -33,21 +33,18 @@
 // require bootstrap-tagsinput
 // require twitter/typeahead
 //= require gritter
-//= require websocket_rails/main
-
+//= require private_pub
 
 
 $(document).ready(function($) {
-	// $("#header-search").click(function(event) {
-	// 	console.log("asd");
-	// 	$(this).animate({'width': '400px'}, 'medium');
-	// 	$(this).focus();
-	// });
+  /*===============================
+  =            SOCKETS            =
+  ===============================*/
+  PrivatePub.subscribe("/messages/"+$("#user").data("id"), function(data, channel) {
+  	dt = data.data
+  	$.gritter.add({ image: dt.img, title: dt.title, text: '<a class="txt-color-white" href="/profiles/'+dt.profile_id+'">view profile</a>' });
+  });
+  /*-----  End of SOCKETS  ------*/
 
-	// $("#header-search").blur(function(event) {
-	// 	$(this).animate({'width': '300px'}, 'medium');
-	// 	$(this).focus();
-	// });
-
-});//= require websocket_rails/main
+});
 

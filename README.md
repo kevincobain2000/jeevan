@@ -99,8 +99,8 @@ Works even with turbolinks
 
 Create Random User
 ```
-for i in (122..125)
-  u = User.new(:email => "#{i}@gmail.com", :password=>"12345678910", :devotion=>"Hindu", :sex=>"Female", :name=>"kevin", :dob=>"01/09/1985")
+for i in (1..100)
+  u = User.new(:username => "#{i}@gmail.com", :password=>"12345678910", :devotion=>"Hindu", :sex=>"Female", :name=>"kevin", :dob=>"01/09/1985")
   u.save
  end
 ```
@@ -112,4 +112,20 @@ Edits done here
 ```
 .carousel-indicators li {
   visibility: hidden;
+```
+
+# Deploy
+
+#### Faye
+
+```
+rackup private_pub.ru -s thin -E production
+```
+
+#### SOlr
+
+```
+rake sunspot:solr:start
+rake sunspot:solr:start RAILS_ENV=production
+rake sunspot:reindex
 ```
