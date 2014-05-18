@@ -45,7 +45,7 @@ class ApplicationController < ActionController::Base
       lifestyle:  user.lifestyle,
       desire:     user.desire,
       image:      user.images.all,
-      images_count:      user.images_count,
+      images_count:      user.images_count.to_i,
       avatar:     user.avatar,
       in_response:  in_response,
       out_response: out_response,
@@ -97,6 +97,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) << :name
     devise_parameter_sanitizer.for(:sign_up) << :dob
     devise_parameter_sanitizer.for(:sign_up) << :devotion
+    devise_parameter_sanitizer.for(:sign_up) << :username
+    devise_parameter_sanitizer.for(:sign_in) << :username
   end
   private
   def user_activity
@@ -105,6 +107,9 @@ class ApplicationController < ActionController::Base
 
   def dirty_layout_hack
     if controller_name == "registrations" && action_name == "edit"
+      return false
+    end
+    if controller_name == "others"
       return false
     end
   end

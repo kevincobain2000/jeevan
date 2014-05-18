@@ -13,8 +13,10 @@
   <!-- User info -->
   <div class="login-info">
     <span>
-      <!-- User image size is adjusted inside CSS, it should stay as it -->
+    <a class="btn-link" data-toggle="modal" data-target="#modal-edit-avatar">
       <%= image_tag current_user.avatar.url(:thumb), :class => "img-rounded" %>
+      </a>
+      <!-- User image size is adjusted inside CSS, it should stay as it -->
       <a href="javascript:void(0);" id="show-shortcut">
         <%= link_to truncate(current_user.name, length: 10), profile_path(:id =>current_user.profile.id)%>
       </a>

@@ -22,12 +22,12 @@
             <%= form_for(resource, :as => resource_name, :html => {:class => "smart-form client-form"}, :url => registration_path(resource_name)) do |f| %>
               <header>Sign Up</header>
               <fieldset>
-                <section>
+                <section class="padding-10">
                   <%= devise_error_messages! %>
                 </section>
                 <section>
                   <label class="label">
-                    <strong>Name</strong></label>
+                    <strong>Your Name</strong></label>
                     <small>Your name will only appear when you accept someone's interest or send an interest</small>
                   <label class="input">
                     <i class="icon-append fa fa-user"></i>
@@ -35,12 +35,21 @@
                   </label>
                 </section>
                 <section>
-                  <label class="label">Email</label>
+                  <label class="label">
+                    <strong>Username</strong></label>
+                    <small>Used for login</small>
                   <label class="input">
                     <i class="icon-append fa fa-user"></i>
-                    <%= f.email_field :email, :placeholder => "Email" %>
+                    <%= f.text_field :username, :autofocus => true, :placeholder => "username" %>
                   </label>
                 </section>
+                <!-- <section> -->
+                  <!-- <label class="label"><strong>Email</strong> (private)</label> -->
+                  <!-- <label class="input"> -->
+                    <!-- <i class="icon-append fa fa-user"></i> -->
+                    <%#= f.email_field :email, :placeholder => "Private" %>
+                  <!-- </label> -->
+                <!-- </section> -->
                 <section>
                   <label class="label">Password</label>
                   <label class="input">
@@ -60,14 +69,14 @@
                 <section>
                   <div class="row">
                     <div class="col col-4">
-                      <label class="label">Your Gender</label>
+                    <label class="label">Your <strong>Gender</strong></label>
                       <label class="radio"><%= f.radio_button :sex, "Male" %><i></i>Male</label>
                       <label class="radio"><%= f.radio_button :sex, "Female" %><i></i>Female</label>
                     </div>
                   </section>
                   <section>
                     <label class="label">
-                    <i class="fa fa-sun-o"></i> Religion
+                    <i class="fa fa-sun-o"></i> <strong>Religion</strong>
                   </label>
                   <input name="user[devotion]" class="selectized" id="select-devotion" placeholder="Religion">
                   <script type="text/javascript">
@@ -88,9 +97,8 @@
                   });
                 </script>
               </section>
-            </section>
             <section>
-                  <label class="label">Date of Birth</label>
+                  <label class="label"><strong>Date of Birth</strong></label>
                     <label class="input">
                       <i class="icon-append fa fa-calendar"></i>
                       <input class="form-control" id="dob" type="text" name="user[dob]" value="01/09/1985">
@@ -118,9 +126,11 @@
                 </fieldset>
                 <footer>
                   We will send you a confirmation link. Please confirm your Email address by logging into your email account. Depending on your email provider please also check your spam folder.
+                  <hr>
                   <div class="note">
                     Already have an account ?
-                    <%= render "devise/shared/links" %>
+                    <%#= render "devise/shared/links" %>
+                    <a href="/users/sign_in" class="">Sign In</a>
                   </div>
                   <legend></legend>
                   <button type="submit" class="btn btn-primary">Sign Up</button>
@@ -128,8 +138,8 @@
               <% end %>
             </div>
           </div>
-          <%= render :partial =>'layouts/signuptext2'%>
         </div>
+        <%= render :partial =>'layouts/signuptext2'%>
       </div>
     </div>
   </div>
@@ -137,12 +147,12 @@
 <%= render :partial =>'layouts/terms'%>
 
   <script type="text/javascript">
-    $("#main").bgStretcher({
-        images: ["../../images/demo/sample-0.jpg",],
-        slideShow: true,
-        transitionEffect: "fade",
-        nextSlideDelay: 10000,
-        imageWidth: 1600,
-        imageHeight: 1200
-      })
+    // $("#main").bgStretcher({
+    //     images: ["../../images/demo/sample-0.jpg",],
+    //     slideShow: true,
+    //     transitionEffect: "fade",
+    //     nextSlideDelay: 10000,
+    //     imageWidth: 1600,
+    //     imageHeight: 1200
+    //   })
     </script>

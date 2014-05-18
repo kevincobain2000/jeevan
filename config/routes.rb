@@ -1,4 +1,9 @@
 Jeevan::Application.routes.draw do
+  resources :others do
+    collection do
+      get :confirmemail
+    end
+  end
   devise_for :users, :controllers => { :registrations => "registrations", :sessions => "sessions" }
   resources :profiles do
     collection do
@@ -22,6 +27,7 @@ Jeevan::Application.routes.draw do
       post :shortlist
       post :seen_notification
       post :search
+      post :index
       #ajax
       post :get_selectize
       #other gets
@@ -31,6 +37,9 @@ Jeevan::Application.routes.draw do
       get :waiting
       get :shortlists
       get :accepted
+      get :online
+      get :withphotos
+      get :recentlyjoined
     end
   end
   resources :profile do
@@ -57,4 +66,5 @@ Jeevan::Application.routes.draw do
   if Rails.env.production?
     get '*path' => redirect('/')
   end
+  get '*path' => redirect('/')
 end

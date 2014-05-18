@@ -3,11 +3,11 @@
     <!-- PLACE YOUR LOGO HERE -->
     <span id="logo">
       <a href="/">
-        <%= image_tag("logo.png") %>
+        <%= image_tag "logo-wide.png" %>
       </a>
     </span>
 
-    <span id="activity" class="activity-dropdown"> <i class="fa fa-envelope"></i>
+    <span id="activity" class="activity-dropdown hidden"> <i class="fa fa-envelope"></i>
     <!-- <b class="badge">1</b> -->
     </span>
 
@@ -60,7 +60,24 @@
           </span>
         </div>
         <!-- end logout button -->
-
+        <!-- <ul class="header-dropdown-list hidden-xs">
+          <li>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-gear"></i> <i class="fa fa-angle-down"></i> </a>
+            <ul class="dropdown-menu pull-right">
+              <li class="padding-5">
+                <%#= link_to edit_user_registration_path do %>
+                Change your password
+                <%# end %>
+              </li>
+              <li class="divider"></li>
+              <li class="padding-5">
+                <%#= link_to contact_index_path do %>
+                 Meet Us !
+                <%# end %>
+              </li>
+            </ul>
+          </li>
+        </ul> -->
         <!-- search mobile button (this is hidden till mobile view port) -->
         <%= form_tag({:action=>'search', :controller => "profiles"},{:class=>"header-search pull-right"}) do %>
           <input type="text" placeholder="Type anything... Hindu, Delhi" id="header-search" name="query" style="width:400px;">
@@ -68,26 +85,6 @@
             <i class="fa fa-search"></i>
           </button>
         <% end %>
-
-
-<!--         <ul class="header-dropdown-list hidden-xs">
-          <li>
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-gear"></i> <i class="fa fa-angle-down"></i> </a>
-            <ul class="dropdown-menu pull-right">
-              <li>
-                <%#= link_to edit_user_registration_path do %>
-                <i class="fa fa-lock"></i> Change your password
-                <%# end %>
-              </li>
-              <li class="divider"></li>
-              <li>
-                <%#= link_to contact_index_path do %>
-                <i class="fa fa-facebook"></i> Meet Us !
-                <%# end %>
-              </li>
-            </ul>
-          </li>
-        </ul> -->
       </div>
 
     </header>

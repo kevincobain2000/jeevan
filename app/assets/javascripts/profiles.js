@@ -144,18 +144,10 @@ $(document).on("page:change", function() {
       create: true,
     },
     work_status:true,
-    occupation:{
-      create: true
-    },
-    company:{
-      create: true
-    },
-    annual_income:{
-      create: true
-    },
-    settling_abroad:{
-      create: true
-    },
+    occupation:true,
+    company:true,
+    annual_income:true,
+    settling_abroad:true,
   };
 
   $(".close-edit-modal").click(function() {
@@ -163,7 +155,9 @@ $(document).on("page:change", function() {
   });
 
 
-  get_and_populate_selectize()
+  if ($("#user").data("id")) {
+    get_and_populate_selectize();
+  };
   function get_and_populate_selectize() {
     $.ajax({
       url: '/profiles/get_selectize',
@@ -289,7 +283,7 @@ $(document).ready(function($) {
   Dropzone.autoDiscover = false;
   $(".dropzone").dropzone({
     paramName: "avatar",
-    maxFilesize: 2,
+    maxFilesize: 1,
     addRemoveLinks: false,
     acceptedFiles: ".jpeg,.jpg,.png,.gif,.JPEG,.JPG,.PNG,.GIF",
     thumbnailWidth: 300,
@@ -309,28 +303,6 @@ $(document).ready(function($) {
       });
     }
   });
-
-  /*===============================
-  =            SOCKETS            =
-  ===============================*/
-
-  var dispatcher = new WebSocketRails('localhost:3000/websocket');
-  var channel = dispatcher.subscribe('socket_user_'+$("#user").data("id"));
-
-  channel.bind('visitor', function(data) {
-    $.gritter.add({ image: data.img, title: data.title, text: '<a class="txt-color-white" href="/profiles/'+data.profile_id+'">view profile</a>' });
-  });
-  channel.bind('interest', function(data) {
-    $.gritter.add({ image: data.img, title: data.title, text: '<a class="txt-color-white" href="/profiles/'+data.profile_id+'">view profile</a>' });
-  });
-  channel.bind('accepted', function(data) {
-    $.gritter.add({ image: data.img, title: data.title, text: '<a class="txt-color-white" href="/profiles/'+data.profile_id+'">view profile</a>' });
-  });
-  channel.bind('rejected', function(data) {
-    $.gritter.add({ image: data.img, title: data.title, text: '<a class="txt-color-white" href="/profiles/'+data.profile_id+'">view profile</a>' });
-  });
-
-  /*-----  End of SOCKETS  ------*/
 
 
 });
