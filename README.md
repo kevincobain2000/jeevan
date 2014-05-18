@@ -114,6 +114,8 @@ Edits done here
   visibility: hidden;
 ```
 
+# Deploy
+
 #### Faye
 
 ```
@@ -125,4 +127,5 @@ rackup private_pub.ru -s thin -E production
 ```
 rake sunspot:solr:start
 rake sunspot:solr:start RAILS_ENV=production
+rake sunspot:reindex
 ```

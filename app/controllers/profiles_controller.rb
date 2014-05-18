@@ -1,9 +1,10 @@
 class ProfilesController < ApplicationController
   before_filter :is_this_user_profile, only: [:edit]
-  before_filter :count_sparks, only: [:index, :incomings, :outgoings, :visitors, :shortlists,:accepted, :waiting,:search]
+  before_filter :count_sparks, only: [:index, :incomings, :outgoings, :visitors, :shortlists,:accepted, :waiting,:search, :online, :withphotos, :recentlyjoined]
   before_filter :get_current_user, only: [:edit]
   before_filter :not_same_sex, :get_showing_user, only: [:show]
 
+  PAGINATE_PROFILES = 25
   # GET /profiles/1
   def show
     touch_visitor
@@ -149,50 +150,63 @@ class ProfilesController < ApplicationController
   #            Pages            =
   #==============================#/
   def index
-
     already_visited    = [current_user.id]
-    # already_visited   += Visitor.where(user_id: current_user.id).pluck(:viewed_id)
-    # already_visited   += Interest.where("user_id = ?", current_user.id).pluck(:to_user_id)
-    # already_visited   += Shortlist.where("user_id = ?", current_user.id).pluck(:to_user_id)
-    @matching = User.where("sex <> ? AND devotion = ? AND id NOT IN (?)", current_user.sex, current_user.devotion, already_visited).order('images_count DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => 20)
+    already_visited   += Visitor.where(user_id: current_user.id).pluck(:viewed_id)
+    already_visited   += Interest.where("user_id = ?", current_user.id).pluck(:to_user_id)
+    already_visited   += Shortlist.where("user_id = ?", current_user.id).pluck(:to_user_id)
+    @matching = User.where("sex <> ? AND devotion = ? AND id NOT IN (?)", current_user.sex, current_user.devotion, already_visited).order('images_count DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
   end
+
+  def online
+    already_visited    = [current_user.id]
+    @online = User.where("sex <> ? AND devotion = ? AND id NOT IN (?) AND updated_at >= ?", current_user.sex, current_user.devotion, already_visited, 30.minutes.ago).order('updated_at ASC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
+  end
+  def withphotos
+    already_visited    = [current_user.id]
+    @withphotos = User.where("sex <> ? AND devotion = ? AND id NOT IN (?) AND images_count >= ?", current_user.sex, current_user.devotion, already_visited, 1).order('images_count DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
+  end
+  def recentlyjoined
+    already_visited    = [current_user.id]
+    @recentlyjoined = User.where("sex <> ? AND devotion = ? AND id NOT IN (?) AND created_at >= ?", current_user.sex, current_user.devotion, already_visited, Time.zone.now.beginning_of_day).order('created_at DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
+  end
+
   def incomings
     incomings = Interest.where(to_user_id: current_user.id).pluck(:user_id)
-    @incomings = User.find(incomings).paginate(:page => params[:page], :per_page => 10)
+    @incomings = User.find(incomings).paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
     badge_reset(current_user, "interest")
   end
   def accepted
     accepted = Interest.where("user_id = ? AND response = ?", current_user.id, 1).pluck(:to_user_id)
-    @accepted = User.find(accepted).paginate(:page => params[:page], :per_page => 10)
+    @accepted = User.find(accepted).paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
     badge_reset(current_user, "accepted")
   end
   def outgoings
     rejected = Interest.where("user_id = ? AND response = ?", current_user.id, 0).pluck(:to_user_id)
-    @rejected = User.find(rejected).paginate(:page => params[:page], :per_page => 10)
+    @rejected = User.find(rejected).paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
     badge_reset(current_user, "rejected")
   end
   def visitors
     visitors = Visitor.where(viewed_id: current_user.id).pluck(:user_id)
-    @visitors = User.find(visitors).paginate(:page => params[:page], :per_page => 10)
+    @visitors = User.find(visitors).paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
     badge_reset(current_user, "visitor")
   end
   def waiting
     waiting = Interest.where("user_id = ? AND response IS NULL", current_user.id).pluck(:to_user_id)
-    @waiting = User.find(waiting).paginate(:page => params[:page], :per_page => 10)
+    @waiting = User.find(waiting).paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
   end
   def shortlists
     shortlists = Shortlist.where(user_id: current_user.id).pluck(:to_user_id)
-    @shortlists = User.find(shortlists).paginate(:page => params[:page], :per_page => 10)
+    @shortlists = User.find(shortlists).paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
   end
 
   def search
-    query_string = params[:query]
+    query_string = params[:query].to_s
     query_string = query_string.length > 0 ? query_string : current_user.devotion
     @solr = User.search do
       fulltext query_string
       without(:sex).equal_to(current_user.sex)
       order_by(:images_count, :desc)
-      paginate :page => params[:page], :per_page => 12
+      paginate :page => params[:page], :per_page => PAGINATE_PROFILES
     end
     @search = @solr.results
   end
@@ -211,6 +225,9 @@ class ProfilesController < ApplicationController
     @sparks[:waiting]   = number_with_delimiter(Interest.where("user_id = ? AND response IS NULL", current_user.id).count)
     @sparks[:shortlist] = number_with_delimiter(Shortlist.where(user_id: current_user.id).count)
     @sparks[:accepted]  = number_with_delimiter(Interest.where("user_id = ? AND response = ?", current_user.id, 1).count)
+    @sparks[:onlinenow]  = User.where("sex <> ? AND devotion = ? AND updated_at >= ?", current_user.sex, current_user.devotion, 30.minutes.ago).count
+    @sparks[:withphotos]  = User.where("sex <> ? AND devotion = ? AND images_count >= ?", current_user.sex, current_user.devotion, 1).order('images_count DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES).count
+    @sparks[:recentlyjoined]  = User.where("sex <> ? AND devotion = ? AND created_at >= ?", current_user.sex, current_user.devotion, Time.zone.now.beginning_of_day).count
   end
 
   protected
