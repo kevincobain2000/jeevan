@@ -213,7 +213,7 @@ class ProfilesController < ApplicationController
 
   def similar_profiles
     visiting_user = User.find(Profile.find(params[:id]).user_id)
-    @similar_profiles_paginate = User.where("id <> ? AND devotion = ? AND sex = ?", visiting_user.id, visiting_user.devotion, visiting_user.sex).order('updated_at DESC, avatar_updated_at DESC').take(20).paginate(:page => params[:page], :per_page => 6) # 6 is a good number
+    @similar_profiles_paginate = User.where("id <> ? AND devotion = ? AND sex = ?", visiting_user.id, visiting_user.devotion, visiting_user.sex).order('updated_at DESC, avatar_updated_at DESC').take(12).paginate(:page => params[:page], :per_page => 6) # 6 is a good number
   end
 
   #-----  End of Pages  -----#
