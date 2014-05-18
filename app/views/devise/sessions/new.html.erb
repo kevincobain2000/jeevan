@@ -26,10 +26,10 @@
                   <%= devise_error_messages! %>
                 </section>
                 <section>
-                  <label class="label">E-mail</label>
+                  <label class="label">Username</label>
                   <label class="input">
                     <i class="icon-append fa fa-user"></i>
-                    <%= f.text_field :email, :autofocus => true, :placeholder => "Email" %>
+                    <%= f.text_field :username, :autofocus => true, :placeholder => "Username" %>
                   </label>
                 </section>
                 <section>
@@ -48,7 +48,8 @@
                     Stay signed in
                   </label>
                   <div class="note">
-                    <%= render "devise/shared/links" %>
+                    <%#= render "devise/shared/links" %>
+                    Don't have an account ? <a href="/users/sign_up" class="">Sign Up</a>
                   </div>
                 </section>
               </fieldset>
@@ -58,18 +59,18 @@
             <% end %>
           </div>
         </div>
-        <%= render :partial =>'layouts/signuptext2'%>
       </div>
+      <%= render :partial =>'layouts/signuptext2'%>
     </div>
   </div>
 </div>
   <script type="text/javascript">
-    $("#main").bgStretcher({
-        images: ["../../images/demo/sample-0.jpg"],
-        slideShow: true,
-        transitionEffect: "fade",
-        nextSlideDelay: 10000,
-        imageWidth: 1600,
-        imageHeight: 1200
-      })
+  //   $("#main").bgStretcher({
+  //       images: ["../../images/demo/sample-0.jpg"],
+  //       slideShow: true,
+  //       transitionEffect: "fade",
+  //       nextSlideDelay: 10000,
+  //       imageWidth: 1600,
+  //       imageHeight: 1200
+  //     })
     </script>

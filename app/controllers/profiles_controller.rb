@@ -1,9 +1,10 @@
 class ProfilesController < ApplicationController
   before_filter :is_this_user_profile, only: [:edit]
-  before_filter :count_sparks, only: [:index, :incomings, :outgoings, :visitors, :shortlists,:accepted, :waiting,:search]
+  before_filter :count_sparks, only: [:index, :incomings, :outgoings, :visitors, :shortlists,:accepted, :waiting,:search, :online, :withphotos, :recentlyjoined]
   before_filter :get_current_user, only: [:edit]
   before_filter :not_same_sex, :get_showing_user, only: [:show]
 
+  PAGINATE_PROFILES = 25
   # GET /profiles/1
   def show
     touch_visitor
@@ -32,12 +33,10 @@ class ProfilesController < ApplicationController
     render json: { :status => 200 }
   end
   def remove_image
-    logger.info("Debug #{remove_image_params}")
     current_user.images.destroy(remove_image_params['imageid'])
     render json: { :status => 200 }
   end
   def modify_profile
-    logger.info("Debug #{profile_params}")
     current_user.profile.update(profile_params)
     render json: { :status => 200 }
   end
@@ -54,7 +53,6 @@ class ProfilesController < ApplicationController
     render json: { :status => 200 }
   end
   def modify_about
-    logger.info("Debug #{about_params}")
     text = about_params[:me].split()
     text.each do |word| 
       if word.length > 50
@@ -97,7 +95,6 @@ class ProfilesController < ApplicationController
   def interest
     if current_user.id != params[:to_user_id].to_i
       find_first = current_user.interests.where(to_user_id: params[:to_user_id]).first
-      logger.info("Debug Params inspect #{params.inspect}")
       if !find_first
         current_user.interests.create(to_user_id: params[:to_user_id])
         notify_growl(:interest, params[:to_user_id], "Expressed Interest in You")
@@ -106,7 +103,6 @@ class ProfilesController < ApplicationController
       end
     end
     render json: { :status => 200 }
-    # redirect_to(explore_index_path)
   end
 
 
@@ -131,7 +127,6 @@ class ProfilesController < ApplicationController
   def shortlist
     if current_user.id != params[:to_user_id].to_i
       find_first = current_user.shortlists.where(to_user_id: params[:to_user_id]).first
-      logger.info("Debug Params inspect #{params.inspect}")
       if !find_first
         current_user.shortlists.create(to_user_id: params[:to_user_id])
       end
@@ -156,54 +151,69 @@ class ProfilesController < ApplicationController
   #==============================#/
   def index
     already_visited    = [current_user.id]
-    # already_visited   += Visitor.where(user_id: current_user.id).pluck(:viewed_id)
-    # already_visited   += Interest.where("user_id = ?", current_user.id).pluck(:to_user_id)
-    # already_visited   += Shortlist.where("user_id = ?", current_user.id).pluck(:to_user_id)
-    @matching = User.where("sex <> ? AND devotion = ? AND id NOT IN (?)", current_user.sex, current_user.devotion, already_visited).order('images_count DESC, avatar_updated_at DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => 10)
+    already_visited   += Visitor.where(user_id: current_user.id).pluck(:viewed_id)
+    already_visited   += Interest.where("user_id = ?", current_user.id).pluck(:to_user_id)
+    already_visited   += Shortlist.where("user_id = ?", current_user.id).pluck(:to_user_id)
+    @matching = User.where("sex <> ? AND devotion = ? AND id NOT IN (?)", current_user.sex, current_user.devotion, already_visited).order('images_count DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
   end
+
+  def online
+    already_visited    = [current_user.id]
+    @online = User.where("sex <> ? AND devotion = ? AND id NOT IN (?) AND updated_at >= ?", current_user.sex, current_user.devotion, already_visited, 30.minutes.ago).order('updated_at ASC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
+  end
+  def withphotos
+    already_visited    = [current_user.id]
+    @withphotos = User.where("sex <> ? AND devotion = ? AND id NOT IN (?) AND images_count >= ?", current_user.sex, current_user.devotion, already_visited, 1).order('images_count DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
+  end
+  def recentlyjoined
+    already_visited    = [current_user.id]
+    @recentlyjoined = User.where("sex <> ? AND devotion = ? AND id NOT IN (?) AND created_at >= ?", current_user.sex, current_user.devotion, already_visited, Time.zone.now.beginning_of_day).order('created_at DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
+  end
+
   def incomings
     incomings = Interest.where(to_user_id: current_user.id).pluck(:user_id)
-    @incomings = User.find(incomings).paginate(:page => params[:page], :per_page => 10)
+    @incomings = User.find(incomings).paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
     badge_reset(current_user, "interest")
   end
   def accepted
-    accepted = Interest.where("user_id = ? AND response = ?", current_user.id, 1).pluck(:user_id)
-    @accepted = User.find(accepted).paginate(:page => params[:page], :per_page => 10)
+    accepted = Interest.where("user_id = ? AND response = ?", current_user.id, 1).pluck(:to_user_id)
+    @accepted = User.find(accepted).paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
     badge_reset(current_user, "accepted")
   end
   def outgoings
-    rejected = Interest.where("user_id = ? AND response = ?", current_user.id, 3).pluck(:to_user_id)
-    @rejected = User.find(rejected).paginate(:page => params[:page], :per_page => 10)
+    rejected = Interest.where("user_id = ? AND response = ?", current_user.id, 0).pluck(:to_user_id)
+    @rejected = User.find(rejected).paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
     badge_reset(current_user, "rejected")
   end
   def visitors
     visitors = Visitor.where(viewed_id: current_user.id).pluck(:user_id)
-    @visitors = User.find(visitors).paginate(:page => params[:page], :per_page => 10)
+    @visitors = User.find(visitors).paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
     badge_reset(current_user, "visitor")
   end
   def waiting
     waiting = Interest.where("user_id = ? AND response IS NULL", current_user.id).pluck(:to_user_id)
-    @waiting = User.find(waiting).paginate(:page => params[:page], :per_page => 10)
+    @waiting = User.find(waiting).paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
   end
   def shortlists
     shortlists = Shortlist.where(user_id: current_user.id).pluck(:to_user_id)
-    @shortlists = User.find(shortlists).paginate(:page => params[:page], :per_page => 10)
+    @shortlists = User.find(shortlists).paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
   end
 
   def search
-    query_string = params[:query]
+    query_string = params[:query].to_s
+    query_string = query_string.length > 0 ? query_string : current_user.devotion
     @solr = User.search do
       fulltext query_string
       without(:sex).equal_to(current_user.sex)
       order_by(:images_count, :desc)
-      paginate :page => params[:page], :per_page => 12
+      paginate :page => params[:page], :per_page => PAGINATE_PROFILES
     end
     @search = @solr.results
   end
 
   def similar_profiles
     visiting_user = User.find(Profile.find(params[:id]).user_id)
-    @similar_profiles_paginate = User.where("id <> ? AND devotion = ? AND sex = ?", visiting_user.id, visiting_user.devotion, visiting_user.sex).order('updated_at DESC, avatar_updated_at DESC').take(20).paginate(:page => params[:page], :per_page => 6) # 6 is a good number
+    @similar_profiles_paginate = User.where("id <> ? AND devotion = ? AND sex = ?", visiting_user.id, visiting_user.devotion, visiting_user.sex).order('updated_at DESC, avatar_updated_at DESC').take(12).paginate(:page => params[:page], :per_page => 6) # 6 is a good number
   end
 
   #-----  End of Pages  -----#
@@ -215,6 +225,9 @@ class ProfilesController < ApplicationController
     @sparks[:waiting]   = number_with_delimiter(Interest.where("user_id = ? AND response IS NULL", current_user.id).count)
     @sparks[:shortlist] = number_with_delimiter(Shortlist.where(user_id: current_user.id).count)
     @sparks[:accepted]  = number_with_delimiter(Interest.where("user_id = ? AND response = ?", current_user.id, 1).count)
+    @sparks[:onlinenow]  = User.where("sex <> ? AND devotion = ? AND updated_at >= ?", current_user.sex, current_user.devotion, 30.minutes.ago).count
+    @sparks[:withphotos]  = User.where("sex <> ? AND devotion = ? AND images_count >= ?", current_user.sex, current_user.devotion, 1).order('images_count DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES).count
+    @sparks[:recentlyjoined]  = User.where("sex <> ? AND devotion = ? AND created_at >= ?", current_user.sex, current_user.devotion, Time.zone.now.beginning_of_day).count
   end
 
   protected
@@ -222,7 +235,7 @@ class ProfilesController < ApplicationController
   # for editing profile
   def is_this_user_profile
     if (current_user.profile.id != params[:id].to_i)
-      redirect_to(explore_index_path)
+      redirect_to(profiles_index_path)
     end
   end
   def get_current_user
@@ -234,7 +247,7 @@ class ProfilesController < ApplicationController
   def not_same_sex
     user = User.find(Profile.find(params[:id]).user_id)
     if user.id != current_user.id && current_user.sex == user.sex
-      redirect_to explore_index_path
+      redirect_to profiles_index_path
     end
   end
 
@@ -295,14 +308,18 @@ class ProfilesController < ApplicationController
     end
   end
   def notify_growl(event, visiting_user_id, title)
-    channel_name = "socket_user_#{visiting_user_id}"
     visited_user = User.find(visiting_user_id)
+    to_user_id = visited_user.id
+
     data = {}
     data[:img]   = visited_user.avatar
     data[:title] = title
     data[:profile_id] = current_user.profile.id
-    WebsocketRails[channel_name].trigger(event, data)
-    badge_increment(visiting_user, event.to_s)
+    data[:event] = event
+
+    channel_name = "/messages/#{to_user_id}"
+    PrivatePub.publish_to channel_name, :data => data
+    badge_increment(visited_user, event.to_s)
   end
   def badge_increment(user, event)
     if event == "interest"
@@ -327,24 +344,3 @@ class ProfilesController < ApplicationController
     end
   end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

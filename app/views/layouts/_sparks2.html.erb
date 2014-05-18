@@ -1,0 +1,21 @@
+<div class="row well well-sm">
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+    <%= link_to online_profiles_path do %>
+      <span class="easy-pie-title"> <i class="fa fa-circle txt-color-green"></i> Online
+      <%= number_with_delimiter(@sparks[:onlinenow]) %> <i class="fa fa-caret-down icon-color-bad"></i>
+      </span>
+    <% end %>
+  </div>
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+  <%= link_to withphotos_profiles_path do %>
+      <span class="easy-pie-title"> With photos 
+      <%= number_with_delimiter(@sparks[:withphotos]) %> <i class="fa fa-caret-down icon-color-bad"></i> </span>
+    <% end %>
+  </div>
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+    <%= link_to recentlyjoined_profiles_path do %>
+      <span class="easy-pie-title"> Joined Today 
+      <%= number_with_delimiter(@sparks[:recentlyjoined]) %> <i class="fa fa-caret-down icon-color-bad"></i> </span>
+    <% end %>
+  </div>
+</div>

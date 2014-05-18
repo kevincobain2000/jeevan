@@ -1,4 +1,4 @@
-  <div class="row hidden-xs padding-10 bg-color-white pin">
+  <div class="row hidden-xs hidden-mobile padding-10 bg-color-white">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <ul id="sparks" class="">
       <li class="sparks-info">
@@ -22,7 +22,7 @@
         <h5>
         <% badge = current_user.badge.interest > 0 ? "red bounceIn animated" : "blue" %>
         <small><label class="badge bg-color-<%= badge %> font-xs"><%= current_user.badge.interest %></label></small>
-           Incoming Interests
+           Interested in Me
           <span class="txt-color-greenDark"><i class="fa fa-heart txt-color-blue"></i>&nbsp;<%= @sparks[:incoming] %>
           </span></h5>
           <% end %>
@@ -42,7 +42,7 @@
         <% badge = current_user.badge.rejected > 0 ? "red bounceIn animated" : "blue" %>
         <small><label class="badge bg-color-<%= badge %> font-xs"><%= current_user.badge.rejected %></label></small>
            Got Rejected
-          <span class="txt-color-greenDark"><i class="fa fa-times txt-color-red"></i>&nbsp;<%= @sparks[:rejected] %></span></h5>
+          <span class="txt-color-greenDark"><i class="fa fa-thumbs-down txt-color-red"></i>&nbsp;<%= @sparks[:rejected] %></span></h5>
           <% end %>
       </li>
       <li class="sparks-info">
