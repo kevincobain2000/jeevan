@@ -218,7 +218,12 @@ class ProfilesController < ApplicationController
 
   def similar_profiles
     visiting_user = User.find(Profile.find(params[:id]).user_id)
-    @similar_profiles_paginate = User.where("id <> ? AND devotion = ? AND sex = ?", visiting_user.id, visiting_user.devotion, visiting_user.sex).order('updated_at DESC, avatar_updated_at DESC').take(12).paginate(:page => params[:page], :per_page => 6) # 6 is a good number
+    if current_user.id == visiting_user.id
+      already_visited = [current_user.id]
+      @similar_profiles_paginate = User.where("sex <> ? AND devotion = ? AND id NOT IN (?)", current_user.sex, current_user.devotion, already_visited).order('images_count DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
+      else
+        @similar_profiles_paginate = User.where("id <> ? AND devotion = ? AND sex = ?", visiting_user.id, visiting_user.devotion, visiting_user.sex).order('updated_at DESC, avatar_updated_at DESC').take(12).paginate(:page => params[:page], :per_page => 6) # 6 is a good number
+    end
   end
 
   #-----  End of Pages  -----#
@@ -240,7 +245,7 @@ class ProfilesController < ApplicationController
   # for editing profile
   def is_this_user_profile
     if (current_user.profile.id != params[:id].to_i)
-      redirect_to(profiles_index_path)
+      redirect_to root_path
     end
   end
   def get_current_user
@@ -252,7 +257,7 @@ class ProfilesController < ApplicationController
   def not_same_sex
     user = User.find(Profile.find(params[:id]).user_id)
     if user.id != current_user.id && current_user.sex == user.sex
-      redirect_to profiles_index_path
+      redirect_to root_path
     end
   end
 
