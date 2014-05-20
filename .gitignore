@@ -16,4 +16,8 @@
 /tmp
 .*DS_STORE.*
 public/system/*
-solr/developement/data
+solr/default/
+solr/developement/
+solr/data/
+solr/pids/
+solr/test/
