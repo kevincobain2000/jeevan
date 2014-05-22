@@ -129,3 +129,22 @@ rake sunspot:solr:start
 rake sunspot:solr:start RAILS_ENV=production
 rake sunspot:reindex
 ```
+
+#### Rakes
+
+```
+RAILS_ENV=production bundle exec rake assets:precompile
+```
+
+#### thin
+
+```
+RAILS_ENV=production bundle exec rackup private_pub.ru -s thin -E production
+```
+
+
+#### Running it
+
+```
+rails server -e production -p 80
+```

@@ -63,7 +63,6 @@ ActiveRecord::Schema.define(version: 20140517144352) do
     t.string   "desired_smoke",          limit: 32,  default: "No"
     t.string   "desired_drink",          limit: 32,  default: "No"
     t.string   "desired_complexion",     limit: 64,  default: "Fair"
-    t.string   "desired_body",           limit: 32
     t.string   "desired_challenged",     limit: 4,   default: "No"
     t.string   "desired_education",      limit: 128
     t.string   "desired_occupation",     limit: 128
