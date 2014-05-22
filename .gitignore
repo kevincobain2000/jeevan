@@ -21,3 +21,5 @@ solr/developement/
 solr/data/
 solr/pids/
 solr/test/
+public/assets
+log/

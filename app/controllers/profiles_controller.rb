@@ -156,9 +156,9 @@ class ProfilesController < ApplicationController
   #==============================#/
   def index
     already_visited    = [current_user.id]
-    already_visited   += Visitor.where(user_id: current_user.id).pluck(:viewed_id)
-    already_visited   += Interest.where("user_id = ?", current_user.id).pluck(:to_user_id)
-    already_visited   += Shortlist.where("user_id = ?", current_user.id).pluck(:to_user_id)
+    # already_visited   += Visitor.where(user_id: current_user.id).pluck(:viewed_id)
+    # already_visited   += Interest.where("user_id = ?", current_user.id).pluck(:to_user_id)
+    # already_visited   += Shortlist.where("user_id = ?", current_user.id).pluck(:to_user_id)
     @matching = User.where("sex <> ? AND devotion = ? AND id NOT IN (?)", current_user.sex, current_user.devotion, already_visited).order('images_count DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
   end
 
@@ -231,7 +231,7 @@ class ProfilesController < ApplicationController
     @sparks = Hash.new {|h, k| h[k] = [] }
     @sparks[:visitors]  = number_with_delimiter(Visitor.where(viewed_id: current_user.id).count)
     @sparks[:incoming]  = number_with_delimiter(Interest.where(to_user_id: current_user.id).count)
-    @sparks[:rejected]  = number_with_delimiter(Interest.where("user_id = ? AND response = ?", current_user.id, 3).count)
+    @sparks[:rejected]  = number_with_delimiter(Interest.where("user_id = ? AND response = ?", current_user.id, 0).count)
     @sparks[:waiting]   = number_with_delimiter(Interest.where("user_id = ? AND response IS NULL", current_user.id).count)
     @sparks[:shortlist] = number_with_delimiter(Shortlist.where(user_id: current_user.id).count)
     @sparks[:accepted]  = number_with_delimiter(Interest.where("user_id = ? AND response = ?", current_user.id, 1).count)
