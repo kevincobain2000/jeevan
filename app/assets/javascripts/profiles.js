@@ -283,6 +283,7 @@ $(document).ready(function($) {
   Dropzone.autoDiscover = false;
   $(".dropzone").dropzone({
     paramName: "avatar",
+    dictDefaultMessage:"<h3 class='text-center'>Drag and Drop Folder <br> <br>or <br><br>Click to upload Images here</h3>",
     maxFilesize: 1,
     addRemoveLinks: false,
     acceptedFiles: ".jpeg,.jpg,.png,.gif,.JPEG,.JPG,.PNG,.GIF",
@@ -306,5 +307,3 @@ $(document).ready(function($) {
 
 
 });
-
-
