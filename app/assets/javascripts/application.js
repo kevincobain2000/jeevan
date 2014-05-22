@@ -22,17 +22,3 @@
 //= require jquery.inputmask
 //= require gritter
 //= require private_pub
-
-
-$(document).ready(function($) {
-  /*===============================
-  =            SOCKETS            =
-  ===============================*/
-  PrivatePub.subscribe("/messages/"+$("#user").data("id"), function(data, channel) {
-  	dt = data.data
-  	$.gritter.add({ image: dt.img, title: dt.title, text: '<a class="txt-color-white" href="/profiles/'+dt.profile_id+'">view profile</a>' });
-  });
-  /*-----  End of SOCKETS  ------*/
-
-});
-
