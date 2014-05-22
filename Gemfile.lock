@@ -38,8 +38,6 @@ GEM
       debug_inspector (>= 0.0.1)
     bootstrap-datepicker-rails (1.3.0.1)
       railties (>= 3.0)
-    bootstrap-tagsinput-rails (0.3.2.0)
-      railties (>= 3.1)
     bootstrap-timepicker-rails (0.1.3)
       railties (>= 3.0)
     builder (3.1.4)
@@ -89,8 +87,8 @@ GEM
     faye-websocket (0.7.3)
       eventmachine (>= 0.12.0)
       websocket-driver (>= 0.3.1)
-    font-awesome-sass (4.0.3)
-      sass (~> 3.2)
+    font-awesome-rails (3.2.1.2)
+      railties (>= 3.2, < 5.0)
     gritter (1.1.0)
     highline (1.6.21)
     hike (1.2.3)
@@ -99,8 +97,6 @@ GEM
     jbuilder (1.5.3)
       activesupport (>= 3.0.0)
       multi_json (>= 1.2.0)
-    jquery-datatables-rails (1.12.2)
-      jquery-rails
     jquery-inputmask-rails (2.0.1)
     jquery-rails (3.1.0)
       railties (>= 3.0, < 5.0)
@@ -225,10 +221,6 @@ GEM
       polyglot (>= 0.3.1)
     turbolinks (2.2.1)
       coffee-rails
-    twitter-typeahead-rails (0.9.3)
-      actionpack (>= 3.1)
-      jquery-rails
-      railties (>= 3.1)
     tzinfo (0.3.38)
     uglifier (2.4.0)
       execjs (>= 0.3.0)
@@ -247,16 +239,14 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-datepicker-rails
-  bootstrap-tagsinput-rails
   bootstrap-timepicker-rails
   coffee-rails (~> 4.0.0)
   devise
   dropzonejs-rails
   faye
-  font-awesome-sass
+  font-awesome-rails
   gritter (= 1.1.0)
   jbuilder (~> 1.2)
-  jquery-datatables-rails
   jquery-inputmask-rails
   jquery-rails
   jquery-turbolinks
@@ -281,6 +271,5 @@ DEPENDENCIES
   therubyracer
   thin
   turbolinks
-  twitter-typeahead-rails
   uglifier (>= 1.3.0)
   will_paginate (~> 3.0)

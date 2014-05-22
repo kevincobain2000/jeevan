@@ -7,6 +7,7 @@ Jeevan::Application.routes.draw do
   devise_for :users, :controllers => { :registrations => "registrations", :sessions => "sessions" }
   resources :profiles do
     collection do
+      delete :destroy_everything
       post :modify_profile
       post :modify_avatar
       post :modify_contact
@@ -25,7 +26,6 @@ Jeevan::Application.routes.draw do
       post :interest
       post :interest_response
       post :shortlist
-      post :seen_notification
       post :search
       post :index
       #ajax
@@ -63,8 +63,5 @@ Jeevan::Application.routes.draw do
 
   root :to => redirect('/users/sign_in')
 
-  if Rails.env.production?
-    get '*path' => redirect('/')
-  end
   get '*path' => redirect('/')
 end

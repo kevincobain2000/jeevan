@@ -87,6 +87,11 @@ class ProfilesController < ApplicationController
     current_user.desire.update(desire_params)
     render json: { :status => 200 }
   end
+  def destroy_everything
+    user = User.find(current_user.id)
+    user.destroy
+    redirect_to root_path
+  end
 
   /#=================================================
   #            # Express Interest Button            =
@@ -151,9 +156,9 @@ class ProfilesController < ApplicationController
   #==============================#/
   def index
     already_visited    = [current_user.id]
-    already_visited   += Visitor.where(user_id: current_user.id).pluck(:viewed_id)
-    already_visited   += Interest.where("user_id = ?", current_user.id).pluck(:to_user_id)
-    already_visited   += Shortlist.where("user_id = ?", current_user.id).pluck(:to_user_id)
+    # already_visited   += Visitor.where(user_id: current_user.id).pluck(:viewed_id)
+    # already_visited   += Interest.where("user_id = ?", current_user.id).pluck(:to_user_id)
+    # already_visited   += Shortlist.where("user_id = ?", current_user.id).pluck(:to_user_id)
     @matching = User.where("sex <> ? AND devotion = ? AND id NOT IN (?)", current_user.sex, current_user.devotion, already_visited).order('images_count DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
   end
 
@@ -213,7 +218,12 @@ class ProfilesController < ApplicationController
 
   def similar_profiles
     visiting_user = User.find(Profile.find(params[:id]).user_id)
-    @similar_profiles_paginate = User.where("id <> ? AND devotion = ? AND sex = ?", visiting_user.id, visiting_user.devotion, visiting_user.sex).order('updated_at DESC, avatar_updated_at DESC').take(12).paginate(:page => params[:page], :per_page => 6) # 6 is a good number
+    if current_user.id == visiting_user.id
+      already_visited = [current_user.id]
+      @similar_profiles_paginate = User.where("sex <> ? AND devotion = ? AND id NOT IN (?)", current_user.sex, current_user.devotion, already_visited).order('images_count DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
+      else
+        @similar_profiles_paginate = User.where("id <> ? AND devotion = ? AND sex = ?", visiting_user.id, visiting_user.devotion, visiting_user.sex).order('updated_at DESC, avatar_updated_at DESC').take(12).paginate(:page => params[:page], :per_page => 6) # 6 is a good number
+    end
   end
 
   #-----  End of Pages  -----#
@@ -221,7 +231,7 @@ class ProfilesController < ApplicationController
     @sparks = Hash.new {|h, k| h[k] = [] }
     @sparks[:visitors]  = number_with_delimiter(Visitor.where(viewed_id: current_user.id).count)
     @sparks[:incoming]  = number_with_delimiter(Interest.where(to_user_id: current_user.id).count)
-    @sparks[:rejected]  = number_with_delimiter(Interest.where("user_id = ? AND response = ?", current_user.id, 3).count)
+    @sparks[:rejected]  = number_with_delimiter(Interest.where("user_id = ? AND response = ?", current_user.id, 0).count)
     @sparks[:waiting]   = number_with_delimiter(Interest.where("user_id = ? AND response IS NULL", current_user.id).count)
     @sparks[:shortlist] = number_with_delimiter(Shortlist.where(user_id: current_user.id).count)
     @sparks[:accepted]  = number_with_delimiter(Interest.where("user_id = ? AND response = ?", current_user.id, 1).count)
@@ -235,7 +245,7 @@ class ProfilesController < ApplicationController
   # for editing profile
   def is_this_user_profile
     if (current_user.profile.id != params[:id].to_i)
-      redirect_to(profiles_index_path)
+      redirect_to root_path
     end
   end
   def get_current_user
@@ -247,7 +257,7 @@ class ProfilesController < ApplicationController
   def not_same_sex
     user = User.find(Profile.find(params[:id]).user_id)
     if user.id != current_user.id && current_user.sex == user.sex
-      redirect_to profiles_index_path
+      redirect_to root_path
     end
   end
 
