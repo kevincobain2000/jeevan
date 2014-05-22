@@ -125,6 +125,7 @@ rackup private_pub.ru -s thin -E production
 #### SOlr
 
 ```
+remove the dir solr/
 rake sunspot:solr:start
 rake sunspot:solr:start RAILS_ENV=production
 rake sunspot:reindex
