@@ -14,7 +14,6 @@
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
 //= require jquery.ui.tabs
 //= require bootstrap-datepicker/core
 //= require selectize
@@ -22,3 +21,4 @@
 //= require jquery.inputmask
 //= require gritter
 //= require private_pub
+//= require_tree .

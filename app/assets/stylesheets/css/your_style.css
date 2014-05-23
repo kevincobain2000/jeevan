@@ -27,7 +27,8 @@
 #footer {
     min-height: 260px;
     margin-top: 140px;
-    background: url('../mybg.png') #ffffff;
+    /*background: url('../mybg.png') #ffffff;*/
+    background: #e9eaed;
     /*background-color: #252528;*/
     color: #fff;
     padding-top: 35px;
@@ -278,11 +279,11 @@
 
 .shadow-box {
     /*width: 100%;*/
-    display: inline-block;
+    /*display: inline-block;*/
     background: #ffffff;
     border: 2px solid #FAFAFA;
     box-shadow: 0 2px 2px rgba(33, 25, 25, 0.4);
-    margin: 0 0px 15px;
+    margin: 0 5px 15px;
     padding: 10px;
     padding-bottom: 15px;
     /*background: -webkit-linear-gradient(45deg, #FFF, #F9F9F9);*/
