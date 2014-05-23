@@ -281,9 +281,33 @@ $(document).on("page:change", function() {
 
 $(document).ready(function($) {
   Dropzone.autoDiscover = false;
-  $(".dropzone").dropzone({
+  $("#images-dropzone").dropzone({
     paramName: "avatar",
-    dictDefaultMessage:"<h3 class='text-center'>Drag and Drop Folder <br> <br>or <br><br>Click to upload Images here</h3>",
+    dictDefaultMessage:"<h1 class='text-center'><strong>Your Images (limit 20)</strong></h1><h3 class='text-center'>Drag and Drop Folder/Images <br> <br>or <br><br>Click to upload Images here</h3>",
+    maxFilesize: 1,
+    addRemoveLinks: false,
+    acceptedFiles: ".jpeg,.jpg,.png,.gif,.JPEG,.JPG,.PNG,.GIF",
+    thumbnailWidth: 300,
+    thumbnailHeight: 300,
+    init: function() {
+      this.on('success', function(file, response){
+        if (response.status == 422) {
+          file.previewElement.classList.add("dz-error");
+          _ref = file.previewElement.querySelectorAll("[data-dz-errormessage]");
+          _results = [];
+          for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+            node = _ref[_i];
+            _results.push(node.textContent = response.error);
+          }
+          return _results;
+        };
+      });
+    }
+  });
+
+  $("#avatar-dropzone").dropzone({
+    paramName: "avatar",
+    dictDefaultMessage:"<h1 class='text-center'><strong>Profile Picture</strong></h1><h3 class='text-center'>Drag and Drop Folder/Images <br> <br>or <br><br>Click to upload Images here</h3>",
     maxFilesize: 1,
     addRemoveLinks: false,
     acceptedFiles: ".jpeg,.jpg,.png,.gif,.JPEG,.JPG,.PNG,.GIF",

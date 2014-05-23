@@ -17,7 +17,7 @@
     </p>
   </li>
   <li>
-  <% if current_user.sex == "Female" %>
+  <% if current_user.sex == "Male" %>
     <% items = {posted_by: [:profile, 'fa-user'], manglik: [:kundali, "fa fa-circle"], occupation: [:occupation, "fa fa-suitcase"], desired_income: [:desire, "fa fa-money"] } %>
   <% else %>
     <% items = {home: [:profile, 'fa-home'], caste: [:religion, 'fa-bars'], posted_by: [:profile, 'fa-user'], manglik: [:kundali, "fa fa-circle"], occupation: [:occupation, "fa fa-suitcase"], company: [:occupation, "fa fa-bookmark"], annual_income: [:occupation, "fa fa-money"] } %>
@@ -28,7 +28,7 @@
 
         <% if user[value[0]][key] %>
         <strong class="txt-color-blueDark">
-         <%= truncate(titleize(user[value[0]][key]), length: 20) %>
+         <%= truncate(titleize(user[value[0]][key]), length: 20) %>asdasd asd asdasdasd asd
        </strong>
        <% end %>
     </p>

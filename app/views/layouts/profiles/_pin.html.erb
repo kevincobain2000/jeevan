@@ -20,10 +20,10 @@
       <% end %>
       <% paginate.each do |_user| %>
         <% user = make_user(_user) %>
-        <div class="col-md-6 col-xs-12 shadow-box" style="height:290px;">
+        <div class="col-md-5 col-xs-12 well shadow-box" style="height:350px;">
           <div class="col-md-3 col-xs-6">
           <%= link_to profile_path(:id =>user[:profile][:id]), :class=>"" do %>
-              <%= image_tag user[:avatar].url(:thumb), :class=>"", :style=>"width:100px;height:100px;" %>
+              <%= image_tag user[:avatar].url(:thumb), :class=>"", :style=>"width:75px;height:75px;" %>
             <% end %>
             <br>
             <%= render :partial =>'layouts/online', :locals => {:time => user[:updated_at]}%>
