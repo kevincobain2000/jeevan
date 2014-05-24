@@ -1,9 +1,11 @@
 <div class="col-sm-4">
   <div class="well">
     <%= render :partial =>'layouts/profiles/show/images', :locals => {:user => user} %>
-    <legend></legend>
-    <h1><small>You will also Like</small></h1>
-    <hr>
+    <% if @similar_profiles_paginate.count >= 1 %>
+      <legend></legend>
+      <h1><small>You will also Like</small></h1>
+      <hr>
+    <% end %>
     <ul class="media-list">
       <% @similar_profiles_paginate.each do |_user| %>
         <% user = make_user(_user) %>
