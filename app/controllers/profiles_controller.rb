@@ -206,6 +206,14 @@ class ProfilesController < ApplicationController
 
   def search
     query_string = params[:query].to_s
+    probably_age = query_string.scan(/\d+/).first
+    if probably_age && probably_age.length == 2 && probably_age.to_i >= 18
+      year_will_be_searching = Time.now.year - probably_age.to_i
+      query_string = query_string.gsub(probably_age, "")
+      query_string += "#{year_will_be_searching.to_s}"
+    end
+    logger.info("Debug #{query_string}");
+
     query_string = query_string.length > 0 ? query_string : current_user.devotion
     @solr = User.search do
       fulltext query_string
@@ -214,6 +222,7 @@ class ProfilesController < ApplicationController
       paginate :page => params[:page], :per_page => PAGINATE_PROFILES
     end
     @search = @solr.results
+    @query_was = params[:query]
   end
 
   def similar_profiles
