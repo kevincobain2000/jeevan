@@ -39,6 +39,7 @@ gem "gritter", "1.1.0"
 gem "private_pub"
 gem 'faye'
 gem 'thin'
+gem 'validates_timeliness', '~> 3.0'
 
 # gem 'rake', '~> 10.1.1'
 

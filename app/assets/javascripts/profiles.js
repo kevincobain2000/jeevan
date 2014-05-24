@@ -2,10 +2,6 @@ $(document).on("page:change", function() {
   // $( "#tabs" ).tabs();
   pageSetUp();
 
-  $("[id^=side]").click(function() {
-    $("#hidden-" + this.id)[0].click();
-  });
-
   selectize_items = {
     home:true,
     religion: true,
@@ -220,20 +216,23 @@ $(document).on("page:change", function() {
     // $(this).html('<i class="fa fa-check"></i> Done!')
     $(this).addClass('disabled');
   });
+
   $(".edit").click(function() {
     $(this).addClass('disabled');
   });
+
   $('form.edit').bind("keyup change", function(e) {
     show_save_button($(this));
   });
 
   function show_save_button (el) {
-    el.find(':submit').html('Save');
+    // el.find(':submit').html('Save');
     el.find(':submit').removeClass('disabled');
   }
 
   $('form.edit').submit(function() {
-    $(this).find(':submit').html('Saved');
+    $.gritter.add({ image: '/assets/success.png', title: 'Success', text: 'Saved' });
+    // $(this).find(':submit').html('Saved');
   });
 
   $('.superbox').on('click', '.removeimage', function() {
@@ -283,7 +282,7 @@ $(document).ready(function($) {
   Dropzone.autoDiscover = false;
   $("#images-dropzone").dropzone({
     paramName: "avatar",
-    dictDefaultMessage:"<h1 class='text-center'><strong>Your Images (limit 20)</strong></h1><h3 class='text-center'>Drag and Drop Folder/Images <br> <br>or <br><br>Click to upload Images here</h3>",
+    dictDefaultMessage:"<h1 class='text-center'><strong>Your Images (limit 20)</strong></h1><h3 class='text-center'>Drag and Drop Folder/Images <br> <br>or <br><br>Click to upload Images here</h3><br><br><br><br><br><br><br><br>",
     maxFilesize: 1,
     addRemoveLinks: false,
     acceptedFiles: ".jpeg,.jpg,.png,.gif,.JPEG,.JPG,.PNG,.GIF",
@@ -307,7 +306,7 @@ $(document).ready(function($) {
 
   $("#avatar-dropzone").dropzone({
     paramName: "avatar",
-    dictDefaultMessage:"<h1 class='text-center'><strong>Profile Picture</strong></h1><h3 class='text-center'>Drag and Drop Folder/Images <br> <br>or <br><br>Click to upload Images here</h3>",
+    dictDefaultMessage:"<h1 class='text-center'><strong>Profile Picture</strong></h1><h3 class='text-center'>Drag and Drop Image <br> <br>or <br><br>Click to upload Images here</h3>",
     maxFilesize: 1,
     addRemoveLinks: false,
     acceptedFiles: ".jpeg,.jpg,.png,.gif,.JPEG,.JPG,.PNG,.GIF",

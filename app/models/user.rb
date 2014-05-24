@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validates :devotion, presence: true
   validates :dob, presence: true
+  validates_date :dob, :before => lambda { 18.years.ago }, :before_message => "must be at least 18 years old"
   validates :username, presence: true, :length => { :minimum => 5, :maximum => 50 }, uniqueness: true
   after_create :create_dependents
   devise :database_authenticatable, :registerable,

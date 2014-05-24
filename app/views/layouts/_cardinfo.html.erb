@@ -8,7 +8,7 @@
   </li>
   <li>
     <p class="">
-      <i class="fa fa-file"></i> Profile <%= user[:name] %>
+      <i class="fa fa-file"></i> Profile of <%= user[:name] %>
     </p>
   </li>
   <li>
@@ -24,12 +24,14 @@
   <% end %>
       <% items.stringify_keys.each do |key, value| %>
       <p class="">
+      <span class="text-muted">
         <i class="text-muted fa <%= value[1] %>"></i> <%= key.gsub('_', ' ').titleize %>:
+      </span>
 
         <% if user[value[0]][key] %>
-        <strong class="txt-color-blueDark">
-         <%= truncate(titleize(user[value[0]][key]), length: 20) %>asdasd asd asdasdasd asd
-       </strong>
+        <span class="">
+         <%= truncate(titleize(user[value[0]][key]), length: 20) %>
+       </span>
        <% end %>
     </p>
     <% end %>
