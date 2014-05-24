@@ -1,4 +1,6 @@
-<h1><small>Images</small></h1>
+<% if user[:image].count >=1 %>
+	<h1><small>Images</small></h1>
+<% end %>
   <% user[:image].each do |image| %>
   <a href="<%= image.avatar.url(:original) %>" data-lightbox="roadtrip">
     <%= image_tag image.avatar.url(:tiny) %>
