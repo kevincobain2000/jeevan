@@ -11,8 +11,6 @@
  *= require_self
  *= require_tree .
  *= require font-awesome
- *= require bootstrap-datepicker
  *= require selectize.default.css
- *= require dropzone/basic
  *= require gritter
  */
