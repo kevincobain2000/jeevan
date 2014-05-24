@@ -30,25 +30,55 @@
     <li>
       <a href="/profiles/visitors">
         <i class="fa fa-lg fa-fw fa-thumbs-up"></i>
-        <span class="menu-item-parent">My Visitors</span>
+        <span class="menu-item-parent">
+          Visitors
+          <% if current_user.badge.visitor != 0 %>
+          <small><label class="badge bg-color-red bounceIn animated font-xs">
+          <%= current_user.badge.visitor %>
+          </label></small> 
+          <% end %>
+        </span>
       </a>
     </li>
     <li>
       <a href="/profiles/incomings">
         <i class="fa fa-lg fa-fw fa-heart txt-color-pink"></i>
-        <span class="menu-item-parent">Interested</span>
+        <span class="menu-item-parent">
+          Interested
+          <% if current_user.badge.interest != 0 %>
+          <small>
+            <label class="badge bg-color-red bounceIn animated font-xs">
+            <%= current_user.badge.interest %>
+          </label>
+        </small>
+          <% end %>
+        </span>
       </a>
     </li>
     <li>
       <a href="/profiles/accepted">
         <i class="fa fa-lg fa-fw fa-check txt-color-green"></i>
-        <span class="menu-item-parent">Accepted Me</span>
+        <span class="menu-item-parent">
+          Accepted
+          <% if current_user.badge.accepted != 0 %>
+          <small><label class="badge bg-color-red bounceIn animated font-xs">
+          <%= (current_user.badge.accepted == 0) ? "" : current_user.badge.accepted %>
+          </label></small>
+          <% end %>
+        </span>
       </a>
     </li>
     <li>
       <a href="/profiles/outgoings">
         <i class="fa fa-lg fa-fw fa-thumbs-down txt-color-red"></i>
-        <span class="menu-item-parent">Rejected</span>
+        <span class="menu-item-parent">
+        Rejected
+        <% if current_user.badge.rejected != 0 %>
+        <small><label class="badge bg-color-red bounceIn animated font-xs">
+          <%= (current_user.badge.rejected == 0) ? "" : current_user.badge.rejected  %>
+        </label></small>
+        <% end %>
+        </span>
       </a>
     </li>
     <li>
