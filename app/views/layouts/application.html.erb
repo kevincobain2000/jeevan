@@ -13,11 +13,9 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no" />
     <meta name="description" content="India's fastest growing Matrimonial website which will keep you indulged with real time updates" />
-    <!-- <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"> -->
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" =>
   true %>
-    <%= javascript_include_tag "application", "data-turbolinks-track" =>
-  true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
     <%= favicon_link_tag '/favicon.ico' %>
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700"></head>
@@ -34,7 +32,31 @@
     <% end %>
     <%= yield %>
     <% if current_user %>
-    <%= render :partial =>'layouts/footer'%>
+    <%#= render :partial =>'layouts/footer'%>
     <% end %>
   </body>
 </html>
+<script type="text/javascript">
+  $(document).ready(function($) {
+  /*===============================
+  =            SOCKETS            =
+  ===============================*/
+
+  events_datetime = [];
+  PrivatePub.subscribe("/messages/"+$("#user").data("id"), function(data, channel) {
+    dt = data.data
+    console.log(events_datetime);
+
+    if ($.inArray(dt.datetime, events_datetime) !== -1) {
+      console.log(events_datetime)
+      console.log("Return")
+      return;
+    };
+
+    events_datetime.push(dt.datetime);
+    $.gritter.add({ image: dt.img, title: dt.title, text: '<a class="txt-color-white" href="/profiles/'+dt.profile_id+'">view profile</a>' });
+  });
+  /*-----  End of SOCKETS  ------*/
+
+});
+</script>

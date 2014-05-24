@@ -8,7 +8,7 @@
   </li>
   <li>
     <p class="">
-      <i class="fa fa-file"></i> Profile <%= user[:name] %>
+      <i class="fa fa-file"></i> Profile of <%= user[:name] %>
     </p>
   </li>
   <li>
@@ -17,19 +17,21 @@
     </p>
   </li>
   <li>
-  <% if current_user.sex == "Female" %>
+  <% if current_user.sex == "Male" %>
     <% items = {posted_by: [:profile, 'fa-user'], manglik: [:kundali, "fa fa-circle"], occupation: [:occupation, "fa fa-suitcase"], desired_income: [:desire, "fa fa-money"] } %>
   <% else %>
     <% items = {home: [:profile, 'fa-home'], caste: [:religion, 'fa-bars'], posted_by: [:profile, 'fa-user'], manglik: [:kundali, "fa fa-circle"], occupation: [:occupation, "fa fa-suitcase"], company: [:occupation, "fa fa-bookmark"], annual_income: [:occupation, "fa fa-money"] } %>
   <% end %>
       <% items.stringify_keys.each do |key, value| %>
-      <p class="hidden-xs">
+      <p class="">
+      <span class="text-muted">
         <i class="text-muted fa <%= value[1] %>"></i> <%= key.gsub('_', ' ').titleize %>:
+      </span>
 
         <% if user[value[0]][key] %>
-        <strong class="txt-color-blueDark">
+        <span class="">
          <%= truncate(titleize(user[value[0]][key]), length: 20) %>
-       </strong>
+       </span>
        <% end %>
     </p>
     <% end %>

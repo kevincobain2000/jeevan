@@ -210,7 +210,7 @@ $(document).ready(function() {
 		// ask verification
 		$.SmartMessageBox({
 			title : "<i class='fa fa-sign-out txt-color-orangeDark'></i> Logout <span class='txt-color-orangeDark'><strong>" + $('#show-shortcut').text() + "</strong></span> ?",
-			content : "You can improve your security further after logging out by closing this opened browser",
+			content : "You can improve your security further after logging out by closing this opened tab",
 			buttons : '[No][Yes]'
 
 		}, function(ButtonPressed) {
@@ -1277,16 +1277,16 @@ function pageSetUp() {
 		});
 	
 		// activate inline charts
-		runAllCharts();
+		// runAllCharts();
 	
 		// setup widgets
-		setup_widgets_desktop();
+		// setup_widgets_desktop();
 	
 		//setup nav height (dynamic)
-		nav_page_height();
+		// nav_page_height();
 	
 		// run form elements
-		runAllForms();
+		// runAllForms();
 
 	} else {
 		
@@ -1301,16 +1301,16 @@ function pageSetUp() {
 		});
 	
 		// activate inline charts
-		runAllCharts();
+		// runAllCharts();
 	
 		// setup widgets
-		setup_widgets_mobile();
+		// setup_widgets_mobile();
 	
 		//setup nav height (dynamic)
-		nav_page_height();
+		// nav_page_height();
 	
 		// run form elements
-		runAllForms();
+		// runAllForms();
 		
 	}
 

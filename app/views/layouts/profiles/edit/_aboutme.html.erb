@@ -2,7 +2,10 @@
 <h3 class="">Write something
   <strong>About</strong>
   Yourself &
-  <i>family</i></h3>
+  <i>family</i>
+  <br>
+  <small>Your about me text will be used by our search algorithms to show better results.</small>
+  </h3>
 <%= form_tag({:action=>'modify_about'}, {:remote => true}) do %>
   <input type="hidden" name="me" id="about-me" type="hidden">
   <button type="submit" id="submit-about-me" class="btn btn-success pull-right hidden"></button>
@@ -21,6 +24,7 @@
     Save</button>
 </div>
 <script type="text/javascript">
+char_len = $('.click2edit').code().length;
   var edit = function() {
       $(".click2edit").summernote({
         focus: true,
