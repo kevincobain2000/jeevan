@@ -53,6 +53,7 @@ class User < ActiveRecord::Base
     text :birth_country,:birth_city,:sun_sign
     text :complexion,:blood
     text :me
+    text :dob
     text :status,:size
     text :highest_degree
     text :interest, :music, :read,:dress, :tv,:movie, :sport,:vacation
