@@ -12,9 +12,7 @@
       <%= image_tag current_user.avatar.url(:thumb), :class => "img-rounded" %>
       </a>
       <!-- User image size is adjusted inside CSS, it should stay as it -->
-      <a href="javascript:void(0);" id="show-shortcut">
-        <%= link_to truncate(current_user.name, length: 10), profile_path(:id =>current_user.profile.id)%>
-      </a>
+      <%= link_to truncate(current_user.name, length: 10), profile_path(:id =>current_user.profile.id), :id=> "show-shortcut" %>
     </span>
   </div>
   <!-- end user info -->
@@ -115,3 +113,4 @@
 </nav>
 </aside>
 <!-- END NAVIGATION -->
+<%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-avatar", :tpl => "avatar"} %>
