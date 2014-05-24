@@ -152,3 +152,9 @@ RAILS_ENV=production bundle exec rackup private_pub.ru -s thin -E production
 rails server -e production -p 80
 bundle exec unicorn_rails -c config/unicorn.rb -E production -D -p 80
 ```
+
+### Killing Unicorn
+
+```
+ps aux | grep 'unicorn' | awk '{print $2}' | xargs sudo kill -9
+```
