@@ -90,6 +90,9 @@ class ProfilesController < ApplicationController
   def destroy_everything
     user = User.find(current_user.id)
     user.destroy
+    Interest.where(:to_user_id => current_user.id).destroy_all
+    Visitor.where(:viewed_id => current_user.id).destroy_all
+    Shortlist.where(:to_user_id => current_user.id).destroy_all
     redirect_to root_path
   end
 
