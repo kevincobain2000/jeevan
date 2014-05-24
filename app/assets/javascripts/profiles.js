@@ -147,7 +147,7 @@ $(document).on("page:change", function() {
   };
 
   $(".close-edit-modal").click(function() {
-    $("#hidden-side-myprofile")[0].click();
+     window.location = location.href;
   });
 
 
@@ -280,7 +280,7 @@ $(document).on("page:change", function() {
 
 $(document).ready(function($) {
   Dropzone.autoDiscover = false;
-  $("#images-dropzone").dropzone({
+  $(".images-dropzone").dropzone({
     paramName: "avatar",
     dictDefaultMessage:"<h1 class='text-center'><strong>Your Images (limit 20)</strong></h1><h3 class='text-center'>Drag and Drop Folder/Images <br> <br>or <br><br>Click to upload Images here</h3><br><br><br><br><br><br><br><br>",
     maxFilesize: 1,
@@ -304,7 +304,7 @@ $(document).ready(function($) {
     }
   });
 
-  $("#avatar-dropzone").dropzone({
+  $(".avatar-dropzone").dropzone({
     paramName: "avatar",
     dictDefaultMessage:"<h1 class='text-center'><strong>Profile Picture</strong></h1><h3 class='text-center'>Drag and Drop Image <br> <br>or <br><br>Click to upload Images here</h3>",
     maxFilesize: 1,
