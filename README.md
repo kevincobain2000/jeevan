@@ -116,6 +116,11 @@ Edits done here
 
 # Deploy
 
+#### Rakes
+
+```
+RAILS_ENV=production bundle exec rake assets:precompile
+```
 
 #### Faye
 
@@ -123,20 +128,16 @@ Edits done here
 rackup private_pub.ru -s thin -E production
 ```
 
-#### SOlr
+#### Solr
 
 ```
-remove the dir solr/
-rake sunspot:solr:start
+Troubleshooting: remove the dir solr/
+
+rake sunspot:solr:start RAILS_ENV=development
 rake sunspot:solr:start RAILS_ENV=production
 rake sunspot:reindex
 ```
 
-#### Rakes
-
-```
-RAILS_ENV=production bundle exec rake assets:precompile
-```
 
 #### thin
 
@@ -149,4 +150,5 @@ RAILS_ENV=production bundle exec rackup private_pub.ru -s thin -E production
 
 ```
 rails server -e production -p 80
+bundle exec unicorn_rails -c config/unicorn.rb -E production -D -p 80
 ```
