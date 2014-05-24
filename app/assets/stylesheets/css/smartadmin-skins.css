@@ -400,7 +400,8 @@ border-top: 1px solid #303031;
 body.smart-style-2 {
 	overflow: hidden;
 	/*background:#fff;*/
-	background: url('../mybg.png') #ffffff;
+	/*background: url('../mybg.png') #ffffff;*/
+	background: #e9eaed;
 	font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
 }
 
@@ -476,7 +477,8 @@ body.smart-style-2 {
 
 .smart-style-2 aside {
 	position:fixed;
-	background: url('../mybg.png') #ffffff;
+	/*background: url('../mybg.png') #ffffff;*/
+	background: #e9eaed;
 /*	background: #F7F7F7;
 	background: -webkit-gradient(linear,left top,right top,color-stop(99%,#F7F7F7),color-stop(100%,#CACACA));
 	background: -webkit-linear-gradient(left,#F7F7F7 99%,#CACACA 100%);

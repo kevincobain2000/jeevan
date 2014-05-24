@@ -1,3 +1,4 @@
+<h1><small>Images</small></h1>
   <% user[:image].each do |image| %>
   <a href="<%= image.avatar.url(:original) %>" data-lightbox="roadtrip">
     <%= image_tag image.avatar.url(:tiny) %>
