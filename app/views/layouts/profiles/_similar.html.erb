@@ -1,36 +1,35 @@
 <div class="col-sm-4">
   <div class="well">
-  <%= render :partial =>'layouts/profiles/show/images', :locals => {:user => user} %>
+    <%= render :partial =>'layouts/profiles/show/images', :locals => {:user => user} %>
     <legend></legend>
     <h1><small>You will also Like</small></h1>
     <hr>
-      <ul class="list-inline friends-list">
-        <% @similar_profiles_paginate.each do |_user| %>
+    <ul class="media-list">
+      <% @similar_profiles_paginate.each do |_user| %>
         <% user = make_user(_user) %>
-          <li class="friends-list">
-            <dl class="dl-horizontal">
-              <dt>
-                <%= link_to profile_path(:id =>user[:profile][:id]) do %>
-                <%= image_tag user[:avatar].url(:thumb) %>
-                <% end %>
-              </dt>
-              <dd>
+        <li class="media">
+          <%= link_to profile_path(:id =>user[:profile][:id]), :class=>"pull-left" do %>
+            <%= image_tag user[:avatar].url(:thumb), :style=>"width:65px;height:65px;" %>
+          <% end %>
+          <div class="media-body">
                 <strong class="txt-color-blue"><%= truncate(titleize(user[:devotion]), length: 20) %></strong>
                 <strong class="txt-color-blue"><%= truncate(titleize(user[:religion][:caste]), length: 20) %></strong>
-                <br>
                 <strong class="txt-color-green"><%= truncate(titleize(user[:name]), length: 20) %></strong>
                 <br>
-                <strong class="txt-color-blue"><%= truncate( titleize(user[:age]), length: 10) %></strong> yrs<span class="text-muted"></span>
+                <strong class="txt-color-blue"><%= truncate( titleize(user[:age]), length: 10) %></strong>
+                years old<span class="text-muted"></span>
+                <% if user[:images_count] >= 1 %>
+                  (<%= pluralize(user[:images_count], 'picture') %>)
+                <% end %>
+                <br>
+                Joined: <span class="text-muted"><%= truncate(user[:created_at], length: 15) %> ago</span>
                 <br>
                 <%= render :partial =>'layouts/online', :locals => {:time => user[:updated_at]}%>
-              </dd>
-
-            </dl>
-          </li>
-          <hr>
-        <% end %>
-      </ul>
-      <%= will_paginate @similar_profiles_paginate, :class =>"flickr_pagination" %>
-    </div>
+          </div>
+        </li>
+        <hr>
+      <% end %>
+    </ul>
+    <%= will_paginate @similar_profiles_paginate, :class =>"flickr_pagination" %>
   </div>
-
+</div>
