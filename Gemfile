@@ -40,6 +40,7 @@ gem "private_pub"
 gem 'faye'
 gem 'thin'
 gem 'validates_timeliness', '~> 3.0'
+gem 'pin_it'
 
 # gem 'rake', '~> 10.1.1'
 
