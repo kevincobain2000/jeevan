@@ -15,7 +15,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery.ui.tabs
-//= require bootstrap-datepicker/core
 //= require selectize
 //= require dropzone
 //= require jquery.inputmask

@@ -317,6 +317,7 @@ class ProfilesController < ApplicationController
       end
     end
   end
+
   def notify_growl(event, visiting_user_id, title)
     visited_user = User.find(visiting_user_id)
     to_user_id = visited_user.id
@@ -326,6 +327,7 @@ class ProfilesController < ApplicationController
     data[:title] = title
     data[:profile_id] = current_user.profile.id
     data[:event] = event
+    data[:datetime] = DateTime.now.to_i
 
     channel_name = "/messages/#{to_user_id}"
     PrivatePub.publish_to channel_name, :data => data
