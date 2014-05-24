@@ -102,7 +102,7 @@ class ProfilesController < ApplicationController
       find_first = current_user.interests.where(to_user_id: params[:to_user_id]).first
       if !find_first
         current_user.interests.create(to_user_id: params[:to_user_id])
-        notify_growl(:interest, params[:to_user_id], "Expressed Interest in You")
+        notify_growl(:interest, params[:to_user_id], "Expressed Interest in You", true)
       else
         find_first.touch
       end
@@ -120,10 +120,10 @@ class ProfilesController < ApplicationController
     interest = Interest.where(:to_user_id => current_user.id, :user_id => params[:to_user_id]).first
     if commit == "Accept"
       interest.update(:response => 1)
-      notify_growl(:accepted, params[:to_user_id], "Accepted Interest")
+      notify_growl(:accepted, params[:to_user_id], "Accepted Your Interest", true)
     elsif commit == "Reject"
       interest.update(:response => 0)
-      notify_growl(:rejected, params[:to_user_id], "Rejected Interest")
+      notify_growl(:rejected, params[:to_user_id], "Rejected Your Interest", true)
     end
 
     render json: { :status => 200 }
@@ -320,14 +320,18 @@ class ProfilesController < ApplicationController
   def touch_visitor
     visiting_user_id = Profile.find(params[:id]).user_id
     if current_user.id != visiting_user_id
-      if Visitor.where(user_id: current_user.id, viewed_id: visiting_user_id).count == 0
-        Visitor.find_or_create_by(user_id: current_user.id, viewed_id: visiting_user_id)
-        notify_growl(:visitor, visiting_user_id, "Profile Viewed")
+      visitor = Visitor.where(user_id: current_user.id, viewed_id: visiting_user_id).first
+      if !visitor
+        visitor_created = Visitor.find_or_create_by(user_id: current_user.id, viewed_id: visiting_user_id)
+        notify_growl(:visitor, visiting_user_id, "Your Profile was Viewed", true)
+      elsif visitor.updated_at < 3.hours.ago
+        notify_growl(:visitor, visiting_user_id, "Your Profile got viewed again", false)
+        visitor.touch
       end
     end
   end
 
-  def notify_growl(event, visiting_user_id, title)
+  def notify_growl(event, visiting_user_id, title, badge_update)
     visited_user = User.find(visiting_user_id)
     to_user_id = visited_user.id
 
@@ -340,7 +344,9 @@ class ProfilesController < ApplicationController
 
     channel_name = "/messages/#{to_user_id}"
     PrivatePub.publish_to channel_name, :data => data
-    badge_increment(visited_user, event.to_s)
+    if badge_update
+      badge_increment(visited_user, event.to_s)
+    end
   end
   def badge_increment(user, event)
     if event == "interest"
