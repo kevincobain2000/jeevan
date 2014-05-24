@@ -68,12 +68,9 @@
               </fieldset>
               <fieldset>
                 <section>
-                  <div class="row">
-                    <div class="col col-4">
                     <label class="label">Your <strong>Gender</strong></label>
                       <label class="radio"><%= f.radio_button :sex, "Male" %><i></i>Male</label>
                       <label class="radio"><%= f.radio_button :sex, "Female" %><i></i>Female</label>
-                    </div>
                   </section>
                   <section>
                     <label class="label">
@@ -144,11 +141,12 @@
       </div>
     </div>
   </div>
-</div>
-<%= render :partial =>'layouts/terms'%>
-<!-- 
+
+<%#= render :partial =>'layouts/terms'%>
+
   <script type="text/javascript">
-    $("#main").bgStretcher({
+    $(document).ready(function() {
+      $("#main").bgStretcher({
         images: ["../../images/demo/sample-0.jpg",],
         slideShow: true,
         transitionEffect: "fade",
@@ -156,5 +154,6 @@
         imageWidth: 1600,
         imageHeight: 1200
       })
+    });
     </script>
-    -->
+   
