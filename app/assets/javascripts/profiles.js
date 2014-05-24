@@ -1,6 +1,6 @@
 $(document).on("page:change", function() {
   // $( "#tabs" ).tabs();
-  pageSetUp();
+  // pageSetUp();
 
   selectize_items = {
     home:true,
