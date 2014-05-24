@@ -5,11 +5,13 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validates :devotion, presence: true
   validates :dob, presence: true
-  validates_date :dob, :before => lambda { 18.years.ago }, :before_message => "must be at least 18 years old"
+  validates_date :dob, :before => lambda { 18.years.ago }, :before_message => "Must be at least 18 years old"
   validates :username, presence: true, :length => { :minimum => 5, :maximum => 50 }, uniqueness: true
+  # validates_uniqueness_of    :email,     :case_sensitive => false, :allow_blank => true, :if => :email_changed?
+  # validates_format_of :email, :with  => Devise.email_regexp, :allow_blank => true, :if => :email_changed?
   after_create :create_dependents
   devise :database_authenticatable, :registerable,
-          :rememberable, :trackable, :validatable#, :confirmable, :recoverable
+          :recoverable, :rememberable, :trackable, :validatable#, :confirmable
 
   delegate :posted_by, to: :profile
   delegate :mother_tongue,:caste,:native_place, to: :religion
