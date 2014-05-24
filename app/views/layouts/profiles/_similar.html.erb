@@ -14,9 +14,11 @@
             <%= image_tag user[:avatar].url(:thumb), :style=>"width:65px;height:65px;" %>
           <% end %>
           <div class="media-body">
-                <strong class="txt-color-blue"><%= truncate(titleize(user[:devotion]), length: 20) %></strong>
-                <strong class="txt-color-blue"><%= truncate(titleize(user[:religion][:caste]), length: 20) %></strong>
-                <strong class="txt-color-green"><%= truncate(titleize(user[:name]), length: 20) %></strong>
+            <%= link_to profile_path(:id =>user[:profile][:id]) do %>
+            <strong class="txt-color-blue"><%= truncate(titleize(user[:devotion]), length: 20) %></strong>
+            <strong class="txt-color-blue"><%= truncate(titleize(user[:religion][:caste]), length: 20) %></strong>
+            <strong class="txt-color-green"><%= truncate(titleize(user[:name]), length: 20) %></strong>
+            <% end %>
                 <br>
                 <strong class="txt-color-blue"><%= truncate( titleize(user[:age]), length: 10) %></strong>
                 years old<span class="text-muted"></span>

@@ -20,4 +20,5 @@
 //= require jquery.inputmask
 //= require gritter
 //= require private_pub
+//= require pin_it
 //= require_tree .

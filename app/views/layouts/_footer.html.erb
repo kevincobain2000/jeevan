@@ -17,8 +17,10 @@
                 <div class="row social">
                     <div class="span12">
                         <a href="https://www.facebook.com/pages/Shaadi-Match/647212955344894" target="_blank" class="facebook btn btn-link" style="text-decoration:none;">
-                            connect on <i class="fa fa-facebook"></i>acebook
+                            <i class="fa fa-facebook"></i>acebook
                         </a>
+                        <br>
+                        <span class="pininterest"><%= pin_it_button media: image_url("fotolia/7.jpg"), description: "India's Matrimonial Website", url: image_url("fotolia/7.jpg") %></span>
 <!--                         <a href="#" class="twitter">
                             <span class="socialicons ico2"></span>
                             <span class="socialicons_h ico2h"></span>
@@ -45,7 +47,7 @@
                         </a> -->
                     </div>
                 </div>
-                <div class="row info padding-10">
+                <div class="row info padding-10 pull-right">
                     <div class="span6 residence">
                         <ul>
                             <li><strong>Head offices In</strong></li>
@@ -66,4 +68,3 @@
         </div>
     </div>
 </footer>
-<%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-avatar", :tpl => "avatar"} %>

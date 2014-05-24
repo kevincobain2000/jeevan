@@ -137,6 +137,8 @@ GEM
       mime-types
     parsley-rails (1.2.3.0)
       railties (>= 3.0.0)
+    pin_it (0.0.7)
+      rails (>= 2.3.0)
     polyglot (0.3.3)
     pr_geohash (1.0.0)
     private_pub (1.0.3)
@@ -262,6 +264,7 @@ DEPENDENCIES
   nilify_blanks
   paperclip (~> 3.0)
   parsley-rails
+  pin_it
   private_pub
   progress_bar
   pry-rails
