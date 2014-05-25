@@ -1,0 +1,115 @@
+<% user = make_user(params[:id], true) %>
+<span class="hidden" id="is-on-chat" data-userid="<%= params[:id] %>" data-img="<%= user[:avatar].url(:tiny) %>" data-username="<%= user[:name] %>"></span>
+<div id="main" role="main">
+  <%= render :partial =>"layouts/ribbon", :locals => {:papa => "Home", :son => "Chat"} %>
+  <div id="content">
+    <a class="btn btn-default" href="/messages"><i class="fa fa-arrow-left"></i>
+      Inbox</a>
+    <div class="row">
+      <%= render :partial =>'layouts/card.html.erb', :locals => {:user => user} %>
+      <div class="col-md-6">
+        <div class="collapse navbar-collapse navbar-inverse">
+          <ul class="nav navbar-nav">
+            <li class="active">
+              <%= link_to profile_path(:id => user[:profile][:id]) do %>
+                Live Chat with
+                <%= user[:name] %>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+        <div id="chat-body" class="chat-body custom-scroll" style="height:500px">
+          <ul id="chat-list">
+            <% @messages.each do |message| %>
+              <% if message.user_id == current_user.id %>
+                <!-- YOU -->
+                <li class="message">
+                  <%= image_tag current_user.avatar.url(:tiny), :style=>"width:35px;height:35px;", :class=> "img-circle"%>
+                  <span class="message-text">
+                    <time>
+                      <%= time_ago_in_words(message.created_at) %>
+                      ago
+                    </time>
+                    <a href="javascript:void(0)" class="username">You</a>
+                    <%= message.message %>
+                  </span>
+                </li>
+              <% else %>
+                <!-- Her -->
+                <li class="message">
+                  <%= link_to profile_path(:id => user[:profile][:id]) do %>
+                    <%= image_tag user[:avatar].url(:tiny), :style=>"width:35px;height:35px;", :class=> "img-circle"%>
+                  <% end %>
+                  <span class="message-text">
+                    <time>
+                      <%= time_ago_in_words(message.created_at) %>
+                      ago
+                    </time>
+                    <%= link_to profile_path(:id => user[:profile][:id]),:class=>"username" do %>
+                      <%= user[:name] %>
+                    <% end %>
+                    <%= message.message %>
+                  </span>
+                </li>
+              <% end %>
+              <hr>
+            <% end %>
+          </ul>
+        </div>
+
+        <% can_send_message = true %>
+        <% if !user[:out_response].nil? %>
+          <% if user[:out_response].response == 0 %>
+          <% can_send_message = false %>
+          <% end %>
+        <% end %>
+
+        <% if !user[:in_response].nil? %>
+          <% if user[:in_response].response == 0 %>
+            <% can_send_message = false %>
+          <% elsif user[:in_response].response == 1 %>
+          <% can_send_message = true %>
+        <% end %>
+        <% end %>
+
+        <% if can_send_message %>
+
+        <%= form_tag({:action=>'send_message'}, {:remote => true, :class=>"well padding-bottom-10 message_form"}) do %>
+          <textarea name="message" type="input" rows="2" style="resize:none;" class="form-control message_textarea" placeholder=""></textarea>
+          <input type="hidden" value="<%= params[:id] %>" name="to_user_id">
+          <div class="margin-top-10">
+            <button type="submit" class="btn btn-sm btn-primary pull-right disabled message_button" data-img="<%= user[:avatar].url(:tiny) %>">
+              Send
+            </button>
+            <i class="fa fa-comments"></i>
+          </div>
+        <% end %>
+
+        <% else %>
+        <div class="well padding-bottom-10">
+          <%= render :partial =>'layouts/interesttext', :locals => {:user => user}%>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

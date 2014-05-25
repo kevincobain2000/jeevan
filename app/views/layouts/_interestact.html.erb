@@ -6,7 +6,6 @@
       Accept
     </button>
     <button class="btn btn-danger interest" name="commit" value="Reject" type="submit" data-img="<%= user[:avatar].url(:tiny) %>" data-url='<%= link_to "view profile", profile_path(:id =>user[:profile][:id]) %>' data-title="Interest Rejected" data-msg="rejected the interest in this profile">
-      Reject
-    </button>
+    <i class="fa fa-thumbs-down"></i> Reject </button>
   <% end %>
 <% end %>

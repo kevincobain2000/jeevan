@@ -1,6 +1,7 @@
 $(document).on("page:change", function() {
   // $( "#tabs" ).tabs();
   // pageSetUp();
+  $('textarea').autosize();
 
   selectize_items = {
     home:true,
@@ -211,6 +212,7 @@ $(document).on("page:change", function() {
         fade_out_speed: 2000, // how fast the notices fade out
         time: 3000 // hang on the screen for...
   });
+
   $(".interest").click(function() {
     $.gritter.add({ image: $(this).data("img"), title: $(this).data("title"), text: 'Your have successfully ' + $(this).data("msg") + "<br>" +$(this).data("url") });
     // $(this).html('<i class="fa fa-check"></i> Done!')
@@ -224,6 +226,72 @@ $(document).on("page:change", function() {
   $('form.edit').bind("keyup change", function(e) {
     show_save_button($(this));
   });
+
+  /*======================================
+  =            Message Button            =
+  ======================================*/
+
+  $('form.message_form').bind("keyup change", function(e) {
+       show_save_button($(this));
+  });
+
+  $('.message_button').click(function() {
+        $(this).addClass('disabled');
+    });
+
+  $('form.message_form').bind("ajax:success", function(data, status, xhr) {
+
+    if (status.status == 200 && $(".message_textarea").val().length != 0 ) {
+      append_to_chatbody($(".message_textarea").val(), $("#user").data("img"));
+
+      if ($("#is-on-chat") && current_path == "/messages/" + $("#is-on-chat").data("userid")) {
+
+      } else {
+        $.gritter.add({ image: $(".message_button").data("img"), title: 'Message Sent', text: 'We have notified the recipient' });
+      }
+
+
+    } else if (status.status == 422) {
+      $.gritter.add({ image: '/assets/warning.png', title: 'Unable to send message', text: status.error });
+    }
+
+    $(".message_textarea").val("");
+
+  });
+
+  $('form.message_form').bind("ajax:error", function(xhr, status, error) {
+    $.gritter.add({ image: '/assets/warning.png', title: 'Unable to send message', text: 'Something bad has happened' });
+  });
+
+  function append_to_chatbody(message, avatar_url) {
+    current_path = window.location.pathname;
+    if ($("#is-on-chat") && current_path == "/messages/" + $("#is-on-chat").data("userid")) {
+      el_in_appending = $("#chat-body").children('ul');
+      message_html = get_message_html(message, avatar_url)
+      el_in_appending.append(message_html);
+      $("#chat-body").scrollTop($("#chat-list").height());
+    };
+  }
+
+  function get_message_html(message, avatar_url) {
+    the_msg = ""
+    the_msg += '<li class="message">'
+            +    '<img src="'+avatar_url+'" class="img-circle" style="width:35px;height:35px;">'
+            +  '<span class="message-text">'
+            +    '<time>'
+            +      $.timeago(new Date())
+            +    '</time>'
+            +    '<a href="javascript:void(0);" class="username">You</a>'
+            +    message
+            +  '</span>'
+            + '</li>'
+            + '<hr>'
+    return the_msg;
+  }
+
+
+
+    /*-----  End of Message button  ------*/
 
   function show_save_button (el) {
     // el.find(':submit').html('Save');
@@ -327,6 +395,5 @@ $(document).ready(function($) {
       });
     }
   });
-
 
 });

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140517144352) do
+ActiveRecord::Schema.define(version: 20140524130135) do
 
   create_table "abouts", force: true do |t|
     t.integer  "user_id"
@@ -160,6 +160,16 @@ ActiveRecord::Schema.define(version: 20140517144352) do
     t.string   "hiv",        limit: 4,  default: "No"
     t.string   "height",     limit: 4
   end
+
+  create_table "messages", force: true do |t|
+    t.datetime "created_at"
+    t.integer  "user_id"
+    t.integer  "to_user_id"
+    t.text     "message"
+  end
+
+  add_index "messages", ["to_user_id"], name: "to_user_id", using: :btree
+  add_index "messages", ["user_id"], name: "user_id", using: :btree
 
   create_table "occupations", force: true do |t|
     t.integer  "user_id"
