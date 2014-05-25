@@ -46,6 +46,11 @@ Jeevan::Application.routes.draw do
     collection do
     end
   end
+  resources :messages do
+    collection do
+      post :send_message
+    end
+  end
 
   resources :dashboard do
     collection do

@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, :styles => {:thumb => "200x200#", :tiny => "50x50#"}, :convert_options => {:thumb => "-quality 100", :tiny => "-quality 100" },:default_url => :default_url_by_gender
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   def default_url_by_gender
-    random = rand(4)
+    random = 0
     "/images/normal/#{sex}-#{random}.png"
   end
 
@@ -34,6 +34,7 @@ class User < ActiveRecord::Base
   has_many :interests,      :dependent => :destroy
   has_many :shortlists,     :dependent => :destroy
   has_many :images,         :dependent => :destroy
+  has_many :messages,       :dependent => :destroy
 
   has_one :badge,     :dependent => :destroy
   has_one :profile,   :dependent => :destroy

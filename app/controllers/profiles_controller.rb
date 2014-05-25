@@ -93,6 +93,7 @@ class ProfilesController < ApplicationController
     Interest.where(:to_user_id => current_user.id).destroy_all
     Visitor.where(:viewed_id => current_user.id).destroy_all
     Shortlist.where(:to_user_id => current_user.id).destroy_all
+    Message.where(:to_user_id => current_user.id).destroy_all
     redirect_to root_path
   end
 
@@ -191,6 +192,7 @@ class ProfilesController < ApplicationController
   def outgoings
     rejected = Interest.where("user_id = ? AND response = ?", current_user.id, 0).pluck(:to_user_id)
     @rejected = User.find(rejected).paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
+    logger.info("Debug rejected")
     badge_reset(current_user, "rejected")
   end
   def visitors
