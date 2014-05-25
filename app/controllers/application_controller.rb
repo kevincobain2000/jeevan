@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
 
     profile = user.profile
 
-    name = show_name_to_accepted(in_response, out_response) ? user[:name] : "Id: #{user.profile.id}"
+    name = show_name_to_accepted(in_response, out_response) ? user[:name] : "Profile Id - #{user.profile.id}"
 
     user_ret = {
       id:         user.id,
@@ -56,35 +56,7 @@ class ApplicationController < ActionController::Base
     }
     return user_ret
   end  
-  def make_user_snippet(user)
-    dob = user.dob.gsub("/","-")
-    age = calculate_age(dob)
 
-    in_response  = Interest.where(to_user_id: current_user.id, user_id: user.id).first
-    out_response = Interest.where(user_id: current_user.id, to_user_id: user.id).first
-
-    name = show_name_to_accepted(in_response, out_response) ? user[:name] : "Profile id - #{user.profile.id}"
-
-    user_ret = {
-      id:         user.id,
-      dob:        dob,
-      age:        age,
-      name:       titleize(truncate(name)),
-      updated_at: time_ago_in_words(user.updated_at),
-      created_at: time_ago_in_words(user.created_at),
-      visitors:   number_with_delimiter(Visitor.where(viewed_id: user.id).count),
-      profile:    user.profile,
-      about:      user.about,
-      religion:   user.religion,
-      devotion:   user.devotion,
-      image:      user.images.all,
-      avatar:     user.avatar,
-      in_response:  in_response,
-      out_response: out_response,
-      shortlist:    Shortlist.where(user_id: current_user.id, to_user_id: user.id).first,
-    }
-    return user_ret
-  end
   def make_user_tiny(id)
     user = User.find(id)
 

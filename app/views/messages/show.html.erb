@@ -1,7 +1,7 @@
 <% user = make_user(params[:id], true) %>
 <span class="hidden" id="is-on-chat" data-userid="<%= params[:id] %>" data-img="<%= user[:avatar].url(:tiny) %>" data-username="<%= user[:name] %>"></span>
 <div id="main" role="main">
-  <%= render :partial =>"layouts/ribbon", :locals => {:papa => "Home", :son => "Chat"} %>
+  <%= render :partial =>"layouts/ribbon", :locals => {:papa => "Home", :son => "Chatting with #{user[:name]}"} %>
   <div id="content">
     <a class="btn btn-default" href="/messages"><i class="fa fa-arrow-left"></i>
       Inbox</a>
