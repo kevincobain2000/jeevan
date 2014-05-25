@@ -1,11 +1,5 @@
 <% if  current_user.id != user[:id] && !user[:in_response].nil? && user[:in_response].response.nil? %>
-  <%= form_tag({:action=>'interest_response', :controller => "profiles"}, :remote => true, :class => "smart-form") do %>
-    <%= hidden_field_tag 'to_user_id', user[:id] %>
-    <button class="btn txt-color-white bg-color-pinkDark btn-xs interest" name="commit" value="Accept" type="submit" data-img="<%= user[:avatar].url(:tiny) %>" data-url='<%= link_to "view profile", profile_path(:id =>user[:profile][:id]) %>' data-title="Interest Accepted" data-msg="accepted the interest in this profile">
-      <i class="fa fa-check"></i>
-      Accept
-    </button>
-    <button class="btn btn-danger interest" name="commit" value="Reject" type="submit" data-img="<%= user[:avatar].url(:tiny) %>" data-url='<%= link_to "view profile", profile_path(:id =>user[:profile][:id]) %>' data-title="Interest Rejected" data-msg="rejected the interest in this profile">
-    <i class="fa fa-thumbs-down"></i> Reject </button>
-  <% end %>
+ <%= render :partial =>'layouts/acceptbutton.html.erb', :locals => {:user => user} %>
+ <br>
+ <%= render :partial =>'layouts/rejectbutton.html.erb', :locals => {:user => user} %>
 <% end %>
