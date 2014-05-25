@@ -141,8 +141,14 @@ $(document).on("page:change", function() {
       create: true,
     },
     work_status:true,
-    occupation:true,
-    company:true,
+    occupation: {
+      maxItems: 1,
+      create: true,
+    },
+    company: {
+      maxItems: 1,
+      create: true,
+    },
     annual_income:true,
     settling_abroad:true,
   };
