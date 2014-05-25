@@ -64,11 +64,11 @@
         <i class="fa fa-lg fa-fw fa-check txt-color-green"></i>
         <span class="menu-item-parent">
           Accepted
-          <% if current_user.badge.accepted != 0 %>
-          <small><label class="badge bg-color-red bounceIn animated font-xs">
-          <%= (current_user.badge.accepted == 0) ? "" : current_user.badge.accepted %>
-          </label></small>
-          <% end %>
+          <%# if current_user.badge.accepted != 0 %>
+          <!-- <small><label class="badge bg-color-red bounceIn animated font-xs"> -->
+          <%#= (current_user.badge.accepted == 0) ? "" : current_user.badge.accepted %>
+          <!-- </label></small> -->
+          <%# end %>
         </span>
       </a>
     </li>
@@ -77,11 +77,11 @@
         <i class="fa fa-lg fa-fw fa-thumbs-down txt-color-red"></i>
         <span class="menu-item-parent">
         Rejected
-        <% if current_user.badge.rejected != 0 %>
-        <small><label class="badge bg-color-red bounceIn animated font-xs">
-          <%= (current_user.badge.rejected == 0) ? "" : current_user.badge.rejected  %>
-        </label></small>
-        <% end %>
+        <%# if current_user.badge.rejected != 0 %>
+        <!-- <small><label class="badge bg-color-red bounceIn animated font-xs"> -->
+          <%#= (current_user.badge.rejected == 0) ? "" : current_user.badge.rejected  %>
+        <!-- </label></small> -->
+        <%# end %>
         </span>
       </a>
     </li>
