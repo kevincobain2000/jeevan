@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
       updated_at: time_ago_in_words(user.updated_at),
       created_at: time_ago_in_words(user.created_at),
       sex:        user.sex.capitalize,
-      visitors:   number_with_delimiter(Visitor.where(viewed_id: user.id).count),
+      # visitors:   number_with_delimiter(Visitor.where(viewed_id: user.id).count),
       profile:    profile,
       contact:    user.contact,
       about:      user.about,
@@ -52,7 +52,7 @@ class ApplicationController < ActionController::Base
       avatar:     user.avatar,
       in_response:  in_response,
       out_response: out_response,
-      shortlist:    Shortlist.where(user_id: current_user.id, to_user_id: user.id).first,
+      # shortlist:    Shortlist.where(user_id: current_user.id, to_user_id: user.id).first,
     }
     return user_ret
   end  
