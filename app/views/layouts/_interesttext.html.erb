@@ -13,12 +13,12 @@
 <% if !user[:in_response].nil? %>
   <% if user[:in_response].response == 0 %>
 
-  <strong class="txt-color-red"><i class="fa fa-thumbs-down"></i> You have rejected</strong>
+  <strong class="txt-color-red"><i class="fa fa-thumbs-down"></i> You have rejected interest</strong>
   <%= render :partial =>'layouts/acceptbutton.html.erb', :locals => {:user => user} %>
 
   <% elsif user[:in_response].response == 1 %>
       <strong class="txt-color-green"><i class="fa fa-check-square"></i>
-        You have Accepted</strong>
+        You have accepted interest</strong>
         <%= render :partial =>'layouts/rejectbutton.html.erb', :locals => {:user => user} %>
   <% end %>
 <% end %>

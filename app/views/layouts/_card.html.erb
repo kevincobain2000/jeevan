@@ -20,7 +20,7 @@
     <hr>
     <% if user[:image].count >= 1 %>
       <h1><small>Images</small></h1>
-      <% user[:image][0..6].each do |image| %>
+      <% user[:image][0..3].each do |image| %>
         <a href="<%= image.avatar.url(:original) %>" data-lightbox="roadtrip">
           <%= image_tag image.avatar.url(:tiny) %>
         </a>
@@ -39,5 +39,9 @@
       <% end %>
     <% end %>
     <!-- End if image count -->
+    <hr>
+    <%= link_to profile_path(:id =>user[:profile][:id]), :class=>"pull-right" do %>
+    <i class="fa fa-comment"></i> send <%= (user[:sex] == "Female")? "her": "him" %> message
+    <% end %>
   </div>
 </div>

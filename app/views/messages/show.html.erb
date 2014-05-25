@@ -75,13 +75,13 @@
         <% if can_send_message %>
 
         <%= form_tag({:action=>'send_message'}, {:remote => true, :class=>"well padding-bottom-10 message_form"}) do %>
-          <textarea name="message" type="input" rows="2" style="resize:none;" class="form-control message_textarea" placeholder=""></textarea>
+          <input name="message" type="input" class="form-control message_textarea" placeholder="" required>
           <input type="hidden" value="<%= params[:id] %>" name="to_user_id">
           <div class="margin-top-10">
             <button type="submit" class="btn btn-sm btn-primary pull-right disabled message_button" data-img="<%= user[:avatar].url(:tiny) %>">
               Send
             </button>
-            <i class="fa fa-comments"></i>
+            <i class="fa fa-comments"></i> <small>press enter to send message...</small>
           </div>
         <% end %>
 
@@ -94,22 +94,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
