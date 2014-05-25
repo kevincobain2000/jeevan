@@ -4,7 +4,7 @@
   <% if current_user %>
   <title>
     <% bdge = current_user.badge %>
-    <% fav_num = bdge.interest.to_i + bdge.visitor.to_i + bdge.accepted.to_i + bdge.rejected.to_i %>
+    <% fav_num = bdge.interest.to_i + bdge.visitor.to_i  %>
     <%= (fav_num > 0) ? "(#{fav_num})" : "" %>
     shaadiMatch - Updates in Realtime</title>
   <% else %>
@@ -68,6 +68,7 @@
     if ($("#is-on-chat") && current_path == "/messages/" + $("#is-on-chat").data("userid")) {
       avatar_url = $("#is-on-chat").data("img");
       el_in_appending = $("#chat-body").children('ul');
+      message = _.escape(message)
       message_html = get_message_html(message, avatar_url)
       el_in_appending.append(message_html);
       $("#chat-body").scrollTop($("#chat-list").height());
