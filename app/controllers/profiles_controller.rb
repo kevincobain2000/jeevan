@@ -359,9 +359,9 @@ class ProfilesController < ApplicationController
     elsif event == "visitor"
       user.badge.update(visitor: user.badge.visitor + 1)
     elsif event == "accepted"
-      user.badge.update(accepted: user.badge.accepted + 1)
+      # user.badge.update(accepted: user.badge.accepted + 1)
     elsif event == "rejected"
-      user.badge.update(rejected: user.badge.rejected + 1)
+      # user.badge.update(rejected: user.badge.rejected + 1)
     end
   end
   def badge_reset(user, event)
@@ -370,9 +370,9 @@ class ProfilesController < ApplicationController
     elsif event == "visitor"
       user.badge.update(visitor: 0)
     elsif event == "accepted"
-      user.badge.update(accepted: 0)
+      # user.badge.update(accepted: 0)
     elsif event == "rejected"
-      user.badge.update(rejected: 0)
+      # user.badge.update(rejected: 0)
     end
   end
 end
