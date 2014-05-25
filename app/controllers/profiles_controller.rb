@@ -339,7 +339,7 @@ class ProfilesController < ApplicationController
     to_user_id = visited_user.id
 
     data = {}
-    data[:img]   = visited_user.avatar
+    data[:img]   = current_user.avatar
     data[:title] = title
     data[:profile_id] = current_user.profile.id
     data[:event] = event
