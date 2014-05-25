@@ -236,8 +236,11 @@ $(document).on("page:change", function() {
   });
 
   $('.message_button').click(function() {
-        $(this).addClass('disabled');
-    });
+    $(this).addClass('disabled');
+  });
+  $('form.message_form').submit(function(event) {
+    $('.message_button').addClass('disabled');
+  });
 
   $('form.message_form').bind("ajax:success", function(data, status, xhr) {
 
