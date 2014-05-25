@@ -267,6 +267,7 @@ $(document).on("page:change", function() {
     current_path = window.location.pathname;
     if ($("#is-on-chat") && current_path == "/messages/" + $("#is-on-chat").data("userid")) {
       el_in_appending = $("#chat-body").children('ul');
+      message = _.escape(message)
       message_html = get_message_html(message, avatar_url)
       el_in_appending.append(message_html);
       $("#chat-body").scrollTop($("#chat-list").height());
