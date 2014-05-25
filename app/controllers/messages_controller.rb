@@ -2,8 +2,7 @@ class MessagesController < ApplicationController
   helper_method :get_latest_message_snippet
   before_filter :not_talking_with_same_sex,:only => [:show]
   def index
-    conversations = Message.where("user_id = ? OR to_user_id = ?", current_user.id, current_user.id)
-    logger.info("Debug #{conversations.pluck(:user_id,:to_user_id).uniq.flatten}")
+    conversations = Message.where("user_id = ? OR to_user_id = ?", current_user.id, current_user.id).order("created_at DESC")
     spoken_with = conversations.pluck(:user_id,:to_user_id).flatten.uniq - [current_user.id]
     @spoken_with = spoken_with.paginate(:page => params[:page], :per_page => 10);
   end
