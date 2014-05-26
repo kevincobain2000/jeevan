@@ -6,19 +6,18 @@
       <strong class="txt-color-green"><i class="fa fa-check"></i>
 <%= user[:name] %> has accepted</strong>
   <% else %>
-      <strong class="txt-color-orange"><i class="fa fa-bell"></i>
+      <strong class="txt-color-green"><i class="fa fa-bell"></i>
         Waiting</strong>
   <% end %>
 <% end %>
 <% if !user[:in_response].nil? %>
   <% if user[:in_response].response == 0 %>
 
-  <strong class="txt-color-red"><i class="fa fa-thumbs-down"></i> You have rejected interest</strong>
-  <%= render :partial =>'layouts/acceptbutton.html.erb', :locals => {:user => user} %>
-
+  <strong class="txt-color-red"><i class="fa fa-thumbs-down"></i> You Rejected</strong>
+  <div class="pull-right"><%= render :partial =>'layouts/acceptbutton.html.erb', :locals => {:user => user} %></div>
   <% elsif user[:in_response].response == 1 %>
       <strong class="txt-color-green"><i class="fa fa-check-square"></i>
-        You have accepted interest</strong>
-        <%= render :partial =>'layouts/rejectbutton.html.erb', :locals => {:user => user} %>
+        You accepted</strong>
+        <div class="pull-right"><%= render :partial =>'layouts/rejectbutton.html.erb', :locals => {:user => user} %></div>
   <% end %>
 <% end %>

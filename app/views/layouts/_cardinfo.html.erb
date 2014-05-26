@@ -1,6 +1,6 @@
 <ul class="list-unstyled">
   <li>
-    <p class="font-md">
+    <p class="">
     <%= link_to profile_path(:id =>user[:profile][:id]) do %>
     <%= user[:age] %> years old, <%= user[:devotion].downcase %> <%= user[:religion][:caste] %>
     <% end %>
@@ -19,7 +19,7 @@
   </li>
   <li>
   <% if current_user.sex == "Male" %>
-    <% items = {posted_by: [:profile, 'fa-user'], manglik: [:kundali, "fa fa-circle"], occupation: [:occupation, "fa fa-suitcase"], desired_income: [:desire, "fa fa-money"] } %>
+    <% items = {posted_by: [:profile, 'fa-user'], manglik: [:kundali, "fa fa-circle"], home: [:profile, "fa fa-suitcase"], desired_income: [:desire, "fa fa-money"] } %>
   <% else %>
     <% items = {home: [:profile, 'fa-home'], caste: [:religion, 'fa-bars'], posted_by: [:profile, 'fa-user'], manglik: [:kundali, "fa fa-circle"], occupation: [:occupation, "fa fa-suitcase"], company: [:occupation, "fa fa-bookmark"], annual_income: [:occupation, "fa fa-money"] } %>
   <% end %>
@@ -31,7 +31,7 @@
 
         <% if user[value[0]][key] %>
         <span class="">
-         <%= truncate(titleize(user[value[0]][key]), length: 20) %>
+         <%= truncate(titleize(user[value[0]][key]), length: 15) %>
        </span>
        <% end %>
     </p>
