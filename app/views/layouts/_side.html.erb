@@ -16,7 +16,13 @@
     </span>
   </div>
   <!-- end user info -->
-
+  <h1><small>You might like</small></h1>
+        <%= image_tag current_user.avatar.url(:thumb), :class => "img-rounded", :style=>"25px;height:25px;" %>
+        <%= image_tag current_user.avatar.url(:thumb), :class => "img-rounded", :style=>"25px;height:25px;" %>
+        <%= link_to edit_profile_path(:id =>current_user.profile.id) do %>
+          <%= image_tag "logo-wide.png", :style=>"width:25px;height:25px;" %>
+        <% end %>
+  <hr>
   <nav>
   <ul>
     <li class="hidden-mobile">
