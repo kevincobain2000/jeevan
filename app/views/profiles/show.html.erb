@@ -35,12 +35,12 @@
                         <div id="myCarousel" class="carousel profile-carousel">
                           <div class="air air-top-right padding-10">
                             <%= render :partial =>'layouts/interestbutton', :locals => {:user => @user}%>
-                            <h3 class="txt-color-white">
+                            <p class="txt-color-white">
                               <%= render :partial =>'layouts/interesttext', :locals => {:user => @user}%>
-                            </h3>
+                            </p>
                             <%= render :partial =>'layouts/interestact', :locals => {:user => @user}%>
                           </div>
-                          <div class="air air-top-left padding-10">
+                          <div class="air air-top-left padding-10 hidden-xs">
                             <h3 class="txt-color-white font-md">
                               Profile <%= @user[:name] %>,
                               <%= @user[:devotion] %> <%= (@user[:sex] == "Female")? "Bride": "Groom" %>

@@ -1,7 +1,13 @@
 <div class="col-md-5 col-xs-12 well shadow-box" style="height:350px;">
   <div class="col-md-3 col-xs-6">
+    <% if !user[:avatar].url.start_with?("/images/normal/") %>
+      <a href="<%= user[:avatar].url(:original) %>" data-lightbox="roadtrip">
+        <%= image_tag user[:avatar].url(:thumb), :style=>"width:75px;height:75px;" %>
+      </a>
+    <% else %>
     <%= link_to profile_path(:id =>user[:profile][:id]), :class=>"" do %>
-      <%= image_tag user[:avatar].url(:thumb), :class=>"", :style=>"width:85px;height:85px;" %>
+      <%= image_tag user[:avatar].url(:thumb), :class=>"", :style=>"width:75px;height:75px;" %>
+    <% end %>
     <% end %>
     <br>
     <%= render :partial =>'layouts/online', :locals => {:time => user[:updated_at]}%>
@@ -10,10 +16,10 @@
       ago</p>
     <%= render :partial =>'layouts/shortlistbutton', :locals => {:user => user} %>
   </div>
-  <div class="col-md-5 col-xs-6">
+  <div class="col-md-4 col-xs-6">
     <%= render :partial =>'layouts/cardinfo', :locals => {:user => user} %>
   </div>
-  <div class="col-md-4 hidden-xs">
+  <div class="col-md-5 hidden-xs">
     <%= render :partial =>'layouts/interestbutton', :locals => {:user => user} %>
     <%= render :partial =>'layouts/interesttext', :locals => {:user => user} %>
     <%= render :partial =>'layouts/interestact', :locals => {:user => user} %>
@@ -25,11 +31,11 @@
           <%= image_tag image.avatar.url(:tiny) %>
         </a>
       <% end %>
+      <br>
       <%= link_to profile_path(:id =>user[:profile][:id]), :class=>"pull-right" do %>
         <%= (user[:images_count] - 6) > 0 ? user[:images_count] - 6 : "0" %>
         more images ..
       <% end %>
-      <hr>
     <% elsif user[:about][:me] %>
       <h1><small>About
           <%= (user[:sex] == "Female")? "Her": "Him" %></small></h1>
