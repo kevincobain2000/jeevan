@@ -23,7 +23,12 @@
   <span class="hidden" data-id="<%= current_user.id %>" id="user" data-img="<%= current_user.avatar.url(:tiny) %>"></span>
   <%= subscribe_to "/messages/#{current_user.id}" %>
     <!-- <body class="smart-style-2"> -->
-    <body class="smart-style-2 fixed-header fixed-navigation fixed-ribbon fixed-width">
+    <% if mobile_device? %>
+      <body class="smart-style-2 fixed-header fixed-ribbon fixed-width">
+    <% else %>
+      <body class="smart-style-2 fixed-header fixed-navigation fixed-ribbon fixed-width">
+    <% end %>
+      
       <!-- possible classes: minified, fixed-ribbon, fixed-header, fixed-width-->
       <%= render :partial =>'layouts/header'%>
       <%= render :partial =>'layouts/side'%>
