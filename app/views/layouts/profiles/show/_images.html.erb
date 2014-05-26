@@ -3,7 +3,6 @@
   <a href="<%= user[:avatar].url(:original) %>" data-lightbox="roadtrip">
     <%= image_tag user[:avatar].url(:tiny), :style=>"width:45px;height:45px;" %>
   </a>
-  <hr>
  <% end %>
 <% if user[:image].count >= 1 %>
 	<h1><small>Images (<%= user[:image].count %>)</small></h1>

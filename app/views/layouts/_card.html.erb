@@ -1,13 +1,7 @@
 <div class="col-md-5 col-xs-12 well shadow-box" style="height:350px;">
   <div class="col-md-3 col-xs-6">
-    <% if !user[:avatar].url.start_with?("/images/normal/") %>
-      <a href="<%= user[:avatar].url(:original) %>" data-lightbox="roadtrip">
-        <%= image_tag user[:avatar].url(:thumb), :style=>"width:75px;height:75px;" %>
-      </a>
-    <% else %>
     <%= link_to profile_path(:id =>user[:profile][:id]), :class=>"" do %>
       <%= image_tag user[:avatar].url(:thumb), :class=>"", :style=>"width:75px;height:75px;" %>
-    <% end %>
     <% end %>
     <br>
     <%= render :partial =>'layouts/online', :locals => {:time => user[:updated_at]}%>
@@ -24,6 +18,13 @@
     <%= render :partial =>'layouts/interesttext', :locals => {:user => user} %>
     <%= render :partial =>'layouts/interestact', :locals => {:user => user} %>
     <hr>
+    <% if !user[:avatar].url.start_with?("/images/normal/") %>
+    <h1><small>Profile Pic</small></h1>
+      <a href="<%= user[:avatar].url(:original) %>" data-lightbox="roadtrip">
+        <%= image_tag user[:avatar].url(:thumb), :style=>"width:35px;height:35px;" %>
+      </a>
+      <hr>
+      <% end %>
     <% if user[:image].count >= 1 %>
       <h1><small>Images</small></h1>
       <% user[:image][0..3].each do |image| %>
