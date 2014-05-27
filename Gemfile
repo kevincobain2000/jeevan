@@ -23,7 +23,7 @@ gem 'dropzonejs-rails'
 gem 'jquery-inputmask-rails'
 gem 'will_paginate', '~> 3.0'
 
-gem 'angularjs-rails'
+# gem 'angularjs-rails'
 # gem 'jquery-datatables-rails'
 # gem 'bootstrap-tagsinput-rails'
 # gem 'twitter-typeahead-rails'
