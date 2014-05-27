@@ -19,7 +19,7 @@
       </div>
       <% end %>
       <% paginate.each do |_user| %>
-        <% user = make_user(_user) %>
+        <% user = make_user_card(_user) %>
         <%= render :partial =>'layouts/card.html.erb', :locals => {:user => user} %>
           <% end %>
           <legend></legend>

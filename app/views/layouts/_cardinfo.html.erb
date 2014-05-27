@@ -18,11 +18,7 @@
     </p>
   </li>
   <li>
-  <% if current_user.sex == "Male" %>
     <% items = {posted_by: [:profile, 'fa-user'], manglik: [:kundali, "fa fa-circle"], home: [:profile, "fa fa-suitcase"] } %>
-  <% else %>
-    <% items = {home: [:profile, 'fa-home'], caste: [:religion, 'fa-bars'], company: [:occupation, "fa fa-bookmark"] } %>
-  <% end %>
       <% items.stringify_keys.each do |key, value| %>
       <p class="">
       <span class="text-muted">
