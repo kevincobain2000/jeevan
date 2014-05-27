@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 20140524130135) do
     t.integer  "rejected",   default: 0
   end
 
+  add_index "badges", ["user_id"], name: "user_id", using: :btree
+
   create_table "contacts", force: true do |t|
     t.integer  "user_id"
     t.text     "address"
@@ -70,6 +72,8 @@ ActiveRecord::Schema.define(version: 20140524130135) do
     t.text     "desired_notes"
   end
 
+  add_index "desires", ["user_id"], name: "user_id", using: :btree
+
   create_table "educations", force: true do |t|
     t.integer  "user_id"
     t.datetime "created_at"
@@ -81,6 +85,8 @@ ActiveRecord::Schema.define(version: 20140524130135) do
     t.text     "highest_degree"
     t.text     "graduation"
   end
+
+  add_index "educations", ["user_id"], name: "user_id", using: :btree
 
   create_table "families", force: true do |t|
     t.integer  "user_id"
@@ -96,6 +102,8 @@ ActiveRecord::Schema.define(version: 20140524130135) do
     t.text     "sister"
     t.string   "profile_handler", limit: 64, default: ""
   end
+
+  add_index "families", ["user_id"], name: "user_id", using: :btree
 
   create_table "hobbies", force: true do |t|
     t.integer  "user_id"
@@ -113,6 +121,8 @@ ActiveRecord::Schema.define(version: 20140524130135) do
     t.text     "vacation"
   end
 
+  add_index "hobbies", ["user_id"], name: "user_id", using: :btree
+
   create_table "images", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -123,6 +133,8 @@ ActiveRecord::Schema.define(version: 20140524130135) do
     t.datetime "avatar_updated_at"
   end
 
+  add_index "images", ["created_at"], name: "created_at", using: :btree
+
   create_table "interests", force: true do |t|
     t.integer  "user_id"
     t.integer  "to_user_id"
@@ -130,6 +142,9 @@ ActiveRecord::Schema.define(version: 20140524130135) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "interests", ["to_user_id"], name: "to_user_id", using: :btree
+  add_index "interests", ["user_id"], name: "user_id", using: :btree
 
   create_table "kundalis", force: true do |t|
     t.integer  "user_id"
@@ -143,6 +158,8 @@ ActiveRecord::Schema.define(version: 20140524130135) do
     t.string   "moon_sign",     default: ""
     t.string   "nakshatra",     default: ""
   end
+
+  add_index "kundalis", ["user_id"], name: "user_id", using: :btree
 
   create_table "lifestyles", force: true do |t|
     t.integer  "user_id"
@@ -160,6 +177,8 @@ ActiveRecord::Schema.define(version: 20140524130135) do
     t.string   "hiv",        limit: 4,  default: "No"
     t.string   "height",     limit: 4
   end
+
+  add_index "lifestyles", ["user_id"], name: "user_id", using: :btree
 
   create_table "messages", force: true do |t|
     t.datetime "created_at"
@@ -182,6 +201,8 @@ ActiveRecord::Schema.define(version: 20140524130135) do
     t.string   "settling_abroad", default: "No"
   end
 
+  add_index "occupations", ["user_id"], name: "user_id", using: :btree
+
   create_table "profiles", force: true do |t|
     t.integer  "user_id"
     t.datetime "created_at"
@@ -190,6 +211,8 @@ ActiveRecord::Schema.define(version: 20140524130135) do
     t.string   "marital_status", limit: 64, default: "Single"
     t.string   "home"
   end
+
+  add_index "profiles", ["user_id"], name: "user_id", using: :btree
 
   create_table "religions", force: true do |t|
     t.integer  "user_id"
@@ -201,12 +224,17 @@ ActiveRecord::Schema.define(version: 20140524130135) do
     t.datetime "created_at"
   end
 
+  add_index "religions", ["user_id"], name: "user_id", using: :btree
+
   create_table "shortlists", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id",    limit: 8
     t.integer  "to_user_id", limit: 8
   end
+
+  add_index "shortlists", ["to_user_id"], name: "to_user_id", using: :btree
+  add_index "shortlists", ["user_id"], name: "user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                             default: "", null: false
@@ -247,5 +275,8 @@ ActiveRecord::Schema.define(version: 20140524130135) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "visitors", ["user_id"], name: "user_id", using: :btree
+  add_index "visitors", ["viewed_id"], name: "viewed_id", using: :btree
 
 end
