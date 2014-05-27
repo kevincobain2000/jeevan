@@ -249,7 +249,7 @@ $(document).on("page:change", function() {
   });
 
   $('form.message_form').bind("ajax:success", function(data, status, xhr) {
-
+    current_path = window.location.pathname;
     if (status.status == 200 && $(".message_textarea").val().length != 0 ) {
       append_to_chatbody($(".message_textarea").val(), $("#user").data("img"));
 
