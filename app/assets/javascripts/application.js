@@ -21,5 +21,4 @@
 //= require gritter
 //= require private_pub
 //= require pin_it
-//= require date
 //= require_tree .
