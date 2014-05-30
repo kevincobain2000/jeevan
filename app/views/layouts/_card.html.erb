@@ -15,9 +15,8 @@
   </div>
   <div class="col-md-5 hidden-xs">
     <%= render :partial =>'layouts/interestbutton', :locals => {:user => user} %>
-    <%= render :partial =>'layouts/interesttext', :locals => {:user => user} %>
-    <%= render :partial =>'layouts/interestact', :locals => {:user => user} %>
-    <hr>
+    <%#= render :partial =>'layouts/interesttext', :locals => {:user => user} %>
+    <%#= render :partial =>'layouts/interestact', :locals => {:user => user} %>
     <% if !user[:avatar].url.start_with?("/images/normal/") %>
     <h1><small>Profile Pic</small></h1>
       <a href="<%= user[:avatar].url(:original) %>" data-lightbox="roadtrip">
