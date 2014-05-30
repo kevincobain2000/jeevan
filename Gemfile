@@ -41,6 +41,8 @@ gem 'faye'
 gem 'thin'
 gem 'validates_timeliness', '~> 3.0'
 gem 'pin_it'
+gem 'redis-objects'
+gem 'redis'
 
 # gem 'dalli'
 
