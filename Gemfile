@@ -42,6 +42,8 @@ gem 'thin'
 gem 'validates_timeliness', '~> 3.0'
 gem 'pin_it'
 
+# gem 'dalli'
+
 # gem 'rake', '~> 10.1.1'
 
 # Use Uglifier as compressor for JavaScript assets

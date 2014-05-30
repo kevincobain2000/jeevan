@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
   before_filter :is_this_user_profile, only: [:edit]
-  before_filter :count_sparks, only: [:index, :incomings, :outgoings, :visitors, :shortlists,:accepted, :waiting,:search, :online, :withphotos, :recentlyjoined]
+  # before_filter :count_sparks, only: [:index, :incomings, :outgoings, :visitors, :shortlists,:accepted, :waiting,:search]
   before_filter :get_current_user, only: [:edit]
   before_filter :not_same_sex, :get_showing_user, only: [:show]
 
@@ -242,16 +242,16 @@ class ProfilesController < ApplicationController
 
   #-----  End of Pages  -----#
   def count_sparks
-    @sparks = Hash.new {|h, k| h[k] = [] }
-    @sparks[:visitors]  = number_with_delimiter(Visitor.where(viewed_id: current_user.id).count)
-    @sparks[:incoming]  = number_with_delimiter(Interest.where(to_user_id: current_user.id).count)
-    @sparks[:rejected]  = number_with_delimiter(Interest.where("user_id = ? AND response = ?", current_user.id, 0).count)
-    @sparks[:waiting]   = number_with_delimiter(Interest.where("user_id = ? AND response IS NULL", current_user.id).count)
-    @sparks[:shortlist] = number_with_delimiter(Shortlist.where(user_id: current_user.id).count)
-    @sparks[:accepted]  = number_with_delimiter(Interest.where("user_id = ? AND response = ?", current_user.id, 1).count)
-    @sparks[:onlinenow]  = User.where("sex <> ? AND devotion = ? AND updated_at >= ?", current_user.sex, current_user.devotion, 30.minutes.ago).count
-    @sparks[:withphotos]  = User.where("sex <> ? AND devotion = ? AND images_count >= ?", current_user.sex, current_user.devotion, 1).order('images_count DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES).count
-    @sparks[:recentlyjoined]  = User.where("sex <> ? AND devotion = ? AND created_at >= ?", current_user.sex, current_user.devotion, Time.zone.now.beginning_of_day).count
+    # @sparks = Hash.new {|h, k| h[k] = [] }
+    # @sparks[:visitors]  = number_with_delimiter(Visitor.where(viewed_id: current_user.id).count)
+    # @sparks[:incoming]  = number_with_delimiter(Interest.where(to_user_id: current_user.id).count)
+    # @sparks[:rejected]  = number_with_delimiter(Interest.where("user_id = ? AND response = ?", current_user.id, 0).count)
+    # @sparks[:waiting]   = number_with_delimiter(Interest.where("user_id = ? AND response IS NULL", current_user.id).count)
+    # @sparks[:shortlist] = number_with_delimiter(Shortlist.where(user_id: current_user.id).count)
+    # @sparks[:accepted]  = number_with_delimiter(Interest.where("user_id = ? AND response = ?", current_user.id, 1).count)
+    # @sparks[:onlinenow]  = User.where("sex <> ? AND devotion = ? AND updated_at >= ?", current_user.sex, current_user.devotion, 30.minutes.ago).count
+    # @sparks[:withphotos]  = User.where("sex <> ? AND devotion = ? AND images_count >= ?", current_user.sex, current_user.devotion, 1).order('images_count DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES).count
+    # @sparks[:recentlyjoined]  = User.where("sex <> ? AND devotion = ? AND created_at >= ?", current_user.sex, current_user.devotion, Time.zone.now.beginning_of_day).count
   end
 
   protected

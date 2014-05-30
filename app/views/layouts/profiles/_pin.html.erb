@@ -1,16 +1,13 @@
-<%= render :partial =>"layouts/sparks2" %>
-<%= render :partial =>"layouts/search"%>
+<%#= render :partial =>"layouts/sparks2" %>
+<%#= render :partial =>"layouts/search"%>
   <!-- MAIN CONTENT -->
   <div id="content"class="font-sm">
     <h1>
       <span class="semi-bold"><%= h %></span>
       <%= hsm %>
-      <span>
-        <% if defined? @solr  %> 
-        found <%= number_with_delimiter(@solr.total) %> profiles
-        <% end %>
-      </span>
-      </h1>
+      <small>total found in this category (<%= paginate.total_entries %>)</small>
+    </h1>
+
       <%= will_paginate paginate, :class =>"flickr_pagination"%>
       <legend></legend>
       <% if paginate.empty? %>
