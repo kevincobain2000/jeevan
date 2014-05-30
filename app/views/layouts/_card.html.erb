@@ -1,4 +1,4 @@
-<div class="col-md-5 col-xs-12 well shadow-box" style="height:350px;">
+<div class="col-md-5 col-xs-12 well shadow-box" style="height:400px;">
   <div class="col-md-3 col-xs-6">
     <%= link_to profile_path(:id =>user[:profile][:id]), :class=>"" do %>
       <%= image_tag user[:avatar].url(:thumb), :class=>"", :style=>"width:75px;height:75px;" %>
@@ -13,7 +13,7 @@
   <div class="col-md-4 col-xs-6">
     <%= render :partial =>'layouts/cardinfo', :locals => {:user => user} %>
   </div>
-  <div class="col-md-5 hidden-xs">
+  <div class="col-md-5">
     <%= render :partial =>'layouts/interestbutton', :locals => {:user => user} %>
     <%#= render :partial =>'layouts/interesttext', :locals => {:user => user} %>
     <%#= render :partial =>'layouts/interestact', :locals => {:user => user} %>

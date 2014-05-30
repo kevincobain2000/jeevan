@@ -4,7 +4,7 @@ class ProfilesController < ApplicationController
   before_filter :get_current_user, only: [:edit]
   before_filter :not_same_sex, :get_showing_user, only: [:show]
 
-  PAGINATE_PROFILES = 25
+  PAGINATE_PROFILES = 1
   # GET /profiles/1
   def show
     touch_visitor
