@@ -259,6 +259,7 @@ DEPENDENCIES
   pry-rails
   quiet_assets
   rails (= 4.0.2)
+  redis
   redis-objects
   sass-rails (~> 4.0.0)
   sdoc
