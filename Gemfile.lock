@@ -52,8 +52,6 @@ GEM
     coffee-script-source (1.7.0)
     cookiejar (0.3.2)
     daemons (1.1.9)
-    datejs-rails (2.0.1)
-      railties (>= 3.1)
     debug_inspector (0.0.2)
     devise (3.2.2)
       bcrypt-ruby (~> 3.0)
@@ -242,7 +240,6 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-datepicker-rails
   coffee-rails (~> 4.0.0)
-  datejs-rails
   devise
   dropzonejs-rails
   faye
