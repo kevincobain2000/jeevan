@@ -36,6 +36,30 @@
 
                 </section>
                 <section>
+                  <label class="label"><strong>Date of Birth</strong> <strong class="font-md txt-color-red" id="date_show_words"></strong></label>
+                    <label class="input">
+                      <i class="icon-append fa fa-calendar"></i>
+                      <!-- <input class="form-control" id="dob" type="text" name="user[dob]" value="dd/mm/yyyy"> -->
+                      <input class="form-control" id="dob" type="text" placeholder="september 4 1985 ">
+                      <input class="form-control" id="dob-hidden" type="hidden" name="user[dob]">
+                    </label>
+                    <div class="note">
+                      <strong>Example</strong>
+                      <span>sep 9 1985</span>
+                    </div>
+                    <!-- 
+                     <script type="text/javascript">
+                      $("#dob").datepicker({
+                        format: 'dd/mm/yyyy',
+                        startView: "decade",
+                      });
+                      $('#dob').on('changeDate', function(ev){
+                        $(this).datepicker('hide');
+                      });
+                    </script>
+                     -->
+                  </section>
+                <section>
                   <label class="label">
                     <strong>Username</strong></label>
                     <small>Used for login</small>
@@ -74,7 +98,7 @@
                   </section>
                   <section>
                     <label class="label">
-                    <i class="fa fa-sun-o"></i> <strong>Religion</strong>
+                    <i class="fa fa-sun-o"></i> <strong>Religion</strong> <span>and you are done !</span>
                   </label>
                   <input name="user[devotion]" class="selectized" id="select-devotion" placeholder="Religion">
                   <script type="text/javascript">
@@ -95,26 +119,6 @@
                   });
                 </script>
               </section>
-            <section>
-                  <label class="label"><strong>Date of Birth</strong></label>
-                    <label class="input">
-                      <i class="icon-append fa fa-calendar"></i>
-                      <input class="form-control" id="dob" type="text" name="user[dob]" value="dd/mm/yyyy">
-                    </label>
-                    <div class="note">
-                      <strong>Choose Date of Birth:</strong>
-                      From the calender or enter manually dd/mm/yyyy
-                    </div>
-                    <script type="text/javascript">
-                      $("#dob").datepicker({
-                        format: 'dd/mm/yyyy',
-                        startView: "decade",
-                      });
-                      $('#dob').on('changeDate', function(ev){
-                        $(this).datepicker('hide');
-                      });
-                    </script>
-                  </section>
                   <!-- <label class="checkbox">
                     <input type="checkbox" name="terms" id="terms">
                     <i></i>I agree with the
@@ -131,7 +135,7 @@
                     <a href="/users/sign_in" class="">Sign In</a>
                   </div>
                   <legend></legend>
-                  <button type="submit" class="btn btn-primary">Sign Up</button>
+                  <button type="submit" id="signup-button" class="btn btn-primary disabled">Sign Up</button>
                 </footer>
               <% end %>
             </div>
@@ -141,6 +145,27 @@
       </div>
     </div>
   </div>
+
+<script type="text/javascript">
+
+
+  $(document).ready(function() {
+    $("#dob").keyup(function(event) {
+      date_input = $(this).val();
+      the_date = Date.parse(date_input);
+      if (the_date != null) {
+        $("#date_show_words").html(the_date.toString('dddd, MMMM d, yyyy'));
+        $("#dob-hidden").val(the_date.toString('dd/MM/yyyy'));
+        $("#signup-button").removeClass("disabled");
+      } else {
+        $("#dob-hidden").val("");
+        $("#date_show_words").html(_.sample(["argh..", "oops", "hmmm ?", "no no noo"]));
+        $("#signup-button").addClass("disabled");
+      }
+    });
+  });
+  
+</script>
 
 <%#= render :partial =>'layouts/terms'%>
 <!-- 
