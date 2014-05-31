@@ -47,6 +47,7 @@ gem 'pin_it'
 gem 'redis-objects'
 gem 'redis'
 gem 'rb-readline'
+gem 'omniauth-twitter'
 
 # gem 'dalli'
 
