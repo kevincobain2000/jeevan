@@ -225,7 +225,7 @@ $(document).on("page:change", function() {
     $(this).addClass('disabled');
   });
 
-  $(".edit").click(function() {
+  $("button.edit").click(function() {
     $(this).addClass('disabled');
   });
 
