@@ -4,7 +4,7 @@ class ProfilesController < ApplicationController
   before_filter :get_current_user, only: [:edit]
   before_filter :not_same_sex, :get_showing_user, only: [:show]
 
-  PAGINATE_PROFILES = 1
+  PAGINATE_PROFILES = 30
   # GET /profiles/1
   def show
     touch_visitor
@@ -46,6 +46,9 @@ class ProfilesController < ApplicationController
   end
   def modify_religion
     current_user.religion.update(religion_params)
+    if params[:religion]
+      current_user.update(:devotion => params[:religion])
+    end
     render json: { :status => 200 }
   end
   def modify_kundali
