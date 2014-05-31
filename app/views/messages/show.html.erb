@@ -53,7 +53,7 @@
               <%= render :partial =>'layouts/interestbutton', :locals => {:user => user} %>
           </div>
         </div>
-        <div id="chat-body" class="chat-body custom-scroll" style="height:400px">
+        <div id="chat-body" class="chat-body custom-scroll" style="height:400px;">
           <ul id="chat-list">
             <% @messages.each do |message| %>
               <% if message.user_id == current_user.id %>
@@ -132,8 +132,14 @@
 
 
 <script type="text/javascript">
+$(document).ready(function() {
   $("tr").live("click", function(e) {
     location.href = "/messages/"+$(this).data('id')
     e.stopPropagation();
+  });
+  $("#chat-body").scrollTop($("#chat-list").height());
+  
+  
 });
+
 </script>
