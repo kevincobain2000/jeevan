@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
 
     profile = user.profile
 
-    name = show_name_to_accepted(in_response, out_response) ? user[:name] : "Profile Id - #{user.profile.id}"
+    name = show_name_to_accepted(in_response, out_response) ? user[:name] : "Profile Id: #{user.profile.id}"
 
     user_ret = {
       id:         user.id,
@@ -68,7 +68,7 @@ class ApplicationController < ActionController::Base
 
     profile = user.profile
 
-    name = show_name_to_accepted(in_response, out_response) ? user[:name] : "Profile Id - #{user.profile.id}"
+    name = show_name_to_accepted(in_response, out_response) ? user[:name] : "Profile Id: #{user.profile.id}"
 
     user_ret = {
       id:         user.id,
@@ -101,7 +101,7 @@ class ApplicationController < ActionController::Base
     in_response  = Interest.where(to_user_id: current_user.id, user_id: user.id).first
     out_response = Interest.where(user_id: current_user.id, to_user_id: user.id).first
     itts = user.sex == "Male" ? "He" : "She"
-    name = show_name_to_accepted(in_response, out_response) ? user[:name] : "Profile id - #{user.profile.id}"
+    name = show_name_to_accepted(in_response, out_response) ? user[:name] : "Profile id: #{user.profile.id}"
 
     user_ret = {
       avatar: user.avatar,
