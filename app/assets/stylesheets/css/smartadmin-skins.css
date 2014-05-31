@@ -529,7 +529,7 @@ body.smart-style-2 {
 
 .smart-style-2 nav > ul > li > a {
 	padding-top:16px;
-	padding-bottom:16px;
+	padding-bottom:8px;
 }
 
 .smart-style-2 nav ul ul>li:hover b {

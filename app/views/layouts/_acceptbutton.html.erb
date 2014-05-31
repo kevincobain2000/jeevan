@@ -1,0 +1,6 @@
+<%= form_tag({:action=>'interest_response', :controller => "profiles"}, :remote => true, :class => "smart-form") do %>
+  <%= hidden_field_tag 'to_user_id', user[:id] %>
+  <button class="btn txt-color-white bg-color-pinkDark btn-xs interest" name="commit" value="Accept" type="submit" data-img="<%= user[:avatar].url(:tiny) %>" data-url='<%= link_to "view profile", profile_path(:id =>user[:profile][:id]) %>' data-title="Interest Accepted" data-msg="accepted the interest in this profile">
+      Accept ?
+    </button>
+    <% end %>

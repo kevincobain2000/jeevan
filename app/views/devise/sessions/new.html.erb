@@ -13,6 +13,7 @@
       <%= render "devise/shared/links" %>
     </span>
   </header>
+  <%= render :partial =>'layouts/comingsoon'%>
     <!-- MAIN CONTENT -->
     <div id="content" class="container">
       <div class="row">
@@ -25,6 +26,13 @@
                 <section>
                   <%= devise_error_messages! %>
                 </section>
+              </fieldset>
+              <fieldset>
+                <section class="text-center">
+                  <%= render "layouts/facebooksign.html.erb" %>
+                </section>
+              </fieldset>
+              <fieldset>
                 <section>
                   <label class="label">Username</label>
                   <label class="input">
@@ -64,9 +72,9 @@
     </div>
   </div>
 </div>
-
+<!-- 
   <script type="text/javascript">
-  $(document).ready(function() {
+  $(document).change(function() {
     $("#main").bgStretcher({
         images: ["../../images/demo/sample-0.jpg"],
         slideShow: true,
@@ -77,3 +85,4 @@
       });
     });
      </script>
+ -->

@@ -7,10 +7,12 @@ class User < ActiveRecord::Base
   validates :dob, presence: true
   validates_date :dob, :before => lambda { 18.years.ago }, :before_message => "Must be at least 18 years old"
   validates :username, presence: true, :length => { :minimum => 5, :maximum => 50 }, uniqueness: true
+  username_regexp = /\A[^@]+[^@][^@]+\z/
+  validates_format_of :username, :with => username_regexp, :if => :username_required?
   # validates_uniqueness_of    :email,     :case_sensitive => false, :allow_blank => true, :if => :email_changed?
   # validates_format_of :email, :with  => Devise.email_regexp, :allow_blank => true, :if => :email_changed?
   after_create :create_dependents
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :omniauthable,
           :recoverable, :rememberable, :trackable, :validatable#, :confirmable
 
   delegate :posted_by, to: :profile
@@ -26,7 +28,7 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, :styles => {:thumb => "200x200#", :tiny => "50x50#"}, :convert_options => {:thumb => "-quality 100", :tiny => "-quality 100" },:default_url => :default_url_by_gender
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   def default_url_by_gender
-    random = rand(4)
+    random = 0
     "/images/normal/#{sex}-#{random}.png"
   end
 
@@ -34,6 +36,7 @@ class User < ActiveRecord::Base
   has_many :interests,      :dependent => :destroy
   has_many :shortlists,     :dependent => :destroy
   has_many :images,         :dependent => :destroy
+  has_many :messages,       :dependent => :destroy
 
   has_one :badge,     :dependent => :destroy
   has_one :profile,   :dependent => :destroy
@@ -90,4 +93,43 @@ class User < ActiveRecord::Base
   def email_changed?
     false
   end
+  def username_required?
+    provider.blank?
+  end
+  def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
+    user = User.where(:provider => auth.provider, :uid => auth.uid).first
+    logger.info("Debug user model #{user.inspect}")
+    if !user.nil?
+      return user
+    else
+      registered_user = User.where(:email => auth.info.email).first
+      logger.info("Debug auth info #{auth.info.date_of_birth.inspect}")
+      if registered_user
+        return registered_user
+      else
+        logger.info("Debug auth info #{auth.inspect}")
+        user = User.create(name:auth.extra.raw_info.name,
+                            provider:auth.provider,
+                            uid:auth.uid,
+                            # email:auth.info.email,
+                            password:Devise.friendly_token[0,20],
+                            sex: auth.extra.raw_info.gender ? auth.extra.raw_info.gender.to_s.capitalize : "Male",
+                            username: auth.info.email,
+                            dob: auth.extra.raw_info.birthday ? auth.extra.raw_info.birthday : "01/01/1985",
+                            devotion: "Hindu",
+                            name: auth.info.name,
+                            avatar: URI.parse(process_uri(auth.info.image))
+                          )
+      end
+    end
+  end
+
+  def self.process_uri(uri)
+    require 'open-uri'
+    require 'open_uri_redirections'
+    open(uri, :allow_redirections => :safe) do |r|
+      r.base_uri.to_s
+    end
+  end
+
 end

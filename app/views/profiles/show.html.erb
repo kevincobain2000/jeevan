@@ -33,14 +33,14 @@
                     <div class="row">
                       <div class="col-sm-12">
                         <div id="myCarousel" class="carousel profile-carousel">
-                          <div class="air air-bottom-right padding-10">
+                          <div class="air air-top-right padding-10">
                             <%= render :partial =>'layouts/interestbutton', :locals => {:user => @user}%>
-                            <h3 class="txt-color-white font-md">
+                            <p class="txt-color-white">
                               <%= render :partial =>'layouts/interesttext', :locals => {:user => @user}%>
-                            </h3>
+                            </p>
                             <%= render :partial =>'layouts/interestact', :locals => {:user => @user}%>
                           </div>
-                          <div class="air air-top-left padding-10">
+                          <div class="air air-top-left padding-10 hidden-xs">
                             <h3 class="txt-color-white font-md">
                               Profile <%= @user[:name] %>,
                               <%= @user[:devotion] %> <%= (@user[:sex] == "Female")? "Bride": "Groom" %>
@@ -54,7 +54,7 @@
                           <div class="carousel-inner">
                             <!-- Slide 1 -->
                             <div class="item active">
-                              <img src="../../images/demo/sample-<%=  rand(1..2) %>.jpg" alt="" style="width:100%;">
+                              <img src="../../images/demo/sample-2.jpg" alt="" style="width:100%;">
                             </div>
                           </div>
                         </div>

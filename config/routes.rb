@@ -4,7 +4,7 @@ Jeevan::Application.routes.draw do
       get :confirmemail
     end
   end
-  devise_for :users, :controllers => { :registrations => "registrations", :sessions => "sessions" }
+  devise_for :users, :controllers => { :registrations => "registrations", :sessions => "sessions", :omniauth_callbacks => "omniauth_callbacks"  }
   resources :profiles do
     collection do
       delete :destroy_everything
@@ -44,6 +44,11 @@ Jeevan::Application.routes.draw do
   end
   resources :profile do
     collection do
+    end
+  end
+  resources :messages do
+    collection do
+      post :send_message
     end
   end
 

@@ -1,10 +1,9 @@
 class ProfilesController < ApplicationController
   before_filter :is_this_user_profile, only: [:edit]
-  before_filter :count_sparks, only: [:index, :incomings, :outgoings, :visitors, :shortlists,:accepted, :waiting,:search, :online, :withphotos, :recentlyjoined]
-  before_filter :get_current_user, only: [:edit]
+
   before_filter :not_same_sex, :get_showing_user, only: [:show]
 
-  PAGINATE_PROFILES = 25
+  PAGINATE_PROFILES = 30
   # GET /profiles/1
   def show
     touch_visitor
@@ -46,6 +45,9 @@ class ProfilesController < ApplicationController
   end
   def modify_religion
     current_user.religion.update(religion_params)
+    if params[:religion]
+      current_user.update(:devotion => params[:religion])
+    end
     render json: { :status => 200 }
   end
   def modify_kundali
@@ -90,6 +92,10 @@ class ProfilesController < ApplicationController
   def destroy_everything
     user = User.find(current_user.id)
     user.destroy
+    Interest.where(:to_user_id => current_user.id).destroy_all
+    Visitor.where(:viewed_id => current_user.id).destroy_all
+    Shortlist.where(:to_user_id => current_user.id).destroy_all
+    Message.where(:to_user_id => current_user.id).destroy_all
     redirect_to root_path
   end
 
@@ -102,7 +108,7 @@ class ProfilesController < ApplicationController
       find_first = current_user.interests.where(to_user_id: params[:to_user_id]).first
       if !find_first
         current_user.interests.create(to_user_id: params[:to_user_id])
-        notify_growl(:interest, params[:to_user_id], "Expressed Interest in You")
+        notify_growl(:interest, params[:to_user_id], "Expressed Interest in You", true)
       else
         find_first.touch
       end
@@ -120,10 +126,10 @@ class ProfilesController < ApplicationController
     interest = Interest.where(:to_user_id => current_user.id, :user_id => params[:to_user_id]).first
     if commit == "Accept"
       interest.update(:response => 1)
-      notify_growl(:accepted, params[:to_user_id], "Accepted Interest")
+      notify_growl(:accepted, params[:to_user_id], "Accepted Your Interest", true)
     elsif commit == "Reject"
       interest.update(:response => 0)
-      notify_growl(:rejected, params[:to_user_id], "Rejected Interest")
+      notify_growl(:rejected, params[:to_user_id], "Rejected Your Interest", true)
     end
 
     render json: { :status => 200 }
@@ -188,6 +194,7 @@ class ProfilesController < ApplicationController
   def outgoings
     rejected = Interest.where("user_id = ? AND response = ?", current_user.id, 0).pluck(:to_user_id)
     @rejected = User.find(rejected).paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
+    logger.info("Debug rejected")
     badge_reset(current_user, "rejected")
   end
   def visitors
@@ -237,16 +244,16 @@ class ProfilesController < ApplicationController
 
   #-----  End of Pages  -----#
   def count_sparks
-    @sparks = Hash.new {|h, k| h[k] = [] }
-    @sparks[:visitors]  = number_with_delimiter(Visitor.where(viewed_id: current_user.id).count)
-    @sparks[:incoming]  = number_with_delimiter(Interest.where(to_user_id: current_user.id).count)
-    @sparks[:rejected]  = number_with_delimiter(Interest.where("user_id = ? AND response = ?", current_user.id, 0).count)
-    @sparks[:waiting]   = number_with_delimiter(Interest.where("user_id = ? AND response IS NULL", current_user.id).count)
-    @sparks[:shortlist] = number_with_delimiter(Shortlist.where(user_id: current_user.id).count)
-    @sparks[:accepted]  = number_with_delimiter(Interest.where("user_id = ? AND response = ?", current_user.id, 1).count)
-    @sparks[:onlinenow]  = User.where("sex <> ? AND devotion = ? AND updated_at >= ?", current_user.sex, current_user.devotion, 30.minutes.ago).count
-    @sparks[:withphotos]  = User.where("sex <> ? AND devotion = ? AND images_count >= ?", current_user.sex, current_user.devotion, 1).order('images_count DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES).count
-    @sparks[:recentlyjoined]  = User.where("sex <> ? AND devotion = ? AND created_at >= ?", current_user.sex, current_user.devotion, Time.zone.now.beginning_of_day).count
+    # @sparks = Hash.new {|h, k| h[k] = [] }
+    # @sparks[:visitors]  = number_with_delimiter(Visitor.where(viewed_id: current_user.id).count)
+    # @sparks[:incoming]  = number_with_delimiter(Interest.where(to_user_id: current_user.id).count)
+    # @sparks[:rejected]  = number_with_delimiter(Interest.where("user_id = ? AND response = ?", current_user.id, 0).count)
+    # @sparks[:waiting]   = number_with_delimiter(Interest.where("user_id = ? AND response IS NULL", current_user.id).count)
+    # @sparks[:shortlist] = number_with_delimiter(Shortlist.where(user_id: current_user.id).count)
+    # @sparks[:accepted]  = number_with_delimiter(Interest.where("user_id = ? AND response = ?", current_user.id, 1).count)
+    # @sparks[:onlinenow]  = User.where("sex <> ? AND devotion = ? AND updated_at >= ?", current_user.sex, current_user.devotion, 30.minutes.ago).count
+    # @sparks[:withphotos]  = User.where("sex <> ? AND devotion = ? AND images_count >= ?", current_user.sex, current_user.devotion, 1).order('images_count DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES).count
+    # @sparks[:recentlyjoined]  = User.where("sex <> ? AND devotion = ? AND created_at >= ?", current_user.sex, current_user.devotion, Time.zone.now.beginning_of_day).count
   end
 
   protected
@@ -257,9 +264,7 @@ class ProfilesController < ApplicationController
       redirect_to root_path
     end
   end
-  def get_current_user
-    @user = make_user(current_user)
-  end
+
   def get_showing_user
     @user = make_user(User.find(Profile.find(params[:id]).user_id))
   end
@@ -320,19 +325,23 @@ class ProfilesController < ApplicationController
   def touch_visitor
     visiting_user_id = Profile.find(params[:id]).user_id
     if current_user.id != visiting_user_id
-      if Visitor.where(user_id: current_user.id, viewed_id: visiting_user_id).count == 0
-        Visitor.find_or_create_by(user_id: current_user.id, viewed_id: visiting_user_id)
-        notify_growl(:visitor, visiting_user_id, "Profile Viewed")
+      visitor = Visitor.where(user_id: current_user.id, viewed_id: visiting_user_id).first
+      if !visitor
+        visitor_created = Visitor.find_or_create_by(user_id: current_user.id, viewed_id: visiting_user_id)
+        notify_growl(:visitor, visiting_user_id, "Your Profile was Viewed", true)
+      elsif visitor.updated_at < 3.hours.ago
+        notify_growl(:visitor, visiting_user_id, "Your Profile got viewed again", false)
+        visitor.touch
       end
     end
   end
 
-  def notify_growl(event, visiting_user_id, title)
+  def notify_growl(event, visiting_user_id, title, badge_update)
     visited_user = User.find(visiting_user_id)
     to_user_id = visited_user.id
 
     data = {}
-    data[:img]   = visited_user.avatar
+    data[:img]   = current_user.avatar
     data[:title] = title
     data[:profile_id] = current_user.profile.id
     data[:event] = event
@@ -340,7 +349,9 @@ class ProfilesController < ApplicationController
 
     channel_name = "/messages/#{to_user_id}"
     PrivatePub.publish_to channel_name, :data => data
-    badge_increment(visited_user, event.to_s)
+    if badge_update
+      badge_increment(visited_user, event.to_s)
+    end
   end
   def badge_increment(user, event)
     if event == "interest"
@@ -348,9 +359,9 @@ class ProfilesController < ApplicationController
     elsif event == "visitor"
       user.badge.update(visitor: user.badge.visitor + 1)
     elsif event == "accepted"
-      user.badge.update(accepted: user.badge.accepted + 1)
+      # user.badge.update(accepted: user.badge.accepted + 1)
     elsif event == "rejected"
-      user.badge.update(rejected: user.badge.rejected + 1)
+      # user.badge.update(rejected: user.badge.rejected + 1)
     end
   end
   def badge_reset(user, event)
@@ -359,9 +370,9 @@ class ProfilesController < ApplicationController
     elsif event == "visitor"
       user.badge.update(visitor: 0)
     elsif event == "accepted"
-      user.badge.update(accepted: 0)
+      # user.badge.update(accepted: 0)
     elsif event == "rejected"
-      user.badge.update(rejected: 0)
+      # user.badge.update(rejected: 0)
     end
   end
 end

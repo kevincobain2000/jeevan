@@ -1,4 +1,4 @@
-<% if  current_user.id == user[:id] || (user[:out_response] && user[:out_response][:response] == 1) %>
+<% if  current_user.id == user[:id] || (!user[:out_response].nil? && user[:out_response][:response] == 1) || (!user[:in_response].nil? && user[:in_response].response == 1) %>
   <% contactinfo_self = user[:contact][:self_no]  %>
   <% contactinfo_s_id = user[:contact][:s_id]  %>
   <% contactinfo_g_id = user[:contact][:g_id]  %>

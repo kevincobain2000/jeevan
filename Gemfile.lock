@@ -26,7 +26,6 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
     addressable (2.3.6)
-    angularjs-rails (1.2.13)
     arel (4.0.2)
     atomic (1.1.14)
     awesome_print (1.2.0)
@@ -51,7 +50,6 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.7.0)
-    commonjs (0.2.7)
     cookiejar (0.3.2)
     daemons (1.1.9)
     debug_inspector (0.0.2)
@@ -74,6 +72,8 @@ GEM
     erubis (2.7.0)
     eventmachine (1.0.3)
     execjs (2.0.2)
+    faraday (0.9.0)
+      multipart-post (>= 1.2, < 3)
     faye (1.0.1)
       cookiejar (>= 0.3.0)
       em-http-request (>= 0.3.0)
@@ -88,13 +88,12 @@ GEM
     font-awesome-rails (3.2.1.2)
       railties (>= 3.2, < 5.0)
     gritter (1.1.0)
+    hashie (2.1.1)
     highline (1.6.21)
     hike (1.2.3)
     http_parser.rb (0.6.0)
+    httpauth (0.2.0)
     i18n (0.6.9)
-    jbuilder (1.5.3)
-      activesupport (>= 3.0.0)
-      multi_json (>= 1.2.0)
     jquery-inputmask-rails (2.0.1)
     jquery-rails (3.1.0)
       railties (>= 3.0, < 5.0)
@@ -106,12 +105,9 @@ GEM
       jquery-rails
       railties (>= 3.1.0)
     json (1.8.1)
+    jwt (0.1.8)
+      multi_json (>= 1.5)
     kgio (2.9.2)
-    less (2.4.0)
-      commonjs (~> 0.2.7)
-    less-rails (2.4.2)
-      actionpack (>= 3.1)
-      less (~> 2.4.0)
     libv8 (3.16.14.3)
     mail (2.5.4)
       mime-types (~> 1.16)
@@ -121,12 +117,28 @@ GEM
     mini_portile (0.5.3)
     minitest (4.7.5)
     multi_json (1.8.4)
+    multipart-post (2.0.0)
     mysql2 (0.3.15)
     nilify_blanks (1.0.3)
       activerecord (>= 3.0.0)
       activesupport (>= 3.0.0)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
+    oauth2 (0.8.1)
+      faraday (~> 0.8)
+      httpauth (~> 0.1)
+      jwt (~> 0.1.4)
+      multi_json (~> 1.0)
+      rack (~> 1.2)
+    omniauth (1.1.4)
+      hashie (>= 1.2, < 3)
+      rack
+    omniauth-facebook (1.4.1)
+      omniauth-oauth2 (~> 1.1.0)
+    omniauth-oauth2 (1.1.1)
+      oauth2 (~> 0.8.0)
+      omniauth (~> 1.0)
+    open_uri_redirections (0.1.4)
     options (2.3.2)
     orm_adapter (0.5.0)
     paperclip (3.4.2)
@@ -137,6 +149,8 @@ GEM
       mime-types
     parsley-rails (1.2.3.0)
       railties (>= 3.0.0)
+    pin_it (0.0.7)
+      rails (>= 2.3.0)
     polyglot (0.3.3)
     pr_geohash (1.0.0)
     private_pub (1.0.3)
@@ -172,8 +186,10 @@ GEM
     rake (10.1.1)
     rdoc (4.1.1)
       json (~> 1.4)
+    redis (3.0.7)
+    redis-objects (0.9.1)
+      redis (>= 3.0.2)
     ref (1.0.5)
-    remotipart (1.2.1)
     rsolr (1.0.10)
       builder (>= 2.1.2)
     sass (3.2.14)
@@ -241,7 +257,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  angularjs-rails
   awesome_print
   better_errors
   binding_of_caller
@@ -252,22 +267,25 @@ DEPENDENCIES
   faye
   font-awesome-rails
   gritter (= 1.1.0)
-  jbuilder (~> 1.2)
   jquery-inputmask-rails
   jquery-rails
   jquery-turbolinks
   jquery-ui-rails
-  less-rails
   mysql2
   nilify_blanks
+  omniauth
+  omniauth-facebook
+  open_uri_redirections
   paperclip (~> 3.0)
   parsley-rails
+  pin_it
   private_pub
   progress_bar
   pry-rails
   quiet_assets
   rails (= 4.0.2)
-  remotipart (~> 1.2)
+  redis
+  redis-objects
   sass-rails (~> 4.0.0)
   sdoc
   selectize-rails

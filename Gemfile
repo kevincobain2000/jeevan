@@ -7,23 +7,26 @@ gem 'unicorn'
 # Use mysql as the database for Active Record
 gem 'mysql2'
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'open_uri_redirections'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
 gem "therubyracer"
-gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+# gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 # gem "twitter-bootstrap-rails"
 gem 'bootstrap-datepicker-rails'
 gem "selectize-rails"
 
 gem 'paperclip', "~> 3.0"
-gem 'remotipart', '~> 1.2'
+# gem 'remotipart', '~> 1.2'
 gem 'dropzonejs-rails'
 gem 'jquery-inputmask-rails'
 gem 'will_paginate', '~> 3.0'
 
-gem 'angularjs-rails'
+# gem 'angularjs-rails'
 # gem 'jquery-datatables-rails'
 # gem 'bootstrap-tagsinput-rails'
 # gem 'twitter-typeahead-rails'
@@ -40,6 +43,11 @@ gem "private_pub"
 gem 'faye'
 gem 'thin'
 gem 'validates_timeliness', '~> 3.0'
+gem 'pin_it'
+gem 'redis-objects'
+gem 'redis'
+
+# gem 'dalli'
 
 # gem 'rake', '~> 10.1.1'
 
@@ -61,7 +69,7 @@ gem 'turbolinks'
 gem "parsley-rails"
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
+# gem 'jbuilder', '~> 1.2'
 
 # TODO
 # error notifier

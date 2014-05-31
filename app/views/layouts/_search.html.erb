@@ -1,10 +1,5 @@
 <%= form_tag({:action=>'search'}) do %>
 <div class="input-group input-group-lg">
-  <div class="input-group-btn">
-    <span class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-      Filter
-    </span>
-  </div>
   <% if defined? @query_was  %> 
   <% search_value = @query_was %>
   <% else %>

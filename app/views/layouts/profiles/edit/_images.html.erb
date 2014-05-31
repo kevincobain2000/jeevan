@@ -3,10 +3,10 @@
 <%= form_tag({:action=>'modify_image'}, {:authenticity_token => true, :multipart => true, :remote => true, :class => 'dropzone images-dropzone'}) do %>
 <% end %>
 <div class="row">
-  <%= form_tag({:action=>'remove_image'}, {:remote => true, :class=>"smart-form"}) do %>
+  <%= form_tag({:action=>'remove_image', :controller => "profiles"}, {:remote => true, :class=>"smart-form"}) do %>
     <!-- SuperBox -->
     <div class="superbox col-sm-12">
-      <% @user[:image].each do |image| %>
+      <% current_user.images.all.each do |image| %>
         <div class="superbox-list">
           <%= image_tag image.avatar.url(:thumb), {"data-img" => image.avatar.url(:thumb), :class => "superbox-img", :style=>"width:50px;height50px;","alt"=>"Edit this Image", :value=>image.id, :name=>"img", :id=>image.id} %>
         </div>

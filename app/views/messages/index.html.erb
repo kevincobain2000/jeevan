@@ -1,0 +1,21 @@
+<div id="main" role="main">
+  <%= render :partial =>"layouts/ribbon", :locals => {:papa => "Home", :son => "Chat"} %>
+  <div id="content">
+    <div class="row">
+      <!-- col -->
+      <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+        <h1 class="page-title txt-color-blueDark">
+          <!-- PAGE HEADER -->
+          <i class="fa-fw fa fa-comments"></i>
+          Messages
+        </h1>
+      </div>
+    </div>
+      <div class="error-box">
+        <h3 class="text-center"><i class="fa fa-fw fa-bolt fa-lg"></i>
+          Sorry
+          <br><small>You Currently have no messages
+            <a href="/">go and explore more profiles</a></small></h3>
+      </div>
+  </div>
+</div>

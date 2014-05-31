@@ -1,16 +1,13 @@
-<%= render :partial =>"layouts/sparks2" %>
-<%= render :partial =>"layouts/search"%>
+<%#= render :partial =>"layouts/sparks2" %>
+<%#= render :partial =>"layouts/search"%>
   <!-- MAIN CONTENT -->
-  <div id="content"class="font-sm">
+
     <h1>
       <span class="semi-bold"><%= h %></span>
       <%= hsm %>
-      <span>
-        <% if defined? @solr  %> 
-        found <%= number_with_delimiter(@solr.total) %> profiles
-        <% end %>
-      </span>
-      </h1>
+      <small>total found in this category (<%= paginate.total_entries %>)</small>
+    </h1>
+
       <%= will_paginate paginate, :class =>"flickr_pagination"%>
       <legend></legend>
       <% if paginate.empty? %>
@@ -19,48 +16,8 @@
       </div>
       <% end %>
       <% paginate.each do |_user| %>
-        <% user = make_user(_user) %>
-        <div class="col-md-5 col-xs-12 well shadow-box" style="height:350px;">
-          <div class="col-md-3 col-xs-6">
-          <%= link_to profile_path(:id =>user[:profile][:id]), :class=>"" do %>
-              <%= image_tag user[:avatar].url(:thumb), :class=>"", :style=>"width:85px;height:85px;" %>
-            <% end %>
-            <br>
-            <%= render :partial =>'layouts/online', :locals => {:time => user[:updated_at]}%>
-            <p class="text-muted">
-              <%= user[:updated_at] %>
-              ago</p>
-            <%= render :partial =>'layouts/shortlistbutton', :locals => {:user => user} %>
-            </div>
-            <div class="col-md-5 col-xs-6">
-              <%= render :partial =>'layouts/cardinfo', :locals => {:user => user} %>
-            </div>
-            <div class="col-md-4 hidden-xs">
-              <%= render :partial =>'layouts/interestbutton', :locals => {:user => user} %>
-              <%= render :partial =>'layouts/interesttext', :locals => {:user => user} %>
-              <%= render :partial =>'layouts/interestact', :locals => {:user => user} %>
-              <hr>
-                        <% if user[:image].count >= 1 %>
-                        <h1><small>Images</small></h1>
-                        <% user[:image][0..6].each do |image| %>
-                          <a href="<%= image.avatar.url(:original) %>" data-lightbox="roadtrip">
-                            <%= image_tag image.avatar.url(:tiny) %>
-                          </a>
-                        <% end %>
-                        <%= link_to profile_path(:id =>user[:profile][:id]), :class=>"pull-right" do %>
-                        <%= (user[:images_count] - 6) > 0 ? user[:images_count] - 6 : "0" %> more images ..
-                        <% end %>
-                        <hr>
-                        <% elsif user[:about][:me] %>
-                        <h1><small>About <%= (user[:sex] == "Female")? "Her": "Him" %></small></h1>
-                          <%= raw truncate(sanitize(user[:about][:me], :tags=>[]), :escape => false, length: 110) %>
-                          <%= link_to profile_path(:id =>user[:profile][:id]) do %>
-                          read more
-                          <% end %>
-                        <% end %> <!-- End if image count -->
-              </div>
-          </div>
+        <% user = make_user_card(_user) %>
+        <%= render :partial =>'layouts/card.html.erb', :locals => {:user => user} %>
           <% end %>
           <legend></legend>
           <%= will_paginate paginate, :class =>"flickr_pagination"%>
-    </div>

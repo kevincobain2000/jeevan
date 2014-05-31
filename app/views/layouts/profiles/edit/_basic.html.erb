@@ -9,7 +9,7 @@
         <small class="text-muted">Your Current Residential Location</small>
     </div>
       <div class="col-sm-6">
-        <input id="select-home" name="home" value="<%= @user[:profile][:home] %>" class="selectized">
+        <input id="select-home" name="home" value="<%= current_user.profile[:home] %>" class="selectized">
       </div>
 
   </fieldset>
@@ -25,7 +25,7 @@
             Choose One</small>
           </div>
           <div class="col-sm-6">
-          <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:profile][category] %>" placeholder="<%= heading %>">
+          <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= current_user.profile[:category] %>" placeholder="<%= heading %>">
         </div>
       </fieldset>
       <% end %>

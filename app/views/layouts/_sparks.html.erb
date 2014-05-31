@@ -30,8 +30,8 @@
       <li class="sparks-info">
       <%= link_to accepted_profiles_path do %>
         <h5>
-        <% badge = current_user.badge.accepted > 0 ? "red bounceIn animated" : "blue" %>
-        <small><label class="badge bg-color-<%= badge %> font-xs"><%= current_user.badge.accepted %></label></small>
+        <%# badge = current_user.badge.accepted > 0 ? "red bounceIn animated" : "blue" %>
+        <!-- <small><label class="badge bg-color-<%#= badge %> font-xs"><%#= current_user.badge.accepted %></label></small> -->
           Got Accepted
           <span class="txt-color-greenDark"><i class="fa fa-check txt-color-green"></i>&nbsp;<%= @sparks[:accepted] %></span></h5>
           <% end %>
@@ -39,8 +39,8 @@
       <li class="sparks-info">
       <%= link_to outgoings_profiles_path do %>
         <h5>
-        <% badge = current_user.badge.rejected > 0 ? "red bounceIn animated" : "blue" %>
-        <small><label class="badge bg-color-<%= badge %> font-xs"><%= current_user.badge.rejected %></label></small>
+        <%# badge = current_user.badge.rejected > 0 ? "red bounceIn animated" : "blue" %>
+        <!-- <small><label class="badge bg-color-<%#= badge %> font-xs"><%#= current_user.badge.rejected %></label></small> -->
            Got Rejected
           <span class="txt-color-greenDark"><i class="fa fa-thumbs-down txt-color-red"></i>&nbsp;<%= @sparks[:rejected] %></span></h5>
           <% end %>
