@@ -10,6 +10,10 @@ class MessagesController < ApplicationController
 
   #/messages/:user_id
   def show
+    # conversations = Message.where("user_id = ? OR to_user_id = ?", current_user.id, current_user.id).order("created_at DESC")
+    # spoken_with = conversations.pluck(:user_id,:to_user_id).flatten.uniq - [current_user.id]
+    # @spoken_with = spoken_with.paginate(:page => params[:page], :per_page => 10);
+    
     talking_with_user_id = params[:id]
     @messages = Message.where("(user_id = ? AND to_user_id = ?) OR (user_id = ? AND to_user_id = ?)", current_user.id, talking_with_user_id, talking_with_user_id, current_user.id).order("created_at DESC").limit(30).reverse
   end

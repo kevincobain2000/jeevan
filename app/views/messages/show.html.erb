@@ -17,6 +17,9 @@
               <% end %>
             </li>
           </ul>
+          <div class="navbar-form navbar-left pull-right" role="search">
+              <%= render :partial =>'layouts/interestbutton', :locals => {:user => user} %>
+          </div>
         </div>
         <div id="chat-body" class="chat-body custom-scroll" style="height:400px">
           <ul id="chat-list">
