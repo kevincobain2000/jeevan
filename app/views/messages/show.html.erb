@@ -15,9 +15,7 @@
 
     <tr class="unread" data-id="<%= user[:id] %>">
       <td class="inbox-table-icon">
-        <div class="checkbox">
           <%= image_tag user[:avatar].url(:thumb), :style=>"width:30px;height:30px;", :class=>"img-rounded" %>
-        </div>
       </td>
       <td class="inbox-data-from hidden-xs hidden-sm">
         <div>
@@ -26,7 +24,7 @@
       </td>
       <td class="inbox-data-message">
         <div>
-          <span><%= time_ago_in_words(latest_snippet.created_at) %> ago</span> <%= truncate(latest_snippet.message, :length => 30) %>
+          <span class="font-xs"><%= time_ago_in_words(latest_snippet.created_at) %> ago</span> <%= truncate(latest_snippet.message, :length => 10) %>
         </div>
       </td>
       <td class="inbox-data-date hidden-xs">
