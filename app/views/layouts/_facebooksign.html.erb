@@ -1,0 +1,8 @@
+<% if user_signed_in? %>
+Signed in as <%= current_user.name %>. Not you?
+<%= link_to "Sign out", destroy_user_session_path,:method => :delete %>
+<% else %>
+<%= link_to user_omniauth_authorize_path(:facebook), :class=>"btn btn-lg btn-primary" do %>
+	<i class="fa fa-facebook-square"></i> Sign in with Facebook
+<% end %>
+<% end %>

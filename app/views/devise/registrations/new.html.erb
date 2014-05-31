@@ -26,6 +26,13 @@
                 <section class="padding-10">
                   <%= devise_error_messages! %>
                 </section>
+              </fieldset>
+              <fieldset>
+                <section class="text-center">
+                  <%= render "layouts/facebooksign.html.erb" %>
+                </section>
+              </fieldset>
+              <fieldset>
                 <section>
                   <label class="label">
                     <strong>Your Name</strong></label>
@@ -37,9 +44,11 @@
 
                 </section>
                 <section>
-                  <label class="label"><strong>Date of Birth</strong> <strong class="font-md txt-color-red" id="date_show_words"></strong></label>
+                  <label class="label"><strong>Date of Birth</strong>
+                  <br>
+                  <strong class="txt-color-red" id="date_show_words"></strong></label>
                     <label class="input">
-                      <i class="icon-append fa fa-calendar"></i>
+                      <i class="icon-append fa fa-calendar" id="dob-cal"></i>
                       <!-- <input class="form-control" id="dob" type="text" name="user[dob]" value="dd/mm/yyyy"> -->
                       <input class="form-control" id="dob" type="text" placeholder="september 4 1985 ">
                       <input class="form-control" id="dob-hidden" type="hidden" name="user[dob]">
@@ -48,17 +57,6 @@
                       <strong>Example</strong>
                       <span>sep 9 1985</span>
                     </div>
-                    <!-- 
-                     <script type="text/javascript">
-                      $("#dob").datepicker({
-                        format: 'dd/mm/yyyy',
-                        startView: "decade",
-                      });
-                      $('#dob').on('changeDate', function(ev){
-                        $(this).datepicker('hide');
-                      });
-                    </script>
-                     -->
                   </section>
                 <section>
                   <label class="label">
@@ -136,7 +134,7 @@
                     <a href="/users/sign_in" class="">Sign In</a>
                   </div>
                   <legend></legend>
-                  <button type="submit" id="signup-button" class="btn btn-primary disabled">Sign Up</button>
+                  <button type="submit" id="signup-button" class="btn btn-primary">Sign Up</button>
                 </footer>
               <% end %>
             </div>
@@ -151,6 +149,23 @@
 
 
   $(document).ready(function() {
+
+    $("#dob-cal").datepicker({
+      format: 'dd/mm/yyyy',
+      startView: "decade",
+    });
+    $('#dob-cal').on('changeDate', function(ev){
+      $(this).datepicker('hide');
+      cal_date = $(this).datepicker('getDate');
+
+      cal_date = cal_date.getDate() + " " + cal_date.getMonth() +" "+ cal_date.getFullYear()
+      cal_date_parse = Date.parse(cal_date)
+
+      $("#dob-hidden").val(cal_date_parse.toString('dd/MM/yyyy'));
+      $("#dob").val(cal_date_parse.toString('dddd, MMMM d, yyyy'));
+      $("#date_show_words").html(cal_date_parse.toString('dddd, MMMM d, yyyy'));
+    });
+
     $("#dob").keyup(function(event) {
       date_input = $(this).val();
       the_date = Date.parse(date_input);
