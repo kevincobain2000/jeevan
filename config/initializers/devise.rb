@@ -1,8 +1,9 @@
+API_KEYS = YAML::load_file("#{Rails.root}/config/api_keys.yml")[Rails.env]
 require "omniauth-facebook"
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
-  config.omniauth :facebook, '742725949083582', '9c7dc7e878843500f1fd79ae1a3441b0',:scope => 'email,user_birthday', :display => 'popup', :image_size => 'large'
+  config.omniauth :facebook, API_KEYS['facebook']['api_key'], API_KEYS['facebook']['api_secret'],:scope => 'email,user_birthday', :image_size => 'large'
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
