@@ -49,6 +49,8 @@ gem 'redis'
 gem 'rb-readline'
 gem 'omniauth-twitter'
 
+gem 'modernizr-rails'
+
 # gem 'dalli'
 
 # gem 'rake', '~> 10.1.1'
