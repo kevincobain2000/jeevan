@@ -5,6 +5,7 @@ class MessagesController < ApplicationController
     conversations = Message.where("user_id = ? OR to_user_id = ?", current_user.id, current_user.id).order("created_at DESC")
     spoken_with = conversations.pluck(:user_id,:to_user_id).flatten.uniq - [current_user.id]
     @spoken_with = spoken_with.paginate(:page => params[:page], :per_page => 10);
+    current_user.badge.update(message: 0)
   end
 
   #/messages/:user_id
@@ -16,10 +17,13 @@ class MessagesController < ApplicationController
   def send_message
     message = message_params[:message]
     if message.gsub(/\s+/, "").length > 0
-      to_user_id = Profile.find(params[:to_user_id]).user_id
+      user = User.find(params[:to_user_id])
+      # to_user_id = Profile.find(params[:to_user_id]).user_id
+      to_user_id = user.id
       Message.create(:user_id => current_user.id, :to_user_id => to_user_id, :message => message)
       response = { :status => 200 }
       notify_growl(:message, params[:to_user_id], "Message Received", message, true)
+      user.badge.update(message: user.badge.message + 1)
     else message.length == 0
       response =  { :error => "Sorry, your message is corrupted", :status => 422 }
     end

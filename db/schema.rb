@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20140531003532) do
     t.integer  "interest",   default: 0
     t.integer  "accepted",   default: 0
     t.integer  "rejected",   default: 0
+    t.integer  "message",    default: 0
   end
 
   add_index "badges", ["user_id"], name: "user_id", using: :btree
