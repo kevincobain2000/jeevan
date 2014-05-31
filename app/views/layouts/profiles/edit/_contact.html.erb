@@ -9,7 +9,7 @@
     <div class="col-sm-6">
       <label class="input">
         <i class="icon-prepend fa fa-phone"></i>
-        <input name="self_no" class="form-control phone" type="text" value="<%= @user[:contact][:self_no] %>" >
+        <input name="self_no" class="form-control phone" type="text" value="<%= current_user.contact[:self_no] %>" >
       </label>
     </fieldset>
     <fieldset>
@@ -19,7 +19,7 @@
     <div class="col-sm-6">
       <label class="input">
         <i class="icon-prepend fa fa-skype"></i>
-        <input name="s_id" class="form-control" type="text" value="<%= @user[:contact][:s_id] %>" placeholder="Your Skype Id">
+        <input name="s_id" class="form-control" type="text" value="<%= current_user.contact[:s_id] %>" placeholder="Your Skype Id">
       </label>
     </fieldset>
     <fieldset>
@@ -29,7 +29,7 @@
     <div class="col-sm-6">
       <label class="input">
         <i class="icon-prepend fa fa-google-plus"></i>
-        <input name="g_id" class="form-control" type="text" value="<%= @user[:contact][:g_id] %>" placeholder="Your Google Plus/Chat Id">
+        <input name="g_id" class="form-control" type="text" value="<%= current_user.contact[:g_id] %>" placeholder="Your Google Plus/Chat Id">
       </label>
     </fieldset>
     <fieldset>
@@ -39,7 +39,7 @@
     <div class="col-sm-6">
       <label class="input">
         <i class="icon-prepend fa fa-comment"></i>
-        <input name="w_id" class="form-control" type="text" value="<%= @user[:contact][:w_id] %>" placeholder="WhatsApp Account">
+        <input name="w_id" class="form-control" type="text" value="<%= current_user.contact[:w_id] %>" placeholder="WhatsApp Account">
       </label>
     </fieldset>
     <fieldset>
@@ -49,7 +49,7 @@
     <div class="col-sm-6">
       <label class="input">
         <i class="icon-prepend fa fa-linkedin"></i>
-        <input name="ln_link" class="form-control" type="text" value="<%= @user[:contact][:ln_link] %>" placeholder="Paste Your LinkedIn Url">
+        <input name="ln_link" class="form-control" type="text" value="<%= current_user.contact[:ln_link] %>" placeholder="Paste Your LinkedIn Url">
       </label>
     </fieldset>
     <fieldset>
@@ -59,7 +59,7 @@
     <div class="col-sm-6">
       <label class="input">
         <i class="icon-prepend fa fa-facebook"></i>
-        <input name="fb_link" class="form-control" type="text" value="<%= @user[:contact][:fb_link] %>" placeholder="Paste Your Facebook Profile Link">
+        <input name="fb_link" class="form-control" type="text" value="<%= current_user.contact[:fb_link] %>" placeholder="Paste Your Facebook Profile Link">
       </label>
     </fieldset>
   <footer>

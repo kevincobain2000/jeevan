@@ -15,7 +15,7 @@
           Select one from list or add a new one</small>
       </div>
         <div class="col-sm-6">
-              <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:education][category] %>" placeholder="Choose or Add your <%= heading %>">
+              <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= current_user.education[:category] %>" placeholder="Choose or Add your <%= heading %>">
             </div>
       </fieldset>
     <% end %>

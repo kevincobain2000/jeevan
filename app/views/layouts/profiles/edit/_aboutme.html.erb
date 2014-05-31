@@ -12,7 +12,7 @@
 <% end %>
 
 <fieldset>
-  <div class="click2edit"><%= raw @user[:about][:me] %>
+  <div class="click2edit"><%= raw current_user.about[:me] %>
   </div>
 </fieldset>
 <div class="limit txt-color-red"></div>
