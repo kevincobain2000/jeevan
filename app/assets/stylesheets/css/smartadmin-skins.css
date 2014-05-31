@@ -524,12 +524,12 @@ body.smart-style-2 {
 
 .smart-style-2 nav ul li a {
 	color: #69737A !important;
-	font-size:12px !important;
+	font-size:13px !important;
 }
 
 .smart-style-2 nav > ul > li > a {
 	padding-top:16px;
-	padding-bottom:8px;
+	padding-bottom:0px;
 }
 
 .smart-style-2 nav ul ul>li:hover b {
@@ -537,7 +537,7 @@ body.smart-style-2 {
 }
 
 .smart-style-2 nav>ul>li>a>i {
-	font-size:25px !important;
+	font-size:10px !important;
 }
 
 .smart-style-2 nav ul ul {
