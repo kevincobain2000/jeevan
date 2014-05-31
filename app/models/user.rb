@@ -98,7 +98,6 @@ class User < ActiveRecord::Base
   end
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
-    logger.info("Debug user model #{user.inspect}")
     if !user.nil?
       return user
     else
