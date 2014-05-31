@@ -16,7 +16,7 @@
             You can an enter multiple items</small>
       </div>
       <div class="col-sm-6">
-          <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:hobby][category] %>" placeholder="Your Favourite <%= heading %>">
+          <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= current_user.hobby[:category] %>" placeholder="Your Favourite <%= heading %>">
         </div>
       </fieldset>
     <% end %>

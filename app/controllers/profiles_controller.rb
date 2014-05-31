@@ -1,7 +1,6 @@
 class ProfilesController < ApplicationController
   before_filter :is_this_user_profile, only: [:edit]
-  # before_filter :count_sparks, only: [:index, :incomings, :outgoings, :visitors, :shortlists,:accepted, :waiting,:search]
-  before_filter :get_current_user, only: [:edit]
+
   before_filter :not_same_sex, :get_showing_user, only: [:show]
 
   PAGINATE_PROFILES = 30
@@ -265,9 +264,7 @@ class ProfilesController < ApplicationController
       redirect_to root_path
     end
   end
-  def get_current_user
-    @user = make_user(current_user)
-  end
+
   def get_showing_user
     @user = make_user(User.find(Profile.find(params[:id]).user_id))
   end

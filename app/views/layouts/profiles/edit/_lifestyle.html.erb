@@ -14,7 +14,7 @@
   </div>
   <div class="col-sm-6">
     <label class="input"> <i class="icon-append fa fa-male"></i>
-      <input class="form-control" type="number" step= "any" name="height" placeholder="Height in numbers" min="2" max="7"></label>
+      <input class="form-control" type="number" step= "any" name="height" placeholder="Height in numbers" min="2" max="7" value="<%= current_user.lifestyle.height %>"></label>
   </div>
   </fieldset>
   <fieldset>
@@ -27,7 +27,7 @@
   </div>
   <div class="col-sm-6">
     <label class="input"> <i class="icon-append fa fa-male"></i>
-      <input class="form-control" type="number" name="weight" placeholder="Weight in numbers" min="25" max="120"></label>
+      <input value="<%= current_user.lifestyle.weight %>" class="form-control" type="number" name="weight" placeholder="Weight in numbers" min="25" max="120"></label>
   </div>
 </fieldset>
 
@@ -43,7 +43,7 @@
             Choose one</small>
       </div>
       <div class="col-sm-6">
-        <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= @user[:lifestyle][category] %>" placeholder="Choose your <%= heading %>">
+        <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= current_user.lifestyle[:category] %>" placeholder="Choose your <%= heading %>">
       </div>
     </fieldset>
     <% end %>

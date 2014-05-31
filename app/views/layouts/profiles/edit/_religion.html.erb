@@ -12,7 +12,7 @@
         </small>
         </div>
         <div class="col-sm-6">
-        <input id="select-religion" name="religion" value="<%= @user[:devotion] %>" class="selectized" placeholder="Select or Add One Religion">
+        <input id="select-religion" name="religion" value="<%= current_user.devotion %>" class="selectized" placeholder="Select or Add One Religion">
       </div>
   </fieldset>
 
@@ -32,7 +32,7 @@
         </small>
       </div>
       <div class="col-sm-6">
-        <input id="select-<%= id %>" name="<%= category %>" value="<%= @user[:religion][category] %>" class="selectized" placeholder="Select or Add One <%= heading %>">
+        <input id="select-<%= id %>" name="<%= category %>" value="<%= current_user.religion[:category] %>" class="selectized" placeholder="Select or Add One <%= heading %>">
       </div>
       </fieldset>
     <% end %>
