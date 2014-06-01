@@ -1,3 +1,4 @@
+<% user = make_user_tiny(params[:id]) %>
 <span class="hidden" id="is-on-chat" data-userid="<%= params[:id] %>" data-img="<%= user[:avatar].url(:tiny) %>" data-username="<%= user[:name] %>"></span>
 <div id="main" role="main">
   <%= render :partial =>"layouts/ribbon", :locals => {:papa => "Home", :son => "Chatting with #{user[:name]}"} %>
@@ -35,7 +36,7 @@
   </tbody>
 </table>
 
-<% user = make_user_tiny(params[:id]) %>
+
 <%= will_paginate @spoken_with, :class =>"flickr_pagination"%>
       </div>
 
