@@ -17,13 +17,10 @@
   cursor: pointer;
   background: transparent;
   /*border: 2px solid #FAFAFA;*/
-  box-shadow: 0 2px 2px rgba(33, 25, 25, 0.4);
   margin: 0 5px 15px;
   padding: 10px;
   padding-bottom: 15px;
   opacity: 1;
-  -moz-border-radius: 3px;
-  border-radius: 15px;
 }
 
 .dropzone.dz-clickable .dz-message,

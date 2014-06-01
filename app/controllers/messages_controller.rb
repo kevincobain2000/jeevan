@@ -67,7 +67,6 @@ class MessagesController < ApplicationController
   end
   def not_talking_with_same_sex
     user = User.find(params[:id])
-
     if (params[:id] == current_user.id) || (current_user.sex == user.sex)
       redirect_to root_path
     end

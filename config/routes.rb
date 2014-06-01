@@ -52,10 +52,6 @@ Jeevan::Application.routes.draw do
     end
   end
 
-  resources :dashboard do
-    collection do
-    end
-  end
   resources :contact do
     collection do
     end

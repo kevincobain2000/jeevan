@@ -4,6 +4,8 @@ require "omniauth-facebook"
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
   config.omniauth :facebook, API_KEYS['facebook']['api_key'], API_KEYS['facebook']['api_secret'],:scope => 'email,user_birthday', :image_size => 'large'
+  config.omniauth :twitter, API_KEYS['twitter']['api_key'], API_KEYS['twitter']['api_secret'], :image_size => 'original'
+  config.omniauth :linkedin, API_KEYS['linkedin']['api_key'], API_KEYS['linkedin']['api_secret'], :image_size => 'original'
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
