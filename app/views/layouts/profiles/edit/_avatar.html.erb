@@ -1,3 +1,3 @@
 <%= render :partial =>'layouts/alert', :locals => {:heading => "Profile Pic: Its just too easy !", :description => "How do I add or change my profile picture? Just Drag & Drop your images from your computer or click/tap to choose from profile picture from folder. Your changes will show on refreshing the page", :icon=>"fa fa-user"}%>
-<%= form_tag({:action=>'modify_avatar', :controller=>"profiles"}, {:authenticity_token => true, :multipart => true, :remote => true, :class => 'dropzone avatar-dropzone'}) do %>
+<%= form_tag({:action=>'modify_avatar', :controller=>"profiles"}, {:authenticity_token => true, :multipart => true, :remote => true, :style =>"height:200px;", :class => 'dropzone avatar-dropzone'}) do %>
 <% end %>

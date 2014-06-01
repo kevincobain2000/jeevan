@@ -48,6 +48,7 @@ gem 'redis-objects'
 gem 'redis'
 gem 'rb-readline'
 gem 'omniauth-twitter'
+gem 'omniauth-linkedin'
 
 gem 'modernizr-rails'
 

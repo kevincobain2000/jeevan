@@ -37,7 +37,7 @@
         <span class="menu-item-parent side-chat">Chat</span>
         <% if current_user.badge.message != 0 %>
         <small>
-            <label class="badge bg-color-red bounceIn animated font-xs">
+            <label class="badge bg-color-red font-xs">
             <%= current_user.badge.message %>
           </label>
         </small>
@@ -50,7 +50,7 @@
         <span class="menu-item-parent">
           Visitors
           <% if current_user.badge.visitor != 0 %>
-          <small><label class="badge bg-color-red bounceIn animated font-xs">
+          <small><label class="badge bg-color-red font-xs">
           <%= current_user.badge.visitor %>
           </label></small> 
           <% end %>
@@ -64,7 +64,7 @@
         Interested
           <% if current_user.badge.interest != 0 %>
           <small>
-            <label class="badge bg-color-red bounceIn animated font-xs">
+            <label class="badge bg-color-red font-xs">
             <%= current_user.badge.interest %>
           </label>
         </small>
@@ -78,7 +78,7 @@
         <span class="menu-item-parent">
           Accepted
           <%# if current_user.badge.accepted != 0 %>
-          <!-- <small><label class="badge bg-color-red bounceIn animated font-xs"> -->
+          <!-- <small><label class="badge bg-color-red font-xs"> -->
           <%#= (current_user.badge.accepted == 0) ? "" : current_user.badge.accepted %>
           <!-- </label></small> -->
           <%# end %>
@@ -91,7 +91,7 @@
         <span class="menu-item-parent">
         Rejected
         <%# if current_user.badge.rejected != 0 %>
-        <!-- <small><label class="badge bg-color-red bounceIn animated font-xs"> -->
+        <!-- <small><label class="badge bg-color-red font-xs"> -->
           <%#= (current_user.badge.rejected == 0) ? "" : current_user.badge.rejected  %>
         <!-- </label></small> -->
         <%# end %>

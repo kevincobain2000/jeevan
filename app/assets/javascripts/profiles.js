@@ -6,6 +6,7 @@ $(document).on("page:change", function() {
   selectize_items = {
     home:true,
     religion: true,
+    religion2: true,
     mother_tongue: {
       create: true
     },
@@ -168,7 +169,9 @@ $(document).on("page:change", function() {
     })
     .success(function(data) {
       select_profile_edit_items = data.data;
-      populate_selectize()
+      if (select_profile_edit_items) {
+        populate_selectize()
+      };
     })
   }
 
