@@ -1,7 +1,5 @@
-<%= render :partial =>'layouts/alert', :locals => {:heading => "Tell us About Your Family", :description => "", :icon=>"fa fa-group"}%>
+<%= render :partial =>'layouts/alert', :locals => {:heading => "Tell us About Your Family", :description => "Family Details", :icon=>"fa fa-group"}%>
 <%= form_tag({:action=>'modify_family'},{:remote => true, :class=>"smart-form edit"}) do %>
-  <h3 class=""><strong>Family</strong></h3>
-  
       <% categories = ["values", "size", "status", "father", "mother", "brother", "sister", "family_income"] %>
       <% categories.each do |category| %>
       <fieldset>
