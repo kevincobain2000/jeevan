@@ -1,9 +1,14 @@
 <% if  current_user.id != user[:id] && user[:out_response].nil? && user[:in_response].nil? %>
-  <%= form_tag({:action=>'interest', :controller => "profiles"}, :remote => true, :class => "smart-form") do %>
+  <%= form_tag({:action=>'interest', :controller => "profiles"}, :remote => true, :class => "") do %>
     <%= hidden_field_tag 'to_user_id', user[:id] %>
-    <button class="btn btn-primary interest" type="submit" data-img="<%= user[:avatar].url(:tiny) %>" data-url='<%= link_to "view profile", profile_path(:id =>user[:profile][:id]), :class=>"txt-color-white" %>' data-title="Interest Expressed" data-msg="expressed interest in the profile">
-      &nbsp; <i class="fa fa-heart"></i> Send interest&nbsp;
+    	<button class="btn btn-sm btn-danger txt-color-white interest" style="width:140px;" type="submit" data-img="<%= user[:avatar].url(:tiny) %>" data-url='<%= link_to "view profile", profile_path(:id =>user[:profile][:id]), :class=>"txt-color-white" %>' data-title="Interest Expressed" data-msg="expressed interest in the profile">
+      Express Interest
     </button>
+    <%= link_to profile_path(:id =>user[:profile][:id]) do %><button class="btn btn-primary pull-right">more</button><% end %>
   <% end %>
   <% else %>
+  <button class="btn btn-sm btn-danger disabled" style="width:140px;">
+      Expressed
+    </button>
+    <%= link_to profile_path(:id =>user[:profile][:id]) do %><button class="btn btn-primary pull-right">more</button><% end %>
 <% end %>

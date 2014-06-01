@@ -52,7 +52,7 @@ class ApplicationController < ActionController::Base
       avatar:     user.avatar,
       in_response:  in_response,
       out_response: out_response,
-      # shortlist:    Shortlist.where(user_id: current_user.id, to_user_id: user.id).first,
+      shortlist:    Shortlist.where(user_id: current_user.id, to_user_id: user.id).first,
     }
     return user_ret
   end  
@@ -90,12 +90,13 @@ class ApplicationController < ActionController::Base
       avatar:     user.avatar,
       in_response:  in_response,
       out_response: out_response,
-      # shortlist:    Shortlist.where(user_id: current_user.id, to_user_id: user.id).first,
+      shortlist:    Shortlist.where(user_id: current_user.id, to_user_id: user.id).first,
     }
     return user_ret
   end  
 
   def make_user_tiny(id)
+    
     user = User.find(id)
 
     in_response  = Interest.where(to_user_id: current_user.id, user_id: user.id).first
