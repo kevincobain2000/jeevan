@@ -1,53 +1,62 @@
-<div class="col-md-5 col-xs-12 well shadow-box" style="height:400px;">
-  <div class="col-md-3 col-xs-6">
-    <%= link_to profile_path(:id =>user[:profile][:id]), :class=>"" do %>
-      <%= image_tag user[:avatar].url(:thumb), :class=>"", :style=>"width:75px;height:75px;" %>
-    <% end %>
-    <br>
-    <%= render :partial =>'layouts/online', :locals => {:time => user[:updated_at]}%>
-    <p class="text-muted">
-      <%= user[:updated_at] %>
-      ago</p>
-    <%= render :partial =>'layouts/shortlistbutton', :locals => {:user => user} %>
-  </div>
-  <div class="col-md-4 col-xs-6">
-    <%= render :partial =>'layouts/cardinfo', :locals => {:user => user} %>
-  </div>
-  <div class="col-md-5">
-    <%= render :partial =>'layouts/interestbutton', :locals => {:user => user} %>
-    <%#= render :partial =>'layouts/interesttext', :locals => {:user => user} %>
-    <%#= render :partial =>'layouts/interestact', :locals => {:user => user} %>
-    <% if !user[:avatar].url.start_with?("/images/normal/") %>
-    <h1><small>Profile Pic</small></h1>
-      <a href="<%= user[:avatar].url(:original) %>" data-lightbox="roadtrip">
-        <%= image_tag user[:avatar].url(:thumb), :style=>"width:35px;height:35px;" %>
-      </a>
-      <hr>
-      <% end %>
-    <% if user[:image].count >= 1 %>
-      <h1><small>Images</small></h1>
-      <% user[:image][0..3].each do |image| %>
-        <a href="<%= image.avatar.url(:original) %>" data-lightbox="roadtrip">
-          <%= image_tag image.avatar.url(:tiny) %>
-        </a>
-      <% end %>
-      <br>
-      <%= link_to profile_path(:id =>user[:profile][:id]), :class=>"pull-right" do %>
-        <%= (user[:images_count] - 6) > 0 ? user[:images_count] - 6 : "0" %>
-        more images ..
-      <% end %>
-    <% elsif user[:about][:me] %>
-      <h1><small>About
-          <%= (user[:sex] == "Female")? "Her": "Him" %></small></h1>
-      <%= raw truncate(sanitize(user[:about][:me], :tags=>[]), :escape => false, length: 110) %>
-      <%= link_to profile_path(:id =>user[:profile][:id]) do %>
-        read more
-      <% end %>
-    <% end %>
-    <!-- End if image count -->
-    <hr>
-    <%= link_to profile_path(:id =>user[:profile][:id]), :class=>"pull-right" do %>
-    <i class="fa fa-comment"></i> send <%= (user[:sex] == "Female")? "her": "him" %> message
-    <% end %>
-  </div>
-</div>
+<!-- Post -->
+                <div class="col-md-3 post">
+                    <div class="img">
+                        <%= link_to profile_path(:id =>user[:profile][:id]) do %><%= image_tag user[:avatar].url(:thumb), :class=>"img-rounded",:style=>"width:230px;" %><% end %>
+                        </a>
+                    </div>
+                    <div class="text">
+                        <h5>
+                          <div class="pull-left semi-bold">
+                            <%= user[:devotion] %>
+                          </div>
+                          <div class="pull-right">
+                            <%= render :partial =>'layouts/online', :locals => {:time => user[:updated_at]}%>
+                          </div>
+                        </h5>
+
+                        <legend></legend>
+                        <p>
+                          <%= user[:age] %> years old
+                        </p>
+
+                        <% if user[:image].count >= 1 %>
+                          <h1><small>Images</small></h1>
+                          <% user[:image][0..3].each do |image| %>
+                          <a href="<%= image.avatar.url(:original) %>" data-lightbox="roadtrip">
+                             <%= image_tag image.avatar.url(:tiny), :style => "width:50px;height:50px;"%>
+                           </a>
+                           <% end %>
+                        <br>
+
+                        <%= link_to profile_path(:id =>user[:profile][:id]), :class=>"pull-right" do %><%= pluralize( user[:images_count], 'Photo') %><% end %>
+
+                        <% elsif user[:about][:me] %>
+                          <h1><small>About
+                            <%= (user[:sex] == "Female")? "Her": "Him" %></small></h1>
+                            <p><%= raw truncate(sanitize(user[:about][:me], :tags=>[]), :escape => false, length: 30) %></p>
+                          <br>
+                          <%= link_to profile_path(:id =>user[:profile][:id]), :class=>"pull-right" do %>read more<% end %>
+
+                          <% else if user[:avatar] %>
+                          <h1><small>Profile Pic</small></h1>
+                              <a href="<%= user[:avatar].url(:original) %>" data-lightbox="roadtrip">
+                              <%= image_tag user[:avatar].url(:tiny), :style=>"width:50px;height:50px;" %>
+                            </a>
+                            <br>
+
+                            <small class="text-muted pull-right">Joined <%= user[:created_at] %><% end %> ago</small>
+
+                        <% end %> <!-- end if -->
+                    </div>
+
+                    <div class="author_box">
+                      <%= render :partial =>'layouts/interestbutton', :locals => {:user => user}%>
+                    </div>
+                    <div class="author_box">
+                        <h6><%= user[:name] %></h6>
+                        <p>Last online <%= truncate("#{user[:updated_at]} ago", :length => 20) %></p>
+                    </div>
+                    <div class="plus_wrapper">
+                        <%= render :partial =>'layouts/shortlistbutton', :locals => {:user => user}%>
+                    </div>
+                </div>
