@@ -4,7 +4,9 @@ Jeevan::Application.routes.draw do
       get :confirmemail
     end
   end
+  get '/users/sign_up', to: redirect('/users/sign_in')
   devise_for :users, :controllers => { :registrations => "registrations", :sessions => "sessions", :omniauth_callbacks => "omniauth_callbacks"  }
+
   resources :profiles do
     collection do
       delete :destroy_everything

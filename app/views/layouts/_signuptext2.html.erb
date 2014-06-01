@@ -1,148 +1,192 @@
-<div class="row hidden-xs">
-  <h1 class="error-text-3">
-        <strong>Free</strong> real time messaging and chat
-        <br>
-        <small class="hidden-xs hidden-mobile">Send and receive messages in real time within our website ! Say no to spam emails</small>
-      </h1>
-    <div class="col-md-12 text-center">
-      <br>
-      <%= image_tag "fotolia/1.jpg", :class=>"shadow-box", :style=>"width:700px;" %>
-    </div>
-</div>
-<div class="row hidden-xs">
-  <h1 class="error-text-3">
-        Real Time <strong>Notifications</strong>
-      </h1>
-      <br>
-      <div class="col-md-12 text-center">
-        <img src="/images/demo/growl.png">
-      </div>
-</div>
-<div class="row hidden-xs">
-  <h1 class="error-text-3">
-        We <strong>wish</strong> you all the best with finding best bride or groom
-      </h1>
-    <div class="col-md-12 text-center">
-      <br>
-      <%= image_tag "fotolia/3.jpg", :class=>"shadow-box", :style=>"width:700px;" %>
-    </div>
-</div>
-<div class="row hidden-xs">
-  <h1 class="error-text-3">
-        And yeah ! Its easy to use & <strong>Secure</strong>
-        <br>
-      </h1>
-      <br>
-      <div class="col-md-12 text-center">
-        <%= image_tag "fotolia/6.jpg", :class=>"shadow-box", :style=>"width:700px;" %>
-      </div>
-</div>
-
-<!-- <div class="row hidden-xs">
-<h1 class="error-text-3">
-        Our Premium version is <strong>Free</strong>
-        <br>
-        <small class="hidden-xs hidden-mobile">This means you get all the benefits of a premium member on free account under current promotion.</small>
-      </h1>
-  <div class="col-md-12 col-md-offset-3">
-    <div class="col-xs-12 col-sm-6 col-md-3">
-      <div class="panel panel-success pricing-big">
-        <%#= image_tag "ribbon.png", :class =>"ribbon"  %>
-        <div class="panel-heading">
-          <h3 class="panel-title">
-            Light version</h3>
-        </div>
-        <div class="panel-body no-padding text-align-center">
-          <div class="the-price">
-            <h1>
-              <strong>FREE</strong></h1>
+<div id="sign_up2">
+  <div class="container">
+    <div class="row login">
+      <div class="col-md-6 left_box">
+        <h4>Sign up</h4>
+        <div class="perk_box">
+          <div class="perk">
+            <span class="icos ico1"></span>
+            <p><strong>We pioneered</strong>
+              the concept of simplicity in online matrimony service. Our goal is to provide fast & easy to use web service that help you find your desired life partner.
+            </p>
           </div>
-          <div class="price-features" style="height:350px;">
-            <ul class="list-unstyled text-left">
-              <li><i class="fa fa-check text-success"></i>
-                6 months free access to all premium features
-                <label class="label label-success">Campaign !</label>
-              </li>
-              <li><i class="fa fa-check text-success"></i>
-                <strong>Unlimited Browsing</strong>
-                of Free/Paid Members (6 months)
-                <label class="label label-success">Campaign !</label>
-              </li>
-              <li><i class="fa fa-check text-success"></i>
-                <strong>
-                  Send Unlimited</strong>
-                Interests (6 months)
-                <label class="label label-success">Campaign !</label>
-              </li>
-              <li><i class="fa fa-check text-success"></i>
-                <strong>View Contact</strong>
-                details on acceptance (6 months)
-                <label class="label label-success">Campaign !</label>
-            </li>
-                <li><i class="fa fa-check text-success"></i>
-                All time
-                <strong>
-                  updates</strong></li>
-              <li><i class="fa fa-check"></i>
-                <strong>Push Notifications</strong>
-                </li>
-            </ul>
+          <div class="perk">
+            <span class="icos ico2"></span>
+            <p><strong>No Spams</strong>
+              Send and receive messages in real time within our website ! Say no to spam emails</p>
+          </div>
+          <div class="perk">
+            <span class="icos ico3"></span>
+            <p><strong>We wish</strong>
+              you all the best with finding best bride or groom</p>
           </div>
         </div>
+      </div>
+      <div class="col-md-5 signin_box">
+        <div class="box">
+          <div class="box_cont">
+            <div class="social">
+              <%= link_to user_omniauth_authorize_path(:facebook), :class=>"circle facebook" do %>
+                <%= image_tag("others/face.png") %>
+              <% end %>
+              <%#= link_to user_omniauth_authorize_path(:twitter), :class=>"circle twitter" do %>
+                <%#= image_tag("others/twt.png") %>
+                <%# end %>
+                <%#= link_to user_omniauth_authorize_path(:linkedin), :class=>"circle gplus" do %>
+                  <%#= image_tag("others/link.png") %>
+                  <%# end %>
+                </div>
               </div>
-              <div class="panel-footer text-align-center">
-        	<p>Upon Signing Up Today, Your account details will be considered as the <strong>Paid Member</strong> for 1 Year</p>
-        	<div>
-        		<a href="/users/sign_up" class="btn btn-info btn-block">Sign Up</a>
-        	</div>
+              <div class="division">
+                <div class="line l"></div>
+                <span>or</span>
+                <div class="line r"></div>
+              </div>
+              <div class="no-padding">
+                <%= form_for(resource, :as => resource_name, :id=>"signup-form",:html => {:class => "smart-form client-form"}, :url => registration_path(resource_name), :remote => false) do |f| %>
+                  <fieldset>
+                    <section class="padding-10">
+                      <% if session[:devise_error] %>
+                        <% session[:devise_error].each do |er_msg| %>
+                        <i class="fa fa-times"></i> <%= er_msg %>
+                        <br>
+                        <% end %>
+                      <% end %>
+                      <%#= devise_error_messages! %>
+                    </section>
+                  </fieldset>
+                  <fieldset>
+                    <section>
+                      <label class="label">
+                        <strong>Your Name</strong></label>
+                      <small>Your name will only appear when you accept someone's interest or send an interest</small>
+                      <label class="input">
+                        <i class="icon-append fa fa-user"></i>
+                        <%= f.text_field :name, :autofocus => true, :placeholder => "Name" %>
+                      </label>
+                    </section>
+                    <section>
+                      <label class="label"><strong>Date of Birth</strong>
+                        <br>
+                        <strong class="txt-color-red" id="date_show_words"></strong></label>
+                      <label class="input">
+                        <i class="icon-append fa fa-calendar" id="dob-cal"></i>
+                        <input class="form-control" id="dob" type="text" placeholder="september 4 1985 ">
+                        <input class="form-control" id="dob-hidden" type="hidden" name="user[dob]">
+                      </label>
+                      <div class="note">
+                        <strong>Example</strong>
+                        <span>sep 9 1985</span>
+                      </div>
+                    </section>
+                    <section>
+                      <label class="label">
+                        <strong>Username</strong></label>
+                      <small>Used for login</small>
+                      <label class="input">
+                        <i class="icon-append fa fa-user"></i>
+                        <%= f.text_field :username, :autofocus => true, :placeholder => "username" %>
+                      </label>
+                    </section>
+                    <section>
+                      <label class="label">Password</label>
+                      <label class="input">
+                        <i class="icon-append fa fa-lock"></i>
+                        <%= f.password_field :password, :placeholder => "Password" %>
+                      </label>
+                    </section>
+                    <section>
+                      <label class="label">Password Confirmation</label>
+                      <label class="input">
+                        <i class="icon-append fa fa-lock"></i>
+                        <%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %>
+                      </label>
+                    </section>
+                  </fieldset>
+                  <fieldset>
+                    <section>
+                      <label class="label">Your
+                        <strong>Gender</strong></label>
+                      <label class="radio"><%= f.radio_button :sex, "Male" %><i></i>Male</label>
+                      <label class="radio"><%= f.radio_button :sex, "Female" %><i></i>Female</label>
+                    </section>
+                    <section>
+                      <label class="label">
+                        <i class="fa fa-sun-o"></i>
+                        <strong>Religion</strong>
+                        <span>and you are done !</span>
+                      </label>
+                      <input name="user[devotion]" class="selectized" id="select-devotion" placeholder="Religion">
+                      <script type="text/javascript">
+                        $("#select-devotion").selectize({
+                          maxItems: 1,
+                          valueField: "title",
+                          labelField: "title",
+                          searchField: "title",
+                          options: [{title: "Hindu"}, {title: "Muslim"}, {title: "Christian"},{title: "Buddhist"}, {title: "Jain"}, {title: "Parsi"}, {title: "Other"}],
+                          create: false,
+                          render: {
+                            option: function(item, escape) {
+                              var desc;
+                              desc = item.desc ? item.desc : "";
+                              return '<div> <strong>' + item.title + '</strong><br><small>' + desc + '</small></div>';
+                            }
+                          }
+                        });
+                      </script>
+                    </section>
+                  </fieldset>
+                  <footer>
+                    <hr>
+                    <button type="submit" id="signup-button" class="btn btn-primary">Sign Up</button>
+                  </footer>
+                <% end %>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
+<script type="text/javascript">
+  $(document).ready(function() {
 
-    </div>
-    <div class="col-xs-12 col-sm-6 col-md-3">
-      <div class="panel panel-primary pricing-big">
-        <div class="panel-heading">
-          <h3 class="panel-title">
-            Premium version</h3>
-        </div>
-        <div class="panel-body no-padding text-align-center">
-          <div class="the-price">
-            <h1>
-              <strong style="text-decoration:line-through;"><i class="fa fa-rupee"></i> 3900</strong> Free</h1>
-          </div>
-          <div class="price-features" style="height:350px;">
-            <ul class="list-unstyled text-left">
-              <li><i class="fa fa-check text-success"></i>
-                Unlimited access
-              </li>
-              <li><i class="fa fa-check text-success"></i>
-                <strong>Unlimited Browsing</strong>
-                of Free/Paid Members
-              </li>
-              <li><i class="fa fa-check text-success"></i>
-                <strong>
-                  Unlimited</strong>
-                Interests
-              </li>
-              <li><i class="fa fa-check text-success"></i>
-                <strong>View Contact</strong>
-                details on acceptance</li>
-              <li><i class="fa fa-check text-success"></i>
-                All time
-                <strong>
-                  updates</strong></li>
-              <li><i class="fa fa-check"></i>
-                <strong>Push Notifications</strong>
-                </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="panel-footer text-align-center">
-      	<p>We are giving away free sign ups for 6 months. No credit card details are required ! <strong>Yes it is True</strong> for 6 months</p>
-      	<div>
-      		<a href="/users/sign_up" class="btn btn-info btn-block">Sign Up</a>
-      	</div>
-      </div>
-    </div>
-  </div>
-</div> -->
+
+    $('#signup-form').bind("ajax:error", function(data, status, xhr) {
+      console.log(data)
+      console.log(status)
+    });
+  
+    $("#dob-cal").datepicker({
+      format: 'dd/mm/yyyy',
+      startView: "decade",
+    });
+    $('#dob-cal').on('changeDate', function(ev){
+      $(this).datepicker('hide');
+      cal_date = $(this).datepicker('getDate');
+  
+      cal_date = cal_date.getDate() + " " + cal_date.getMonth() +" "+ cal_date.getFullYear()
+      cal_date_parse = Date.parse(cal_date)
+  
+      $("#dob-hidden").val(cal_date_parse.toString('dd/MM/yyyy'));
+      $("#dob").val(cal_date_parse.toString('dddd, MMMM d, yyyy'));
+      $("#date_show_words").html(cal_date_parse.toString('dddd, MMMM d, yyyy'));
+    });
+  
+    $("#dob").keyup(function(event) {
+      date_input = $(this).val();
+      the_date = Date.parse(date_input);
+      if (the_date != null) {
+        $("#date_show_words").html(the_date.toString('dddd, MMMM d, yyyy'));
+        $("#dob-hidden").val(the_date.toString('dd/MM/yyyy'));
+        $("#signup-button").removeClass("disabled");
+      } else {
+        $("#dob-hidden").val("");
+        $("#date_show_words").html(_.sample(["argh..", "oops", "hmmm ?", "no no noo"]));
+        $("#signup-button").addClass("disabled");
+      }
+    });
+
+
+
+  });
+</script>
