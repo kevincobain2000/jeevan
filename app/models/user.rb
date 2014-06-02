@@ -135,9 +135,9 @@ class User < ActiveRecord::Base
                             uid:auth.uid,
                             # email:auth.info.email,
                             password:Devise.friendly_token[0,20],
-                            sex: auth.extra.raw_info.gender ? auth.extra.raw_info.gender.to_s.capitalize : "Unknown",
+                            sex: auth.extra.raw_info.gender ? auth.extra.raw_info.gender.to_s.capitalize : "Male",
                             username: "#{auth.raw_info.screen_name}_twitter.com",
-                            dob: auth.extra.raw_info.birthday ? auth.extra.raw_info.birthday : "xx/xx/xxxx",
+                            dob: auth.extra.raw_info.birthday ? auth.extra.raw_info.birthday : "01/01/1985",
                             devotion: "Hindu",
                             name: auth.info.name,
                             avatar: URI.parse(process_uri(auth.info.image))
@@ -160,9 +160,9 @@ class User < ActiveRecord::Base
                             uid:auth.uid,
                             # email:auth.info.email,
                             password:Devise.friendly_token[0,20],
-                            sex: auth.extra.raw_info.gender ? auth.extra.raw_info.gender.to_s.capitalize : "Unknown",
+                            sex: auth.extra.raw_info.gender ? auth.extra.raw_info.gender.to_s.capitalize : "Male",
                             username: "#{auth.info.email}_linkedin",
-                            dob: auth.extra.raw_info.birthday ? auth.extra.raw_info.birthday : "xx/xx/xxxx",
+                            dob: auth.extra.raw_info.birthday ? auth.extra.raw_info.birthday : "01/01/1985",
                             devotion: "Hindu",
                             name: auth.info.name,
                             avatar: URI.parse(process_uri(auth.info.image))

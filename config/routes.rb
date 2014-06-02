@@ -2,6 +2,8 @@ Jeevan::Application.routes.draw do
   resources :others do
     collection do
       get :confirmemail
+      get :confirmgender
+      post :modify_gender
     end
   end
   get '/users/sign_up', to: redirect('/users/sign_in')

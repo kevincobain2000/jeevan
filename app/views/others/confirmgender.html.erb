@@ -1,0 +1,26 @@
+<div id="main" role="main">
+  <div id="content">
+    <div>
+      <%= image_tag current_user.avatar.url(:thumb), :class => "img-rounded", :style => "width:100px;height:100px;" %>
+      <div>
+        <h1><i class="fa fa-user fa-3x text-muted air air-top-right hidden-mobile"></i><%= current_user.name %>
+          <small><i class="fa fa-lock text-muted"></i>
+            &nbsp;Locked</small></h1>
+        <p class="text-muted">
+          Gender:
+          <%= current_user.sex %>
+        </p>
+        <div class="col-md-6 col-md-offset-4 font-md">
+          <%= form_tag({:action=>'modify_gender', :controller => "others"},{:remote => false, :class=>"smart-form edit"}) do %>
+            <section>
+              <label class="radio"><%= radio_button_tag :sex, "Male" %><i></i>Male</label>
+              <label class="radio"><%= radio_button_tag :sex, "Female" %><i></i>Female</label>
+              <br>
+              <button class="btn btn-md btn-primary btn-md padding-5">Go !</button>
+            </section>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

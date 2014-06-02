@@ -2,6 +2,7 @@
   <div class="container">
     <div class="row login">
       <div class="col-md-6 left_box">
+        <%= image_tag "logo.png" %>
         <h4>Sign up</h4>
         <div class="perk_box">
           <div class="perk">
@@ -149,12 +150,6 @@
     </div>
 <script type="text/javascript">
   $(document).ready(function() {
-
-
-    $('#signup-form').bind("ajax:error", function(data, status, xhr) {
-      console.log(data)
-      console.log(status)
-    });
   
     $("#dob-cal").datepicker({
       format: 'dd/mm/yyyy',

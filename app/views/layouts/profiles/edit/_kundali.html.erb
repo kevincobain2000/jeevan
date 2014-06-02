@@ -1,5 +1,23 @@
 <%= render :partial =>'layouts/alert', :locals => {:heading => "Kundali", :description => "Your Kundali and Nakshatra Details", :icon=>"fa fa-star-o"}%>
 <%= form_tag({:action=>'modify_kundali'},{:remote => true, :class=>"smart-form edit"}) do %>
+<fieldset>
+    <div class="col-sm-4">
+    <label class="label"><strong>Date of Birth</strong>
+                        </label>
+                      </div>
+                        <div class="col-sm-6">
+                        <strong class="txt-color-red" id="date_show_words"></strong>
+                      <label class="input">
+                        <i class="icon-append fa fa-calendar" id="dob-cal"></i>
+                        <input class="form-control" id="dob" type="text" value="<%= current_user.dob %>" placeholder="september 4 1985 ">
+                        <input class="form-control" id="dob-hidden" type="hidden" name="dob">
+                      </label>
+                      <div class="note">
+                        <strong>Example</strong>
+                        <span>sep 9 1985</span>
+                      </div>
+    </div>
+  </fieldset>
   <fieldset>
     <div class="col-sm-4">
       <label class="label"><strong>Time of Birth</strong></label>
@@ -41,3 +59,42 @@
     <button type="submit" class="btn btn-primary edit disabled">Save</button>
   </footer>
 <% end %>
+
+
+<script type="text/javascript">
+  $(document).ready(function() {
+  
+    $("#dob-cal").datepicker({
+      format: 'dd/mm/yyyy',
+      startView: "decade",
+    });
+    $('#dob-cal').on('changeDate', function(ev){
+      $(this).datepicker('hide');
+      cal_date = $(this).datepicker('getDate');
+  
+      cal_date = cal_date.getDate() + " " + cal_date.getMonth() +" "+ cal_date.getFullYear()
+      cal_date_parse = Date.parse(cal_date)
+  
+      $("#dob-hidden").val(cal_date_parse.toString('dd/MM/yyyy'));
+      $("#dob").val(cal_date_parse.toString('dddd, MMMM d, yyyy'));
+      $("#date_show_words").html(cal_date_parse.toString('dddd, MMMM d, yyyy'));
+    });
+  
+    $("#dob").keyup(function(event) {
+      date_input = $(this).val();
+      the_date = Date.parse(date_input);
+      if (the_date != null) {
+        $("#date_show_words").html(the_date.toString('dddd, MMMM d, yyyy'));
+        $("#dob-hidden").val(the_date.toString('dd/MM/yyyy'));
+        $("#edit").removeClass("disabled");
+      } else {
+        $("#dob-hidden").val("");
+        $("#date_show_words").html(_.sample(["argh..", "oops", "hmmm ?", "no no noo"]));
+        $("#edit").addClass("disabled");
+      }
+    });
+
+
+
+  });
+</script>
