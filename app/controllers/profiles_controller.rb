@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+  before_filter :has_sex
   before_filter :is_this_user_profile, only: [:edit]
 
   before_filter :not_same_sex, :get_showing_user, only: [:show]
@@ -51,6 +52,9 @@ class ProfilesController < ApplicationController
     render json: { :status => 200 }
   end
   def modify_kundali
+    if params[:dob]
+      current_user.update(:dob => params[:dob])
+    end
     current_user.kundali.update(kundali_params)
     render json: { :status => 200 }
   end
@@ -162,23 +166,27 @@ class ProfilesController < ApplicationController
   #==============================#/
   def index
     already_visited    = [current_user.id]
+    lookup_sex = current_user.sex == "Male" ? "Female" : "Male"
     # already_visited   += Visitor.where(user_id: current_user.id).pluck(:viewed_id)
     # already_visited   += Interest.where("user_id = ?", current_user.id).pluck(:to_user_id)
     # already_visited   += Shortlist.where("user_id = ?", current_user.id).pluck(:to_user_id)
-    @matching = User.where("sex <> ? AND devotion = ? AND id NOT IN (?)", current_user.sex, current_user.devotion, already_visited).order('images_count DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
+    @matching = User.where("sex = ? AND devotion = ? AND id NOT IN (?)", lookup_sex, current_user.devotion, already_visited).order('images_count DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
   end
 
   def online
     already_visited    = [current_user.id]
-    @online = User.where("sex <> ? AND devotion = ? AND id NOT IN (?) AND updated_at >= ?", current_user.sex, current_user.devotion, already_visited, 30.minutes.ago).order('updated_at ASC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
+    lookup_sex = current_user.sex == "Male" ? "Female" : "Male"
+    @online = User.where("sex = ? AND devotion = ? AND id NOT IN (?) AND updated_at >= ?", lookup_sex, current_user.devotion, already_visited, 30.minutes.ago).order('updated_at ASC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
   end
   def withphotos
     already_visited    = [current_user.id]
-    @withphotos = User.where("sex <> ? AND devotion = ? AND id NOT IN (?) AND images_count >= ?", current_user.sex, current_user.devotion, already_visited, 1).order('images_count DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
+    lookup_sex = current_user.sex == "Male" ? "Female" : "Male"
+    @withphotos = User.where("sex = ? AND devotion = ? AND id NOT IN (?) AND images_count >= ?", lookup_sex, current_user.devotion, already_visited, 1).order('images_count DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
   end
   def recentlyjoined
     already_visited    = [current_user.id]
-    @recentlyjoined = User.where("sex <> ? AND devotion = ? AND id NOT IN (?) AND created_at >= ?", current_user.sex, current_user.devotion, already_visited, Time.zone.now.beginning_of_day).order('created_at DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
+    lookup_sex = current_user.sex == "Male" ? "Female" : "Male"
+    @recentlyjoined = User.where("sex = ? AND devotion = ? AND id NOT IN (?) AND created_at >= ?", lookup_sex, current_user.devotion, already_visited, Time.zone.now.beginning_of_day).order('created_at DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
   end
 
   def incomings
@@ -219,12 +227,12 @@ class ProfilesController < ApplicationController
       query_string = query_string.gsub(probably_age, "")
       query_string += "#{year_will_be_searching.to_s}"
     end
-    logger.info("Debug #{query_string}");
 
     query_string = query_string.length > 0 ? query_string : current_user.devotion
     @solr = User.search do
       fulltext query_string
       without(:sex).equal_to(current_user.sex)
+      without(:sex).equal_to("Unknown")
       order_by(:images_count, :desc)
       paginate :page => params[:page], :per_page => PAGINATE_PROFILES
     end
@@ -236,7 +244,8 @@ class ProfilesController < ApplicationController
     visiting_user = User.find(Profile.find(params[:id]).user_id)
     if current_user.id == visiting_user.id
       already_visited = [current_user.id]
-      @similar_profiles_paginate = User.where("sex <> ? AND devotion = ? AND id NOT IN (?)", current_user.sex, current_user.devotion, already_visited).order('images_count DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
+      lookup_sex = current_user.sex == "Male" ? "Female" : "Male"
+      @similar_profiles_paginate = User.where("sex = ? AND devotion = ? AND id NOT IN (?)", lookup_sex, current_user.devotion, already_visited).order('images_count DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
       else
         @similar_profiles_paginate = User.where("id <> ? AND devotion = ? AND sex = ?", visiting_user.id, visiting_user.devotion, visiting_user.sex).order('updated_at DESC, avatar_updated_at DESC').take(12).paginate(:page => params[:page], :per_page => 6) # 6 is a good number
     end
@@ -270,7 +279,8 @@ class ProfilesController < ApplicationController
   end
   def not_same_sex
     user = User.find(Profile.find(params[:id]).user_id)
-    if user.id != current_user.id && current_user.sex == user.sex
+    logger.info("Debug #{user.sex}")
+    if (user.id != current_user.id && current_user.sex == user.sex) || (user.sex.to_s == "Unknown")
       redirect_to root_path
     end
   end
@@ -373,6 +383,11 @@ class ProfilesController < ApplicationController
       # user.badge.update(accepted: 0)
     elsif event == "rejected"
       # user.badge.update(rejected: 0)
+    end
+  end
+  def has_sex
+    if current_user.sex == "Unknown"
+      redirect_to confirmgender_others_path
     end
   end
 end

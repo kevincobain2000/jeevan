@@ -1,7 +1,7 @@
 <!-- Post -->
                 <div class="col-md-3 post">
                     <div class="img">
-                        <%= link_to profile_path(:id =>user[:profile][:id]) do %><%= image_tag user[:avatar].url(:thumb), :class=>"img-rounded" %><% end %>
+                        <%= link_to profile_path(:id =>user[:profile][:id]) do %><%= image_tag user[:avatar].url(:thumb), :class=>"img-rounded",:style=>"width:100%;" %><% end %>
                         </a>
                     </div>
                     <div class="text">
@@ -56,7 +56,7 @@
                         <h6><%= user[:name] %></h6>
                         <p>Last online <%= truncate("#{user[:updated_at]} ago", :length => 20) %></p>
                     </div>
-                    <div class="plus_wrapper">
-                        <%= render :partial =>'layouts/shortlistbutton', :locals => {:user => user}%>
-                    </div>
+                    <!-- <div class="plus_wrapper"> -->
+                        <%#= render :partial =>'layouts/shortlistbutton', :locals => {:user => user}%>
+                    <!-- </div> -->
                 </div>
