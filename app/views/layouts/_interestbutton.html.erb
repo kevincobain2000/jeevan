@@ -6,7 +6,7 @@
     </button>
     <%= link_to profile_path(:id =>user[:profile][:id]) do %><button class="btn btn-default pull-right">more</button><% end %>
   <% end %>
-  <% else %>
+  <% elsif current_user.id != user[:id] %>
   <button class="btn btn-primary disabled">
       <i class="fa fa-heart"></i>
     </button>

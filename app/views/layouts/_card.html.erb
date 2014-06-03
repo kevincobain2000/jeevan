@@ -1,7 +1,7 @@
 <!-- Post -->
                 <div class="col-md-3 post">
                     <div class="img">
-                        <%= link_to profile_path(:id =>user[:profile][:id]) do %><%= image_tag user[:avatar].url(:original), :class=>"img-rounded",:style=>"width:80%;height:90%;" %><% end %>
+                        <%= link_to profile_path(:id =>user[:profile][:id]) do %><%= image_tag user[:avatar].url(:thumb), :class=>"img-rounded",:style=>"width:80%;height:90%;" %><% end %>
                         </a>
                     </div>
                     <div class="text">
