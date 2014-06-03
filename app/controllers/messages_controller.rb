@@ -28,9 +28,11 @@ class MessagesController < ApplicationController
   def send_message
     message = message_params[:message]
     if message.gsub(/\s+/, "").length > 0
+      logger.info("Debug #{params.inspect}")
       user = User.find(params[:to_user_id])
       # to_user_id = Profile.find(params[:to_user_id]).user_id
       to_user_id = user.id
+
       Message.create(:user_id => current_user.id, :to_user_id => to_user_id, :message => message)
       response = { :status => 200 }
       notify_growl(:message, params[:to_user_id], "Message Received", message, true)
