@@ -43,8 +43,6 @@
                             <h3 class="txt-color-white font-md">
                               Profile <%= @user[:name] %>,
                               <%= @user[:devotion] %> <%= (@user[:sex] == "Female")? "Bride": "Groom" %>
-                              <br>
-                              <%= render :partial =>'layouts/shortlistbutton', :locals => {:user => @user}%>
                             </h3>
                           </div>
                           <ol class="carousel-indicators">
