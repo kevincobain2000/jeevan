@@ -35,7 +35,7 @@
         <!-- end footer --> </div>
         <!-- END AJAX-DROPDOWN -->
       </div>
-      <%= render :partial =>'layouts/headermenu' %>
+      <%#= render :partial =>'layouts/headermenu' %>
 
       <!-- pulled right: nav area -->
       <div class="pull-right">
@@ -79,12 +79,12 @@
           </li>
         </ul> -->
         <!-- search mobile button (this is hidden till mobile view port) -->
-        <%= form_tag({:action=>'search', :controller => "profiles"},{:class=>"header-search pull-right"}) do %>
-          <input type="text" placeholder="Type anything... Hindu, Delhi" id="header-search" name="query" style="width:400px;">
+        <%#= form_tag({:action=>'search', :controller => "profiles"},{:class=>"header-search pull-right"}) do %>
+<!--           <input type="text" placeholder="Type anything... Hindu, Delhi" id="header-search" name="query" style="width:400px;">
           <button type="submit">
             <i class="fa fa-search"></i>
-          </button>
-        <% end %>
+          </button> -->
+        <%# end %>
       </div>
 
     </header>

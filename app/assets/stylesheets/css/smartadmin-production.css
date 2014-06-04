@@ -2718,7 +2718,7 @@ body {
   /*height: 100%;*/
   overflow:hidden;
   /*background: url('../mybg.png') #ffffff;*/
-  background: #e9eaed; /* Facebook Background*/
+  background: #e9eaed;  /*Facebook Background*/
   direction: ltr;
 }
 a:hover,
