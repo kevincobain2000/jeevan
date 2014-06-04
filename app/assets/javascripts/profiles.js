@@ -312,7 +312,7 @@ $(document).on("page:change", function() {
   }
 
   $('form.edit').submit(function() {
-    $.gritter.add({ image: '/assets/warning.png', title: 'Blocked', text: 'You have Blocked and no longer receive messages' });
+    $.gritter.add({ image: '/assets/warning.png', title: 'Success', text: 'Your settings have been saved' });
     // $(this).find(':submit').html('Saved');
   });
 
