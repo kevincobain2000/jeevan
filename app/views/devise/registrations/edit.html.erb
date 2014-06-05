@@ -43,9 +43,8 @@
                   </footer>
                 </fieldset>
               <% end %>
-            
             <% else %>
-            <h3 class="padding-10">You are logged in using <%= current_user.provider %></h3>
+            <h3 class="padding-10">You are logged in using <%= current_user.provider %> <small>There is nothing to do with changing your password here.</small></h3>
             </div>
 
           <% end %>
