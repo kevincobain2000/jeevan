@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
       updated_at: time_ago_in_words(user.updated_at),
       created_at: time_ago_in_words(user.created_at),
       sex:        user.sex.capitalize,
-      # visitors:   number_with_delimiter(Visitor.where(viewed_id: user.id).count),
+      visitors:   number_with_delimiter(Visitor.where(viewed_id: user.id).count),
       profile:    profile,
       contact:    user.contact,
       about:      user.about,
