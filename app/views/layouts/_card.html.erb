@@ -1,5 +1,5 @@
 <!-- Post -->
-                <div class="col-md-3 post">
+                <div class="col-md-1 post">
                     <div class="img">
                         <%= link_to profile_path(:id =>user[:profile][:id]) do %><%= image_tag user[:avatar].url(:thumb), :class=>"img-rounded",:style=>"width:80%;height:90%;" %><% end %>
                         </a>
@@ -20,7 +20,7 @@
                           <h1><small>Images</small></h1>
                           <% user[:image][0..3].each do |image| %>
                           <a href="<%= image.avatar.url(:original) %>" data-lightbox="roadtrip-<%= user[:profile][:id] %>">
-                             <%= image_tag image.avatar.url(:thumb), :style => "width:50px;height:50px;"%>
+                             <%= image_tag image.avatar.url(:thumb), :style => "width:35px;height:35px;"%>
                            </a>
                            <% end %>
                         <br>
@@ -37,7 +37,7 @@
                           <% else if user[:avatar] %>
                           <h1><small>Profile Pic</small></h1>
                               <a href="<%= user[:avatar].url(:original) %>" data-lightbox="roadtrip-<%= user[:profile][:id] %>">
-                              <%= image_tag user[:avatar].url(:tiny), :style=>"width:50px;height:50px;" %>
+                              <%= image_tag user[:avatar].url(:tiny), :style=>"width:35px;height:35px;" %>
                             </a>
                             <br>
 
