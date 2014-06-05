@@ -202,7 +202,6 @@ class ProfilesController < ApplicationController
   def outgoings
     rejected = Interest.where("user_id = ? AND response = ?", current_user.id, 0).pluck(:to_user_id)
     @rejected = User.find(rejected).paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
-    logger.info("Debug rejected")
     badge_reset(current_user, "rejected")
   end
   def visitors
@@ -279,7 +278,6 @@ class ProfilesController < ApplicationController
   end
   def not_same_sex
     user = User.find(Profile.find(params[:id]).user_id)
-    logger.info("Debug #{user.sex}")
     if (user.id != current_user.id && current_user.sex == user.sex) || (user.sex.to_s == "Unknown")
       redirect_to root_path
     end

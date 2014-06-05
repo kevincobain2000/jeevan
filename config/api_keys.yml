@@ -17,8 +17,8 @@ test:
 
 production:
   twitter:
-    api_key: "KEY2"
-    api_secret: "SECRET2"
+    api_key: "1D0tftEGPYEYDkAdDw6gW18U6"
+    api_secret: "3UmXOmQMwAFKjAaDGkjsBNPmQN9TbWXq0HQOekidWDjU8chr4K"
   facebook:
     api_key: "742725949083582"
     api_secret: "9c7dc7e878843500f1fd79ae1a3441b0"  
