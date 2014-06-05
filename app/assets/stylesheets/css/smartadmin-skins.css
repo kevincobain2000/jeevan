@@ -4,12 +4,6 @@
 	background-color: rgba(44, 55, 66, .9);
 }
 
-body.smart-style-2 {
-	overflow: hidden;
-	background: #e9eaed;
-	font-family: "lucida grande", tahoma, verdana, arial, sans-serif;
-}
-
 .smart-style-2 #header, .smart-style-2 .inbox-footer, .smart-style-2 .superbox-show {
 	background-image:none;
 	/*background-color: #2C3742;*/
@@ -67,6 +61,7 @@ body.smart-style-2 {
 
 .smart-style-2 #ribbon {
 	/*background:#fff;*/
+	margin-top: 2px;
 }
 
 .smart-style-2 .btn.btn-ribbon {

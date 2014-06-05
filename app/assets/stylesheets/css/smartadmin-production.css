@@ -37,6 +37,25 @@
 	 - Examples (lists)
 	
 	 */
+  
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden !important;
+  /*background: url('../mybg.png') #ffffff;*/
+  background: #e9eaed;
+}
+body {
+  margin: 0;
+  padding: 0;
+  /*height: 100%;*/
+  overflow:hidden;
+  /*background: url('../mybg.png') #ffffff;*/
+  background: #e9eaed;
+  direction: ltr;
+}
+
 /*
 	 * MAIN
 	 */
@@ -2703,24 +2722,6 @@ tr.unread.highlight td {
   color: #ed1c24;
 }
 
-
-html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  overflow-x: hidden !important;
-  /*background: url('../mybg.png') #ffffff;*/
-  background: #e9eaed;
-}
-body {
-  margin: 0;
-  padding: 0;
-  /*height: 100%;*/
-  overflow:hidden;
-  /*background: url('../mybg.png') #ffffff;*/
-  background: #e9eaed;  /*Facebook Background*/
-  direction: ltr;
-}
 a:hover,
 a:active,
 a:focus,

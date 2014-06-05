@@ -7,40 +7,9 @@
       </a>
     </span>
 
-    <span id="activity" class="activity-dropdown hidden"> <i class="fa fa-envelope"></i>
-    <!-- <b class="badge">1</b> -->
-    </span>
-
-    <!-- AJAX-DROPDOWN : control this dropdown height, look and feel from the LESS variable file -->
-    <div class="ajax-dropdown">
-
-      <!-- the ID links are fetched via AJAX to the ajax container "ajax-notifications" -->
-      <div class="btn-group btn-group-justified">
-        <label class="btn btn-default">
-          Notifications from shaadiMatch</label>
-        </div>
-
-        <!-- notification content -->
-        <div class="ajax-notifications bg-color-white">
-          <%= render :partial =>'layouts/notification' %>
-          <legend></legend>
-          <p class="text-center text-muted">No More Notifications</p>
-        </div>
-        <!-- end notification content -->
-
-        <!-- footer: refresh area -->
-        <span>
-          Showing Last Week's Activity
-        </span>
-        <!-- end footer --> </div>
-        <!-- END AJAX-DROPDOWN -->
       </div>
-      <%#= render :partial =>'layouts/headermenu' %>
-
-      <!-- pulled right: nav area -->
       <div class="pull-right">
 
-        <!-- collapse menu button -->
         <div id="hide-menu" class="btn-header pull-right">
           <span>
             <a href="javascript:void(0);" title="Collapse Menu">
@@ -48,9 +17,7 @@
             </a>
           </span>
         </div>
-        <!-- end collapse menu -->
 
-        <!-- logout button -->
         <div id="logout" class="btn-header transparent pull-right">
           <span>
             <a href="<%= destroy_user_session_path %>
@@ -59,32 +26,6 @@
             </a>
           </span>
         </div>
-        <!-- end logout button -->
-        <!-- <ul class="header-dropdown-list hidden-xs">
-          <li>
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="fa fa-gear"></i> <i class="fa fa-angle-down"></i> </a>
-            <ul class="dropdown-menu pull-right">
-              <li class="padding-5">
-                <%#= link_to edit_user_registration_path do %>
-                Change your password
-                <%# end %>
-              </li>
-              <li class="divider"></li>
-              <li class="padding-5">
-                <%#= link_to contact_index_path do %>
-                 Meet Us !
-                <%# end %>
-              </li>
-            </ul>
-          </li>
-        </ul> -->
-        <!-- search mobile button (this is hidden till mobile view port) -->
-        <%#= form_tag({:action=>'search', :controller => "profiles"},{:class=>"header-search pull-right"}) do %>
-<!--           <input type="text" placeholder="Type anything... Hindu, Delhi" id="header-search" name="query" style="width:400px;">
-          <button type="submit">
-            <i class="fa fa-search"></i>
-          </button> -->
-        <%# end %>
       </div>
 
     </header>
