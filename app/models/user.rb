@@ -78,7 +78,7 @@ class User < ActiveRecord::Base
     build_contact
     build_religion
     build_kundali
-    build_about(:me => "I am #{_age} years old #{devotion} #{sex}")
+    build_about(:me => "I am #{_age} years old #{devotion}")
     build_family
     build_desire(:desired_religion => devotion)
     build_education
