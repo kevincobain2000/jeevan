@@ -13,8 +13,12 @@
 <div class="collapse navbar-collapse navbar-inverse navbar-fixed-top">
   <ul class="nav navbar-nav">
     <li class="">
-      <a href="/" class="txt-color-white"><i class="fa fa-search"></i>
-        Explore</a>
+      <a href="/" class="txt-color-white">
+        <%= image_tag "logo-wide-w.png", :class=>"padding-0" %></a>
+    </li>
+    <li>
+      <a href="/explore" class="txt-color-white"><i class="fa fa-search"></i>
+        EXPLORE</a>
     </li>
         <li class="dropdown">
       <a class="dropdown-toggle txt-color-white" data-toggle="dropdown" href="javascript:void(0);">
@@ -34,7 +38,7 @@
       </ul>
     </li>
     <li>
-      <a href=""><i class="fa fa-comments"></i>
+      <a href="/messages/"><i class="fa fa-comments"></i>
         Chat</a>
     </li>
     <li>
@@ -56,6 +60,12 @@
     <li>
       <a href="/profiles/waiting"><i class="fa fa-bell"></i>
         Waiting</a>
+    </li>
+    <li>
+      <a href="/profiles/<%= current_user.profile.id %>">
+        <i class="fa fa-lg fa-fw fa-file"></i>
+        <span class="menu-item-parent">My Profile</span>
+      </a>
     </li>
     <li>
       <%= link_to edit_profile_path(:id =>current_user.profile.id), :class=>"txt-color-white" do %>
