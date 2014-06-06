@@ -1,7 +1,6 @@
 class ProfilesController < ApplicationController
   before_filter :has_sex
   before_filter :is_this_user_profile, only: [:edit]
-
   before_filter :not_same_sex, :get_showing_user, only: [:show]
 
   PAGINATE_PROFILES = 30

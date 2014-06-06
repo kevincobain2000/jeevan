@@ -40,7 +40,7 @@
             Choose one</small>
       </div>
       <div class="col-sm-6">
-        <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= current_user.lifestyle[:category] %>" placeholder="Choose your <%= heading %>">
+        <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= current_user.lifestyle["#{category}"] %>" placeholder="Choose your <%= heading %>">
       </div>
     </fieldset>
     <% end %>
