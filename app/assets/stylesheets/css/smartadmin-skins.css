@@ -60,8 +60,9 @@
 }
 
 .smart-style-2 #ribbon {
-	/*background:#fff;*/
+	background:#3b5998;
 	margin-top: 2px;
+	border-radius: 6px;
 }
 
 .smart-style-2 .btn.btn-ribbon {
@@ -77,8 +78,8 @@
 
 .smart-style-2 aside {
 	position:fixed;
-	/*background: #e9eaed;*/
-	background: #F7F7F7;
+	background: #e9eaed;
+	/*background: #F7F7F7;*/
 	/*min-height: 50%;*/
 }
 
@@ -187,175 +188,4 @@
 	background-color: #3b9ff3;
 	border-color: #3292E2;
 }
-
-.smart-style-2 .btn-primary:hover, 
-.smart-style-2 .btn-primary:focus, 
-.smart-style-2 .btn-primary:active, 
-.smart-style-2 .btn-primary.active, 
-.smart-style-2 .open .dropdown-toggle.btn-primary {
-	background-color: #3E90D4;
-	border-color: #2F7DBE;
-}
-
-.smart-style-2 .dropdown-menu>li>a:hover,
-.smart-style-2 .dropdown-menu>li>a:focus {
-	background-color: #3E90D4;
-}
-
-
-
-.smart-style-2 .btn-success {
-	background-color: #96bf48;
-	border-color: #84A83E;
-}
-
-.smart-style-2 .btn-success:hover, 
-.smart-style-2 .btn-success:focus, 
-.smart-style-2 .btn-success:active, 
-.smart-style-2 .btn-success.active, 
-.smart-style-2 .open .dropdown-toggle.btn-success {
-	background-color: #89AD45;
-	border-color: #78973B;
-}
-
-.smart-style-2 .btn-danger {
-	background-color: #DB4A67;
-	border-color: #CA4862;
-}
-
-.smart-style-2 .btn-danger:hover, 
-.smart-style-2 .btn-danger:focus, 
-.smart-style-2 .btn-danger:active, 
-.smart-style-2 .btn-danger.active, 
-.smart-style-2 .open .dropdown-toggle.btn-danger {
-	background-color: #CF4762;
-	border-color: #C0455E;
-}
-
-
-.smart-style-2 .btn-warning {
-	background-color: #E2B14A;
-	border-color: #C99D42;
-}
-
-.smart-style-2 .btn-warning:hover, 
-.smart-style-2 .btn-warning:focus, 
-.smart-style-2 .btn-warning:active, 
-.smart-style-2 .btn-warning.active, 
-.smart-style-2 .open .dropdown-toggle.btn-warning {
-	background-color: #D6A848;
-	border-color: #C09844;
-}
-
-.smart-style-2 .pagination>.active>a, 
-.smart-style-2 .pagination>.active>span, 
-.smart-style-2 .pagination>.active>a:hover, 
-.smart-style-2 .pagination>.active>span:hover, 
-.smart-style-2 .pagination>.active>a:focus, 
-.smart-style-2 .pagination>.active>span:focus {
-	background-color: #3b9ff3;
-}
-
-/*
- * MINIFIED
- */
-.smart-style-2.minified #left-panel {
-	padding:0 !important;
-}
-
-.smart-style-2.minified nav ul>li>a {
-padding: 12px 11px;
-}
-
-.smart-style-2.minified nav>ul>li>ul, .smart-style-2.minified nav>ul>li>ul>li, .smart-style-2.minified nav>ul>li>ul>li>ul>li {
-	background:#fff !important;
-}
-
-.smart-style-2.minified nav>ul>li {
-	border-bottom: 1px solid #E6E6E6;
-	border-top: 1px solid #FFFFFF;
-}
-
-
-.smart-style-2.minified nav>ul>li>a>i {
-	font-size:18px !important;
-}
-
-.smart-style-2.minified .login-info span {
-	padding:0;
-}
-
-.smart-style-2.minified .login-info {
-	margin:0 !important;
-}
-
-
-.smart-style-2.minified nav ul li.active>a:before {
-	height: 23px;
-	right: -19px;
-	top: 7px;
-	font-size: 20px;
-	color: #FFFFFF;
-}
-
-/*
- * COLOR PALLET
- */
-.smart-style-2 .bg-color-red {
-	background: #DB4A67 !important;
-}
-
-.smart-style-2 .bg-color-blue {
-	background: #4387bf !important;
-}
-
-.smart-style-2 .smart-form .checkbox input:checked+i, 
-.smart-style-2 .smart-form .radio input:checked+i, 
-.smart-style-2 .smart-form .toggle input:checked+i {
-	border-color: #3b9ff3;
-}
-
-.smart-style-2 .smart-form .toggle i:before {
-background-color: #3b9ff3;
-}
-
-.smart-form .rating input+label:hover, 
-.smart-form .rating input+label:hover~label {
-	color: #3b9ff3;
-}
-
-.smart-style-2 .bg-color-greenLight {
-	background-color: #89AD45 !important;
-}
-
-.smart-style-2 .bg-color-orange {
-	background-color: #D6A848 !important;
-}
-
-.smart-style-2 .bg-color-teal {
-	background-color: #5ba0a3 !important;
-}
-
-.smart-style-2 .minifyme {
-	background: #D7DAE2;
-	border-bottom: 1px solid #818181;
-	color: #7E7E7E;
-}
-
-.smart-style-2  .minifyme:hover {
-	color: #4E4E4E;
-}
-
-.smart-style-2 .onoffswitch-inner:before {
-	background: #3b9ff3;
-	border-color: #3b9ff3 #257DC7 #2A7DC4;
-}
-
-.smart-style-2 .onoffswitch-checkbox:checked+.onoffswitch-label .onoffswitch-switch:before {
-	color: #84A83E;
-}
-
-/********************************************************************* STYLE 3 *************************************************************/
-
-
 

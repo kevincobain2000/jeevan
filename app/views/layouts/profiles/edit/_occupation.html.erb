@@ -12,7 +12,7 @@
             Choose one</small>
           </div>
           <div class="col-sm-6">
-          <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= current_user.occupation[:category] %>" placeholder="About <%= heading %>">
+          <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= current_user.occupation["#{category}"] %>" placeholder="About <%= heading %>">
         </div>
       </fieldset>
       <% end %>

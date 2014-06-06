@@ -1,6 +1,7 @@
 <!-- Left panel : Navigation area -->
 <hr>
-<aside id="left-panel">
+<div class="">
+  <aside id="left-panel">
 <!-- <span class="minifyme">
   <i class="fa fa-arrow-circle-left hit"></i>
 </span> -->
@@ -16,12 +17,6 @@
     </span>
   </div>
   <!-- end user info -->
-  <!-- <h1><small>You might like</small></h1> -->
-        <%#= image_tag current_user.avatar.url(:thumb), :class => "img-rounded", :style=>"25px;height:25px;" %>
-        <%#= image_tag current_user.avatar.url(:thumb), :class => "img-rounded", :style=>"25px;height:25px;" %>
-        <%#= link_to edit_profile_path(:id =>current_user.profile.id) do %>
-          <%#= image_tag "logo-wide.png", :style=>"width:25px;height:25px;" %>
-        <%# end %>
   <!-- <hr> -->
   <nav>
   <ul>
@@ -34,7 +29,6 @@
     <li class="hidden-mobile">
       <a href="/messages/">
         <i class="fa fa-lg fa-fw fa-comments txt-color-green"></i>
-        <span class="menu-item-parent side-chat">Chat</span>
         <% if current_user.badge.message != 0 %>
         <small>
             <label class="badge bg-color-red font-xs">
@@ -42,26 +36,25 @@
           </label>
         </small>
           <% end %>
+        <span class="menu-item-parent side-chat">Chat</span>
       </a>
     </li>
     <li>
       <a href="/profiles/visitors">
         <i class="fa fa-lg fa-fw fa-thumbs-up"></i>
-        <span class="menu-item-parent">
-          Visitors
           <% if current_user.badge.visitor != 0 %>
           <small><label class="badge bg-color-red font-xs">
           <%= current_user.badge.visitor %>
           </label></small> 
           <% end %>
+        <span class="menu-item-parent">
+          Visitors
         </span>
       </a>
     </li>
     <li>
       <a href="/profiles/incomings">
         <i class="fa fa-lg fa-fw fa-heart txt-color-pink"></i>
-        <span class="menu-item-parent">
-        Interested
           <% if current_user.badge.interest != 0 %>
           <small>
             <label class="badge bg-color-red font-xs">
@@ -69,6 +62,8 @@
           </label>
         </small>
           <% end %>
+        <span class="menu-item-parent">
+        Interested
         </span>
       </a>
     </li>
@@ -77,11 +72,6 @@
         <i class="fa fa-lg fa-fw fa-check txt-color-green"></i>
         <span class="menu-item-parent">
           Accepted
-          <%# if current_user.badge.accepted != 0 %>
-          <!-- <small><label class="badge bg-color-red font-xs"> -->
-          <%#= (current_user.badge.accepted == 0) ? "" : current_user.badge.accepted %>
-          <!-- </label></small> -->
-          <%# end %>
         </span>
       </a>
     </li>
@@ -90,11 +80,6 @@
         <i class="fa fa-lg fa-fw fa-thumbs-down txt-color-red"></i>
         <span class="menu-item-parent">
         Rejected
-        <%# if current_user.badge.rejected != 0 %>
-        <!-- <small><label class="badge bg-color-red font-xs"> -->
-          <%#= (current_user.badge.rejected == 0) ? "" : current_user.badge.rejected  %>
-        <!-- </label></small> -->
-        <%# end %>
         </span>
       </a>
     </li>
@@ -125,5 +110,6 @@
   </ul>
 </nav>
 </aside>
+</div>
 <!-- END NAVIGATION -->
 <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-avatar", :tpl => "avatar"} %>

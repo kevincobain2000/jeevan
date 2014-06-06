@@ -50,8 +50,6 @@ gem 'rb-readline'
 gem 'omniauth-twitter'
 gem 'omniauth-linkedin'
 
-gem 'modernizr-rails'
-
 # gem 'dalli'
 
 # gem 'rake', '~> 10.1.1'

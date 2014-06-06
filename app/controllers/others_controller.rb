@@ -8,7 +8,7 @@ class OthersController < ApplicationController
   def modify_gender
     if params[:sex] == "Male" || params[:sex] == "Female"
       current_user.update("sex" => params[:sex])
-      redirect_to root_path
     end
+    redirect_to root_path
   end
 end

@@ -16,7 +16,6 @@
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" =>
   true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-    <%= javascript_include_tag :modernizr %>
     <%= csrf_meta_tags %>
     <%= favicon_link_tag '/favicon.ico' %>
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,300,400,700"></head>
@@ -27,7 +26,7 @@
     <% if mobile_device? %>
       <body class="smart-style-2 fixed-header fixed-ribbon fixed-width">
     <% else %>
-      <body class="smart-style-2 fixed-header fixed-navigation fixed-ribbon fixed-width minified">
+      <body class="smart-style-2 fixed-header fixed-navigation fixed-ribbon fixed-width">
     <% end %>
       
       <!-- possible classes: minified, fixed-ribbon, fixed-header, fixed-width-->

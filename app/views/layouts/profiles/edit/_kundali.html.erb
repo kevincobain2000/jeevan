@@ -30,7 +30,7 @@
       <label class="input">
 
       <i class="icon-append fa fa-clock-o"></i>
-        <input class="form-control" name="tob" id="tob" type="time">
+        <input class="form-control" name="tob" id="tob" type="time" value="<%= current_user.kundali.tob %>">
       </label>
     </div>
   </fieldset>
@@ -49,7 +49,7 @@
             Select one from list or add a new one</small>
           </div>
           <div class="col-sm-6">
-              <input id="select-<%= id %>" name="<%= category %>" value="<%= current_user.kundali[:category] %>" class="selectized" placeholder="Select your <%= heading %>">
+              <input id="select-<%= id %>" name="<%= category %>" value="<%= current_user.kundali["#{category}"] %>" class="selectized" placeholder="Select your <%= heading %>">
             </div>
         
         </fieldset>
