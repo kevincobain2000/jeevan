@@ -1,5 +1,5 @@
 <h3>Religion
-<% if  current_user.profile.id == @user[:profile][:id] %>
+<% if  current_user.profile.id == user[:profile][:id] %>
 	<button class="btn btn-xs btn-default hidden-xs" data-toggle="modal" data-target="#modal-edit-religion">
 		<i class="fa fa-edit"></i> edit
 </button>
@@ -11,6 +11,6 @@
   <% icon = "fa fa-angle-right" %>
     <% heading = category.gsub "_", " " %>
     <dt class="txt-color-blue"><%= heading.titleize %> <i class="<%= icon %>"></i></dt>
-    <dd><span><%= @user[:religion][category] %></span></dd>
+    <dd><span><%= user[:religion][category] %></span></dd>
   <% end %>
 </dl>
