@@ -21,15 +21,7 @@
     <% else %>
   <div class="col-md-4 hidden-xs">
     <div class="well col-md-12">
-      <div class="bar-holder">
-        <div class="progress">
-          <div class="progress-bar bg-color-blue" aria-valuetransitiongoal="75" style="width: 75%;" aria-valuenow="55">55%</div>
-        </div>
-        <%= link_to edit_profile_path(:id =>current_user.profile.id), :class=>"pull-right" do %>
-        <i class="fa fa-edit"></i>
-        Complete Your Profile
-        <% end %>
-      </div>
+      <%= render "layouts/profileprogress" %>
       <div class="col-md-6">
         <a class="btn-link" data-toggle="modal" data-target="#modal-edit-avatar">
           <%= image_tag current_user.avatar.url(:thumb), :class => "img-rounded", :style => "width:100px;height:100px;" %>
