@@ -196,28 +196,28 @@ class ProfilesController < ApplicationController
   end
 
   def incomings
-    incomings = Interest.where(to_user_id: current_user.id).pluck(:user_id)
-    @incomings = User.find(incomings).paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
+    incomings = Interest.where(to_user_id: current_user.id).order("updated_at DESC").pluck(:user_id)
+    @incomings = User.find(incomings, :order => "field(id,#{incomings.join(',')})").paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
     badge_reset(current_user, "interest")
   end
   def accepted
-    accepted = Interest.where("user_id = ? AND response = ?", current_user.id, 1).pluck(:to_user_id)
-    @accepted = User.find(accepted).paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
+    accepted = Interest.where("user_id = ? AND response = ?", current_user.id, 1).order("updated_at DESC").pluck(:to_user_id)
+    @accepted = User.find(accepted, :order => "field(id,#{accepted.join(',')})").paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
     badge_reset(current_user, "accepted")
   end
   def outgoings
-    rejected = Interest.where("user_id = ? AND response = ?", current_user.id, 0).pluck(:to_user_id)
-    @rejected = User.find(rejected).paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
+    rejected = Interest.where("user_id = ? AND response = ?", current_user.id, 0).order("updated_at DESC").pluck(:to_user_id)
+    @rejected = User.find(rejected, :order => "field(id,#{rejected.join(',')})").paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
     badge_reset(current_user, "rejected")
   end
   def visitors
-    visitors = Visitor.where(viewed_id: current_user.id).pluck(:user_id)
-    @visitors = User.find(visitors).paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
+    visitors = Visitor.where(viewed_id: current_user.id).order("updated_at DESC").pluck(:user_id)
+    @visitors = User.find(visitors, :order => "field(id,#{visitors.join(',')})").paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
     badge_reset(current_user, "visitor")
   end
   def waiting
-    waiting = Interest.where("user_id = ? AND response IS NULL", current_user.id).pluck(:to_user_id)
-    @waiting = User.find(waiting).paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
+    waiting = Interest.where("user_id = ? AND response IS NULL", current_user.id).order("updated_at DESC").pluck(:to_user_id)
+    @waiting = User.find(waiting, :order => "field(id,#{waiting.join(',')})").paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
   end
   def shortlists
     shortlists = Shortlist.where(user_id: current_user.id).pluck(:to_user_id)
