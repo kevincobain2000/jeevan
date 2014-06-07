@@ -1,9 +1,3 @@
-/********************************************************************* STYLE 2 *************************************************************/
-
-.smart-style-2 #shortcut {
-	background-color: rgba(44, 55, 66, .9);
-}
-
 .smart-style-2 #header, .smart-style-2 .inbox-footer, .smart-style-2 .superbox-show {
 	background-image:none;
 	/*background-color: #2C3742;*/
@@ -60,8 +54,8 @@
 }
 
 .smart-style-2 #ribbon {
-	background:#3b5998;
-	margin-top: 2px;
+	background:#568a89;
+	margin-top: 0px;
 	border-radius: 6px;
 }
 
@@ -78,8 +72,8 @@
 
 .smart-style-2 aside {
 	position:fixed;
+	/*background: #e9eaed;*/
 	background: #e9eaed;
-	/*background: #F7F7F7;*/
 	/*min-height: 50%;*/
 }
 
