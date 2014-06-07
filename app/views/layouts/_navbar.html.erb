@@ -29,15 +29,39 @@
     </li>
     <li>
       <a href="/messages/"><i class="fa fa-comments"></i>
-        Chat</a>
+        Chat
+        <% if current_user.badge.message != 0 %>
+        <small>
+            <label class="badge bg-color-red font-xs">
+            <%= current_user.badge.message %>
+          </label>
+        </small>
+        <% end %>
+      </a>
     </li>
     <li>
       <a href="/profiles/visitors"><i class="fa fa-thumbs-up"></i>
-        Visitors</a>
+        Visitors
+        <% if current_user.badge.message != 0 %>
+        <small>
+            <label class="badge bg-color-red font-xs">
+            1<%#= current_user.badge.message %>
+          </label>
+        </small>
+          <% end %>
+      </a>
     </li>
     <li>
       <a href="/profiles/incomings"><i class="fa fa-heart"></i>
-        Interested</a>
+        Interested
+        <% if current_user.badge.interest != 0 %>
+          <small>
+            <label class="badge bg-color-red font-xs">
+            <%= current_user.badge.interest %>
+          </label>
+        </small>
+          <% end %>
+      </a>
     </li>
     <li>
       <a href="/profiles/accepted"><i class="fa fa-check"></i>
