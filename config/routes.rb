@@ -2,7 +2,7 @@ Jeevan::Application.routes.draw do
   resources :others do
     collection do
       get :confirmemail
-      get :confirmgender
+      get :confirmbasic
       post :modify_gender
     end
   end
