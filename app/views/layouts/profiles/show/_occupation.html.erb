@@ -1,5 +1,5 @@
 <h3>Occupation
-<% if  current_user.profile.id == @user[:profile][:id] %>
+<% if  current_user.profile.id == user[:profile][:id] %>
 	<button class="btn btn-xs btn-default hidden-xs" data-toggle="modal" data-target="#modal-edit-occupation">
 		<i class="fa fa-edit"></i> edit
 </button>
@@ -11,7 +11,7 @@
     <% heading = category.gsub "_", " " %>
     <dt class="txt-color-green"><%= heading.titleize %> <i class="fa fa-angle-right fa-sm"></i></dt>
     <dd><span>
-      <%= @user[:occupation][category] %>
+      <%= user[:occupation][category] %>
       </span>
     </dd>
   <% end %>

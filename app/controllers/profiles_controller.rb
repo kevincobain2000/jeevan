@@ -284,7 +284,8 @@ class ProfilesController < ApplicationController
   end
 
   def get_showing_user
-    @user = make_user(User.find(Profile.find(params[:id]).user_id))
+    # @user = make_user(User.find(Profile.find(params[:id]).user_id))
+    @user = User.find(Profile.find(params[:id]).user_id)
   end
   def not_same_sex
     user = User.find(Profile.find(params[:id]).user_id)

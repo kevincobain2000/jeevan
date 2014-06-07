@@ -1,8 +1,9 @@
+<% __user = make_user(@user) %>
 <div id="main" role="main">
-  <% if current_user.id == @user[:id] %>
+  <% if current_user.id == __user[:id] %>
     <%= render :partial =>"layouts/ribbon", :locals => {:papa => "Home", :son => "My Profile"} %>
   <% else %>
-    <%= render :partial =>"layouts/ribbon", :locals => {:papa => "Home", :son => "Profile of #{@user[:name]}"} %>
+    <%= render :partial =>"layouts/ribbon", :locals => {:papa => "Home", :son => "Profile of #{__user[:name]}"} %>
   <% end %>
   <!-- MAIN CONTENT -->
   <div id="content">
@@ -16,7 +17,7 @@
           <i class="fa-fw fa fa-file"></i>
           Profile Id
           <i class="fa fa-angle-right fa-lg"></i>
-          <%= @user[:profile]['id'] %>
+          <%= __user[:profile]['id'] %>
         </h1>
       </div>
     </div>
@@ -35,14 +36,14 @@
                         <div id="myCarousel" class="carousel profile-carousel">
                           <div class="air air-top-right padding-10">
                             <p class="txt-color-white">
-                              <%= render :partial =>'layouts/interesttext', :locals => {:user => @user}%>
+                              <%= render :partial =>'layouts/interesttext', :locals => {:user => __user}%>
                             </p>
-                            <%= render :partial =>'layouts/interestact', :locals => {:user => @user}%>
+                            <%= render :partial =>'layouts/interestact', :locals => {:user => __user}%>
                           </div>
                           <div class="air air-top-left padding-10 hidden-xs">
                             <h3 class="txt-color-white font-md">
-                              Profile <%= @user[:name] %>,
-                              <%= @user[:devotion] %> <%= (@user[:sex] == "Female")? "Bride": "Groom" %>
+                              Profile <%= __user[:name] %>,
+                              <%= __user[:devotion] %> <%= (__user[:sex] == "Female")? "Bride": "Groom" %>
                             </h3>
                           </div>
                           <ol class="carousel-indicators">
@@ -59,11 +60,11 @@
                       <!-- carousel Ends -->
                       <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="col-sm-6">
-                          <%= render :partial =>'layouts/avatar', :locals => {:user => @user}%>
+                          <%= render :partial =>'layouts/avatar', :locals => {:user => __user}%>
                         </div>
                         <div class="col-sm-6">
-                          <%= render :partial =>'layouts/cardinfo', :locals => {:user => @user}%>
-                          <%= render :partial =>'layouts/contactinfo', :locals => {:user => @user}%>
+                          <%= render :partial =>'layouts/cardinfo', :locals => {:user => __user}%>
+                          <%= render :partial =>'layouts/contactinfo', :locals => {:user => __user}%>
                         </div>
                       </div>
                     </div>
@@ -75,7 +76,7 @@
           <div class="row">
             <article class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
               <h3>About
-                <% if  current_user.profile.id == @user[:profile][:id] %>
+                <% if  current_user.profile.id == __user[:profile][:id] %>
                   <button class="btn btn-xs btn-default hidden-xs" data-toggle="modal" data-target="#modal-edit-about">
                     <i class="fa fa-edit"></i>
                     edit
@@ -83,44 +84,44 @@
                 <% end %>
               </h3>
               <div class="">
-                <%= raw @user[:about][:me] %>
+                <%= raw __user[:about][:me] %>
               </div>
             </article>
             <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-              <%= render :partial =>'layouts/profiles/show/religion'%>
+              <%= render :partial =>'layouts/profiles/show/religion',  :locals => {:user => __user}%>
             </article>
             <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-              <%= render :partial =>'layouts/profiles/show/kundali'%>
+              <%= render :partial =>'layouts/profiles/show/kundali',  :locals => {:user => __user}%>
             </article>
             <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-              <%= render :partial =>'layouts/profiles/show/education'%>
+              <%= render :partial =>'layouts/profiles/show/education',  :locals => {:user => __user}%>
             </article>
             <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-              <%= render :partial =>'layouts/profiles/show/occupation'%>
+              <%= render :partial =>'layouts/profiles/show/occupation',  :locals => {:user => __user}%>
             </article>
             <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-              <%= render :partial =>'layouts/profiles/show/family'%>
+              <%= render :partial =>'layouts/profiles/show/family',  :locals => {:user => __user}%>
             </article>
             <article class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
-              <%= render :partial =>'layouts/profiles/show/hobby'%>
+              <%= render :partial =>'layouts/profiles/show/hobby',  :locals => {:user => __user}%>
             </article>
             <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-              <%= render :partial =>'layouts/profiles/show/lifestyle'%>
+              <%= render :partial =>'layouts/profiles/show/lifestyle',  :locals => {:user => __user}%>
             </article>
             <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-              <%= render :partial =>'layouts/profiles/show/desire'%>
+              <%= render :partial =>'layouts/profiles/show/desire',  :locals => {:user => __user}%>
             </article>
           </div>
         </div>
       </div>
-      <%= render :partial => 'layouts/profiles/similar', :locals => {:user => @user} %>
+      <%= render :partial => 'layouts/profiles/similar', :locals => {:user => __user} %>
     </div>
     <!-- end row -->
   </div>
   <!-- END MAIN CONTENT -->
 </div>
 <!-- Modals -->
-<% if  current_user.profile.id == @user[:profile][:id] %>
+<% if  current_user.profile.id == __user[:profile][:id] %>
   <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-about", :tpl => "aboutme"} %>
   <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-images", :tpl => "images"} %>
   <%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-religion", :tpl => "religion"} %>

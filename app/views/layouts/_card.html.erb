@@ -10,6 +10,9 @@
     <div class="air air-bottom-right padding-10 hidden">
       <%= link_to profile_path(:id =>user[:profile][:id]) do %><button class="btn btn-default pull-right">more</button><% end %>
     </div>
+    <div class="air air-top-right padding-10 hidden">
+      <%= render :partial =>'layouts/shortlistbutton', :locals => {:user => user}%>
+    </div>
   </div>
   <div class="text">
     <p>
