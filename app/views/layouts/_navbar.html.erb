@@ -1,14 +1,20 @@
 <div class="collapse navbar-collapse navbar-inverse navbar-fixed-top">
   <ul class="nav navbar-nav">
     <li>
+      <div id="hide-menu" class="btn-header">
+          <span>
+            <a href="javascript:void(0);" title="Collapse Menu">
+              <i class="fa fa-bars"></i>
+            </a>
+          </span>
+        </div>
+    </li>
+    <li>
       <a href="/explore" class="txt-color-white"><i class="fa fa-search"></i>
         EXPLORE</a>
     </li>
-        <li class="dropdown">
-      <a class="dropdown-toggle txt-color-white">
-        Sort by
-        <b class="caret"></b>
-      </a>
+    <li class="dropdown">
+      <a class="dropdown-toggle txt-color-white" data-toggle="dropdown" href="javascript:void(0);">Sort by<b class="caret"></b></a>
       <ul class="dropdown-menu">
         <li>
           <a href="/profiles/online">Online Now</a>
@@ -58,7 +64,7 @@
       <% end %>
     </li>
     <li>
-        <%= form_tag({:action=>'search', :controller => "profiles"},{:class=>"navbar-form", :style=>"width:250px;"}) do %>
+        <%= form_tag({:action=>'search', :controller => "profiles"},{:class=>"navbar-form", :style=>"width:300px;"}) do %>
         <input type="text" placeholder="Hindu, Delhi anything" id="header-search" name="query" class="form-control">
         <button type="submit" class="btn btn-primary hidden"></button>
         <% end %>
@@ -71,9 +77,10 @@
       <ul class="dropdown-menu">
       <li>
          <a class="btn-link" data-toggle="modal" data-target="#modal-edit-avatar">
-           <%= image_tag current_user.avatar.url(:thumb), :class => "img-rounded", :style=>"height:100px;width:100px;" %>
+           Change Profile Pic
         </a>
       </li>
+      <li class="divider"></li>
         <li>
           <%= link_to edit_user_registration_path do %>
             Change Password
@@ -84,6 +91,7 @@
             Delete account
           <% end %>
         </li>
+        <li class="divider"></li>
         <li>
           <a href="<%= destroy_user_session_path %>" title="Sign Out" id="logout">
             Sign out
@@ -91,6 +99,5 @@
         </li>
       </ul>
     </li>
-
   </ul>
 </div>

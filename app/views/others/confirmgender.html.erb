@@ -1,7 +1,10 @@
 <div id="main" role="main">
   <div id="content">
     <div>
-      <%= image_tag current_user.avatar.url(:thumb), :class => "img-rounded", :style => "width:100px;height:100px;" %>
+      <a class="btn-link" data-toggle="modal" data-target="#modal-edit-avatar">
+        <%= image_tag current_user.avatar.url(:thumb), :class => "img-rounded", :style => "width:100px;height:100px;" %>
+        <br>Change Profile Picture
+      </a>
       <div>
         <h1><i class="fa fa-user fa-3x text-muted air air-top-right hidden-mobile"></i><%= current_user.name %>
           <small><i class="fa fa-lock text-muted"></i>
@@ -10,17 +13,80 @@
           Gender:
           <%= current_user.sex %>
         </p>
-        <div class="col-md-6 col-md-offset-4 font-md">
+        <h3>You Basic Profile</h3>
+        <div class="col-md-8 font-md">
           <%= form_tag({:action=>'modify_gender', :controller => "others"},{:remote => false, :class=>"smart-form edit"}) do %>
-            <section>
-              <label class="radio"><%= radio_button_tag :sex, "Male" %><i></i>Male</label>
-              <label class="radio"><%= radio_button_tag :sex, "Female" %><i></i>Female</label>
-              <br>
-              <button class="btn btn-md btn-primary btn-md padding-5">Go !</button>
-            </section>
+          <% if current_user.sex == "Unknown" %>
+            <fieldset>
+              <div class="col-sm-4">
+                <label class="label">
+                  <strong>Gender</strong>
+                </label>
+              </div>
+              <div class="col-sm-6">
+                <label class="radio"><%= radio_button_tag :sex, "Male" %><i></i>Male</label>
+                <label class="radio"><%= radio_button_tag :sex, "Female" %><i></i>Female</label>
+              </div>
+            </fieldset>
+            <% end %>
+            <fieldset>
+              <div class="col-sm-4">
+                <label class="label"><strong>Date of Birth</strong>
+                  <br>
+                  <strong class="txt-color-red" id="date_show_words"></strong></label>
+              </div>
+              <div class="col-sm-6">
+                <label class="input">
+                  <i class="icon-append fa fa-calendar" id="dob-cal"></i>
+                  <input class="form-control" id="dob" type="text" placeholder="september 4 1985 ">
+                  <input class="form-control" id="dob-hidden" type="hidden" name="dob">
+                </label>
+                <div class="note">
+                  <strong>Example</strong>
+                  <span>sep 9 1985</span>
+                </div>
+              </div>
+            </fieldset>
+            <footer>
+              <button class="btn btn-md btn-primary btn-md">Go !</button>
+            </footer>
           <% end %>
         </div>
       </div>
     </div>
   </div>
 </div>
+<script type="text/javascript">
+  $(document).ready(function() {
+  
+    $("#dob-cal").datepicker({
+      format: 'dd/mm/yyyy',
+      startView: "decade",
+    });
+    $('#dob-cal').on('changeDate', function(ev){
+      $(this).datepicker('hide');
+      cal_date = $(this).datepicker('getDate');
+  
+      cal_date = cal_date.getDate() + " " + cal_date.getMonth() +" "+ cal_date.getFullYear()
+      cal_date_parse = Date.parse(cal_date)
+  
+      $("#dob-hidden").val(cal_date_parse.toString('dd/MM/yyyy'));
+      $("#dob").val(cal_date_parse.toString('dddd, MMMM d, yyyy'));
+      $("#date_show_words").html(cal_date_parse.toString('dddd, MMMM d, yyyy'));
+    });
+  
+    $("#dob").keyup(function(event) {
+      date_input = $(this).val();
+      the_date = Date.parse(date_input);
+      if (the_date != null) {
+        $("#date_show_words").html(the_date.toString('dddd, MMMM d, yyyy'));
+        $("#dob-hidden").val(the_date.toString('dd/MM/yyyy'));
+        $("#signup-button").removeClass("disabled");
+      } else {
+        $("#dob-hidden").val("");
+        $("#date_show_words").html(_.sample(["argh..", "oops", "hmmm ?", "no no noo"]));
+        $("#signup-button").addClass("disabled");
+      }
+    });
+  });
+</script>
