@@ -1,10 +1,12 @@
-
+  <%= render :partial =>"layouts/ribbon", :locals => {:papa => "Home", :son => "Account Settings"} %>
     <div id="main" role="main">
       <!-- MAIN CONTENT -->
       <div id="content" class="container">
         <div class="row">
           <div class="col-md-5 col-md-offset-3">
             <div class="well no-padding">
+              <% if !current_user.provider %>
+
               <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => "smart-form client-form" }) do |f| %>
                 <header>Change Password</header>
                 <fieldset>
@@ -41,7 +43,11 @@
                   </footer>
                 </fieldset>
               <% end %>
+            <% else %>
+            <h3 class="padding-10">You are logged in using <%= current_user.provider %> <small>There is nothing to do with changing your password here.</small></h3>
             </div>
+
+          <% end %>
             <!-- <button class="btn btn-danger btn-sm pull-right"><i class="fa fa-times"></i> Delete My Account</button> -->
             <button class="btn btn-default" onclick="window.history.back()"><i class="fa fa-arrow-left"></i> Go Back</button>
             <button class="btn btn-danger btn-sm pull-right" data-toggle="modal" data-target="#destroy">

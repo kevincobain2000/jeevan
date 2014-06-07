@@ -1,6 +1,5 @@
 <%= render :partial =>'layouts/alert', :locals => {:heading => "Basic Information about yourself ..", :description => "Basic information is shown on the profile card and appears when some does a search", :icon=>"fa fa-bookmark"}%>
 <%= form_tag({:action=>'modify_profile'}, {:remote => true, :class=>"smart-form edit"}) do %>
-  <h3 class=""><strong>Basic</strong> Information</h3>
   <fieldset>
     <div class="col-sm-4">
       <label class="label">
@@ -25,7 +24,7 @@
             Choose One</small>
           </div>
           <div class="col-sm-6">
-          <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= current_user.profile[:category] %>" placeholder="<%= heading %>">
+          <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= current_user.profile["#{category}"] %>" placeholder="<%= heading %>">
         </div>
       </fieldset>
       <% end %>

@@ -1,0 +1,103 @@
+<div class="collapse navbar-collapse navbar-inverse navbar-fixed-top">
+  <ul class="nav navbar-nav">
+    <li>
+      <div id="hide-menu" class="btn-header">
+          <span>
+            <a href="javascript:void(0);" title="Collapse Menu">
+              <i class="fa fa-bars"></i>
+            </a>
+          </span>
+        </div>
+    </li>
+    <li>
+      <a href="/explore" class="txt-color-white"><i class="fa fa-search"></i>
+        EXPLORE</a>
+    </li>
+    <li class="dropdown">
+      <a class="dropdown-toggle txt-color-white" data-toggle="dropdown" href="javascript:void(0);">Sort by<b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="/profiles/online">Online Now</a>
+        </li>
+        <li>
+          <a href="/profiles/recentlyjoined">Joined Today</a>
+        </li>
+        <li>
+          <a href="/profiles/withphotos">With Photos</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="/messages/"><i class="fa fa-comments"></i>
+        Chat</a>
+    </li>
+    <li>
+      <a href="/profiles/visitors"><i class="fa fa-thumbs-up"></i>
+        Visitors</a>
+    </li>
+    <li>
+      <a href="/profiles/incomings"><i class="fa fa-heart"></i>
+        Interested</a>
+    </li>
+    <li>
+      <a href="/profiles/accepted"><i class="fa fa-check"></i>
+        Accepted</a>
+    </li>
+    <li>
+      <a href="/profiles/outgoings"><i class="fa fa-thumbs-down"></i>
+        Rejected</a>
+    </li>
+    <li>
+      <a href="/profiles/waiting"><i class="fa fa-bell"></i>
+        Waiting</a>
+    </li>
+    <li>
+      <a href="/profiles/<%= current_user.profile.id %>">
+        <i class="fa fa-lg fa-fw fa-file"></i>
+        <span class="menu-item-parent">My Profile</span>
+      </a>
+    </li>
+    <li>
+      <%= link_to edit_profile_path(:id =>current_user.profile.id), :class=>"txt-color-white" do %>
+        <i class="fa fa-edit"></i>
+        Edit Profile
+      <% end %>
+    </li>
+    <li>
+        <%= form_tag({:action=>'search', :controller => "profiles"},{:class=>"navbar-form", :style=>"width:300px;"}) do %>
+        <input type="text" placeholder="Hindu, Delhi anything" id="header-search" name="query" class="form-control">
+        <button type="submit" class="btn btn-primary hidden"></button>
+        <% end %>
+    </li>
+    <li class="dropdown">
+      <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">
+        <%= image_tag current_user.avatar.url(:thumb), :class => "img-rounded", :style=>"25px;height:25px;" %>
+        <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu">
+      <li>
+         <a class="btn-link" data-toggle="modal" data-target="#modal-edit-avatar">
+           Change Profile Pic
+        </a>
+      </li>
+      <li class="divider"></li>
+        <li>
+          <%= link_to edit_user_registration_path do %>
+            Change Password
+          <% end %>
+        </li>
+        <li>
+          <%= link_to edit_user_registration_path do %>
+            Delete account
+          <% end %>
+        </li>
+        <li class="divider"></li>
+        <li>
+          <a href="<%= destroy_user_session_path %>" title="Sign Out" id="logout">
+            Sign out
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

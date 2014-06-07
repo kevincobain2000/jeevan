@@ -1,11 +1,4 @@
 <%= render :partial =>'layouts/alert', :locals => {:heading => "Creating a beautiful, personalized web presence has never been simpler.", :description => "Having an about yourself text will make it easier for people to find and learn about you and your family", :icon=>"fa fa-pencil"}%>
-<h3 class="">Write something
-  <strong>About</strong>
-  Yourself &
-  <i>family</i>
-  <br>
-  <small>Your about me text will be used by our search algorithms to show better results.</small>
-  </h3>
 <%= form_tag({:action=>'modify_about'}, {:remote => true}) do %>
   <input type="hidden" name="me" id="about-me" type="hidden">
   <button type="submit" id="submit-about-me" class="btn btn-success pull-right hidden"></button>
@@ -20,7 +13,7 @@
 <div class="pull-right">
   <button id="edit" class="btn btn-md btn-info" onclick="edit()"><i class="fa fa-edit"></i>
     Edit</button>
-  <button id="save" type="submit" class="btn btn-md btn-primary" onclick="save()"><i class="fa fa-check"></i>
+  <button id="save" type="submit" class="btn btn-md btn-primary edit" onclick="save()"><i class="fa fa-check"></i>
     Save</button>
 </div>
 <script type="text/javascript">

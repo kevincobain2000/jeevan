@@ -2,9 +2,6 @@
 'layouts/alert', :locals => {:heading => "Your Lifestyle", :description => "What movies do you like ! What music do you listen to...",:icon=>"fa fa-cutlery"}%>
 <%= form_tag({:action=>
 'modify_lifestyle'}, {:remote => true, :class=>"smart-form edit"}) do %>
-<h3 class=""> <strong>Life</strong>
-  Style
-</h3>
 <fieldset>
   <div class="col-sm-4">
     <label class="label"><strong>Height</strong></label>
@@ -43,7 +40,7 @@
             Choose one</small>
       </div>
       <div class="col-sm-6">
-        <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= current_user.lifestyle[:category] %>" placeholder="Choose your <%= heading %>">
+        <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= current_user.lifestyle["#{category}"] %>" placeholder="Choose your <%= heading %>">
       </div>
     </fieldset>
     <% end %>

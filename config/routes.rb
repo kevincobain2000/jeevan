@@ -2,9 +2,13 @@ Jeevan::Application.routes.draw do
   resources :others do
     collection do
       get :confirmemail
+      get :confirmbasic
+      post :modify_gender
     end
   end
+  get '/users/sign_up', to: redirect('/users/sign_in')
   devise_for :users, :controllers => { :registrations => "registrations", :sessions => "sessions", :omniauth_callbacks => "omniauth_callbacks"  }
+
   resources :profiles do
     collection do
       delete :destroy_everything
@@ -52,10 +56,6 @@ Jeevan::Application.routes.draw do
     end
   end
 
-  resources :dashboard do
-    collection do
-    end
-  end
   resources :contact do
     collection do
     end

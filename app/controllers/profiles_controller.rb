@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
+  before_filter :has_sex
   before_filter :is_this_user_profile, only: [:edit]
-
   before_filter :not_same_sex, :get_showing_user, only: [:show]
 
   PAGINATE_PROFILES = 30
@@ -51,6 +51,9 @@ class ProfilesController < ApplicationController
     render json: { :status => 200 }
   end
   def modify_kundali
+    if params[:dob]
+      current_user.update(:dob => params[:dob])
+    end
     current_user.kundali.update(kundali_params)
     render json: { :status => 200 }
   end
@@ -87,7 +90,10 @@ class ProfilesController < ApplicationController
   end
   def modify_desire
     current_user.desire.update(desire_params)
-    render json: { :status => 200 }
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
   def destroy_everything
     user = User.find(current_user.id)
@@ -162,23 +168,31 @@ class ProfilesController < ApplicationController
   #==============================#/
   def index
     already_visited    = [current_user.id]
+    lookup_sex = current_user.sex == "Male" ? "Female" : "Male"
     # already_visited   += Visitor.where(user_id: current_user.id).pluck(:viewed_id)
     # already_visited   += Interest.where("user_id = ?", current_user.id).pluck(:to_user_id)
     # already_visited   += Shortlist.where("user_id = ?", current_user.id).pluck(:to_user_id)
-    @matching = User.where("sex <> ? AND devotion = ? AND id NOT IN (?)", current_user.sex, current_user.devotion, already_visited).order('images_count DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
+    @matching = User.where("sex = ? AND id NOT IN (?)", lookup_sex, already_visited).order('images_count DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def online
     already_visited    = [current_user.id]
-    @online = User.where("sex <> ? AND devotion = ? AND id NOT IN (?) AND updated_at >= ?", current_user.sex, current_user.devotion, already_visited, 30.minutes.ago).order('updated_at ASC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
+    lookup_sex = current_user.sex == "Male" ? "Female" : "Male"
+    @online = User.where("sex = ? AND id NOT IN (?) AND updated_at >= ?", lookup_sex, already_visited, 30.minutes.ago).order('updated_at ASC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
   end
   def withphotos
     already_visited    = [current_user.id]
-    @withphotos = User.where("sex <> ? AND devotion = ? AND id NOT IN (?) AND images_count >= ?", current_user.sex, current_user.devotion, already_visited, 1).order('images_count DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
+    lookup_sex = current_user.sex == "Male" ? "Female" : "Male"
+    @withphotos = User.where("sex = ? AND id NOT IN (?) AND images_count >= ?", lookup_sex, already_visited, 1).order('images_count DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
   end
   def recentlyjoined
     already_visited    = [current_user.id]
-    @recentlyjoined = User.where("sex <> ? AND devotion = ? AND id NOT IN (?) AND created_at >= ?", current_user.sex, current_user.devotion, already_visited, Time.zone.now.beginning_of_day).order('created_at DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
+    lookup_sex = current_user.sex == "Male" ? "Female" : "Male"
+    @recentlyjoined = User.where("sex = ? AND id NOT IN (?) AND created_at >= ?", lookup_sex, already_visited, Time.zone.now.beginning_of_day).order('created_at DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
   end
 
   def incomings
@@ -194,7 +208,6 @@ class ProfilesController < ApplicationController
   def outgoings
     rejected = Interest.where("user_id = ? AND response = ?", current_user.id, 0).pluck(:to_user_id)
     @rejected = User.find(rejected).paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
-    logger.info("Debug rejected")
     badge_reset(current_user, "rejected")
   end
   def visitors
@@ -219,12 +232,12 @@ class ProfilesController < ApplicationController
       query_string = query_string.gsub(probably_age, "")
       query_string += "#{year_will_be_searching.to_s}"
     end
-    logger.info("Debug #{query_string}");
 
     query_string = query_string.length > 0 ? query_string : current_user.devotion
     @solr = User.search do
       fulltext query_string
       without(:sex).equal_to(current_user.sex)
+      without(:sex).equal_to("Unknown")
       order_by(:images_count, :desc)
       paginate :page => params[:page], :per_page => PAGINATE_PROFILES
     end
@@ -236,9 +249,14 @@ class ProfilesController < ApplicationController
     visiting_user = User.find(Profile.find(params[:id]).user_id)
     if current_user.id == visiting_user.id
       already_visited = [current_user.id]
-      @similar_profiles_paginate = User.where("sex <> ? AND devotion = ? AND id NOT IN (?)", current_user.sex, current_user.devotion, already_visited).order('images_count DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
+      lookup_sex = current_user.sex == "Male" ? "Female" : "Male"
+      @similar_profiles_paginate = User.where("sex = ? AND id NOT IN (?)", lookup_sex, already_visited).order('images_count DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
       else
-        @similar_profiles_paginate = User.where("id <> ? AND devotion = ? AND sex = ?", visiting_user.id, visiting_user.devotion, visiting_user.sex).order('updated_at DESC, avatar_updated_at DESC').take(12).paginate(:page => params[:page], :per_page => 6) # 6 is a good number
+        @similar_profiles_paginate = User.where("id <> ? AND sex = ?", visiting_user.id, visiting_user.sex).order('updated_at DESC, avatar_updated_at DESC').take(12).paginate(:page => params[:page], :per_page => 6) # 6 is a good number
+    end
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 
@@ -251,9 +269,9 @@ class ProfilesController < ApplicationController
     # @sparks[:waiting]   = number_with_delimiter(Interest.where("user_id = ? AND response IS NULL", current_user.id).count)
     # @sparks[:shortlist] = number_with_delimiter(Shortlist.where(user_id: current_user.id).count)
     # @sparks[:accepted]  = number_with_delimiter(Interest.where("user_id = ? AND response = ?", current_user.id, 1).count)
-    # @sparks[:onlinenow]  = User.where("sex <> ? AND devotion = ? AND updated_at >= ?", current_user.sex, current_user.devotion, 30.minutes.ago).count
-    # @sparks[:withphotos]  = User.where("sex <> ? AND devotion = ? AND images_count >= ?", current_user.sex, current_user.devotion, 1).order('images_count DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES).count
-    # @sparks[:recentlyjoined]  = User.where("sex <> ? AND devotion = ? AND created_at >= ?", current_user.sex, current_user.devotion, Time.zone.now.beginning_of_day).count
+    # @sparks[:onlinenow]  = User.where("sex <> ? AND updated_at >= ?", current_user.sex, 30.minutes.ago).count
+    # @sparks[:withphotos]  = User.where("sex <> ? AND images_count >= ?", current_user.sex, 1).order('images_count DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES).count
+    # @sparks[:recentlyjoined]  = User.where("sex <> ? AND created_at >= ?", current_user.sex, Time.zone.now.beginning_of_day).count
   end
 
   protected
@@ -270,7 +288,7 @@ class ProfilesController < ApplicationController
   end
   def not_same_sex
     user = User.find(Profile.find(params[:id]).user_id)
-    if user.id != current_user.id && current_user.sex == user.sex
+    if (user.id != current_user.id && current_user.sex == user.sex) || (user.sex.to_s == "Unknown")
       redirect_to root_path
     end
   end
@@ -373,6 +391,11 @@ class ProfilesController < ApplicationController
       # user.badge.update(accepted: 0)
     elsif event == "rejected"
       # user.badge.update(rejected: 0)
+    end
+  end
+  def has_sex
+    if current_user.sex == "Unknown" || current_user.dob == "01/01/1900" || current_user.avatar.content_type.nil?
+      redirect_to confirmbasic_others_path
     end
   end
 end

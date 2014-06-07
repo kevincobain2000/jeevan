@@ -6,6 +6,7 @@ $(document).on("page:change", function() {
   selectize_items = {
     home:true,
     religion: true,
+    religion2: true,
     mother_tongue: {
       create: true
     },
@@ -168,7 +169,9 @@ $(document).on("page:change", function() {
     })
     .success(function(data) {
       select_profile_edit_items = data.data;
-      populate_selectize()
+      if (select_profile_edit_items) {
+        populate_selectize()
+      };
     })
   }
 
@@ -225,7 +228,7 @@ $(document).on("page:change", function() {
     $(this).addClass('disabled');
   });
 
-  $(".edit").click(function() {
+  $("button.edit").click(function() {
     $(this).addClass('disabled');
   });
 
@@ -309,7 +312,7 @@ $(document).on("page:change", function() {
   }
 
   $('form.edit').submit(function() {
-    $.gritter.add({ image: '/assets/success.png', title: 'Success', text: 'Saved' });
+    $.gritter.add({ image: '/assets/success.png', title: 'Success', text: 'Your settings have been saved' });
     // $(this).find(':submit').html('Saved');
   });
 
@@ -384,7 +387,7 @@ $(document).ready(function($) {
 
   $(".avatar-dropzone").dropzone({
     paramName: "avatar",
-    dictDefaultMessage:"<h1 class='text-center'><strong>Profile Picture</strong></h1><h3 class='text-center'>Drag and Drop Image <br> <br>or <br><br>Click to upload Images here</h3>",
+    dictDefaultMessage:"<h1 class='text-center'><strong>Profile Picture</strong></h1><h3 class='text-center'>Drag and Drop Image <br> <br>or <br><br><i>Click to upload profile pic here</i></h3>",
     maxFilesize: 1,
     addRemoveLinks: false,
     acceptedFiles: ".jpeg,.jpg,.png,.gif,.JPEG,.JPG,.PNG,.GIF",

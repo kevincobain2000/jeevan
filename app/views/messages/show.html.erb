@@ -4,22 +4,21 @@
   <%= render :partial =>"layouts/ribbon", :locals => {:papa => "Home", :son => "Chatting with #{user[:name]}"} %>
   <div id="content">
     <div class="row">
-      <%#= render :partial =>'layouts/card.html.erb', :locals => {:user => user} %>
       <div class="col-md-6 well">
       <h1>Messages</h1>
         <table id="inbox-table" class="table table-striped table-hover">
   <tbody>
     <% @spoken_with.each do |user_id| %>
-    <% user = make_user_tiny(user_id) %>
+    <% __user = make_user_tiny(user_id) %>
     <% latest_snippet = get_latest_message_snippet(user_id, current_user.id) %>
 
-    <tr class="unread" data-id="<%= user[:id] %>">
+    <tr class="unread" data-id="<%= __user[:id] %>">
       <td class="inbox-table-icon">
-          <%= image_tag user[:avatar].url(:thumb), :style=>"width:30px;height:30px;", :class=>"img-rounded" %>
+          <%= image_tag __user[:avatar].url(:thumb), :style=>"width:30px;height:30px;", :class=>"img-rounded" %>
       </td>
       <td class="inbox-data-from hidden-xs hidden-sm">
         <div>
-          <%= user[:name] %>
+          <%= __user[:name] %>
         </div>
       </td>
       <td class="inbox-data-message">
@@ -29,13 +28,15 @@
       </td>
       <td class="inbox-data-date hidden-xs">
         <div>
-        <%= render :partial =>'layouts/online', :locals => {:time => user[:updated_at]} %>
+        <%= render :partial =>'layouts/online', :locals => {:time => __user[:updated_at]} %>
         </div>
       </td>
     </tr>
     <% end %>
   </tbody>
 </table>
+
+
 <%= will_paginate @spoken_with, :class =>"flickr_pagination"%>
       </div>
 
@@ -48,10 +49,8 @@
                 <%= user[:name] %>
               <% end %>
             </li>
+              
           </ul>
-          <div class="navbar-form navbar-left pull-right" role="search">
-              <%= render :partial =>'layouts/interestbutton', :locals => {:user => user} %>
-          </div>
         </div>
         <div id="chat-body" class="chat-body custom-scroll" style="height:400px;">
           <ul id="chat-list">
@@ -111,7 +110,7 @@
 
         <%= form_tag({:action=>'send_message'}, {:remote => true, :class=>"well padding-bottom-10 message_form"}) do %>
           <input name="message" type="input" class="form-control message_textarea" placeholder="" required>
-          <input type="hidden" value="<%= params[:id] %>" name="to_user_id">
+          <input type="hidden" value="<%= user[:id] %>" name="to_user_id">
           <div class="margin-top-10">
             <button type="submit" class="btn btn-sm btn-primary pull-right disabled message_button" data-img="<%= user[:avatar].url(:tiny) %>">
               Send
@@ -125,6 +124,9 @@
           <%= render :partial =>'layouts/interesttext', :locals => {:user => user}%>
         </div>
         <% end %>
+        <div class="well">
+          <%= render :partial =>'layouts/interestbutton', :locals => {:user => user} %>
+        </div>
       </div>
     </div>
   </div>

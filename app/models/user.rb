@@ -78,7 +78,7 @@ class User < ActiveRecord::Base
     build_contact
     build_religion
     build_kundali
-    build_about(:me => "I am #{_age} years old #{devotion} #{sex}")
+    build_about(:me => "I am #{_age} years old #{devotion}")
     build_family
     build_desire(:desired_religion => devotion)
     build_education
@@ -98,24 +98,95 @@ class User < ActiveRecord::Base
   end
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
-    logger.info("Debug user model #{user.inspect}")
     if !user.nil?
       return user
     else
       registered_user = User.where(:email => auth.info.email).first
-      logger.info("Debug auth info #{auth.info.date_of_birth.inspect}")
       if registered_user
         return registered_user
       else
-        logger.info("Debug auth info #{auth.inspect}")
         user = User.create(name:auth.extra.raw_info.name,
                             provider:auth.provider,
                             uid:auth.uid,
                             # email:auth.info.email,
                             password:Devise.friendly_token[0,20],
-                            sex: auth.extra.raw_info.gender ? auth.extra.raw_info.gender.to_s.capitalize : "Male",
-                            username: auth.info.email,
+                            sex: auth.extra.raw_info.gender ? auth.extra.raw_info.gender.to_s.capitalize : "Unknown",
+                            username: "#{auth.info.email}_facebook",
                             dob: auth.extra.raw_info.birthday ? auth.extra.raw_info.birthday : "01/01/1985",
+                            devotion: "Hindu",
+                            name: auth.info.name,
+                            avatar: URI.parse(process_uri(auth.info.image))
+                          )
+      end
+    end
+  end
+  def self.find_for_twitter_oauth(auth, signed_in_resource=nil)
+    user = User.where(:provider => auth.provider, :uid => auth.uid).first
+    if !user.nil?
+      return user
+    else
+      registered_user = User.where(:email => auth.info.email).first
+      if registered_user
+        return registered_user
+      else
+        user = User.create(name:auth.extra.raw_info.name,
+                            provider:auth.provider,
+                            uid:auth.uid,
+                            # email:auth.info.email,
+                            password:Devise.friendly_token[0,20],
+                            sex: auth.extra.raw_info.gender ? auth.extra.raw_info.gender.to_s.capitalize : "Unknown",
+                            username: "#{auth.info.nickname}_twitter.com",
+                            dob: auth.extra.raw_info.birthday ? auth.extra.raw_info.birthday : "01/01/1900",
+                            devotion: "Hindu",
+                            name: auth.info.name,
+                            avatar: URI.parse(process_uri(auth.info.image))
+                          )
+      end
+    end
+  end
+  def self.find_for_linkedin_oauth(auth, signed_in_resource=nil)
+    logger.info("Debug #{auth.to_json}")
+    user = User.where(:provider => auth.provider, :uid => auth.uid).first
+    if !user.nil?
+      return user
+    else
+      registered_user = User.where(:email => auth.info.email).first
+      if registered_user
+        return registered_user
+      else
+        user = User.create(name:auth.extra.raw_info.name,
+                            provider:auth.provider,
+                            uid:auth.uid,
+                            # email:auth.info.email,
+                            password:Devise.friendly_token[0,20],
+                            sex: auth.extra.raw_info.gender ? auth.extra.raw_info.gender.to_s.capitalize : "Unknown",
+                            username: "#{auth.info.email}_linkedin",
+                            dob: auth.extra.raw_info.birthday ? auth.extra.raw_info.birthday : "01/01/1900",
+                            devotion: "Hindu",
+                            name: auth.info.name,
+                            avatar: URI.parse(process_uri(auth.info.image))
+                          )
+      end
+    end
+  end
+
+  def self.find_for_google_oauth2(auth, signed_in_resource=nil)
+    user = User.where(:provider => auth.provider, :uid => auth.uid).first
+    if !user.nil?
+      return user
+    else
+      registered_user = User.where(:email => auth.info.email).first
+      if registered_user
+        return registered_user
+      else
+        user = User.create(name:auth.extra.raw_info.name,
+                            provider:auth.provider,
+                            uid:auth.uid,
+                            # email:auth.info.email,
+                            password:Devise.friendly_token[0,20],
+                            sex: auth.extra.raw_info.gender ? auth.extra.raw_info.gender.to_s.capitalize : "Unknown",
+                            username: "#{auth.info.email}_google_oauth2",
+                            dob: auth.extra.raw_info.birthday ? auth.extra.raw_info.birthday : "01/01/1900",
                             devotion: "Hindu",
                             name: auth.info.name,
                             avatar: URI.parse(process_uri(auth.info.image))

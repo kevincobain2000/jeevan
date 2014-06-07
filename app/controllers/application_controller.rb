@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
       updated_at: time_ago_in_words(user.updated_at),
       created_at: time_ago_in_words(user.created_at),
       sex:        user.sex.capitalize,
-      # visitors:   number_with_delimiter(Visitor.where(viewed_id: user.id).count),
+      visitors:   number_with_delimiter(Visitor.where(viewed_id: user.id).count),
       profile:    profile,
       contact:    user.contact,
       about:      user.about,
@@ -96,6 +96,7 @@ class ApplicationController < ActionController::Base
   end  
 
   def make_user_tiny(id)
+
     user = User.find(id)
 
     in_response  = Interest.where(to_user_id: current_user.id, user_id: user.id).first
@@ -108,13 +109,17 @@ class ApplicationController < ActionController::Base
       updated_at: time_ago_in_words(user.updated_at),
       profile: user.profile,
       name: name,
-      id: user.id
+      id: user.id,
+      in_response:  in_response,
+      out_response: out_response,
     }
     return user_ret
   end
 
   def calculate_age(birthday)
-    Date.today.year - birthday.to_date.year
+    the_age = Date.today.year - birthday.to_date.year
+    age = the_age > 100 ? "xx" : the_age
+
   end
   def show_name_to_accepted(in_response, out_response)
     if (in_response) || (out_response && out_response.response == 1)

@@ -1,7 +1,5 @@
-<%= render :partial =>'layouts/alert', :locals => {:heading => "Contact Details", :description => "Your contact details are kept private and are only shown to other users once you accept their interest", :icon=>"fa fa-heart"}%>
+<%= render :partial =>'layouts/alert', :locals => {:heading => "Desired Partner", :description => "Something about your desired partner", :icon=>"fa fa-heart"}%>
 <%= form_tag({:action=>'modify_desire'},{:remote => true, :class=>"smart-form edit"}) do %>
-  <h3 class=""><strong>Desired</strong>
-    <i>partner</i></h3>
   <% categories = ["desired_marital_status", "desired_manglik","desired_diet","desired_smoke","desired_drink","desired_complexion", "desired_income","desired_height","desired_age", "desired_country", "desired_city", "desired_religion", "desired_caste", "desired_mother_tongue", "desired_education", "desired_occupation"] %>
   <% categories.each do |category| %>
     <fieldset>
@@ -12,7 +10,7 @@
           <strong><%= heading.titleize %></strong></label>
       </div>
       <div class="col-sm-6">
-        <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= current_user.desire[:category] %>" placeholder="Choose your <%= heading %>">
+        <input type="text" id="select-<%= id %>" name="<%= category %>" class="selectized" value="<%= current_user.desire["#{category}"] %>" placeholder="Choose your <%= heading %>">
       </div>
     </fieldset>
   <% end %>

@@ -46,6 +46,10 @@ gem 'validates_timeliness', '~> 3.0'
 gem 'pin_it'
 gem 'redis-objects'
 gem 'redis'
+gem 'rb-readline'
+gem 'omniauth-twitter'
+gem 'omniauth-linkedin'
+gem "omniauth-google-oauth2"
 
 # gem 'dalli'
 

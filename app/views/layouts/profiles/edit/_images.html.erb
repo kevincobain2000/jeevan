@@ -1,6 +1,5 @@
 <%= render :partial =>'layouts/alert', :locals => {:heading => "Load as many Images as you like", :description => "One image is worth a thousand words !",:icon=>"fa fa-picture-o"}%>
-<h3 class=""><strong>Images</strong></h3>
-<%= form_tag({:action=>'modify_image'}, {:authenticity_token => true, :multipart => true, :remote => true, :class => 'dropzone images-dropzone'}) do %>
+<%= form_tag({:action=>'modify_image'}, {:authenticity_token => true, :multipart => true, :remote => true, :style =>"height:200px;", :class => 'dropzone images-dropzone'}) do %>
 <% end %>
 <div class="row">
   <%= form_tag({:action=>'remove_image', :controller => "profiles"}, {:remote => true, :class=>"smart-form"}) do %>

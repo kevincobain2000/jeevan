@@ -25,10 +25,10 @@
       <div class="col-sm-12">
         <div class="tabs-left" id="tabs">
           <ul class="nav nav-tabs tabs-left">
-            <li class="active">
+            <!-- <li class="active">
               <a href="#a1" data-toggle="tab">Avatar</a>
-            </li>
-            <li>
+            </li> -->
+            <li class="active">
               <a href="#a5" data-toggle="tab">Images</a>
             </li>
             <li>
@@ -66,8 +66,11 @@
             </li>
           </ul>
           <div class="tab-content padding-top-10">
-            <div class="tab-pane fade in active" id="a1">
-              <%= render :partial =>'layouts/profiles/edit/avatar'%>
+            <!-- <div class="tab-pane fade in active" id="a1"> -->
+              <%#= render :partial =>'layouts/profiles/edit/avatar'%>
+            <!-- </div> -->
+            <div class="tab-pane fade in active" id="a5">
+              <%= render :partial =>'layouts/profiles/edit/images'%>
             </div>
             <div class="tab-pane fade" id="a13">
               <%= render :partial =>'layouts/profiles/edit/basic'%>
@@ -77,9 +80,6 @@
             </div>
             <div class="tab-pane fade" id="a4">
               <%= render :partial =>'layouts/profiles/edit/desire'%>
-            </div>
-            <div class="tab-pane fade" id="a5">
-              <%= render :partial =>'layouts/profiles/edit/images'%>
             </div>
             <div class="tab-pane fade" id="a6">
               <%= render :partial =>'layouts/profiles/edit/religion'%>

@@ -15,7 +15,14 @@
 }
 .dropzone.dz-clickable {
   cursor: pointer;
+  background: transparent;
+  /*border: 2px solid #FAFAFA;*/
+  margin: 0 5px 15px;
+  padding: 10px;
+  padding-bottom: 15px;
+  opacity: 1;
 }
+
 .dropzone.dz-clickable .dz-message,
 .dropzone.dz-clickable .dz-message span {
   cursor: pointer;

@@ -14,6 +14,9 @@ work_status:
   -
     title: "Large Business"
     desc: ""
+  -
+    title: "Retired"
+    desc: ""
 occupation:
   -
     title: "Engineer"
@@ -27,9 +30,1647 @@ occupation:
   -
     title: "Owner"
     desc: ""
+  -
+    title: "Biomedical Engineers"
+    desc: ""
+  -
+    title: "Home Health Aides"
+    desc: ""
+  -
+    title: "Market Research Analysts and Marketing Specialists*"
+    desc: ""
+  -
+    title: "Personal Care Aides"
+    desc: ""
+  -
+    title: "Emergency Medical Technicians and Paramedics"
+    desc: ""
+  -
+    title: "Medical Scientists, Except Epidemiologists"
+    desc: ""
+  -
+    title: "Diagnostic Medical Sonographers"
+    desc: ""
+  -
+    title: "Biochemists and Biophysicists"
+    desc: ""
+  -
+    title: "Logisticians"
+    desc: ""
+  -
+    title: "Pharmacy Technicians"
+    desc: ""
+  -
+    title: "Pharmacy Aides"
+    desc: ""
+  -
+    title: "Database Administrators"
+    desc: ""
+  -
+    title: "Software Developers, Systems Software"
+    desc: ""
+  -
+    title: "Medical Equipment Repairers"
+    desc: ""
+  -
+    title: "Nonfarm Animal Caretakers"
+    desc: ""
+  -
+    title: "Healthcare Social Workers"
+    desc: ""
+  -
+    title: "Veterinary Technologists and Technicians"
+    desc: ""
+  -
+    title: "Physical Therapist Assistants"
+    desc: ""
+  -
+    title: "Food Service Managers"
+    desc: ""
+  -
+    title: "Physical Therapist Aides"
+    desc: ""
+  -
+    title: "Medical Secretaries"
+    desc: ""
+  -
+    title: "Interpreters and Translators"
+    desc: ""
+  -
+    title: "Pest Control Workers"
+    desc: ""
+  -
+    title: "Glaziers"
+    desc: ""
+  -
+    title: "Stonemasons"
+    desc: ""
+  -
+    title: "Software Developers, Applications"
+    desc: ""
+  -
+    title: "Dishwashers"
+    desc: ""
+  -
+    title: "Cooks, Restaurant"
+    desc: ""
+  -
+    title: "Network and Computer Systems Administrators"
+    desc: ""
+  -
+    title: "Pharmacists"
+    desc: ""
+  -
+    title: "Soil and Plant Scientists"
+    desc: ""
+  -
+    title: "Respiratory Therapists"
+    desc: ""
+  -
+    title: "Waiters and Waitresses"
+    desc: ""
+  -
+    title: "Drywall and Ceiling Tile Installers"
+    desc: ""
+  -
+    title: "Hotel, Motel, and Resort Desk Clerks"
+    desc: ""
+  -
+    title: "Physician Assistants"
+    desc: ""
+  -
+    title: "Cardiovascular Technologists and Technicians"
+    desc: ""
+  -
+    title: "Environmental Engineers"
+    desc: ""
+  -
+    title: "Brickmasons and Blockmasons"
+    desc: ""
+  -
+    title: "Skin Care Specialists"
+    desc: ""
+  -
+    title: "Cement Masons and Concrete Finishers"
+    desc: ""
+  -
+    title: "Occupational Therapists"
+    desc: ""
+  -
+    title: "Financial Analysts"
+    desc: ""
+  -
+    title: "Tile and Marble Setters"
+    desc: ""
+  -
+    title: "Interior Designers"
+    desc: ""
+  -
+    title: "Radiologic Technologists and Technicians*"
+    desc: ""
+  -
+    title: "Retail Salespersons"
+    desc: ""
 company:
   -
-    title: ""
+    title: "Indian Oil Corporation Ltd."
+    desc: ""
+  -
+    title: "Reliance Industries Ltd."
+    desc: ""
+  -
+    title: "Bharat Petroleum Corporation Ltd."
+    desc: ""
+  -
+    title: "Hindustan Petroleum Corporation Ltd."
+    desc: ""
+  -
+    title: "State Bank of India"
+    desc: ""
+  -
+    title: "Tata Motors Ltd."
+    desc: ""
+  -
+    title: "Oil And Natural Gas Corporation Ltd."
+    desc: ""
+  -
+    title: "Tata Steel Ltd."
+    desc: ""
+  -
+    title: "Coal India Ltd."
+    desc: ""
+  -
+    title: "Hindalco Industries Ltd."
+    desc: ""
+  -
+    title: "Bharti Airtel Ltd."
+    desc: ""
+  -
+    title: "NTPC Ltd."
+    desc: ""
+  -
+    title: "ICICI Bank Ltd."
+    desc: ""
+  -
+    title: "Larsen &amp; Toubro Ltd."
+    desc: ""
+  -
+    title: "Mahindra &amp; Mahindra Ltd."
+    desc: ""
+  -
+    title: "Essar Oil Ltd."
+    desc: ""
+  -
+    title: "Mangalore Refinery And Petrochemicals Ltd."
+    desc: ""
+  -
+    title: "Bharat Heavy Electricals Ltd."
+    desc: ""
+  -
+    title: "Tata Consultancy Services Ltd."
+    desc: ""
+  -
+    title: "Steel Authority of India (SAIL) Ltd."
+    desc: ""
+  -
+    title: "GAIL (India) Ltd."
+    desc: ""
+  -
+    title: "Sterlite Industries (India) Ltd. (Amalgamated)"
+    desc: ""
+  -
+    title: "Punjab National Bank"
+    desc: ""
+  -
+    title: "Chennai Petroleum Corporation Ltd."
+    desc: ""
+  -
+    title: "Wipro Ltd."
+    desc: ""
+  -
+    title: "Maruti Suzuki India Ltd."
+    desc: ""
+  -
+    title: "Infosys Ltd."
+    desc: ""
+  -
+    title: "Bank of Baroda"
+    desc: ""
+  -
+    title: "JSW Steel Ltd."
+    desc: ""
+  -
+    title: "Canara Bank"
+    desc: ""
+  -
+    title: "HDFC Bank Ltd."
+    desc: ""
+  -
+    title: "Bank of India"
+    desc: ""
+  -
+    title: "Ruchi Soya Industries Ltd."
+    desc: ""
+  -
+    title: "Housing Development Finance Corporation Ltd."
+    desc: ""
+  -
+    title: "Axis Bank Ltd."
+    desc: ""
+  -
+    title: "ITC Ltd."
+    desc: ""
+  -
+    title: "Tata Power Company Ltd."
+    desc: ""
+  -
+    title: "Grasim Industries Ltd."
+    desc: ""
+  -
+    title: "IDBI Bank Ltd."
+    desc: ""
+  -
+    title: "Reliance Infrastructure Ltd."
+    desc: ""
+  -
+    title: "Hero MotoCorp Ltd."
+    desc: ""
+  -
+    title: "Hindustan Unilever Ltd."
+    desc: ""
+  -
+    title: "Union Bank of India"
+    desc: ""
+  -
+    title: "Petronet LNG Ltd."
+    desc: ""
+  -
+    title: "Aditya Birla Nuvo Ltd."
+    desc: ""
+  -
+    title: "Suzlon Energy Ltd."
+    desc: ""
+  -
+    title: "HCL Technologies Ltd."
+    desc: ""
+  -
+    title: "Central Bank of India"
+    desc: ""
+  -
+    title: "Reliance Communications Ltd."
+    desc: ""
+  -
+    title: "Bajaj Auto Ltd."
+    desc: ""
+  -
+    title: "UltraTech Cement Ltd."
+    desc: ""
+  -
+    title: "Idea Cellular Ltd."
+    desc: ""
+  -
+    title: "Indian Overseas Bank"
+    desc: ""
+  -
+    title: "Oil India Ltd."
+    desc: ""
+  -
+    title: "Jindal Steel &amp; Power Ltd."
+    desc: ""
+  -
+    title: "Jet Airways (India) Ltd."
+    desc: ""
+  -
+    title: "Oriental Bank of Commerce"
+    desc: ""
+  -
+    title: "Allahabad Bank"
+    desc: ""
+  -
+    title: "Syndicate Bank"
+    desc: ""
+  -
+    title: "UCO Bank"
+    desc: ""
+  -
+    title: "Jaiprakash Associates Ltd."
+    desc: ""
+  -
+    title: "Motherson Sumi Systems Ltd."
+    desc: ""
+  -
+    title: "Adani Enterprises Ltd."
+    desc: ""
+  -
+    title: "Corporation Bank"
+    desc: ""
+  -
+    title: "Tata Communications Ltd."
+    desc: ""
+  -
+    title: "Tata Chemicals Ltd."
+    desc: ""
+  -
+    title: "Videocon Industries Ltd."
+    desc: ""
+  -
+    title: "Indian Bank"
+    desc: ""
+  -
+    title: "Future Retail Ltd."
+    desc: ""
+  -
+    title: "Ashok Leyland Ltd."
+    desc: ""
+  -
+    title: "NMDC Ltd."
+    desc: ""
+  -
+    title: "Power Finance Corporation Ltd."
+    desc: ""
+  -
+    title: "Kotak Mahindra Bank Ltd."
+    desc: ""
+  -
+    title: "Hindustan Zinc Ltd."
+    desc: ""
+  -
+    title: "Cairn India Ltd."
+    desc: ""
+  -
+    title: "Siemens Ltd."
+    desc: ""
+  -
+    title: "Andhra Bank"
+    desc: ""
+  -
+    title: "EID Parry (India) Ltd."
+    desc: ""
+  -
+    title: "Apollo Tyres Ltd."
+    desc: ""
+  -
+    title: "MRF Ltd."
+    desc: ""
+  -
+    title: "JSW Ispat Steel Ltd."
+    desc: ""
+  -
+    title: "Power Grid Corporation of India Ltd."
+    desc: ""
+  -
+    title: "Crompton Greaves Ltd."
+    desc: ""
+  -
+    title: "Punj Lloyd Ltd."
+    desc: ""
+  -
+    title: "Ranbaxy Laboratories Ltd."
+    desc: ""
+  -
+    title: "Rural Electrification Corporation Ltd."
+    desc: ""
+  -
+    title: "ACC Ltd."
+    desc: ""
+  -
+    title: "Lanco Infratech Ltd."
+    desc: ""
+  -
+    title: "DLF Ltd."
+    desc: ""
+  -
+    title: "Asian Paints Ltd."
+    desc: ""
+  -
+    title: "Bhushan Steel Ltd."
+    desc: ""
+  -
+    title: "Coromandel International Ltd."
+    desc: ""
+  -
+    title: "Dr. Reddy_27_s Laboratories Ltd."
+    desc: ""
+  -
+    title: "Alok Industries Ltd."
+    desc: ""
+  -
+    title: "United Spirits Ltd."
+    desc: ""
+  -
+    title: "Welspun Corp Ltd."
+    desc: ""
+  -
+    title: "Sesa Sterlite Ltd."
+    desc: ""
+  -
+    title: "Titan Company Ltd."
+    desc: ""
+  -
+    title: "Ambuja Cements Ltd."
+    desc: ""
+  -
+    title: "Jindal Stainless Ltd."
+    desc: ""
+  -
+    title: "GMR Infrastructure Ltd."
+    desc: ""
+  -
+    title: "United Bank of India"
+    desc: ""
+  -
+    title: "Shree Ganesh Jewellery House (I) Ltd."
+    desc: ""
+  -
+    title: "Max India Ltd."
+    desc: ""
+  -
+    title: "Vijaya Bank"
+    desc: ""
+  -
+    title: "Bosch Ltd."
+    desc: ""
+  -
+    title: "Sun Pharmaceutical Industries Ltd."
+    desc: ""
+  -
+    title: "Shree Renuka Sugars Ltd."
+    desc: ""
+  -
+    title: "Sundaram Clayton Ltd."
+    desc: ""
+  -
+    title: "Gammon India Ltd."
+    desc: ""
+  -
+    title: "Hindustan Construction Company Ltd."
+    desc: ""
+  -
+    title: "NHPC Ltd."
+    desc: ""
+  -
+    title: "Torrent Power Ltd."
+    desc: ""
+  -
+    title: "Bank of Maharashtra"
+    desc: ""
+  -
+    title: "UPL Ltd."
+    desc: ""
+  -
+    title: "Chambal Fertilisers &amp; Chemicals Ltd."
+    desc: ""
+  -
+    title: "Nestle India Ltd."
+    desc: ""
+  -
+    title: "State Bank of Travancore"
+    desc: ""
+  -
+    title: "ABB India Ltd."
+    desc: ""
+  -
+    title: "TVS Motor Company Ltd."
+    desc: ""
+  -
+    title: "Dena Bank"
+    desc: ""
+  -
+    title: "National Fertilizers Ltd."
+    desc: ""
+  -
+    title: "JBF Industries Ltd."
+    desc: ""
+  -
+    title: "YES Bank Ltd."
+    desc: ""
+  -
+    title: "Cipla Ltd."
+    desc: ""
+  -
+    title: "National Aluminium Company Ltd."
+    desc: ""
+  -
+    title: "Lupin Ltd."
+    desc: ""
+  -
+    title: "JK Tyre &amp; Industries Ltd."
+    desc: ""
+  -
+    title: "Satyam Computer Services Ltd.(Merged)"
+    desc: ""
+  -
+    title: "Havells India Ltd."
+    desc: ""
+  -
+    title: "Punjab &amp; Sind Bank"
+    desc: ""
+  -
+    title: "State Bank Of Bikaner and Jaipur"
+    desc: ""
+  -
+    title: "Tata Global Beverages Ltd."
+    desc: ""
+  -
+    title: "NCC Ltd."
+    desc: ""
+  -
+    title: "Reliance Capital Ltd."
+    desc: ""
+  -
+    title: "Rashtriya Chemicals &amp; Fertilizers Ltd."
+    desc: ""
+  -
+    title: "Bharat Electronics Ltd."
+    desc: ""
+  -
+    title: "Tube Investments of India Ltd."
+    desc: ""
+  -
+    title: "IDFC Ltd."
+    desc: ""
+  -
+    title: "IndusInd Bank Ltd."
+    desc: ""
+  -
+    title: "Bharat Forge Ltd."
+    desc: ""
+  -
+    title: "S Kumars Nationwide Ltd."
+    desc: ""
+  -
+    title: "JSW Energy Ltd."
+    desc: ""
+  -
+    title: "LIC Housing Finance Ltd."
+    desc: ""
+  -
+    title: "Shriram Transport Finance Company Ltd."
+    desc: ""
+  -
+    title: "IVRCL Ltd."
+    desc: ""
+  -
+    title: "Thermax Ltd."
+    desc: ""
+  -
+    title: "Bombay Burmah Trading Corporation Ltd."
+    desc: ""
+  -
+    title: "CESC Ltd."
+    desc: ""
+  -
+    title: "Jindal Saw Ltd."
+    desc: ""
+  -
+    title: "Federal Bank Ltd."
+    desc: ""
+  -
+    title: "Simplex Infrastructures Ltd."
+    desc: ""
+  -
+    title: "Kesoram Industries Ltd."
+    desc: ""
+  -
+    title: "Winsome Diamonds and Jewellery Ltd."
+    desc: ""
+  -
+    title: "KEC International Ltd."
+    desc: ""
+  -
+    title: "Eicher Motors Ltd."
+    desc: ""
+  -
+    title: "Kingfisher Airlines Ltd."
+    desc: ""
+  -
+    title: "Godrej Industries Ltd."
+    desc: ""
+  -
+    title: "Neyveli Lignite Corporation Ltd."
+    desc: ""
+  -
+    title: "IL&amp;FS Transportation Networks Ltd."
+    desc: ""
+  -
+    title: "Gokul Refoils &amp; Solvent Ltd."
+    desc: ""
+  -
+    title: "Rain Industries Ltd."
+    desc: ""
+  -
+    title: "Uttam Galva Steels Ltd."
+    desc: ""
+  -
+    title: "State Bank Of Mysore"
+    desc: ""
+  -
+    title: "Tech Mahindra Ltd."
+    desc: ""
+  -
+    title: "Britannia Industries Ltd."
+    desc: ""
+  -
+    title: "MphasiS Ltd."
+    desc: ""
+  -
+    title: "Gujarat State Fertilizer &amp; Chemicals Ltd."
+    desc: ""
+  -
+    title: "Voltas Ltd."
+    desc: ""
+  -
+    title: "REI Agro Ltd."
+    desc: ""
+  -
+    title: "Dabur India Ltd."
+    desc: ""
+  -
+    title: "Exide Industries Ltd."
+    desc: ""
+  -
+    title: "Kalpataru Power Transmissions Ltd."
+    desc: ""
+  -
+    title: "Cadila Healthcare Ltd."
+    desc: ""
+  -
+    title: "Arvind Ltd."
+    desc: ""
+  -
+    title: "Jain Irrigation Systems Ltd."
+    desc: ""
+  -
+    title: "Jammu &amp; Kashmir Bank Ltd."
+    desc: ""
+  -
+    title: "Godrej Consumer Products Ltd."
+    desc: ""
+  -
+    title: "DCM Shriram Ltd."
+    desc: ""
+  -
+    title: "Century Textiles &amp; Industries Ltd."
+    desc: ""
+  -
+    title: "Shree Cements Ltd."
+    desc: ""
+  -
+    title: "Ballarpur Industries Ltd."
+    desc: ""
+  -
+    title: "Vardhman Textiles Ltd."
+    desc: ""
+  -
+    title: "Ceat Ltd."
+    desc: ""
+  -
+    title: "India Cements Ltd."
+    desc: ""
+  -
+    title: "Aurobindo Pharma Ltd."
+    desc: ""
+  -
+    title: "Wockhardt Ltd."
+    desc: ""
+  -
+    title: "Prism Cement Ltd."
+    desc: ""
+  -
+    title: "Muthoot Finance Ltd."
+    desc: ""
+  -
+    title: "Uflex Ltd."
+    desc: ""
+  -
+    title: "ING Vysya Bank Ltd."
+    desc: ""
+  -
+    title: "Sintex Industries Ltd."
+    desc: ""
+  -
+    title: "Shipping Corporation of India Ltd."
+    desc: ""
+  -
+    title: "Container Corporation of India Ltd."
+    desc: ""
+  -
+    title: "Era Infra Engineering Ltd."
+    desc: ""
+  -
+    title: "Bajaj Hindustan Ltd."
+    desc: ""
+  -
+    title: "Jubilant Life Sciences Ltd."
+    desc: ""
+  -
+    title: "Cummins India Ltd."
+    desc: ""
+  -
+    title: "Adani Power Ltd."
+    desc: ""
+  -
+    title: "Sujana Metal Products Ltd."
+    desc: ""
+  -
+    title: "Marico Ltd."
+    desc: ""
+  -
+    title: "Glenmark Pharmaceuticals Ltd."
+    desc: ""
+  -
+    title: "SRF Ltd."
+    desc: ""
+  -
+    title: "Spicejet Ltd."
+    desc: ""
+  -
+    title: "Ramky Infrastructure Ltd."
+    desc: ""
+  -
+    title: "Engineers India Ltd."
+    desc: ""
+  -
+    title: "Bajaj Finserv Ltd."
+    desc: ""
+  -
+    title: "Gujarat Narmada Valley Fertilizers &amp; Chemicals Ltd."
+    desc: ""
+  -
+    title: "Indiabulls Financial Services Ltd.[Amalgamated]"
+    desc: ""
+  -
+    title: "South Indian Bank Ltd."
+    desc: ""
+  -
+    title: "Mercator Ltd."
+    desc: ""
+  -
+    title: "Raymond Ltd."
+    desc: ""
+  -
+    title: "Mangalore Chemicals &amp; Fertilizers Ltd."
+    desc: ""
+  -
+    title: "United Breweries (Holdings) Ltd."
+    desc: ""
+  -
+    title: "Mahanagar Telephone Nigam Ltd."
+    desc: ""
+  -
+    title: "Patel Engineering Ltd."
+    desc: ""
+  -
+    title: "Bilcare Ltd."
+    desc: ""
+  -
+    title: "Karur Vysya Bank Ltd."
+    desc: ""
+  -
+    title: "National Buildings Construction Corporation Ltd."
+    desc: ""
+  -
+    title: "Apar Industries Ltd."
+    desc: ""
+  -
+    title: "Oracle Financial Services Software Ltd."
+    desc: ""
+  -
+    title: "Indian Hotels Company Ltd."
+    desc: ""
+  -
+    title: "Garden Silk Mills Ltd."
+    desc: ""
+  -
+    title: "BASF India Ltd."
+    desc: ""
+  -
+    title: "BGR Energy Systems Ltd."
+    desc: ""
+  -
+    title: "Allcargo Logistics Ltd."
+    desc: ""
+  -
+    title: "Karnataka Bank Ltd."
+    desc: ""
+  -
+    title: "Usha Martin Ltd."
+    desc: ""
+  -
+    title: "IFCI Ltd."
+    desc: ""
+  -
+    title: "Alstom T&amp;D India Ltd."
+    desc: ""
+  -
+    title: "Adani Ports &amp; Special Economic Zone Ltd."
+    desc: ""
+  -
+    title: "Escorts Ltd."
+    desc: ""
+  -
+    title: "Religare Enterprises Ltd."
+    desc: ""
+  -
+    title: "The Ramco Cements Ltd."
+    desc: ""
+  -
+    title: "IRB Infrastructure Developers Ltd."
+    desc: ""
+  -
+    title: "Great Eastern Shipping Company Ltd."
+    desc: ""
+  -
+    title: "Aban Offshore Ltd."
+    desc: ""
+  -
+    title: "Dewan Housing Finance Corporation Ltd."
+    desc: ""
+  -
+    title: "Kirloskar Brothers Investments Ltd."
+    desc: ""
+  -
+    title: "Varun Industries Ltd."
+    desc: ""
+  -
+    title: "Fortis Healthcare Ltd."
+    desc: ""
+  -
+    title: "Zee Entertainment Enterprises Ltd."
+    desc: ""
+  -
+    title: "Indo Rama Synthetics (India) Ltd."
+    desc: ""
+  -
+    title: "Apollo Hospitals Enterprise Ltd."
+    desc: ""
+  -
+    title: "Pidilite Industries Ltd."
+    desc: ""
+  -
+    title: "Jaypee Infratech Ltd."
+    desc: ""
+  -
+    title: "Castrol India Ltd."
+    desc: ""
+  -
+    title: "Binani Industries Ltd."
+    desc: ""
+  -
+    title: "Bajaj Electricals Ltd."
+    desc: ""
+  -
+    title: "Shoppers Stop Ltd."
+    desc: ""
+  -
+    title: "Force Motors Ltd."
+    desc: ""
+  -
+    title: "Gitanjali Gems Ltd."
+    desc: ""
+  -
+    title: "Whirlpool of India Ltd."
+    desc: ""
+  -
+    title: "Sundaram Finance Ltd."
+    desc: ""
+  -
+    title: "Surya Roshni Ltd."
+    desc: ""
+  -
+    title: "Balkrishna Industries Ltd."
+    desc: ""
+  -
+    title: "L&amp;T Finance Holdings Ltd."
+    desc: ""
+  -
+    title: "Ruchi Infrastructure Ltd."
+    desc: ""
+  -
+    title: "Berger Paints (India) Ltd."
+    desc: ""
+  -
+    title: "Fertilisers and Chemicals Travancore Ltd."
+    desc: ""
+  -
+    title: "Uttam Value Steels Ltd."
+    desc: ""
+  -
+    title: "Supreme Industries Ltd."
+    desc: ""
+  -
+    title: "Bombay Rayon Fashions Ltd."
+    desc: ""
+  -
+    title: "Mahindra &amp; Mahindra Financial Services Ltd."
+    desc: ""
+  -
+    title: "Sadbhav Engineering Ltd."
+    desc: ""
+  -
+    title: "Gujarat Fluorochemicals Ltd."
+    desc: ""
+  -
+    title: "Essar Shipping Ltd."
+    desc: ""
+  -
+    title: "GlaxoSmithKline Consumer Healthcare Ltd."
+    desc: ""
+  -
+    title: "Blue Star Ltd."
+    desc: ""
+  -
+    title: "Pearl Global Industries Ltd."
+    desc: ""
+  -
+    title: "Sundram Fasteners Ltd."
+    desc: ""
+  -
+    title: "Southern Petrochemicals Industries Corporation Ltd."
+    desc: ""
+  -
+    title: "National Steel and Agro Industries Ltd."
+    desc: ""
+  -
+    title: "BEML Ltd."
+    desc: ""
+  -
+    title: "Tulip Telecom Ltd."
+    desc: ""
+  -
+    title: "Kansai Nerolac Paints Ltd."
+    desc: ""
+  -
+    title: "Reliance Power Ltd."
+    desc: ""
+  -
+    title: "HCL Infosystems Ltd."
+    desc: ""
+  -
+    title: "Trident Ltd."
+    desc: ""
+  -
+    title: "Colgate-Palmolive (India) Ltd."
+    desc: ""
+  -
+    title: "Torrent Pharmaceuticals Ltd."
+    desc: ""
+  -
+    title: "ISGEC Heavy Engineering Ltd."
+    desc: ""
+  -
+    title: "India Glycols Ltd."
+    desc: ""
+  -
+    title: "K S Oils Ltd."
+    desc: ""
+  -
+    title: "Balmer Lawrie &amp; Company Ltd."
+    desc: ""
+  -
+    title: "PSL Ltd."
+    desc: ""
+  -
+    title: "Mukand Ltd."
+    desc: ""
+  -
+    title: "Glodyne Technoserve Ltd."
+    desc: ""
+  -
+    title: "McNally Bharat Engineering Company Ltd."
+    desc: ""
+  -
+    title: "Jyoti Structures Ltd."
+    desc: ""
+  -
+    title: "Welspun India Ltd."
+    desc: ""
+  -
+    title: "Manappuram Finance Ltd."
+    desc: ""
+  -
+    title: "Sterlite Technologies Ltd."
+    desc: ""
+  -
+    title: "Strides Arcolab Ltd."
+    desc: ""
+  -
+    title: "Piramal Enterprises Ltd."
+    desc: ""
+  -
+    title: "Unitech Ltd."
+    desc: ""
+  -
+    title: "Jayaswal Neco Industries Ltd."
+    desc: ""
+  -
+    title: "Kirloskar Brothers Ltd."
+    desc: ""
+  -
+    title: "JK Cement Ltd."
+    desc: ""
+  -
+    title: "GVK Power &amp; Infrastructure Ltd."
+    desc: ""
+  -
+    title: "Orient Paper &amp; Industries Ltd."
+    desc: ""
+  -
+    title: "GlaxoSmithKline Pharmaceuticals Ltd."
+    desc: ""
+  -
+    title: "Shirpur Gold Refinery Ltd."
+    desc: ""
+  -
+    title: "GTL Ltd."
+    desc: ""
+  -
+    title: "Tecpro Systems Ltd."
+    desc: ""
+  -
+    title: "Indraprastha Gas Ltd."
+    desc: ""
+  -
+    title: "ABG Shipyard Ltd."
+    desc: ""
+  -
+    title: "Tata Teleservices (Maharashtra) Ltd."
+    desc: ""
+  -
+    title: "SKF India Ltd."
+    desc: ""
+  -
+    title: "Polyplex Corporation Ltd."
+    desc: ""
+  -
+    title: "Gujarat Gas Company Ltd."
+    desc: ""
+  -
+    title: "Amtek Auto Ltd."
+    desc: ""
+  -
+    title: "Deepak Fertilisers &amp; Petrochemicals Corporation Ltd."
+    desc: ""
+  -
+    title: "SREI Infrastructure Finance Ltd."
+    desc: ""
+  -
+    title: "Mahindra CIE Automotive Ltd."
+    desc: ""
+  -
+    title: "Shri Lakshmi Cotsyn Ltd."
+    desc: ""
+  -
+    title: "Dalmia Bharat Ltd."
+    desc: ""
+  -
+    title: "Birla Corporation Ltd."
+    desc: ""
+  -
+    title: "Kirloskar Oil Engines Ltd."
+    desc: ""
+  -
+    title: "Lakshmi Machine Works Ltd."
+    desc: ""
+  -
+    title: "Jai Balaji Industries Ltd."
+    desc: ""
+  -
+    title: "Jindal Poly Films Ltd."
+    desc: ""
+  -
+    title: "Amara Raja Batteries Ltd."
+    desc: ""
+  -
+    title: "Maharashtra Seamless Ltd."
+    desc: ""
+  -
+    title: "Sujana Towers Ltd."
+    desc: ""
+  -
+    title: "Ipca Laboratories Ltd."
+    desc: ""
+  -
+    title: "Opto Circuits India Ltd."
+    desc: ""
+  -
+    title: "Kwality Ltd."
+    desc: ""
+  -
+    title: "Balrampur Chini Mills Ltd."
+    desc: ""
+  -
+    title: "SEL Manufacturing Company Ltd."
+    desc: ""
+  -
+    title: "Bayer Cropscience Ltd."
+    desc: ""
+  -
+    title: "Firstsource Solutions Ltd."
+    desc: ""
+  -
+    title: "Shrenuj &amp; Company Ltd."
+    desc: ""
+  -
+    title: "Zylog Systems Ltd."
+    desc: ""
+  -
+    title: "Bombay Dyeing &amp; Manufacturing Company Ltd."
+    desc: ""
+  -
+    title: "Supreme Petrochem Ltd."
+    desc: ""
+  -
+    title: "SRS Ltd."
+    desc: ""
+  -
+    title: "Madras Fertilizers Ltd."
+    desc: ""
+  -
+    title: "S Mobility Ltd."
+    desc: ""
+  -
+    title: "Gayatri Projects Ltd."
+    desc: ""
+  -
+    title: "Phillips Carbon Black Ltd."
+    desc: ""
+  -
+    title: "Electrosteel Castings Ltd."
+    desc: ""
+  -
+    title: "Bajaj Finance Ltd."
+    desc: ""
+  -
+    title: "RSWM Ltd."
+    desc: ""
+  -
+    title: "Biocon Ltd."
+    desc: ""
+  -
+    title: "KSK Energy Ventures Ltd."
+    desc: ""
+  -
+    title: "Sakthi Sugars Ltd."
+    desc: ""
+  -
+    title: "SJVN Ltd."
+    desc: ""
+  -
+    title: "Finolex Industries Ltd."
+    desc: ""
+  -
+    title: "Moser Baer India Ltd."
+    desc: ""
+  -
+    title: "Gujarat Ambuja Exports Ltd."
+    desc: ""
+  -
+    title: "Prakash Industries Ltd."
+    desc: ""
+  -
+    title: "Finolex Cables Ltd."
+    desc: ""
+  -
+    title: "Akzo Nobel India Ltd."
+    desc: ""
+  -
+    title: "Polaris Financial Technology Ltd."
+    desc: ""
+  -
+    title: "Unity Infraprojects Ltd."
+    desc: ""
+  -
+    title: "JMC Projects (India) Ltd."
+    desc: ""
+  -
+    title: "Wheels India Ltd."
+    desc: ""
+  -
+    title: "HT Media Ltd."
+    desc: ""
+  -
+    title: "Network 18 Media &amp; Investments Ltd."
+    desc: ""
+  -
+    title: "Godawari Power &amp; Ispat Ltd."
+    desc: ""
+  -
+    title: "Chettinad Cement Corporation Ltd."
+    desc: ""
+  -
+    title: "ISMT Ltd."
+    desc: ""
+  -
+    title: "Housing Development &amp; Infrastructure Ltd."
+    desc: ""
+  -
+    title: "Shriram City Union Finance Ltd."
+    desc: ""
+  -
+    title: "Consolidated Construction Consortium Ltd."
+    desc: ""
+  -
+    title: "Hindusthan National Glass &amp; Industries Ltd."
+    desc: ""
+  -
+    title: "Monnet Ispat &amp; Energy Ltd."
+    desc: ""
+  -
+    title: "Dish TV India Ltd."
+    desc: ""
+  -
+    title: "Trent Ltd."
+    desc: ""
+  -
+    title: "KSL and Industries Ltd."
+    desc: ""
+  -
+    title: "Nakoda Ltd."
+    desc: ""
+  -
+    title: "Carborundum Universal Ltd."
+    desc: ""
+  -
+    title: "Orchid Chemicals &amp; Pharmaceuticals Ltd."
+    desc: ""
+  -
+    title: "Dhunseri Petrochem &amp; Tea Ltd."
+    desc: ""
+  -
+    title: "Alstom India Ltd."
+    desc: ""
+  -
+    title: "GHCL Ltd."
+    desc: ""
+  -
+    title: "B L Kashyap &amp; Sons Ltd."
+    desc: ""
+  -
+    title: "Manaksia Ltd."
+    desc: ""
+  -
+    title: "Transport Corporation of India Ltd."
+    desc: ""
+  -
+    title: "Graphite India Ltd."
+    desc: ""
+  -
+    title: "MindTree Ltd."
+    desc: ""
+  -
+    title: "Zuari Global Ltd."
+    desc: ""
+  -
+    title: "MMTC Ltd."
+    desc: ""
+  -
+    title: "Godfrey Philips India Ltd."
+    desc: ""
+  -
+    title: "Adhunik Metaliks Ltd."
+    desc: ""
+  -
+    title: "Sun TV Network Ltd."
+    desc: ""
+  -
+    title: "Savita Oil Technologies Ltd."
+    desc: ""
+  -
+    title: "Divi_27_s Laboratories Ltd."
+    desc: ""
+  -
+    title: "City Union Bank Ltd."
+    desc: ""
+  -
+    title: "Rane Holdings Ltd."
+    desc: ""
+  -
+    title: "Pipavav Defence &amp; Offshore Engineering Company Ltd."
+    desc: ""
+  -
+    title: "Shriram EPC Ltd."
+    desc: ""
+  -
+    title: "Amtek India Ltd."
+    desc: ""
+  -
+    title: "IIFL Holdings Ltd."
+    desc: ""
+  -
+    title: "Greaves Cotton Ltd."
+    desc: ""
+  -
+    title: "Omaxe Ltd."
+    desc: ""
+  -
+    title: "C Mahendra Exports Ltd."
+    desc: ""
+  -
+    title: "Rolta India Ltd."
+    desc: ""
+  -
+    title: "Jayant Agro Organics Ltd."
+    desc: ""
+  -
+    title: "Asian Star Company Ltd."
+    desc: ""
+  -
+    title: "Zensar Technologies Ltd."
+    desc: ""
+  -
+    title: "Madhucon Projects Ltd."
+    desc: ""
+  -
+    title: "Atul Ltd."
+    desc: ""
+  -
+    title: "Cholamandalam Investment &amp; Finance Company Ltd."
+    desc: ""
+  -
+    title: "Forbes &amp; Company Ltd."
+    desc: ""
+  -
+    title: "Triveni Engineering &amp; Industries Ltd."
+    desc: ""
+  -
+    title: "JK Lakshmi Cement Ltd."
+    desc: ""
+  -
+    title: "JVL Agro Industries Ltd."
+    desc: ""
+  -
+    title: "Man Industries (India) Ltd."
+    desc: ""
+  -
+    title: "Diamond Power Infrastructure Ltd."
+    desc: ""
+  -
+    title: "Tamil Nadu Newsprint And Papers Ltd."
+    desc: ""
+  -
+    title: "Supreme Infrastructure India Ltd."
+    desc: ""
+  -
+    title: "3i Infotech Ltd."
+    desc: ""
+  -
+    title: "KEI Industries Ltd."
+    desc: ""
+  -
+    title: "Gujarat Alkalies &amp; Chemicals Ltd."
+    desc: ""
+  -
+    title: "Bata India Ltd."
+    desc: ""
+  -
+    title: "Greenply Industries Ltd."
+    desc: ""
+  -
+    title: "Rohit Ferro-Tech Ltd."
+    desc: ""
+  -
+    title: "ITD Cementation India Ltd."
+    desc: ""
+  -
+    title: "Nahar Spinning Mills Ltd."
+    desc: ""
+  -
+    title: "Gujarat Mineral Development Corporation Ltd."
+    desc: ""
+  -
+    title: "Jaiprakash Power Ventures Ltd."
+    desc: ""
+  -
+    title: "Responsive Industries Ltd."
+    desc: ""
+  -
+    title: "Asahi India Glass Ltd."
+    desc: ""
+  -
+    title: "MIRC Electronics Ltd."
+    desc: ""
+  -
+    title: "Lakshmi Vilas Bank Ltd."
+    desc: ""
+  -
+    title: "Aarti Industries Ltd."
+    desc: ""
+  -
+    title: "Pratibha Industries Ltd."
+    desc: ""
+  -
+    title: "Century Plyboards (I) Ltd."
+    desc: ""
+  -
+    title: "Sterling Biotech Ltd."
+    desc: ""
+  -
+    title: "Edelweiss Financial Services Ltd."
+    desc: ""
+  -
+    title: "Trend Electronics Ltd."
+    desc: ""
+  -
+    title: "Century Enka Ltd."
+    desc: ""
+  -
+    title: "CORE Education &amp; Technologies Ltd."
+    desc: ""
+  -
+    title: "Electrotherm (India) Ltd."
+    desc: ""
+  -
+    title: "KRBL Ltd."
+    desc: ""
+  -
+    title: "Plethico Pharmaceuticals Ltd."
+    desc: ""
+  -
+    title: "Mahindra Ugine Steel Company Ltd."
+    desc: ""
+  -
+    title: "Honeywell Automation India Ltd."
+    desc: ""
+  -
+    title: "Sunflag Iron &amp; Steel Company Ltd."
+    desc: ""
+  -
+    title: "Elecon Engineering Company Ltd."
+    desc: ""
+  -
+    title: "Hatsun Agro Products Ltd."
+    desc: ""
+  -
+    title: "NIIT Technologies Ltd."
+    desc: ""
+  -
+    title: "TV18 Broadcast Ltd."
+    desc: ""
+  -
+    title: "Essel Propack Ltd."
+    desc: ""
+  -
+    title: "J B Chemicals &amp; Pharmaceuticals Ltd."
+    desc: ""
+  -
+    title: "Surya Pharmaceuticals Ltd."
+    desc: ""
+  -
+    title: "Hinduja Global Solutions Ltd."
+    desc: ""
+  -
+    title: "Hindustan Copper Ltd."
+    desc: ""
+  -
+    title: "Sonata Software Ltd."
+    desc: ""
+  -
+    title: "Pradip Overseas Ltd."
+    desc: ""
+  -
+    title: "Infotech Enterprises Ltd."
+    desc: ""
+  -
+    title: "Abbott India Ltd."
+    desc: ""
+  -
+    title: "Sutlej Textiles &amp; Industries Ltd."
+    desc: ""
+  -
+    title: "Tata Coffee Ltd."
+    desc: ""
+  -
+    title: "Munjal Showa Ltd."
+    desc: ""
+  -
+    title: "Rico Auto Industries Ltd."
+    desc: ""
+  -
+    title: "Dhampur Sugar Mills Ltd."
+    desc: ""
+  -
+    title: "Dhanlaxmi Bank Ltd."
+    desc: ""
+  -
+    title: "Ashoka Buildcon Ltd."
+    desc: ""
+  -
+    title: "Time Technoplast Ltd."
+    desc: ""
+  -
+    title: "Goodyear India Ltd."
+    desc: ""
+  -
+    title: "Educomp Solutions Ltd."
+    desc: ""
+  -
+    title: "KPIT Technologies Ltd."
+    desc: ""
+  -
+    title: "Dynamatic Technologies Ltd."
+    desc: ""
+  -
+    title: "Nilkamal Ltd."
+    desc: ""
+  -
+    title: "Blue Dart Express Ltd."
+    desc: ""
+  -
+    title: "Shiv-Vani Oil &amp; Gas Exploration Services Ltd."
+    desc: ""
+  -
+    title: "Emami Ltd."
+    desc: ""
+  -
+    title: "IL&amp;FS Engineering &amp; Construction Company Ltd."
+    desc: ""
+  -
+    title: "OCL India Ltd."
+    desc: ""
+  -
+    title: "Hexaware Technologies Ltd."
+    desc: ""
+  -
+    title: "CMC Ltd."
+    desc: ""
+  -
+    title: "Indiabulls Real Estate Ltd."
+    desc: ""
+  -
+    title: "McLeod Russel (India) Ltd."
+    desc: ""
+  -
+    title: "Alembic Ltd."
+    desc: ""
+  -
+    title: "DB Corp Ltd."
+    desc: ""
+  -
+    title: "NIIT Ltd."
+    desc: ""
+  -
+    title: "HSIL Ltd."
+    desc: ""
+  -
+    title: "TVS Srichakra Ltd."
+    desc: ""
+  -
+    title: "Va Tech Wabag Ltd."
+    desc: ""
+  -
+    title: "Ahluwalia Contracts (India) Ltd."
+    desc: ""
+  -
+    title: "Sanofi India Ltd."
+    desc: ""
+  -
+    title: "EIH Ltd."
+    desc: ""
+  -
+    title: "Ind-Swift Laboratories Ltd."
+    desc: ""
+  -
+    title: "HEG Ltd."
+    desc: ""
+  -
+    title: "Himatsingka Seide Ltd."
+    desc: ""
+  -
+    title: "LT Foods Ltd."
+    desc: ""
+  -
+    title: "AIA Engineering Ltd."
+    desc: ""
+  -
+    title: "Sangam (India) Ltd."
+    desc: ""
+  -
+    title: "Sona Koyo Steering Systems Ltd."
+    desc: ""
+  -
+    title: "Bharati Shipyard Ltd."
+    desc: ""
+  -
+    title: "Sanwaria Agro Oils Ltd."
+    desc: ""
+  -
+    title: "Kohinoor Foods Ltd."
+    desc: ""
+  -
+    title: "Nahar Industrial Enterprises Ltd."
+    desc: ""
+  -
+    title: "Sobha Developers Ltd."
+    desc: ""
+  -
+    title: "Hanung Toys &amp; Textiles Ltd."
+    desc: ""
+  -
+    title: "3M India Ltd."
+    desc: ""
+  -
+    title: "Gujarat NRE Coke Ltd."
     desc: ""
 annual_income:
   -
@@ -219,9 +1860,6 @@ religion:
     desc: ""
   -
     title: "Christian"
-    desc: ""
-  -
-    title: "Buddhish"
     desc: ""
   -
     title: "Buddhish"
@@ -1518,7 +3156,7 @@ caste:
 
 sub_caste:
   -
-    title: ""
+    title: "Do not Know"
     desc: ""
 
 native_place:
@@ -2388,6 +4026,9 @@ father:
     desc: ""
 
   -
+    title: "Retired"
+    desc: ""
+  -
     title: "Expired"
     desc: ""
 
@@ -2414,6 +4055,9 @@ mother:
 
   -
     title: "Expired"
+    desc: ""
+  -
+    title: "Retired"
     desc: ""
 
 
@@ -2505,13 +4149,2859 @@ school:
     title: ""
     desc: ""
 grad_school:
-  -
-    title: ""
+  - 
+    title: "Indian Institute of Technology Bombay"
     desc: ""
+  - 
+    title: "Indian Institute of Technology Madras"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Kharagpur"
+    desc: ""
+  - 
+    title: "University of Delhi"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Delhi"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Kanpur"
+    desc: ""
+  - 
+    title: "Anna University"
+    desc: ""
+  - 
+    title: "Manipal University"
+    desc: ""
+  - 
+    title: "National Institute of Technology Calicut"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Roorkee"
+    desc: ""
+  - 
+    title: "Indian Institute of Science"
+    desc: ""
+  - 
+    title: "National Institute of Technology, Rourkela"
+    desc: ""
+  - 
+    title: "National Institute of Technology Karnataka"
+    desc: ""
+  - 
+    title: "National Institute of Technology, Tiruchirappalli"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Guwahati"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Gandhinagar"
+    desc: ""
+  - 
+    title: "Malaviya National Institute of Technology, Jaipur"
+    desc: ""
+  - 
+    title: "VIT University"
+    desc: ""
+  - 
+    title: "National Institute of Technology, Warangal"
+    desc: ""
+  - 
+    title: "National Institute of Technology, Durgapur"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Hyderabad"
+    desc: ""
+  - 
+    title: "Bengal Engineering and Science University"
+    desc: ""
+  - 
+    title: "Motilal Nehru National Institute of Technology"
+    desc: ""
+  - 
+    title: "Delhi Technological University"
+    desc: ""
+  - 
+    title: "University of Pune"
+    desc: ""
+  - 
+    title: "Sardar Vallabhbhai National Institute of Technology, Surat"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Bhubaneswar"
+    desc: ""
+  - 
+    title: "National Institute of Technology, Silchar"
+    desc: ""
+  - 
+    title: "Indian School of Mines"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Indore"
+    desc: ""
+  - 
+    title: "PDPM Indian Institute of Information Technology, Design &amp; Manufacturing"
+    desc: ""
+  - 
+    title: "National Institute of Technology, Agartala"
+    desc: ""
+  - 
+    title: "Visvesvaraya National Institute of Technology"
+    desc: ""
+  - 
+    title: "Jadavpur University"
+    desc: ""
+  - 
+    title: "Delhi Technological University"
+    desc: ""
+  - 
+    title: "University of Mumbai"
+    desc: ""
+  - 
+    title: "Netaji Subhas Institute of Technology"
+    desc: ""
+  - 
+    title: "Sant Longowal Institute of Engineering and Technology"
+    desc: ""
+  - 
+    title: "Panjab University"
+    desc: ""
+  - 
+    title: "Jawaharlal Nehru University"
+    desc: ""
+  - 
+    title: "Tata Institute of Social Sciences"
+    desc: ""
+  - 
+    title: "Birla Institute of Technology and Science"
+    desc: ""
+  - 
+    title: "Visvesvaraya Technological University"
+    desc: ""
+  - 
+    title: "International Institute of Information Technology, Hyderabad"
+    desc: ""
+  - 
+    title: "Amity University"
+    desc: ""
+  - 
+    title: "SRM University"
+    desc: ""
+  - 
+    title: "Osmania University"
+    desc: ""
+  - 
+    title: "Gujarat Technological University"
+    desc: ""
+  - 
+    title: "Lovely Professional University"
+    desc: ""
+  - 
+    title: "Jaipur National University"
+    desc: ""
+  - 
+    title: "Jawaharlal Nehru Centre for Advanced Scientific Research"
+    desc: ""
+  - 
+    title: "Banaras Hindu University"
+    desc: ""
+  - 
+    title: "University of Madras"
+    desc: ""
+  - 
+    title: "Indian Statistical Institute"
+    desc: ""
+  - 
+    title: "University of Calcutta"
+    desc: ""
+  - 
+    title: "National Institute of Design"
+    desc: ""
+  - 
+    title: "Kurukshetra University"
+    desc: ""
+  - 
+    title: "University of Rajasthan"
+    desc: ""
+  - 
+    title: "Cochin University of Science and Technology"
+    desc: ""
+  - 
+    title: "Tata Institute of Fundamental Research"
+    desc: ""
+  - 
+    title: "All India Institute of Medical Sciences"
+    desc: ""
+  - 
+    title: "Narsee Monjee Institute of Management and Higher Studies"
+    desc: ""
+  - 
+    title: "Indira Gandhi Institute of Development Research"
+    desc: ""
+  - 
+    title: "Rajasthan Technical University Kota"
+    desc: ""
+  - 
+    title: "University of Calicut"
+    desc: ""
+  - 
+    title: "Annamalai University"
+    desc: ""
+  - 
+    title: "Pondicherry University"
+    desc: ""
+  - 
+    title: "International Institute of Information Technology Bangalore"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Ropar"
+    desc: ""
+  - 
+    title: "SASTRA University"
+    desc: ""
+  - 
+    title: "Maharishi Dayanand University"
+    desc: ""
+  - 
+    title: "Jawaharlal Nehru Technological University"
+    desc: ""
+  - 
+    title: "Chennai Mathematical Institute"
+    desc: ""
+  - 
+    title: "Uttar Pradesh Technical University"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Mandi"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Patna"
+    desc: ""
+  - 
+    title: "Tamil Nadu Agricultural University"
+    desc: ""
+  - 
+    title: "Mahatma Gandhi University"
+    desc: ""
+  - 
+    title: "National University of Educational Planning and Administration"
+    desc: ""
+  - 
+    title: "University of Petroleum and Energy Studies"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Jodhpur"
+    desc: ""
+  - 
+    title: "Aligarh Muslim University"
+    desc: ""
+  - 
+    title: "University of Kerala"
+    desc: ""
+  - 
+    title: "National Institute of Fashion Technology"
+    desc: ""
+  - 
+    title: "Gujarat University"
+    desc: ""
+  - 
+    title: "Biju Patnaik University of Technology, Orissa"
+    desc: ""
+  - 
+    title: "Indian Institute of Information Technology Allahabad"
+    desc: ""
+  - 
+    title: "Bharathiar University"
+    desc: ""
+  - 
+    title: "Punjab Technical University"
+    desc: ""
+  - 
+    title: "Guru Gobind Singh Indraprastha University"
+    desc: ""
+  - 
+    title: "Birla Institute of Technology"
+    desc: ""
+  - 
+    title: "Gandhi Institute of Technology and Management"
+    desc: ""
+  - 
+    title: "Bharathidasan University"
+    desc: ""
+  - 
+    title: "Gandhigram Rural University"
+    desc: ""
+  - 
+    title: "Thapar University"
+    desc: ""
+  - 
+    title: "Punjabi University"
+    desc: ""
+  - 
+    title: "National Law School of India University"
+    desc: ""
+  - 
+    title: "Shiv Nadar University"
+    desc: ""
+  - 
+    title: "Dhirubhai Ambani Institute of Information &amp; Communication Technology"
+    desc: ""
+  - 
+    title: "Alagappa University"
+    desc: ""
+  - 
+    title: "Shivaji University"
+    desc: ""
+  - 
+    title: "Jiwaji University"
+    desc: ""
+  - 
+    title: "The Maharaja Sayajirao University of Baroda"
+    desc: ""
+  - 
+    title: "University of Mysore"
+    desc: ""
+  - 
+    title: "Jawaharlal Nehru Technological University, Kakinada"
+    desc: ""
+  - 
+    title: "Visva Bharati University"
+    desc: ""
+  - 
+    title: "Acharya Nagarjuna University"
+    desc: ""
+  - 
+    title: "Maulana Azad National Institute of Technology"
+    desc: ""
+  - 
+    title: "Mahamaya Technical University"
+    desc: ""
+  - 
+    title: "University of Jammu"
+    desc: ""
+  - 
+    title: "North Eastern Hill University"
+    desc: ""
+  - 
+    title: "University of Lucknow"
+    desc: ""
+  - 
+    title: "Himachal Pradesh University"
+    desc: ""
+  - 
+    title: "KIIT University"
+    desc: ""
+  - 
+    title: "Post Graduate Institute of Medical Education and Research"
+    desc: ""
+  - 
+    title: "Indian Agricultural Research Institute"
+    desc: ""
+  - 
+    title: "Andhra University"
+    desc: ""
+  - 
+    title: "Guru Nanak Dev University"
+    desc: ""
+  - 
+    title: "National Institute of Mental Health and Neuro Sciences"
+    desc: ""
+  - 
+    title: "Indian Institute of Information Technology and Management Gwalior"
+    desc: ""
+  - 
+    title: "Bharati Vidyapeeth University"
+    desc: ""
+  - 
+    title: "University of Kashmir"
+    desc: ""
+  - 
+    title: "Chhatrapati Shahuji Maharaj University"
+    desc: ""
+  - 
+    title: "Goa University"
+    desc: ""
+  - 
+    title: "University of Allahabad"
+    desc: ""
+  - 
+    title: "Sant Gadge Baba Amravati University"
+    desc: ""
+  - 
+    title: "Karunya University"
+    desc: ""
+  - 
+    title: "Govind Ballabh Pant University of Agriculture &amp; Technology"
+    desc: ""
+  - 
+    title: "Rashtrasant Tukadoji Maharaj Nagpur University"
+    desc: ""
+  - 
+    title: "International Institute for Population Sciences"
+    desc: ""
+  - 
+    title: "Indraprastha Institute of Information Technology"
+    desc: ""
+  - 
+    title: "Indian Institute of Foreign Trade"
+    desc: ""
+  - 
+    title: "Jawaharlal Institute of Postgraduate Medical Education &amp; Research"
+    desc: ""
+  - 
+    title: "University of Burdwan"
+    desc: ""
+  - 
+    title: "North Maharashtra University"
+    desc: ""
+  - 
+    title: "Hindustan University"
+    desc: ""
+  - 
+    title: "CEPT University"
+    desc: ""
+  - 
+    title: "School of Planning and Architecture, Delhi"
+    desc: ""
+  - 
+    title: "Tezpur University"
+    desc: ""
+  - 
+    title: "TERI University"
+    desc: ""
+  - 
+    title: "Barkatullah University"
+    desc: ""
+  - 
+    title: "Sardar Patel University"
+    desc: ""
+  - 
+    title: "National Institute of Technology, Hamirpur"
+    desc: ""
+  - 
+    title: "Indian Institute of Space Science and Technology"
+    desc: ""
+  - 
+    title: "National Institute of Technology, Kurukshetra"
+    desc: ""
+  - 
+    title: "B.S. Abdur Rahman University"
+    desc: ""
+  - 
+    title: "Sri Venkateswara University"
+    desc: ""
+  - 
+    title: "Forest Research Institute"
+    desc: ""
+  - 
+    title: "Saurashtra University"
+    desc: ""
+  - 
+    title: "National Institute of Technology, Patna"
+    desc: ""
+  - 
+    title: "National Institute of Technology, Jamshedpur"
+    desc: ""
+  - 
+    title: "Gulbarga University"
+    desc: ""
+  - 
+    title: "Sharda University"
+    desc: ""
+  - 
+    title: "Rajiv Gandhi University"
+    desc: ""
+  - 
+    title: "Chaudhary Charan Singh University"
+    desc: ""
+  - 
+    title: "Central University of Rajasthan"
+    desc: ""
+  - 
+    title: "PEC University of Technology"
+    desc: ""
+  - 
+    title: "K L University"
+    desc: ""
+  - 
+    title: "Hemwati Nandan Bahuguna Garhwal University"
+    desc: ""
+  - 
+    title: "Deen Dayal Upadhyay Gorakhpur University"
+    desc: ""
+  - 
+    title: "University of Kalyani"
+    desc: ""
+  - 
+    title: "Assam University"
+    desc: ""
+  - 
+    title: "Sambalpur University"
+    desc: ""
+  - 
+    title: "Kerala Agricultural University"
+    desc: ""
+  - 
+    title: "Veer Surendra Sai University of Technology"
+    desc: ""
+  - 
+    title: "Mahatma Gandhi University"
+    desc: ""
+  - 
+    title: "Alliance University"
+    desc: ""
+  - 
+    title: "Vidyasagar University"
+    desc: ""
+  - 
+    title: "National Institute of Technology, Srinagar"
+    desc: ""
+  - 
+    title: "Kannur University"
+    desc: ""
+  - 
+    title: "Rajiv Gandhi University of Health Sciences"
+    desc: ""
+  - 
+    title: "University of North Bengal"
+    desc: ""
+  - 
+    title: "Maulana Azad National Urdu University"
+    desc: ""
+  - 
+    title: "Dr. B.R. Ambedkar University"
+    desc: ""
+  - 
+    title: "Dibrugarh University"
+    desc: ""
+  - 
+    title: "Nagaland University"
+    desc: ""
+  - 
+    title: "Symbiosis International University"
+    desc: ""
+  - 
+    title: "Pandit Deendayal Petroleum University"
+    desc: ""
+  - 
+    title: "Tripura University"
+    desc: ""
+  - 
+    title: "Mangalore University"
+    desc: ""
+  - 
+    title: "Tamil Nadu Dr. M.G.R.Medical University"
+    desc: ""
+  - 
+    title: "Sikkim Manipal University"
+    desc: ""
+  - 
+    title: "The WB National University of Juridical Sciences"
+    desc: ""
+  - 
+    title: "Indian Veterinary Research Institute"
+    desc: ""
+  - 
+    title: "West Bengal University of Technology"
+    desc: ""
+  - 
+    title: "University of Agricultural Sciences, Bangalore"
+    desc: ""
+  - 
+    title: "Chaudhary Charan Singh Haryana Agricultural University"
+    desc: ""
+  - 
+    title: "Chitkara University"
+    desc: ""
+  - 
+    title: "National Law University, Jodhpur"
+    desc: ""
+  - 
+    title: "National Institute of Pharmaceutical Education and Research"
+    desc: ""
+  - 
+    title: "Uttarakhand Technical University"
+    desc: ""
+  - 
+    title: "Dharmsinh Desai University"
+    desc: ""
+  - 
+    title: "Suresh Gyan Vihar University"
+    desc: ""
+  - 
+    title: "Tamil Nadu Dr Ambedkar Law University"
+    desc: ""
+  - 
+    title: "Azim Premji University"
+    desc: ""
+  - 
+    title: "Mohanlal Sukhadia University"
+    desc: ""
+  - 
+    title: "Gauhati University"
+    desc: ""
+  - 
+    title: "Nirma University of Science and Technology"
+    desc: ""
+  - 
+    title: "Madurai Kamaraj University"
+    desc: ""
+  - 
+    title: "Manonmaniam Sundaranar University"
+    desc: ""
+  - 
+    title: "Jaypee University of Information Technology"
+    desc: ""
+  - 
+    title: "Bangalore University"
+    desc: ""
+  - 
+    title: "Sree Chitra Thirunal Institute of Medical Sciences and Technology"
+    desc: ""
+  - 
+    title: "Mahatma Jyotiba Phule Rohilkhand University"
+    desc: ""
+  - 
+    title: "Swami Ramanand Teerth Marathwada University"
+    desc: ""
+  - 
+    title: "Bundelkhand University"
+    desc: ""
+  - 
+    title: "Guru Jambheshwar University of Science &amp; Technology"
+    desc: ""
+  - 
+    title: "Chhattisgarh Swami Vivekananda Technical University"
+    desc: ""
+  - 
+    title: "Karnataka State Law University"
+    desc: ""
+  - 
+    title: "Central University of Bihar"
+    desc: ""
+  - 
+    title: "Ganpat University"
+    desc: ""
+  - 
+    title: "Gujarat National Law University"
+    desc: ""
+  - 
+    title: "Pravara Institute of Medical Sciences"
+    desc: ""
+  - 
+    title: "Sathyabama University"
+    desc: ""
+  - 
+    title: "National Law University"
+    desc: ""
+  - 
+    title: "National Institute of Technology Raipur"
+    desc: ""
+  - 
+    title: "Baba Farid University of Health Sciences"
+    desc: ""
+  - 
+    title: "ITM University"
+    desc: ""
+  - 
+    title: "Apeejay Stya University"
+    desc: ""
+  - 
+    title: "Sri Ramachandra University"
+    desc: ""
+  - 
+    title: "NTR University of Health Sciences"
+    desc: ""
+  - 
+    title: "Pandit Ravishankar Shukla University"
+    desc: ""
+  - 
+    title: "The LNM Institute of Information Technology"
+    desc: ""
+  - 
+    title: "Manipur University"
+    desc: ""
+  - 
+    title: "Rabindra Bharati University"
+    desc: ""
+  - 
+    title: "Navsari Agricultural University"
+    desc: ""
+  - 
+    title: "Anand Agricultural University"
+    desc: ""
+  - 
+    title: "Jodhpur National University"
+    desc: ""
+  - 
+    title: "Sanjay Gandhi Post Graduate Institute of Medical Sciences"
+    desc: ""
+  - 
+    title: "Doon University"
+    desc: ""
+  - 
+    title: "Rajasthan University of Health Sciences"
+    desc: ""
+  - 
+    title: "Kuvempu University"
+    desc: ""
+  - 
+    title: "Dayalbagh Educational Institute"
+    desc: ""
+  - 
+    title: "Punjab Agricultural University"
+    desc: ""
+  - 
+    title: "Guru Angad Dev Veterinary and Animal Sciences University"
+    desc: ""
+  - 
+    title: "Jai Narain Vyas University"
+    desc: ""
+  - 
+    title: "Hemchandracharya North Gujarat University"
+    desc: ""
+  - 
+    title: "Shri Mata Vaishno Devi University"
+    desc: ""
+  - 
+    title: "Maharaja Ganga Singh University"
+    desc: ""
+  - 
+    title: "Dr. Ram Manohar Lohia Avadh University"
+    desc: ""
+  - 
+    title: "University of Solapur"
+    desc: ""
+  - 
+    title: "Maharashtra University of Health Sciences"
+    desc: ""
+  - 
+    title: "Ranchi University"
+    desc: ""
+  - 
+    title: "Integral University"
+    desc: ""
+  - 
+    title: "Dr. Babasaheb Ambedkar Marathwada University"
+    desc: ""
+  - 
+    title: "Central University of Jharkhand"
+    desc: ""
+  - 
+    title: "Central Institute of Fisheries Education"
+    desc: ""
+  - 
+    title: "NALSAR University of Law"
+    desc: ""
+  - 
+    title: "Tamil Nadu Teacher Education University"
+    desc: ""
+  - 
+    title: "University of Agricultural Sciences, Dharwad"
+    desc: ""
+  - 
+    title: "Central University of Himachal Pradesh"
+    desc: ""
+  - 
+    title: "Rashtriya Sanskrit Sansthan"
+    desc: ""
+  - 
+    title: "Veer Narmad South Gujarat University"
+    desc: ""
+  - 
+    title: "Presidency University"
+    desc: ""
+  - 
+    title: "Assam Agricultural University"
+    desc: ""
+  - 
+    title: "Dr. Y.S. Parmar University of Horticulture and Forestry"
+    desc: ""
+  - 
+    title: "University of Kota"
+    desc: ""
+  - 
+    title: "Dr. Hari Singh Gour University"
+    desc: ""
+  - 
+    title: "Rajendra Agricultural University"
+    desc: ""
+  - 
+    title: "Sri Venkateswara Institute of Medical Sciences"
+    desc: ""
+  - 
+    title: "Mahatma Gandhi Kashi Vidyapeeth"
+    desc: ""
+  - 
+    title: "Tamil Nadu Veterinary and Animal Sciences University"
+    desc: ""
+  - 
+    title: "National Law University, Orissa"
+    desc: ""
+  - 
+    title: "Shridhar University"
+    desc: ""
+  - 
+    title: "Karnataka Veterinary, Animal and Fisheries Sciences University"
+    desc: ""
+  - 
+    title: "Krishna University"
+    desc: ""
+  - 
+    title: "Veer Bahadur Singh Purvanchal University"
+    desc: ""
+  - 
+    title: "Gautam Buddha University"
+    desc: ""
+  - 
+    title: "Shreemati Nathibai Damodar Thackersey Women's University"
+    desc: ""
+  - 
+    title: "Galgotias University"
+    desc: ""
+  - 
+    title: "Central University of Tamil Nadu"
+    desc: ""
+  - 
+    title: "Mizoram University"
+    desc: ""
+  - 
+    title: "Nizam's Institute of Medical Sciences"
+    desc: ""
+  - 
+    title: "South Asian University"
+    desc: ""
+  - 
+    title: "Charotar University of Science &amp; Technology"
+    desc: ""
+  - 
+    title: "Patna University"
+    desc: ""
+  - 
+    title: "NITTE University"
+    desc: ""
+  - 
+    title: "Ravenshaw University"
+    desc: ""
+  - 
+    title: "Utkal University"
+    desc: ""
+  - 
+    title: "GLA University"
+    desc: ""
+  - 
+    title: "Maharaja Krishnakumarsinhji Bhavnagar University"
+    desc: ""
+  - 
+    title: "YMCA University of Science and Technology"
+    desc: ""
+  - 
+    title: "National Law Institute University"
+    desc: ""
+  - 
+    title: "Babasaheb Bhimrao Ambedkar University"
+    desc: ""
+  - 
+    title: "Institute of Chemical Technology"
+    desc: ""
+  - 
+    title: "Ahmedabad University"
+    desc: ""
+  - 
+    title: "Bharat Ratna Dr. B.R. Ambedkar University"
+    desc: ""
+  - 
+    title: "Manav Bharti University"
+    desc: ""
+  - 
+    title: "Indian Institute of Information Technology, Design and Manufacturing"
+    desc: ""
+  - 
+    title: "Central University of Haryana"
+    desc: ""
+  - 
+    title: "University of Gour Banga"
+    desc: ""
+  - 
+    title: "Acharya N.G. Ranga Agricultural University"
+    desc: ""
+  - 
+    title: "Sam Higginbottom Institute of Agriculture, Technology and Sciences"
+    desc: ""
+  - 
+    title: "Dr. Ram Manohar Lohiya National Law University"
+    desc: ""
+  - 
+    title: "Indira Gandhi National Tribal University"
+    desc: ""
+  - 
+    title: "Junagadh Agricultural University"
+    desc: ""
+  - 
+    title: "University of Technology &amp; Management"
+    desc: ""
+  - 
+    title: "Jaypee University of Engineering &amp; Technology"
+    desc: ""
+  - 
+    title: "EIILM University"
+    desc: ""
+  - 
+    title: "Mewar University"
+    desc: ""
+  - 
+    title: "NIMS University"
+    desc: ""
+  - 
+    title: "Awadhesh Pratap Singh University"
+    desc: ""
+  - 
+    title: "Shri Lal Bahadur Shastri Rashtriya Sanskrit Vidyapeetha"
+    desc: ""
+  - 
+    title: "Deenbandhu Chhotu Ram University of Science and Technology"
+    desc: ""
+  - 
+    title: "O.P. Jindal Global University"
+    desc: ""
+  - 
+    title: "Hidayatullah National Law University"
+    desc: ""
+  - 
+    title: "Kerala Veterinary and Animal Sciences University"
+    desc: ""
+  - 
+    title: "Ramakrishna Mission Vivekananda University"
+    desc: ""
+  - 
+    title: "Tamil University"
+    desc: ""
+  - 
+    title: "The National University of Advanced Legal Studies"
+    desc: ""
+  - 
+    title: "KLE University"
+    desc: ""
+  - 
+    title: "Central University of Gujarat"
+    desc: ""
+  - 
+    title: "Magadh University"
+    desc: ""
+  - 
+    title: "Orissa University of Agriculture and Technology"
+    desc: ""
+  - 
+    title: "Sri Krishnadevaraya University"
+    desc: ""
+  - 
+    title: "Jawaharlal Nehru Technological University, Anantapur"
+    desc: ""
+  - 
+    title: "Teerthanker Mahaveer University"
+    desc: ""
+  - 
+    title: "Assam Don Bosco University"
+    desc: ""
+  - 
+    title: "Avinashilingam University"
+    desc: ""
+  - 
+    title: "Central University of Orissa"
+    desc: ""
+  - 
+    title: "Yogi Vemana University"
+    desc: ""
+  - 
+    title: "Maharshi Dayanand Saraswati University"
+    desc: ""
+  - 
+    title: "Kakatiya University"
+    desc: ""
+  - 
+    title: "Central University of Kerala"
+    desc: ""
+  - 
+    title: "Vinoba Bhave University"
+    desc: ""
+  - 
+    title: "Marathwada Agricultural University"
+    desc: ""
+  - 
+    title: "West Bengal University of Health Sciences"
+    desc: ""
+  - 
+    title: "Indian Maritime University"
+    desc: ""
+  - 
+    title: "Central University of Karnataka"
+    desc: ""
+  - 
+    title: "Periyar Maniammai University"
+    desc: ""
+  - 
+    title: "Sir Padampat Singhania University"
+    desc: ""
+  - 
+    title: "Central University of Kashmir"
+    desc: ""
+  - 
+    title: "Mother Teresa Women's University"
+    desc: ""
+  - 
+    title: "Chanakya National Law University"
+    desc: ""
+  - 
+    title: "Kannada University"
+    desc: ""
+  - 
+    title: "Bhagwant University"
+    desc: ""
+  - 
+    title: "Subharti University"
+    desc: ""
+  - 
+    title: "Kerala University of Health Sciences"
+    desc: ""
+  - 
+    title: "North Eastern Regional Institute of Science and Technology"
+    desc: ""
+  - 
+    title: "Maharana Pratap University of Agriculture and Technology"
+    desc: ""
+  - 
+    title: "West Bengal State University"
+    desc: ""
+  - 
+    title: "The English and Foreign Languages University"
+    desc: ""
+  - 
+    title: "Utkal University of Culture"
+    desc: ""
+  - 
+    title: "Rajasthan Agricultural University"
+    desc: ""
+  - 
+    title: "ICFAI University, Tripura"
+    desc: ""
+  - 
+    title: "Invertis University"
+    desc: ""
+  - 
+    title: "Potti Sreeramulu Telugu University"
+    desc: ""
+  - 
+    title: "Dr K.N. Modi University"
+    desc: ""
+  - 
+    title: "Kavikulguru Kalidas Sanskrit University"
+    desc: ""
+  - 
+    title: "Sikkim University"
+    desc: ""
+  - 
+    title: "Deccan College Post-Graduate and Research Institute"
+    desc: ""
+  - 
+    title: "Tamil Nadu Physical Education and Sports University"
+    desc: ""
+  - 
+    title: "National Institute of Pharmaceutical Education and Research, Hyderabad"
+    desc: ""
+  - 
+    title: "Pt. B. D. Sharma University of Health Sciences"
+    desc: ""
+  - 
+    title: "Baddi University of Emerging Sciences and Technologies"
+    desc: ""
+  - 
+    title: "Vikrama Simhapuri University"
+    desc: ""
+  - 
+    title: "Satavahana University"
+    desc: ""
+  - 
+    title: "Dravidian University"
+    desc: ""
+  - 
+    title: "MGM Institute of Health Sciences"
+    desc: ""
+  - 
+    title: "Dr. C.V. Raman University"
+    desc: ""
+  - 
+    title: "National University of Study and Research in Law"
+    desc: ""
+  - 
+    title: "Jagan Nath University"
+    desc: ""
+  - 
+    title: "Central Agricultural University"
+    desc: ""
+  - 
+    title: "National Dairy Research Institute"
+    desc: ""
+  - 
+    title: "Maharashtra Animal and Fishery Sciences University"
+    desc: ""
+  - 
+    title: "B.R. Ambedkar Bihar University"
+    desc: ""
+  - 
+    title: "Calorx Teachers' University"
+    desc: ""
+  - 
+    title: "Krantiguru Shyamji Krishna Verma Kachchh University"
+    desc: ""
+  - 
+    title: "Aliah University"
+    desc: ""
+  - 
+    title: "Mahatma Gandhi University"
+    desc: ""
+  - 
+    title: "Thiruvalluvar University"
+    desc: ""
+  - 
+    title: "Centurion University of Technology and Management"
+    desc: ""
+  - 
+    title: "Rajiv Gandhi National University of Law"
+    desc: ""
+  - 
+    title: "Gujarat Ayurved University"
+    desc: ""
+  - 
+    title: "Jagadguru Ramanandacharya Rajasthan Sanskrit University"
+    desc: ""
+  - 
+    title: "Pacific University"
+    desc: ""
+  - 
+    title: "Sardar Vallabhbhai Patel University of Agriculture and Technology"
+    desc: ""
+  - 
+    title: "Jain Vishva Bharati University"
+    desc: ""
+  - 
+    title: "Sher-e-Kashmir University of Agricultural Sciences and Technology of Kashmir"
+    desc: ""
+  - 
+    title: "Telangana University"
+    desc: ""
+  - 
+    title: "North Orissa University"
+    desc: ""
+  - 
+    title: "Jawaharlal Nehru Architecture and Fine Arts University"
+    desc: ""
+  - 
+    title: "Gokhale Institute of Politics and Economics"
+    desc: ""
+  - 
+    title: "Vikram University"
+    desc: ""
+  - 
+    title: "Rajasthan Ayurved University"
+    desc: ""
+  - 
+    title: "Dr. B.R. Ambedkar University"
+    desc: ""
+  - 
+    title: "Lakshmibai National Institute of Physical Education"
+    desc: ""
+  - 
+    title: "Rayalaseema University"
+    desc: ""
+  - 
+    title: "Homi Bhabha National Institute"
+    desc: ""
+  - 
+    title: "CSK Himachal Pradesh Agricultural University"
+    desc: ""
+  - 
+    title: "Dr. Shakuntala Misra Rehabilitation University"
+    desc: ""
+  - 
+    title: "Mangalayatan University"
+    desc: ""
+  - 
+    title: "Chaudhary Devi Lal University"
+    desc: ""
+  - 
+    title: "Sri Chandrasekharendra Saraswathi Viswa Mahavidyalaya"
+    desc: ""
+  - 
+    title: "Singhania University"
+    desc: ""
+  - 
+    title: "MATS University"
+    desc: ""
+  - 
+    title: "Indira Gandhi Agricultural University"
+    desc: ""
+  - 
+    title: "Berhampur University"
+    desc: ""
+  - 
+    title: "University of Hyderabad"
+    desc: ""
+  - 
+    title: "Sarguja University"
+    desc: ""
+  - 
+    title: "Sri Guru Granth Sahib World University"
+    desc: ""
+  - 
+    title: "Himgiri ZEE University"
+    desc: ""
+  - 
+    title: "Central University of Tibetan Studies"
+    desc: ""
+  - 
+    title: "Adikavi Nannaya University"
+    desc: ""
+  - 
+    title: "Gujarat Forensic Sciences University"
+    desc: ""
+  - 
+    title: "Tilka Manjhi Bhagalpur University"
+    desc: ""
+  - 
+    title: "West Bengal University of Animal and Fishery Sciences"
+    desc: ""
+  - 
+    title: "JSS University"
+    desc: ""
+  - 
+    title: "Sri Venkateswara Veterinary University"
+    desc: ""
+  - 
+    title: "Baba Ghulam Shah Badhshah University"
+    desc: ""
+  - 
+    title: "ICFAI University, Dehradun"
+    desc: ""
+  - 
+    title: "IFHE Hyderabad"
+    desc: ""
+  - 
+    title: "Babu Banarasi Das University"
+    desc: ""
+  - 
+    title: "Sri Venkateswara Vedic University"
+    desc: ""
+  - 
+    title: "Nilamber-Pitamber University"
+    desc: ""
+  - 
+    title: "Palamuru University"
+    desc: ""
+  - 
+    title: "Birsa Agricultural University"
+    desc: ""
+  - 
+    title: "Mahatma Jyoti Rao Phoole University"
+    desc: ""
+  - 
+    title: "Jayoti Vidyapeeth Women's University"
+    desc: ""
+  - 
+    title: "Kolhan University"
+    desc: ""
+  - 
+    title: "Tumkur University"
+    desc: ""
+  - 
+    title: "Karnatak University"
+    desc: ""
+  - 
+    title: "Aryabhatta Knowledge University"
+    desc: ""
+  - 
+    title: "Sardarkrushinagar Dantiwada Agricultural University"
+    desc: ""
+  - 
+    title: "Kumaun University"
+    desc: ""
+  - 
+    title: "Raffles University"
+    desc: ""
+  - 
+    title: "Sree Sankaracharya University of Sanskrit"
+    desc: ""
+  - 
+    title: "Central University of Punjab"
+    desc: ""
+  - 
+    title: "Arni University"
+    desc: ""
+  - 
+    title: "Datta Meghe Institute of Medical Sciences"
+    desc: ""
+  - 
+    title: "Martin Luther Christian University"
+    desc: ""
+  - 
+    title: "ICFAI University, Jharkhand"
+    desc: ""
+  - 
+    title: "Kerala University of Fisheries and Ocean Studies"
+    desc: ""
+  - 
+    title: "Shree Somnath Sanskrit University"
+    desc: ""
+  - 
+    title: "University of Science and Technology, Meghalaya"
+    desc: ""
+  - 
+    title: "Islamic University of Science and Technology"
+    desc: ""
+  - 
+    title: "Jagdishprasad Jhabarmal Tibrewala University"
+    desc: ""
+  - 
+    title: "Ayush and Health Sciences University of Chhattisgarh"
+    desc: ""
+  - 
+    title: "Chandra Shekhar Azad University of Agriculture &amp; Technology"
+    desc: ""
+  - 
+    title: "Vinayaka Missions Sikkim University"
+    desc: ""
+  - 
+    title: "Noida International University"
+    desc: ""
+  - 
+    title: "Vel Tech Dr.RR &amp; Dr.SR Technical University"
+    desc: ""
+  - 
+    title: "Indus International University"
+    desc: ""
+  - 
+    title: "SunRise University"
+    desc: ""
+  - 
+    title: "Maharishi University of Management and Technology"
+    desc: ""
+  - 
+    title: "Eternal University"
+    desc: ""
+  - 
+    title: "IFTM University"
+    desc: ""
+  - 
+    title: "Vijayanagara Sri Krishnadevaraya University"
+    desc: ""
+  - 
+    title: "Bhupendra Narayan Mandal University"
+    desc: ""
+  - 
+    title: "The Indian Law Institute"
+    desc: ""
+  - 
+    title: "Damodaram Sanjivayya National Law University"
+    desc: ""
+  - 
+    title: "Kameshwar Singh Darbhanga Sanskrit University"
+    desc: ""
+  - 
+    title: "Shoolini University of Biotechnology and Management Sciences"
+    desc: ""
+  - 
+    title: "Karnataka State Women's University"
+    desc: ""
+  - 
+    title: "BAHRA University"
+    desc: ""
+  - 
+    title: "Lalit Narayan Mithila University"
+    desc: ""
+  - 
+    title: "Bhatkhande Music Institute"
+    desc: ""
+  - 
+    title: "Sidho Kanho Birsha University"
+    desc: ""
+  - 
+    title: "Fakir Mohan University"
+    desc: ""
+  - 
+    title: "Chhatrapati Shahuji Maharaj Medical University"
+    desc: ""
+  - 
+    title: "National Institute of Pharmaceutical Education and Research, Guwahati"
+    desc: ""
+  - 
+    title: "National Institute of Pharmaceutical Education and Research, Hajipur"
+    desc: ""
+  - 
+    title: "National Institute of Pharmaceutical Education and Research, Rae Bareli"
+    desc: ""
+  - 
+    title: "Veer Kunwar Singh University"
+    desc: ""
+  - 
+    title: "Rani Channamma University"
+    desc: ""
+  - 
+    title: "Shri Venkateshwara University"
+    desc: ""
+  - 
+    title: "Sri Sai University"
+    desc: ""
+  - 
+    title: "Maulana Mazharul Haque Arabic and Persian University"
+    desc: ""
+  - 
+    title: "Narendra Dev University of Agriculture and Technology"
+    desc: ""
+  - 
+    title: "Davangere University"
+    desc: ""
+  - 
+    title: "Mohammad Ali Jauhar University"
+    desc: ""
+  - 
+    title: "Uttaranchal Sanskrit University"
+    desc: ""
+  - 
+    title: "Shri Guru Ram Rai Education Mission"
+    desc: ""
+  - 
+    title: "Dr. Babasaheb Ambedkar Technological University"
+    desc: ""
+  - 
+    title: "Sido Kanhu Murmu University"
+    desc: ""
+
 grad_college:
-  -
-    title: ""
+  - 
+    title: "Indian Institute of Technology Bombay"
     desc: ""
+  - 
+    title: "Indian Institute of Technology Madras"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Kharagpur"
+    desc: ""
+  - 
+    title: "University of Delhi"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Delhi"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Kanpur"
+    desc: ""
+  - 
+    title: "Anna University"
+    desc: ""
+  - 
+    title: "Manipal University"
+    desc: ""
+  - 
+    title: "National Institute of Technology Calicut"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Roorkee"
+    desc: ""
+  - 
+    title: "Indian Institute of Science"
+    desc: ""
+  - 
+    title: "National Institute of Technology, Rourkela"
+    desc: ""
+  - 
+    title: "National Institute of Technology Karnataka"
+    desc: ""
+  - 
+    title: "National Institute of Technology, Tiruchirappalli"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Guwahati"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Gandhinagar"
+    desc: ""
+  - 
+    title: "Malaviya National Institute of Technology, Jaipur"
+    desc: ""
+  - 
+    title: "VIT University"
+    desc: ""
+  - 
+    title: "National Institute of Technology, Warangal"
+    desc: ""
+  - 
+    title: "National Institute of Technology, Durgapur"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Hyderabad"
+    desc: ""
+  - 
+    title: "Bengal Engineering and Science University"
+    desc: ""
+  - 
+    title: "Motilal Nehru National Institute of Technology"
+    desc: ""
+  - 
+    title: "Delhi Technological University"
+    desc: ""
+  - 
+    title: "University of Pune"
+    desc: ""
+  - 
+    title: "Sardar Vallabhbhai National Institute of Technology, Surat"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Bhubaneswar"
+    desc: ""
+  - 
+    title: "National Institute of Technology, Silchar"
+    desc: ""
+  - 
+    title: "Indian School of Mines"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Indore"
+    desc: ""
+  - 
+    title: "PDPM Indian Institute of Information Technology, Design &amp; Manufacturing"
+    desc: ""
+  - 
+    title: "National Institute of Technology, Agartala"
+    desc: ""
+  - 
+    title: "Visvesvaraya National Institute of Technology"
+    desc: ""
+  - 
+    title: "Jadavpur University"
+    desc: ""
+  - 
+    title: "Delhi Technological University"
+    desc: ""
+  - 
+    title: "University of Mumbai"
+    desc: ""
+  - 
+    title: "Netaji Subhas Institute of Technology"
+    desc: ""
+  - 
+    title: "Sant Longowal Institute of Engineering and Technology"
+    desc: ""
+  - 
+    title: "Panjab University"
+    desc: ""
+  - 
+    title: "Jawaharlal Nehru University"
+    desc: ""
+  - 
+    title: "Tata Institute of Social Sciences"
+    desc: ""
+  - 
+    title: "Birla Institute of Technology and Science"
+    desc: ""
+  - 
+    title: "Visvesvaraya Technological University"
+    desc: ""
+  - 
+    title: "International Institute of Information Technology, Hyderabad"
+    desc: ""
+  - 
+    title: "Amity University"
+    desc: ""
+  - 
+    title: "SRM University"
+    desc: ""
+  - 
+    title: "Osmania University"
+    desc: ""
+  - 
+    title: "Gujarat Technological University"
+    desc: ""
+  - 
+    title: "Lovely Professional University"
+    desc: ""
+  - 
+    title: "Jaipur National University"
+    desc: ""
+  - 
+    title: "Jawaharlal Nehru Centre for Advanced Scientific Research"
+    desc: ""
+  - 
+    title: "Banaras Hindu University"
+    desc: ""
+  - 
+    title: "University of Madras"
+    desc: ""
+  - 
+    title: "Indian Statistical Institute"
+    desc: ""
+  - 
+    title: "University of Calcutta"
+    desc: ""
+  - 
+    title: "National Institute of Design"
+    desc: ""
+  - 
+    title: "Kurukshetra University"
+    desc: ""
+  - 
+    title: "University of Rajasthan"
+    desc: ""
+  - 
+    title: "Cochin University of Science and Technology"
+    desc: ""
+  - 
+    title: "Tata Institute of Fundamental Research"
+    desc: ""
+  - 
+    title: "All India Institute of Medical Sciences"
+    desc: ""
+  - 
+    title: "Narsee Monjee Institute of Management and Higher Studies"
+    desc: ""
+  - 
+    title: "Indira Gandhi Institute of Development Research"
+    desc: ""
+  - 
+    title: "Rajasthan Technical University Kota"
+    desc: ""
+  - 
+    title: "University of Calicut"
+    desc: ""
+  - 
+    title: "Annamalai University"
+    desc: ""
+  - 
+    title: "Pondicherry University"
+    desc: ""
+  - 
+    title: "International Institute of Information Technology Bangalore"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Ropar"
+    desc: ""
+  - 
+    title: "SASTRA University"
+    desc: ""
+  - 
+    title: "Maharishi Dayanand University"
+    desc: ""
+  - 
+    title: "Jawaharlal Nehru Technological University"
+    desc: ""
+  - 
+    title: "Chennai Mathematical Institute"
+    desc: ""
+  - 
+    title: "Uttar Pradesh Technical University"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Mandi"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Patna"
+    desc: ""
+  - 
+    title: "Tamil Nadu Agricultural University"
+    desc: ""
+  - 
+    title: "Mahatma Gandhi University"
+    desc: ""
+  - 
+    title: "National University of Educational Planning and Administration"
+    desc: ""
+  - 
+    title: "University of Petroleum and Energy Studies"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Jodhpur"
+    desc: ""
+  - 
+    title: "Aligarh Muslim University"
+    desc: ""
+  - 
+    title: "University of Kerala"
+    desc: ""
+  - 
+    title: "National Institute of Fashion Technology"
+    desc: ""
+  - 
+    title: "Gujarat University"
+    desc: ""
+  - 
+    title: "Biju Patnaik University of Technology, Orissa"
+    desc: ""
+  - 
+    title: "Indian Institute of Information Technology Allahabad"
+    desc: ""
+  - 
+    title: "Bharathiar University"
+    desc: ""
+  - 
+    title: "Punjab Technical University"
+    desc: ""
+  - 
+    title: "Guru Gobind Singh Indraprastha University"
+    desc: ""
+  - 
+    title: "Birla Institute of Technology"
+    desc: ""
+  - 
+    title: "Gandhi Institute of Technology and Management"
+    desc: ""
+  - 
+    title: "Bharathidasan University"
+    desc: ""
+  - 
+    title: "Gandhigram Rural University"
+    desc: ""
+  - 
+    title: "Thapar University"
+    desc: ""
+  - 
+    title: "Punjabi University"
+    desc: ""
+  - 
+    title: "National Law School of India University"
+    desc: ""
+  - 
+    title: "Shiv Nadar University"
+    desc: ""
+  - 
+    title: "Dhirubhai Ambani Institute of Information &amp; Communication Technology"
+    desc: ""
+  - 
+    title: "Alagappa University"
+    desc: ""
+  - 
+    title: "Shivaji University"
+    desc: ""
+  - 
+    title: "Jiwaji University"
+    desc: ""
+  - 
+    title: "The Maharaja Sayajirao University of Baroda"
+    desc: ""
+  - 
+    title: "University of Mysore"
+    desc: ""
+  - 
+    title: "Jawaharlal Nehru Technological University, Kakinada"
+    desc: ""
+  - 
+    title: "Visva Bharati University"
+    desc: ""
+  - 
+    title: "Acharya Nagarjuna University"
+    desc: ""
+  - 
+    title: "Maulana Azad National Institute of Technology"
+    desc: ""
+  - 
+    title: "Mahamaya Technical University"
+    desc: ""
+  - 
+    title: "University of Jammu"
+    desc: ""
+  - 
+    title: "North Eastern Hill University"
+    desc: ""
+  - 
+    title: "University of Lucknow"
+    desc: ""
+  - 
+    title: "Himachal Pradesh University"
+    desc: ""
+  - 
+    title: "KIIT University"
+    desc: ""
+  - 
+    title: "Post Graduate Institute of Medical Education and Research"
+    desc: ""
+  - 
+    title: "Indian Agricultural Research Institute"
+    desc: ""
+  - 
+    title: "Andhra University"
+    desc: ""
+  - 
+    title: "Guru Nanak Dev University"
+    desc: ""
+  - 
+    title: "National Institute of Mental Health and Neuro Sciences"
+    desc: ""
+  - 
+    title: "Indian Institute of Information Technology and Management Gwalior"
+    desc: ""
+  - 
+    title: "Bharati Vidyapeeth University"
+    desc: ""
+  - 
+    title: "University of Kashmir"
+    desc: ""
+  - 
+    title: "Chhatrapati Shahuji Maharaj University"
+    desc: ""
+  - 
+    title: "Goa University"
+    desc: ""
+  - 
+    title: "University of Allahabad"
+    desc: ""
+  - 
+    title: "Sant Gadge Baba Amravati University"
+    desc: ""
+  - 
+    title: "Karunya University"
+    desc: ""
+  - 
+    title: "Govind Ballabh Pant University of Agriculture &amp; Technology"
+    desc: ""
+  - 
+    title: "Rashtrasant Tukadoji Maharaj Nagpur University"
+    desc: ""
+  - 
+    title: "International Institute for Population Sciences"
+    desc: ""
+  - 
+    title: "Indraprastha Institute of Information Technology"
+    desc: ""
+  - 
+    title: "Indian Institute of Foreign Trade"
+    desc: ""
+  - 
+    title: "Jawaharlal Institute of Postgraduate Medical Education &amp; Research"
+    desc: ""
+  - 
+    title: "University of Burdwan"
+    desc: ""
+  - 
+    title: "North Maharashtra University"
+    desc: ""
+  - 
+    title: "Hindustan University"
+    desc: ""
+  - 
+    title: "CEPT University"
+    desc: ""
+  - 
+    title: "School of Planning and Architecture, Delhi"
+    desc: ""
+  - 
+    title: "Tezpur University"
+    desc: ""
+  - 
+    title: "TERI University"
+    desc: ""
+  - 
+    title: "Barkatullah University"
+    desc: ""
+  - 
+    title: "Sardar Patel University"
+    desc: ""
+  - 
+    title: "National Institute of Technology, Hamirpur"
+    desc: ""
+  - 
+    title: "Indian Institute of Space Science and Technology"
+    desc: ""
+  - 
+    title: "National Institute of Technology, Kurukshetra"
+    desc: ""
+  - 
+    title: "B.S. Abdur Rahman University"
+    desc: ""
+  - 
+    title: "Sri Venkateswara University"
+    desc: ""
+  - 
+    title: "Forest Research Institute"
+    desc: ""
+  - 
+    title: "Saurashtra University"
+    desc: ""
+  - 
+    title: "National Institute of Technology, Patna"
+    desc: ""
+  - 
+    title: "National Institute of Technology, Jamshedpur"
+    desc: ""
+  - 
+    title: "Gulbarga University"
+    desc: ""
+  - 
+    title: "Sharda University"
+    desc: ""
+  - 
+    title: "Rajiv Gandhi University"
+    desc: ""
+  - 
+    title: "Chaudhary Charan Singh University"
+    desc: ""
+  - 
+    title: "Central University of Rajasthan"
+    desc: ""
+  - 
+    title: "PEC University of Technology"
+    desc: ""
+  - 
+    title: "K L University"
+    desc: ""
+  - 
+    title: "Hemwati Nandan Bahuguna Garhwal University"
+    desc: ""
+  - 
+    title: "Deen Dayal Upadhyay Gorakhpur University"
+    desc: ""
+  - 
+    title: "University of Kalyani"
+    desc: ""
+  - 
+    title: "Assam University"
+    desc: ""
+  - 
+    title: "Sambalpur University"
+    desc: ""
+  - 
+    title: "Kerala Agricultural University"
+    desc: ""
+  - 
+    title: "Veer Surendra Sai University of Technology"
+    desc: ""
+  - 
+    title: "Mahatma Gandhi University"
+    desc: ""
+  - 
+    title: "Alliance University"
+    desc: ""
+  - 
+    title: "Vidyasagar University"
+    desc: ""
+  - 
+    title: "National Institute of Technology, Srinagar"
+    desc: ""
+  - 
+    title: "Kannur University"
+    desc: ""
+  - 
+    title: "Rajiv Gandhi University of Health Sciences"
+    desc: ""
+  - 
+    title: "University of North Bengal"
+    desc: ""
+  - 
+    title: "Maulana Azad National Urdu University"
+    desc: ""
+  - 
+    title: "Dr. B.R. Ambedkar University"
+    desc: ""
+  - 
+    title: "Dibrugarh University"
+    desc: ""
+  - 
+    title: "Nagaland University"
+    desc: ""
+  - 
+    title: "Symbiosis International University"
+    desc: ""
+  - 
+    title: "Pandit Deendayal Petroleum University"
+    desc: ""
+  - 
+    title: "Tripura University"
+    desc: ""
+  - 
+    title: "Mangalore University"
+    desc: ""
+  - 
+    title: "Tamil Nadu Dr. M.G.R.Medical University"
+    desc: ""
+  - 
+    title: "Sikkim Manipal University"
+    desc: ""
+  - 
+    title: "The WB National University of Juridical Sciences"
+    desc: ""
+  - 
+    title: "Indian Veterinary Research Institute"
+    desc: ""
+  - 
+    title: "West Bengal University of Technology"
+    desc: ""
+  - 
+    title: "University of Agricultural Sciences, Bangalore"
+    desc: ""
+  - 
+    title: "Chaudhary Charan Singh Haryana Agricultural University"
+    desc: ""
+  - 
+    title: "Chitkara University"
+    desc: ""
+  - 
+    title: "National Law University, Jodhpur"
+    desc: ""
+  - 
+    title: "National Institute of Pharmaceutical Education and Research"
+    desc: ""
+  - 
+    title: "Uttarakhand Technical University"
+    desc: ""
+  - 
+    title: "Dharmsinh Desai University"
+    desc: ""
+  - 
+    title: "Suresh Gyan Vihar University"
+    desc: ""
+  - 
+    title: "Tamil Nadu Dr Ambedkar Law University"
+    desc: ""
+  - 
+    title: "Azim Premji University"
+    desc: ""
+  - 
+    title: "Mohanlal Sukhadia University"
+    desc: ""
+  - 
+    title: "Gauhati University"
+    desc: ""
+  - 
+    title: "Nirma University of Science and Technology"
+    desc: ""
+  - 
+    title: "Madurai Kamaraj University"
+    desc: ""
+  - 
+    title: "Manonmaniam Sundaranar University"
+    desc: ""
+  - 
+    title: "Jaypee University of Information Technology"
+    desc: ""
+  - 
+    title: "Bangalore University"
+    desc: ""
+  - 
+    title: "Sree Chitra Thirunal Institute of Medical Sciences and Technology"
+    desc: ""
+  - 
+    title: "Mahatma Jyotiba Phule Rohilkhand University"
+    desc: ""
+  - 
+    title: "Swami Ramanand Teerth Marathwada University"
+    desc: ""
+  - 
+    title: "Bundelkhand University"
+    desc: ""
+  - 
+    title: "Guru Jambheshwar University of Science &amp; Technology"
+    desc: ""
+  - 
+    title: "Chhattisgarh Swami Vivekananda Technical University"
+    desc: ""
+  - 
+    title: "Karnataka State Law University"
+    desc: ""
+  - 
+    title: "Central University of Bihar"
+    desc: ""
+  - 
+    title: "Ganpat University"
+    desc: ""
+  - 
+    title: "Gujarat National Law University"
+    desc: ""
+  - 
+    title: "Pravara Institute of Medical Sciences"
+    desc: ""
+  - 
+    title: "Sathyabama University"
+    desc: ""
+  - 
+    title: "National Law University"
+    desc: ""
+  - 
+    title: "National Institute of Technology Raipur"
+    desc: ""
+  - 
+    title: "Baba Farid University of Health Sciences"
+    desc: ""
+  - 
+    title: "ITM University"
+    desc: ""
+  - 
+    title: "Apeejay Stya University"
+    desc: ""
+  - 
+    title: "Sri Ramachandra University"
+    desc: ""
+  - 
+    title: "NTR University of Health Sciences"
+    desc: ""
+  - 
+    title: "Pandit Ravishankar Shukla University"
+    desc: ""
+  - 
+    title: "The LNM Institute of Information Technology"
+    desc: ""
+  - 
+    title: "Manipur University"
+    desc: ""
+  - 
+    title: "Rabindra Bharati University"
+    desc: ""
+  - 
+    title: "Navsari Agricultural University"
+    desc: ""
+  - 
+    title: "Anand Agricultural University"
+    desc: ""
+  - 
+    title: "Jodhpur National University"
+    desc: ""
+  - 
+    title: "Sanjay Gandhi Post Graduate Institute of Medical Sciences"
+    desc: ""
+  - 
+    title: "Doon University"
+    desc: ""
+  - 
+    title: "Rajasthan University of Health Sciences"
+    desc: ""
+  - 
+    title: "Kuvempu University"
+    desc: ""
+  - 
+    title: "Dayalbagh Educational Institute"
+    desc: ""
+  - 
+    title: "Punjab Agricultural University"
+    desc: ""
+  - 
+    title: "Guru Angad Dev Veterinary and Animal Sciences University"
+    desc: ""
+  - 
+    title: "Jai Narain Vyas University"
+    desc: ""
+  - 
+    title: "Hemchandracharya North Gujarat University"
+    desc: ""
+  - 
+    title: "Shri Mata Vaishno Devi University"
+    desc: ""
+  - 
+    title: "Maharaja Ganga Singh University"
+    desc: ""
+  - 
+    title: "Dr. Ram Manohar Lohia Avadh University"
+    desc: ""
+  - 
+    title: "University of Solapur"
+    desc: ""
+  - 
+    title: "Maharashtra University of Health Sciences"
+    desc: ""
+  - 
+    title: "Ranchi University"
+    desc: ""
+  - 
+    title: "Integral University"
+    desc: ""
+  - 
+    title: "Dr. Babasaheb Ambedkar Marathwada University"
+    desc: ""
+  - 
+    title: "Central University of Jharkhand"
+    desc: ""
+  - 
+    title: "Central Institute of Fisheries Education"
+    desc: ""
+  - 
+    title: "NALSAR University of Law"
+    desc: ""
+  - 
+    title: "Tamil Nadu Teacher Education University"
+    desc: ""
+  - 
+    title: "University of Agricultural Sciences, Dharwad"
+    desc: ""
+  - 
+    title: "Central University of Himachal Pradesh"
+    desc: ""
+  - 
+    title: "Rashtriya Sanskrit Sansthan"
+    desc: ""
+  - 
+    title: "Veer Narmad South Gujarat University"
+    desc: ""
+  - 
+    title: "Presidency University"
+    desc: ""
+  - 
+    title: "Assam Agricultural University"
+    desc: ""
+  - 
+    title: "Dr. Y.S. Parmar University of Horticulture and Forestry"
+    desc: ""
+  - 
+    title: "University of Kota"
+    desc: ""
+  - 
+    title: "Dr. Hari Singh Gour University"
+    desc: ""
+  - 
+    title: "Rajendra Agricultural University"
+    desc: ""
+  - 
+    title: "Sri Venkateswara Institute of Medical Sciences"
+    desc: ""
+  - 
+    title: "Mahatma Gandhi Kashi Vidyapeeth"
+    desc: ""
+  - 
+    title: "Tamil Nadu Veterinary and Animal Sciences University"
+    desc: ""
+  - 
+    title: "National Law University, Orissa"
+    desc: ""
+  - 
+    title: "Shridhar University"
+    desc: ""
+  - 
+    title: "Karnataka Veterinary, Animal and Fisheries Sciences University"
+    desc: ""
+  - 
+    title: "Krishna University"
+    desc: ""
+  - 
+    title: "Veer Bahadur Singh Purvanchal University"
+    desc: ""
+  - 
+    title: "Gautam Buddha University"
+    desc: ""
+  - 
+    title: "Shreemati Nathibai Damodar Thackersey Women's University"
+    desc: ""
+  - 
+    title: "Galgotias University"
+    desc: ""
+  - 
+    title: "Central University of Tamil Nadu"
+    desc: ""
+  - 
+    title: "Mizoram University"
+    desc: ""
+  - 
+    title: "Nizam's Institute of Medical Sciences"
+    desc: ""
+  - 
+    title: "South Asian University"
+    desc: ""
+  - 
+    title: "Charotar University of Science &amp; Technology"
+    desc: ""
+  - 
+    title: "Patna University"
+    desc: ""
+  - 
+    title: "NITTE University"
+    desc: ""
+  - 
+    title: "Ravenshaw University"
+    desc: ""
+  - 
+    title: "Utkal University"
+    desc: ""
+  - 
+    title: "GLA University"
+    desc: ""
+  - 
+    title: "Maharaja Krishnakumarsinhji Bhavnagar University"
+    desc: ""
+  - 
+    title: "YMCA University of Science and Technology"
+    desc: ""
+  - 
+    title: "National Law Institute University"
+    desc: ""
+  - 
+    title: "Babasaheb Bhimrao Ambedkar University"
+    desc: ""
+  - 
+    title: "Institute of Chemical Technology"
+    desc: ""
+  - 
+    title: "Ahmedabad University"
+    desc: ""
+  - 
+    title: "Bharat Ratna Dr. B.R. Ambedkar University"
+    desc: ""
+  - 
+    title: "Manav Bharti University"
+    desc: ""
+  - 
+    title: "Indian Institute of Information Technology, Design and Manufacturing"
+    desc: ""
+  - 
+    title: "Central University of Haryana"
+    desc: ""
+  - 
+    title: "University of Gour Banga"
+    desc: ""
+  - 
+    title: "Acharya N.G. Ranga Agricultural University"
+    desc: ""
+  - 
+    title: "Sam Higginbottom Institute of Agriculture, Technology and Sciences"
+    desc: ""
+  - 
+    title: "Dr. Ram Manohar Lohiya National Law University"
+    desc: ""
+  - 
+    title: "Indira Gandhi National Tribal University"
+    desc: ""
+  - 
+    title: "Junagadh Agricultural University"
+    desc: ""
+  - 
+    title: "University of Technology &amp; Management"
+    desc: ""
+  - 
+    title: "Jaypee University of Engineering &amp; Technology"
+    desc: ""
+  - 
+    title: "EIILM University"
+    desc: ""
+  - 
+    title: "Mewar University"
+    desc: ""
+  - 
+    title: "NIMS University"
+    desc: ""
+  - 
+    title: "Awadhesh Pratap Singh University"
+    desc: ""
+  - 
+    title: "Shri Lal Bahadur Shastri Rashtriya Sanskrit Vidyapeetha"
+    desc: ""
+  - 
+    title: "Deenbandhu Chhotu Ram University of Science and Technology"
+    desc: ""
+  - 
+    title: "O.P. Jindal Global University"
+    desc: ""
+  - 
+    title: "Hidayatullah National Law University"
+    desc: ""
+  - 
+    title: "Kerala Veterinary and Animal Sciences University"
+    desc: ""
+  - 
+    title: "Ramakrishna Mission Vivekananda University"
+    desc: ""
+  - 
+    title: "Tamil University"
+    desc: ""
+  - 
+    title: "The National University of Advanced Legal Studies"
+    desc: ""
+  - 
+    title: "KLE University"
+    desc: ""
+  - 
+    title: "Central University of Gujarat"
+    desc: ""
+  - 
+    title: "Magadh University"
+    desc: ""
+  - 
+    title: "Orissa University of Agriculture and Technology"
+    desc: ""
+  - 
+    title: "Sri Krishnadevaraya University"
+    desc: ""
+  - 
+    title: "Jawaharlal Nehru Technological University, Anantapur"
+    desc: ""
+  - 
+    title: "Teerthanker Mahaveer University"
+    desc: ""
+  - 
+    title: "Assam Don Bosco University"
+    desc: ""
+  - 
+    title: "Avinashilingam University"
+    desc: ""
+  - 
+    title: "Central University of Orissa"
+    desc: ""
+  - 
+    title: "Yogi Vemana University"
+    desc: ""
+  - 
+    title: "Maharshi Dayanand Saraswati University"
+    desc: ""
+  - 
+    title: "Kakatiya University"
+    desc: ""
+  - 
+    title: "Central University of Kerala"
+    desc: ""
+  - 
+    title: "Vinoba Bhave University"
+    desc: ""
+  - 
+    title: "Marathwada Agricultural University"
+    desc: ""
+  - 
+    title: "West Bengal University of Health Sciences"
+    desc: ""
+  - 
+    title: "Indian Maritime University"
+    desc: ""
+  - 
+    title: "Central University of Karnataka"
+    desc: ""
+  - 
+    title: "Periyar Maniammai University"
+    desc: ""
+  - 
+    title: "Sir Padampat Singhania University"
+    desc: ""
+  - 
+    title: "Central University of Kashmir"
+    desc: ""
+  - 
+    title: "Mother Teresa Women's University"
+    desc: ""
+  - 
+    title: "Chanakya National Law University"
+    desc: ""
+  - 
+    title: "Kannada University"
+    desc: ""
+  - 
+    title: "Bhagwant University"
+    desc: ""
+  - 
+    title: "Subharti University"
+    desc: ""
+  - 
+    title: "Kerala University of Health Sciences"
+    desc: ""
+  - 
+    title: "North Eastern Regional Institute of Science and Technology"
+    desc: ""
+  - 
+    title: "Maharana Pratap University of Agriculture and Technology"
+    desc: ""
+  - 
+    title: "West Bengal State University"
+    desc: ""
+  - 
+    title: "The English and Foreign Languages University"
+    desc: ""
+  - 
+    title: "Utkal University of Culture"
+    desc: ""
+  - 
+    title: "Rajasthan Agricultural University"
+    desc: ""
+  - 
+    title: "ICFAI University, Tripura"
+    desc: ""
+  - 
+    title: "Invertis University"
+    desc: ""
+  - 
+    title: "Potti Sreeramulu Telugu University"
+    desc: ""
+  - 
+    title: "Dr K.N. Modi University"
+    desc: ""
+  - 
+    title: "Kavikulguru Kalidas Sanskrit University"
+    desc: ""
+  - 
+    title: "Sikkim University"
+    desc: ""
+  - 
+    title: "Deccan College Post-Graduate and Research Institute"
+    desc: ""
+  - 
+    title: "Tamil Nadu Physical Education and Sports University"
+    desc: ""
+  - 
+    title: "National Institute of Pharmaceutical Education and Research, Hyderabad"
+    desc: ""
+  - 
+    title: "Pt. B. D. Sharma University of Health Sciences"
+    desc: ""
+  - 
+    title: "Baddi University of Emerging Sciences and Technologies"
+    desc: ""
+  - 
+    title: "Vikrama Simhapuri University"
+    desc: ""
+  - 
+    title: "Satavahana University"
+    desc: ""
+  - 
+    title: "Dravidian University"
+    desc: ""
+  - 
+    title: "MGM Institute of Health Sciences"
+    desc: ""
+  - 
+    title: "Dr. C.V. Raman University"
+    desc: ""
+  - 
+    title: "National University of Study and Research in Law"
+    desc: ""
+  - 
+    title: "Jagan Nath University"
+    desc: ""
+  - 
+    title: "Central Agricultural University"
+    desc: ""
+  - 
+    title: "National Dairy Research Institute"
+    desc: ""
+  - 
+    title: "Maharashtra Animal and Fishery Sciences University"
+    desc: ""
+  - 
+    title: "B.R. Ambedkar Bihar University"
+    desc: ""
+  - 
+    title: "Calorx Teachers' University"
+    desc: ""
+  - 
+    title: "Krantiguru Shyamji Krishna Verma Kachchh University"
+    desc: ""
+  - 
+    title: "Aliah University"
+    desc: ""
+  - 
+    title: "Mahatma Gandhi University"
+    desc: ""
+  - 
+    title: "Thiruvalluvar University"
+    desc: ""
+  - 
+    title: "Centurion University of Technology and Management"
+    desc: ""
+  - 
+    title: "Rajiv Gandhi National University of Law"
+    desc: ""
+  - 
+    title: "Gujarat Ayurved University"
+    desc: ""
+  - 
+    title: "Jagadguru Ramanandacharya Rajasthan Sanskrit University"
+    desc: ""
+  - 
+    title: "Pacific University"
+    desc: ""
+  - 
+    title: "Sardar Vallabhbhai Patel University of Agriculture and Technology"
+    desc: ""
+  - 
+    title: "Jain Vishva Bharati University"
+    desc: ""
+  - 
+    title: "Sher-e-Kashmir University of Agricultural Sciences and Technology of Kashmir"
+    desc: ""
+  - 
+    title: "Telangana University"
+    desc: ""
+  - 
+    title: "North Orissa University"
+    desc: ""
+  - 
+    title: "Jawaharlal Nehru Architecture and Fine Arts University"
+    desc: ""
+  - 
+    title: "Gokhale Institute of Politics and Economics"
+    desc: ""
+  - 
+    title: "Vikram University"
+    desc: ""
+  - 
+    title: "Rajasthan Ayurved University"
+    desc: ""
+  - 
+    title: "Dr. B.R. Ambedkar University"
+    desc: ""
+  - 
+    title: "Lakshmibai National Institute of Physical Education"
+    desc: ""
+  - 
+    title: "Rayalaseema University"
+    desc: ""
+  - 
+    title: "Homi Bhabha National Institute"
+    desc: ""
+  - 
+    title: "CSK Himachal Pradesh Agricultural University"
+    desc: ""
+  - 
+    title: "Dr. Shakuntala Misra Rehabilitation University"
+    desc: ""
+  - 
+    title: "Mangalayatan University"
+    desc: ""
+  - 
+    title: "Chaudhary Devi Lal University"
+    desc: ""
+  - 
+    title: "Sri Chandrasekharendra Saraswathi Viswa Mahavidyalaya"
+    desc: ""
+  - 
+    title: "Singhania University"
+    desc: ""
+  - 
+    title: "MATS University"
+    desc: ""
+  - 
+    title: "Indira Gandhi Agricultural University"
+    desc: ""
+  - 
+    title: "Berhampur University"
+    desc: ""
+  - 
+    title: "University of Hyderabad"
+    desc: ""
+  - 
+    title: "Sarguja University"
+    desc: ""
+  - 
+    title: "Sri Guru Granth Sahib World University"
+    desc: ""
+  - 
+    title: "Himgiri ZEE University"
+    desc: ""
+  - 
+    title: "Central University of Tibetan Studies"
+    desc: ""
+  - 
+    title: "Adikavi Nannaya University"
+    desc: ""
+  - 
+    title: "Gujarat Forensic Sciences University"
+    desc: ""
+  - 
+    title: "Tilka Manjhi Bhagalpur University"
+    desc: ""
+  - 
+    title: "West Bengal University of Animal and Fishery Sciences"
+    desc: ""
+  - 
+    title: "JSS University"
+    desc: ""
+  - 
+    title: "Sri Venkateswara Veterinary University"
+    desc: ""
+  - 
+    title: "Baba Ghulam Shah Badhshah University"
+    desc: ""
+  - 
+    title: "ICFAI University, Dehradun"
+    desc: ""
+  - 
+    title: "IFHE Hyderabad"
+    desc: ""
+  - 
+    title: "Babu Banarasi Das University"
+    desc: ""
+  - 
+    title: "Sri Venkateswara Vedic University"
+    desc: ""
+  - 
+    title: "Nilamber-Pitamber University"
+    desc: ""
+  - 
+    title: "Palamuru University"
+    desc: ""
+  - 
+    title: "Birsa Agricultural University"
+    desc: ""
+  - 
+    title: "Mahatma Jyoti Rao Phoole University"
+    desc: ""
+  - 
+    title: "Jayoti Vidyapeeth Women's University"
+    desc: ""
+  - 
+    title: "Kolhan University"
+    desc: ""
+  - 
+    title: "Tumkur University"
+    desc: ""
+  - 
+    title: "Karnatak University"
+    desc: ""
+  - 
+    title: "Aryabhatta Knowledge University"
+    desc: ""
+  - 
+    title: "Sardarkrushinagar Dantiwada Agricultural University"
+    desc: ""
+  - 
+    title: "Kumaun University"
+    desc: ""
+  - 
+    title: "Raffles University"
+    desc: ""
+  - 
+    title: "Sree Sankaracharya University of Sanskrit"
+    desc: ""
+  - 
+    title: "Central University of Punjab"
+    desc: ""
+  - 
+    title: "Arni University"
+    desc: ""
+  - 
+    title: "Datta Meghe Institute of Medical Sciences"
+    desc: ""
+  - 
+    title: "Martin Luther Christian University"
+    desc: ""
+  - 
+    title: "ICFAI University, Jharkhand"
+    desc: ""
+  - 
+    title: "Kerala University of Fisheries and Ocean Studies"
+    desc: ""
+  - 
+    title: "Shree Somnath Sanskrit University"
+    desc: ""
+  - 
+    title: "University of Science and Technology, Meghalaya"
+    desc: ""
+  - 
+    title: "Islamic University of Science and Technology"
+    desc: ""
+  - 
+    title: "Jagdishprasad Jhabarmal Tibrewala University"
+    desc: ""
+  - 
+    title: "Ayush and Health Sciences University of Chhattisgarh"
+    desc: ""
+  - 
+    title: "Chandra Shekhar Azad University of Agriculture &amp; Technology"
+    desc: ""
+  - 
+    title: "Vinayaka Missions Sikkim University"
+    desc: ""
+  - 
+    title: "Noida International University"
+    desc: ""
+  - 
+    title: "Vel Tech Dr.RR &amp; Dr.SR Technical University"
+    desc: ""
+  - 
+    title: "Indus International University"
+    desc: ""
+  - 
+    title: "SunRise University"
+    desc: ""
+  - 
+    title: "Maharishi University of Management and Technology"
+    desc: ""
+  - 
+    title: "Eternal University"
+    desc: ""
+  - 
+    title: "IFTM University"
+    desc: ""
+  - 
+    title: "Vijayanagara Sri Krishnadevaraya University"
+    desc: ""
+  - 
+    title: "Bhupendra Narayan Mandal University"
+    desc: ""
+  - 
+    title: "The Indian Law Institute"
+    desc: ""
+  - 
+    title: "Damodaram Sanjivayya National Law University"
+    desc: ""
+  - 
+    title: "Kameshwar Singh Darbhanga Sanskrit University"
+    desc: ""
+  - 
+    title: "Shoolini University of Biotechnology and Management Sciences"
+    desc: ""
+  - 
+    title: "Karnataka State Women's University"
+    desc: ""
+  - 
+    title: "BAHRA University"
+    desc: ""
+  - 
+    title: "Lalit Narayan Mithila University"
+    desc: ""
+  - 
+    title: "Bhatkhande Music Institute"
+    desc: ""
+  - 
+    title: "Sidho Kanho Birsha University"
+    desc: ""
+  - 
+    title: "Fakir Mohan University"
+    desc: ""
+  - 
+    title: "Chhatrapati Shahuji Maharaj Medical University"
+    desc: ""
+  - 
+    title: "National Institute of Pharmaceutical Education and Research, Guwahati"
+    desc: ""
+  - 
+    title: "National Institute of Pharmaceutical Education and Research, Hajipur"
+    desc: ""
+  - 
+    title: "National Institute of Pharmaceutical Education and Research, Rae Bareli"
+    desc: ""
+  - 
+    title: "Veer Kunwar Singh University"
+    desc: ""
+  - 
+    title: "Rani Channamma University"
+    desc: ""
+  - 
+    title: "Shri Venkateshwara University"
+    desc: ""
+  - 
+    title: "Sri Sai University"
+    desc: ""
+  - 
+    title: "Maulana Mazharul Haque Arabic and Persian University"
+    desc: ""
+  - 
+    title: "Narendra Dev University of Agriculture and Technology"
+    desc: ""
+  - 
+    title: "Davangere University"
+    desc: ""
+  - 
+    title: "Mohammad Ali Jauhar University"
+    desc: ""
+  - 
+    title: "Uttaranchal Sanskrit University"
+    desc: ""
+  - 
+    title: "Shri Guru Ram Rai Education Mission"
+    desc: ""
+  - 
+    title: "Dr. Babasaheb Ambedkar Technological University"
+    desc: ""
+  - 
+    title: "Sido Kanhu Murmu University"
+    desc: ""
+
 graduation:
   -
     title: ""
@@ -2521,9 +7011,1432 @@ post_grad:
     title: ""
     desc: ""
 post_grad_college:
-  -
-    title: ""
+  - 
+    title: "Indian Institute of Technology Bombay"
     desc: ""
+  - 
+    title: "Indian Institute of Technology Madras"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Kharagpur"
+    desc: ""
+  - 
+    title: "University of Delhi"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Delhi"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Kanpur"
+    desc: ""
+  - 
+    title: "Anna University"
+    desc: ""
+  - 
+    title: "Manipal University"
+    desc: ""
+  - 
+    title: "National Institute of Technology Calicut"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Roorkee"
+    desc: ""
+  - 
+    title: "Indian Institute of Science"
+    desc: ""
+  - 
+    title: "National Institute of Technology, Rourkela"
+    desc: ""
+  - 
+    title: "National Institute of Technology Karnataka"
+    desc: ""
+  - 
+    title: "National Institute of Technology, Tiruchirappalli"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Guwahati"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Gandhinagar"
+    desc: ""
+  - 
+    title: "Malaviya National Institute of Technology, Jaipur"
+    desc: ""
+  - 
+    title: "VIT University"
+    desc: ""
+  - 
+    title: "National Institute of Technology, Warangal"
+    desc: ""
+  - 
+    title: "National Institute of Technology, Durgapur"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Hyderabad"
+    desc: ""
+  - 
+    title: "Bengal Engineering and Science University"
+    desc: ""
+  - 
+    title: "Motilal Nehru National Institute of Technology"
+    desc: ""
+  - 
+    title: "Delhi Technological University"
+    desc: ""
+  - 
+    title: "University of Pune"
+    desc: ""
+  - 
+    title: "Sardar Vallabhbhai National Institute of Technology, Surat"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Bhubaneswar"
+    desc: ""
+  - 
+    title: "National Institute of Technology, Silchar"
+    desc: ""
+  - 
+    title: "Indian School of Mines"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Indore"
+    desc: ""
+  - 
+    title: "PDPM Indian Institute of Information Technology, Design &amp; Manufacturing"
+    desc: ""
+  - 
+    title: "National Institute of Technology, Agartala"
+    desc: ""
+  - 
+    title: "Visvesvaraya National Institute of Technology"
+    desc: ""
+  - 
+    title: "Jadavpur University"
+    desc: ""
+  - 
+    title: "Delhi Technological University"
+    desc: ""
+  - 
+    title: "University of Mumbai"
+    desc: ""
+  - 
+    title: "Netaji Subhas Institute of Technology"
+    desc: ""
+  - 
+    title: "Sant Longowal Institute of Engineering and Technology"
+    desc: ""
+  - 
+    title: "Panjab University"
+    desc: ""
+  - 
+    title: "Jawaharlal Nehru University"
+    desc: ""
+  - 
+    title: "Tata Institute of Social Sciences"
+    desc: ""
+  - 
+    title: "Birla Institute of Technology and Science"
+    desc: ""
+  - 
+    title: "Visvesvaraya Technological University"
+    desc: ""
+  - 
+    title: "International Institute of Information Technology, Hyderabad"
+    desc: ""
+  - 
+    title: "Amity University"
+    desc: ""
+  - 
+    title: "SRM University"
+    desc: ""
+  - 
+    title: "Osmania University"
+    desc: ""
+  - 
+    title: "Gujarat Technological University"
+    desc: ""
+  - 
+    title: "Lovely Professional University"
+    desc: ""
+  - 
+    title: "Jaipur National University"
+    desc: ""
+  - 
+    title: "Jawaharlal Nehru Centre for Advanced Scientific Research"
+    desc: ""
+  - 
+    title: "Banaras Hindu University"
+    desc: ""
+  - 
+    title: "University of Madras"
+    desc: ""
+  - 
+    title: "Indian Statistical Institute"
+    desc: ""
+  - 
+    title: "University of Calcutta"
+    desc: ""
+  - 
+    title: "National Institute of Design"
+    desc: ""
+  - 
+    title: "Kurukshetra University"
+    desc: ""
+  - 
+    title: "University of Rajasthan"
+    desc: ""
+  - 
+    title: "Cochin University of Science and Technology"
+    desc: ""
+  - 
+    title: "Tata Institute of Fundamental Research"
+    desc: ""
+  - 
+    title: "All India Institute of Medical Sciences"
+    desc: ""
+  - 
+    title: "Narsee Monjee Institute of Management and Higher Studies"
+    desc: ""
+  - 
+    title: "Indira Gandhi Institute of Development Research"
+    desc: ""
+  - 
+    title: "Rajasthan Technical University Kota"
+    desc: ""
+  - 
+    title: "University of Calicut"
+    desc: ""
+  - 
+    title: "Annamalai University"
+    desc: ""
+  - 
+    title: "Pondicherry University"
+    desc: ""
+  - 
+    title: "International Institute of Information Technology Bangalore"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Ropar"
+    desc: ""
+  - 
+    title: "SASTRA University"
+    desc: ""
+  - 
+    title: "Maharishi Dayanand University"
+    desc: ""
+  - 
+    title: "Jawaharlal Nehru Technological University"
+    desc: ""
+  - 
+    title: "Chennai Mathematical Institute"
+    desc: ""
+  - 
+    title: "Uttar Pradesh Technical University"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Mandi"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Patna"
+    desc: ""
+  - 
+    title: "Tamil Nadu Agricultural University"
+    desc: ""
+  - 
+    title: "Mahatma Gandhi University"
+    desc: ""
+  - 
+    title: "National University of Educational Planning and Administration"
+    desc: ""
+  - 
+    title: "University of Petroleum and Energy Studies"
+    desc: ""
+  - 
+    title: "Indian Institute of Technology Jodhpur"
+    desc: ""
+  - 
+    title: "Aligarh Muslim University"
+    desc: ""
+  - 
+    title: "University of Kerala"
+    desc: ""
+  - 
+    title: "National Institute of Fashion Technology"
+    desc: ""
+  - 
+    title: "Gujarat University"
+    desc: ""
+  - 
+    title: "Biju Patnaik University of Technology, Orissa"
+    desc: ""
+  - 
+    title: "Indian Institute of Information Technology Allahabad"
+    desc: ""
+  - 
+    title: "Bharathiar University"
+    desc: ""
+  - 
+    title: "Punjab Technical University"
+    desc: ""
+  - 
+    title: "Guru Gobind Singh Indraprastha University"
+    desc: ""
+  - 
+    title: "Birla Institute of Technology"
+    desc: ""
+  - 
+    title: "Gandhi Institute of Technology and Management"
+    desc: ""
+  - 
+    title: "Bharathidasan University"
+    desc: ""
+  - 
+    title: "Gandhigram Rural University"
+    desc: ""
+  - 
+    title: "Thapar University"
+    desc: ""
+  - 
+    title: "Punjabi University"
+    desc: ""
+  - 
+    title: "National Law School of India University"
+    desc: ""
+  - 
+    title: "Shiv Nadar University"
+    desc: ""
+  - 
+    title: "Dhirubhai Ambani Institute of Information &amp; Communication Technology"
+    desc: ""
+  - 
+    title: "Alagappa University"
+    desc: ""
+  - 
+    title: "Shivaji University"
+    desc: ""
+  - 
+    title: "Jiwaji University"
+    desc: ""
+  - 
+    title: "The Maharaja Sayajirao University of Baroda"
+    desc: ""
+  - 
+    title: "University of Mysore"
+    desc: ""
+  - 
+    title: "Jawaharlal Nehru Technological University, Kakinada"
+    desc: ""
+  - 
+    title: "Visva Bharati University"
+    desc: ""
+  - 
+    title: "Acharya Nagarjuna University"
+    desc: ""
+  - 
+    title: "Maulana Azad National Institute of Technology"
+    desc: ""
+  - 
+    title: "Mahamaya Technical University"
+    desc: ""
+  - 
+    title: "University of Jammu"
+    desc: ""
+  - 
+    title: "North Eastern Hill University"
+    desc: ""
+  - 
+    title: "University of Lucknow"
+    desc: ""
+  - 
+    title: "Himachal Pradesh University"
+    desc: ""
+  - 
+    title: "KIIT University"
+    desc: ""
+  - 
+    title: "Post Graduate Institute of Medical Education and Research"
+    desc: ""
+  - 
+    title: "Indian Agricultural Research Institute"
+    desc: ""
+  - 
+    title: "Andhra University"
+    desc: ""
+  - 
+    title: "Guru Nanak Dev University"
+    desc: ""
+  - 
+    title: "National Institute of Mental Health and Neuro Sciences"
+    desc: ""
+  - 
+    title: "Indian Institute of Information Technology and Management Gwalior"
+    desc: ""
+  - 
+    title: "Bharati Vidyapeeth University"
+    desc: ""
+  - 
+    title: "University of Kashmir"
+    desc: ""
+  - 
+    title: "Chhatrapati Shahuji Maharaj University"
+    desc: ""
+  - 
+    title: "Goa University"
+    desc: ""
+  - 
+    title: "University of Allahabad"
+    desc: ""
+  - 
+    title: "Sant Gadge Baba Amravati University"
+    desc: ""
+  - 
+    title: "Karunya University"
+    desc: ""
+  - 
+    title: "Govind Ballabh Pant University of Agriculture &amp; Technology"
+    desc: ""
+  - 
+    title: "Rashtrasant Tukadoji Maharaj Nagpur University"
+    desc: ""
+  - 
+    title: "International Institute for Population Sciences"
+    desc: ""
+  - 
+    title: "Indraprastha Institute of Information Technology"
+    desc: ""
+  - 
+    title: "Indian Institute of Foreign Trade"
+    desc: ""
+  - 
+    title: "Jawaharlal Institute of Postgraduate Medical Education &amp; Research"
+    desc: ""
+  - 
+    title: "University of Burdwan"
+    desc: ""
+  - 
+    title: "North Maharashtra University"
+    desc: ""
+  - 
+    title: "Hindustan University"
+    desc: ""
+  - 
+    title: "CEPT University"
+    desc: ""
+  - 
+    title: "School of Planning and Architecture, Delhi"
+    desc: ""
+  - 
+    title: "Tezpur University"
+    desc: ""
+  - 
+    title: "TERI University"
+    desc: ""
+  - 
+    title: "Barkatullah University"
+    desc: ""
+  - 
+    title: "Sardar Patel University"
+    desc: ""
+  - 
+    title: "National Institute of Technology, Hamirpur"
+    desc: ""
+  - 
+    title: "Indian Institute of Space Science and Technology"
+    desc: ""
+  - 
+    title: "National Institute of Technology, Kurukshetra"
+    desc: ""
+  - 
+    title: "B.S. Abdur Rahman University"
+    desc: ""
+  - 
+    title: "Sri Venkateswara University"
+    desc: ""
+  - 
+    title: "Forest Research Institute"
+    desc: ""
+  - 
+    title: "Saurashtra University"
+    desc: ""
+  - 
+    title: "National Institute of Technology, Patna"
+    desc: ""
+  - 
+    title: "National Institute of Technology, Jamshedpur"
+    desc: ""
+  - 
+    title: "Gulbarga University"
+    desc: ""
+  - 
+    title: "Sharda University"
+    desc: ""
+  - 
+    title: "Rajiv Gandhi University"
+    desc: ""
+  - 
+    title: "Chaudhary Charan Singh University"
+    desc: ""
+  - 
+    title: "Central University of Rajasthan"
+    desc: ""
+  - 
+    title: "PEC University of Technology"
+    desc: ""
+  - 
+    title: "K L University"
+    desc: ""
+  - 
+    title: "Hemwati Nandan Bahuguna Garhwal University"
+    desc: ""
+  - 
+    title: "Deen Dayal Upadhyay Gorakhpur University"
+    desc: ""
+  - 
+    title: "University of Kalyani"
+    desc: ""
+  - 
+    title: "Assam University"
+    desc: ""
+  - 
+    title: "Sambalpur University"
+    desc: ""
+  - 
+    title: "Kerala Agricultural University"
+    desc: ""
+  - 
+    title: "Veer Surendra Sai University of Technology"
+    desc: ""
+  - 
+    title: "Mahatma Gandhi University"
+    desc: ""
+  - 
+    title: "Alliance University"
+    desc: ""
+  - 
+    title: "Vidyasagar University"
+    desc: ""
+  - 
+    title: "National Institute of Technology, Srinagar"
+    desc: ""
+  - 
+    title: "Kannur University"
+    desc: ""
+  - 
+    title: "Rajiv Gandhi University of Health Sciences"
+    desc: ""
+  - 
+    title: "University of North Bengal"
+    desc: ""
+  - 
+    title: "Maulana Azad National Urdu University"
+    desc: ""
+  - 
+    title: "Dr. B.R. Ambedkar University"
+    desc: ""
+  - 
+    title: "Dibrugarh University"
+    desc: ""
+  - 
+    title: "Nagaland University"
+    desc: ""
+  - 
+    title: "Symbiosis International University"
+    desc: ""
+  - 
+    title: "Pandit Deendayal Petroleum University"
+    desc: ""
+  - 
+    title: "Tripura University"
+    desc: ""
+  - 
+    title: "Mangalore University"
+    desc: ""
+  - 
+    title: "Tamil Nadu Dr. M.G.R.Medical University"
+    desc: ""
+  - 
+    title: "Sikkim Manipal University"
+    desc: ""
+  - 
+    title: "The WB National University of Juridical Sciences"
+    desc: ""
+  - 
+    title: "Indian Veterinary Research Institute"
+    desc: ""
+  - 
+    title: "West Bengal University of Technology"
+    desc: ""
+  - 
+    title: "University of Agricultural Sciences, Bangalore"
+    desc: ""
+  - 
+    title: "Chaudhary Charan Singh Haryana Agricultural University"
+    desc: ""
+  - 
+    title: "Chitkara University"
+    desc: ""
+  - 
+    title: "National Law University, Jodhpur"
+    desc: ""
+  - 
+    title: "National Institute of Pharmaceutical Education and Research"
+    desc: ""
+  - 
+    title: "Uttarakhand Technical University"
+    desc: ""
+  - 
+    title: "Dharmsinh Desai University"
+    desc: ""
+  - 
+    title: "Suresh Gyan Vihar University"
+    desc: ""
+  - 
+    title: "Tamil Nadu Dr Ambedkar Law University"
+    desc: ""
+  - 
+    title: "Azim Premji University"
+    desc: ""
+  - 
+    title: "Mohanlal Sukhadia University"
+    desc: ""
+  - 
+    title: "Gauhati University"
+    desc: ""
+  - 
+    title: "Nirma University of Science and Technology"
+    desc: ""
+  - 
+    title: "Madurai Kamaraj University"
+    desc: ""
+  - 
+    title: "Manonmaniam Sundaranar University"
+    desc: ""
+  - 
+    title: "Jaypee University of Information Technology"
+    desc: ""
+  - 
+    title: "Bangalore University"
+    desc: ""
+  - 
+    title: "Sree Chitra Thirunal Institute of Medical Sciences and Technology"
+    desc: ""
+  - 
+    title: "Mahatma Jyotiba Phule Rohilkhand University"
+    desc: ""
+  - 
+    title: "Swami Ramanand Teerth Marathwada University"
+    desc: ""
+  - 
+    title: "Bundelkhand University"
+    desc: ""
+  - 
+    title: "Guru Jambheshwar University of Science &amp; Technology"
+    desc: ""
+  - 
+    title: "Chhattisgarh Swami Vivekananda Technical University"
+    desc: ""
+  - 
+    title: "Karnataka State Law University"
+    desc: ""
+  - 
+    title: "Central University of Bihar"
+    desc: ""
+  - 
+    title: "Ganpat University"
+    desc: ""
+  - 
+    title: "Gujarat National Law University"
+    desc: ""
+  - 
+    title: "Pravara Institute of Medical Sciences"
+    desc: ""
+  - 
+    title: "Sathyabama University"
+    desc: ""
+  - 
+    title: "National Law University"
+    desc: ""
+  - 
+    title: "National Institute of Technology Raipur"
+    desc: ""
+  - 
+    title: "Baba Farid University of Health Sciences"
+    desc: ""
+  - 
+    title: "ITM University"
+    desc: ""
+  - 
+    title: "Apeejay Stya University"
+    desc: ""
+  - 
+    title: "Sri Ramachandra University"
+    desc: ""
+  - 
+    title: "NTR University of Health Sciences"
+    desc: ""
+  - 
+    title: "Pandit Ravishankar Shukla University"
+    desc: ""
+  - 
+    title: "The LNM Institute of Information Technology"
+    desc: ""
+  - 
+    title: "Manipur University"
+    desc: ""
+  - 
+    title: "Rabindra Bharati University"
+    desc: ""
+  - 
+    title: "Navsari Agricultural University"
+    desc: ""
+  - 
+    title: "Anand Agricultural University"
+    desc: ""
+  - 
+    title: "Jodhpur National University"
+    desc: ""
+  - 
+    title: "Sanjay Gandhi Post Graduate Institute of Medical Sciences"
+    desc: ""
+  - 
+    title: "Doon University"
+    desc: ""
+  - 
+    title: "Rajasthan University of Health Sciences"
+    desc: ""
+  - 
+    title: "Kuvempu University"
+    desc: ""
+  - 
+    title: "Dayalbagh Educational Institute"
+    desc: ""
+  - 
+    title: "Punjab Agricultural University"
+    desc: ""
+  - 
+    title: "Guru Angad Dev Veterinary and Animal Sciences University"
+    desc: ""
+  - 
+    title: "Jai Narain Vyas University"
+    desc: ""
+  - 
+    title: "Hemchandracharya North Gujarat University"
+    desc: ""
+  - 
+    title: "Shri Mata Vaishno Devi University"
+    desc: ""
+  - 
+    title: "Maharaja Ganga Singh University"
+    desc: ""
+  - 
+    title: "Dr. Ram Manohar Lohia Avadh University"
+    desc: ""
+  - 
+    title: "University of Solapur"
+    desc: ""
+  - 
+    title: "Maharashtra University of Health Sciences"
+    desc: ""
+  - 
+    title: "Ranchi University"
+    desc: ""
+  - 
+    title: "Integral University"
+    desc: ""
+  - 
+    title: "Dr. Babasaheb Ambedkar Marathwada University"
+    desc: ""
+  - 
+    title: "Central University of Jharkhand"
+    desc: ""
+  - 
+    title: "Central Institute of Fisheries Education"
+    desc: ""
+  - 
+    title: "NALSAR University of Law"
+    desc: ""
+  - 
+    title: "Tamil Nadu Teacher Education University"
+    desc: ""
+  - 
+    title: "University of Agricultural Sciences, Dharwad"
+    desc: ""
+  - 
+    title: "Central University of Himachal Pradesh"
+    desc: ""
+  - 
+    title: "Rashtriya Sanskrit Sansthan"
+    desc: ""
+  - 
+    title: "Veer Narmad South Gujarat University"
+    desc: ""
+  - 
+    title: "Presidency University"
+    desc: ""
+  - 
+    title: "Assam Agricultural University"
+    desc: ""
+  - 
+    title: "Dr. Y.S. Parmar University of Horticulture and Forestry"
+    desc: ""
+  - 
+    title: "University of Kota"
+    desc: ""
+  - 
+    title: "Dr. Hari Singh Gour University"
+    desc: ""
+  - 
+    title: "Rajendra Agricultural University"
+    desc: ""
+  - 
+    title: "Sri Venkateswara Institute of Medical Sciences"
+    desc: ""
+  - 
+    title: "Mahatma Gandhi Kashi Vidyapeeth"
+    desc: ""
+  - 
+    title: "Tamil Nadu Veterinary and Animal Sciences University"
+    desc: ""
+  - 
+    title: "National Law University, Orissa"
+    desc: ""
+  - 
+    title: "Shridhar University"
+    desc: ""
+  - 
+    title: "Karnataka Veterinary, Animal and Fisheries Sciences University"
+    desc: ""
+  - 
+    title: "Krishna University"
+    desc: ""
+  - 
+    title: "Veer Bahadur Singh Purvanchal University"
+    desc: ""
+  - 
+    title: "Gautam Buddha University"
+    desc: ""
+  - 
+    title: "Shreemati Nathibai Damodar Thackersey Women's University"
+    desc: ""
+  - 
+    title: "Galgotias University"
+    desc: ""
+  - 
+    title: "Central University of Tamil Nadu"
+    desc: ""
+  - 
+    title: "Mizoram University"
+    desc: ""
+  - 
+    title: "Nizam's Institute of Medical Sciences"
+    desc: ""
+  - 
+    title: "South Asian University"
+    desc: ""
+  - 
+    title: "Charotar University of Science &amp; Technology"
+    desc: ""
+  - 
+    title: "Patna University"
+    desc: ""
+  - 
+    title: "NITTE University"
+    desc: ""
+  - 
+    title: "Ravenshaw University"
+    desc: ""
+  - 
+    title: "Utkal University"
+    desc: ""
+  - 
+    title: "GLA University"
+    desc: ""
+  - 
+    title: "Maharaja Krishnakumarsinhji Bhavnagar University"
+    desc: ""
+  - 
+    title: "YMCA University of Science and Technology"
+    desc: ""
+  - 
+    title: "National Law Institute University"
+    desc: ""
+  - 
+    title: "Babasaheb Bhimrao Ambedkar University"
+    desc: ""
+  - 
+    title: "Institute of Chemical Technology"
+    desc: ""
+  - 
+    title: "Ahmedabad University"
+    desc: ""
+  - 
+    title: "Bharat Ratna Dr. B.R. Ambedkar University"
+    desc: ""
+  - 
+    title: "Manav Bharti University"
+    desc: ""
+  - 
+    title: "Indian Institute of Information Technology, Design and Manufacturing"
+    desc: ""
+  - 
+    title: "Central University of Haryana"
+    desc: ""
+  - 
+    title: "University of Gour Banga"
+    desc: ""
+  - 
+    title: "Acharya N.G. Ranga Agricultural University"
+    desc: ""
+  - 
+    title: "Sam Higginbottom Institute of Agriculture, Technology and Sciences"
+    desc: ""
+  - 
+    title: "Dr. Ram Manohar Lohiya National Law University"
+    desc: ""
+  - 
+    title: "Indira Gandhi National Tribal University"
+    desc: ""
+  - 
+    title: "Junagadh Agricultural University"
+    desc: ""
+  - 
+    title: "University of Technology &amp; Management"
+    desc: ""
+  - 
+    title: "Jaypee University of Engineering &amp; Technology"
+    desc: ""
+  - 
+    title: "EIILM University"
+    desc: ""
+  - 
+    title: "Mewar University"
+    desc: ""
+  - 
+    title: "NIMS University"
+    desc: ""
+  - 
+    title: "Awadhesh Pratap Singh University"
+    desc: ""
+  - 
+    title: "Shri Lal Bahadur Shastri Rashtriya Sanskrit Vidyapeetha"
+    desc: ""
+  - 
+    title: "Deenbandhu Chhotu Ram University of Science and Technology"
+    desc: ""
+  - 
+    title: "O.P. Jindal Global University"
+    desc: ""
+  - 
+    title: "Hidayatullah National Law University"
+    desc: ""
+  - 
+    title: "Kerala Veterinary and Animal Sciences University"
+    desc: ""
+  - 
+    title: "Ramakrishna Mission Vivekananda University"
+    desc: ""
+  - 
+    title: "Tamil University"
+    desc: ""
+  - 
+    title: "The National University of Advanced Legal Studies"
+    desc: ""
+  - 
+    title: "KLE University"
+    desc: ""
+  - 
+    title: "Central University of Gujarat"
+    desc: ""
+  - 
+    title: "Magadh University"
+    desc: ""
+  - 
+    title: "Orissa University of Agriculture and Technology"
+    desc: ""
+  - 
+    title: "Sri Krishnadevaraya University"
+    desc: ""
+  - 
+    title: "Jawaharlal Nehru Technological University, Anantapur"
+    desc: ""
+  - 
+    title: "Teerthanker Mahaveer University"
+    desc: ""
+  - 
+    title: "Assam Don Bosco University"
+    desc: ""
+  - 
+    title: "Avinashilingam University"
+    desc: ""
+  - 
+    title: "Central University of Orissa"
+    desc: ""
+  - 
+    title: "Yogi Vemana University"
+    desc: ""
+  - 
+    title: "Maharshi Dayanand Saraswati University"
+    desc: ""
+  - 
+    title: "Kakatiya University"
+    desc: ""
+  - 
+    title: "Central University of Kerala"
+    desc: ""
+  - 
+    title: "Vinoba Bhave University"
+    desc: ""
+  - 
+    title: "Marathwada Agricultural University"
+    desc: ""
+  - 
+    title: "West Bengal University of Health Sciences"
+    desc: ""
+  - 
+    title: "Indian Maritime University"
+    desc: ""
+  - 
+    title: "Central University of Karnataka"
+    desc: ""
+  - 
+    title: "Periyar Maniammai University"
+    desc: ""
+  - 
+    title: "Sir Padampat Singhania University"
+    desc: ""
+  - 
+    title: "Central University of Kashmir"
+    desc: ""
+  - 
+    title: "Mother Teresa Women's University"
+    desc: ""
+  - 
+    title: "Chanakya National Law University"
+    desc: ""
+  - 
+    title: "Kannada University"
+    desc: ""
+  - 
+    title: "Bhagwant University"
+    desc: ""
+  - 
+    title: "Subharti University"
+    desc: ""
+  - 
+    title: "Kerala University of Health Sciences"
+    desc: ""
+  - 
+    title: "North Eastern Regional Institute of Science and Technology"
+    desc: ""
+  - 
+    title: "Maharana Pratap University of Agriculture and Technology"
+    desc: ""
+  - 
+    title: "West Bengal State University"
+    desc: ""
+  - 
+    title: "The English and Foreign Languages University"
+    desc: ""
+  - 
+    title: "Utkal University of Culture"
+    desc: ""
+  - 
+    title: "Rajasthan Agricultural University"
+    desc: ""
+  - 
+    title: "ICFAI University, Tripura"
+    desc: ""
+  - 
+    title: "Invertis University"
+    desc: ""
+  - 
+    title: "Potti Sreeramulu Telugu University"
+    desc: ""
+  - 
+    title: "Dr K.N. Modi University"
+    desc: ""
+  - 
+    title: "Kavikulguru Kalidas Sanskrit University"
+    desc: ""
+  - 
+    title: "Sikkim University"
+    desc: ""
+  - 
+    title: "Deccan College Post-Graduate and Research Institute"
+    desc: ""
+  - 
+    title: "Tamil Nadu Physical Education and Sports University"
+    desc: ""
+  - 
+    title: "National Institute of Pharmaceutical Education and Research, Hyderabad"
+    desc: ""
+  - 
+    title: "Pt. B. D. Sharma University of Health Sciences"
+    desc: ""
+  - 
+    title: "Baddi University of Emerging Sciences and Technologies"
+    desc: ""
+  - 
+    title: "Vikrama Simhapuri University"
+    desc: ""
+  - 
+    title: "Satavahana University"
+    desc: ""
+  - 
+    title: "Dravidian University"
+    desc: ""
+  - 
+    title: "MGM Institute of Health Sciences"
+    desc: ""
+  - 
+    title: "Dr. C.V. Raman University"
+    desc: ""
+  - 
+    title: "National University of Study and Research in Law"
+    desc: ""
+  - 
+    title: "Jagan Nath University"
+    desc: ""
+  - 
+    title: "Central Agricultural University"
+    desc: ""
+  - 
+    title: "National Dairy Research Institute"
+    desc: ""
+  - 
+    title: "Maharashtra Animal and Fishery Sciences University"
+    desc: ""
+  - 
+    title: "B.R. Ambedkar Bihar University"
+    desc: ""
+  - 
+    title: "Calorx Teachers' University"
+    desc: ""
+  - 
+    title: "Krantiguru Shyamji Krishna Verma Kachchh University"
+    desc: ""
+  - 
+    title: "Aliah University"
+    desc: ""
+  - 
+    title: "Mahatma Gandhi University"
+    desc: ""
+  - 
+    title: "Thiruvalluvar University"
+    desc: ""
+  - 
+    title: "Centurion University of Technology and Management"
+    desc: ""
+  - 
+    title: "Rajiv Gandhi National University of Law"
+    desc: ""
+  - 
+    title: "Gujarat Ayurved University"
+    desc: ""
+  - 
+    title: "Jagadguru Ramanandacharya Rajasthan Sanskrit University"
+    desc: ""
+  - 
+    title: "Pacific University"
+    desc: ""
+  - 
+    title: "Sardar Vallabhbhai Patel University of Agriculture and Technology"
+    desc: ""
+  - 
+    title: "Jain Vishva Bharati University"
+    desc: ""
+  - 
+    title: "Sher-e-Kashmir University of Agricultural Sciences and Technology of Kashmir"
+    desc: ""
+  - 
+    title: "Telangana University"
+    desc: ""
+  - 
+    title: "North Orissa University"
+    desc: ""
+  - 
+    title: "Jawaharlal Nehru Architecture and Fine Arts University"
+    desc: ""
+  - 
+    title: "Gokhale Institute of Politics and Economics"
+    desc: ""
+  - 
+    title: "Vikram University"
+    desc: ""
+  - 
+    title: "Rajasthan Ayurved University"
+    desc: ""
+  - 
+    title: "Dr. B.R. Ambedkar University"
+    desc: ""
+  - 
+    title: "Lakshmibai National Institute of Physical Education"
+    desc: ""
+  - 
+    title: "Rayalaseema University"
+    desc: ""
+  - 
+    title: "Homi Bhabha National Institute"
+    desc: ""
+  - 
+    title: "CSK Himachal Pradesh Agricultural University"
+    desc: ""
+  - 
+    title: "Dr. Shakuntala Misra Rehabilitation University"
+    desc: ""
+  - 
+    title: "Mangalayatan University"
+    desc: ""
+  - 
+    title: "Chaudhary Devi Lal University"
+    desc: ""
+  - 
+    title: "Sri Chandrasekharendra Saraswathi Viswa Mahavidyalaya"
+    desc: ""
+  - 
+    title: "Singhania University"
+    desc: ""
+  - 
+    title: "MATS University"
+    desc: ""
+  - 
+    title: "Indira Gandhi Agricultural University"
+    desc: ""
+  - 
+    title: "Berhampur University"
+    desc: ""
+  - 
+    title: "University of Hyderabad"
+    desc: ""
+  - 
+    title: "Sarguja University"
+    desc: ""
+  - 
+    title: "Sri Guru Granth Sahib World University"
+    desc: ""
+  - 
+    title: "Himgiri ZEE University"
+    desc: ""
+  - 
+    title: "Central University of Tibetan Studies"
+    desc: ""
+  - 
+    title: "Adikavi Nannaya University"
+    desc: ""
+  - 
+    title: "Gujarat Forensic Sciences University"
+    desc: ""
+  - 
+    title: "Tilka Manjhi Bhagalpur University"
+    desc: ""
+  - 
+    title: "West Bengal University of Animal and Fishery Sciences"
+    desc: ""
+  - 
+    title: "JSS University"
+    desc: ""
+  - 
+    title: "Sri Venkateswara Veterinary University"
+    desc: ""
+  - 
+    title: "Baba Ghulam Shah Badhshah University"
+    desc: ""
+  - 
+    title: "ICFAI University, Dehradun"
+    desc: ""
+  - 
+    title: "IFHE Hyderabad"
+    desc: ""
+  - 
+    title: "Babu Banarasi Das University"
+    desc: ""
+  - 
+    title: "Sri Venkateswara Vedic University"
+    desc: ""
+  - 
+    title: "Nilamber-Pitamber University"
+    desc: ""
+  - 
+    title: "Palamuru University"
+    desc: ""
+  - 
+    title: "Birsa Agricultural University"
+    desc: ""
+  - 
+    title: "Mahatma Jyoti Rao Phoole University"
+    desc: ""
+  - 
+    title: "Jayoti Vidyapeeth Women's University"
+    desc: ""
+  - 
+    title: "Kolhan University"
+    desc: ""
+  - 
+    title: "Tumkur University"
+    desc: ""
+  - 
+    title: "Karnatak University"
+    desc: ""
+  - 
+    title: "Aryabhatta Knowledge University"
+    desc: ""
+  - 
+    title: "Sardarkrushinagar Dantiwada Agricultural University"
+    desc: ""
+  - 
+    title: "Kumaun University"
+    desc: ""
+  - 
+    title: "Raffles University"
+    desc: ""
+  - 
+    title: "Sree Sankaracharya University of Sanskrit"
+    desc: ""
+  - 
+    title: "Central University of Punjab"
+    desc: ""
+  - 
+    title: "Arni University"
+    desc: ""
+  - 
+    title: "Datta Meghe Institute of Medical Sciences"
+    desc: ""
+  - 
+    title: "Martin Luther Christian University"
+    desc: ""
+  - 
+    title: "ICFAI University, Jharkhand"
+    desc: ""
+  - 
+    title: "Kerala University of Fisheries and Ocean Studies"
+    desc: ""
+  - 
+    title: "Shree Somnath Sanskrit University"
+    desc: ""
+  - 
+    title: "University of Science and Technology, Meghalaya"
+    desc: ""
+  - 
+    title: "Islamic University of Science and Technology"
+    desc: ""
+  - 
+    title: "Jagdishprasad Jhabarmal Tibrewala University"
+    desc: ""
+  - 
+    title: "Ayush and Health Sciences University of Chhattisgarh"
+    desc: ""
+  - 
+    title: "Chandra Shekhar Azad University of Agriculture &amp; Technology"
+    desc: ""
+  - 
+    title: "Vinayaka Missions Sikkim University"
+    desc: ""
+  - 
+    title: "Noida International University"
+    desc: ""
+  - 
+    title: "Vel Tech Dr.RR &amp; Dr.SR Technical University"
+    desc: ""
+  - 
+    title: "Indus International University"
+    desc: ""
+  - 
+    title: "SunRise University"
+    desc: ""
+  - 
+    title: "Maharishi University of Management and Technology"
+    desc: ""
+  - 
+    title: "Eternal University"
+    desc: ""
+  - 
+    title: "IFTM University"
+    desc: ""
+  - 
+    title: "Vijayanagara Sri Krishnadevaraya University"
+    desc: ""
+  - 
+    title: "Bhupendra Narayan Mandal University"
+    desc: ""
+  - 
+    title: "The Indian Law Institute"
+    desc: ""
+  - 
+    title: "Damodaram Sanjivayya National Law University"
+    desc: ""
+  - 
+    title: "Kameshwar Singh Darbhanga Sanskrit University"
+    desc: ""
+  - 
+    title: "Shoolini University of Biotechnology and Management Sciences"
+    desc: ""
+  - 
+    title: "Karnataka State Women's University"
+    desc: ""
+  - 
+    title: "BAHRA University"
+    desc: ""
+  - 
+    title: "Lalit Narayan Mithila University"
+    desc: ""
+  - 
+    title: "Bhatkhande Music Institute"
+    desc: ""
+  - 
+    title: "Sidho Kanho Birsha University"
+    desc: ""
+  - 
+    title: "Fakir Mohan University"
+    desc: ""
+  - 
+    title: "Chhatrapati Shahuji Maharaj Medical University"
+    desc: ""
+  - 
+    title: "National Institute of Pharmaceutical Education and Research, Guwahati"
+    desc: ""
+  - 
+    title: "National Institute of Pharmaceutical Education and Research, Hajipur"
+    desc: ""
+  - 
+    title: "National Institute of Pharmaceutical Education and Research, Rae Bareli"
+    desc: ""
+  - 
+    title: "Veer Kunwar Singh University"
+    desc: ""
+  - 
+    title: "Rani Channamma University"
+    desc: ""
+  - 
+    title: "Shri Venkateshwara University"
+    desc: ""
+  - 
+    title: "Sri Sai University"
+    desc: ""
+  - 
+    title: "Maulana Mazharul Haque Arabic and Persian University"
+    desc: ""
+  - 
+    title: "Narendra Dev University of Agriculture and Technology"
+    desc: ""
+  - 
+    title: "Davangere University"
+    desc: ""
+  - 
+    title: "Mohammad Ali Jauhar University"
+    desc: ""
+  - 
+    title: "Uttaranchal Sanskrit University"
+    desc: ""
+  - 
+    title: "Shri Guru Ram Rai Education Mission"
+    desc: ""
+  - 
+    title: "Dr. Babasaheb Ambedkar Technological University"
+    desc: ""
+  - 
+    title: "Sido Kanhu Murmu University"
+    desc: ""
+
 highest_degree:
   -
     title: "Bachelor"
