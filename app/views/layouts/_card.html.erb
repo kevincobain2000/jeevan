@@ -12,13 +12,13 @@
     </div>
   </div>
   <div class="text">
-    <h5>
+    <p>
       <div class="pull-left semi-bold">
         <%= user[:devotion] %>
         (<%= user[:age] %>)</div>
       <div class="pull-right">
         <%= render :partial =>'layouts/online', :locals => {:time => user[:updated_at]}%></div>
-    </h5>
+    </p>
 
     <legend></legend>
 

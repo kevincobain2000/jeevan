@@ -394,7 +394,7 @@ class ProfilesController < ApplicationController
     end
   end
   def has_sex
-    if current_user.sex == "Unknown"
+    if current_user.sex == "Unknown" || current_user.dob == "01/01/1900" || current_user.avatar.content_type.nil?
       redirect_to confirmgender_others_path
     end
   end
