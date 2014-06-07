@@ -1,7 +1,7 @@
 <div id="sign_up2">
   <div class="container">
     <div class="row login">
-      <div class="col-md-6 left_box">
+      <div class="col-md-4 left_box">
         <%= image_tag "logo.png" %>
         <h4>Sign up</h4>
         <div class="perk_box">
@@ -23,7 +23,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-5 signin_box">
+      <div class="col-md-8 signin_box">
         <div class="box">
           <div class="box_cont">
             <div class="social">
@@ -33,9 +33,13 @@
               <%= link_to user_omniauth_authorize_path(:twitter), :class=>"circle twitter" do %>
                 <%= image_tag("others/twt.png") %>
                 <% end %>
-                <%#= link_to user_omniauth_authorize_path(:linkedin), :class=>"circle gplus" do %>
-                  <%#= image_tag("others/link.png") %>
-                  <%# end %>
+                <%= link_to user_omniauth_authorize_path(:google_oauth2), :class=>"circle facebook" do %>
+                  <%= image_tag("others/gplus.png") %>
+                <% end %>
+                <%= link_to user_omniauth_authorize_path(:linkedin), :class=>"circle gplus" do %>
+                  <%= image_tag("others/link.png") %>
+                <% end %>
+
                 </div>
               </div>
               <div class="division">

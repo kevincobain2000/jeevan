@@ -136,7 +136,7 @@ class User < ActiveRecord::Base
                             password:Devise.friendly_token[0,20],
                             sex: auth.extra.raw_info.gender ? auth.extra.raw_info.gender.to_s.capitalize : "Unknown",
                             username: "#{auth.info.nickname}_twitter.com",
-                            dob: auth.extra.raw_info.birthday ? auth.extra.raw_info.birthday : "01/01/1985",
+                            dob: auth.extra.raw_info.birthday ? auth.extra.raw_info.birthday : "01/01/1900",
                             devotion: "Hindu",
                             name: auth.info.name,
                             avatar: URI.parse(process_uri(auth.info.image))
@@ -160,11 +160,36 @@ class User < ActiveRecord::Base
                             password:Devise.friendly_token[0,20],
                             sex: auth.extra.raw_info.gender ? auth.extra.raw_info.gender.to_s.capitalize : "Unknown",
                             username: "#{auth.info.email}_linkedin",
-                            dob: auth.extra.raw_info.birthday ? auth.extra.raw_info.birthday : "01/01/1985",
+                            dob: auth.extra.raw_info.birthday ? auth.extra.raw_info.birthday : "01/01/1900",
                             devotion: "Hindu",
                             name: auth.info.name,
-                            # avatar: URI.parse(process_uri(auth.info.image))
-                            avatar: URI.parse(process_uri("http://api.linkedin.com/v1/people/#{auth.uid}/picture-url"))
+                            avatar: URI.parse(process_uri(auth.info.image))
+                          )
+      end
+    end
+  end
+
+  def self.find_for_google_oauth2(auth, signed_in_resource=nil)
+    logger.info("Debug #{auth.to_json}")
+    user = User.where(:provider => auth.provider, :uid => auth.uid).first
+    if !user.nil?
+      return user
+    else
+      registered_user = User.where(:email => auth.info.email).first
+      if registered_user
+        return registered_user
+      else
+        user = User.create(name:auth.extra.raw_info.name,
+                            provider:auth.provider,
+                            uid:auth.uid,
+                            # email:auth.info.email,
+                            password:Devise.friendly_token[0,20],
+                            sex: auth.extra.raw_info.gender ? auth.extra.raw_info.gender.to_s.capitalize : "Unknown",
+                            username: "#{auth.info.email}_google_oauth2",
+                            dob: auth.extra.raw_info.birthday ? auth.extra.raw_info.birthday : "01/01/1900",
+                            devotion: "Hindu",
+                            name: auth.info.name,
+                            avatar: URI.parse(process_uri(auth.info.image))
                           )
       end
     end

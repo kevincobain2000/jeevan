@@ -1,21 +1,26 @@
 <div id="main" role="main">
   <div id="content">
-    <div>
+  <div class="row">
+    <div class="well col-md-3">
       <a class="btn-link" data-toggle="modal" data-target="#modal-edit-avatar">
         <%= image_tag current_user.avatar.url(:thumb), :class => "img-rounded", :style => "width:100px;height:100px;" %>
-        <br>Change Profile Picture
+        <br>Change Picture
       </a>
-      <div>
-        <h1><i class="fa fa-user fa-3x text-muted air air-top-right hidden-mobile"></i><%= current_user.name %>
+        <h1><%= current_user.name %>
           <small><i class="fa fa-lock text-muted"></i>
             &nbsp;Locked</small></h1>
         <p class="text-muted">
           Gender:
           <%= current_user.sex %>
         </p>
-        <h3>You Basic Profile</h3>
-        <div class="col-md-8 font-md">
-          <%= form_tag({:action=>'modify_gender', :controller => "others"},{:remote => false, :class=>"smart-form edit"}) do %>
+      </div>
+      <div class="col-md-1">
+      </div>
+        <div class="col-md-6 well">
+        <fieldset>
+            <%= render :partial =>'layouts/profiles/edit/avatar'%>
+        </fieldset>
+          <%= form_tag({:action=>'modify_gender', :controller => "others"},{:remote => false, :class=>"smart-form"}) do %>
           <% if current_user.sex == "Unknown" %>
             <fieldset>
               <div class="col-sm-4">
@@ -52,7 +57,6 @@
             </footer>
           <% end %>
         </div>
-      </div>
     </div>
   </div>
 </div>
