@@ -90,7 +90,10 @@ class ProfilesController < ApplicationController
   end
   def modify_desire
     current_user.desire.update(desire_params)
-    render json: { :status => 200 }
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
   def destroy_everything
     user = User.find(current_user.id)
@@ -170,6 +173,10 @@ class ProfilesController < ApplicationController
     # already_visited   += Interest.where("user_id = ?", current_user.id).pluck(:to_user_id)
     # already_visited   += Shortlist.where("user_id = ?", current_user.id).pluck(:to_user_id)
     @matching = User.where("sex = ? AND id NOT IN (?)", lookup_sex, already_visited).order('images_count DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def online
@@ -246,6 +253,10 @@ class ProfilesController < ApplicationController
       @similar_profiles_paginate = User.where("sex = ? AND id NOT IN (?)", lookup_sex, already_visited).order('images_count DESC, avatar_updated_at DESC').paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
       else
         @similar_profiles_paginate = User.where("id <> ? AND sex = ?", visiting_user.id, visiting_user.sex).order('updated_at DESC, avatar_updated_at DESC').take(12).paginate(:page => params[:page], :per_page => 6) # 6 is a good number
+    end
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 

@@ -19,17 +19,17 @@
           <a href="/">go and explore more profiles</a></small></h3>
     </div>
   <% end %>
-
-      <div id="blog">
-        <% paginate.each_with_index do |_user, idx| %>
-          <% if (idx+1)%4 == 0 || idx ==0%>
-            <div class="row post_row">
-            <% end %>
-            <%= render :partial =>'layouts/card.html.erb', :locals => {:user => make_user_card(_user)} %>
-            <% if (idx+1)%4 == 0 %>
-            </div>
-          <% end %>
+  <div id="blog">
+    <% paginate.each_with_index do |_user, idx| %>
+      <% if (idx+1)%4 == 0 || idx ==0%>
+        <div class="row post_row">
         <% end %>
-        <%= will_paginate paginate, :class =>"flickr_pagination"%>
-      </div>
+        <%= render :partial =>'layouts/card.html.erb', :locals => {:user => make_user_card(_user)} %>
+        <% if (idx+1)%4 == 0 %>
+        </div>
+      <% end %>
+    <% end %>
+
+  </div>
+<%= will_paginate paginate, :class =>"flickr_pagination"%>
 </div>
