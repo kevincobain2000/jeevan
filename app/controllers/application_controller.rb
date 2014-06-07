@@ -96,7 +96,7 @@ class ApplicationController < ActionController::Base
   end  
 
   def make_user_tiny(id)
-    
+
     user = User.find(id)
 
     in_response  = Interest.where(to_user_id: current_user.id, user_id: user.id).first
@@ -109,7 +109,9 @@ class ApplicationController < ActionController::Base
       updated_at: time_ago_in_words(user.updated_at),
       profile: user.profile,
       name: name,
-      id: user.id
+      id: user.id,
+      in_response:  in_response,
+      out_response: out_response,
     }
     return user_ret
   end
