@@ -4,11 +4,9 @@
     	<button class="btn btn-primary txt-color-white interest" type="submit" data-img="<%= user[:avatar].url(:tiny) %>" data-url='<%= link_to "view profile", profile_path(:id =>user[:profile][:id]), :class=>"txt-color-white" %>' data-title="Interest Expressed" data-msg="expressed interest in the profile">
       <i class="fa fa-heart"></i> Interest
     </button>
-    <%= link_to profile_path(:id =>user[:profile][:id]) do %><button class="btn btn-default pull-right">more</button><% end %>
   <% end %>
   <% elsif current_user.id != user[:id] %>
   <button class="btn btn-primary disabled">
       <i class="fa fa-heart"></i> Expressed
     </button>
-    <%= link_to profile_path(:id =>user[:profile][:id]) do %><button class="btn btn-default pull-right">more</button><% end %>
 <% end %>

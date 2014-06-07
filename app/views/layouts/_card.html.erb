@@ -2,13 +2,14 @@
 <div class="col-md-12 post">
   <div class="img">
     <%= link_to profile_path(:id =>user[:profile][:id]) do %>
-    <%= image_tag user[:avatar].url(:thumb), :class=>"img-rounded",:style=>"width:80%;height:90%;" %>
+    <%= image_tag user[:avatar].url(:thumb), :class=>"img-rounded",:style=>"width:90%;height:80%;" %>
     <% end %>
-    <!-- <div class="air air-center padding-10 txt-color-white hidden"> -->
-      <%#= link_to profile_path(:id =>user[:profile][:id]), :class=>"btn btn-primary bg-color-magenta" do %>
-      <!-- <i class="fa fa-comment"></i> message -->
-      <%# end %>
-    <!-- </div> -->
+    <div class="air air-bottom-left padding-10 txt-color-white hidden">
+      <%= render :partial =>'layouts/interestbutton', :locals => {:user => user}%>
+    </div>
+    <div class="air air-bottom-right padding-10 hidden">
+      <%= link_to profile_path(:id =>user[:profile][:id]) do %><button class="btn btn-default pull-right">more</button><% end %>
+    </div>
   </div>
   <div class="text">
     <h5>
@@ -42,7 +43,6 @@
     </h1>
     <p>
       <%= raw truncate(sanitize(user[:about][:me], :tags=>[]), :escape => false, length: 30) %></p>
-    <br>
     <%= link_to profile_path(:id =>user[:profile][:id]), :class=>"pull-right" do %>read more
     <% end %>
 
@@ -62,30 +62,26 @@
     <!-- end if --> </div>
 
   <div class="author_box">
-    <%= render :partial =>'layouts/interestbutton', :locals => {:user => user}%></div>
-  <div class="author_box">
-    <h6>
-      <%= user[:name] %></h6>
     <p>
-      Last online
-      <%= truncate("#{user[:updated_at]} ago", :length =>20) %></p>
+    Active <%= truncate("#{user[:updated_at]} ago", :length =>20) %></p>
+    </p>
   </div>
   </div>
 
 
   <script type="text/javascript">
-// $(document).ready(function() {
-//     $(".post").hoverIntent({
-//         over: function () {
-//             var e = $(this).find('.air-center');
-//             e.removeClass('hidden');
-//         },
-//         out: function () {
-//             var e = $(this).find('.air-center');
-//             e.addClass('hidden');
-//         },
-//         interval: 0,
-//         timeout: 0
-//     });
-// });
+$(document).ready(function() {
+    $(".post").hoverIntent({
+        over: function () {
+            var e = $(this).find('.air');
+            e.removeClass('hidden');
+        },
+        out: function () {
+            var e = $(this).find('.air');
+            e.addClass('hidden');
+        },
+        interval: 0,
+        timeout: 0
+    });
+});
   </script>
