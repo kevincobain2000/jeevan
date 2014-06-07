@@ -117,7 +117,9 @@ class ApplicationController < ActionController::Base
   end
 
   def calculate_age(birthday)
-    Date.today.year - birthday.to_date.year
+    the_age = Date.today.year - birthday.to_date.year
+    age = the_age > 100 ? "xx" : the_age
+
   end
   def show_name_to_accepted(in_response, out_response)
     if (in_response) || (out_response && out_response.response == 1)

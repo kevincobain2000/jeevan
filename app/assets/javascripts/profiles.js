@@ -387,7 +387,7 @@ $(document).ready(function($) {
 
   $(".avatar-dropzone").dropzone({
     paramName: "avatar",
-    dictDefaultMessage:"<h1 class='text-center'><strong>Profile Picture</strong></h1><h3 class='text-center'>Drag and Drop Image <br> <br>or <br><br>Click to upload Images here</h3>",
+    dictDefaultMessage:"<h1 class='text-center'><strong>Profile Picture</strong></h1><h3 class='text-center'>Drag and Drop Image <br> <br>or <br><br><i>Click to upload profile pic here</i></h3>",
     maxFilesize: 1,
     addRemoveLinks: false,
     acceptedFiles: ".jpeg,.jpg,.png,.gif,.JPEG,.JPG,.PNG,.GIF",
