@@ -214,6 +214,8 @@ GEM
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
     selectize-rails (0.8.5)
+    sitemap_generator (5.0.4)
+      builder
     slop (3.4.7)
     sprockets (2.10.1)
       hike (~> 1.2)
@@ -306,6 +308,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.0)
   sdoc
   selectize-rails
+  sitemap_generator
   sunspot_rails
   sunspot_solr
   tapp
