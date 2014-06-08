@@ -5,7 +5,7 @@
 	<% message = "Upload profile pic" %>
 	<% end %>
 
-	<% if current_user.images_count < 1 %>
+	<% if current_user.images_count.to_i < 1 %>
 	<% profile_progress -= 10 %>
 	<% message = "Upload some images" %>
 	<% end %>
