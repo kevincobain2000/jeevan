@@ -90,6 +90,9 @@
         <% end %>
       <% end %>
     </div>
+    <div class="well col-md-12" id="scrolltofix">
+    
+    </div>
   </div>
   <div class="col-md-8">
     <div id="blog">
@@ -108,3 +111,11 @@
 </div>
 <legend></legend>
 <%= will_paginate paginate, :class =>"flickr_pagination"%>
+
+
+<script type="text/javascript">
+  $(document).ready(function($) {
+    // $("#scrolltofix").scrollToFixed({ marginTop: 100});
+    
+  });
+</script>
