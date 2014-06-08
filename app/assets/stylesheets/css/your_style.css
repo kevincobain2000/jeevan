@@ -543,17 +543,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 
 /* Responsive
 -------------------------------------------------- */
-
-/* Large desktop */
-@media (min-width: 1200px) {
-
-}
-@media (min-width: 980px) {
-
-}
-@media (max-width: 979px) {
-  
-}
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 979px) { 
   #sign_up1 .header .social{
