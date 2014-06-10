@@ -80,6 +80,7 @@ module ApplicationHelper
       image:      user.images.all,
       images_count:      user.images_count.to_i,
       avatar:     user.avatar,
+      provider:     user.provider,
       in_response:  in_response,
       out_response: out_response,
       shortlist:    Shortlist.where(user_id: current_user.id, to_user_id: user.id).first,
