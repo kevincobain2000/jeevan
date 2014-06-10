@@ -6,7 +6,7 @@ Devise.setup do |config|
   config.omniauth :facebook, API_KEYS['facebook']['api_key'], API_KEYS['facebook']['api_secret'],:scope => 'email,user_birthday', :image_size => 'large'
   config.omniauth :twitter, API_KEYS['twitter']['api_key'], API_KEYS['twitter']['api_secret'], :image_size => 'original'
   config.omniauth :linkedin, API_KEYS['linkedin']['api_key'], API_KEYS['linkedin']['api_secret'], :image_size => 'original'
-  config.omniauth :google_oauth2, API_KEYS['google_oauth2']['api_key'], API_KEYS['google_oauth2']['api_secret'], :image_size => 'original'
+  config.omniauth :google_oauth2, API_KEYS['google_oauth2']['api_key'], API_KEYS['google_oauth2']['api_secret'], :image_size => 200, :image_aspect_ratio => "square",  :scope => "email, profile, plus.me"
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.

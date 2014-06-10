@@ -10,8 +10,6 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
   # protect_from_forgery with: :null_session
 
-
-
   protected
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) << :sex
