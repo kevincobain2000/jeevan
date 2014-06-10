@@ -1,12 +1,12 @@
 <% if  current_user.id != user[:id] && user[:out_response].nil? && user[:in_response].nil? %>
   <%= form_tag({:action=>'interest', :controller => "profiles"}, :remote => true, :class => "") do %>
     <%= hidden_field_tag 'to_user_id', user[:id] %>
-    	<button class="btn btn-primary txt-color-white interest" type="submit" data-img="<%= user[:avatar].url(:tiny) %>" data-url='<%= link_to "view profile", profile_path(:id =>user[:profile][:id]), :class=>"txt-color-white" %>' data-title="Interest Expressed" data-msg="expressed interest in the profile">
+    	<button class="btn bg-color-darken txt-color-white interest" type="submit" data-img="<%= user[:avatar].url(:tiny) %>" data-url='<%= link_to "view profile", profile_path(:id =>user[:profile][:id]), :class=>"txt-color-white" %>' data-title="Interest Expressed" data-msg="expressed interest in the profile">
       <i class="fa fa-heart"></i> Interest
     </button>
   <% end %>
   <% elsif current_user.id != user[:id] %>
-  <button class="btn btn-primary disabled">
+  <button class="btn bg-color-darken txt-color-white disabled">
       <i class="fa fa-heart"></i> Expressed
     </button>
 <% end %>
