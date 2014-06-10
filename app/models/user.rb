@@ -145,7 +145,6 @@ class User < ActiveRecord::Base
     end
   end
   def self.find_for_linkedin_oauth(auth, signed_in_resource=nil)
-    logger.info("Debug #{auth.to_json}")
     user = User.where(:provider => auth.provider, :uid => auth.uid).first
     if !user.nil?
       return user

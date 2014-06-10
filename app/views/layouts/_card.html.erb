@@ -2,7 +2,12 @@
 <div class="col-md-12 post">
   <div class="img">
     <%= link_to profile_path(:id =>user[:profile][:id]) do %>
-    <%= image_tag user[:avatar].url(:thumb), :class=>"img-rounded",:style=>"width:90%;height:80%;" %>
+    <% if (user[:avatar].size.to_i < 3500 and !user[:provider].nil?) %>
+    <%= image_tag("others/#{user[:provider].to_s}.png") %>
+    <% else %>
+    <%= image_tag user[:avatar].url(:thumb), :class=>"img-rounded",:style=>"width:90%;height:80%;" %>    
+    <% end %>
+    
     <% end %>
     <div class="air air-bottom-left padding-10 txt-color-white hidden">
       <%= render :partial =>'layouts/interestbutton', :locals => {:user => user}%>
