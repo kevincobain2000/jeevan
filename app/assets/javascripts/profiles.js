@@ -198,13 +198,17 @@ $(document).on("page:change", function() {
           searchField: options.searchField ? options.searchField : "title",
           options:     select_profile_edit_items[name],
           create:      options.create ? options.create : false,
-          plugins:     options.plugins ? options.plugins : ['remove_button', 'restore_on_backspace'],
+          // plugins:     options.plugins ? options.plugins : ['remove_button', 'restore_on_backspace'],
+          plugins:     options.plugins ? options.plugins : ['remove_button'],
           delimeter:   options.delimeter ? options.delimeter : ",",
           render: {
             option: function(item, escape) {
              var desc;
              desc = item.desc ? item.desc : "";
              return '<div>' + item.title + '<br><small>' + desc + '</small></div>';
+           },
+           option_create: function(data, escape) {
+            return '<div class="create"><i class="fa fa-plus-circle txt-color-blue"></i> <strong>' + escape(data.input) + '</strong></div>';
            }
          }
        });
@@ -312,8 +316,19 @@ $(document).on("page:change", function() {
   }
 
   $('form.edit').submit(function() {
-    $.gritter.add({ image: '/assets/success.png', title: 'Success', text: 'Your settings have been saved' });
-    // $(this).find(':submit').html('Saved');
+
+    // $.each($(".modal"), function(index, modal) {
+    //    if ($(this).hasClass('in')) {
+    //     window.location = location.href;
+    //    }
+    // });
+
+    if ($(".modal").hasClass('in')) {
+      window.location = location.href;
+    } else {
+      $.gritter.add({ image: '/assets/success.png', title: 'Success', text: 'Your settings have been saved' });
+    }
+
   });
 
   $('.superbox').on('click', '.removeimage', function() {

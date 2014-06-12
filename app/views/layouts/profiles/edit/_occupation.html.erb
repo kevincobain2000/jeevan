@@ -1,4 +1,4 @@
-<%= render :partial =>'layouts/alert', :locals => {:heading => "Your Occupation", :description => "About your occupation", :icon=>"fa fa-suitcase"}%>
+<%= render :partial =>'layouts/alert', :locals => {:heading => "Your Occupation", :description => "About your occupation. If the item is not in the list you can type to add new item", :icon=>"fa fa-suitcase"}%>
 <%= form_tag({:action=>'modify_occupation'},{:remote => true, :class=>"smart-form edit"}) do %>
       <% categories = ["work_status", "occupation", "company", "annual_income", "settling_abroad"] %>
       <% categories.each do |category| %>
