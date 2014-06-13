@@ -109,6 +109,10 @@ GEM
       multi_json (>= 1.5)
     kgio (2.9.2)
     libv8 (3.16.14.3)
+    linkedin (0.4.7)
+      hashie (~> 2.0)
+      multi_json (~> 1.0)
+      oauth (~> 0.4)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -214,6 +218,8 @@ GEM
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
     selectize-rails (0.8.5)
+    sitemap_generator (5.0.4)
+      builder
     slop (3.4.7)
     sprockets (2.10.1)
       hike (~> 1.2)
@@ -284,6 +290,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   jquery-ui-rails
+  linkedin
   mysql2
   nilify_blanks
   omniauth
@@ -306,6 +313,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.0)
   sdoc
   selectize-rails
+  sitemap_generator
   sunspot_rails
   sunspot_solr
   tapp

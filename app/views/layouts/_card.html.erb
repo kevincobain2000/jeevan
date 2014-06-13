@@ -2,13 +2,18 @@
 <div class="col-md-12 post">
   <div class="img">
     <%= link_to profile_path(:id =>user[:profile][:id]) do %>
-    <%= image_tag user[:avatar].url(:thumb), :class=>"img-rounded",:style=>"width:90%;height:80%;" %>
+    <% if (user[:avatar].size.to_i < 3500 and !user[:provider].nil?) %>
+    <%= image_tag("others/#{user[:provider].to_s}.png") %>
+    <% else %>
+    <%= image_tag user[:avatar].url(:thumb), :class=>"img-rounded",:style=>"width:90%;height:80%;" %>    
+    <% end %>
+    
     <% end %>
     <div class="air air-bottom-left padding-10 txt-color-white hidden">
       <%= render :partial =>'layouts/interestbutton', :locals => {:user => user}%>
     </div>
     <div class="air air-bottom-right padding-10 hidden">
-      <%= link_to profile_path(:id =>user[:profile][:id]) do %><button class="btn btn-default pull-right">more</button><% end %>
+      <%= link_to profile_path(:id =>user[:profile][:id]) do %><button class="btn btn-primary pull-right" rel="tooltip" data-placement="top" data-original-title="Full Profile"><i class="fa fa-arrow-right"></i></button><% end %>
     </div>
   </div>
   <div class="text">
@@ -63,7 +68,11 @@
 
   <div class="author_box">
     <p>
-    Active <%= truncate("#{user[:updated_at]} ago", :length =>20) %></p>
+      Active <%= truncate("#{user[:updated_at]} ago", :length =>20) %>
+    </p>
+    <div class="pull-right">
+      <%= render :partial =>'layouts/shortlistbutton', :locals => {:user => user}%>
+    </div>
     </p>
   </div>
   </div>
@@ -74,7 +83,7 @@ $(document).ready(function() {
     $(".post").hoverIntent({
         over: function () {
             var e = $(this).find('.air');
-            e.removeClass('hidden');
+            e.removeClass('hidden')
         },
         out: function () {
             var e = $(this).find('.air');

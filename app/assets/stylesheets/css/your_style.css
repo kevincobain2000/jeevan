@@ -25,21 +25,30 @@
 #blog .post_row{
   margin-left: 0;
   margin-bottom: 0px;
-  height: 495px;
+  /*height: 100px;*/
 }
 #blog .lastpost_row{
   margin-bottom: 0;
 }
+/*This is the box*/
 #blog .post_row .post{
   background: #fff;
   margin-left: 0px;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   margin-right: 20px;
-  border-radius: 2px;
+  border-radius: 4px;
   box-shadow: 1px 1px 2px 0px #E0E0E0;
   width:270px;
-  height: 440px;
+  height: 470px;
+  background: rgb(255,255,255); /* Old browsers */
+  background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(243,243,243,1) 50%, rgba(237,237,237,1) 51%, rgba(255,255,255,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(50%,rgba(243,243,243,1)), color-stop(51%,rgba(237,237,237,1)), color-stop(100%,rgba(255,255,255,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(243,243,243,1) 50%,rgba(237,237,237,1) 51%,rgba(255,255,255,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(243,243,243,1) 50%,rgba(237,237,237,1) 51%,rgba(255,255,255,1) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%,rgba(243,243,243,1) 50%,rgba(237,237,237,1) 51%,rgba(255,255,255,1) 100%); /* IE10+ */
+  background: linear-gradient(to bottom, rgba(255,255,255,1) 0%,rgba(243,243,243,1) 50%,rgba(237,237,237,1) 51%,rgba(255,255,255,1) 100%); /* W3C */
 }
+
 #blog .post_row .last{
   margin-right: 0;
 }
@@ -67,7 +76,7 @@
 }
 #blog .post_row .post .text{
   margin: 18px auto 0;
-    width: 83%;
+  width: 83%;
 }
 #blog .post_row .post .text h5 {
   margin: 0 0 8px 0;
@@ -534,17 +543,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 
 /* Responsive
 -------------------------------------------------- */
-
-/* Large desktop */
-@media (min-width: 1200px) {
-
-}
-@media (min-width: 980px) {
-
-}
-@media (max-width: 979px) {
-  
-}
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 979px) { 
   #sign_up1 .header .social{

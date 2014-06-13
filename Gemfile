@@ -51,6 +51,8 @@ gem 'omniauth-twitter'
 gem 'omniauth-linkedin'
 gem "omniauth-google-oauth2"
 
+gem "sitemap_generator"
+
 # gem 'dalli'
 
 # gem 'rake', '~> 10.1.1'

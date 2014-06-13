@@ -1,5 +1,5 @@
 <h3>My Desired Partner
-<% if current_user.profile.id == @user[:profile][:id] %>
+<% if current_user.profile.id == user[:profile][:id] %>
   <button class="btn btn-xs btn-default hidden-xs" data-toggle="modal" data-target="#modal-edit-desire">
     <i class="fa fa-edit"></i> edit
 </button>
@@ -12,7 +12,7 @@
     <dt class="txt-color-blue"><%= heading.titleize %> <i class="fa fa-angle-right fa-sm"></i></dt>
     <dd>
     <span>
-    <%= @user[:desire][category] %>
+    <%= user[:desire][category] %>
     </dd>
     </span>
   <% end %>

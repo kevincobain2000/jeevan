@@ -1,5 +1,4 @@
 class MessagesController < ApplicationController
-  helper_method :get_latest_message_snippet
   before_filter :not_talking_with_same_sex,:only => [:show]
   PAGINATE_MESSAGES = 15
   def index
@@ -41,10 +40,6 @@ class MessagesController < ApplicationController
       response =  { :error => "Sorry, your message is corrupted", :status => 422 }
     end
     render json: response
-  end
-
-  def get_latest_message_snippet(user_id_one, user_id_two)
-    return Message.where("(user_id = ? AND to_user_id = ?) OR (user_id = ? AND to_user_id = ?)", user_id_one, user_id_two, user_id_two, user_id_one).order("created_at DESC").first
   end
 
   def notify_growl(event, visiting_user_id, title, message, badge_update)

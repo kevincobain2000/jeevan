@@ -72,9 +72,10 @@
 
 .smart-style-2 aside {
 	position:fixed;
-	/*background: #e9eaed;*/
-	background: #e9eaed;
 	/*min-height: 50%;*/
+	-moz-box-shadow:    -3px 0 5px 0 #555;
+	-webkit-box-shadow: -3px 0 5px 0 #555;
+	box-shadow:         -3px 0 5px 0 #555;
 }
 
 .smart-style-2 #left-panel {
