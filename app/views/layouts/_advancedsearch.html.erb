@@ -1,0 +1,35 @@
+<div class="well col-md-12" id="scrolltofix">
+  <h3>Advanced Search
+    <span class="text-muted">(<%= current_user.sex == "Male" ? "Brides" : "Groom" %>)</span></h3>
+  <%= form_tag({action: 'search_advanced', controller: "profiles"}, class: "smart-form") do %>
+    <fieldset>
+      <section>
+        <label class="label">Religion</label>
+        <input type="text" id="select-religion" name="asearch_religion" class="selectized" value="<%= current_user.devotion %>">
+      </section>
+    </fieldset>
+    <fieldset>
+      <label class="label">Age</label>
+      <input type="text" id="select-desired-age" name="asearch_age" class="selectized" value="<%= current_user.desire.desired_age %>">
+    </fieldset>
+    <fieldset>
+      <label class="label">Caste</label>
+      <input type="text" id="select-caste" name="asearch_caste" class="selectized" value="<%= current_user.religion.caste %>" placeholder="Any Caste">
+    </fieldset>
+    <fieldset>
+      <label class="label">Home</label>
+      <input type="text" id="select-home" name="asearch_home" class="selectized" value="<%= current_user.profile.home %>" placeholder="Anywhere">
+    </fieldset>
+    <fieldset>
+      <label class="toggle label"><input type="checkbox" value="Single" name="asearch_single" <%= (current_user.profile.marital_status == "Single") ? "checked" : "" %>><i data-swchon-text="ON" data-swchoff-text="OFF"></i>Single</label>
+      <label class="toggle label"><input type="checkbox" value="Widowed" name="asearch_widowed" <%= (current_user.profile.marital_status == "Widowed") ? "checked" : "" %>><i data-swchon-text="ON" data-swchoff-text="OFF"></i>Widowed</label>
+      <label class="toggle label"><input type="checkbox" value="Divorced" name="asearch_divorced" <%= (current_user.profile.marital_status == "Divorced") ? "checked" : "" %>><i data-swchon-text="ON" data-swchoff-text="OFF"></i>Divorced</label>
+    </fieldset>
+    <fieldset>
+      <label class="toggle label"><input type="checkbox" name="asearch_manglik"><i data-swchon-text="YES" data-swchoff-text="NO"></i>Manglik</label>
+    </fieldset>
+    <footer>
+      <button type="submit" class="btn btn-warning">Search</button>
+    </footer>
+  <% end %>
+</div>

@@ -15,15 +15,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :omniauthable,
           :recoverable, :rememberable, :trackable, :validatable#, :confirmable
 
-  delegate :posted_by, to: :profile
-  delegate :mother_tongue,:caste,:native_place, to: :religion
-  delegate :birth_country,:birth_city,:sun_sign, to: :kundali
-  delegate :complexion,:blood, to: :lifestyle
-  delegate :me, to: :about
-  delegate :status,:size, to: :family
-  delegate :highest_degree, to: :education
-  delegate :interest,:music, :read,:dress, :tv,:movie, :sport,:vacation, to: :hobby
-
   include Paperclip::Glue
   has_attached_file :avatar, :styles => {:thumb => "200x200#", :tiny => "50x50#"}, :convert_options => {:thumb => "-quality 100", :tiny => "-quality 100" },:default_url => :default_url_by_gender
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
@@ -51,17 +42,28 @@ class User < ActiveRecord::Base
   has_one :lifestyle, :dependent => :destroy
   has_one :occupation,:dependent => :destroy
 
+
+  delegate :marital_status,:home, to: :profile
+  delegate :mother_tongue, :caste, :native_place, to: :religion
+  delegate :birth_country,:birth_city,:sun_sign, :manglik, to: :kundali
+  delegate :me, to: :about
+
   searchable do
+    #user
     integer :images_count
-    text :mother_tongue, :caste, :native_place
-    text :birth_country,:birth_city,:sun_sign
-    text :complexion,:blood
-    text :me
     text :dob
-    text :status,:size
-    text :highest_degree
-    text :interest, :music, :read,:dress, :tv,:movie, :sport,:vacation
+    string :dob
     string :sex
+    text :devotion
+    #profile
+    string :home
+    text :marital_status
+    text :caste
+    string :manglik
+    #religion, kundali, about me
+    text :mother_tongue, :native_place
+    text :birth_country,:birth_city,:sun_sign
+    text :me
   end
 
   # after_touch :index # do something

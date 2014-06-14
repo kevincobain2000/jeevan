@@ -17,6 +17,7 @@
         <% end %>
 
 <% if can_send_message %>
+  <h1><small>Drop a Line !</small></h1>
     <%= form_tag({:action=>'send_message', :controller => "messages"}, {:remote => true, :class=>"well padding-bottom-10 message_form"}) do %>
       <textarea name="message" type="input" rows="2" style="resize:none;" class="form-control message_textarea" placeholder="Hi there! I like your profile."></textarea>
       <input type="hidden" value="<%= user[:id] %>" name="to_user_id">
@@ -70,4 +71,3 @@
     <%= will_paginate @similar_profiles_paginate, :class =>"flickr_pagination" %>
   </div>
 </div>
-

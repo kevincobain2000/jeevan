@@ -7,6 +7,7 @@
   </h1>
   <%= will_paginate paginate, :class =>"flickr_pagination"%>
   <legend></legend>
+  <%= render :partial =>'layouts/cardside.html.erb' %>
   <% if paginate.empty? %>
     <div class="error-box">
       <h3 class="text-center">
@@ -17,7 +18,6 @@
           <a href="/">go and explore more profiles</a></small></h3>
     </div>
     <% else %>
-  <%= render :partial =>'layouts/cardside.html.erb' %>
   <div class="col-md-8">
     <div id="blog">
       <% paginate.each_with_index do |_user, idx| %>
@@ -33,12 +33,5 @@
   </div>
   <% end %>
 </div>
-<legend></legend>
+<hr>
 <%= will_paginate paginate, :class =>"flickr_pagination"%>
-
-
-<script type="text/javascript">
-  $(document).ready(function($) {
-    $("#scrolltofix").scrollToFixed({ marginTop: 100});
-  });
-</script>
