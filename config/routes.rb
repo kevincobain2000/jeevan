@@ -30,6 +30,7 @@ Jeevan::Application.routes.draw do
       post :interest_response
       post :shortlist
       post :search
+      post :search_advanced
       post :index
       #ajax
       post :get_selectize

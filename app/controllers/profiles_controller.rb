@@ -238,12 +238,38 @@ class ProfilesController < ApplicationController
       fulltext query_string
       without(:sex).equal_to(current_user.sex)
       without(:sex).equal_to("Unknown")
+      without(:dob).equal_to("01/01/1900")
       order_by(:images_count, :desc)
       paginate :page => params[:page], :per_page => PAGINATE_PROFILES
     end
     @search = @solr.results
     @query_was = params[:query]
   end
+
+  def search_advanced
+    ages = params[:asearch_age].gsub(/Yrs/, '').split("-").map{|j| j.strip()}.map{|yrs| Time.now.year - yrs.to_i}.sort
+    from_dob = "01/01/#{ages[0]}"
+    to_dob = "31/12/#{ages[1]}"
+
+    home_q = params[:asearch_home]
+    religion_q = params[:asearch_religion]
+    caste_q = params[:asearch_caste]
+    marital_status_q = "#{params[:asearch_single]} #{params[:asearch_widowed]} #{params[:asearch_divorced]}"
+    manglik_q = params[:asearch_manglik] == "on" ? "Yes" : "No"
+
+    the_query = "#{religion_q} #{caste_q} #{marital_status_q}"
+    @solr = User.search do
+      fulltext the_query
+      without(:sex).equal_to(current_user.sex)
+      without(:sex).equal_to("Unknown")
+      with(:manglik).equal_to(manglik_q)
+      order_by(:images_count, :desc)
+      paginate :page => params[:page], :per_page => PAGINATE_PROFILES
+    end
+    @search = @solr.results
+    render "search"
+  end
+
 
   def similar_profiles
     visiting_user = User.find(Profile.find(params[:id]).user_id)
