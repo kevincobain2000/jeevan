@@ -3803,7 +3803,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   }
   .navbar-nav > li > a {
     padding-top: 16px;
-    padding-bottom: 16px;
+    padding-bottom: 10px;
   }
   .navbar-nav.navbar-right:last-child {
     margin-right: -13px;
@@ -4016,7 +4016,8 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {
-  color: #ffffff;
+  /*color: #ffffff;*/
+  color: blue;
   background-color: transparent;
 }
 .navbar-inverse .navbar-nav > .active > a,

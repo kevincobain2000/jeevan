@@ -1,20 +1,7 @@
-<div class="collapse navbar-collapse navbar-inverse navbar-fixed-top">
+<div class="collapse navbar-collapse navbar-inverse navbar-fixed-top bg-color-white">
   <ul class="nav navbar-nav">
-    <li>
-      <div id="hide-menu" class="btn-header">
-          <span>
-            <a href="javascript:void(0);" title="Collapse Menu">
-              <i class="fa fa-bars"></i>
-            </a>
-          </span>
-        </div>
-    </li>
-    <li>
-      <a href="/explore" class="txt-color-white"><i class="fa fa-search"></i>
-        EXPLORE</a>
-    </li>
     <li class="dropdown">
-      <a class="dropdown-toggle txt-color-white" data-toggle="dropdown" href="javascript:void(0);">Sort by<b class="caret"></b></a>
+      <a class="dropdown-toggle hover-black" data-toggle="dropdown" href="javascript:void(0);">Sort by<b class="caret"></b></a>
       <ul class="dropdown-menu">
         <li>
           <a href="/profiles/online">Online Now</a>
@@ -26,6 +13,10 @@
           <a href="/profiles/withphotos">With Photos</a>
         </li>
       </ul>
+    </li>
+    <li>
+      <a href="/explore" class="hover-black"><i class="fa fa-search"></i>
+        All Profiles</a>
     </li>
     <li>
       <a href="/messages/"><i class="fa fa-comments"></i>
@@ -86,19 +77,24 @@
       </a>
     </li>
     <li>
-      <%= link_to edit_profile_path(:id =>current_user.profile.id), :class=>"txt-color-white" do %>
+      <%= link_to edit_profile_path(:id =>current_user.profile.id), :class=>"hover-black" do %>
         <i class="fa fa-edit"></i>
         Edit Profile
       <% end %>
     </li>
     <li>
-        <%= form_tag({:action=>'search', :controller => "profiles"},{:class=>"navbar-form", :style=>"width:300px;"}) do %>
-        <input type="text" placeholder="Hindu, Delhi anything" id="header-search" name="query" class="form-control">
+      <% if defined? @query_was  %> 
+      <% search_value = @query_was %>
+      <% else %>
+      <% search_value = "" %>
+      <% end %>
+        <%= form_tag({:action=>'search', :controller => "profiles"},{:class=>"navbar-form", :style=>"width:300px"}) do %>
+        <input type="text" placeholder="Hindu, Delhi anything" id="header-search" name="query" class="form-control" value="<%= search_value %>">
         <button type="submit" class="btn btn-primary hidden"></button>
         <% end %>
     </li>
     <li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">
+      <a class="dropdown-toggle btn-header" data-toggle="dropdown" href="javascript:void(0);">
         <%= image_tag current_user.avatar.url(:thumb), :class => "img-rounded", :style=>"25px;height:25px;" %>
         <b class="caret"></b>
       </a>
@@ -127,5 +123,14 @@
         </li>
       </ul>
     </li>
+    <!-- <li>
+      <div id="hide-menu" class="btn-header pull-right">
+          <span>
+            <a href="javascript:void(0);" title="Collapse Menu">
+              <i class="fa fa-bars"></i>
+            </a>
+          </span>
+        </div>
+    </li> -->
   </ul>
 </div>
