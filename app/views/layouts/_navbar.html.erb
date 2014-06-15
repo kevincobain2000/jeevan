@@ -33,10 +33,10 @@
     <li>
       <a href="/profiles/visitors"><i class="fa fa-thumbs-up"></i>
         Visitors
-        <% if current_user.badge.message != 0 %>
+        <% if current_user.badge.visitor != 0 %>
         <small>
             <label class="badge bg-color-red font-xs">
-            1<%#= current_user.badge.message %>
+            <%= current_user.badge.visitor %>
           </label>
         </small>
           <% end %>
