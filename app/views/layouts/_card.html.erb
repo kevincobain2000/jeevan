@@ -17,15 +17,17 @@
     </div>
   </div>
   <div class="text">
-    <p>
-      <div class="pull-left semi-bold">
+    <h1 class="text-muted">
+    <small>
+      <div class="pull-left">
         <%= user[:devotion] %>
         (<%= user[:age] %>)</div>
+        </small>
+        </h1>
       <div class="pull-right">
         <%= render :partial =>'layouts/online', :locals => {:time => user[:updated_at]}%></div>
-    </p>
 
-    <legend></legend>
+        <legend></legend>
 
     <% if user[:image].count >= 1 %>
     <h1>
