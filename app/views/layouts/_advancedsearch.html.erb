@@ -1,6 +1,6 @@
-<div class="well col-md-12" id="scrolltofix">
-  <h3>Advanced Search
-    <span class="text-muted">(<%= current_user.sex == "Male" ? "Brides" : "Groom" %>)</span></h3>
+<div class="well well-white col-md-12">
+  <h4 class="padding-5">Advanced Search
+    <span class="text-muted">(<%= current_user.sex == "Male" ? "Brides" : "Groom" %>)</span></h4>
   <%= form_tag({action: 'search_advanced', controller: "profiles"}, class: "smart-form") do %>
     <fieldset>
       <section>

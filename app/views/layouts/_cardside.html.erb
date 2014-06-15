@@ -1,5 +1,5 @@
 <div class="col-md-4 hidden-xs">
-  <div class="well col-md-12">
+  <div class="well well-white radius col-md-12">
     <%= render "layouts/profileprogress" %>
     <div class="col-md-6">
       <a class="btn-link" data-toggle="modal" data-target="#modal-edit-avatar">
@@ -59,7 +59,7 @@
       </p>
     </div>
   </div>
-  <div class="well col-md-12">
+  <div class="well well-white radius col-md-12">
     <h3>You recently visited</h3>
     <% get_user_visited_user_ids(4).each do |uid| %>
       <% vuser = get_user_from_uid(uid) %>
@@ -68,7 +68,7 @@
       <% end %>
     <% end %>
   </div>
-  <div class="well col-md-12">
+  <div class="well well-white radius col-md-12">
     <h3>People who viewed your profile</h3>
     <% get_visitors_user_ids(4).each do |uid| %>
       <% vuser = get_user_from_uid(uid) %>
@@ -77,7 +77,7 @@
       <% end %>
     <% end %>
   </div>
-  <div class="well col-md-12">
+  <div class="well well-white radius col-md-12">
     <h3>My Saved Profiles<br><small>We do not notify user when you save their profile</small></h3>
     <% get_shortlist_user_ids(4).each do |uid| %>
       <% vuser = get_user_from_uid(uid) %>
@@ -88,8 +88,3 @@
   </div>
   <%= render "layouts/advancedsearch.html.erb" %>
 </div>
-<script type="text/javascript">
-  $(document).ready(function($) {
-    $("#scrolltofix").scrollToFixed({ marginTop: 100});
-  });
-</script>
