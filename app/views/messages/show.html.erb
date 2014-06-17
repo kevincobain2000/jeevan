@@ -107,11 +107,11 @@
         <% end %>
 
         <% if can_send_message %>
-
         <%= form_tag({:action=>'send_message'}, {:remote => true, :class=>"well padding-bottom-10 message_form"}) do %>
           <input name="message" type="input" class="form-control message_textarea" placeholder="" required>
           <input type="hidden" value="<%= user[:id] %>" name="to_user_id">
-          <div class="margin-top-10">
+          <div class="">
+            <br>
             <button type="submit" class="btn btn-sm btn-primary pull-right disabled message_button" data-img="<%= user[:avatar].url(:tiny) %>">
               Send
             </button>

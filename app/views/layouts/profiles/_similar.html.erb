@@ -21,7 +21,8 @@
     <%= form_tag({:action=>'send_message', :controller => "messages"}, {:remote => true, :class=>"well padding-bottom-10 message_form"}) do %>
       <textarea name="message" type="input" rows="2" style="resize:none;" class="form-control message_textarea" placeholder="Hi there! I like your profile."></textarea>
       <input type="hidden" value="<%= user[:id] %>" name="to_user_id">
-      <div class="margin-top-10">
+      <div class="">
+        <br>
         <button type="submit" class="btn btn-sm btn-primary pull-right disabled message_button" data-img="<%= user[:avatar].url(:tiny) %>">
           Send
         </button>

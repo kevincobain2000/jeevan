@@ -9,10 +9,10 @@
     <% end %>
 
     <% end %>
-    <div class="air air-bottom-left padding-10 txt-color-white hidden">
+    <div class="air air-bottom-left padding-10 txt-color-white">
       <%= render :partial =>'layouts/interestbutton', :locals => {:user => user}%>
     </div>
-    <div class="air air-bottom-right padding-10 hidden">
+    <div class="air air-bottom-right padding-10">
       <%= link_to profile_path(:id =>user[:profile][:id]) do %><button class="btn btn-primary pull-right" rel="tooltip" data-placement="top" data-original-title="Full Profile"><i class="fa fa-arrow-right"></i></button><% end %>
     </div>
   </div>
@@ -78,21 +78,3 @@
     </p>
   </div>
   </div>
-
-
-  <script type="text/javascript">
-$(document).ready(function() {
-    $(".post").hoverIntent({
-        over: function () {
-            var e = $(this).find('.air');
-            e.removeClass('hidden')
-        },
-        out: function () {
-            var e = $(this).find('.air');
-            e.addClass('hidden');
-        },
-        interval: 0,
-        timeout: 0
-    });
-});
-  </script>
