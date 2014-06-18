@@ -21,7 +21,6 @@ body {
   /*direction: ltr;*/
 }
 
-
 /*
 	 * MAIN
 	 */
@@ -448,17 +447,7 @@ article.sortable-grid {
     width: 100%;
   }
 }
-/*
-		 * tooltips
-		 */
-.smart-form .select select {
-  padding: 5px;
-}
 
-.smart-form .input input:focus + .tooltip,
-.smart-form .textarea textarea:focus + .tooltip {
-  opacity: 1;
-}
 
 .smart-form .input input,
 .smart-form .select select,
@@ -1026,6 +1015,21 @@ textarea.clone {
 }
 .textarea-controls .smart-form .checkbox {
   padding-left: 22px !important;
+}
+@media (min-width: 768px) and (max-width: 880px) {
+  .chat-body li.message .message-text .chat-file b {
+    width: 150px;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 479px) {
+  .chat-body li.message .message-text .chat-file b {
+    width: 150px;
+  }
+}
+@media (max-width: 480px) {
+  .chat-body li.message .message-text .chat-file b {
+    width: 150px;
+  }
 }
 
 

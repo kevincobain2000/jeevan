@@ -44,7 +44,7 @@ module ApplicationHelper
       avatar:     user.avatar,
       in_response:  in_response,
       out_response: out_response,
-      # shortlist:    Shortlist.where(user_id: current_user.id, to_user_id: user.id).first,
+      shortlist:    Shortlist.where(user_id: current_user.id, to_user_id: user.id).first,
     }
     return user_ret
   end  
@@ -83,7 +83,7 @@ module ApplicationHelper
       provider:     user.provider,
       in_response:  in_response,
       out_response: out_response,
-      shortlist:    Shortlist.where(user_id: current_user.id, to_user_id: user.id).first,
+      # shortlist:    Shortlist.where(user_id: current_user.id, to_user_id: user.id).first,
     }
     return user_ret
   end  
