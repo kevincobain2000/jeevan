@@ -24,9 +24,9 @@
   <%= subscribe_to "/messages/#{current_user.id}" %>
     <!-- <body class="smart-style-2"> -->
     <% if mobile_device? %>
-      <body class="smart-style-2 fixed-header fixed-ribbon fixed-width fixed-navigation">
+      <body class="smart-style-2 fixed-header fixed-navigation">
     <% else %>
-      <body class="smart-style-2 fixed-header fixed-navigation fixed-ribbon fixed-width hidden-menu">
+      <body class="smart-style-2 fixed-header fixed-navigation hidden-menu">
     <% end %>
       
       <!-- possible classes: minified, fixed-ribbon, fixed-header, fixed-width-->
