@@ -1,5 +1,35 @@
 <div class="collapse navbar-collapse navbar-inverse navbar-fixed-top bg-color-white hidden-xs">
   <ul class="nav navbar-nav">
+      <li class="dropdown">
+      <a class="dropdown-toggle btn-header" data-toggle="dropdown" href="javascript:void(0);">
+        <%= image_tag current_user.avatar.url(:thumb), :class => "img-rounded", :style=>"25px;height:25px;" %>
+        <b class="caret"></b>
+      </a>
+      <ul class="dropdown-menu">
+      <li>
+         <a class="btn-link" data-toggle="modal" data-target="#modal-edit-avatar">
+           Change Profile Pic
+        </a>
+      </li>
+      <li class="divider"></li>
+        <li>
+          <%= link_to edit_user_registration_path do %>
+            Change Password
+          <% end %>
+        </li>
+        <li>
+          <%= link_to edit_user_registration_path do %>
+            Delete account
+          <% end %>
+        </li>
+        <li class="divider"></li>
+        <li>
+          <a href="<%= destroy_user_session_path %>" title="Sign Out" id="logout">
+            Sign out
+          </a>
+        </li>
+      </ul>
+    </li>
     <li class="dropdown">
       <a class="dropdown-toggle hover-black" data-toggle="dropdown" href="javascript:void(0);">Sort by<b class="caret"></b></a>
       <ul class="dropdown-menu">
@@ -83,47 +113,6 @@
       <% end %>
     </li>
     <li>
-      <% if defined? @query_was  %> 
-      <% search_value = @query_was %>
-      <% else %>
-      <% search_value = "" %>
-      <% end %>
-        <%= form_tag({:action=>'search', :controller => "profiles"},{:class=>"navbar-form", :style=>"width:300px"}) do %>
-        <input type="text" placeholder="Hindu, Delhi anything" id="header-search" name="query" class="form-control" value="<%= search_value %>">
-        <button type="submit" class="btn btn-primary hidden"></button>
-        <% end %>
-    </li>
-    <li class="dropdown">
-      <a class="dropdown-toggle btn-header" data-toggle="dropdown" href="javascript:void(0);">
-        <%= image_tag current_user.avatar.url(:thumb), :class => "img-rounded", :style=>"25px;height:25px;" %>
-        <b class="caret"></b>
-      </a>
-      <ul class="dropdown-menu">
-      <li>
-         <a class="btn-link" data-toggle="modal" data-target="#modal-edit-avatar">
-           Change Profile Pic
-        </a>
-      </li>
-      <li class="divider"></li>
-        <li>
-          <%= link_to edit_user_registration_path do %>
-            Change Password
-          <% end %>
-        </li>
-        <li>
-          <%= link_to edit_user_registration_path do %>
-            Delete account
-          <% end %>
-        </li>
-        <li class="divider"></li>
-        <li>
-          <a href="<%= destroy_user_session_path %>" title="Sign Out" id="logout">
-            Sign out
-          </a>
-        </li>
-      </ul>
-    </li>
-    <!-- <li>
       <div id="hide-menu" class="btn-header pull-right">
           <span>
             <a href="javascript:void(0);" title="Collapse Menu">
@@ -131,6 +120,6 @@
             </a>
           </span>
         </div>
-    </li> -->
+    </li>
   </ul>
 </div>

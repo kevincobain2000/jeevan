@@ -1,22 +1,21 @@
 <!-- MAIN CONTENT -->
-<div id="content" class="font-sm">
+<div id="content">
+  <%= render "layouts/search" %>
   <h1>
     <span class="semi-bold"><%= h %></span>
     <%= hsm %>
-    <small class="txt-color-white">about <%= number_with_delimiter(paginate.total_entries) %> profiles</small>
+    <strong class="font-xs">about <%= pluralize(number_with_delimiter(paginate.total_entries), "profile") %></strong>
   </h1>
   <%= will_paginate paginate, :class =>"flickr_pagination"%>
   <br>
   <%= render :partial =>'layouts/cardside.html.erb' %>
   <% if paginate.empty? %>
-    <div class="error-box">
       <h3 class="text-center">
         <%= image_tag "logo.png" %>
         <br>
         SORRY
         <br><small>Currently no profiles in this section
           <a href="/">go and explore more profiles</a></small></h3>
-    </div>
     <% else %>
   <div class="col-md-9">
     <div id="blog">
