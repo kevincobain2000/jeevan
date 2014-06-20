@@ -38,8 +38,8 @@
   margin-right: 20px;
   border-radius: 4px;
   box-shadow: 1px 1px 2px 0px #E0E0E0;
-  width:270px;
-  height: 470px;
+  width:260px;
+  height: 450px;
 }
 
 #blog .post_row .last{
@@ -49,23 +49,6 @@
   position: relative;
   text-align: center;
   padding-top: 10px;
-}
-#blog .post_row .post .img .date{
-  background: #E8554E;
-  position: absolute;
-  padding: 2px 5px;
-  top: 0;
-  left: 11px;
-}
-#blog .post_row .post .img .date p{
-  color: #fff;
-  font-size: 14px;
-  font-weight: bold;
-  font-style: italic;
-  margin:0;
-}
-#blog .post_row .post .img img {
-  min-height: 186px;
 }
 #blog .post_row .post .text{
   margin: 18px auto 0;
