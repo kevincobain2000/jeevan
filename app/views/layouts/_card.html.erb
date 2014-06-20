@@ -5,7 +5,7 @@
     <% if (user[:avatar].size.to_i < 3500 and !user[:provider].nil?) %>
     <%= image_tag("others/#{user[:provider].to_s}.png") %>
     <% else %>
-    <%= image_tag user[:avatar].url(:thumb), :class=>"img-rounded",:style=>"width:90%;height:80%;" %>
+    <%= image_tag user[:avatar].url(:thumb), :class=>"img-rounded" %>
     <% end %>
 
     <% end %>
