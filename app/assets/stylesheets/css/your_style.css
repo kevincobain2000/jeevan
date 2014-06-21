@@ -101,40 +101,17 @@
   float: right;
 }
 
-#grad1{
-  background: #ffffff; /* Old browsers */
-  background: -moz-linear-gradient(top,  #ffffff 60%, #e5e5e5 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(60%,#ffffff), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  #ffffff 60%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  #ffffff 60%,#e5e5e5 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  #ffffff 60%,#e5e5e5 100%); /* IE10+ */
-  background: linear-gradient(to bottom,  #ffffff 60%,#e5e5e5 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
-}
 /* Sign In Option 1 */
 #sign_in1{
-  /* Safari 4-5, Chrome 1-9 */
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#1a82f7), to(#2F2727));
-
-  /* Safari 5.1, Chrome 10+ */
-  background: -webkit-linear-gradient(top, #2F2727, #1a82f7);
-
-  /* Firefox 3.6+ */
-  background: -moz-linear-gradient(top, #2F2727, #1a82f7);
-
-  /* IE 10 */
-  background: -ms-linear-gradient(top, #2F2727, #1a82f7);
-
-  /* Opera 11.10+ */
-  background: -o-linear-gradient(top, #2F2727, #1a82f7);
-    display: block;
-    height: 540px;
-    margin-bottom: 90px;
-    margin-top: -35px;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  margin: 0;
+  padding: 0;
+  overflow:hidden;
+  background-image: url('/assets/fotolia/2.jpg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: #C0DEED;
+  width: 100%;
 }
 #sign_in1 .header{
     text-align: center;
@@ -241,76 +218,23 @@
     width: 31%;
     padding-left: 10px;
 }
-#sign_in1 .footer input[type="submit"]{
-    text-transform: uppercase;
-    color: #fff;
-    background: #187CCC;
-    font-size: 15px;
-    padding: 8px 18px;
-    border: 0 none;
-    border-radius: 3px;
-    -webkit-transition: background linear .2s, box-shadow linear .2s;
-    -moz-transition: background linear .2s, box-shadow linear .2s;
-    -o-transition: background linear .2s, box-shadow linear .2s;
-    transition: background linear .2s, box-shadow linear .2s;
-}
+
 #sign_in1 .footer input[type="submit"]:hover{
     background: #252528;
 }
-#sign_in1 .remember{
-    margin: 0;
-}
-#sign_in1 .remember label.checkbox{
-    float: left;
-    font-weight: bold;
-    width: 30%;
-    font-size: 14px;
-    color: #fff;
-}
-#sign_in1 .remember a{
-    color: #fff;
-    font-size: 14px;
-    border-bottom: 1px solid white;
-    font-weight: bold;
-    -webkit-transition: all .2s;
-    -moz-transition: all .2s;
-    -ms-transition: all .2s;
-    transition: all .2s;
-}
-#sign_in1 .dosnt{
-    text-align: center;
-    color: #fff;
-    float: right;
-    font-size: 14px;
-    margin: 0 18px 0 0;
-}
-#sign_in1 .dosnt span{
-    margin-right: 8px;
-}
-#sign_in1 .dosnt a{
-    color: #fff;
-    border-bottom: 1px solid white;
-    -webkit-transition: all .2s;
-    -moz-transition: all .2s;
-    -ms-transition: all .2s;
-    transition: all .2s;
-}
-#sign_in1 .dosnt a:hover,
-#sign_in1 .remember a:hover{
-    color:#252528;
-    border-color: #252528;
-}
+
 /* Sign Up Option 2 */
 #sign_up2{
-background: #ffffff; /* Old browsers */
-background: -moz-linear-gradient(top, #ffffff 0%, #e5e5e5 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top, #ffffff 0%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top, #ffffff 0%,#e5e5e5 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top, #ffffff 0%,#e5e5e5 100%); /* IE10+ */
-background: linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+   margin: 0;
+  padding: 0;
+  overflow:hidden;
+  background-image: url('/assets/bg.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: #C0DEED;
+  width: 100%;
 }
+
 #sign_up2 .section_header{
   margin-bottom: 50px;
 }
@@ -360,31 +284,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 #sign_up2 .left_box .perk_box .perk p strong{
   color: #333;
 }
-#sign_up2 a.btn_sign{
-  text-transform: uppercase;
-  color: #FDFDFD;
-  font-size: 15px;
-  border-radius: 4px;
-  background: #333333;
-  font-weight: bold;
-  text-align: center;
-  margin: 0 auto;
-  width: 25%;
-  display: block;
-  padding: 6px 0 6px;
-  -webkit-transition: background linear .2s, box-shadow linear .2s;
-  -moz-transition: background linear .2s, box-shadow linear .2s;
-  -o-transition: background linear .2s, box-shadow linear .2s;
-  transition: background linear .2s, box-shadow linear .2s;
-}
+
 #sign_up2 a.btn_sign:hover{
   background: #252528;
 }
-#sign_up2 .icos{
-  background: url('../img/signin_icos.png') no-repeat;
-  width: 96px;
-  height: 30px;
-}
+
 #sign_up2 .signin_box{
   float: right;
 }
