@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   after_filter :user_activity
   # layout :dirty_layout_hack
+  layout :dirty_layout_hack_blog
   rescue_from ActiveRecord::RecordNotFound, :with => :record_not_found
   # protect_from_forgery with: :null_session
 
@@ -33,6 +34,11 @@ class ApplicationController < ActionController::Base
       return false
     end
     if controller_name == "others"
+      return false
+    end
+  end
+  def dirty_layout_hack_blog
+    if controller_name == "blogs"
       return false
     end
   end
