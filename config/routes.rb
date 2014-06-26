@@ -1,4 +1,6 @@
 Jeevan::Application.routes.draw do
+  resources :blogs
+
   resources :others do
     collection do
       get :confirmbasic
