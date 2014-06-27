@@ -1,21 +1,21 @@
 <% if !user[:out_response].nil? %>
   <% if user[:out_response].response == 0 %>
-      <strong class="font-md txt-color-red"><i class="fa fa-thumbs-down"></i>
+      <strong class="txt-color-red"><i class="fa fa-thumbs-down"></i>
         Got Rejected</strong>
   <% elsif user[:out_response].response == 1 %>
-      <strong class="font-md txt-color-green"><i class="fa fa-check"></i>
+      <strong class="txt-color-green"><i class="fa fa-check"></i>
 <%= user[:name] %> has accepted</strong>
   <% else %>
-      <strong class="font-md txt-color-green"><i class="fa fa-bell"></i>
-        Waiting</strong>
+      <!-- <strong class="txt-color-green"><i class="fa fa-bell"></i>
+        Waiting</strong> -->
   <% end %>
 <% end %>
 <br>
 <% if !user[:in_response].nil? %>
   <% if user[:in_response].response == 0 %>
-  <strong class="font-md txt-color-red"><i class="fa fa-thumbs-down"></i> You Rejected</strong>
+  <strong class="txt-color-red"><i class="fa fa-thumbs-down"></i> You Rejected</strong>
   <% elsif user[:in_response].response == 1 %>
-      <strong class="font-md txt-color-green"><i class="fa fa-check-square"></i>
+      <strong class="txt-color-green"><i class="fa fa-check-square"></i>
         You accepted</strong>
   <% end %>
 <% end %>
