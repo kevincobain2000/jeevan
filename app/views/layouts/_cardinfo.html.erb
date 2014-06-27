@@ -1,10 +1,8 @@
 <ul class="list-unstyled">
   <li>
-    <p class="">
     <%= link_to profile_path(:id =>user[:profile][:id]) do %>
     <%= user[:age] %> years old, <%= user[:devotion].downcase %> <%= user[:religion][:caste] %>
     <% end %>
-    </p>
   </li>
   <hr>
   <li>

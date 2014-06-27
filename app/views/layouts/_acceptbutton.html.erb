@@ -1,7 +1,5 @@
-<%= form_tag({:action=>'interest_response', :controller => "profiles"}, :remote => true, :class => "smart-form") do %>
+<%= form_tag({:action=>'interest_response', :controller => "profiles"}, :remote => true) do %>
   <%= hidden_field_tag 'to_user_id', user[:id] %>
-  <button class="btn btn-primary interest padding-5" name="commit" value="Accept" type="submit" data-img="<%= user[:avatar].url(:tiny) %>" data-url='<%= link_to "view profile", profile_path(:id =>user[:profile][:id]) %>' data-title="Interest Accepted" data-msg="accepted the interest in this profile">&nbsp;Accept&nbsp;</button>
-    <button class="btn btn-danger interest padding-5" name="commit" value="Reject" type="submit" data-img="<%= user[:avatar].url(:tiny) %>" data-url='<%= link_to "view profile", profile_path(:id =>user[:profile][:id]) %>' data-title="Interest Rejected" data-msg="rejected the interest in this profile">
-		&nbsp; Reject &nbsp;
-	</button>
+  <button class="btn btn-sm btn-primary interest" name="commit" value="Accept" type="submit" data-img="<%= user[:avatar].url(:tiny) %>" data-url='<%= link_to "view profile", profile_path(:id =>user[:profile][:id]) %>' data-title="Interest Accepted" data-msg="accepted the interest in this profile" rel="tooltip" data-placement="bottom" data-original-title="<i class='fa fa-check'></i> Accept Interest" data-html="true">Accept</button>
+    <button class="btn btn-sm btn-danger interest" name="commit" value="Reject" type="submit" data-img="<%= user[:avatar].url(:tiny) %>" data-url='<%= link_to "view profile", profile_path(:id =>user[:profile][:id]) %>' data-title="Interest Rejected" data-msg="rejected the interest in this profile" rel="tooltip" data-placement="bottom" data-original-title="<i class='fa fa-times'></i> Reject interest" data-html="true">Reject</button>
     <% end %>
