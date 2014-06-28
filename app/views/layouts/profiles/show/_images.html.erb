@@ -9,12 +9,12 @@
 <% end %>
   <% user[:image].each do |image| %>
   <a href="<%= image.avatar.url(:original) %>" data-lightbox="roadtrip">
-    <%= image_tag image.avatar.url(:thumb), :class=>"img-rounded", :style=>"width:60px;height:60px;" %>
+    <%= image_tag image.avatar.url(:thumb), :class=>"img-rounded", :style=>"width:50px;height:40px;" %>
   </a>
   <% end %>
 <% if current_user.profile.id == user[:profile][:id] %>
-  <br>
-  <button class="btn btn-warning btn-md pull-right hidden-xs" data-toggle="modal" data-target="#modal-edit-images">
+  <hr>
+  <button class="btn btn-primary btn-sm pull-left hidden-xs" data-toggle="modal" data-target="#modal-edit-images">
     <i class="fa fa-upload"></i>
     Upload more
   </button>
