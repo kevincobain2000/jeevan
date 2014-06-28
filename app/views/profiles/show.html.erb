@@ -24,40 +24,19 @@
             <article class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
               <h3>About
                 <% if  current_user.profile.id == __user[:profile][:id] %>
-                  <button class="btn btn-xs btn-default hidden-xs" data-toggle="modal" data-target="#modal-edit-about">
-                    <i class="fa fa-edit"></i>
-                    edit
+                  <button class="btn btn-xs btn-thin hidden-xs" data-toggle="modal" data-target="#modal-edit-about">
+                    Edit about yourself
                   </button>
                 <% end %>
               </h3>
-              <div class="">
                 <%= raw __user[:about][:me] %>
-              </div>
             </article>
-            <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-              <%= render :partial =>'layouts/profiles/show/religion',  :locals => {:user => __user}%>
-            </article>
-            <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-              <%= render :partial =>'layouts/profiles/show/kundali',  :locals => {:user => __user}%>
-            </article>
-            <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-              <%= render :partial =>'layouts/profiles/show/education',  :locals => {:user => __user}%>
-            </article>
-            <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-              <%= render :partial =>'layouts/profiles/show/occupation',  :locals => {:user => __user}%>
-            </article>
-            <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-              <%= render :partial =>'layouts/profiles/show/family',  :locals => {:user => __user}%>
-            </article>
-            <article class="col-xs-12 col-sm-6 col-md-6 col-lg-12">
-              <%= render :partial =>'layouts/profiles/show/hobby',  :locals => {:user => __user}%>
-            </article>
-            <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-              <%= render :partial =>'layouts/profiles/show/lifestyle',  :locals => {:user => __user}%>
-            </article>
-            <article class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-              <%= render :partial =>'layouts/profiles/show/desire',  :locals => {:user => __user}%>
-            </article>
+
+            <% [:religion, :kundali, :education, :occupation, :family, :hobby,:lifestyle, :desire].each do |category| %>
+              <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <%= render :partial =>'layouts/profiles/show/generic',  :locals => {:user => __user, :key => category}%>
+              </section>
+            <% end %>
           </div>
         </div>
       </div>

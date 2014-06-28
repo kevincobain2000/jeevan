@@ -1,6 +1,5 @@
-<div class="col-sm-4">
-  <div class="well">
-    <% can_send_message = true %>
+    <% can_send_message = (current_user.id != user[:id]) %>
+
     <% if !user[:out_response].nil? %>
       <% if user[:out_response].response == 0 %>
         <% can_send_message = false %>
@@ -13,6 +12,9 @@
         <% can_send_message = true %>
       <% end %>
     <% end %>
+<div class="col-sm-4">
+  <div class="well">
+
     <% if can_send_message %>
       <h1><small>Drop a Line !</small></h1>
       <%= form_tag({:action=>'send_message', :controller => "messages"}, {:remote => true, :class=>"well padding-bottom-10 message_form"}) do %>
@@ -27,6 +29,7 @@
         </div>
       <% end %>
     <% else %>
+    <h1><span>Good day.. <%= current_user.name  %></span></h1>
     <% end %>
     <%= render :partial =>'layouts/interestbutton', :locals => {:user => user}%>
     <div class="pull-right">
