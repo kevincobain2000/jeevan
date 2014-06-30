@@ -32,9 +32,6 @@
     <h1><span>Good day.. <%= current_user.name  %></span></h1>
     <% end %>
     <%= render :partial =>'layouts/interestbutton', :locals => {:user => user}%>
-    <div class="pull-right">
-      <%= render :partial =>'layouts/interesttext', :locals => {:user => user}%>
-    </div>
   </div>
   <div class="well well-white radius">
     <% if @similar_profiles_paginate.count >= 1 %>

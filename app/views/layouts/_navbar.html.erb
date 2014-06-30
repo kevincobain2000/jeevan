@@ -84,7 +84,7 @@
           <% end %>
       </a>
     </li>
-    <li>
+<!--     <li>
       <a href="/profiles/accepted"><i class="fa fa-check"></i>
         Accepted</a>
     </li>
@@ -99,27 +99,18 @@
     <li>
       <a href="/profiles/shortlists"><i class="fa fa-plus"></i>
         Saved</a>
-    </li>
-    <li>
-      <a href="/profiles/<%= current_user.profile.id %>">
+    </li> -->
+    <!-- <li>
+      <a href="/profiles/<%#= current_user.profile.id %>">
         <i class="fa fa-lg fa-fw fa-file"></i>
         <span class="menu-item-parent">My Profile</span>
       </a>
-    </li>
-    <li>
-      <%= link_to edit_profile_path(:id =>current_user.profile.id), :class=>"hover-black" do %>
+    </li> -->
+<!--     <li>
+      <%#= link_to edit_profile_path(:id =>current_user.profile.id), :class=>"hover-black" do %>
         <i class="fa fa-edit"></i>
         Edit Profile
-      <% end %>
-    </li>
-    <li>
-      <div id="hide-menu" class="btn-header pull-right">
-          <span>
-            <a href="javascript:void(0);" title="Collapse Menu">
-              <i class="fa fa-bars"></i>
-            </a>
-          </span>
-        </div>
-    </li>
+      <%# end %>
+    </li> -->
   </ul>
 </div>

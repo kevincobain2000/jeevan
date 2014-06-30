@@ -1,21 +1,30 @@
 <% if !user[:out_response].nil? %>
+  <div class="well well-white radius text-center">
+  <h5>You expressed interest</h5>
+    <div class="well">
   <% if user[:out_response].response == 0 %>
-      <strong class="txt-color-red"><i class="fa fa-thumbs-down"></i>
-        Got Rejected</strong>
+      <span class="txt-color-red"><i class="fa fa-thumbs-down"></i>
+        Got Rejected</span>
   <% elsif user[:out_response].response == 1 %>
-      <strong class="txt-color-green"><i class="fa fa-check"></i>
-<%= user[:name] %> has accepted</strong>
+      <span class="txt-color-green"><i class="fa fa-check"></i>
+<%= user[:name] %> has accepted</span>
   <% else %>
-      <!-- <strong class="txt-color-green"><i class="fa fa-bell"></i>
-        Waiting</strong> -->
+      <span class="txt-color-green"><i class="fa fa-bell"></i>
+        Waiting for response</span>
   <% end %>
+</div>
+</div>
 <% end %>
-<br>
 <% if !user[:in_response].nil? %>
+  <div class="well well-white radius text-center">
+  <h5><strong><%= user[:name] %></strong> expressed interest in you !</h5>
+  <div class="well">
   <% if user[:in_response].response == 0 %>
-  <strong class="txt-color-red"><i class="fa fa-thumbs-down"></i> You Rejected</strong>
+  <span class="txt-color-red"><i class="fa fa-thumbs-down"></i> You have Rejected</span>
   <% elsif user[:in_response].response == 1 %>
-      <strong class="txt-color-green"><i class="fa fa-check-square"></i>
-        You accepted</strong>
+      <span class="txt-color-green"><i class="fa fa-check-square"></i>
+        You have accepted</span>
   <% end %>
+</div>
+</div>
 <% end %>
