@@ -90,10 +90,7 @@ class ProfilesController < ApplicationController
   end
   def modify_desire
     current_user.desire.update(desire_params)
-    respond_to do |format|
-      format.html
-      format.js
-    end
+    render json: { :status => 200 }
   end
   def destroy_everything
     user = User.find(current_user.id)
