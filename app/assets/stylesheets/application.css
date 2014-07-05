@@ -10,7 +10,7 @@
  *
  *= require_self
  *= require_tree .
- *= require font-awesome
+ * require font-awesome
  *= require selectize.default.css
  *= require gritter
  */
