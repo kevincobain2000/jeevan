@@ -1,9 +1,9 @@
-<div class="collapse navbar-collapse navbar-inverse navbar-fixed-top bg-color-white hidden-xs hidden-md">
-  <ul class="nav navbar-nav">
+<div class="navbar-inverse navbar-fixed-top bg-color-white hidden-xs hidden-md">
+  <ul class="nav nav-justified">
       <li class="dropdown">
       <a class="dropdown-toggle btn-header" data-toggle="dropdown" href="javascript:void(0);">
         <%= image_tag current_user.avatar.url(:thumb), :class => "img-rounded", :style=>"25px;height:25px;" %>
-        <b class="caret"></b>
+        <i class="fa fa-caret-down"></i>
       </a>
       <ul class="dropdown-menu">
       <li>
@@ -31,7 +31,7 @@
       </ul>
     </li>
     <li class="dropdown">
-      <a class="dropdown-toggle hover-black" data-toggle="dropdown" href="javascript:void(0);">Sort by<b class="caret"></b></a>
+      <a class="dropdown-toggle hover-black" data-toggle="dropdown" href="javascript:void(0);">Sort by <i class="fa fa-caret-down"></i><b class="caret"></b></a>
       <ul class="dropdown-menu">
         <li>
           <a href="/profiles/online">Online Now</a>
