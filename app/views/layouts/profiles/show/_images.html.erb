@@ -9,7 +9,7 @@
 <% end %>
   <% user[:image].each do |image| %>
   <a href="<%= image.avatar.url(:original) %>" data-lightbox="roadtrip">
-    <%= image_tag image.avatar.url(:thumb), :class=>"img-rounded", :style=>"width:50px;height:40px;" %>
+    <%= image_tag image.avatar.url(:thumb), :class=>"img-rounded", :style=>"width:45px;height:45px;" %>
   </a>
   <% end %>
 <% if current_user.profile.id == user[:profile][:id] %>

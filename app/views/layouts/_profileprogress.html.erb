@@ -1,5 +1,5 @@
 <% profile_progress = 100 %>
-<% message = "" %>
+<% message = "Edit Profile" %>
 	<% if current_user.avatar_file_size < 1000 %>
 	<% profile_progress -= 20 %>
 	<% message = "Upload profile pic" %>
@@ -21,12 +21,11 @@
 	<% end %>
 
 <div class="bar-holder">
-	Your Profile Completion
+	Completion
+	  <%= link_to edit_profile_path(:id =>current_user.profile.id), :class=>"pull-right" do %>
+    	<%= message %>
+  	<% end %>
   <div class="progress">
     <div class="progress-bar bg-color-blue" aria-valuetransitiongoal="100" style="width: <%= profile_progress %>%;" aria-valuenow="<%= profile_progress %>"><%= profile_progress %>%</div>
   </div>
-
-  <%= link_to edit_profile_path(:id =>current_user.profile.id), :class=>"pull-right" do %>
-    <%= message %>
-  <% end %>
 </div>

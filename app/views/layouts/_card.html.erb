@@ -54,10 +54,10 @@
     <a href="<%= user[:avatar].url(:original) %>" data-lightbox="roadtrip-<%= user[:profile][:id] %>"><%= image_tag user[:avatar].url(:tiny),:class=>"img-circle" ,:style=>"width:30px;height:30px;" %></a>
     <br>
 
-    <small class="text-muted pull-right">
+    <span class="text-muted pull-right font-xs">
       Joined
       <%= user[:created_at] %>
-      <% end %>ago</small>
+      <% end %>ago</span>
 
     <% end %>
     <!-- end if --> </div>

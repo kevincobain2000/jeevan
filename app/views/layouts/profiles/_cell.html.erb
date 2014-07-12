@@ -1,15 +1,11 @@
 <div id="content">
-  <h1>
-    <strong class="font-xs"><%= hsm  %></strong>
-    <small>
-      <%= pluralize(number_with_delimiter(paginate.total_entries), "profile") %>
-    </small>
-  </h1>
   <%= render :partial =>'layouts/cardside.html.erb' %>
   <div class="col-md-9">
     <div class="panel panel-primary">
       <div class="panel-heading"><%= h  %>
-        <%= hsm  %></div>
+        <%= hsm  %>:
+        <%= pluralize(number_with_delimiter(paginate.total_entries), "profile") %>
+        </div>
       <div class="panel-body">
         <% paginate.each do |__user| %>
           <%= link_to profile_path(:id => __user.profile.id) do %>

@@ -1,23 +1,24 @@
 <!-- MAIN CONTENT -->
 <div id="content">
   <%= render "layouts/search" %>
-  <h1>
-    <span class="semi-bold"><%= h %></span>
-    <%= hsm %>
-    <strong class="font-xs">about <%= pluralize(number_with_delimiter(paginate.total_entries), "profile") %></strong>
-  </h1>
   <%= will_paginate paginate, :class =>"flickr_pagination"%>
   <br>
   <%= render :partial =>'layouts/cardside.html.erb' %>
   <% if paginate.empty? %>
       <h3 class="text-center">
-        <%= image_tag "logo.png" %>
+        <%= image_tag "logo.png", :style=>"height:150px;width:150px;" %>
         <br>
         SORRY
         <br><small>Currently no profiles in this section
           <a href="/">go and explore more profiles</a></small></h3>
     <% else %>
+
+
   <div class="col-md-9">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        About <%= pluralize(number_with_delimiter(paginate.total_entries), "profile") %>
+      </div>
     <div id="blog">
       <% cols = 3 %>
       <% paginate.each_with_index do |_user, idx| %>
@@ -33,5 +34,9 @@
   </div>
   <% end %>
 </div>
+</div>
+
+
+
 <br>
 <%= will_paginate paginate, :class =>"flickr_pagination"%>

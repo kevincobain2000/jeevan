@@ -13,31 +13,25 @@
 
 /* pins */
 #blog{
-  /*margin-top: 70px;*/
-  margin-left: 10px;
-}
-#blog .header{
-  margin-left: 0;
-  margin-bottom: 56px;
-  margin-top: 30px;
+  margin-top: 50px;
+  /*margin-left: 50px;*/
+  margin-left: 100px;
 }
 
-#blog .post_row{
-  margin-left: 0;
-  margin-bottom: 0px;
-  /*height: 100px;*/
-}
 #blog .lastpost_row{
   margin-bottom: 0;
 }
 /*This is the box*/
 #blog .post_row .post{
-  background: #fff;
+  background: white;
   margin-left: 0px;
   margin-bottom: 30px;
   margin-right: 20px;
-  /*border-radius: 4px;*/
-  /*box-shadow: 1px 1px 2px 0px #E0E0E0;*/
+  border-radius: 4px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #E0E0E0;
+  /*box-shadow: 2px 1px 2px 0px #E0E0E0;*/
   width:260px;
   height: 430px;
 }
@@ -50,18 +44,7 @@
   text-align: center;
   padding-top: 10px;
 }
-#blog .post_row .post .text{
-  margin: 18px auto 0;
-  width: 83%;
-}
-#blog .post_row .post .text h5 {
-  margin: 0 0 8px 0;
-  font-size: 20px;
-  line-height: 23px;
-}
-#blog .post_row .post .text h5 a {
-  color: #333;
-}
+
 #blog .post_row .post .text span.date{
   color: #9F9F9F;
   display: block;
@@ -75,31 +58,20 @@
   font-size: 14px;
 }
 #blog .post_row .post .author_box{
-  margin: 12px auto 20px;
+  /*margin: 12px auto 20px;*/
   border-top: 1px solid #EDEDED;
   overflow: hidden;
   text-align: left;
   width: 85%;
   padding-top: 12px;
 }
-#blog .post_row .post .author_box  h6{
-  margin: 0 0 3px 0;  
-  font-size: 13px;
-  line-height: 15px;
-  font-style: italic;
-  font-weight: normal;
-  color: #B2B2B2;
-}
+
 #blog .post_row .post .author_box p{
   color: #B2B2B2;
   font-style: italic;
   font-size: 13px;
   line-height: 14px;
   margin: 0;
-}
-
-#blog .post_row .post .author_box img{
-  float: right;
 }
 
 .radius {
