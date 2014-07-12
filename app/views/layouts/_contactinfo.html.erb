@@ -14,101 +14,48 @@
   <% contactinfo_ln_link = "On Acceptance"  %>
 <% end %>
 
-<div class="tree">
-  <ul role="tree">
-    <li class="parent_li" role="treeitem">
-      <span title="Collapse this branch"> <i class="fa fa-lg fa-plus-circle"></i>
-        Contact Details
-      </span>
-      <% if  current_user.profile.id == user[:profile][:id] %>
-      <button class="btn btn-xs btn-default hidden-xs" data-toggle="modal" data-target="#modal-edit-contact">
-        edit contact
+<table class="table table-hover">
+  <tbody>
+  <thead>
+    <th>
+        <% if  current_user.profile.id == user[:profile][:id] %>
+      <button class="btn btn-xs btn-thin hidden-xs" data-toggle="modal" data-target="#modal-edit-contact">
+        Edit contact
       </button>
       <% end %>
-      <ul role="group">
-        <li class="parent_li" role="treeitem" style="display: list-item;">
-          <span class="label label-success" title="Collapse this branch"> <i class="fa fa-lg fa-plus-circle"></i>
-            Telephone
-          </span>
-          <ul role="group">
-            <li style="display: none;">
-              <span>
-                <i class="fa fa-phone"></i>
-              </span>
-              –
-              <strong><small><%= contactinfo_self.to_s.gsub("_","") %></small></strong>
-            </li>
-          </ul>
-        </li>
-        <li class="parent_li" role="treeitem" style="display: list-item;">
-          <span class="label label-success" title="Expand this branch">
-            <i class="fa fa-lg fa-plus-circle"></i>
-            Skype
-          </span>
-          <ul role="group">
-            <li>
-              <span>
-                <i class="fa fa-skype"></i>
-              </span>
-              –
-              <%= contactinfo_s_id %>
-            </li>
-          </ul>
-        </li>
-        <li class="parent_li" role="treeitem" style="display: list-item;">
-          <span class="label label-warning" title="Expand this branch">
-            <i class="fa fa-lg fa-plus-circle"></i>
-            Google !
-          </span>
-          <ul role="group">
-            <li>
-              <span>
-                <i class="fa fa-google-plus"></i>
-              </span>
-              –
-              <%= contactinfo_g_id %>
-            </li>
-          </ul>
-        </li>
-        <li class="parent_li" role="treeitem" style="display: list-item;">
-          <span class="label label-danger" title="Expand this branch">
-            <i class="fa fa-lg fa-plus-circle"></i>
-            WhatsApp !
-          </span>
-          <ul role="group">
-            <li>
-              <span>
-                <i class="fa fa-comment"></i>
-              </span>
-              –
-              <%= contactinfo_w_id %>
-            </li>
-          </ul>
-        </li>
-        <li class="parent_li" role="treeitem" style="display: list-item;">
-          <span class="label label-danger" title="Expand this branch">
-            <i class="fa fa-lg fa-plus-circle"></i>
-            Social Links
-          </span>
-          <ul role="group">
-            <li>
-              <span>
-                <i class="fa fa-facebook"></i>
-              </span>
-              –
-              <%= contactinfo_fb_link %>
-            </li>
-            <li>
-              <span>
-                <i class="fa fa-linkedin"></i>
-              </span>
-              –
-              <%= contactinfo_ln_link %>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </li>
-</ul>
-</div>
+    </th>
+    <th>Contact</th>
+    <th>Details</trh
+  </thead>
+    <tr >
+      <td><i class="fa fa-phone"></i></td>
+      <td>Telephone</td>
+      <td><%= contactinfo_self.to_s.gsub("_","") %></td>
+    </tr>
+    <tr>
+      <td><i class="fa fa-skype"></i></td>
+      <td>Skype</td>
+      <td><%= contactinfo_s_id %></td>
+    </tr>
+    <tr>
+      <td><i class="fa fa-google-plus"></i></td>
+      <td>Google</td>
+      <td><%= contactinfo_g_id %></td>
+    </tr>
+    <tr>
+      <td><i class="fa fa-comments"></i></td>
+      <td>WhatsApp</td>
+      <td><%= contactinfo_w_id %></td>
+    </tr>
+    <tr>
+      <td><i class="fa fa-facebook"></i></td>
+      <td>Facebook</td>
+      <td><%= contactinfo_fb_link %></td>
+    </tr>
+    <tr>
+      <td><i class="fa fa-linkedin"></i></td>
+      <td>Linkedin</td>
+      <td><%= contactinfo_ln_link %></td>
+    </tr>
+  </tbody>
+</table>

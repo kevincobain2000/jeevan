@@ -1,106 +1,9 @@
-<div class="collapse navbar-collapse navbar-inverse navbar-fixed-top">
-  <ul class="nav navbar-nav">
-    <li>
-      <div id="hide-menu" class="btn-header">
-          <span>
-            <a href="javascript:void(0);" title="Collapse Menu">
-              <i class="fa fa-bars"></i>
-            </a>
-          </span>
-        </div>
-    </li>
-    <li>
-      <a href="/explore" class="txt-color-white"><i class="fa fa-search"></i>
-        EXPLORE</a>
-    </li>
-    <li class="dropdown">
-      <a class="dropdown-toggle txt-color-white" data-toggle="dropdown" href="javascript:void(0);">Sort by<b class="caret"></b></a>
-      <ul class="dropdown-menu">
-        <li>
-          <a href="/profiles/online">Online Now</a>
-        </li>
-        <li>
-          <a href="/profiles/recentlyjoined">Joined Today</a>
-        </li>
-        <li>
-          <a href="/profiles/withphotos">With Photos</a>
-        </li>
-      </ul>
-    </li>
-    <li>
-      <a href="/messages/"><i class="fa fa-comments"></i>
-        Chat
-        <% if current_user.badge.message != 0 %>
-        <small>
-            <label class="badge bg-color-red font-xs">
-            <%= current_user.badge.message %>
-          </label>
-        </small>
-        <% end %>
-      </a>
-    </li>
-    <li>
-      <a href="/profiles/visitors"><i class="fa fa-thumbs-up"></i>
-        Visitors
-        <% if current_user.badge.message != 0 %>
-        <small>
-            <label class="badge bg-color-red font-xs">
-            1<%#= current_user.badge.message %>
-          </label>
-        </small>
-          <% end %>
-      </a>
-    </li>
-    <li>
-      <a href="/profiles/incomings"><i class="fa fa-heart"></i>
-        Interested
-        <% if current_user.badge.interest != 0 %>
-          <small>
-            <label class="badge bg-color-red font-xs">
-            <%= current_user.badge.interest %>
-          </label>
-        </small>
-          <% end %>
-      </a>
-    </li>
-    <li>
-      <a href="/profiles/accepted"><i class="fa fa-check"></i>
-        Accepted</a>
-    </li>
-    <li>
-      <a href="/profiles/outgoings"><i class="fa fa-thumbs-down"></i>
-        Rejected</a>
-    </li>
-    <li>
-      <a href="/profiles/shortlists"><i class="fa fa-bell"></i>
-        Waiting</a>
-    </li>
-    <li>
-      <a href="/profiles/shortlists"><i class="fa fa-plus"></i>
-        Saved</a>
-    </li>
-    <li>
-      <a href="/profiles/<%= current_user.profile.id %>">
-        <i class="fa fa-lg fa-fw fa-file"></i>
-        <span class="menu-item-parent">My Profile</span>
-      </a>
-    </li>
-    <li>
-      <%= link_to edit_profile_path(:id =>current_user.profile.id), :class=>"txt-color-white" do %>
-        <i class="fa fa-edit"></i>
-        Edit Profile
-      <% end %>
-    </li>
-    <li>
-        <%= form_tag({:action=>'search', :controller => "profiles"},{:class=>"navbar-form", :style=>"width:300px;"}) do %>
-        <input type="text" placeholder="Hindu, Delhi anything" id="header-search" name="query" class="form-control">
-        <button type="submit" class="btn btn-primary hidden"></button>
-        <% end %>
-    </li>
-    <li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);">
+<div class="navbar-inverse navbar-fixed-top bg-color-white hidden-xs">
+  <ul class="nav nav-justified">
+      <li class="dropdown">
+      <a class="dropdown-toggle btn-header" data-toggle="dropdown" href="javascript:void(0);">
         <%= image_tag current_user.avatar.url(:thumb), :class => "img-rounded", :style=>"25px;height:25px;" %>
-        <b class="caret"></b>
+        <i class="fa fa-caret-down"></i>
       </a>
       <ul class="dropdown-menu">
       <li>
@@ -127,5 +30,88 @@
         </li>
       </ul>
     </li>
+    <li class="dropdown">
+      <a class="dropdown-toggle hover-black" data-toggle="dropdown" href="javascript:void(0);">Sort by <i class="fa fa-caret-down"></i><b class="caret"></b></a>
+      <ul class="dropdown-menu">
+        <li>
+          <a href="/profiles/online">Online Now</a>
+        </li>
+        <li>
+          <a href="/profiles/recentlyjoined">Joined Today</a>
+        </li>
+        <li>
+          <a href="/profiles/withphotos">With Photos</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="/explore" class="hover-black"><i class="fa fa-lg fa-fw fa-search"></i>
+        All Profiles</a>
+    </li>
+    <li>
+      <a href="/messages/"><i class="fa fa-lg fa-fw fa-comments"></i>
+        Chat
+        <% if current_user.badge.message != 0 %>
+        <small>
+            <label class="badge bg-color-red font-xs">
+            <%= current_user.badge.message %>
+          </label>
+        </small>
+        <% end %>
+      </a>
+    </li>
+    <li>
+      <a href="/profiles/visitors"><i class="fa fa-lg fa-fw fa-thumbs-up"></i>
+        Visitors
+        <% if current_user.badge.visitor != 0 %>
+        <small>
+            <label class="badge bg-color-red font-xs">
+            <%= current_user.badge.visitor %>
+          </label>
+        </small>
+          <% end %>
+      </a>
+    </li>
+    <li>
+      <a href="/profiles/incomings"><i class="fa fa-lg fa-fw fa-heart"></i>
+        Interested
+        <% if current_user.badge.interest != 0 %>
+          <small>
+            <label class="badge bg-color-red font-xs">
+            <%= current_user.badge.interest %>
+          </label>
+        </small>
+          <% end %>
+      </a>
+    </li>
+    <li>
+      <a href="/profiles/accepted"><i class="fa fa-lg fa-fw fa-check"></i>
+        Accepted</a>
+    </li>
+    <li>
+      <a href="/profiles/outgoings"><i class="fa fa-lg fa-fw fa-thumbs-down"></i>
+        Rejected</a>
+    </li>
+    <li>
+      <a href="/profiles/waiting"><i class="fa fa-lg fa-fw fa-bell"></i>
+        Waiting</a>
+    </li>
+    <li>
+      <a href="/profiles/shortlists"><i class="fa fa-lg fa-fw fa-plus"></i>
+        Saved</a>
+    </li>
+    <li>
+      <a href="/profiles/<%= current_user.profile.id %>">
+        <i class="fa fa-lg fa-fw fa-file"></i>
+        <span class="menu-item-parent">My Profile</span>
+      </a>
+    </li>
+    <li>
+      <%= link_to edit_profile_path(:id =>current_user.profile.id), :class=>"hover-black" do %>
+        <i class="fa fa-lg fa-fw fa-edit"></i>
+        Edit
+      <% end %>
+    </li>
   </ul>
 </div>
+<%= render :partial => 'layouts/profiles/edit/modaledit', :locals => {:id => "modal-edit-avatar", :tpl => "avatar"} %>

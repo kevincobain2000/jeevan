@@ -1,21 +1,35 @@
 <% if !user[:out_response].nil? %>
-  <% if user[:out_response].response == 0 %>
-      <strong class="font-md txt-color-red"><i class="fa fa-thumbs-down"></i>
-        Got Rejected</strong>
-  <% elsif user[:out_response].response == 1 %>
-      <strong class="font-md txt-color-green"><i class="fa fa-check"></i>
-<%= user[:name] %> has accepted</strong>
-  <% else %>
-      <strong class="font-md txt-color-green"><i class="fa fa-bell"></i>
-        Waiting</strong>
-  <% end %>
+  <div class="well well-white radius text-center">
+    <h5>You expressed interest</h5>
+    <div class="well">
+      <i class="fa fa-lg fa-fw fa-heart txt-color-red"></i>
+      <% if user[:out_response].response == 0 %>
+        <span class="txt-color-red"><i class="fa fa-thumbs-down"></i>
+          Got Rejected</span>
+      <% elsif user[:out_response].response == 1 %>
+        <span class="txt-color-green"><i class="fa fa-check"></i>
+          <%= user[:name] %>
+          has accepted</span>
+      <% else %>
+        <span class="txt-color-green"><i class="fa fa-bell"></i>
+          Waiting for response</span>
+      <% end %>
+    </div>
+  </div>
 <% end %>
-<br>
 <% if !user[:in_response].nil? %>
-  <% if user[:in_response].response == 0 %>
-  <strong class="font-md txt-color-red"><i class="fa fa-thumbs-down"></i> You Rejected</strong>
-  <% elsif user[:in_response].response == 1 %>
-      <strong class="font-md txt-color-green"><i class="fa fa-check-square"></i>
-        You accepted</strong>
-  <% end %>
+  <div class="well well-white radius text-center">
+    <h5><strong><%= user[:name] %></strong>
+      expressed interest in you !</h5>
+    <div class="well">
+      <i class="fa fa-lg fa-fw fa-heart txt-color-red"></i>
+      <% if user[:in_response].response == 0 %>
+        <span class="txt-color-red"><i class="fa fa-thumbs-down"></i>
+          You have Rejected</span>
+      <% elsif user[:in_response].response == 1 %>
+        <span class="txt-color-green"><i class="fa fa-check-square"></i>
+          You have accepted</span>
+      <% end %>
+    </div>
+  </div>
 <% end %>

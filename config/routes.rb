@@ -1,4 +1,6 @@
 Jeevan::Application.routes.draw do
+  resources :blogs
+
   resources :others do
     collection do
       get :confirmbasic
@@ -30,6 +32,7 @@ Jeevan::Application.routes.draw do
       post :interest_response
       post :shortlist
       post :search
+      post :search_advanced
       post :index
       #ajax
       post :get_selectize

@@ -14,7 +14,7 @@
 	$.fn.SuperBox = function(options) {
 
 		var superbox      = $('<div class="superbox-show"></div>')
-		var	superboximg   = $('<img src="" class="superbox-current-img"><div id="imgInfoBox" class="superbox-imageinfo inline-block"> <h1>My Image</h1><span><p class="superbox-img-description">You can remove the image by pressing the delete button.</p><p><button type="submit" class="btn btn-danger btn-sm removeimage">Delete</button></p></span> </div>')
+		var	superboximg   = $('<img src="" class="superbox-current-img"><div id="imgInfoBox" class="superbox-imageinfo inline-block"> <h1>My Image</h1><span><p class="superbox-img-description">You can remove the image by pressing the delete button.</p><p><button type="submit" class="btn btn-danger removeimage padding-5">Delete</button></p></span> </div>')
 		
 		var	superboxclose = $('<div class="superbox-close txt-color-white"><i class="fa fa-times fa-lg"></i></div>');
 

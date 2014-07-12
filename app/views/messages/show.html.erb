@@ -4,8 +4,10 @@
   <%= render :partial =>"layouts/ribbon", :locals => {:papa => "Home", :son => "Chatting with #{user[:name]}"} %>
   <div id="content">
     <div class="row">
-      <div class="col-md-6 well">
-      <h1>Messages</h1>
+      <div class="col-md-6 panel-primary">
+      <div class="panel-heading">
+        Messages
+      </div>
         <table id="inbox-table" class="table table-striped table-hover">
   <tbody>
     <% @spoken_with.each do |user_id| %>
@@ -39,19 +41,12 @@
 
 <%= will_paginate @spoken_with, :class =>"flickr_pagination"%>
       </div>
-
-      <div class="col-md-6">
-        <div class="collapse navbar-collapse navbar-inverse">
-          <ul class="nav navbar-nav">
-            <li class="active">
-              <%= link_to profile_path(:id => user[:profile][:id]) do %>
-                Live Chat with
-                <%= user[:name] %>
+      <div class="col-md-6 panel-success">
+      <div class="panel-heading">
+           <%= link_to profile_path(:id => user[:profile][:id]), :class=>"txt-color-white pull-right" do %>
+                view profile
               <% end %>
-            </li>
-              
-          </ul>
-        </div>
+      </div>
         <div id="chat-body" class="chat-body custom-scroll" style="height:400px;">
           <ul id="chat-list">
             <% @messages.each do |message| %>
@@ -107,11 +102,11 @@
         <% end %>
 
         <% if can_send_message %>
-
         <%= form_tag({:action=>'send_message'}, {:remote => true, :class=>"well padding-bottom-10 message_form"}) do %>
           <input name="message" type="input" class="form-control message_textarea" placeholder="" required>
           <input type="hidden" value="<%= user[:id] %>" name="to_user_id">
-          <div class="margin-top-10">
+          <div class="">
+            <br>
             <button type="submit" class="btn btn-sm btn-primary pull-right disabled message_button" data-img="<%= user[:avatar].url(:tiny) %>">
               Send
             </button>
@@ -135,13 +130,12 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-  $("tr").live("click", function(e) {
+  $("tr").click(function(e) {
+    /* Act on the event */
     location.href = "/messages/"+$(this).data('id')
     e.stopPropagation();
   });
   $("#chat-body").scrollTop($("#chat-list").height());
-  
-  
-});
+  });
 
 </script>

@@ -44,10 +44,10 @@ module ApplicationHelper
       avatar:     user.avatar,
       in_response:  in_response,
       out_response: out_response,
-      # shortlist:    Shortlist.where(user_id: current_user.id, to_user_id: user.id).first,
+      shortlist:    Shortlist.where(user_id: current_user.id, to_user_id: user.id).first,
     }
     return user_ret
-  end  
+  end
   def make_user_card(user, from_id = false)
     if from_id == true
       user = User.find(user);
@@ -69,24 +69,24 @@ module ApplicationHelper
       name:       truncate(name).capitalize,
       updated_at: time_ago_in_words(user.updated_at),
       created_at: time_ago_in_words(user.created_at),
-      sex:        user.sex.capitalize,
+      # sex:        user.sex.capitalize,
       # visitors:   number_with_delimiter(Visitor.where(viewed_id: user.id).count),
       profile:    profile,
-      contact:    user.contact,
+      # contact:    user.contact,
       about:      {me: user.about.me},
       religion:   user.religion,
       devotion:   user.devotion,
-      kundali:    user.kundali,
+      # kundali:    user.kundali,
       image:      user.images.all,
       images_count:      user.images_count.to_i,
       avatar:     user.avatar,
       provider:     user.provider,
       in_response:  in_response,
       out_response: out_response,
-      shortlist:    Shortlist.where(user_id: current_user.id, to_user_id: user.id).first,
+      # shortlist:    Shortlist.where(user_id: current_user.id, to_user_id: user.id).first,
     }
     return user_ret
-  end  
+  end
 
   def make_user_tiny(id)
     user = User.find(id)
@@ -95,8 +95,12 @@ module ApplicationHelper
     itts = user.sex == "Male" ? "He" : "She"
     name = show_name_to_accepted(in_response, out_response) ? user[:name] : "Profile id: #{user.profile.id}"
 
+    dob = user.dob.gsub("/","-")
+    age = calculate_age(dob)
+
     user_ret = {
       avatar: user.avatar,
+      age:        age,
       updated_at: time_ago_in_words(user.updated_at),
       profile: user.profile,
       name: name,

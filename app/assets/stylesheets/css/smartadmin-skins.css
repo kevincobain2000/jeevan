@@ -11,32 +11,6 @@
 	color:#9EA8B1 !important;
 }
 
-.smart-style-2 #project-context>:first-child {
-	text-shadow:none;
-}
-.smart-style-2 #project-selector {
-	color: #B2C1D5;
-}
-.smart-style-2 #project-selector:hover {
-	color: blue;
-}
-
-.smart-style-2 #logo-group span#activity {
-	background:none !important;
-	border:none !important;
-	color:#C5C6CA;
-}
-.smart-style-2 #logo-group span#activity:hover {
-	color:#fff;
-}
-
-.smart-style-2 .header-search>input[type="text"] {
-	background: #161B22;
-	border: 1px solid #0F1217;
-	color:#fff;
-	border-radius:4px;
-}
-
 .smart-style-2 .btn-header>:first-child>a {
 	background:none;
 	border:none !important;
@@ -53,28 +27,8 @@
 	color: #C5C6CA;
 }
 
-.smart-style-2 #ribbon {
-	background:#568a89;
-	margin-top: 0px;
-	border-radius: 6px;
-}
-
-.smart-style-2 .btn.btn-ribbon {
-	background: #9498A0;
-}
-
-.smart-style-2 #ribbon .breadcrumb li:last-child, 
-.smart-style-2 #ribbon .breadcrumb>.active, 
-.smart-style-2 #ribbon .breadcrumb, 
-.smart-style-2 #ribbon .breadcrumb a {
-	/*color: #7C7C7C !important;*/
-}
-
 .smart-style-2 aside {
 	position:fixed;
-	/*min-height: 50%;*/
-	-moz-box-shadow:    -3px 0 5px 0 #555;
-	-webkit-box-shadow: -3px 0 5px 0 #555;
 	box-shadow:         -3px 0 5px 0 #555;
 }
 
@@ -171,16 +125,5 @@
 
 .smart-style-2 nav ul ul ul ul ul ul li a {
 	padding-left:60px;
-}
-
-.smart-style-2 .jarviswidget-color-blueDark>header {
-	
-	background: #2C3742 !important;
-	border-color: #2C3742!important;
-}
-
-.smart-style-2 .btn-primary, .smart-style-2 .smart-form .button{
-	background-color: #3b9ff3;
-	border-color: #3292E2;
 }
 

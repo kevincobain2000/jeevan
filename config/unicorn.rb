@@ -16,8 +16,9 @@ worker_processes 4
 
 working_directory "/home/kevincobain/#{app_name}" # available in 0.94.0+
 
-listen "/home/kevincobain/#{app_name}/unicorn/unicorn_#{app_name}.sock"   # Unix Domain Socket
-listen 8088, :tcp_nopush => true
+#listen "/home/kevincobain/#{app_name}/unicorn/unicorn_#{app_name}.sock"   # Unix Domain Socket
+listen "/tmp/unicorn_#{app_name}.sock"   # Unix Domain Socket
+#listen 8088, :tcp_nopush => true
 
 timeout 60
 

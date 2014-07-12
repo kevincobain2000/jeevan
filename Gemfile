@@ -55,7 +55,7 @@ gem "sitemap_generator"
 
 # gem 'dalli'
 
-# gem 'rake', '~> 10.1.1'
+gem 'rake', '~> 10.3.2'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

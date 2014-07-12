@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_filter :has_sex
+  before_filter :has_sex, except: [:modify_avatar]
   before_filter :is_this_user_profile, only: [:edit]
   before_filter :not_same_sex, :get_showing_user, only: [:show]
 
@@ -90,10 +90,7 @@ class ProfilesController < ApplicationController
   end
   def modify_desire
     current_user.desire.update(desire_params)
-    respond_to do |format|
-      format.html
-      format.js
-    end
+    render json: { :status => 200 }
   end
   def destroy_everything
     user = User.find(current_user.id)
@@ -197,30 +194,43 @@ class ProfilesController < ApplicationController
 
   def incomings
     incomings = Interest.where(to_user_id: current_user.id).order("updated_at DESC").pluck(:user_id)
+    @timing = Interest.where(to_user_id: current_user.id).order("updated_at DESC").pluck(:user_id, :updated_at)
+    @timing = Hash[*@timing.flatten]
     @incomings = User.find(incomings, :order => "field(id,#{incomings.join(',')})").paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
     badge_reset(current_user, "interest")
   end
   def accepted
     accepted = Interest.where("user_id = ? AND response = ?", current_user.id, 1).order("updated_at DESC").pluck(:to_user_id)
+    @timing = Interest.where("user_id = ? AND response = ?", current_user.id, 1).order("updated_at DESC").pluck(:to_user_id, :updated_at)
+    @timing = Hash[*@timing.flatten]
     @accepted = User.find(accepted, :order => "field(id,#{accepted.join(',')})").paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
     badge_reset(current_user, "accepted")
   end
   def outgoings
     rejected = Interest.where("user_id = ? AND response = ?", current_user.id, 0).order("updated_at DESC").pluck(:to_user_id)
+    @timing = Interest.where("user_id = ? AND response = ?", current_user.id, 0).order("updated_at DESC").pluck(:to_user_id, :updated_at)
+    @timing = Hash[*@timing.flatten]
     @rejected = User.find(rejected, :order => "field(id,#{rejected.join(',')})").paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
     badge_reset(current_user, "rejected")
   end
   def visitors
     visitors = Visitor.where(viewed_id: current_user.id).order("updated_at DESC").pluck(:user_id)
+    @timing = Visitor.where(viewed_id: current_user.id).order("updated_at DESC").pluck(:user_id, :updated_at)
+    @timing = Hash[*@timing.flatten]
+
     @visitors = User.find(visitors, :order => "field(id,#{visitors.join(',')})").paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
     badge_reset(current_user, "visitor")
   end
   def waiting
     waiting = Interest.where("user_id = ? AND response IS NULL", current_user.id).order("updated_at DESC").pluck(:to_user_id)
+    @timing = Interest.where("user_id = ? AND response IS NULL", current_user.id).order("updated_at DESC").pluck(:to_user_id, :updated_at)
+    @timing = Hash[*@timing.flatten]
     @waiting = User.find(waiting, :order => "field(id,#{waiting.join(',')})").paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
   end
   def shortlists
     shortlists = Shortlist.where(user_id: current_user.id).pluck(:to_user_id)
+    @timing = Shortlist.where(user_id: current_user.id).pluck(:to_user_id, :updated_at)
+    @timing = Hash[*@timing.flatten]
     @shortlists = User.find(shortlists).paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
   end
 
@@ -238,12 +248,38 @@ class ProfilesController < ApplicationController
       fulltext query_string
       without(:sex).equal_to(current_user.sex)
       without(:sex).equal_to("Unknown")
+      without(:dob).equal_to("01/01/1900")
       order_by(:images_count, :desc)
       paginate :page => params[:page], :per_page => PAGINATE_PROFILES
     end
     @search = @solr.results
     @query_was = params[:query]
   end
+
+  def search_advanced
+    ages = params[:asearch_age].gsub(/Yrs/, '').split("-").map{|j| j.strip()}.map{|yrs| Time.now.year - yrs.to_i}.sort
+    from_dob = "01/01/#{ages[0]}"
+    to_dob = "31/12/#{ages[1]}"
+
+    home_q = params[:asearch_home]
+    religion_q = params[:asearch_religion]
+    caste_q = params[:asearch_caste]
+    marital_status_q = "#{params[:asearch_single]} #{params[:asearch_widowed]} #{params[:asearch_divorced]}"
+    manglik_q = params[:asearch_manglik] == "on" ? "Yes" : "No"
+
+    the_query = "#{religion_q} #{caste_q} #{marital_status_q}"
+    @solr = User.search do
+      fulltext the_query
+      without(:sex).equal_to(current_user.sex)
+      without(:sex).equal_to("Unknown")
+      with(:manglik).equal_to(manglik_q)
+      order_by(:images_count, :desc)
+      paginate :page => params[:page], :per_page => PAGINATE_PROFILES
+    end
+    @search = @solr.results
+    render "search"
+  end
+
 
   def similar_profiles
     visiting_user = User.find(Profile.find(params[:id]).user_id)
@@ -367,7 +403,11 @@ class ProfilesController < ApplicationController
     data[:datetime] = DateTime.now.to_i
 
     channel_name = "/messages/#{to_user_id}"
-    PrivatePub.publish_to channel_name, :data => data
+
+    begin
+      PrivatePub.publish_to channel_name, :data => data
+    rescue Exception => e
+    end
     if badge_update
       badge_increment(visited_user, event.to_s)
     end

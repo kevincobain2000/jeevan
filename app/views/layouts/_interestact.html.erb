@@ -1,4 +1,9 @@
 <% if  current_user.id != user[:id] && !user[:in_response].nil? && user[:in_response].response.nil? %>
- <%= render :partial =>'layouts/acceptbutton.html.erb', :locals => {:user => user} %>
- <%#= render :partial =>'layouts/rejectbutton.html.erb', :locals => {:user => user} %>
+  <div class="well well-white radius text-center">
+  	<strong>You Have incoming Interest !</strong>
+  	<div class="well">
+  		<%= render :partial =>'layouts/acceptbutton.html.erb', :locals => {:user => user} %>
+  	</div>
+  </div>
+ 
 <% end %>

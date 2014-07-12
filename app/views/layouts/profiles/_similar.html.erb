@@ -1,41 +1,40 @@
+    <% can_send_message = (current_user.id != user[:id]) %>
+
+    <% if !user[:out_response].nil? %>
+      <% if user[:out_response].response == 0 %>
+        <% can_send_message = false %>
+      <% end %>
+    <% end %>
+    <% if !user[:in_response].nil? %>
+      <% if user[:in_response].response == 0 %>
+        <% can_send_message = false %>
+      <% elsif user[:in_response].response == 1 %>
+        <% can_send_message = true %>
+      <% end %>
+    <% end %>
 <div class="col-sm-4">
   <div class="well">
 
-    <% can_send_message = true %>
-    <% if !user[:out_response].nil? %>
-    <% if user[:out_response].response == 0 %>
-    <% can_send_message = false %>
-    <% end %>
-    <% end %>
-
-        <% if !user[:in_response].nil? %>
-        <% if user[:in_response].response == 0 %>
-        <% can_send_message = false %>
-        <% elsif user[:in_response].response == 1 %>
-        <% can_send_message = true %>
-        <% end %>
-        <% end %>
-
-<% if can_send_message %>
-    <%= form_tag({:action=>'send_message', :controller => "messages"}, {:remote => true, :class=>"well padding-bottom-10 message_form"}) do %>
-      <textarea name="message" type="input" rows="2" style="resize:none;" class="form-control message_textarea" placeholder="Hi there! I like your profile."></textarea>
-      <input type="hidden" value="<%= user[:id] %>" name="to_user_id">
-      <div class="margin-top-10">
-        <button type="submit" class="btn btn-sm btn-primary pull-right disabled message_button" data-img="<%= user[:avatar].url(:tiny) %>">
-          Send
-        </button>
-        <i class="fa fa-comments"></i>
-      </div>
-    <% end %>
+    <% if can_send_message %>
+      <h1><small>Drop a Line !</small></h1>
+      <%= form_tag({:action=>'send_message', :controller => "messages"}, {:remote => true, :class=>"well padding-bottom-10 message_form"}) do %>
+        <textarea name="message" type="input" rows="2" style="resize:none;" class="form-control message_textarea" placeholder="Hi there! I like your profile."></textarea>
+        <input type="hidden" value="<%= user[:id] %>" name="to_user_id">
+        <div class="">
+          <br>
+          <button type="submit" class="btn btn-sm btn-primary pull-right disabled message_button" data-img="<%= user[:avatar].url(:tiny) %>">
+            Send
+          </button>
+          <i class="fa fa-comments"></i>
+        </div>
+      <% end %>
     <% else %>
-<% end %>
-    <%= render :partial =>'layouts/profiles/show/images', :locals => {:user => user} %>
-    <hr>
+    <h1><span>Good day.. <%= current_user.name  %></span></h1>
+    <% end %>
     <%= render :partial =>'layouts/interestbutton', :locals => {:user => user}%>
   </div>
-
-  <div class="well">
-  <% if @similar_profiles_paginate.count >= 1 %>
+  <div class="well well-white radius">
+    <% if @similar_profiles_paginate.count >= 1 %>
       <h1><small>You will also Like</small></h1>
       <hr>
     <% end %>
@@ -48,20 +47,22 @@
           <% end %>
           <div class="media-body">
             <%= link_to profile_path(:id =>user[:profile][:id]) do %>
-            <strong class="txt-color-blue"><%= truncate(titleize(user[:devotion]), length: 20) %></strong>
-            <strong class="txt-color-blue"><%= truncate(titleize(user[:religion][:caste]), length: 20) %></strong>
-            <strong class="txt-color-green"><%= truncate(titleize(user[:name]), length: 20) %></strong>
+              <strong class="txt-color-blue"><%= truncate(titleize(user[:devotion]), length: 20) %></strong>
+              <strong class="txt-color-blue"><%= truncate(titleize(user[:religion][:caste]), length: 20) %></strong>
+              <strong class="txt-color-green"><%= truncate(titleize(user[:name]), length: 20) %></strong>
             <% end %>
-                <br>
-                <strong class="txt-color-blue"><%= truncate( titleize(user[:age]), length: 10) %></strong>
-                years old<span class="text-muted"></span>
-                <% if user[:images_count] >= 1 %>
-                  (<%= pluralize(user[:images_count], 'picture') %>)
-                <% end %>
-                <br>
-                Joined: <span class="text-muted"><%= truncate(user[:created_at], length: 15) %> ago</span>
-                <br>
-                <%= render :partial =>'layouts/online', :locals => {:time => user[:updated_at]}%>
+            <br>
+            <strong class="txt-color-blue"><%= truncate( titleize(user[:age]), length: 10) %></strong>
+            years old<span class="text-muted"></span>
+            <% if user[:images_count] >= 1 %>
+              (<%= pluralize(user[:images_count], 'picture') %>)
+            <% end %>
+            <br>
+            Joined:
+            <span class="text-muted"><%= truncate(user[:created_at], length: 15) %>
+              ago</span>
+            <br>
+            <%= render :partial =>'layouts/online', :locals => {:time => user[:updated_at]}%>
           </div>
         </li>
         <hr>
@@ -70,4 +71,3 @@
     <%= will_paginate @similar_profiles_paginate, :class =>"flickr_pagination" %>
   </div>
 </div>
-

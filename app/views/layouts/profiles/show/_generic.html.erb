@@ -1,0 +1,16 @@
+<% not_print = ["id", "user_id", "updated_at", "created_at"] %>
+<h3><%= key.to_s.titleize %>
+<% if  current_user.profile.id == user[:profile][:id] %>
+	<button class="btn btn-xs btn-thin hidden-xs" data-toggle="modal" data-target="#modal-edit-religion">
+		Edit <%= key.to_s %>
+</button>
+<% end %>
+</h3>
+<dl class="dl-horizontal">
+<% user[key].attributes.each do |key, value| %>
+	<% if !not_print.include? key %>
+		<dt class="txt-color-blue"><%= key.titleize %>: </dt>
+    	<dd><span><%=value %></span></dd>
+	<% end %>
+<% end %>
+</dl>

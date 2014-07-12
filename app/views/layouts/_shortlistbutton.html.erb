@@ -1,9 +1,9 @@
 <% if  current_user.id != user[:id] && user[:shortlist].nil? %>
   <%= form_tag({:action=>'shortlist', :controller => "profiles"}, {:remote => true, :class=>""}) do %>
     <%= hidden_field_tag 'to_user_id', user[:id] %>
-    <button class="btn btn-xs btn-success interest" data-img="<%= user[:avatar].url(:tiny) %>" data-title="Saved" data-url='<%= link_to "view profile", profile_path(:id =>user[:profile][:id]), :class=>"txt-color-white" %>' data-msg="saved this profile" type="submit">+ save
+    <button class="btn btn-success btn-xs interest" data-img="<%= user[:avatar].url(:tiny) %>" data-title="Saved" data-url='<%= link_to "view profile", profile_path(:id =>user[:profile][:id]), :class=>"txt-color-white" %>' data-msg="saved this profile" type="submit">+ save
     </button>
   <% end %>
   <% else %>
-    <button class="btn btn-xs btn-success disabled">+ saved</button>
+  <button class="btn btn-default btn-xs" rel="tooltip" data-placement="right" data-original-title="<p><i class='fa fa-check'></i>Profile is already saved</p>" data-html="true">+ saved</button>
 <% end %>
