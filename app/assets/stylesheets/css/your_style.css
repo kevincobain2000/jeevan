@@ -37,9 +37,9 @@
   margin-bottom: 30px;
   margin-right: 20px;
   /*border-radius: 4px;*/
-  box-shadow: 1px 1px 2px 0px #E0E0E0;
+  /*box-shadow: 1px 1px 2px 0px #E0E0E0;*/
   width:260px;
-  height: 450px;
+  height: 430px;
 }
 
 #blog .post_row .last{
@@ -97,10 +97,19 @@
   line-height: 14px;
   margin: 0;
 }
+
 #blog .post_row .post .author_box img{
   float: right;
 }
 
 .radius {
-  /*border-radius: 5px;*/
+  border-radius: 5px;
+}
+
+.cell {
+  height: auto;
+  cursor: pointer;
+}
+.hover:hover {
+  background: black;
 }

@@ -47,7 +47,7 @@ module ApplicationHelper
       shortlist:    Shortlist.where(user_id: current_user.id, to_user_id: user.id).first,
     }
     return user_ret
-  end  
+  end
   def make_user_card(user, from_id = false)
     if from_id == true
       user = User.find(user);
@@ -86,7 +86,7 @@ module ApplicationHelper
       # shortlist:    Shortlist.where(user_id: current_user.id, to_user_id: user.id).first,
     }
     return user_ret
-  end  
+  end
 
   def make_user_tiny(id)
     user = User.find(id)
@@ -95,8 +95,12 @@ module ApplicationHelper
     itts = user.sex == "Male" ? "He" : "She"
     name = show_name_to_accepted(in_response, out_response) ? user[:name] : "Profile id: #{user.profile.id}"
 
+    dob = user.dob.gsub("/","-")
+    age = calculate_age(dob)
+
     user_ret = {
       avatar: user.avatar,
+      age:        age,
       updated_at: time_ago_in_words(user.updated_at),
       profile: user.profile,
       name: name,
