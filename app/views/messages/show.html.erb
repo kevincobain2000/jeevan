@@ -130,7 +130,8 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-  $("tr").live("click", function(e) {
+  $("tr").click(function(e) {
+    /* Act on the event */
     location.href = "/messages/"+$(this).data('id')
     e.stopPropagation();
   });

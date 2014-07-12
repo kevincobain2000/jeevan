@@ -18,9 +18,6 @@
   margin-left: 100px;
 }
 
-#blog .lastpost_row{
-  margin-bottom: 0;
-}
 /*This is the box*/
 #blog .post_row .post{
   background: white;
@@ -36,42 +33,24 @@
   height: 430px;
 }
 
-#blog .post_row .last{
-  margin-right: 0;
+#blog .post_row .post:hover{
+  border-color: #01b0eb;
 }
+
 #blog .post_row .post .img{
   position: relative;
   text-align: center;
   padding-top: 10px;
 }
 
-#blog .post_row .post .text span.date{
-  color: #9F9F9F;
-  display: block;
-  margin-bottom: 12px;
-  font-style:italic;
-  font-size: 13px;
-}
-#blog .post_row .post .text p{
-  margin: 0;
-  line-height: 21px;
-  font-size: 14px;
-}
 #blog .post_row .post .author_box{
-  /*margin: 12px auto 20px;*/
+  margin: 12px auto 20px;
   border-top: 1px solid #EDEDED;
   overflow: hidden;
   text-align: left;
   width: 85%;
   padding-top: 12px;
-}
-
-#blog .post_row .post .author_box p{
-  color: #B2B2B2;
   font-style: italic;
-  font-size: 13px;
-  line-height: 14px;
-  margin: 0;
 }
 
 .radius {
