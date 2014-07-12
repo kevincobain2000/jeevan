@@ -1,0 +1,42 @@
+<div id="content">
+  <h1>
+    <strong class="font-xs"><%= hsm  %></strong>
+    <small>
+      <%= pluralize(number_with_delimiter(paginate.total_entries), "profile") %>
+    </small>
+  </h1>
+  <%= render :partial =>'layouts/cardside.html.erb' %>
+  <div class="col-md-9">
+    <div class="panel panel-primary">
+      <div class="panel-heading"><%= h  %>
+        <%= hsm  %></div>
+      <div class="panel-body">
+        <% paginate.each do |__user| %>
+          <%= link_to profile_path(:id => __user.profile.id) do %>
+            <div class="cell row">
+              <div class="col-md-1">
+                <%= image_tag __user.avatar.url(:thumb), :class =>"img-rounded", :style=>"40px;height:40px;" %>
+              </div>
+              <div class="col-md-10">
+                <p class="font-md"><%= __user.devotion %>
+                  <small>(<%= calculate_age(__user.dob.gsub("/","-")) %>)</small>
+                </p>
+                  <%= past  %>
+                  <span class="text-muted">
+                    <%= time_ago_in_words(@timing[__user.id]) %> ago
+                   </span> 
+              </div>
+              <div class="col-md-1">
+                <div class="pull-right text-muted font-md">
+                  <i class="fa fa-lg fa-fw fa-angle-right"></i>
+                </div>
+              </div>
+              <legend></legend>
+            </div>
+          <% end %>
+        <% end %>
+        <%= will_paginate paginate, :class =>"flickr_pagination"%>
+      </div>
+    </div>
+  </div>
+</div>

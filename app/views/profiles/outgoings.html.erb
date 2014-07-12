@@ -1,5 +1,4 @@
 <div id="main" role="main">
 	<%= render :partial =>"layouts/ribbon", :locals => {:papa => "Home", :son => "Rejected me"} %>
-	<%#= render :partial =>"layouts/sparks", :locals => {:sparks => @sparks} %>
-<%= render :partial =>"layouts/profiles/pin", :locals => {:paginate => @rejected, :h => "Profiles", :hsm => "not interested in me"} %>
+	<%= render :partial =>"layouts/profiles/cell", :locals => {:paginate => @rejected, :h => "Profiles", :hsm => "Not interested in me", :past => "responded"} %>
 </div>

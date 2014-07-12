@@ -1,4 +1,4 @@
-<div class="navbar-inverse navbar-fixed-top bg-color-white hidden-xs hidden-md">
+<div class="navbar-inverse navbar-fixed-top bg-color-white hidden-xs">
   <ul class="nav nav-justified">
       <li class="dropdown">
       <a class="dropdown-toggle btn-header" data-toggle="dropdown" href="javascript:void(0);">
@@ -45,11 +45,11 @@
       </ul>
     </li>
     <li>
-      <a href="/explore" class="hover-black"><i class="fa fa-search"></i>
+      <a href="/explore" class="hover-black"><i class="fa fa-lg fa-fw fa-search"></i>
         All Profiles</a>
     </li>
     <li>
-      <a href="/messages/"><i class="fa fa-comments"></i>
+      <a href="/messages/"><i class="fa fa-lg fa-fw fa-comments"></i>
         Chat
         <% if current_user.badge.message != 0 %>
         <small>
@@ -61,7 +61,7 @@
       </a>
     </li>
     <li>
-      <a href="/profiles/visitors"><i class="fa fa-thumbs-up"></i>
+      <a href="/profiles/visitors"><i class="fa fa-lg fa-fw fa-thumbs-up"></i>
         Visitors
         <% if current_user.badge.visitor != 0 %>
         <small>
@@ -73,7 +73,7 @@
       </a>
     </li>
     <li>
-      <a href="/profiles/incomings"><i class="fa fa-heart"></i>
+      <a href="/profiles/incomings"><i class="fa fa-lg fa-fw fa-heart"></i>
         Interested
         <% if current_user.badge.interest != 0 %>
           <small>
@@ -84,33 +84,33 @@
           <% end %>
       </a>
     </li>
-<!--     <li>
-      <a href="/profiles/accepted"><i class="fa fa-check"></i>
+    <li>
+      <a href="/profiles/accepted"><i class="fa fa-lg fa-fw fa-check"></i>
         Accepted</a>
     </li>
     <li>
-      <a href="/profiles/outgoings"><i class="fa fa-thumbs-down"></i>
+      <a href="/profiles/outgoings"><i class="fa fa-lg fa-fw fa-thumbs-down"></i>
         Rejected</a>
     </li>
     <li>
-      <a href="/profiles/shortlists"><i class="fa fa-bell"></i>
+      <a href="/profiles/waiting"><i class="fa fa-lg fa-fw fa-bell"></i>
         Waiting</a>
     </li>
     <li>
-      <a href="/profiles/shortlists"><i class="fa fa-plus"></i>
+      <a href="/profiles/shortlists"><i class="fa fa-lg fa-fw fa-plus"></i>
         Saved</a>
-    </li> -->
-    <!-- <li>
-      <a href="/profiles/<%#= current_user.profile.id %>">
+    </li>
+    <li>
+      <a href="/profiles/<%= current_user.profile.id %>">
         <i class="fa fa-lg fa-fw fa-file"></i>
         <span class="menu-item-parent">My Profile</span>
       </a>
-    </li> -->
-<!--     <li>
-      <%#= link_to edit_profile_path(:id =>current_user.profile.id), :class=>"hover-black" do %>
-        <i class="fa fa-edit"></i>
-        Edit Profile
-      <%# end %>
-    </li> -->
+    </li>
+    <li>
+      <%= link_to edit_profile_path(:id =>current_user.profile.id), :class=>"hover-black" do %>
+        <i class="fa fa-lg fa-fw fa-edit"></i>
+        Edit
+      <% end %>
+    </li>
   </ul>
 </div>

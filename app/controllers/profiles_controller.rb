@@ -194,30 +194,43 @@ class ProfilesController < ApplicationController
 
   def incomings
     incomings = Interest.where(to_user_id: current_user.id).order("updated_at DESC").pluck(:user_id)
+    @timing = Interest.where(to_user_id: current_user.id).order("updated_at DESC").pluck(:user_id, :updated_at)
+    @timing = Hash[*@timing.flatten]
     @incomings = User.find(incomings, :order => "field(id,#{incomings.join(',')})").paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
     badge_reset(current_user, "interest")
   end
   def accepted
     accepted = Interest.where("user_id = ? AND response = ?", current_user.id, 1).order("updated_at DESC").pluck(:to_user_id)
+    @timing = Interest.where("user_id = ? AND response = ?", current_user.id, 1).order("updated_at DESC").pluck(:to_user_id, :updated_at)
+    @timing = Hash[*@timing.flatten]
     @accepted = User.find(accepted, :order => "field(id,#{accepted.join(',')})").paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
     badge_reset(current_user, "accepted")
   end
   def outgoings
     rejected = Interest.where("user_id = ? AND response = ?", current_user.id, 0).order("updated_at DESC").pluck(:to_user_id)
+    @timing = Interest.where("user_id = ? AND response = ?", current_user.id, 0).order("updated_at DESC").pluck(:to_user_id, :updated_at)
+    @timing = Hash[*@timing.flatten]
     @rejected = User.find(rejected, :order => "field(id,#{rejected.join(',')})").paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
     badge_reset(current_user, "rejected")
   end
   def visitors
     visitors = Visitor.where(viewed_id: current_user.id).order("updated_at DESC").pluck(:user_id)
+    @timing = Visitor.where(viewed_id: current_user.id).order("updated_at DESC").pluck(:user_id, :updated_at)
+    @timing = Hash[*@timing.flatten]
+
     @visitors = User.find(visitors, :order => "field(id,#{visitors.join(',')})").paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
     badge_reset(current_user, "visitor")
   end
   def waiting
     waiting = Interest.where("user_id = ? AND response IS NULL", current_user.id).order("updated_at DESC").pluck(:to_user_id)
+    @timing = Interest.where("user_id = ? AND response IS NULL", current_user.id).order("updated_at DESC").pluck(:to_user_id, :updated_at)
+    @timing = Hash[*@timing.flatten]
     @waiting = User.find(waiting, :order => "field(id,#{waiting.join(',')})").paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
   end
   def shortlists
     shortlists = Shortlist.where(user_id: current_user.id).pluck(:to_user_id)
+    @timing = Shortlist.where(user_id: current_user.id).pluck(:to_user_id, :updated_at)
+    @timing = Hash[*@timing.flatten]
     @shortlists = User.find(shortlists).paginate(:page => params[:page], :per_page => PAGINATE_PROFILES)
   end
 
@@ -390,7 +403,11 @@ class ProfilesController < ApplicationController
     data[:datetime] = DateTime.now.to_i
 
     channel_name = "/messages/#{to_user_id}"
-    PrivatePub.publish_to channel_name, :data => data
+
+    begin
+      PrivatePub.publish_to channel_name, :data => data
+    rescue Exception => e
+    end
     if badge_update
       badge_increment(visited_user, event.to_s)
     end

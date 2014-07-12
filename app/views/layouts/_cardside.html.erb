@@ -1,84 +1,103 @@
 <div class="col-md-3 hidden-xs">
-  <div class="well well-white radius col-md-12">
-    <%= render "layouts/profileprogress" %>
-    <div class="col-md-4">
-      <a class="btn-link" data-toggle="modal" data-target="#modal-edit-avatar">
-        <%= image_tag current_user.avatar.url(:thumb), :class => "img-rounded", :style => "width:50px;height:50px;" %>
-        <br>Change
-      </a>
-      <p class="font-xs"><%= link_to current_user.name.capitalize, profile_path(:id => current_user.profile.id)%></p>
+  <div class="panel panel-warning">
+    <div class="panel-heading">
+      <i class="fa fa-clock-o pull-right"></i>
+      You recently visited
     </div>
-    <div class="col-md-7">
-      <h3>What's New</h3>
-      <p>
-        <i class="fa fa-envelope"></i>
-        <% if  current_user.badge.message != 0%>
-          <strong><%= pluralize(number_with_delimiter(current_user.badge.message), "new message") %></strong>
-        <% else %>
-          <span class="text-muted"><%= pluralize(number_with_delimiter(current_user.badge.message), "new message") %></span>
+    <div class="panel-body">
+      <% get_user_visited_user_ids(4).each do |uid| %>
+        <% vuser = get_user_from_uid(uid) %>
+        <%= link_to profile_path(:id => vuser.profile.id) do %>
+          <%= image_tag vuser.avatar.url(:thumb), :class => "img-circle", :style => "width:40px;height:40px;" %>
         <% end %>
-      </p>
-      <p>
-        <i class="fa fa-thumbs-up"></i>
-        <% if  current_user.badge.visitor != 0 %>
-          <strong><%= pluralize(number_with_delimiter(current_user.badge.visitor), "new visitor") %></strong>
-        <% else %>
-          <span class="text-muted"><%= pluralize(number_with_delimiter(current_user.badge.visitor), "new visitor") %></span>
-        <% end %>
-      </p>
-      <p>
-        <i class="fa fa-heart"></i>
-        <% if  current_user.badge.interest != 0%>
-          <strong><%= pluralize(number_with_delimiter(current_user.badge.interest), "new interest") %></strong>
-        <% else %>
-          <span class="text-muted"><%= pluralize(number_with_delimiter(current_user.badge.interest), "new interest") %></span>
-        <% end %>
-      </p>
-      <hr>
-      <p>
-        <i class="fa fa-check-circle"></i>
-        <% if  current_user.badge.accepted != 0%>
-          <strong><%= pluralize(number_with_delimiter(current_user.badge.accepted), "new accepted") %></strong>
-        <% else %>
-          <span class="text-muted"><%= pluralize(number_with_delimiter(current_user.badge.accepted), "new accept") %></span>
-        <% end %>
-      </p>
-      <p>
-        <i class="fa fa-thumbs-down"></i>
-        <% if  current_user.badge.rejected != 0%>
-          <strong><%= pluralize(number_with_delimiter(current_user.badge.rejected), "new rejected") %></strong>
-        <% else %>
-          <span class="text-muted"><%= pluralize(number_with_delimiter(current_user.badge.rejected), "new reject") %></span>
-        <% end %>
-      </p>
+      <% end %>
     </div>
   </div>
-  <div class="well well-white radius col-md-12">
-    <h3>You recently visited</h3>
-    <% get_user_visited_user_ids(4).each do |uid| %>
-      <% vuser = get_user_from_uid(uid) %>
-      <%= link_to profile_path(:id => vuser.profile.id) do%>
-        <%= image_tag vuser.avatar.url(:thumb), :class => "img-circle", :style => "width:50px;height:50px;" %>
-      <% end %>
-    <% end %>
+  <div class="panel panel-success">
+    <div class="panel-heading">
+      <i class="fa fa-user pull-right"></i>
+      Activity
+    </div>
+    <div class="panel-body">
+      <%= render "layouts/profileprogress" %>
+      <div class="col-md-4">
+        <a class="btn-link" data-toggle="modal" data-target="#modal-edit-avatar">
+          <%= image_tag current_user.avatar.url(:thumb), :class => "img-rounded", :style => "width:50px;height:50px;" %>
+          <br>Change
+        </a>
+        <p class="font-xs"><%= link_to current_user.name.capitalize, profile_path(:id => current_user.profile.id)%></p>
+      </div>
+      <div class="col-md-7">
+        <h5>What's New</h5>
+        <p>
+          <i class="fa fa-envelope"></i>
+          <% if  current_user.badge.message != 0%>
+            <strong><%= pluralize(number_with_delimiter(current_user.badge.message), "new message") %></strong>
+          <% else %>
+            <span class="text-muted"><%= pluralize(number_with_delimiter(current_user.badge.message), "new message") %></span>
+          <% end %>
+        </p>
+        <p>
+          <i class="fa fa-thumbs-up"></i>
+          <% if  current_user.badge.visitor != 0 %>
+            <strong><%= pluralize(number_with_delimiter(current_user.badge.visitor), "new visitor") %></strong>
+          <% else %>
+            <span class="text-muted"><%= pluralize(number_with_delimiter(current_user.badge.visitor), "new visitor") %></span>
+          <% end %>
+        </p>
+        <p>
+          <i class="fa fa-heart"></i>
+          <% if  current_user.badge.interest != 0%>
+            <strong><%= pluralize(number_with_delimiter(current_user.badge.interest), "new interest") %></strong>
+          <% else %>
+            <span class="text-muted"><%= pluralize(number_with_delimiter(current_user.badge.interest), "new interest") %></span>
+          <% end %>
+        </p>
+        <hr>
+        <p>
+          <i class="fa fa-check-circle"></i>
+          <% if  current_user.badge.accepted != 0%>
+            <strong><%= pluralize(number_with_delimiter(current_user.badge.accepted), "new accepted") %></strong>
+          <% else %>
+            <span class="text-muted"><%= pluralize(number_with_delimiter(current_user.badge.accepted), "new accept") %></span>
+          <% end %>
+        </p>
+        <p>
+          <i class="fa fa-thumbs-down"></i>
+          <% if  current_user.badge.rejected != 0%>
+            <strong><%= pluralize(number_with_delimiter(current_user.badge.rejected), "new rejected") %></strong>
+          <% else %>
+            <span class="text-muted"><%= pluralize(number_with_delimiter(current_user.badge.rejected), "new reject") %></span>
+          <% end %>
+        </p>
+      </div>
+    </div>
   </div>
-  <div class="well well-white radius col-md-12">
-    <h3>People who viewed your profile</h3>
-    <% get_visitors_user_ids(4).each do |uid| %>
-      <% vuser = get_user_from_uid(uid) %>
-      <%= link_to profile_path(:id => vuser.profile.id) do%>
-        <%= image_tag vuser.avatar.url(:thumb), :class => "img-thumbnail", :style => "width:50px;height:50px;" %>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <i class="fa fa-thumbs-up pull-right"></i>
+      People Viewed Your Profile</div>
+    <div class="panel-body">
+      <% get_visitors_user_ids(4).each do |uid| %>
+        <% vuser = get_user_from_uid(uid) %>
+        <%= link_to profile_path(:id => vuser.profile.id) do%>
+          <%= image_tag vuser.avatar.url(:thumb), :class => "img-thumbnail", :style => "width:50px;height:50px;" %>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
-  <div class="well well-white radius col-md-12">
-    <h3>My Saved Profiles<br><small>We do not notify user when you save their profile</small></h3>
-    <% get_shortlist_user_ids(7).each do |uid| %>
-      <% vuser = get_user_from_uid(uid) %>
-      <%= link_to profile_path(:id => vuser.profile.id) do%>
-        <%= image_tag vuser.avatar.url(:thumb), :class => "img-rounded", :style => "width:30px;height:30px;" %>
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <i class="fa fa-plus pull-right"></i>
+      Saved Profiles</div>
+    <div class="panel-body">
+      <% get_shortlist_user_ids(7).each do |uid| %>
+        <% vuser = get_user_from_uid(uid) %>
+        <%= link_to profile_path(:id => vuser.profile.id) do%>
+          <%= image_tag vuser.avatar.url(:thumb), :class => "img-rounded", :style => "width:30px;height:30px;" %>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
   <%#= render "layouts/advancedsearch.html.erb" %>
 </div>

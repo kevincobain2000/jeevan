@@ -31,9 +31,12 @@
         <body class="smart-style-2 fixed-header fixed-navigation hidden-menu">
         <% end %>
         <!-- possible classes: minified, fixed-ribbon, fixed-header, fixed-width-->
-        <%= render :partial =>'layouts/header'%>
-        <%= render :partial =>'layouts/side'%>
-        <%= render :partial =>'layouts/navbar'%>
+        <% if mobile_device? %>
+          <%= render :partial =>'layouts/header'%>
+          <%= render :partial =>'layouts/side'%>
+        <% else %>
+          <%= render :partial =>'layouts/navbar'%>
+        <% end %>
       <% else %>
         <body>
         <% end %>
